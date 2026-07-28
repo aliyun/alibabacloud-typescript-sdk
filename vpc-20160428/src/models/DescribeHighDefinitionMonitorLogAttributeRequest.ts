@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHighDefinitionMonitorLogAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance whose fine-grained monitoring configurations you want to query.
+   * The instance ID for which you want to query high-precision second-level monitoring.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeHighDefinitionMonitorLogAttributeRequest extends $dara.Mode
    * @remarks
    * The region ID of the instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

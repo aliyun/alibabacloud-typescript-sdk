@@ -7,9 +7,9 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the network instance that you want to query.
+   * The ID of the network instance to query.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,13 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the network instance. Valid values:
+   * The type of the network instance to query. Valid values:
    * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
+   * - **VPC**: virtual private cloud (VPC).
+   * 
+   * - **VBR**: Virtual Border Router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * This parameter is required.
    * 
@@ -43,7 +45,7 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Minimum value: **1**. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -51,7 +53,7 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Minimum value: **1**. Default value: **10**.
+   * The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -59,7 +61,7 @@ export class DescribeGrantRulesToCenRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the network instance that you want to query.
+   * The region of the network instance to query.
    * 
    * This parameter is required.
    * 

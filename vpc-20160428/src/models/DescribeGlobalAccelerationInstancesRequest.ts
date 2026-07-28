@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth type of the GA instance. Valid values:
-   * 
-   * *   **Sharing**
-   * *   **Exclusive** (default)
+   * The bandwidth type of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
+   *            
+   * - **Sharing**: Queries shared-bandwidth instances.
+   *   
+   * - **Exclusive** (default): Queries dedicated-bandwidth instances.
    * 
    * @example
    * Exclusive
@@ -16,7 +17,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   bandwidthType?: string;
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ga-234sljmxaz****
@@ -24,10 +25,11 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to return information about pending orders. Valid values:
+   * Specifies whether to include reservation data that has not taken effect. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false** (default): Does not include reservation data that has not taken effect.
+   * 
+   * - **true**: Includes reservation data that has not taken effect.
    * 
    * @example
    * false
@@ -35,7 +37,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   includeReservationData?: boolean;
   /**
    * @remarks
-   * The public IP address of the GA instance.
+   * The public IP address of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * 12.xx.xx.78
@@ -43,7 +45,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   ipAddress?: string;
   /**
    * @remarks
-   * The name of the GA instance.
+   * The name of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * GA-1
@@ -53,7 +55,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 10
@@ -61,7 +63,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -69,7 +71,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the GA instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region where the Alibaba Cloud Global Accelerator (GA) instance resides. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -81,7 +83,7 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the backend service instance.
+   * The instance ID of the backend service.
    * 
    * @example
    * i-sxjblddejj9x****
@@ -89,12 +91,15 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The region of the backend service. Valid values:
+   * The backend service region. Valid values: 
    * 
-   * *   **china-mainland**
-   * *   **north-america**
-   * *   **asia-pacific**
-   * *   **europe**
+   * - **china-mainland**: the Chinese mainland.
+   * 
+   * - **north-america**: North America.
+   *    
+   * - **asia-pacific**: Asia Pacific.
+   *    
+   * - **europe**: Europe.
    * 
    * @example
    * china-mainland
@@ -102,12 +107,15 @@ export class DescribeGlobalAccelerationInstancesRequest extends $dara.Model {
   serviceLocation?: string;
   /**
    * @remarks
-   * The status of the GA instance. Valid values:
+   * The instance status of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
    * 
-   * *   **Available**
-   * *   **Inuse**
-   * *   **Associating**
-   * *   **Unassociating**
+   * - **Available**: active.
+   * 
+   * - **Inuse**: Allocated.
+   *    
+   * - **Associating**: Being attached.
+   *    
+   * - **Unassociating**: Being disassociated.
    * 
    * @example
    * Available

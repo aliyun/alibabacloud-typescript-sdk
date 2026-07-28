@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry that failed to be deleted. IPv4 and IPv6 CIDR blocks are supported.
+   * The destination CIDR block of the route entry that failed to be deleted. IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix list CIDR blocks are supported.
    * 
    * @example
    * 47.100.XX.XX/24
@@ -13,7 +13,7 @@ export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   dstCidrBlock?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code returned for the failure.
    * 
    * @example
    * VPC_ROUTER_ENTRY_NOT_EXIST
@@ -21,7 +21,7 @@ export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned for the failure.
    * 
    * @example
    * vRouterEntry not exists
@@ -29,7 +29,7 @@ export class DeleteRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedMessage?: string;
   /**
    * @remarks
-   * The ID of the next hop that failed to be deleted.
+   * The instance ID of the next hop that failed to be deleted.
    * 
    * @example
    * i-j6c2fp57q8rr4jlu****
@@ -83,7 +83,7 @@ export class DeleteRouteEntriesResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The information about the route entry that failed to be deleted.
+   * The information about the route entries that failed to be deleted.
    */
   failedRouteEntries?: DeleteRouteEntriesResponseBodyFailedRouteEntries[];
   /**
@@ -96,7 +96,7 @@ export class DeleteRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of route entries that were deleted.
+   * The number of route entries that were successfully deleted.
    * 
    * @example
    * 2

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGrantRulesToEcrRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag keys. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,7 +15,7 @@ export class DescribeGrantRulesToEcrRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -47,7 +47,7 @@ export class DescribeGrantRulesToEcrRequestTags extends $dara.Model {
 export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the VBR.
+   * VBR ID。
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the list. Default value: 1.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 20
@@ -73,9 +73,9 @@ export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which the VBR belongs.
    * 
    * @example
    * rg-acfmxazdjdhd****
@@ -93,7 +93,7 @@ export class DescribeGrantRulesToEcrRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags of the VBR.
    */
   tags?: DescribeGrantRulesToEcrRequestTags[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether BGP routes are automatically propagated to the VPC. Valid values:
+   * Indicates whether routing automatic propagation is enabled for BGP routes to the VPC. Valid values:
    * 
    * - **true**: automatic propagation is enabled.
    * 
@@ -17,7 +17,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
   autoPropagate?: boolean;
   /**
    * @remarks
-   * The billing status of the VPN gateway instance. Valid values:
+   * The payment status of the VPN gateway instance. Valid values:
    * 
    * - **Normal**: Normal.
    * - **FinancialLocked**: locked due to overdue payment.
@@ -30,7 +30,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the VPN gateway instance was created. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the VPN gateway instance was created.
+   * The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1492753580000
@@ -48,7 +48,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The second IP address assigned by the system to the VPN gateway instance for creating IPsec-VPN connections.
    * 
-   * This parameter is returned only for VPN gateway instances that support dual-tunnel IPsec-VPN connections.
+   * This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
    * 
    * @example
    * 116.11.XX.XX
@@ -58,7 +58,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The ID of the second vSwitch associated with the VPN gateway instance.
    * 
-   * This parameter is returned only for VPN gateway instances that support dual-tunnel IPsec-VPN connections.
+   * This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
    * 
    * @example
    * vsw-p0w95ql6tmr2ludkt****
@@ -80,7 +80,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the VPN gateway instance expires. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the VPN gateway instance expires.
+   * The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1495382400000
@@ -88,11 +88,11 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * - If the VPN gateway instance supports single-tunnel IPsec-VPN connections, this address is the IP address of the VPN gateway instance and can be used to create IPsec-VPN connections or SSL-VPN connections.
+   * - If the VPN gateway instance supports creating single-tunnel IPsec-VPN connections, this address is the IP address of the VPN gateway instance and can be used to create IPsec-VPN connections or SSL-VPN connections.
    * 
-   * - If the VPN gateway instance supports dual-tunnel IPsec-VPN connections, this address is the first IP address used to create IPsec-VPN connections and cannot be used to create SSL-VPN connections.
+   * - If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, this address is the first IP address used to create IPsec-VPN connections and cannot be used to create SSL-VPN connections.
    * 
-   *     If the VPN gateway instance supports dual-tunnel IPsec-VPN connections, the system assigns two IPsec IP addresses to the VPN gateway instance for creating dual-tunnel IPsec-VPN connections.
+   *     If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, the system assigns two IPsec IP addresses to the VPN gateway instance for creating dual-tunnel IPsec-VPN connections.
    * 
    * @example
    * 116.62.XX.XX
@@ -100,7 +100,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The private IP address of the vSwitch occupied by the system when the VPN gateway instance was deployed.
+   * The private IP address of the vSwitch occupied by the system when deploying the VPN gateway instance.
    * 
    * This parameter is returned only for VPN gateway instances that support single-tunnel IPsec-VPN connections and have the IPsec-VPN feature enabled.
    * 
@@ -146,7 +146,7 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The IP address of the SSL-VPN connection.
    * 
-   * This parameter is returned only when the SSL-VPN feature is enabled for a VPN gateway instance that supports dual-tunnel IPsec-VPN connections and uses the public network type.
+   * This parameter is returned only when the SSL-VPN feature is enabled for a VPN gateway instance that supports creating dual-tunnel IPsec-VPN connections and uses the public network type.
    * 
    * @example
    * 116.33.XX.XX

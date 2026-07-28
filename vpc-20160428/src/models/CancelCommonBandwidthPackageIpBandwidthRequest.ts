@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Internet Shared Bandwidth instance.
+   * The instance ID of the Internet Shared Bandwidth instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The ID of the EIP that is associated with the Internet Shared Bandwidth instance.
+   * The instance ID of the EIP that has been added to the Internet Shared Bandwidth instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

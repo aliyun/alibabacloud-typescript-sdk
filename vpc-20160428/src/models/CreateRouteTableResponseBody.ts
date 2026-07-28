@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62172DD5-6BAC-45DF-8D44-E11ED28DCAC0
@@ -13,7 +13,7 @@ export class CreateRouteTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The IDs of the route tables.
+   * The route table ID.
    * 
    * @example
    * vtb-bp145q7glnuzdvzu2****

@@ -87,7 +87,7 @@ export class DescribeEipSegmentResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10

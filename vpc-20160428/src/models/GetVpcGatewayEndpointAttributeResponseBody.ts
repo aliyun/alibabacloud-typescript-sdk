@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The value of tag N added to the resource.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -45,7 +45,7 @@ export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $dara.Model 
 export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-08-27T01:58:37Z
@@ -61,7 +61,7 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   endpointDescription?: string;
   /**
    * @remarks
-   * The ID of the gateway endpoint.
+   * The endpoint instance ID of the gateway endpoint.
    * 
    * @example
    * vpce-bp1w1dmdqjpwul0v3****
@@ -79,12 +79,17 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the gateway endpoint. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Modifying**
-   * *   **Associating**
-   * *   **Dissociating**
-   * *   **Deleting**
+   * - **Creating**: being created.
+   * 
+   * - **Created**: created and in a normal state.
+   * 
+   * - **Modifying**: being modified.
+   * 
+   * - **Associating**: being associated.
+   * 
+   * - **Dissociating**: being disassociated.
+   * 
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Created
@@ -116,12 +121,12 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the route table associated with the gateway endpoint.
+   * The IDs of the route tables associated with the gateway endpoint.
    */
   routeTables?: string[];
   /**
    * @remarks
-   * The name of the endpoint service.
+   * The service name of the endpoint service.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss
@@ -129,12 +134,12 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: GetVpcGatewayEndpointAttributeResponseBodyTags[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+   * The ID of the VPC to which the gateway endpoint belongs.
    * 
    * @example
    * vpc-bp1nh86rugg01zol0****

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcGrantRulesToEcrRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least 1 and can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeVpcGrantRulesToEcrRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class DescribeVpcGrantRulesToEcrRequestTags extends $dara.Model {
 export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Express Connect Router.
+   * The ID of the Express Connect Router (ECR) instance to query.
    * 
    * @example
    * ecr-ncxadcujadncsa****
@@ -57,9 +57,9 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   ecrInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account (main account) that owns the Express Connect Router.
+   * The ID of the Alibaba Cloud account that owns the ECR instance.
    * 
-   * > This parameter is required when querying a cross-account network instance.
+   * > This parameter is required if you want to load a cross-account network instance.
    * 
    * @example
    * 192732132151****
@@ -67,7 +67,7 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   ecrOwnerId?: number;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The ID of the network instance to query.
    * 
    * @example
    * vpc-wz9ek66wd7tl5xqpy****
@@ -75,11 +75,10 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance whose authorization rules you want to query. Valid values:
+   * The type of the instance for which to query the authorization relationship. Valid values:
    * 
-   * - **VBR**: Set the value to **VBR** to query the Virtual Private Cloud (VPC) instances authorized to connect to the specified virtual border router (VBR).
-   * 
-   * - **VPC**: Set the value to **VPC** to query the VBRs to which the specified VPC has granted authorization.
+   * - **VBR**: Virtual Border Router (VBR) instance. Queries the VPC instances that the VBR instance is authorized to access through the vRouter.
+   * - **VPC**: virtual private cloud (VPC) instance. Queries the VBR instances that the VPC instance has authorized through the vRouter.
    * 
    * @example
    * VPC
@@ -87,7 +86,7 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **100**.
+   * The number of entries per page for paginated queries. Valid values: **1** to **100**. Default value: **100**.
    * 
    * @example
    * 50
@@ -95,11 +94,11 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. Valid values:
+   * The pagination token for the next query. Valid values:
    * 
-   * - Omit this parameter for the first request.
+   * * Leave this parameter empty for the first query or if no more results exist.
    * 
-   * - For subsequent requests, set this to the **NextToken** value from the previous response.
+   * * If a next query is available, set this parameter to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -109,7 +108,7 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the network instance is located.
+   * The region in which the network instance to query resides.
    * 
    * This parameter is required.
    * 
@@ -129,7 +128,7 @@ export class DescribeVpcGrantRulesToEcrRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags. You can specify up to 20 tags.
+   * The tag information.
    */
   tags?: DescribeVpcGrantRulesToEcrRequestTags[];
   static names(): { [key: string]: string } {

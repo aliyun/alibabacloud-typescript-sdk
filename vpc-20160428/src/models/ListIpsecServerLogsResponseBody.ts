@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpsecServerLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of log entries on the current page.
    * 
    * @example
    * 10
@@ -13,15 +13,15 @@ export class ListIpsecServerLogsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Log information list.
+   * The list of log entries.
    */
   data?: string[];
   /**
    * @remarks
-   * Indicates whether the log is accurate. Valid values:
+   * Indicates whether the queried logs are accurate. Valid values:
    * 
-   * *   **true**: accurate
-   * *   **false**: inaccurate
+   * - **true**: Accurate.
+   * - **false**: Not accurate.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListIpsecServerLogsResponseBody extends $dara.Model {
   isCompleted?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListIpsecServerLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListIpsecServerLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DEDAC5B1-9292-5BF7-BDDF-61BA58CFB2FB

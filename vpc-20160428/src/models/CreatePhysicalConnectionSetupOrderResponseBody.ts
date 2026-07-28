@@ -13,7 +13,7 @@ export class CreatePhysicalConnectionSetupOrderResponseBody extends $dara.Model 
   orderId?: string;
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The Express Connect circuit ID.
    * 
    * @example
    * pc-2zegmc02v7ss4****

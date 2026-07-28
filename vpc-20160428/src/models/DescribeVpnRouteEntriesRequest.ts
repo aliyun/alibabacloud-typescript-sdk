@@ -15,7 +15,7 @@ export class DescribeVpnRouteEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -25,7 +25,7 @@ export class DescribeVpnRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPN gateway instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeVpnRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination type of the routing entry. Valid values:
+   * The type of the route entry. Valid values:
    * 
    * - **custom** (default): queries the destination routes of the VPN gateway instance.
    * - **bgp**: queries the BGP routes of the VPN gateway instance.

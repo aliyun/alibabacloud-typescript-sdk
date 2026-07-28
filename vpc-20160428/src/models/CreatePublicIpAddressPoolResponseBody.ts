@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePublicIpAddressPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The instance ID of the IPAM pool.
    * 
    * @example
    * pippool-6wetvn6fumkgycssx****
@@ -13,7 +13,7 @@ export class CreatePublicIpAddressPoolResponseBody extends $dara.Model {
   publicIpAddressPoolId?: string;
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The instance ID of the IPAM pool.
    * 
    * @example
    * pippool-6wetvn6fumkgycssx****

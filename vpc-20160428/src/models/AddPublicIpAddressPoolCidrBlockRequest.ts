@@ -6,8 +6,7 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $dara.Model {
   /**
    * @remarks
    * The CIDR block.
-   * 
-   * >  You can specify only one of **CidrBlock** and **CidrMask**.
+   * >You cannot specify both **CidrBlock** and **CidrMask**. Specify only one of them.
    * 
    * @example
    * 47.0.XX.XX/24
@@ -15,11 +14,12 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The subnet mask of the CIDR block. After you enter the subnet mask, the system automatically allocates IP addresses.
+   * The subnet mask of the CIDR block.
+   * After you enter the subnet mask, the system automatically allocates a CIDR block.
    * 
    * Valid values: **24** to **28**.
    * 
-   * >  You can specify only one of **CidrBlock** and **CidrMask**.
+   * >You cannot specify both **CidrBlock** and **CidrMask**. Specify only one of them.
    * 
    * @example
    * 24
@@ -31,7 +31,7 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11****
@@ -39,10 +39,9 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -52,7 +51,7 @@ export class AddPublicIpAddressPoolCidrBlockRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The instance ID of the IPAM pool.
    * 
    * This parameter is required.
    * 

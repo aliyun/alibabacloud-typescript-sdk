@@ -37,7 +37,7 @@ export class ModifyRouterInterfaceSpecResponseBody extends $dara.Model {
    * 
    * * **Large.5**: 5000 Mbps
    * 
-   * * **Xlarge.1**: 10000 Mbps.
+   * * **Xlarge.1**: 10000 Mbps
    * 
    * @example
    * Small.1

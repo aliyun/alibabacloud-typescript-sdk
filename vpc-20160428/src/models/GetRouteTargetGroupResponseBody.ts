@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.Model {
   /**
    * @remarks
-   * The enable status of the route target group member. Values:
+   * The enable status of the route target group member. Valid values:
    * 
    * - **Enable**: Enabled.
    * - **Disable**: Disabled.
    * 
-   * Only disabled route target group members can be modified to other instances. Enabled route target group members cannot be modified.
+   * Only route target group members in the disabled state can be replaced with other instances. Route target group members in the enabled state cannot be modified.
    * 
    * @example
    * Enable
@@ -18,9 +18,10 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   enableStatus?: string;
   /**
    * @remarks
-   * Route target group member health check status. Values:
-   * - **Normal**: Normal 
-   * - **Abnormal**: Abnormal
+   * The health check status of the route target group member. Valid values:
+   * 
+   * - **Normal**: Normal.
+   * - **Abnormal**: Abnormal.
    * 
    * @example
    * Normal
@@ -28,7 +29,7 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   healthCheckStatus?: string;
   /**
    * @remarks
-   * ID of the route target group member instance.
+   * The instance ID of the routing target group member.
    * 
    * @example
    * ep-xxxx
@@ -36,7 +37,7 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   memberId?: string;
   /**
    * @remarks
-   * Type of the route target group member.
+   * The member type of the route target group.
    * 
    * Currently supported types:
    * 
@@ -48,12 +49,12 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   memberType?: string;
   /**
    * @remarks
-   * Weight value of the route target group member. Values:
+   * The weight of the route target group member. Valid values:
    * 
-   * - **100**: Indicates the member is the primary instance.
-   * - **0**: Indicates the member is the standby instance.
+   * - **100**: The member is the active instance.
+   * - **0**: The member is the standby instance.
    * 
-   * The weight value can only be set during creation and cannot be modified.
+   * The weight can only be set during creation and cannot be modified.
    * 
    * @example
    * 100
@@ -91,7 +92,7 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
 export class GetRouteTargetGroupResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -99,7 +100,7 @@ export class GetRouteTargetGroupResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -131,9 +132,9 @@ export class GetRouteTargetGroupResponseBodyTags extends $dara.Model {
 export class GetRouteTargetGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Configuration mode of the route target group. Supported modes are as follows:
+   * The configuration mode of the route target group. Valid values:
    * 
-   * - **Active-Standby**: Active-standby mode.
+   * - **Active-Standby**: active/standby mode.
    * 
    * @example
    * Active-Standby
@@ -149,7 +150,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The region ID of the VPC to which the route target group belongs. You can obtain the region ID by calling the DescribeRegions interface.
+   * The region ID of the VPC to which the route target group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
    * 
    * @example
    * cn-qingdao
@@ -173,7 +174,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Description of the route target group.
+   * The description of the route target group.
    * 
    * @example
    * myRouteTargetGroupDescription
@@ -181,7 +182,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   routeTargetGroupDescription?: string;
   /**
    * @remarks
-   * ID of the route target group instance.
+   * The instance ID of the routing target group.
    * 
    * @example
    * rtg-xxxx
@@ -189,7 +190,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   routeTargetGroupId?: string;
   /**
    * @remarks
-   * Name of the route target group.
+   * The name of the route target group.
    * 
    * @example
    * myRouteTargetGroupName
@@ -197,20 +198,21 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   routeTargetGroupName?: string;
   /**
    * @remarks
-   * List of members in the route target group.
+   * The member list of the route target group.
    */
   routeTargetMemberList?: GetRouteTargetGroupResponseBodyRouteTargetMemberList[];
   /**
    * @remarks
-   * The status of the route target group. Values:
-   * - **Recovering**: In the process of switching back to the primary 
-   * - **Switched**: The primary and secondary have been switched 
-   * - **Available**: Available 
-   * - **Abnormal**: Secondary instance is abnormal 
-   * - **Pending**: In the process of being created 
-   * - **Switching**: In the process of switching between primary and secondary 
-   * - **Deleting**: In the process of being deleted 
-   * - **Unavailable**: Both primary and secondary instances are abnormal
+   * The status of the routing target group. Valid values:
+   * 
+   * - **Recovering**: The active/standby switchback is in progress.
+   * - **Switched**: The active/standby switchover is complete.
+   * - **Available**: The routing target group is available.
+   * - **Abnormal**: The standby instance has instance failures.
+   * - **Pending**: The routing target group is being created.
+   * - **Switching**: The active/standby switchover is in progress.
+   * - **Deleting**: The routing target group is being deleted.
+   * - **Unavailable**: Both the primary and secondary instances have instance failures.
    * 
    * @example
    * Available
@@ -218,12 +220,12 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Tags of the route target group.
+   * The tags of the route target group.
    */
   tags?: GetRouteTargetGroupResponseBodyTags[];
   /**
    * @remarks
-   * ID of the VPC to which the route target group belongs.
+   * The ID of the VPC to which the route target group belongs.
    * 
    * @example
    * vpc-xxxx

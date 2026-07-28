@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFullNatEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The FULLNAT entry ID.
+   * The ID of the FULLNAT entry.
    * 
    * @example
    * fullnat-gw8fz23jezpbblf1j****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveGlobalAccelerationInstanceIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5BE01CD7-5A50-472D-AC14-CA181C5C03BE

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddIPv6TranslatorAclListEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL entry.
+   * The ID of the access control policy group entry.
    * 
    * @example
    * ipv6transaclentry-bp105jrs****

@@ -7,9 +7,9 @@ export class DescribeVcoRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -18,7 +18,7 @@ export class DescribeVcoRouteEntriesRequest extends $dara.Model {
   ownerAccount?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class DescribeVcoRouteEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -36,7 +36,7 @@ export class DescribeVcoRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent list of regions.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -48,10 +48,10 @@ export class DescribeVcoRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The route type. Valid values:
+   * The type of the route. Valid values:
    * 
-   * *   **custom** (default): a destination-based route
-   * *   **bgp**: a BGP route
+   * - **custom** (default): destination route.
+   * - **bgp**: BGP route.
    * 
    * @example
    * custom

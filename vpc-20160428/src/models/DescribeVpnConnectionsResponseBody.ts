@@ -594,7 +594,7 @@ export class DescribeVpnConnectionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcGatewayEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the gateway endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-08-27T01:58:37Z
@@ -13,7 +13,7 @@ export class CreateVpcGatewayEndpointResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the gateway endpoint.
+   * The endpoint instance ID of the gateway endpoint instance.
    * 
    * @example
    * vpce-bp1w1dmdqjpwul0v3****
@@ -45,7 +45,7 @@ export class CreateVpcGatewayEndpointResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the endpoint service.
+   * The service name of the endpoint service.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss

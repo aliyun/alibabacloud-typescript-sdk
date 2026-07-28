@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnhanhcedNatGatewayAvailableZonesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key. Only **PrivateLinkEnabled** is supported.
+   * The filter condition. Currently, only **PrivateLinkEnabled** is supported.
    * 
    * @example
    * PrivateLinkEnabled
@@ -13,9 +13,9 @@ export class ListEnhanhcedNatGatewayAvailableZonesRequestFilter extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The value of the filter key.
+   * The filter value that corresponds to the filter condition.
    * 
-   * >  If the filter key is set to **PrivateLinkEnabled**, you must specify a filter value. Valid values: **true** and **false**.
+   * > If the filter condition is **PrivateLinkEnabled**, you must specify a filter value. Valid values: **true** and **false**.
    * 
    * @example
    * true
@@ -47,10 +47,10 @@ export class ListEnhanhcedNatGatewayAvailableZonesRequestFilter extends $dara.Mo
 export class ListEnhanhcedNatGatewayAvailableZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language to display the results. Valid values:
+   * The language of the response. Valid values:
    * 
-   * *   **zh-CN** (default): Chinese
-   * *   **en-US**: English
+   * - **zh-CN** (default): Chinese.
+   * - **en-US**: English.
    * 
    * @example
    * zh-CN
@@ -58,18 +58,17 @@ export class ListEnhanhcedNatGatewayAvailableZonesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The filter information. You can specify a filter key and a filter value.
+   * The filter information. You can specify key-value pairs to filter the query results.
    */
   filter?: ListEnhanhcedNatGatewayAvailableZonesRequestFilter[];
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region that you want to query.
+   * The ID of the region to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
-   * 
-   * In this example, zones that support NAT gateways in the UAE (Dubai) region are queried.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * This example queries the zones available for NAT gateway resources in the UAE (Dubai) region.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateEipAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The EIP ID.
+   * The ID of the EIP instance.
    * 
    * @example
    * eip-25877c70gddh****
@@ -13,7 +13,7 @@ export class AllocateEipAddressResponseBody extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The EIP that is allocated. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+   * The allocated EIP. This parameter is returned only if **InstanceChargeType** is set to **PostPaid**.
    * 
    * @example
    * 192.0.XX.XX
@@ -21,7 +21,8 @@ export class AllocateEipAddressResponseBody extends $dara.Model {
   eipAddress?: string;
   /**
    * @remarks
-   * The order ID. This parameter is returned only when **InstanceChargeType** is set to **PrePaid**.
+   * The order ID. <props="china">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is not enabled, go to the [Order Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
+   * <props="intl">This parameter is returned if InstanceChargeType (the billing method of the EIP) is set to PrePaid (subscription). If AutoPay (automatic payment) is not enabled, go to the [Order Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
    * 
    * @example
    * 10
@@ -37,7 +38,7 @@ export class AllocateEipAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+   * The resource group ID. This parameter is returned only if **InstanceChargeType** is set to **PostPaid**.
    * 
    * @example
    * rg-acfmxazfdgdg****

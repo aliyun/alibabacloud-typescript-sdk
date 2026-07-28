@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeInstanceFromVbrRequest extends $dara.Model {
   /**
    * @remarks
-   * The VBRs for which you want to revoke permissions on the VPC. Valid values:
+   * The scope of VBR instances for which the VPC-connected instance authorization is being revoked. Valid values:
    * 
-   * *   **ALL**: Permissions on the VPC are revoked for all VBRs in the specified region. **VbrInstanceIds** can be left empty.
-   * *   **Specify**: Permissions on the VPC are revoked for the specified VBRs. **VbrInstanceIds** must be assigned a value.
+   * - **ALL**: Revokes the VPC-connected instance authorization for all VBR instances in the specified region. In this case, the **VbrInstanceIds** parameter can be left empty.
+   * 
+   * - **Specify**: Revokes the VPC-connected instance authorization for the specified VBR instances. In this case, the **VbrInstanceIds** parameter is required.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class RevokeInstanceFromVbrRequest extends $dara.Model {
   grantType?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The instance ID of the VPC-connected instance for which you want to revoke the authorization.
    * 
    * This parameter is required.
    * 
@@ -28,9 +29,9 @@ export class RevokeInstanceFromVbrRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the VPC is deployed.
+   * The region ID of the VPC-connected instance for which you want to revoke the authorization.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -40,12 +41,12 @@ export class RevokeInstanceFromVbrRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the VBRs for which you want to revoke the permissions.
+   * The list of VBR instance IDs for which the VPC-connected instance authorization is being revoked.
    */
   vbrInstanceIds?: string[];
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VBR belongs.
+   * The Alibaba Cloud account ID of the VBR instance for which the authorization is being revoked.
    * 
    * This parameter is required.
    * 
@@ -55,7 +56,7 @@ export class RevokeInstanceFromVbrRequest extends $dara.Model {
   vbrOwnerUid?: string;
   /**
    * @remarks
-   * The ID of the region where the VBR is deployed.
+   * The region ID of the VBR instance for which the VPC-connected instance authorization is being revoked.
    * 
    * This parameter is required.
    * 

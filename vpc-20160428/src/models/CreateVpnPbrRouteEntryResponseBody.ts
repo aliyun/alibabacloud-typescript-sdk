@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The timestamp generated when the policy-based route was created. Unit: milliseconds.
+   * The timestamp when the policy-based route was created. Unit: milliseconds.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1492747187000
@@ -15,7 +15,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the route.
+   * The description of the policy-based route.
    * 
    * @example
    * desctest
@@ -23,7 +23,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The tunneling protocol. The value is **Ipsec**.
+   * The next hop of the policy-based route.
    * 
    * @example
    * vco-bp15oes1py4i66rmd****
@@ -31,7 +31,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
    * 
    * @example
    * Ipsec
@@ -39,7 +39,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   overlayMode?: string;
   /**
    * @remarks
-   * The priority of the policy-based route.
+   * The policy priority of the policy-based routing entry.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The priority of the policy-based route.
+   * The request ID.
    * 
    * @example
    * 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
@@ -55,7 +55,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The VPN gateway ID.
+   * The destination CIDR block of the policy-based route.
    * 
    * @example
    * 10.0.0.0/24
@@ -71,10 +71,11 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   routeSource?: string;
   /**
    * @remarks
-   * The status of the policy-based route.
+   * The publish status of the policy-based route.
    * 
-   * *   **published**: advertised to the VPC route table.
-   * *   **normal**: not advertised to the VPC route table.
+   * - **published**: The policy-based route has been published to the VPC route table.
+   * 
+   * - **normal**: The policy-based route has not been published to the VPC route table.
    * 
    * @example
    * normal
@@ -82,7 +83,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * @example
    * vpn-bp1cmw7jh1nfe43m9****
@@ -90,7 +91,10 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   vpnInstanceId?: string;
   /**
    * @remarks
-   * The source CIDR block of the policy-based route.
+   * The weight of the policy-based route.
+   * 
+   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active link.
+   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby link.
    * 
    * @example
    * 0

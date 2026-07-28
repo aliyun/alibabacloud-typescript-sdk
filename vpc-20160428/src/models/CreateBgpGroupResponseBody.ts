@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBgpGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the BGP group.
+   * The ID of the created BGP group.
    * 
    * @example
    * bgpg-bp1k25cyp26cllath****

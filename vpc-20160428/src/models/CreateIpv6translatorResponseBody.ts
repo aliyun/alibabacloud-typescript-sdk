@@ -21,7 +21,7 @@ export class CreateIPv6TranslatorResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The order ID.
+   * The order ID for creating the IPv6 Translation Service instance.
    * 
    * @example
    * 202303300940739

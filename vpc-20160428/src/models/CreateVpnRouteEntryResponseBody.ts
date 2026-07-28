@@ -7,7 +7,7 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the destination route was created. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the destination route was created.
    * 
    * @example
    * 1492747187000
@@ -31,7 +31,7 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling).
    * 
    * @example
    * Ipsec
@@ -57,9 +57,9 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The publish status of the destination route.
    * 
-   * - **published**: The destination route has been published to the route table of the VPC.
+   * - **published**: The destination route is published to the VPC route table.
    * 
-   * - **normal**: The destination route has not been published to the route table of the VPC.
+   * - **normal**: The destination route is not published to the VPC route table.
    * 
    * @example
    * published

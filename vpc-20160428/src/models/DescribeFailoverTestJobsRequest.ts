@@ -5,16 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFailoverTestJobsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key. Valid values:
+   * The filter condition. Valid values:
    * 
-   * *   **JobId**
-   * *   **JobName**
-   * *   **JobStatus**
-   * *   **ResourceId**
-   * *   **ResourceName**
-   * *   **ResourceType**
+   * - **JobId**: the failover test job ID.
    * 
-   * > You can specify at most five different filter keys. If you specify ResourceId or ResourceName, you must also specify ResourceType. The logical operator among the filter keys is AND. Results that meet all specified filter keys are returned.
+   * - **JobName**: the failover test job name.
+   * 
+   * - **JobStatus**: the failover test job status.
+   * 
+   * - **ResourceId**: the failover test resource ID.
+   * 
+   * - **ResourceName**: the failover test resource name.
+   * 
+   * - **ResourceType**: the failover test resource type.
+   * 
+   * > Specify up to 5 unique filter conditions. If you specify a resource ID or resource name, you must also specify the resource type. All filter conditions must be met to return accurate query results.
    * 
    * @example
    * JobId
@@ -22,9 +27,9 @@ export class DescribeFailoverTestJobsRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the filter key.
+   * The filter values that correspond to the filter condition.
    * 
-   * > You can specify at most five filter values for each filter key. The logical operator among filter values is OR. If a filter value is matched, the filter key is considered matched.
+   * > Each filter condition can contain up to 5 filter values. These filter values have an OR relationship. A record is considered a match if it matches any one of the filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -58,9 +63,9 @@ export class DescribeFailoverTestJobsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -73,7 +78,7 @@ export class DescribeFailoverTestJobsRequest extends $dara.Model {
   filter?: DescribeFailoverTestJobsRequestFilter[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+   * The number of entries per page for paginated queries. Valid values: **1 to 100**. Default value: 20.
    * 
    * @example
    * 20
@@ -81,10 +86,11 @@ export class DescribeFailoverTestJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-   * *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+   * - Leave this parameter empty for the first query or if no next query exists.
+   * 
+   * - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -94,9 +100,9 @@ export class DescribeFailoverTestJobsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where you want to perform the failover test.
+   * The region where the failover test jobs reside.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou

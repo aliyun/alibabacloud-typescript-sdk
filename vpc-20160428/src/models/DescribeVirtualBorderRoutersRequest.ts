@@ -7,19 +7,19 @@ export class DescribeVirtualBorderRoutersRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition. You can specify up to 5 filter conditions. The following filter conditions are supported:
    * 
-   * * **PhysicalConnectionId**: instance ID of the Express Connect circuit instance.
+   * * **PhysicalConnectionId**: the Express Connect circuit ID.
    * 
-   * * **VbrId**: instance ID of the Virtual Border Router instance.
+   * * **VbrId**: the VBR ID.
    * 
-   * * **Status**: the status of the Virtual Border Router.
+   * * **Status**: the VBR status.
    * 
-   * * **Name**: the name of the Virtual Border Router.
+   * * **Name**: the VBR name.
    * 
-   * * **AccessPointId**: instance ID of the access point.
+   * * **AccessPointId**: the access point ID.
    * 
-   * * **eccId**: instance ID of the Express Cloud Connect instance.
+   * * **eccId**: the Express Cloud Connect instance ID.
    * 
-   * * **type**: the type of the Express Connect circuit.
+   * * **type**: the Express Connect circuit type.
    * 
    * @example
    * Status
@@ -27,7 +27,7 @@ export class DescribeVirtualBorderRoutersRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The relationship between filter values is OR, which means that a match is found if any of the filter values is met.
+   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The filter values are evaluated by using a logical OR. A match is found if any of the specified filter values is met.
    * 
    * @example
    * Active
@@ -64,7 +64,7 @@ export class DescribeVirtualBorderRoutersRequestTags extends $dara.Model {
    * @remarks
    * The tag key of the resource. You must specify at least 1 tag key and can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -111,11 +111,11 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   filter?: DescribeVirtualBorderRoutersRequestFilter[];
   /**
    * @remarks
-   * Specifies whether to include cross-account Virtual Border Routers.
+   * Specifies whether to include cross-account VBRs.
    * 
-   * - **true**: Included.
+   * - **true**: includes cross-account VBRs.
    * 
-   * - **false** (default): Not included.
+   * - **false** (default): does not include cross-account VBRs.
    * 
    * @example
    * false
@@ -124,7 +124,7 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -132,7 +132,7 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10

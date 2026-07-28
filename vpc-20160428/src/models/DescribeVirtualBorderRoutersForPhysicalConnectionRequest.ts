@@ -5,15 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions. You can specify at most five filter conditions. The following filter conditions are supported:
+   * The filter condition. You can specify up to five filter conditions. The following filter conditions are supported:
    * 
-   * *   **PhysicalConnectionId**: filter VBRs by the Express Connect circuit ID.
-   * *   **VbrId**: filter VBRs by ID.
-   * *   **Status**: filter VBRs by status.
-   * *   **Name**: filter VBRs by name.
-   * *   **AccessPointId**: filter VBRs by access point ID.
-   * *   **eccId**: filter VBRs by ID of Express Cloud Connect (ECC) instance.
-   * *   **type**: filter VBRs by type.
+   * * **PhysicalConnectionId**: instance ID of the Express Connect circuit instance.
+   * 
+   * * **VbrId**: instance ID of the Virtual Border Router instance.
+   * 
+   * * **Status**: the status of the Virtual Border Router.
+   * 
+   * * **Name**: the name of the Virtual Border Router.
+   * 
+   * * **AccessPointId**: instance ID of the access point.
+   * 
+   * * **eccId**: instance ID of the Express Cloud Connect instance.
+   * 
+   * * **type**: the type of the Virtual Border Router.
    * 
    * @example
    * Status
@@ -21,7 +27,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter exte
   key?: string;
   /**
    * @remarks
-   * The filter value for the key. You can specify multiple filter values for one key. The logical operator among filter values is OR. If one filter value is matched, the filter condition is matched.
+   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The relationship between filter values is OR, which means that a match with any filter value is considered a match for the filter condition.
    * 
    * @example
    * Active
@@ -56,13 +62,13 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter exte
 export class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter keys.
+   * The list of filter conditions.
    */
   filter?: DescribeVirtualBorderRoutersForPhysicalConnectionRequestFilter[];
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -70,7 +76,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends $d
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -88,7 +94,7 @@ export class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends $d
   physicalConnectionId?: string;
   /**
    * @remarks
-   * The region in which the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * The region where the Express Connect circuit is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

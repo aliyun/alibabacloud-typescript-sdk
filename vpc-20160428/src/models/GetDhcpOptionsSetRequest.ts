@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDhcpOptionsSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DHCP options set.
+   * The ID of the DHCP options set that you want to query.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class GetDhcpOptionsSetRequest extends $dara.Model {
    * @remarks
    * The region ID of the DHCP options set that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

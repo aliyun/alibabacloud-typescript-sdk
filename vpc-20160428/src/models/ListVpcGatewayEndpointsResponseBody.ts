@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcGatewayEndpointsResponseBodyEndpointsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class ListVpcGatewayEndpointsResponseBodyEndpointsTags extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of tag N added to the resource.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -45,12 +45,12 @@ export class ListVpcGatewayEndpointsResponseBodyEndpointsTags extends $dara.Mode
 export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The ID of the route table associated with the gateway endpoint.
+   * The IDs of the route tables associated with the gateway endpoint.
    */
   associatedRouteTables?: string[];
   /**
    * @remarks
-   * The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-09-08T08:43:04Z
@@ -66,7 +66,7 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
   endpointDescription?: string;
   /**
    * @remarks
-   * The ID of the gateway endpoint.
+   * The endpoint instance ID of the gateway endpoint.
    * 
    * @example
    * vpce-bp1i1212ss2whuwyw****
@@ -84,12 +84,12 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The status of the gateway endpoint. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Modifying**
-   * *   **Associating**
-   * *   **Dissociating**
-   * *   **Deleting**
+   * - **Creating**: being created.
+   * - **Created**: created and in a normal state.
+   * - **Modifying**: being modified.
+   * - **Associating**: being associated.
+   * - **Dissociating**: being disassociated.
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Created
@@ -99,7 +99,7 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The access policy for the cloud service.
    * 
-   * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
+   * For more information about the syntax and structure of access policies, see [Policy structure and syntax](https://help.aliyun.com/document_detail/93739.html).
    * 
    * @example
    * {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
@@ -115,7 +115,7 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the endpoint service.
+   * The service name of the endpoint service.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss
@@ -123,12 +123,12 @@ export class ListVpcGatewayEndpointsResponseBodyEndpoints extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: ListVpcGatewayEndpointsResponseBodyEndpointsTags[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+   * The ID of the VPC to which the gateway endpoint belongs.
    * 
    * @example
    * vpc-bp1gsk7h12ew7oegk****
@@ -189,7 +189,7 @@ export class ListVpcGatewayEndpointsResponseBody extends $dara.Model {
   endpoints?: ListVpcGatewayEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 20
@@ -197,10 +197,9 @@ export class ListVpcGatewayEndpointsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If no value is returned for **NextToken**, no next queries are sent.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * Indicates whether a next query token is available. Valid values:
+   * - If **NextToken** is empty, no more results are available.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -216,7 +215,7 @@ export class ListVpcGatewayEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 10

@@ -7,9 +7,9 @@ export class CreateNatIpRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -19,9 +19,9 @@ export class CreateNatIpRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: sends a dry run request. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends a Normal request. If the request passes the check, a 2xx HTTP status code is returned and the NAT IP address is created.
+   * - **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the NAT IP address is created.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class CreateNatIpRequest extends $dara.Model {
    * @remarks
    * The IP prefix CIDR block to create.
    * 
-   * The IP prefix CIDR block must be within the reserved CIDR block of the vSwitch where the NAT gateway resides, and the reserved CIDR block must not be in use. The prefix mask must be /28.
+   * The IP prefix CIDR block must be within the reserved CIDR block of the vSwitch where the NAT gateway resides, and the reserved CIDR block must not be occupied. The IP prefix mask must be /28.
    * 
    * @example
    * 192.168.0.0/28
@@ -79,7 +79,7 @@ export class CreateNatIpRequest extends $dara.Model {
   natIpCidr?: string;
   /**
    * @remarks
-   * The description of the NAT IP address.
+   * The description of the NAT IP address to create.
    * 
    * The description must be 2 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
    * 
@@ -89,7 +89,7 @@ export class CreateNatIpRequest extends $dara.Model {
   natIpDescription?: string;
   /**
    * @remarks
-   * The name of the NAT IP address.
+   * The name of the NAT IP address to create.
    * 
    * The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
@@ -101,9 +101,9 @@ export class CreateNatIpRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the NAT gateway instance to which the NAT IP address belongs.
+   * The region ID of the VPC NAT gateway instance to which the NAT IP address belongs.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 

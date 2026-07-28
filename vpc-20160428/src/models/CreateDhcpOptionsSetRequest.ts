@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDhcpOptionsSetRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateDhcpOptionsSetRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -61,9 +61,9 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the DHCP options set.
+   * The description of the DHCP options set. 
    * 
-   * The description must be 1 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
+   * The description can be empty or 1 to 256 characters in length. It must start with a letter or Chinese character and cannot start with `http://` or `https://`.
    * 
    * @example
    * description
@@ -73,7 +73,7 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
    * @remarks
    * The name of the DHCP options set.
    * 
-   * The name must be 1 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 1 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * name
@@ -81,9 +81,9 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   dhcpOptionsSetName?: string;
   /**
    * @remarks
-   * The root domain. For example, you can set the value to example.com.
+   * The hostname suffix. Example: example.com.
    * 
-   * After a DHCP options set is associated with a virtual private cloud (VPC), the root domain in the DHCP options set is automatically synchronized with the ECS instances in the VPC.
+   * After the DHCP options set is used to associate VPC, the hostname suffix is automatically synchronized to the ECS instances in the VPC.
    * 
    * @example
    * example.com
@@ -91,9 +91,9 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The IP address of the DNS server. You can enter at most four DNS server IP addresses. Separate IP addresses with commas (,).
+   * The IP addresses of DNS servers. You can specify up to four DNS server IP addresses. Separate multiple IP addresses with commas (,).
    * 
-   * >  If no IP address is specified, the Elastic Compute Service (ECS) instance uses the IP addresses 100.100.2.136 and 100.100.2.138, which are provided by Alibaba Cloud by default.
+   * >If you do not specify DNS server IP addresses, ECS instances use the DNS server IP addresses provided by Alibaba Cloud (100.100.2.136 and 100.100.2.138) by default.
    * 
    * @example
    * 192.XX.XX.123
@@ -101,11 +101,11 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   domainNameServers?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request.
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the DHCP options set is created.
    * 
    * @example
    * false
@@ -113,12 +113,13 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The lease time of the IPv6 addresses for the DHCP options set.
+   * The lease time of the IPv6 DHCP options set.
    * 
-   * *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-   * *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+   * - If the lease time is in hours, the unit is h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
    * 
-   * >  When you enter a value, you must also specify the unit.
+   * - If the lease time is in days, the unit is d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
+   * 
+   * > You must include the unit when specifying the value.
    * 
    * @example
    * 3650d
@@ -126,12 +127,13 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   ipv6LeaseTime?: string;
   /**
    * @remarks
-   * The lease time of the IPv4 addresses for the DHCP options set.
+   * The lease time of the IPv4 DHCP options set.
    * 
-   * *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-   * *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+   * - If the lease time is in hours, the unit is h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
    * 
-   * >  When you enter a value, you must also specify the unit.
+   * - If the lease time is in days, the unit is d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+   * 
+   * > You must include the unit when specifying the value.
    * 
    * @example
    * 3650d
@@ -141,9 +143,9 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region to which the DHCP options set belongs.
+   * The region in which the DHCP options set resides.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -163,7 +165,7 @@ export class CreateDhcpOptionsSetRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag of the resource.
+   * The tags of the resource.
    */
   tag?: CreateDhcpOptionsSetRequestTag[];
   static names(): { [key: string]: string } {

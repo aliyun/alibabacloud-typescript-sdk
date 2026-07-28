@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRouteTableEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry in the gateway route table that you want to query.
+   * The destination CIDR block of the route entry in the gateway route table to query.
    * 
    * @example
    * 192.168.0.5

@@ -7,7 +7,7 @@ export class RecoverVirtualBorderRouterRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -17,9 +17,9 @@ export class RecoverVirtualBorderRouterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VBR.
+   * The region ID of the VBR. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class RecoverVirtualBorderRouterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VBR.
+   * The VBR instance ID.
    * 
    * This parameter is required.
    * 

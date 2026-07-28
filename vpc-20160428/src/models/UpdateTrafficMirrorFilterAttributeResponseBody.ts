@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTrafficMirrorFilterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5816D35F-94D5-48CE-838F-2327C8EE8D49

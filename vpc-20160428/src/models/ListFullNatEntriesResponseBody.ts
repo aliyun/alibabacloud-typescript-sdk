@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   /**
    * @remarks
-   * The backend domain name for FULLNAT address translation in a FULLNAT entry.
+   * The backend domain name for FULLNAT address translation in the FULLNAT entry.
    * 
    * @example
    * xxx.com
@@ -13,7 +13,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   accessDomain?: string;
   /**
    * @remarks
-   * The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
+   * The backend IP address for FULLNAT address translation in the FULLNAT entry.
    * 
    * @example
    * 192.168.XX.XX
@@ -21,7 +21,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   accessIp?: string;
   /**
    * @remarks
-   * The backend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
+   * The backend port for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
    * 
    * @example
    * 80
@@ -37,7 +37,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The IP resolved from the backend domain name for address translation in the FULLNAT entry.
+   * The IP address resolved from the backend domain name for address translation in the FULLNAT entry.
    * 
    * @example
    * 192.168.XX.XX
@@ -47,7 +47,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
    * @remarks
    * The description of the FULLNAT entry.
    * 
-   * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * The description must be 2 to 128 characters in length, and must start with a letter or Chinese character. The description cannot start with `http://` or `https://`.
    * 
    * @example
    * abc
@@ -65,7 +65,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
    * @remarks
    * The name of the FULLNAT entry.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). The name must start with a letter or Chinese character.
    * 
    * @example
    * test
@@ -75,10 +75,10 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
    * @remarks
    * The status of the FULLNAT entry. Valid values:
    * 
-   * *   **Pending**
-   * *   **Available**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Pending**: being configured.
+   * - **Available**: available.
+   * - **Deleting**: being deleted.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Available
@@ -94,10 +94,10 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   fullNatTableId?: string;
   /**
    * @remarks
-   * The protocol of the packets that are forwarded. Valid values:
+   * The forwarding protocol type. Valid values: 
    * 
-   * *   **TCP**
-   * *   **UDP**
+   * - **TCP**: forwards TCP packets. 
+   * - **UDP**: forwards UDP packets.
    * 
    * @example
    * TCP
@@ -105,7 +105,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The NAT IP address that is used for address translation in FULLNAT entries.
+   * The NAT IP address that provides address translation in the FULLNAT entry.
    * 
    * @example
    * 192.168.XX.XX
@@ -113,7 +113,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   natIp?: string;
   /**
    * @remarks
-   * The frontend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
+   * The frontend port for port mapping in the FULLNAT entry. Valid values: **1** to **65535**.
    * 
    * @example
    * 80
@@ -121,7 +121,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   natIpPort?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI).
+   * The elastic network interface (ENI) ID.
    * 
    * @example
    * eni-gw80wedm8pq0tpr2****
@@ -129,7 +129,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The type of the ENI. The value is set to **Endpoint**, which indicates a reverse endpoint.
+   * The type of the elastic network interface (ENI). The value is **Endpoint** (reverse endpoint).
    * 
    * @example
    * Endpoint
@@ -187,7 +187,7 @@ export class ListFullNatEntriesResponseBodyFullNatEntries extends $dara.Model {
 export class ListFullNatEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the FULLNAT entries that are queried.
+   * The list of FULLNAT entries.
    */
   fullNatEntries?: ListFullNatEntriesResponseBodyFullNatEntries[];
   /**
@@ -208,7 +208,7 @@ export class ListFullNatEntriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the VPC NAT gateway.
+   * The instance ID of the VPC NAT gateway.
    * 
    * @example
    * ngw-gw8054kn57y3hq3bv****
@@ -216,10 +216,10 @@ export class ListFullNatEntriesResponseBody extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * Indicates whether the token for the next query exists. Valid values:
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If the value of **NextToken** is empty, no next queries are sent.
-   * *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -235,7 +235,7 @@ export class ListFullNatEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of FULLNAT entries returned.
+   * The total number of FULLNAT entries returned.
    * 
    * @example
    * 1

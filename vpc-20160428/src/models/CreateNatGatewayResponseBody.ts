@@ -85,7 +85,7 @@ export class CreateNatGatewayResponseBody extends $dara.Model {
   fullNatTableIds?: CreateNatGatewayResponseBodyFullNatTableIds;
   /**
    * @remarks
-   * The instance ID of the NAT gateway.
+   * The instance ID of the created NAT gateway.
    * 
    * @example
    * ngw-112za33e4****

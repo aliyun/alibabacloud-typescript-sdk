@@ -115,8 +115,8 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
    * @remarks
    * The IKE negotiation mode.
    * 
-   * - **main**: main mode. This mode offers high security during negotiations.
-   * - **aggressive**: aggressive mode. This mode supports fast negotiations and a higher success rate.
+   * - **main**: main mode. The negotiation process is more secure.
+   * - **aggressive**: aggressive mode. The negotiation is faster and has a higher success rate.
    * 
    * @example
    * main
@@ -145,7 +145,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier of the local end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the current tunnel.
+   * The identifier of the local end of the tunnel. The value supports FQDN and IP formats. Default value: the IP address of the current tunnel.
    * 
    * @example
    * 47.XX.XX.87
@@ -161,7 +161,7 @@ export class ModifyTunnelAttributeResponseBodyTunnelIkeConfig extends $dara.Mode
   psk?: string;
   /**
    * @remarks
-   * The identifier of the peer end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
+   * The identifier of the peer end of the tunnel. The value supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
    * 
    * @example
    * 47.XX.XX.207
@@ -307,7 +307,7 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The CA certificate of the peer when an IPsec-VPN connection is created with a Chinese SM VPN gateway.
+   * The peer CA certificate when the IPsec-VPN connection is created with a China CA VPN gateway.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -336,9 +336,9 @@ export class ModifyTunnelAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the tunnel.
    * 
-   * - **active**: available.
-   * - **updating**: being updated.
-   * - **deleting**: being deleted.
+   * - **active**: The tunnel is available.
+   * - **updating**: The tunnel is being updated.
+   * - **deleting**: The tunnel is being deleted.
    * 
    * @example
    * active

@@ -13,7 +13,7 @@ export class CreateVSwitchCidrReservationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the reserved CIDR block.
+   * The instance ID of the reserved CIDR block for a vSwitch.
    * 
    * @example
    * vcr-bp1m12saqteraw3rp****

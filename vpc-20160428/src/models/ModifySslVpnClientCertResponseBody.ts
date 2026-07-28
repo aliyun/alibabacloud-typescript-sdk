@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySslVpnClientCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the SSL client certificate.
+   * The name of the SSL-VPN client certificate.
    * 
    * @example
    * cert2
@@ -21,7 +21,7 @@ export class ModifySslVpnClientCertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the SSL client certificate.
+   * The ID of the SSL-VPN client certificate.
    * 
    * @example
    * vsc-bp1n8wcf134yl0osr****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassociateGlobalAccelerationInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,13 @@ export class UnassociateGlobalAccelerationInstanceRequest extends $dara.Model {
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The backend server type. Valid values:
+   * The type of the instance to disassociate. Valid values:
    * 
-   * *   **RemoteEcsInstance**: Elastic Compute Service (ECS) instance
-   * *   **RemoteSlbInstance**: Server Load Balancer (SLB) instance
-   * *   **RemoteEniInstance**: elastic network interface (ENI)
+   * - **RemoteEcsInstance**: ECS instance.
+   * 
+   * - **RemoteSlbInstance**: load balancing instance.
+   * 
+   * - **RemoteEniInstance**: network interface controller (NIC) instance.
    * 
    * @example
    * RemoteEcsInstance
@@ -29,9 +31,9 @@ export class UnassociateGlobalAccelerationInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the GA instance.
+   * The region where the Alibaba Cloud Global Accelerator (GA) instance is deployed. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIPv6TranslatorAclListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL name.
+   * The name of the access control policy group.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class CreateIPv6TranslatorAclListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
+   * The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query region IDs.
    * 
    * This parameter is required.
    * 

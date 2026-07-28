@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance whose fine-grained monitoring configurations you want to query.
+   * The instance ID for which high-precision second-level monitoring is queried.
    * 
    * @example
    * eip-wz9fi6qboho9fwgx7****
@@ -13,7 +13,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance for which you want to query fine-grained monitoring. Only **EIP** may be returned.
+   * The type of the instance for which high-precision second-level monitoring is queried. The value is **EIP**.
    * 
    * @example
    * EIP
@@ -21,7 +21,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   instanceType?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The name of the LogProject.
    * 
    * @example
    * hdmonitor-cn-shenzhen-1658206966225390
@@ -29,7 +29,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   logProject?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the LogStore.
    * 
    * @example
    * hdmonitor
@@ -45,10 +45,10 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is performed. Valid values:
+   * Indicates whether the call was successful.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

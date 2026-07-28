@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSslVpnServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The SSL server name.
+   * The name of the SSL server.
    * 
    * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -25,7 +25,7 @@ export class DescribeSslVpnServersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,9 +33,9 @@ export class DescribeSslVpnServersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the SSL server.
+   * The region ID of the SSL server. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -45,9 +45,9 @@ export class DescribeSslVpnServersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the SSL server.
+   * The ID of the resource group to which the SSL server belongs.
    * 
-   * The SSL server and its associated VPN gateway belong to the same resource group. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the ID of the resource group to which the VPN gateway belongs.
+   * The SSL server belongs to the same resource group as the associated VPN gateway instance. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the resource group ID of the VPN gateway instance.
    * 
    * @example
    * rg-acfmzs372yg****

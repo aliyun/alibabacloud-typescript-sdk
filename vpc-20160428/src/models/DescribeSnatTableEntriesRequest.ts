@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnatTableEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT gateway to query.
    * 
-   * >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
+   * > You must specify at least one of **SnatTableId** and **NatGatewayId**.
    * 
    * @example
    * ngw-bp1uewa15k4iy5770****
@@ -15,7 +15,7 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface to be queried.
+   * The IDs of the elastic network interfaces (ENIs) to query.
    */
   networkInterfaceIds?: string[];
   ownerAccount?: string;
@@ -30,7 +30,7 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -38,9 +38,9 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where you want to create the NAT gateway.
+   * The region ID of the NAT gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
    * @remarks
    * The name of the SNAT entry.
    * 
-   * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * SnatEntry-1
@@ -70,8 +70,9 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   snatEntryName?: string;
   /**
    * @remarks
-   * *   When you query SNAT entries of Internet NAT gateways, this parameter specifies the EIP in an SNAT entry.
-   * *   When you query SNAT entries of VPC NAT gateways, this parameter specifies the NAT IP address in an SNAT entry.
+   * - When you query SNAT entries of an Internet NAT gateway, this parameter specifies the elastic IP address (EIP) in the SNAT entry.
+   *  
+   * - When you query SNAT entries of a VPC NAT gateway, this parameter specifies the NAT IP address in the SNAT entry.
    * 
    * @example
    * 116.22.XX.XX
@@ -79,9 +80,9 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   snatIp?: string;
   /**
    * @remarks
-   * The ID of the SNAT table.
+   * The ID of the SNAT table. 
    * 
-   * >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
+   * > You must specify at least one of **SnatTableId** and **NatGatewayId**.
    * 
    * @example
    * stb-8vbczigrhop8x5u3t****
@@ -89,7 +90,7 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
   snatTableId?: string;
   /**
    * @remarks
-   * The source CIDR block specified in the SNAT entry.
+   * The source CIDR block of the SNAT entry.
    * 
    * @example
    * 116.22.XX.XX/24
@@ -99,8 +100,9 @@ export class DescribeSnatTableEntriesRequest extends $dara.Model {
    * @remarks
    * The ID of the vSwitch.
    * 
-   * *   When you query SNAT entries of Internet NAT gateways, this parameter specifies that Elastic Compute Service (ECS) instances in the vSwitch can use SNAT entries to access the Internet.
-   * *   When you query SNAT entries of virtual private cloud (VPC) NAT gateways, this parameter specifies that ECS instances in the vSwitch can use SNAT entries to access external networks.
+   * - When you query SNAT entries of an Internet NAT gateway, this parameter specifies the vSwitch whose ECS instances can access the Internet by using the SNAT rule.
+   * 
+   * - When you query SNAT entries of a VPC NAT gateway, this parameter specifies the vSwitch whose ECS instances can access external networks by using the SNAT rule.
    * 
    * @example
    * vsw-3xbjkhjshjdf****

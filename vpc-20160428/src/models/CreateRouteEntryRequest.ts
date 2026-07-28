@@ -13,7 +13,7 @@ export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The type of next hop of the ECMP route. Valid value: **RouterInterface** (router interface).
+   * The type of next hop for the ECMP route. Set the value to **RouterInterface** (router interface).
    * 
    * @example
    * RouterInterface
@@ -57,9 +57,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client. Make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -77,7 +77,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, destination CIDR blocks of prefix lists, and instance IDs of prefix lists are supported. The following requirements must be met:
+   * The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, prefix list destination CIDR blocks, and prefix list instance IDs are supported. The following requirements must be met:
    *           
    * - The destination CIDR block cannot point to or be contained by 100.64.0.0/10.  
    *  
@@ -92,8 +92,8 @@ export class CreateRouteEntryRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request format, and business restrictions. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): sends a normal request, passes the dry run, and returns an HTTP 2xx status code. The route is directly created.
+   * - **true**: performs a dry run. The system checks the required parameters, request format, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. After the request passes the dry run, an HTTP 2xx status code is returned and the route is created.
    * 
    * @example
    * false
@@ -103,7 +103,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * @remarks
    * The ID of the next hop instance of the custom route entry.
    * > If you set NextHopType to ECR, you can call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to obtain the AssociationId as the next hop ID.
-   * > -.
+   * > -
    * 
    * @example
    * i-j6c2fp57q8rr4jlu****
@@ -116,13 +116,13 @@ export class CreateRouteEntryRequest extends $dara.Model {
   nextHopList?: CreateRouteEntryRequestNextHopList[];
   /**
    * @remarks
-   * The type of next hop of the custom route entry. Valid values: 
+   * The type of next hop for the custom route entry. Valid values: 
    * 
    * - **Instance** (default): ECS instance.
    * 
    * - **HaVip**: high-availability virtual IP address.  
    * 
-   * - **RouterInterface**: vRouter interface.
+   * - **RouterInterface**: router interface.
    * 
    * - **NetworkInterface**: network interface controller (NIC).
    * 
@@ -139,6 +139,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * - **GatewayEndpoint**: gateway endpoint.
    * - **Ecr**: Express Connect Router (ECR).
    * - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
+   * - **RouteTargetGroup**: route target group.
    * 
    * @example
    * RouterInterface

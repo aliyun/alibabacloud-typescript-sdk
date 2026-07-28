@@ -7,9 +7,9 @@ export class DeleteCustomerGatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * The client generates this parameter value, which must be unique among different requests. The maximum length is 64 ASCII characters.
+   * The client generates the value of this parameter. Make sure that the value is unique among different requests. The value can be up to 64 ASCII characters in length.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04****
@@ -17,7 +17,7 @@ export class DeleteCustomerGatewayRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the customer gateway instance.
+   * The instance ID of the customer gateway.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DeleteCustomerGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the customer gateway. You can obtain the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation.
+   * The region ID of the customer gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

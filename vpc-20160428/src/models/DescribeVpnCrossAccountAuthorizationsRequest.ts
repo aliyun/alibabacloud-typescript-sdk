@@ -9,7 +9,7 @@ export class DescribeVpnCrossAccountAuthorizationsRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -26,7 +26,7 @@ export class DescribeVpnCrossAccountAuthorizationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page when paging is used. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

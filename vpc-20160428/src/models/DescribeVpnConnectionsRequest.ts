@@ -71,7 +71,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page in a paging query. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPsec-VPN connection belongs.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group ID.
+   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
    * 
    * @example
    * rg-acfmzs372yg****

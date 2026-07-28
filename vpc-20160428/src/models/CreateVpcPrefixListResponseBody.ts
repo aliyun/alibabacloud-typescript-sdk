@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcPrefixListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the prefix list.
+   * The instance ID of the prefix list.
    * 
    * @example
    * pl-0b700s2ee3***
@@ -13,7 +13,7 @@ export class CreateVpcPrefixListResponseBody extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B45

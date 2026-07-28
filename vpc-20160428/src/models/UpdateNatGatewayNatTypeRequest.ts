@@ -7,9 +7,9 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -17,11 +17,11 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck this request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * **true**: prechecks the request without upgrading the Internet NAT gateway. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * **true**: performs a dry run without upgrading the Internet NAT gateway type. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * 
-   * **false**: sends the API request. This is the default value. After the request passes the precheck, a 2XX HTTP status code is returned and the Internet NAT gateway is upgraded.
+   * **false** (default): performs a dry run and sends the request. If the check succeeds, a 2xx HTTP status code is returned and the Internet NAT gateway type is upgraded.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the standard NAT gateway to be upgraded.
+   * The instance ID of the standard Internet NAT gateway that you want to upgrade.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The type of Internet NAT gateway. Set the value to **Enhanced**, which specifies an enhanced Internet NAT gateway.
+   * The type of the Internet NAT gateway. Set the value to **Enhanced**, which specifies an enhanced Internet NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -51,9 +51,9 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the NAT gateway that you want to upgrade is deployed.
+   * The region ID of the standard Internet NAT gateway that you want to upgrade.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -65,9 +65,9 @@ export class UpdateNatGatewayNatTypeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The vSwitch to which the enhanced Internet NAT gateway belongs.
+   * The vSwitch to which the enhanced Internet NAT gateway belongs after the upgrade.
    * 
-   * >  If you do not set this parameter, the system generates an Internet NAT gateway in a random vSwitch of a virtual private cloud (VPC).
+   * >If you do not set this parameter, the system randomly creates the enhanced Internet NAT gateway on any vSwitch in the VPC.
    * 
    * This parameter is required.
    * 

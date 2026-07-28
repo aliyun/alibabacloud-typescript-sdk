@@ -122,7 +122,7 @@ export class DescribeBgpPeersResponseBody extends $dara.Model {
   bgpPeers?: DescribeBgpPeersResponseBodyBgpPeers;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -130,7 +130,7 @@ export class DescribeBgpPeersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -146,7 +146,7 @@ export class DescribeBgpPeersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

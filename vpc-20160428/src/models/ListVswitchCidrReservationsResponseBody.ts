@@ -45,7 +45,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservationsTags 
 export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations extends $dara.Model {
   /**
    * @remarks
-   * The number of used prefixes in the reserved CIDR block.
+   * The number of used prefix CIDR blocks in the reserved CIDR block for a vSwitch.
    * 
    * @example
    * 6
@@ -53,7 +53,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   assignedCidrCount?: number;
   /**
    * @remarks
-   * The number of available prefixes in the reserved CIDR block.
+   * The number of active prefix CIDR blocks in the reserved CIDR block for a vSwitch.
    * 
    * @example
    * 10
@@ -69,10 +69,10 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   creationTime?: string;
   /**
    * @remarks
-   * The IP version of the reserved CIDR block. Valid values:
+   * The IP version of the reserved CIDR block for a vSwitch. Valid values:
    * 
-   * *   **IPv4** (default)
-   * *   **IPv6**
+   * - **IPv4** (default): IPv4.
+   * - **IPv6**: IPv6.
    * 
    * @example
    * IPv4
@@ -82,10 +82,10 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
    * @remarks
    * The status of the reserved CIDR block. Valid values:
    * 
-   * *   **Assigning**
-   * *   **Assigned**
-   * *   **Releasing**
-   * *   **Released**
+   * - **Assigning**: being allocated.
+   * - **Assigned**: allocated.
+   * - **Releasing**: being released.
+   * - **Released**: released.
    * 
    * @example
    * Assigned
@@ -93,12 +93,12 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservationsTags[];
   /**
    * @remarks
-   * The type of the reserved CIDR block. Valid value: **prefix**. CIDR blocks are allocated from the reserved CIDR block.
+   * The type of the reserved CIDR block for a vSwitch. Valid values: **prefix** (default), which indicates that addresses are allocated by CIDR block.
    * 
    * @example
    * prefix
@@ -106,7 +106,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   type?: string;
   /**
    * @remarks
-   * The reserved CIDR block.
+   * The reserved CIDR block for a vSwitch.
    * 
    * @example
    * 192.168.1.64/28
@@ -114,7 +114,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchCidrReservationCidr?: string;
   /**
    * @remarks
-   * The description of the reserved CIDR block.
+   * The description of the reserved CIDR block for a vSwitch.
    * 
    * @example
    * ReservationDescription
@@ -122,7 +122,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchCidrReservationDescription?: string;
   /**
    * @remarks
-   * The ID of the reserved CIDR block.
+   * The instance ID of the reserved CIDR block for a vSwitch.
    * 
    * @example
    * vcr-bp1m12saqteraw3rp****
@@ -130,7 +130,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchCidrReservationId?: string;
   /**
    * @remarks
-   * The name of the reserved CIDR block.
+   * The name of the reserved CIDR block for a vSwitch.
    * 
    * @example
    * ReservationName
@@ -138,7 +138,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchCidrReservationName?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the reserved CIDR block belongs.
+   * The ID of the vSwitch to which the reserved CIDR block for a vSwitch belongs.
    * 
    * @example
    * vsw-25navfgbue4g****
@@ -146,7 +146,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) to which the reserved CIDR block belongs.
+   * The ID of the VPC to which the reserved CIDR block for a vSwitch belongs.
    * 
    * @example
    * vpc-bp1wdz2pdhgurz1od****
@@ -203,7 +203,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
 export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -211,10 +211,9 @@ export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -238,7 +237,7 @@ export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of reserved CIDR blocks.
+   * The list of reserved CIDR blocks for a vSwitch.
    */
   vSwitchCidrReservations?: ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations[];
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class CreateIpsecServerResponseBody extends $dara.Model {
    * @remarks
    * The time when the IPsec server was created.
    * 
-   * T is used as a delimiter. Z indicates that the time is in UTC.
+   * T is the separator and Z indicates UTC.
    * 
    * @example
    * 2021-02-22T03:24:28Z
@@ -15,7 +15,7 @@ export class CreateIpsecServerResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The IPsec server ID.
+   * The ID of the IPsec server.
    * 
    * @example
    * iss-bp1jougp8cfsbo8y9****
@@ -23,7 +23,7 @@ export class CreateIpsecServerResponseBody extends $dara.Model {
   ipsecServerId?: string;
   /**
    * @remarks
-   * The IPsec server name.
+   * The name of the IPsec server.
    * 
    * @example
    * test
@@ -31,7 +31,7 @@ export class CreateIpsecServerResponseBody extends $dara.Model {
   ipsecServerName?: string;
   /**
    * @remarks
-   * The ID of the region where the VPN gateway is deployed.
+   * The region ID of the VPN gateway.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class CreateIpsecServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * @example
    * vpn-bp17lofy9fd0dnvzv****

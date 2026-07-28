@@ -90,6 +90,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
   flowLogId?: string;
   flowLogName?: string;
   ipVersion?: string;
+  logFormat?: string;
   logStoreName?: string;
   projectName?: string;
   regionId?: string;
@@ -112,6 +113,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
       ipVersion: 'IpVersion',
+      logFormat: 'LogFormat',
       logStoreName: 'LogStoreName',
       projectName: 'ProjectName',
       regionId: 'RegionId',
@@ -137,6 +139,7 @@ export class DescribeFlowLogsResponseBodyFlowLogsFlowLog extends $dara.Model {
       flowLogId: 'string',
       flowLogName: 'string',
       ipVersion: 'string',
+      logFormat: 'string',
       logStoreName: 'string',
       projectName: 'string',
       regionId: 'string',
@@ -204,7 +207,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of items per page in a paginated query.
+   * The number of entries per page in paging queries.
    * 
    * @example
    * 20
@@ -220,8 +223,9 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Values:
-   * - **true**: The call was successful.
+   * Indicates whether the call is successful. Valid values:
+   * 
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example
@@ -230,7 +234,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The number of entries in the queried flow log list.
+   * The total number of entries returned.
    * 
    * @example
    * 1

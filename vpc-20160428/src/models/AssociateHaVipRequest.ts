@@ -9,7 +9,7 @@ export class AssociateHaVipRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -27,7 +27,7 @@ export class AssociateHaVipRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The instance ID of the ECS instance to attach to the HaVip.
+   * The ID of the ECS instance to attach to the HaVip.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class AssociateHaVipRequest extends $dara.Model {
    * 
    * - **EcsInstance**: ECS instance.
    * 
-   * - **NetworkInterface**: network interface controller (NIC) instance. If the instance to attach to the HaVip is a network interface controller (NIC), this parameter is required.
+   * - **NetworkInterface**: elastic network interface (ENI). If the instance to attach to the HaVip is an ENI, this parameter is required.
    * 
    * @example
    * EcsInstance

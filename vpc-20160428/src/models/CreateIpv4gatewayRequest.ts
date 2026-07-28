@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpv4GatewayRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateIpv4GatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -62,9 +62,8 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the IPv4 gateway is created.
    * 
    * @example
    * false
@@ -84,7 +83,7 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
    * @remarks
    * The name of the IPv4 gateway.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * ipv4
@@ -94,9 +93,9 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where you want to create the IPv4 gateway.
+   * The region ID of the IPv4 gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -106,7 +105,7 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -121,7 +120,7 @@ export class CreateIpv4GatewayRequest extends $dara.Model {
   tag?: CreateIpv4GatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC where you want to create the IPv4 gateway.
+   * The ID of the VPC in which you want to create the IPv4 gateway.
    * 
    * You can create only one IPv4 gateway in a VPC.
    * 

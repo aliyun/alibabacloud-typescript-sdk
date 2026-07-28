@@ -19,7 +19,7 @@ export class ReleaseEipSegmentAddressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the contiguous EIP group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * The region ID of the contiguous EIPs. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 

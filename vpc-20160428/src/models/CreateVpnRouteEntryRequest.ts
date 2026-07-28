@@ -27,9 +27,9 @@ export class CreateVpnRouteEntryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
-   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: performs a dry run without creating the route. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. If the check passes, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class CreateVpnRouteEntryRequest extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling).
    * 
    * @example
    * Ipsec
@@ -57,14 +57,14 @@ export class CreateVpnRouteEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to publish the destination route to the VPC. Valid values:
+   * Specifies whether to publish the destination route to the VPC route table. Valid values:
    * 
-   * - **true**: Publishes the destination route to the VPC. The system publishes the route only to the VPC system route table, not to VPC custom route tables.
+   * - **true**: Publishes the destination route to the VPC route table. The system publishes the route only to the VPC system route table, not to VPC custom route tables.
    * 
-   *   If you want the custom route table to contain this route, manually add the route. For more information, see [CreateRouteEntry](https://help.aliyun.com/document_detail/448722.html).
-   * - **false**: Does not publish the destination route to the VPC.
+   *   If you want the VPC custom route table to contain this route, manually add the route. For more information, see [CreateRouteEntry](https://help.aliyun.com/document_detail/448722.html).
+   * - **false**: Does not publish the destination route to the VPC route table.
    * 
-   *   You must manually add a destination route with the next hop pointing to the VPN gateway instance in both the VPC system route table and custom route tables. Otherwise, the VPC cannot access resources in the destination CIDR block through the IPsec-VPN connection.
+   *   You must manually add a destination route whose next hop points to the VPN gateway instance in both the VPC system route table and custom route tables. Otherwise, the VPC cannot access resources in the destination CIDR block through the IPsec-VPN connection.
    * 
    * This parameter is required.
    * 
@@ -108,17 +108,17 @@ export class CreateVpnRouteEntryRequest extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The weight of the destination routing entry.
+   * The weight of the destination route.
    * 
-   * When you use the same VPN gateway instance to establish active/standby IPsec-VPN connections, you can specify the active and standby links by configuring the weight of the destination routing entry. A destination routing entry with a weight of 100 is the active link by default, and a destination routing entry with a weight of 0 is the standby link by default.
+   * If you use the same VPN gateway instance to establish active/standby IPsec-VPN connections, you can specify the active and standby links by configuring the weight of the destination routing. A destination route with a weight of 100 is the active link by default, and a destination route with a weight of 0 is the standby link by default.
    * 
-   * You can configure health checks for the IPsec-VPN connection to automatically detect the connectivity of the link. If the active link is unavailable, the system automatically switches traffic to the standby link, ensuring high availability of the cloud connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+   * You can configure health checks for the IPsec-VPN connection to automatically detect the connectivity of the link. If the active link is unavailable, the system automatically switches traffic to the standby link, which ensures high availability of the cloud connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
    * 
    * - **100**: The IPsec-VPN connection associated with the destination route serves as the active link.
    * - **0**: The IPsec-VPN connection associated with the destination route serves as the standby link.
    * 
    * > - When you specify active and standby links, the active and standby destination routes must have the same destination CIDR block, different next hops, and different weights.
-   * > - For VPN gateway instances that support dual-tunnel pattern IPsec-VPN connections, you do not need to configure this parameter. A dual-tunnel pattern IPsec-VPN connection contains two tunnels that automatically form active/standby links. You do not need to specify active/standby links by configuring this parameter. If you configure this parameter, the parameter settings do not take effect.
+   * > - For VPN gateway instances that support dual-tunnel pattern IPsec-VPN connections, you do not need to configure this parameter. A dual-tunnel pattern IPsec-VPN connection contains two tunnels that automatically form active/standby links. You do not need to specify active/standby links by using the parameter settings. If you configure this parameter, the parameter settings do not take effect.
    * 
    * This parameter is required.
    * 

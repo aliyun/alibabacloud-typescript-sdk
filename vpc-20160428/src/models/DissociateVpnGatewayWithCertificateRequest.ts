@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
-   * >  The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate.
+   * > The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway, not the ID of the SSL certificate itself.
+   * <props="china">You can call the [ListVpnCertificateAssociations](https://help.aliyun.com/document_detail/2521961.html) operation to query the certificate ID.
    * 
    * This parameter is required.
    * 
@@ -19,8 +20,9 @@ export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
    * @remarks
    * The certificate type. Valid values:
    * 
-   * *   **Encryption**
-   * *   **Signature**
+   * - **Encryption**: encryption certificate.
+   * 
+   * - **Signature**: signing certificate.
    * 
    * This parameter is required.
    * 
@@ -34,7 +36,7 @@ export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 02fb3da4-130e*******
@@ -42,10 +44,11 @@ export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request passes the dry run, the `DryRunOperation` error code is returned. Otherwise, an error message is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without performing the actual request. The system checks the request for potential issues, including required parameters, request format, and instance status. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
+   * 
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the VPN gateway is dissociated from the SSL certificate.
    * 
    * @example
    * false
@@ -55,7 +58,7 @@ export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPN gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +68,7 @@ export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * This parameter is required.
    * 

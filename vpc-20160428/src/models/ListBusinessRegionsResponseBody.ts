@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBusinessRegionsResponseBodyGeographicSubRegions extends $dara.Model {
   /**
    * @remarks
-   * The name of the region where circuits are available.
+   * The name of the region where Express Connect circuits are available for purchase.
    * 
    * @example
    * 华东1(杭州)
@@ -13,7 +13,7 @@ export class ListBusinessRegionsResponseBodyGeographicSubRegions extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The ID of the region where circuits are available.
+   * The region ID where Express Connect circuits are available for purchase.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class ListBusinessRegionsResponseBodyGeographicSubRegions extends $dara.M
 export class ListBusinessRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -53,12 +53,12 @@ export class ListBusinessRegionsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of regions available for Express Connect circuits.
+   * The list of regions where Express Connect circuits are available for purchase.
    */
   geographicSubRegions?: ListBusinessRegionsResponseBodyGeographicSubRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 304FE68E-16D8-5B90-B2B3-FE5C5C08C24B

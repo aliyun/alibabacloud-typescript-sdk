@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeInstanceFromCenRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance to which the network instance is attached.
+   * The ID of the CEN instance for which you want to revoke authorization.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RevokeInstanceFromCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
+   * The UID of the Alibaba Cloud account to which the CEN instance belongs.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class RevokeInstanceFromCenRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -49,9 +49,11 @@ export class RevokeInstanceFromCenRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * *   **VPC**
-   * *   **VBR**
-   * *   **CCN**
+   * - **VPC**: virtual private cloud (VPC).
+   * 
+   * - **VBR**: Virtual Border Router.
+   * 
+   * - **CCN**: Cloud Connect Network.
    * 
    * This parameter is required.
    * 
@@ -63,9 +65,9 @@ export class RevokeInstanceFromCenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the network instance is deployed.
+   * The region ID of the network instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page in a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -13,10 +13,9 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+   * The token for the next query. Valid values:
+   * - Leave this parameter empty for the first query or if no next query exists.
+   * - If a next query exists, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -26,9 +25,9 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway endpoint.
+   * The region ID of the gateway endpoint to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -40,7 +39,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the endpoint service that you want to query.
+   * The name of the endpoint service to query.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss

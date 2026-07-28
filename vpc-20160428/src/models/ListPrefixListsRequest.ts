@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrefixListsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListPrefixListsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListPrefixListsRequestTags extends $dara.Model {
 export class ListPrefixListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -57,10 +57,9 @@ export class ListPrefixListsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token. Valid values:
+   * - If this is the first request or no subsequent query exists, leave this parameter empty.
+   * - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -70,7 +69,7 @@ export class ListPrefixListsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of prefix lists to be queried. Valid values of **N** are **1** to **100**, which specifies that you can query up to 100 prefix lists at a time.
+   * The IDs of the prefix lists to query. Valid values of **N**: **1** to **100**. You can query up to 100 prefix lists at a time.
    * 
    * @example
    * pl-m5estsqsdqwg88hjf****
@@ -88,9 +87,9 @@ export class ListPrefixListsRequest extends $dara.Model {
   prefixListName?: string;
   /**
    * @remarks
-   * The ID of the region where you want to query prefix lists.
+   * The ID of the region in which to query prefix lists.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

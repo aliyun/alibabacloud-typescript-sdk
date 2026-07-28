@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the specified resource. Valid values:
+   * Specifies whether to unbind all tags from the resource. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Unbinds all tags from the resource.
+   * - **false** (default): Does not unbind all tags from the resource.
    * 
    * @example
    * false
@@ -18,9 +18,9 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the resource is deployed.
+   * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources from which you want to remove tags.
+   * The list of resource IDs.
    * 
    * This parameter is required.
    */
@@ -39,11 +39,11 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   **PHYSICALCONNECTION**: Express Connect circuit.
-   * *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
-   * *   **ROUTERINTERFACE**: router interface.
+   * The resource type. Valid values:
+   * - **PHYSICALCONNECTION**: Express Connect circuit instance.
+   * - **VIRTUALBORDERROUTER**: Virtual Border Router.
+   * - **ROUTERINTERFACE**: VBR uplink.
+   * - **TRAFFICQOS**: QoS policy.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags to remove from the specified resource.
+   * The list of tag keys for the resource.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

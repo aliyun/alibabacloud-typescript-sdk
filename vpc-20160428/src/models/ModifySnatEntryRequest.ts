@@ -7,9 +7,9 @@ export class ModifySnatEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -21,7 +21,7 @@ export class ModifySnatEntryRequest extends $dara.Model {
    * 
    * - **true**: performs a dry run without modifying the SNAT entry. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): performs a dry run and sends the request. After the check succeeds, a 2xx HTTP status code is returned and the SNAT entry is modified.
+   * - **false** (default): sends the request. After the request passes the check, a 2xx HTTP status code is returned and the SNAT entry is modified.
    * 
    * @example
    * false
@@ -31,11 +31,11 @@ export class ModifySnatEntryRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable EIP affinity. Valid values:
    * 
-   * - **0**: disables EIP affinity.
+   * - **0**: Disables EIP affinity.
    * 
-   * - **1**: enables EIP affinity.
+   * - **1**: Enables EIP affinity.
    * 
-   * > After you enable EIP affinity, if the SNAT entry is associated with multiple EIPs or NAT IP addresses, the same client uses the same EIP or NAT IP address for access. Otherwise, the client randomly selects an EIP or NAT IP address from the associated ones for access.
+   * > After EIP affinity is enabled, if the SNAT entry is associated with multiple EIPs or NAT IP addresses, the same client uses the same EIP or NAT IP address for access. Otherwise, the client randomly selects an EIP or NAT IP address from the associated ones for access.
    * 
    * @example
    * 1
@@ -43,9 +43,9 @@ export class ModifySnatEntryRequest extends $dara.Model {
   eipAffinity?: number;
   /**
    * @remarks
-   * The ID of the elastic network interfaces (ENIs).
+   * The ID of the elastic network interface (ENI).
    * 
-   * > The IPv4 addresses of the network interface controller (NIC) are used as the SNAT addresses.
+   * > The IPv4 addresses of the ENI are used as the SNAT addresses.
    * 
    * @example
    * eni-gw8g131ef2dnbu3k****
@@ -89,11 +89,11 @@ export class ModifySnatEntryRequest extends $dara.Model {
   snatEntryName?: string;
   /**
    * @remarks
-   * - When you modify an SNAT entry for an Internet NAT gateway, this parameter specifies the EIPs in the SNAT entry. Separate multiple EIPs with commas (,).
+   * - When you modify a SNAT entry for an Internet NAT gateway, this parameter specifies the EIP in the SNAT entry. Separate multiple EIPs with commas (,).
    *  
-   * > When you specify multiple EIPs to allocate an SNAT IP IPAM pool, service traffic is distributed across the EIPs by using a hash algorithm. Because traffic varies across connections, service traffic may be unevenly distributed across the EIPs. Add all EIPs to the same Internet Shared Bandwidth instance to prevent service interruptions caused by bandwidth throttling on a single EIP.
+   * > When you allocate multiple EIPs to configure a SNAT IP address pool, connections are distributed across the EIPs by using a hash algorithm. Because the traffic volume of each connection varies, service traffic may be unevenly distributed across the EIPs. To prevent service interruptions caused by bandwidth limits on a single EIP, add all EIPs to the same Internet Shared Bandwidth instance.
    * 
-   * - When you modify an SNAT entry for a VPC NAT gateway, this parameter specifies the NAT IP addresses in the SNAT entry. Separate multiple NAT IP addresses with commas (,).
+   * - When you modify a SNAT entry for a VPC NAT gateway, this parameter specifies the NAT IP address in the SNAT entry. Separate multiple NAT IP addresses with commas (,).
    * 
    * - The SnatIp and NetworkInterfaceId parameters cannot be specified at the same time.
    * 

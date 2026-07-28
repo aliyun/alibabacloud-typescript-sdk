@@ -65,7 +65,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The bandwidth of the router interface. Unit: Mbit/s.
+   * The bandwidth of the router interface. Unit: Mbps.
    * 
    * @example
    * 2
@@ -73,11 +73,13 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The status of the router interface. Valid values:
+   * The business status of the router interface. Valid values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
-   * *   **SecurityLocked**
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: locked due to overdue payment.
+   * 
+   * - **SecurityLocked**: locked due to security risk control.
    * 
    * @example
    * Normal
@@ -87,8 +89,8 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   **AfterPay**: pay-as-you-go
-   * *   **PrePaid**: subscription
+   * - **AfterPay**: pay-as-you-go.
+   * - **PrePaid**: subscription.
    * 
    * @example
    * AfterPay
@@ -122,8 +124,9 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the connection is a cross-border connection. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: The connection is not a cross-border connection.
+   * 
+   * - **true**: The connection is a cross-border connection.
    * 
    * @example
    * false
@@ -139,7 +142,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The end of the time range during which data was queried.
+   * The end time of the data retrieval.
    * 
    * @example
    * 2999-09-08T16:00:00Z
@@ -147,16 +150,14 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
+   * Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on the VBR and VPC to be automatically connected after they are created. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: The router interface was created in fast link mode.
+   * - **false** (default): The router interface was not created in fast link mode.
    * 
-   * > 
    * 
-   * *   This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
-   * 
-   * *   When **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**. **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
+   * > -  This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
+   * - When **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**, and **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
    * 
    * @example
    * false
@@ -164,7 +165,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   fastLinkMode?: string;
   /**
    * @remarks
-   * The time when the router interface was modified.
+   * The time when the router interface was last modified.
    * 
    * @example
    * 2022-04-28T10:02:12Z
@@ -172,10 +173,11 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether renewal data is included. Valid values:
+   * Indicates whether renewal data exists. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: No renewal data exists.
+   * 
+   * - **true**: Renewal data exists.
    * 
    * @example
    * false
@@ -183,7 +185,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   hasReservationData?: string;
   /**
    * @remarks
-   * The rate of health checks. Unit: seconds. The value indicates the interval at which probe packets are sent during a health check.
+   * The health check rate. Unit: seconds. This value indicates the interval between consecutive probe packets sent during a health check.
    * 
    * @example
    * 2
@@ -191,7 +193,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   hcRate?: number;
   /**
    * @remarks
-   * The healthy threshold. This value indicates the number of probe packets that are sent during a health check. Unit: packets.
+   * The health check threshold. This value indicates the number of probe packets sent during a health check. Unit: packets.
    * 
    * @example
    * 8
@@ -199,7 +201,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   hcThreshold?: number;
   /**
    * @remarks
-   * The source IP address that is used for the health check.
+   * The source IP address of the health check.
    * 
    * @example
    * 1.1.XX.XX
@@ -207,12 +209,12 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   healthCheckSourceIp?: string;
   /**
    * @remarks
-   * The status of the health check. Valid values:
+   * The health check status. Valid values:
    * 
-   * *   **Abnormal**
-   * *   **Normal**
-   * *   **NoRedundantRoute**
-   * *   **NoHealthCheckConfig**
+   * - **Abnormal**: abnormal.
+   * - **Normal**: Normal.
+   * - **NoRedundantRoute**: no redundant route configured.
+   * - **NoHealthCheckConfig**: no health check configured.
    * 
    * @example
    * normal
@@ -220,7 +222,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   healthCheckStatus?: string;
   /**
    * @remarks
-   * The destination IP address that is used for the health check.
+   * The target IP address of the health check.
    * 
    * @example
    * 2.2.XX.XX
@@ -228,7 +230,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   healthCheckTargetIp?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The response message.
    * 
    * @example
    * successful
@@ -252,7 +254,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   oppositeAccessPointId?: string;
   /**
    * @remarks
-   * The maximum bandwidth of the peer router interface. Unit: Mbit/s.
+   * The bandwidth of the peer router interface. Unit: Mbps.
    * 
    * @example
    * 0
@@ -260,11 +262,10 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   oppositeBandwidth?: number;
   /**
    * @remarks
-   * The service status of the peer router interface. Valid values:
-   * 
-   * *   **Normal**
-   * *   **FinancialLocked**
-   * *   **SecurityLocked**
+   * The business status of the peer router interface. Valid values:
+   * - **Normal**: Normal.
+   * - **FinancialLocked**: locked due to overdue payment.
+   * - **SecurityLocked**: locked due to security risk control.
    * 
    * @example
    * Normal
@@ -280,7 +281,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   oppositeInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the peer router interface belongs.
+   * The ID of the account to which the peer router interface belongs.
    * 
    * @example
    * 1321932713****
@@ -290,19 +291,19 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The specification of the peer router interface. Valid values:
    * 
-   * *   **Mini.2**: 2 Mbit/s
-   * *   **Mini.5**: 5 Mbit/s
-   * *   **Small.1**: 10 Mbit/s
-   * *   **Small.2**: 20 Mbit/s
-   * *   **Small.5**: 50 Mbit/s
-   * *   **Middle.1**: 100 Mbit/s
-   * *   **Middle.2**: 200 Mbit/s
-   * *   **Middle.5**: 500 Mbit/s
-   * *   **Large.1**: 1,000 Mbit/s
-   * *   **Large.2**: 2,000 Mbit/s
-   * *   **Large.5**: 5,000 Mbit/s
-   * *   **Xlarge.1**: 10,000 Mbit/s
-   * *   **Negative**: not applicable
+   * - **Mini.2**: 2 Mbps
+   * - **Mini.5**: 5 Mbps
+   * - **Small.1**: 10 Mbps
+   * - **Small.2**: 20 Mbps
+   * - **Small.5**: 50 Mbps
+   * - **Middle.1**: 100 Mbps
+   * - **Middle.2**: 200 Mbps
+   * - **Middle.5**: 500 Mbps
+   * - **Large.1**: 1000 Mbps
+   * - **Large.2**: 2000 Mbps
+   * - **Large.5**: 5000 Mbps
+   * - **Xlarge.1**: 10000 Mbps
+   * - **Negative**: no specification involved.
    * 
    * @example
    * Negative
@@ -312,16 +313,16 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the peer router interface. Valid values:
    * 
-   * *   **Idle**
-   * *   **AcceptingConnecting**
-   * *   **Connecting**
-   * *   **Activating**
-   * *   **Active**
-   * *   **Modifying**
-   * *   **Deactivating**
-   * *   **Inactive**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Idle**: not connected.
+   * - **AcceptingConnecting**: accepting a connection.
+   * - **Connecting**: connecting.
+   * - **Activating**: being activated.
+   * - **Active**: activated.
+   * - **Modifying**: being modified.
+   * - **Deactivating**: being frozen.
+   * - **Inactive**: frozen.
+   * - **Deleting**: being deleted.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Active
@@ -347,8 +348,8 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The type of the router to which the peer router interface belongs. Valid values:
    * 
-   * *   **VRouter**
-   * *   **VBR**
+   * - **VRouter**: vRouter of a VPC.
+   * - **VBR**: Virtual Border Router.
    * 
    * @example
    * VRouter
@@ -372,7 +373,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the renewal takes effect.
+   * The renewal active time.
    * 
    * @example
    * 2022-06-11T16:00:00Z
@@ -380,7 +381,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   reservationActiveTime?: string;
   /**
    * @remarks
-   * The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
+   * The renewal bandwidth. Unit: Mbps.
    * 
    * @example
    * 100
@@ -388,7 +389,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   reservationBandwidth?: string;
   /**
    * @remarks
-   * The metering method that is used after the renewal takes effect. Valid values: If **PayByBandwidth** is returned, it indicates that the Express Connect circuit is billed on a pay-by-bandwidth basis.
+   * The renewal billing type. Valid values: **PayByBandwidth**, which indicates pay-by-bandwidth.
    * 
    * @example
    * PayByBandwidth
@@ -396,7 +397,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   reservationInternetChargeType?: string;
   /**
    * @remarks
-   * The type of the renewal order. Only **RENEW** may be returned, which indicates that the order is placed for service renewal.
+   * The type of the renewal order. Valid values: **RENEW**, which indicates a renewal order.
    * 
    * @example
    * RENEW
@@ -406,7 +407,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The resource group ID.
    * 
-   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -414,7 +415,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The role of the router interface in the peering connection.
+   * The role in the peering connection.
    * 
    * @example
    * InitiatingSide
@@ -440,8 +441,9 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The type of the router to which the route table belongs. Valid values:
    * 
-   * *   **VRouter**
-   * *   **VBR**
+   * - **VRouter**: vRouter of a VPC.
+   * 
+   * - **VBR**: Virtual Border Router.
    * 
    * @example
    * VRouter
@@ -451,18 +453,18 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The specification of the router interface. Valid values:
    * 
-   * *   **Mini.2**: 2 Mbit/s
-   * *   **Mini.5**: 5 Mbit/s
-   * *   **Small.1**: 10 Mbit/s
-   * *   **Small.2**: 20 Mbit/s
-   * *   **Small.5**: 50 Mbit/s
-   * *   **Middle.1**: 100 Mbit/s
-   * *   **Middle.2**: 200 Mbit/s
-   * *   **Middle.5**: 500 Mbit/s
-   * *   **Large.1**: 1,000 Mbit/s
-   * *   **Large.2**: 2,000 Mbit/s
-   * *   **Large.5**: 5,000 Mbit/s
-   * *   **Xlarge.1**: 10,000 Mbit/s
+   * - **Mini.2**: 2 Mbps
+   * - **Mini.5**: 5 Mbps
+   * - **Small.1**: 10 Mbps
+   * - **Small.2**: 20 Mbps
+   * - **Small.5**: 50 Mbps
+   * - **Middle.1**: 100 Mbps
+   * - **Middle.2**: 200 Mbps
+   * - **Middle.5**: 500 Mbps
+   * - **Large.1**: 1000 Mbps
+   * - **Large.2**: 2000 Mbps
+   * - **Large.5**: 5000 Mbps
+   * - **Xlarge.1**: 10000 Mbps
    * 
    * @example
    * Mini.2
@@ -472,15 +474,15 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the router interface. Valid values:
    * 
-   * *   **Idle**
-   * *   **AcceptingConnecting**
-   * *   **Connecting**
-   * *   **Activating**
-   * *   **Active**
-   * *   **Modifying**
-   * *   **Deactivating**
-   * *   **Inactive**
-   * *   **Deleting**
+   * - **Idle**: not connected.
+   * - **AcceptingConnecting**: accepting a connection.
+   * - **Connecting**: connecting.
+   * - **Activating**: being activated.
+   * - **Active**: activated.
+   * - **Modifying**: being modified.
+   * - **Deactivating**: being frozen.
+   * - **Inactive**: frozen.
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Active
@@ -488,7 +490,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values: true and false.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -497,7 +499,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   tags?: DescribeRouterInterfaceAttributeResponseBodyTags;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the router interface belongs.
+   * The ID of the virtual private cloud (VPC) to which the routing interface belongs.
    * 
    * @example
    * vpc-bp1b49rqrybk45nio****

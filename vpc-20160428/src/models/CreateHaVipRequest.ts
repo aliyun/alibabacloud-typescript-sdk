@@ -7,7 +7,7 @@ export class CreateHaVipRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class CreateHaVipRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class CreateHaVipRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -73,7 +73,7 @@ export class CreateHaVipRequest extends $dara.Model {
    * @remarks
    * The IP address of the HAVIP.
    * 
-   * The specified IP address must be an idle IP address in vSwitch CIDR block of the vSwitch. If you do not specify this parameter, an idle IP address is randomly assigned from vSwitch CIDR block of the specified vSwitch.
+   * The specified IP address must be an idle IP address within vSwitch CIDR block of the vSwitch. If you do not specify this parameter, an idle IP address is randomly assigned from vSwitch CIDR block of the specified vSwitch.
    * 
    * @example
    * 192.XX.XX.10

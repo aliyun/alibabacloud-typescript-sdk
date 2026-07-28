@@ -41,9 +41,9 @@ export class AllocateIpv6InternetBandwidthRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run without associating a prefix list with a route table. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned. The system does not associate a prefix list with a route table.
    * 
-   * - **false** (default): sends a normal request. If the check succeeds, a 2xx HTTP status code is returned and the prefix list is associated with the route table.
+   * - **false** (default): sends a normal request. After the request passes the check, a 2xx HTTP status code is returned and the system associates the prefix list with a route table. The system checks whether the AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether the required parameters are specified.
    * 
    * @example
    * false
@@ -51,7 +51,7 @@ export class AllocateIpv6InternetBandwidthRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The billing method for IPv6 Internet bandwidth. Valid values:
+   * The billable methods of the IPv6 Internet bandwidth. Valid values:
    * 
    * <props="china">
    * 

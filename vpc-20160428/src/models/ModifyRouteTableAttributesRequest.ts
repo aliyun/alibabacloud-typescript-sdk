@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRouteTableAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the route table.
+   * The description of the route table.  
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * 描述信息
@@ -17,9 +17,9 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the virtual private cloud (VPC) to which the custom route table belongs.
+   * The region ID of the VPC to which the route table belongs. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,10 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Indicates whether to enable route propagation to receive dynamic routes. Valid values:
+   * Specifies whether to receive dynamic routes by enabling or disabling route propagation. Valid values:
    * 
-   * - **true** (default): enables route propagation.
-   * 
-   * - **false**: disables route propagation.
+   * - **true** (default): enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -56,7 +55,7 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The name of the route table.
+   * The name of the route table.  
    * 
    * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 

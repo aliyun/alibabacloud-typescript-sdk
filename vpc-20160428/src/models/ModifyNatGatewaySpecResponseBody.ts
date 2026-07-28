@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNatGatewaySpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DBD4E4A2-786E-4BD2-8EB6-107FFC2B5B7D

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class DiagnoseVpnConnectionsRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -39,12 +39,12 @@ export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   tunnelIds?: string[];
   /**
    * @remarks
-   * The IDs of IPsec-VPN connections.
+   * The list of IPsec-VPN connection IDs.
    */
   vpnConnectionIds?: string[];
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * @example
    * vpn-bp10hz6b0mbp39flt****

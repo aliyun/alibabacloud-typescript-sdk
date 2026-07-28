@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model {
   /**
    * @remarks
-   * The SSL client certificate used by the client to establish the SSL-VPN connection to Alibaba Cloud.
+   * The SSL client certificate used when the client establishes an SSL-VPN connection to Alibaba Cloud.
    * 
-   * > If the client uses two-factor identity authentication to establish the SSL-VPN connection to Alibaba Cloud, the value of this parameter is the username of the client.
+   * > If the client uses two-factor identity authentication to establish an SSL-VPN connection to Alibaba Cloud, the value of this parameter is the username of the client.
    * 
    * @example
    * CN=vsc-gw8gkh6gtilf1whgc****
@@ -15,9 +15,9 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   commonName?: string;
   /**
    * @remarks
-   * The timestamp when the client established the SSL-VPN connection to Alibaba Cloud. Unit: milliseconds.
+   * The timestamp when the client establishes an SSL-VPN connection to Alibaba Cloud. Unit: milliseconds.
    * 
-   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the SSL-VPN connection was established.
+   * The timestamp is in the UNIX format and represents the total duration from 00:00:00 on January 1, 1970 (UTC) to the time when the SSL-VPN connection is established.
    * 
    * @example
    * 1670985008000
@@ -25,7 +25,7 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   connectedTime?: number;
   /**
    * @remarks
-   * The public IP address that the client used to establish the SSL-VPN connection to Alibaba Cloud.
+   * The public IP address that the client uses when establishing an SSL-VPN connection to Alibaba Cloud.
    * 
    * @example
    * 8.XX.XX.15
@@ -33,7 +33,7 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   ip?: string;
   /**
    * @remarks
-   * The port number that the client used to establish the SSL-VPN connection to Alibaba Cloud.
+   * The port number that the client uses when establishing an SSL-VPN connection to Alibaba Cloud.
    * 
    * @example
    * 4****
@@ -41,7 +41,7 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   port?: string;
   /**
    * @remarks
-   * The private IP address that the VPN gateway assigned to the client when the client established an SSL-VPN connection to Alibaba Cloud.
+   * The private IP address that the VPN gateway assigns to the client when the client establishes an SSL-VPN connection to Alibaba Cloud.
    * 
    * @example
    * 10.10.10.10
@@ -49,7 +49,7 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   privateIp?: string;
   /**
    * @remarks
-   * The traffic that the VPN gateway received from the client over the SSL-VPN connection. Unit: bytes.
+   * The traffic that the VPN gateway receives from the client over the SSL-VPN connection. Unit: bytes.
    * 
    * @example
    * 60782
@@ -57,7 +57,7 @@ export class DescribeSslVpnClientsResponseBodyClientInfoList extends $dara.Model
   receiveBytes?: number;
   /**
    * @remarks
-   * The traffic that the VPN gateway sent to the client over the SSL-VPN connection. Unit: bytes.
+   * The traffic that the VPN gateway sends to the client over the SSL-VPN connection. Unit: bytes.
    * 
    * @example
    * 57144

@@ -21,7 +21,7 @@ export class TransformEipSegmentToPublicIpAddressPoolResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID of the IP address pool.
+   * The ID of the resource group to which the IP address pool belongs.
    * 
    * @example
    * rg-acfmxazb4pcdvf****

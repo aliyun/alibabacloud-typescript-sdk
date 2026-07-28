@@ -7,7 +7,7 @@ export class DescribeSslVpnClientCertRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SSL client certificate. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the SSL client certificate to query. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSslVpnClientCertRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SSL client certificate that you want to query.
+   * The ID of the SSL client certificate to query.
    * 
    * This parameter is required.
    * 

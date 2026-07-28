@@ -31,7 +31,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
    * @remarks
    * The IKE negotiation mode. Valid values:
    * 
-   * **main**: This mode offers higher security during negotiations.
+   * **main**: main mode. Negotiations are highly secure.
    * 
    * @example
    * main
@@ -55,7 +55,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
   ikeVersion?: string;
   /**
    * @remarks
-   * The ID of the IPsec server. The default value is the public IP address of the VPN gateway. Both FQDNs and IP addresses are supported.
+   * The identifier of the IPsec server. FQDN and IP address formats are supported. The default value is the public IP address of the selected VPN gateway.
    * 
    * @example
    * 116.64.XX.XX
@@ -63,7 +63,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
   localId?: string;
   /**
    * @remarks
-   * The identifier of the customer gateway. Both fully qualified domain names (FQDNs) and IP addresses are supported. By default, this parameter is empty.
+   * The identifier of the peer. FQDN and IP address formats are supported. The default value is empty.
    * 
    * @example
    * 139.67.XX.XX
@@ -167,7 +167,7 @@ export class ListIpsecServersResponseBodyIpsecServersIpsecConfig extends $dara.M
 export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   /**
    * @remarks
-   * The client CIDR block. It refers to the CIDR block that is allocated to the virtual interface of the client.
+   * The client CIDR block, which is the CIDR block from which IP addresses are assigned to the virtual network interface controllers (NICs) of clients.
    * 
    * @example
    * 10.0.0.0/24
@@ -177,7 +177,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
    * @remarks
    * The time when the IPsec server was created.
    * 
-   * T is used as a delimiter. Z indicates that the time is in UTC.
+   * T is the delimiter. Z indicates UTC.
    * 
    * @example
    * 2018-12-03T10:11:55Z
@@ -185,10 +185,11 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated. Valid values:
+   * Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated.
    * 
-   * *   **true**: immediately initiates negotiations after the configuration is completed.
-   * *   **false**: initiates negotiations when inbound traffic is detected.
+   * - **true**: Negotiations are reinitiated after the configuration is complete.
+   * 
+   * - **false**: Negotiations are reinitiated when traffic is detected.
    * 
    * @example
    * false
@@ -196,7 +197,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   effectImmediately?: boolean;
   /**
    * @remarks
-   * The ID of the IDaaS instance.
+   * The instance ID of IDaaS.
    * 
    * @example
    * idaas-cn-hangzhou-****
@@ -222,7 +223,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   ipsecConfig?: ListIpsecServersResponseBodyIpsecServersIpsecConfig;
   /**
    * @remarks
-   * The IPsec server ID.
+   * The ID of the IPsec server.
    * 
    * @example
    * iss-bp1bo3xuvcxo7ixll****
@@ -238,7 +239,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   ipsecServerName?: string;
   /**
    * @remarks
-   * The local CIDR blocks, which refer to the CIDR blocks on the virtual private cloud (VPC) side.
+   * The local CIDR block, which is the VPC-side CIDR block that needs to communicate with the client CIDR block.
    * 
    * @example
    * 192.168.0.0/16,172.17.0.0/16
@@ -246,9 +247,8 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   localSubnet?: string;
   /**
    * @remarks
-   * The number of SSL-VPN connections supported by the VPN gateway.
-   * 
-   * >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, you have five SSL-VPN connections and three SSL clients occupy three SSL-VPN connections. In this case, two clients can connect to the IPsec server.
+   * The maximum number of SSL-VPN connections supported by the VPN gateway.
+   * > SSL-VPN and the IPsec server share SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
    * 
    * @example
    * 5
@@ -256,10 +256,11 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * Indicates whether two-factor authentication is enabled. Valid values:
+   * Indicates whether two-factor authentication is enabled.
    * 
-   * *   **true**
-   * *   **false**: The feature is disabled.
+   * - **true**: Two-factor authentication is enabled.
+   * 
+   * - **false**: Two-factor authentication is disabled.
    * 
    * @example
    * true
@@ -283,7 +284,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   psk?: string;
   /**
    * @remarks
-   * Indicates whether pre-shared key authentication is enabled. Only **true** may be returned, which indicates that pre-shared key authentication is enabled.
+   * Indicates whether pre-shared key authentication is enabled. The value is **true**, which indicates that pre-shared key authentication is enabled.
    * 
    * @example
    * true
@@ -291,7 +292,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   pskEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the region where the IPsec server is created.
+   * The region ID of the IPsec server.
    * 
    * @example
    * cn-hangzhou
@@ -301,7 +302,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPsec server belongs.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -384,7 +385,7 @@ export class ListIpsecServersResponseBody extends $dara.Model {
   ipsecServers?: ListIpsecServersResponseBodyIpsecServers[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -392,10 +393,11 @@ export class ListIpsecServersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next queries are sent.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If **NextToken** is empty, no subsequent query is to be sent.
+   * 
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

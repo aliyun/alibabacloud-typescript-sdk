@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVirtualBorderRouterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -13,7 +13,7 @@ export class CreateVirtualBorderRouterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the VBR.
+   * The instance ID of the VBR.
    * 
    * @example
    * vbr-bp1jcg5cmxjbl9xgc****

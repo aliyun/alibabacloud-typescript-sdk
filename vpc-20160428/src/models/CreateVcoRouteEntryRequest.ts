@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVcoRouteEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the destination-based route.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Only **published** is returned, which indicates that the current route is published to the transit router.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -15,10 +17,7 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The weight of the destination-based route. Valid values:
-   * 
-   * *   **0**: a low priority.
-   * *   **100**: a high priority.
+   * The description of the destination route entry.
    * 
    * @example
    * desctest
@@ -26,10 +25,9 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck the request. Valid values:
-   * 
-   * *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -37,7 +35,7 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The next hop of the destination-based route.
+   * The next hop of the destination route entry.
    * 
    * This parameter is required.
    * 
@@ -47,9 +45,7 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol.
-   * 
-   * The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+   * The tunneling protocol. Set the value to **Ipsec** (default), which specifies the IPsec tunneling protocol.
    * 
    * @example
    * Ipsec
@@ -58,11 +54,9 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   ownerAccount?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The region ID of the IPsec-VPN connection.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-   * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -74,7 +68,7 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the IPsec-VPN connection.
+   * The destination CIDR block of the destination route entry.
    * 
    * This parameter is required.
    * 
@@ -84,7 +78,7 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   routeDest?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The ID of the IPsec-VPN connection.
    * 
    * This parameter is required.
    * 
@@ -94,7 +88,10 @@ export class CreateVcoRouteEntryRequest extends $dara.Model {
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The destination CIDR block of the destination-based route.
+   * The weight of the destination route entry. Valid values:
+   * 
+   * - **0**: low priority.
+   * - **100**: high priority.
    * 
    * This parameter is required.
    * 

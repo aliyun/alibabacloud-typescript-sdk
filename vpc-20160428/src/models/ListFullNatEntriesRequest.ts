@@ -7,9 +7,9 @@ export class ListFullNatEntriesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -17,7 +17,7 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the FULLNAT entry that you want to query.
+   * The ID of the FULLNAT entry to query.
    * 
    * @example
    * fullnat-gw8fz23jezpbblf1j****
@@ -25,16 +25,16 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   fullNatEntryId?: string;
   /**
    * @remarks
-   * The name of the FULLNAT entry that you want to query. You can specify at most 20 names.
+   * The names of the FULLNAT entries to query. You can specify up to 20 names.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). The name must start with a letter or Chinese character.
    */
   fullNatEntryNames?: string[];
   /**
    * @remarks
-   * The ID of the FULLNAT table to which the FULLNAT entries to be queried belong.
+   * The ID of the FULLNAT table to which the FULLNAT entries belong.
    * 
-   * >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
+   * > You must specify at least one of **FullNatTableId** and **NatGatewayId**.
    * 
    * @example
    * fulltb-gw88z7hhlv43rmb26****
@@ -42,10 +42,10 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   fullNatTableId?: string;
   /**
    * @remarks
-   * The protocol of the packets that are forwarded by the port. Valid values:
+   * The protocol type of the Redirection Port. Valid values:
    * 
-   * *   **TCP**
-   * *   **UDP**
+   * - **TCP**: forwards TCP packets.
+   * - **UDP**: forwards UDP packets.
    * 
    * @example
    * TCP
@@ -53,7 +53,7 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -61,9 +61,9 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT gateway to query.
    * 
-   * >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
+   * > You must specify at least one of **FullNatTableId** and **NatGatewayId**.
    * 
    * @example
    * ngw-bp1uewa15k4iy5770****
@@ -71,7 +71,7 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The NAT IP address that provides address translation in FULLNAT entries.
+   * The NAT IP address in the FULLNAT entry to query.
    * 
    * @example
    * 10.0.XX.XX
@@ -79,7 +79,7 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   natIp?: string;
   /**
    * @remarks
-   * The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
+   * The frontend port in the FULLNAT entry to query. Valid values: 1 to 65535.
    * 
    * @example
    * 443
@@ -87,15 +87,15 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   natIpPort?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI) that you want to query.
+   * The IDs of the elastic network interfaces (ENIs) to query.
    */
   networkInterfaceIds?: string[];
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
+   * - You do not need to specify this parameter for the first request or if no next query exists.
+   * - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -105,7 +105,7 @@ export class ListFullNatEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the virtual private cloud (VPC) NAT gateway to which the FULLNAT entries to be queried belong.
+   * The region ID of the VPC NAT gateway to which the FULLNAT entries belong.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 

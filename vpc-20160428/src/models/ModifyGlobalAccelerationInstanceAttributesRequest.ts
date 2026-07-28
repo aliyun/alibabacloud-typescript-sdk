@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the GA instance.
+   * The description of the Alibaba Cloud Global Accelerator (GA) instance.  
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
    * My GA
@@ -15,7 +15,7 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The name of the GA instance.
+   * The name of the Alibaba Cloud Global Accelerator (GA) instance.  
    * 
-   * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
    * GA-1
@@ -37,9 +37,9 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the GA instance.
+   * The region where the Alibaba Cloud Global Accelerator (GA) instance is located. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

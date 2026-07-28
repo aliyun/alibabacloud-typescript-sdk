@@ -27,7 +27,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
    * The next hop type. Valid values:
    * 
    * - **Instance** (default): ECS instance.
-   * - **HaVip**: high-availability virtual IP address (HaVip).
+   * - **HaVip**: high-availability virtual IP address.
    * - **VpnGateway**: VPN gateway.
    * - **NatGateway**: NAT gateway.
    * - **NetworkInterface**: secondary elastic network interfaces (ENIs).
@@ -128,7 +128,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   nextHops?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops[];
   /**
    * @remarks
-   * The status of the route entry.
+   * The status of the route entry. Valid values:
    * 
    * - **Pending**: being configured.
    * - **Available**: available.
@@ -177,7 +177,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
 export class ListGatewayRouteTableEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of route entries in the gateway route table.
+   * The details of the route entries in the gateway route table.
    */
   gatewayRouteEntryModels?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels[];
   /**

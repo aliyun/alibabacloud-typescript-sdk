@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateFlowLogRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -83,6 +83,7 @@ export class CreateFlowLogRequest extends $dara.Model {
    * IPv4
    */
   ipVersion?: string;
+  logFormat?: string;
   /**
    * @remarks
    * The name of the Logstore that stores the captured traffic.
@@ -127,7 +128,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource from which to capture traffic.
+   * The ID of the resource whose traffic you want to capture.
    * 
    * This parameter is required.
    * 
@@ -139,7 +140,7 @@ export class CreateFlowLogRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of resource from which to capture traffic. Valid values:
+   * The type of the resource whose traffic you want to capture. Valid values:
    * 
    * - **NetworkInterface**: network interface controller (NIC).
    *   
@@ -188,6 +189,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       description: 'Description',
       flowLogName: 'FlowLogName',
       ipVersion: 'IpVersion',
+      logFormat: 'LogFormat',
       logStoreName: 'LogStoreName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -210,6 +212,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       description: 'string',
       flowLogName: 'string',
       ipVersion: 'string',
+      logFormat: 'string',
       logStoreName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

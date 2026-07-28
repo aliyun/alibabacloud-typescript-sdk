@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouterInterfaceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the router interface.
+   * The ID of the router interface to query.
    * 
    * This parameter is required.
    * 
@@ -16,9 +16,9 @@ export class DescribeRouterInterfaceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the router interface belongs.
+   * The region ID of the router interface.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

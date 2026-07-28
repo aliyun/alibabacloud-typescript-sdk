@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetPublicIpAddressPoolServiceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the IP address pool feature is enabled. Valid values:
+   * Indicates whether the IP address pool feature is activated. Valid values:
    * 
-   * *   **true**
-   * *   **false** You can call OpenPublicIpAddressPoolService to enable the IP address pool feature.
+   * - **true**: activated.
+   * 
+   * - **false**: not activated. You can call the OpenPublicIpAddressPoolService operation to activate the IP address pool feature.
    * 
    * @example
    * true

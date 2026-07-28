@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
@@ -13,10 +13,11 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The operation is successful.
+   * 
+   * - **false**: The operation failed.
    * 
    * @example
    * true

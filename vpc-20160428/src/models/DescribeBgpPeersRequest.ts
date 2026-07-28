@@ -21,10 +21,12 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   bgpPeerId?: string;
   /**
    * @remarks
-   * Specifies whether the BGP group is the default group. Valid values:
+   * Specifies whether the BGP group is the default BGP group. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * 
+   * - **true**: The BGP group is the default BGP group.
+   * 
+   * - **false**: The BGP group is not the default BGP group.
    * 
    * @example
    * false
@@ -34,7 +36,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -42,7 +44,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -50,9 +52,9 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the BGP group to which the BGP peer that you want to query belongs.
+   * The region ID of the BGP group to which the BGP peer that you want to query belongs. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -64,7 +66,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual border router (VBR) that is associated with the BGP peer that you want to query.
+   * The ID of the Virtual Border Router (VBR) associated with the BGP peer that you want to query.
    * 
    * @example
    * vbr-2zecmmvg5gvu8i4te****

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyIPv6TranslatorBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-payment for the instance. Valid values:
+   * Specifies whether to automatically pay the bill for the subscription instance. Valid values: 
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**
+   * 
+   * - **false** (default)
    * 
    * @example
    * false
@@ -16,7 +17,7 @@ export class ModifyIPv6TranslatorBandwidthRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The maximum bandwidth of the IPv6 Translation Service instance. Valid values: **1** to **200**. Unit: Mbit/s.
+   * The peak bandwidth of the IPv6 Translation Service instance. Valid values: **1** to **200**. Unit: Mbit/s.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class ModifyIPv6TranslatorBandwidthRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -36,7 +37,7 @@ export class ModifyIPv6TranslatorBandwidthRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the IPv6 Translation Service instance.
+   * The instance ID of the IPv6 transform service.
    * 
    * This parameter is required.
    * 
@@ -48,7 +49,7 @@ export class ModifyIPv6TranslatorBandwidthRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+   * The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query region IDs.
    * 
    * This parameter is required.
    * 

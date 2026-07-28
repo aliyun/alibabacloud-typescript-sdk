@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrafficMirrorSessionsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListTrafficMirrorSessionsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,10 +49,11 @@ export class ListTrafficMirrorSessionsRequestTags extends $dara.Model {
 export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the traffic mirror session. Valid values:
+   * Specifies whether the traffic mirror session is enabled. Valid values:
    * 
-   * *   **false**: does not enable the traffic mirror session.
-   * *   **true**: enables the traffic mirror session.
+   * - **false** (default): The traffic mirror session is not enabled.
+   * 
+   * - **true**: The traffic mirror session is enabled.
    * 
    * @example
    * false
@@ -60,7 +61,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return. Valid values: **1** to **100**. Default value: **10**.
+   * The maximum number of entries to return in this query. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -68,10 +69,9 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - You do not need to specify this parameter for the first request or if no next query exists.
+   * - If a next query exists, set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -81,9 +81,9 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The priority of the traffic mirror session. Valid values: **1** to **32766**.
+   * The priority of traffic mirror session. Valid values: **1** to **32766**.
    * 
-   * A smaller value indicates a higher priority. You cannot specify identical priorities for traffic mirror sessions that are created in the same region by using the same account.
+   * A smaller value indicates a higher priority. The priority of traffic mirror session created by the same account in the same region must be unique.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
+   * The region ID of the traffic mirror session. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID. For information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the mirrored traffic belongs.
+   * The ID of the resource group to which the traffic mirroring session belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -111,12 +111,12 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tags.
    */
   tags?: ListTrafficMirrorSessionsRequestTags[];
   /**
    * @remarks
-   * The ID of the traffic mirror filter.
+   * The instance ID of the traffic mirror filter.
    * 
    * @example
    * tmf-j6cmls82xnc86vtpe****
@@ -124,7 +124,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   trafficMirrorFilterId?: string;
   /**
    * @remarks
-   * The IDs of the traffic mirror session. The maximum value of N is 100, which indicates that you can query up to 100 traffic mirror sessions at a time.
+   * The instance IDs of traffic mirror sessions. The maximum value of **N** is **100**, which means you can query up to 100 traffic mirror sessions.
    * 
    * @example
    * tms-j6cla50buc44ap8tu****
@@ -134,7 +134,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
    * @remarks
    * The name of the traffic mirror session.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * abc
@@ -142,7 +142,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   trafficMirrorSessionName?: string;
   /**
    * @remarks
-   * The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the mirror source.
+   * The instance ID of the traffic mirror source. Currently, elastic network interfaces (ENIs) are supported as traffic mirror sources.
    * 
    * @example
    * eni-j6c8znm5l1yt4sox*****
@@ -150,7 +150,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   trafficMirrorSourceId?: string;
   /**
    * @remarks
-   * The ID of the traffic mirror destination. You can specify only an ENI or a Server Load Balancer (SLB) instance as a traffic mirror destination.
+   * The instance ID of the traffic mirror destination. Currently, elastic network interfaces (ENIs) and internal-facing SLB instances are supported as traffic mirror destinations. Elastic network interfaces are also referred to as network interface controllers (NICs).
    * 
    * @example
    * eni-j6c2fp57q8rr47rp****
@@ -158,7 +158,7 @@ export class ListTrafficMirrorSessionsRequest extends $dara.Model {
   trafficMirrorTargetId?: string;
   /**
    * @remarks
-   * The VXLAN network identifier (VNI) that is used to distinguish different mirrored traffic. Valid values: **0** to **16777215**. You can use VNIs to identify mirrored traffic from different sessions at the traffic mirror destination. You can specify a custom VNI or use a random VNI that is allocated by the system. If you want the system to randomly allocate a VNI, ignore this parameter.
+   * The Virtual Network Identifier (VNI) used to distinguish different mirrored data. Valid values: **0** to **16777215**. You can use the VNI to identify mirrored data from different sessions at the traffic mirror destination. You can specify a custom VNI value or let the system randomly assign one. To let the system randomly assign a value, do not specify this parameter.
    * 
    * @example
    * 10

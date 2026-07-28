@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatIpResponseBodyNatIps extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 prefix in the list of NAT IP addresses created by using an IPv4 prefix.
+   * The IPv4 prefix in the NAT IP address list returned when an IPv4 prefix is created.
    * 
    * @example
    * 192.168.1.128/28
@@ -16,7 +16,7 @@ export class CreateNatIpResponseBodyNatIps extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
-   * The NAT IP address in the list of NAT IP addresses created by using an IPv4 prefix.
+   * The NAT IP address in the NAT IP address list returned when an IPv4 prefix is created.
    * 
    * @example
    * 192.168.2.128
@@ -24,7 +24,7 @@ export class CreateNatIpResponseBodyNatIps extends $dara.Model {
   natIp?: string;
   /**
    * @remarks
-   * The NAT IP address ID in the list of NAT IP addresses created by using an IPv4 prefix.
+   * The ID of the NAT IP address in the NAT IP address list returned when an IPv4 prefix is created.
    * 
    * @example
    * vpcnatip-xxxxxxxx
@@ -66,7 +66,7 @@ export class CreateNatIpResponseBody extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
-   * The created NAT IP address.
+   * The NAT IP address that is created.
    * 
    * @example
    * 192.168.0.34
@@ -74,7 +74,7 @@ export class CreateNatIpResponseBody extends $dara.Model {
   natIp?: string;
   /**
    * @remarks
-   * The instance ID of the created NAT IP address.
+   * The instance ID of the NAT IP address that is created.
    * 
    * @example
    * vpcnatip-gw8y7q3cpk3fggs8****
@@ -82,7 +82,7 @@ export class CreateNatIpResponseBody extends $dara.Model {
   natIpId?: string;
   /**
    * @remarks
-   * The NAT IP address information returned after the NAT IP address is created. When you create a NAT IP address by using an IPv4 prefix, all NAT IP address information is returned. When you create a single NAT IP address, we recommend that you use this parameter to obtain the NAT IP address information.
+   * The NAT IP address information returned after creation. When you create NAT IP addresses by using an IPv4 prefix, all NAT IP address information is returned. When you create a single NAT IP address, we recommend that you use this parameter to obtain the NAT IP address information.
    */
   natIps?: CreateNatIpResponseBodyNatIps[];
   /**

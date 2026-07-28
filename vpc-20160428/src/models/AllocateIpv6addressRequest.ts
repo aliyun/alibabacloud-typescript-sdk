@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateIpv6AddressRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. Do not pass in an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string.
    * 
-   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class AllocateIpv6AddressRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. You can pass in an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with aliyun or acs:, or contain http:// or https://.
+   * The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -52,7 +52,7 @@ export class AllocateIpv6AddressRequest extends $dara.Model {
    * The type of the IPv6 address. Valid values:
    * 
    * * IPv6Address (default): The instance is a single IPv6 address.
-   * * IPv6Prefix: The instance is an IPv6 prefix CIDR block.
+   * * IPv6Prefix: The instance is an IPv6 CIDR block.
    * 
    * @example
    * IPv6Address
@@ -62,7 +62,7 @@ export class AllocateIpv6AddressRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04****
@@ -72,7 +72,7 @@ export class AllocateIpv6AddressRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - true: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code DryRunOperation is returned.
+   * - true: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
    * 
    * - false (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
    * 
@@ -132,7 +132,7 @@ export class AllocateIpv6AddressRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags for the resource.
+   * The tags of the resource.
    */
   tag?: AllocateIpv6AddressRequestTag[];
   /**

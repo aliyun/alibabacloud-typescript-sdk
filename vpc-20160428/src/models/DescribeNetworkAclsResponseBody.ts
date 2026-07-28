@@ -353,7 +353,7 @@ export class DescribeNetworkAclsResponseBody extends $dara.Model {
   networkAcls?: DescribeNetworkAclsResponseBodyNetworkAcls;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -361,7 +361,7 @@ export class DescribeNetworkAclsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query. Paging is used to return results.
    * 
    * @example
    * 10
@@ -377,7 +377,7 @@ export class DescribeNetworkAclsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of ACLs in the list.
    * 
    * @example
    * 2

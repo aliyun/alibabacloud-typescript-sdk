@@ -239,8 +239,9 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $dara.Model
    * @remarks
    * The status of the network ACL. Valid values:
    * 
-   * *   **Available**
-   * *   **Modifying**
+   * - **Available**: available.
+   * 
+   * - **Modifying**: being modified.
    * 
    * @example
    * Modifying
@@ -248,7 +249,7 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the network ACL belongs.
+   * The ID of the VPC associated with the network ACL.
    * 
    * @example
    * vpc-a2d33rfpl72k5xsscd****

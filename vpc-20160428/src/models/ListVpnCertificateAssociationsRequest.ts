@@ -7,7 +7,7 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
    * @remarks
    * The list of certificate IDs.
    * 
-   * You can query the association between at most 20 SSL certificates and VPN gateways.
+   * You can query the associations between up to 20 SSL certificates and VPN gateway instances at a time.
    * 
    * @example
    * 6bfe4218-ea1d****
@@ -17,8 +17,9 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
    * @remarks
    * The certificate type. Valid values:
    * 
-   * *   **Encryption**
-   * *   **Signature**
+   * - **Encryption**: encryption certificate.
+   * 
+   * - **Signature**: signing certificate.
    * 
    * @example
    * Signature
@@ -26,7 +27,7 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **20**. Default value: **1**.
+   * The number of entries per page. Valid values: **1** to **20**. Default value: **10**.
    * 
    * @example
    * 10
@@ -34,10 +35,11 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - If this is the first query or no next query exists, leave this parameter empty.
+   * 
+   * - If a next query exists, set this parameter to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * caeba0bbb2be0****
@@ -47,7 +49,7 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPN gateway.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -57,9 +59,9 @@ export class ListVpnCertificateAssociationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of VPN gateway IDs.
+   * The list of VPN gateway instance IDs.
    * 
-   * You can query the association between at most 20 VPN gateways and SSL certificates.
+   * You can query the associations between up to 20 VPN gateway instances and SSL certificates at a time.
    * 
    * @example
    * vpn-bp1q8bgx4xnkm****

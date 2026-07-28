@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends a request and performs a dry run. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run. Valid values:
+   * - **true**: performs a dry run without querying the vSwitch configuration. The system checks the required parameters, request format, and service limits. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the vSwitch configuration is queried.
    * 
    * @example
    * false
@@ -18,9 +17,9 @@ export class DescribeVSwitchAttributesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VPC to which the vSwitch belongs.
+   * The region ID of the VPC to which the route table belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +29,7 @@ export class DescribeVSwitchAttributesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The ID of the vSwitch to query.
    * 
    * This parameter is required.
    * 

@@ -45,7 +45,7 @@ export class ListPrefixListsResponseBodyPrefixListsTags extends $dara.Model {
 export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block specified in the prefix list.
+   * The Classless Inter-Domain Routing (CIDR) block information of the prefix list.
    */
   cidrBlocks?: string[];
   /**
@@ -60,8 +60,8 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The IP version of the prefix list. Valid values:
    * 
-   * *   **IPV4**
-   * *   **IPV6**
+   * - **IPV4**: IPv4.
+   * - **IPV6**: IPv6.
    * 
    * @example
    * IPV4
@@ -69,7 +69,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The maximum number of CIDR blocks that you can specify in the prefix list.
+   * The maximum number of entries for Classless Inter-Domain Routing (CIDR) blocks in the prefix list.
    * 
    * @example
    * 10
@@ -111,11 +111,11 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The status of the prefix list. Valid values:
    * 
-   * *   **Created**
-   * *   **Deleted**
-   * *   **Modifying**
+   * - **Created**: Created.
+   * - **Deleted**: Deleted.
+   * - **Modifying**: Being modified.
    * 
-   * >  This parameter is the same as the **Status** parameter.
+   * > This parameter has the same meaning and valid values as **Status**.
    * 
    * @example
    * Created
@@ -147,10 +147,10 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the prefix list is shared. Valid values:
+   * The sharing type of the prefix list. Valid values:
    * 
-   * *   **Shared**: The prefix list is shared.
-   * *   If an empty value is returned, the prefix list is not shared.
+   * - **Shared**: The prefix list is a shared prefix list.
+   * - Empty: The prefix list is not a shared prefix list.
    * 
    * @example
    * Shared
@@ -160,9 +160,9 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The status of the prefix list. Valid values:
    * 
-   * *   **Created**
-   * *   **Deleted**
-   * *   **Modifying**
+   * - **Created**: Created.
+   * - **Deleted**: Deleted.
+   * - **Modifying**: Being modified.
    * 
    * @example
    * Created
@@ -231,7 +231,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
 export class ListPrefixListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -239,10 +239,9 @@ export class ListPrefixListsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If a value is returned for **NextToken**, the value indicates the token that is used for the next request to retrieve a new page of results.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

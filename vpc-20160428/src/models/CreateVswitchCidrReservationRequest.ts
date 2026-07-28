@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVSwitchCidrReservationRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, the value cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * A tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateVSwitchCidrReservationRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, the value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -53,7 +53,7 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -62,9 +62,8 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-   * 
-   * *   **true**: performs only a dry run, without performing the actual request. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: sends a check request without creating the reserved CIDR block for a vSwitch. The system checks whether the required parameters are specified, the request format is valid, and the service limits are not exceeded. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a Normal request. After the check passes, an HTTP 2xx status code is returned and the reserved CIDR block for a vSwitch is created.
    * 
    * @example
    * false
@@ -72,10 +71,12 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The IP version of the reserved CIDR block. Valid values:
+   * The IP version of the reserved CIDR block for a vSwitch. Valid values:
    * 
-   * *   **IPv4** (default)
-   * *   **IPv6**
+   * - **IPv4** (default)
+   * - **IPv6**
+   * 
+   * > You do not need to specify this parameter when creating an IPv4 reserved CIDR block for a vSwitch. This parameter is required when creating an IPv6 reserved CIDR block for a vSwitch.
    * 
    * @example
    * IPv4
@@ -85,7 +86,7 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the vSwitch is deployed.
+   * The region ID of the vSwitch.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
@@ -99,17 +100,18 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Resource tags
+   * The resource tags.
    */
   tag?: CreateVSwitchCidrReservationRequestTag[];
   /**
    * @remarks
-   * The reserved CIDR block of the vSwitch.
+   * The reserved CIDR block for a vSwitch.
    * 
-   * *   When **IpVersion** is set to **IPv4**, the reserved CIDR block must be a proper subset of the IPv4 CIDR block of the vSwitch and the subnet mask length of the reserved CIDR block cannot be greater than 28.
-   * *   When **IpVersion** is set to **IPv6**, the reserved CIDR block must be a proper subset of the IPv6 CIDR block of the vSwitch and the subnet mask length of the reserved CIDR block cannot be greater than 80.
+   * - If **IpVersion** is set to **IPv4**, the reserved CIDR block for a vSwitch must be a proper subset of the IPv4 CIDR block of the vSwitch, and the mask length cannot exceed 28.
+   * - If **IpVersion** is set to **IPv6**, the reserved CIDR block for a vSwitch must be a proper subset of the IPv6 CIDR block of the vSwitch, and the mask length cannot exceed 80.
    * 
-   * >  You must specify one of **VSwitchCidrReservationMask** and **VSwitchCidrReservationCidr**.
+   * > - You must specify either the **VSwitchCidrReservationMask** parameter or the **VSwitchCidrReservationCidr** parameter.
+   * > - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
    * 
    * @example
    * 192.168.1.64/28
@@ -117,9 +119,9 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   vSwitchCidrReservationCidr?: string;
   /**
    * @remarks
-   * The description of the reserved CIDR block. This parameter is empty by default.
+   * The description of the reserved CIDR block for a vSwitch. If you leave this parameter empty, the default value is empty.
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
    * ReservationDescription
@@ -127,12 +129,13 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   vSwitchCidrReservationDescription?: string;
   /**
    * @remarks
-   * The subnet mask of the reserved CIDR block.
+   * The mask of the reserved CIDR block for a vSwitch.
    * 
-   * *   When **IpVersion** is set to **IPv4**, the subnet mask length of the CIDR block must be greater than the IPv4 subnet mask length of the vSwitch and cannot be greater than 28.
-   * *   When **IpVersion** is set to **IPv6**, the subnet mask length of the CIDR block must be greater than the IPv6 subnet mask length of the vSwitch and cannot be greater than 80.
+   * - If **IpVersion** is set to **IPv4**, the mask length of the reserved CIDR block must be at least 2 bits longer than the IPv4 CIDR block mask of the vSwitch and cannot exceed 28.
+   * - If **IpVersion** is set to **IPv6**, the mask length of the reserved CIDR block must be longer than the IPv6 CIDR block mask of the vSwitch and cannot exceed 80.
    * 
-   * >  You must specify one of **VSwitchCidrReservationMask** and **VSwitchCidrReservationCidr**.
+   * > - You must specify either the **VSwitchCidrReservationMask** parameter or the **VSwitchCidrReservationCidr** parameter.
+   * > - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
    * 
    * @example
    * 28
@@ -140,9 +143,9 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   vSwitchCidrReservationMask?: string;
   /**
    * @remarks
-   * The name of the reserved CIDR block.
+   * The name of the reserved CIDR block for a vSwitch.
    * 
-   * The name must be 2 to 128 characters in length and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The name must be 1 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
    * ReservationName
@@ -150,9 +153,9 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   vSwitchCidrReservationName?: string;
   /**
    * @remarks
-   * The type of reserved CIDR block. Set the value to **prefix**.
+   * The type of the reserved CIDR block for a vSwitch. Valid values: **prefix**, which indicates that addresses are allocated by CIDR block.
    * 
-   * >  When a user or a cloud service allocates a CIDR block to an elastic network interface (ENI), the CIDR block must be allocated from the reserved CIDR block. If the reserved CIDR block is exhausted, an error is returned.
+   * > When users or cloud services automatically assign CIDR blocks to elastic network interfaces (ENIs), the CIDR blocks must be allocated from the reserved CIDR block. If the addresses in the reserved CIDR block are exhausted, the system returns an error.
    * 
    * @example
    * prefix
@@ -160,7 +163,7 @@ export class CreateVSwitchCidrReservationRequest extends $dara.Model {
   vSwitchCidrReservationType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the reserved CIDR block belongs.
+   * The ID of the vSwitch for which you want to create the reserved CIDR block for a vSwitch.
    * 
    * This parameter is required.
    * 

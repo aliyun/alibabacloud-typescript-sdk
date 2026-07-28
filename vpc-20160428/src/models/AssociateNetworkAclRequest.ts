@@ -13,9 +13,9 @@ export class AssociateNetworkAclRequestResource extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of resource with which you want to associate the network ACL. Set the value to **VSwitch**.
+   * The type of the associated resource. Valid values: **VSwitch**.
    * 
-   * Valid values of **N**: **0** to **29**. You can associate a network ACL with up to 30 vSwitches.
+   * Valid values of **N**: **0** to **29**. You can associate up to 30 resources.
    * 
    * @example
    * VSwitch
@@ -51,7 +51,7 @@ export class AssociateNetworkAclRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -59,7 +59,9 @@ export class AssociateNetworkAclRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request.
+   * Specifies whether to perform a dry run. Valid values:
+   * - true: performs a dry run.
+   * - false (default): sends the request.
    * 
    * @example
    * false

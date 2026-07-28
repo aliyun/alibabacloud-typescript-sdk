@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchAttributesResponseBodyRouteTable extends $dara.Model {
   /**
    * @remarks
-   * The ID of the route table that is associated with the vSwitch.
+   * The ID of the route table associated with the vSwitch.
    * 
    * @example
    * vtb-bp145q7glnuzdv****
@@ -15,8 +15,9 @@ export class DescribeVSwitchAttributesResponseBodyRouteTable extends $dara.Model
    * @remarks
    * The type of the route table. Valid values:
    * 
-   * *   **System**
-   * *   **Custom**
+   * - **System**: system route table.
+   * 
+   * - **Custom**: custom route table.
    * 
    * @example
    * System
@@ -100,7 +101,7 @@ export class DescribeVSwitchAttributesResponseBodyTags extends $dara.Model {
 export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of available IP addresses.
+   * The number of active IP addresses.
    * 
    * @example
    * 12
@@ -108,7 +109,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   availableIpAddressCount?: number;
   /**
    * @remarks
-   * The CIDR block of the vSwitch.
+   * The private network address range of the vSwitch.
    * 
    * @example
    * 192.168.0.1/24
@@ -132,12 +133,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether IPv6 is enabled for the vSwitch. If you enable IPv6, you must configure the IPv6 CIDR block of the vSwitch. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * This field is returned only when IPv6 is enabled for the vSwitch.
+   * Indicates whether the IPv6 CIDR block is enabled for the vSwitch. Valid values:
+   * - **true**: enabled.
+   * - **false**: not enabled.
    * 
    * @example
    * true
@@ -155,8 +153,8 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The vSwitch is the default vSwitch.
+   * - **false**: The vSwitch is not the default vSwitch.
    * 
    * @example
    * false
@@ -164,7 +162,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The network access control list (ACL) rules.
+   * The network ACL rules.
    * 
    * @example
    * 1
@@ -172,7 +170,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   networkAclId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The Alibaba Cloud account ID of the resource ownership.
+   * 
+   * >Notice: This value is of the Long type. Precision loss may occur in certain programming languages. Use this value with caution.
    * 
    * @example
    * 28768383240243****
@@ -188,7 +188,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the ACL belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph****
@@ -196,16 +196,16 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The information about the route table that is associated with the vSwitch.
+   * The route table information of the vSwitch.
    */
   routeTable?: DescribeVSwitchAttributesResponseBodyRouteTable;
   /**
    * @remarks
-   * Indicates whether the vSwitch is shared.
+   * The sharing type of the vSwitch.
    * 
-   * *   If no value is returned, the vSwitch is a regular vSwitch.
-   * *   If **Shared** is returned, the vSwitch is shared.
-   * *   If **Sharing** is returned, the vSwitch is being shared.
+   * - If the value is empty, the vSwitch is a private vSwitch.
+   * - If the value is **Shared**, the vSwitch is a shared vSwitch.
+   * - If the value is **Sharing**, the vSwitch is being shared with other accounts.
    * 
    * @example
    * Shared
@@ -215,8 +215,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * @remarks
    * The status of the vSwitch. Valid values:
    * 
-   * *   **Pending**
-   * *   **Available**
+   * - **Pending**: being configured. 
+   * 
+   * - **Available**: active.
    * 
    * @example
    * Pending
@@ -225,7 +226,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   tags?: DescribeVSwitchAttributesResponseBodyTags;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-25b7pv15t****
@@ -233,7 +234,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The vSwitch name.
+   * The name of the vSwitch.
    * 
    * @example
    * test
@@ -249,7 +250,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs.
+   * The zone to which the vSwitch belongs.
    * 
    * @example
    * cn-beijing-a

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrafficMirrorServiceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the traffic mirror feature is enabled. Valid values:
+   * Indicates whether the traffic mirroring feature is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * 
+   * - **false**: Not enabled.
    * 
    * @example
    * true

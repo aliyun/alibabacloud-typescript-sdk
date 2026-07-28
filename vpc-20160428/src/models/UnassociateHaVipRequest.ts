@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassociateHaVipRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -13,12 +13,13 @@ export class UnassociateHaVipRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully disassociate the HAVIP from the ECS instance or ENI. Valid values:
+   * Specifies whether to forcefully disassociate HaVip from the ECS instance or network interface controller (NIC). Valid values:
    * 
-   * *   **True**
-   * *   **False** (default)
+   * - **True**: forcefully disassociates the instance.
    * 
-   * >  If you set the value to **False**, you cannot disassociate the HAVIP from the primary instance.
+   * - **False** (default): does not forcefully disassociate the instance.
+   * 
+   * > If this parameter is set to **False**, the primary instance attached to the HaVip cannot be disassociated.
    * 
    * @example
    * True
@@ -26,7 +27,7 @@ export class UnassociateHaVipRequest extends $dara.Model {
   force?: string;
   /**
    * @remarks
-   * The ID of the HAVIP that you want to disassociate.
+   * The ID of the HaVip to be disassociated.
    * 
    * This parameter is required.
    * 
@@ -36,7 +37,7 @@ export class UnassociateHaVipRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or ENI from which you want to disassociate the HAVIP.
+   * The ID of the ECS instance or network interface controller (NIC) to disassociate HaVip from.
    * 
    * This parameter is required.
    * 
@@ -46,12 +47,13 @@ export class UnassociateHaVipRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance from which you want to disassociate the HAVIP. Valid values:
+   * The type of the instance to disassociate HaVip from. Valid values:
    * 
-   * *   **EcsInstance**: an ECS instance
-   * *   **NetworkInterface**: an ENI
+   * - **EcsInstance**: ECS instance.
    * 
-   * >  If you want to disassociate the HAVIP from an ENI, this parameter is required.
+   * - **NetworkInterface**: network interface controller (NIC) instance.
+   * 
+   * > This parameter is required when the instance to be disassociated is a network interface controller (NIC) instance.
    * 
    * @example
    * EcsInstance
@@ -61,7 +63,7 @@ export class UnassociateHaVipRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the HAVIP.
+   * The region ID of the HaVip.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 

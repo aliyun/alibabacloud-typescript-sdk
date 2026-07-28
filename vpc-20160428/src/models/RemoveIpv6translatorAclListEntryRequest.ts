@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveIPv6TranslatorAclListEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL entry to be deleted.
+   * The ID of the access control policy entry that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveIPv6TranslatorAclListEntryRequest extends $dara.Model {
   aclEntryId?: string;
   /**
    * @remarks
-   * The ID of the ACL to which the ACL entry belongs.
+   * The ID of the access control policy group to which the access control policy entry belongs.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class RemoveIPv6TranslatorAclListEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the ACL.
+   * The region of the access control policy group.
    * 
    * This parameter is required.
    * 

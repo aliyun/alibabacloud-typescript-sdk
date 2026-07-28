@@ -60,7 +60,7 @@ export class DescribeEipGatewayInfoResponseBodyEipInfos extends $dara.Model {
 export class DescribeEipGatewayInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The operation status code.
    * 
    * @example
    * 200
@@ -69,7 +69,7 @@ export class DescribeEipGatewayInfoResponseBody extends $dara.Model {
   eipInfos?: DescribeEipGatewayInfoResponseBodyEipInfos;
   /**
    * @remarks
-   * The result of the operation.
+   * The operation message.
    * 
    * @example
    * successful

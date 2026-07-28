@@ -57,11 +57,13 @@ export class DescribeIpv6GatewayAttributeResponseBodyTags extends $dara.Model {
 export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the IPv6 gateway. Valid values:
+   * The business status of the IPv6 gateway. Valid values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
-   * *   **SecurityLocked**
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: financial lock.
+   * 
+   * - **SecurityLocked**: security lock.
    * 
    * @example
    * Normal
@@ -85,7 +87,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the IPv6 gateway expires.
+   * The expiration time of the IPv6 gateway.
    * 
    * @example
    * 2019-1-05T09:21:35Z
@@ -95,7 +97,8 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The ID of the gateway route table associated with the IPv6 gateway.
    * 
-   * >  This parameter is available only when the IPv6 gateway is associated with a gateway route table.
+   * 
+   * > This parameter is displayed only for IPv6 gateways that are associated with a gateway route table.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -103,7 +106,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   gatewayRouteTableId?: string;
   /**
    * @remarks
-   * The metering method of the IPv6 gateway.
+   * The billing method of the IPv6 gateway.
    * 
    * @example
    * PostPaid
@@ -111,7 +114,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The ID of the IPv6 gateway.
+   * The instance ID of the IPv6 gateway.
    * 
    * @example
    * ipv6gw-hp3y0l3ln89j8cdvf****
@@ -127,9 +130,9 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the IPv6 gateway belongs.
+   * The Alibaba Cloud account ID of the IPv6 gateway owner.
    * 
-   * >  This value is of the Long type. In some languages, the precision may be lost. Use this value with caution.
+   * >Notice: This value is of the Long type. Precision loss may occur in certain programming languages. Use this value with caution.
    * 
    * @example
    * 2546073170691****
@@ -137,7 +140,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPv6 gateway is deployed.
+   * The region ID of the IPv6 gateway.
    * 
    * @example
    * cn-huhehaote
@@ -145,7 +148,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC
@@ -153,7 +156,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -163,8 +166,9 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the IPv6 gateway. Valid values:
    * 
-   * *   **Pending**
-   * *   **Available**
+   * - **Pending**: being configured.
+   * 
+   * - **Available**: active.
    * 
    * @example
    * Available
@@ -173,7 +177,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
   tags?: DescribeIpv6GatewayAttributeResponseBodyTags;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the IPv6 gateway belongs.
+   * The ID of the VPC to which the IPv6 gateway belongs.
    * 
    * @example
    * vpc-123sedrfswd23****

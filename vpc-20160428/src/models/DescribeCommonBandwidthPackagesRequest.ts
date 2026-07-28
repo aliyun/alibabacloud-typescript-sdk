@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommonBandwidthPackagesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key to add to the Internet Shared Bandwidth instance. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * KeyTest
@@ -15,7 +15,7 @@ export class DescribeCommonBandwidthPackagesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value to add to the Internet Shared Bandwidth instance. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -57,10 +57,11 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: Sends a check request without querying instance information. The system checks whether the required parameters are specified, whether the request format is valid, and whether the instance status is valid. If the check fails, the corresponding error is returned. If the check succeeds, `DryRunOperation` is returned.
+   * 
+   * - **false** (default): Sends a normal request. After the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -68,10 +69,9 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the information about pending orders. Valid values:
-   * 
-   * *   **false** (default)
-   * *   **true**
+   * Specifies whether to include pending subscription data. Valid values:
+   * -  **false** (default): Does not include pending subscription data.
+   * - **true**: Includes pending subscription data.
    * 
    * @example
    * false
@@ -80,6 +80,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the Internet Shared Bandwidth instance.
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test123
@@ -89,7 +90,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -97,7 +98,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -105,7 +106,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the Internet Shared Bandwidth instance resides.
+   * The region ID of the Internet Shared Bandwidth instance. 
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
@@ -117,7 +118,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph****
@@ -127,10 +128,11 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
+   * Specifies whether to enable Anti-DDoS (Enhanced). Valid values:
+   * - **false**: Disabled.
+   * - **true**: Enabled.
    * 
-   * *   **false** (default)
-   * *   **true**
+   * > This parameter is deprecated.
    * 
    * @example
    * false
@@ -138,7 +140,7 @@ export class DescribeCommonBandwidthPackagesRequest extends $dara.Model {
   securityProtectionEnabled?: boolean;
   /**
    * @remarks
-   * The tags to add to the Internet Shared Bandwidth instance.
+   * The list of tags associated with the Internet Shared Bandwidth instance.
    */
   tag?: DescribeCommonBandwidthPackagesRequestTag[];
   static names(): { [key: string]: string } {

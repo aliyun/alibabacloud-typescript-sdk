@@ -126,7 +126,7 @@ export class DescribeIPv6TranslatorsResponseBody extends $dara.Model {
   ipv6Translators?: DescribeIPv6TranslatorsResponseBodyIpv6Translators;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -134,7 +134,7 @@ export class DescribeIPv6TranslatorsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -150,7 +150,7 @@ export class DescribeIPv6TranslatorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1

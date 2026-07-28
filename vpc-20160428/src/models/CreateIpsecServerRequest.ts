@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpsecServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The client CIDR block from which an IP address is allocated to the virtual network interface controller (NIC) of the client.
+   * The client CIDR block, which is the address range used to assign IP addresses to virtual network interface controllers (NICs) of clients.
    * 
-   * >  The client CIDR block must not overlap with the CIDR blocks of the VPC.
+   * > The client CIDR block cannot conflict with the VPC-side CIDR block.
    * 
    * This parameter is required.
    * 
@@ -21,7 +21,7 @@ export class CreateIpsecServerRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * d7d24a21-f4ba-4454-9173-b38****
@@ -29,10 +29,11 @@ export class CreateIpsecServerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck this request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request without creating the IPsec server. The system checks the required parameters, request format, and service limits. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. This is the default value. If the request passes the precheck, the system creates the IPsec server.
+   * - **true**: performs a dry run without creating the IPsec server. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error message is returned. If the check succeeds, `DryRunOperation` is returned.
+   * 
+   * - **false** (default): sends the request. After the request passes the check, the IPsec server is created.
    * 
    * @example
    * false
@@ -40,10 +41,11 @@ export class CreateIpsecServerRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * Specify whether to start connection negotiations immediately. Valid values:
+   * Specifies whether the configuration takes effect immediately. Valid values:
    * 
-   * *   **true**: immediately initiates negotiations after the configuration is complete.
-   * *   **false** (default): initiates negotiations when inbound traffic is detected. This is the default value.
+   * - **true**: Negotiation starts immediately after the configuration is complete.
+   * 
+   * - **false** (default): Negotiation starts when inbound traffic is detected.
    * 
    * @example
    * true
@@ -51,16 +53,23 @@ export class CreateIpsecServerRequest extends $dara.Model {
   effectImmediately?: boolean;
   /**
    * @remarks
-   * The configuration of Phase 1 negotiation. Valid values:
+   * The Phase 1 negotiation parameter settings. Valid values:
    * 
-   * *   **IkeVersion**: the IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev2**.
-   * *   **IkeMode**: the IKE negotiation mode. Default value: **main**.
-   * *   **IkeEncAlg**: the encryption algorithm that is used in Phase 1 negotiation. Default value: **aes**.
-   * *   **IkeAuthAlg**: the authentication algorithm that is used in Phase 1 negotiation. Default value: **sha1**.
-   * *   **IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiation. Default value: **group2**.
-   * *   **IkeLifetime**: the security association (SA) lifetime determined by Phase 1 negotiation. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
-   * *   **LocalId**: the identifier of the IPsec server. The value can be a fully qualified domain name (FQDN) or an IP address. The default value is the public IP address of the VPN gateway.
-   * *   **RemoteId**: the peer identifier. The value can be an FQDN or an IP address. The default value is empty.
+   * - **IkeVersion**: The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev2**.
+   * 
+   * - **IkeMode**: The negotiation pattern of the IKE version. Default value: **main**.
+   * 
+   * - **IkeEncAlg**: The encryption algorithm used in Phase 1 negotiations. Default value: **aes**.
+   * 
+   * - **IkeAuthAlg**: The authentication algorithm used in Phase 1 negotiations. Default value: **sha1**.
+   * 
+   * - **IkePfs**: The Diffie-Hellman key exchange algorithm used in Phase 1 negotiations. Default value: **group2**.
+   * 
+   * - **IkeLifetime**: The epoch of the security association (SA) negotiated in Phase 1. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * 
+   * - **LocalId**: The identity of the IPsec server. The FQDN and IP address formats are supported. Default value: the public IP address of the VPN gateway.
+   * 
+   * - **RemoteId**: The identity of the peer. The FQDN and IP address formats are supported. Default value: empty.
    * 
    * @example
    * {"IkeVersion":"ikev2","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400}
@@ -78,12 +87,15 @@ export class CreateIpsecServerRequest extends $dara.Model {
   ipSecServerName?: string;
   /**
    * @remarks
-   * The configuration of Phase 2 negotiation. Valid values:
+   * The Phase 2 negotiation parameter settings. Valid values:
    * 
-   * *   **IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiation. Default value: **aes**.
-   * *   **IpsecAuthAlg**: the authentication algorithm that is used in Phase 2 negotiation. Default value: **sha1**.
-   * *   **IpsecPfs**: forwards packets of all protocols. The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiation. Default value: **group2**.
-   * *   **IpsecLifetime**: the SA lifetime determined by Phase 2 negotiation. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * - **IpsecEncAlg**: The encryption algorithm used in Phase 2 negotiations. Default value: **aes**.
+   * 
+   * - **IpsecAuthAlg**: The authentication algorithm used in Phase 2 negotiations. Default value: **sha1**.
+   * 
+   * - **IpsecPfs**: Forward all protocol packets. The Diffie-Hellman key exchange algorithm used in Phase 2 negotiations. Default value: **group2**.
+   * 
+   * - **IpsecLifetime**: The epoch of the SA negotiated in Phase 2. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
    * 
    * @example
    * {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
@@ -91,9 +103,9 @@ export class CreateIpsecServerRequest extends $dara.Model {
   ipsecConfig?: string;
   /**
    * @remarks
-   * The local CIDR blocks, which are the CIDR blocks of the virtual private cloud (VPC) for the client to access.
+   * The local CIDR block, which is the VPC-side CIDR block that needs to communicate with the client CIDR block.
    * 
-   * Multiple CIDR blocks are separated with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
+   * Separate multiple CIDR blocks with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
    * 
    * This parameter is required.
    * 
@@ -105,11 +117,11 @@ export class CreateIpsecServerRequest extends $dara.Model {
    * @remarks
    * The pre-shared key.
    * 
-   * The pre-shared key that is used for authentication between the IPsec-VPN server and the client. It must be 1 to 100 characters in length.
+   * The pre-shared key is used for identity authentication between the IPsec server and the client. The key must be 1 to 100 characters in length.
    * 
-   * If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call [ListIpsecServers](https://help.aliyun.com/document_detail/2794120.html) to query keys generated by the system.
+   * If you do not specify a pre-shared key, the system randomly generates a 16-character string as the pre-shared key. You can call the [ListIpsecServers](https://help.aliyun.com/document_detail/2794120.html) operation to query the pre-shared key generated by the system.
    * 
-   * > The pre-shared key of the IPsec server key must be the same as that of the client. Otherwise, the connection between the IPsec server and the client cannot be established.
+   * > The pre-shared key of the IPsec server must be the same as the authentication key of the client. Otherwise, a connection cannot be established between the IPsec server and the client.
    * 
    * @example
    * Cfd123****
@@ -117,9 +129,9 @@ export class CreateIpsecServerRequest extends $dara.Model {
   psk?: string;
   /**
    * @remarks
-   * Indicates whether pre-shared key authentication is enabled. If you set the value to **true**, pre-shared key authentication is enabled.
+   * Specifies whether to enable pre-shared key authentication. Valid values: **true**, which indicates that pre-shared key authentication is enabled.
    * 
-   * >  This parameter is required.
+   * > This parameter is required.
    * 
    * @example
    * true
@@ -127,7 +139,7 @@ export class CreateIpsecServerRequest extends $dara.Model {
   pskEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the region where the VPN gateway is deployed.
+   * The region ID of the VPN gateway.
    * 
    * This parameter is required.
    * 
@@ -137,7 +149,7 @@ export class CreateIpsecServerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The instance ID of the VPN gateway.
    * 
    * This parameter is required.
    * 

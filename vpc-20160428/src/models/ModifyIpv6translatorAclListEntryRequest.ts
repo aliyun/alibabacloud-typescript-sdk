@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyIPv6TranslatorAclListEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the ACL rule.
+   * The description of the access control policy group entry.
    * 
-   * It must be 2 to 100 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The description must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), or hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyIPv6TranslatorAclListEntryRequest extends $dara.Model {
   aclEntryComment?: string;
   /**
    * @remarks
-   * The ID of the ACL rule to which the IP entry belongs.
+   * The ID of the access control policy group entry that contains the IP entry.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ModifyIPv6TranslatorAclListEntryRequest extends $dara.Model {
   aclEntryId?: string;
   /**
    * @remarks
-   * The ID of the ACL to which the IP entry belongs.
+   * The ID of the access control policy group that contains the IP entry.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyIPv6TranslatorAclListEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the ACL.
+   * The region of the access control policy group.
    * 
    * This parameter is required.
    * 

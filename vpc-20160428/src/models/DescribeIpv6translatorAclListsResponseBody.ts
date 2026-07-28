@@ -58,7 +58,7 @@ export class DescribeIPv6TranslatorAclListsResponseBody extends $dara.Model {
   ipv6TranslatorAcls?: DescribeIPv6TranslatorAclListsResponseBodyIpv6TranslatorAcls;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

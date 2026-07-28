@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpv6AddressesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,11 +15,9 @@ export class DescribeIpv6AddressesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It can be an empty string. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
-   * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+   * A tag value can be up to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * yunke
@@ -51,11 +49,10 @@ export class DescribeIpv6AddressesRequestTag extends $dara.Model {
 export class DescribeIpv6AddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of IP address. Valid values:
+   * The type of the IPv6 address. Valid values:
    * 
-   * - IPv6Address (default): indicates an IPv6 instance used to query a single IPv6 address.
-   * 
-   * - IPv6Prefix: indicates an IPv6 instance used to query prefix CIDR blocks.
+   * * IPv6Address (default): queries IPv6 instances with a single IPv6 IP address.
+   * * IPv6Prefix: queries IPv6 instances with a prefix CIDR block.
    * 
    * @example
    * IPv6Address
@@ -63,7 +60,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the instance that is assigned the IPv6 address.
+   * The instance ID associated with the IPv6 address that you want to query.
    * 
    * @example
    * i-2ze72wuqj4y3jl4f****
@@ -71,10 +68,10 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   associatedInstanceId?: string;
   /**
    * @remarks
-   * The type of instance associated with the IPv6 address. Valid values:
+   * The type of the instance associated with the IPv6 address that you want to query. Valid values:
    * 
-   * *   **EcsInstance**: Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
-   * *   **NetworkInterface**: secondary elastic network interface (ENI)
+   *  - **EcsInstance**: an ECS instance in a VPC.
+   * - **NetworkInterface**: a secondary elastic network interface (ENI) that serves as a network interface controller (NIC).
    * 
    * @example
    * EcsInstance
@@ -82,10 +79,11 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   associatedInstanceType?: string;
   /**
    * @remarks
-   * Specifies whether to return information about pending orders. Valid values:
+   * Specifies whether to include renewal data that has not taken effect. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false** (default): does not include renewal data that has not taken effect.
+   * 
+   * - **true**: includes renewal data that has not taken effect.
    * 
    * @example
    * false
@@ -101,7 +99,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   ipv6Address?: string;
   /**
    * @remarks
-   * The ID of the IPv6 address that you want to query. You can enter at most 20 IPv6 address IDs in each API request. Separate IPv6 address IDs with commas (,).
+   * The ID of the IPv6 address that you want to query. You can specify up to 20 IPv6 address IDs in each call. Separate multiple IDs with commas (,).
    * 
    * @example
    * ipv6-2zen5j4axcp5l5qyy****
@@ -109,7 +107,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   ipv6AddressId?: string;
   /**
    * @remarks
-   * The ID of the Internet bandwidth that you purchased for the IPv6 address.
+   * The instance ID of the Internet bandwidth associated with the IPv6 address that you want to query. This parameter is available after public network bandwidth is enabled.
    * 
    * @example
    * ipv6bw-uf6hcyzu65v98v3du****
@@ -127,10 +125,11 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of communication supported by the IPv6 address. Valid values:
+   * The communication type of the IPv6 address that you want to query. Valid values:
    * 
-   * *   **Private**
-   * *   **Public**
+   * - **Private**: private communication.
+   * 
+   * - **Public**: public communication.
    * 
    * @example
    * Private
@@ -148,7 +147,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -156,7 +155,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which you want to query IPv6 addresses. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the IPv6 addresses that you want to query. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -176,12 +175,11 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Indicates whether the instance is managed. Valid values:
+   * Specifies whether the instance is a managed instance. Valid values:
+   * - **true**: The instance is a managed instance.
+   * - **false**: The instance is not a managed instance.
    * 
-   * *   **true**
-   * *   **false**
-   * 
-   * If you do not specify this parameter, all instances are queried.
+   * If you do not set this parameter, all instances are queried.
    * 
    * @example
    * false
@@ -189,12 +187,12 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: DescribeIpv6AddressesRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch to which the IPv6 address belongs.
+   * The ID of the vSwitch to which the IPv6 address that you want to query belongs.
    * 
    * @example
    * vsw-25navfgbue4g****
@@ -202,7 +200,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the IPv6 address belongs.
+   * The ID of the VPC to which the IPv6 address that you want to query belongs.
    * 
    * @example
    * vpc-bp15zckdt37pq72zv****

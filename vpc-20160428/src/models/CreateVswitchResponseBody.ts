@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
@@ -13,7 +13,7 @@ export class CreateVSwitchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The ID of the created vSwitch.
    * 
    * @example
    * vsw-25navfgbue4g****

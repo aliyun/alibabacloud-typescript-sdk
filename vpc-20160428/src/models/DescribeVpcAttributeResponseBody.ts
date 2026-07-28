@@ -365,10 +365,11 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * Indicates whether the ClassicLink feature is enabled. Valid values:
+   * Indicates whether ClassicLink is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: ClassicLink is enabled.
+   * 
+   * - **false** (default): ClassicLink is not enabled.
    * 
    * @example
    * false
@@ -379,7 +380,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   cloudResources?: DescribeVpcAttributeResponseBodyCloudResources;
   /**
    * @remarks
-   * The time when the VPC was created.
+   * The creation time of the VPC.
    * 
    * @example
    * 2021-10-16T07:31:09Z
@@ -405,10 +406,13 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the DHCP options set. Valid values:
    * 
-   * *   **Available**
-   * *   **InUse**
-   * *   **Deleted**
-   * *   **Pending**
+   * - **Available**: active.
+   * 
+   * - **InUse**: in use.
+   * 
+   * - **Deleted**: deleted.
+   * 
+   * - **Pending**: being configured.
    * 
    * @example
    * Available
@@ -416,7 +420,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   dhcpOptionsSetStatus?: string;
   /**
    * @remarks
-   * Indicates whether DNS hostname is enabled.
+   * Indicates whether DNS hostnames are enabled.
    * 
    * @example
    * DISABLED
@@ -424,9 +428,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   dnsHostnameStatus?: string;
   /**
    * @remarks
-   * Indicates whether the VPC enables IPv6 .
-   * - true
-   * - false
+   * Indicates whether IPv6 is enabled.
    * 
    * @example
    * false
@@ -434,7 +436,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   enabledIpv6?: boolean;
   /**
    * @remarks
-   * The ID of the IPv4 gateway.
+   * The instance ID of the IPv4 gateway.
    * 
    * @example
    * ipv4gw-5tsnc6s4ogsedtp3k****
@@ -453,8 +455,9 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the VPC is the default VPC. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: The VPC is the default VPC.
+   * 
+   * - **false** (default): The VPC is not the default VPC.
    * 
    * @example
    * false
@@ -462,7 +465,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * The ID of the account to which the VPC belongs.
    * 
    * @example
    * 28311773240248****
@@ -470,7 +473,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the VPC belongs.
+   * The region ID of the VPC.
    * 
    * @example
    * cn-hangzhou
@@ -486,7 +489,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazbvgb4ph****
@@ -497,8 +500,9 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the VPC. Valid values:
    * 
-   * *   **Available**
-   * *   **Pending**
+   * - **Available**: active.
+   * 
+   * - **Pending**: being configured.
    * 
    * @example
    * Available
@@ -506,10 +510,11 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the VPC supports IPv4 gateways.
+   * Indicates whether the VPC operates in centralized control with IPv4 gateway mode.
+   * - **true**: The VPC operates in centralized control with IPv4 gateway mode, where Internet traffic is centrally managed by the IPv4 gateway (activated after the IPv4 gateway is created and routing is configured), or the VPC is a private network-only VPC (the IPv4 gateway is deleted in private mode).
+   * - **false**: The VPC operates in Direct Internet Access mode (access mode).
    * 
-   * *   **true**
-   * *   **false**
+   * > For details, see [IPv4 gateway](https://help.aliyun.com/document_detail/376445.html).
    * 
    * @example
    * true
@@ -519,7 +524,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   userCidrs?: DescribeVpcAttributeResponseBodyUserCidrs;
   /**
    * @remarks
-   * The ID of the vRouter that belongs to the VPC.
+   * The ID of the vRouter in the VPC.
    * 
    * @example
    * vrt-bp1jso6ng1at0ajsc****

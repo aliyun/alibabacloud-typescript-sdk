@@ -7,9 +7,9 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -27,7 +27,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route entry in the gateway route table.
+   * The destination CIDR block of the route in the gateway route table.
    * 
    * This parameter is required.
    * 
@@ -75,11 +75,11 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The instance ID of the next hop that you want to modify.
    * 
-   * - If **NextHopType** is set to **Instance**, set **NextHopId** to the ID of the ECS instance.
-   * - If **NextHopType** is set to **NetworkInterface**, set **NextHopId** to the ID of the elastic network interface (ENI) instance.
+   * - If **NextHopType** is set to **Instance**, set **NextHopId** to the ID of an ECS instance.
+   * - If **NextHopType** is set to **NetworkInterface**, set **NextHopId** to the ID of an elastic network interface controller (NIC) instance.
    * - If **NextHopType** is set to **Local**, leave **NextHopId** empty, which indicates a local next hop.
    * 
-   * > If the next hop type of the route is **Instance** or **NetworkInterface** and you want to modify the next hop, you must first change **NextHopType** to **Local**, and then change **NextHopType** to **Instance** or **NetworkInterface** and specify the **NextHopId**. You cannot directly change the next hop from one ENI or ECS instance to another ENI or ECS instance.
+   * > If the next hop type of the route is **Instance** or **NetworkInterface** and you want to modify the next hop, you must first change **NextHopType** to **Local**, and then change **NextHopType** to **Instance** or **NetworkInterface** and specify a new **NextHopId**. You cannot directly change the next hop from one network interface controller (NIC) or ECS instance to another network interface controller (NIC) or ECS instance when the next hop type is network interface controller (NIC) or ECS instance.
    * 
    * @example
    * i-bp18xq9yguxoxe7m****
@@ -90,7 +90,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
    * The next hop type of the route that you want to modify. Valid values:
    * 
    * - **Instance**: ECS instance.
-   * - **NetworkInterface**: elastic network interface (ENI) instance.
+   * - **NetworkInterface**: elastic network interface controller (NIC) instance.
    * 
    * - **Local**: local.
    * 
@@ -106,7 +106,7 @@ export class UpdateGatewayRouteTableEntryAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the gateway route table that you want to modify.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets extends $dara.Model {
   /**
    * @remarks
-   * The publishing status of the route entry in the publishing target.
+   * The publish status of the route entry in the publish target.
    * 
    * @example
    * Published
@@ -13,7 +13,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   publishStatus?: string;
   /**
    * @remarks
-   * The ID of the route publishing target instance.
+   * The instance ID of the route publish target.
    * 
    * @example
    * ecr-xvuqdfma6x57ei****
@@ -21,7 +21,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   publishTargetInstanceId?: string;
   /**
    * @remarks
-   * The type of the route publishing target.
+   * The route publish target.
    * 
    * @example
    * ECR
@@ -71,12 +71,12 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.
   routeEntryId?: string;
   /**
    * @remarks
-   * List of route entry publishing status information in the publishing targets.
+   * The list of publish status information for the route entry in publish targets.
    */
   routePublishTargets?: ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets[];
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * vtb-2ze3jgygk9bmsj23s****
@@ -115,10 +115,10 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.
 export class ListVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether there is a token for the next query. Values:
+   * The token for the next query. Valid values:
    * 
-   * - If **NextToken** is empty, it means there is no next query.
-   * - If **NextToken** has a return value, this value indicates the token for the start of the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -126,7 +126,7 @@ export class ListVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 1D0971B2-A35A-42C1-A44C-E91360C36C0B
@@ -134,7 +134,7 @@ export class ListVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of route entry publishing status information.
+   * The list of route entry publish status information.
    */
   routeEntries?: ListVpcPublishedRouteEntriesResponseBodyRouteEntries[];
   static names(): { [key: string]: string } {

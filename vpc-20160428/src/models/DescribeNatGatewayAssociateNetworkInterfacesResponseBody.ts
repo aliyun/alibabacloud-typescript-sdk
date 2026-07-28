@@ -136,7 +136,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $d
   count?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20

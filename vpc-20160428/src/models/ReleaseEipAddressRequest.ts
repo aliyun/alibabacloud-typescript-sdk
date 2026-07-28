@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseEipAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP that you want to release.
+   * The ID of the EIP to release.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ReleaseEipAddressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the EIP belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the EIP to release. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
    * 
    * @example
    * cn-hangzhou

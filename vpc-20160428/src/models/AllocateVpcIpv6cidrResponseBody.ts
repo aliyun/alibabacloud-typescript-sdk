@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateVpcIpv6CidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IPv6 CIDR block that is reserved.
+   * The reserved IPv6 CIDR block.
    * 
    * @example
    * 2408:XXXX:0:a600::/56

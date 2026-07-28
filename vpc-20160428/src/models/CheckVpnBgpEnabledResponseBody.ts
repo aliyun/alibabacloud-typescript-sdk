@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckVpnBgpEnabledResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the region supports BGP.
+   * Indicates whether the current region supports the BGP feature.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true

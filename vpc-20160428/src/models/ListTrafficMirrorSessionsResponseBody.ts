@@ -45,7 +45,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags exte
 export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends $dara.Model {
   /**
    * @remarks
-   * The time when the session is created.
+   * The time when the traffic mirror session was created.
    * 
    * @example
    * 2023-09-05T15:26Z
@@ -53,10 +53,11 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the traffic mirror session was enabled.
+   * Indicates whether the traffic mirror session is enabled. Valid values:
    * 
-   * *   **false** 
-   * *   **true**
+   * - **false** (default): The traffic mirror session is not enabled.
+   * 
+   * - **true**: The traffic mirror session is enabled.
    * 
    * @example
    * false
@@ -64,7 +65,10 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum transmission unit.
+   * The length of the original packet to be mirrored (excluding the VXLAN packet length). Default value: **1500**. Valid values: **64** to **8500**. Unit: bytes.
+   * - This parameter affects the packet length received by the traffic mirror destination. For more information, see the mirrored packet length and MTU limits in [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+   * 
+   * - This parameter is available only in specific regions. For more information, see the mirrored packet length parameter description in [Create and manage traffic mirrors](https://help.aliyun.com/document_detail/207514.html).
    * 
    * @example
    * 1500
@@ -82,7 +86,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   priority?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the traffic mirror session belongs.
+   * The ID of the resource group to which the traffic mirroring session belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -90,12 +94,12 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tags?: ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags[];
   /**
    * @remarks
-   * The ID of the filter.
+   * The instance ID of the traffic mirror filter.
    * 
    * @example
    * tmf-j6cmls82xnc86vtpe****
@@ -103,10 +107,11 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorFilterId?: string;
   /**
    * @remarks
-   * The status of the traffic mirror session.
+   * The business status of the traffic mirror session. Valid values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: financial lock.
    * 
    * @example
    * Normal
@@ -122,7 +127,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorSessionDescription?: string;
   /**
    * @remarks
-   * The ID of the traffic mirror session.
+   * The instance ID of the traffic mirror session.
    * 
    * @example
    * tms-j6cla50buc44ap8tu****
@@ -140,10 +145,10 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
    * @remarks
    * The status of the traffic mirror session. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Modifying**
-   * *   **Deleting**
+   * - **Creating**: being created.
+   * - **Created**: created.
+   * - **Modifying**: being modified.
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Created
@@ -151,12 +156,12 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorSessionStatus?: string;
   /**
    * @remarks
-   * The ID of the traffic mirror source.
+   * The instance IDs of the traffic mirror sources.
    */
   trafficMirrorSourceIds?: string[];
   /**
    * @remarks
-   * The ID of the traffic mirror destination.
+   * The instance ID of the traffic mirror destination.
    * 
    * @example
    * eni-j6c2fp57q8rr47rp****
@@ -164,10 +169,11 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorTargetId?: string;
   /**
    * @remarks
-   * The type of the traffic mirror destination. Valid values:
+   * The traffic mirror destination type. Valid values:
    * 
-   * *   **NetworkInterface**: an elastic network interface (ENI)
-   * *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
+   * - **NetworkInterface**: network interface controller (NIC).
+   * 
+   * - **SLB**: internal-facing SLB instance.
    * 
    * @example
    * NetworkInterface
@@ -175,7 +181,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorTargetType?: string;
   /**
    * @remarks
-   * You can specify VNIs to distinguish different mirrored traffic.
+   * The VNI used to distinguish different mirrored data.
    * 
    * @example
    * 10
@@ -241,10 +247,9 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
 export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If no value is returned for **NextToken**, no next queries are sent.
-   * *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a value, the value is the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -252,7 +257,7 @@ export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 739CA01C-92EB-4C69-BCC0-280149C6F41E
@@ -268,7 +273,7 @@ export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   totalCount?: string;
   /**
    * @remarks
-   * The details about the traffic mirror session.
+   * The details of traffic mirror sessions.
    */
   trafficMirrorSessions?: ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions[];
   static names(): { [key: string]: string } {

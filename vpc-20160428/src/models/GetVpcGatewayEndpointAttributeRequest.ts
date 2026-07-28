@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcGatewayEndpointAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway endpoint.
+   * The endpoint instance ID of the gateway endpoint.
    * 
    * This parameter is required.
    * 

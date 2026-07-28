@@ -83,11 +83,10 @@ export class UpdateEnhancedVpnGatewayResponseBodyTags extends $dara.Model {
 export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether BGP routes are automatically propagated to the VPC. Valid values:
-   * 
+   * Indicates whether BGP route automatic propagation to the VPC is enabled. Valid values:
    * - **true**: Automatic propagation is enabled.
    * 
-   * - **false**: Automatic propagation is disabled.
+   * - **false**: Automatic propagation is not enabled.
    * 
    * @example
    * true
@@ -95,8 +94,8 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   autoPropagate?: boolean;
   /**
    * @remarks
-   * The timestamp when the Enhanced VPN Gateway was created. Unit: milliseconds.<br>
-   * This value is a Unix timestamp that represents the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.<br>
+   * The timestamp when the enhanced VPN gateway instance was created. Unit: milliseconds.<br>
+   * The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1492753580000
@@ -104,7 +103,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the Enhanced VPN Gateway.
+   * The description of the enhanced VPN gateway instance.
    * 
    * @example
    * test
@@ -112,7 +111,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the second vSwitch with which the Enhanced VPN Gateway is associated.
+   * The ID of the second vSwitch associated with the enhanced VPN gateway instance.
    * 
    * @example
    * vsw-p0w95ql6tmr2ludkt****
@@ -120,26 +119,21 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   disasterRecoveryVSwitchId?: string;
   /**
    * @remarks
-   * Indicates whether BGP is enabled for the Enhanced VPN Gateway. Valid values:<br>
+   * The enabling status of the BGP feature for the enhanced VPN gateway. Valid values:<br>
+   * - **true**: enabled.
    * 
-   * - **true**: Enabled.
-   * 
-   * - **false**: Disabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
    */
   enableBgp?: boolean;
-  /**
-   * @remarks
-   * The ENIs created for the Enhanced VPN Gateway.
-   */
   eniInstanceIds?: UpdateEnhancedVpnGatewayResponseBodyEniInstanceIds;
   /**
    * @remarks
-   * The type of the Enhanced VPN Gateway. Only **Enhanced.SiteToSite** is returned, which indicates an enhanced site-to-site VPN gateway that supports only the IPsec-VPN feature.
+   * The type of the enhanced VPN gateway. Valid values:
    * 
-   * - **Enhanced.SiteToSite**, an enhanced site-to-cloud VPN that supports only the IPsec feature.
+   * - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN that supports only IPsec functionality.
    * 
    * @example
    * Enhanced.SiteToSite
@@ -147,7 +141,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The name of the Enhanced VPN Gateway.
+   * The name of the enhanced VPN gateway instance.
    * 
    * @example
    * test
@@ -155,9 +149,8 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network type of the Enhanced VPN Gateway. Valid values:
-   * 
-   * - **public** (default): a public gateway.
+   * The network type of the enhanced VPN gateway. Valid values:
+   * - **public** (default): public VPN gateway.
    * 
    * @example
    * public
@@ -173,8 +166,8 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Enhanced VPN Gateway belongs.<br>
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the details of resource groups.<br>
+   * The ID of the resource group to which the enhanced VPN gateway instance belongs.<br>
+   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -182,17 +175,12 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the Enhanced VPN Gateway.
-   * 
-   * - **init**: The gateway is being initialized.
-   * 
-   * - **provisioning**: The gateway is being provisioned.
-   * 
-   * - **active**: The gateway is active.
-   * 
-   * - **updating**: The gateway is being updated.
-   * 
-   * - **deleting**: The gateway is being deleted.
+   * The status of the enhanced VPN gateway.
+   * - **init**: initializing.
+   * - **provisioning**: preparing.
+   * - **active**: normal.
+   * - **updating**: updating.
+   * - **deleting**: deleting.
    * 
    * @example
    * active
@@ -200,20 +188,16 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A JSON string that indicates the features supported by the Enhanced VPN Gateway.
+   * The list of features supported by the enhanced VPN gateway.
    * 
    * @example
    * {"VpnEnableBgp": true}
    */
   tag?: string;
-  /**
-   * @remarks
-   * The tags of the Enhanced VPN Gateway.
-   */
   tags?: UpdateEnhancedVpnGatewayResponseBodyTags;
   /**
    * @remarks
-   * The ID of the vSwitch associated with the Enhanced VPN Gateway.
+   * The ID of the vSwitch associated with the enhanced VPN gateway instance.
    * 
    * @example
    * vsw-bp1y9ovl1cu9ou4tv****
@@ -221,7 +205,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the Enhanced VPN Gateway belongs.
+   * The ID of the VPC to which the enhanced VPN gateway instance belongs.
    * 
    * @example
    * vpc-bp1ub1yt9cvakoel****
@@ -229,7 +213,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the Enhanced VPN Gateway.
+   * The ID of the enhanced VPN gateway instance.
    * 
    * @example
    * vpn-bp1q8bgx4xnkm2ogj****
@@ -237,9 +221,9 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The type of the Enhanced VPN Gateway.
+   * The type of the enhanced VPN gateway.
    * 
-   * - **Normal** (default): standard type.
+   * - **Normal** (default): standard.
    * 
    * @example
    * Normal

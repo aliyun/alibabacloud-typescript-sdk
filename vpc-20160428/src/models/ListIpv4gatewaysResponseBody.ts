@@ -45,10 +45,10 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModelsTags extends $dara.Mod
 export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the IPv4 gateway is activated. Valid values:
+   * Indicates whether the IPv4 gateway instance is activated. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: activated.
+   * - **false**: not activated.
    * 
    * @example
    * true
@@ -64,7 +64,7 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The description of the IPv4 gateway.
+   * The description of the IPv4 gateway instance.
    * 
    * @example
    * test
@@ -72,7 +72,7 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   ipv4GatewayDescription?: string;
   /**
    * @remarks
-   * The ID of the IPv4 gateway.
+   * The instance ID of the IPv4 gateway.
    * 
    * @example
    * ipv4gw-5tsnc6s4ogsedtp3k****
@@ -80,7 +80,7 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   ipv4GatewayId?: string;
   /**
    * @remarks
-   * The name of the IPv4 gateway.
+   * The name of the IPv4 gateway instance.
    * 
    * @example
    * name
@@ -88,7 +88,7 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   ipv4GatewayName?: string;
   /**
    * @remarks
-   * The ID of the route table associated with the IPv4 gateway.
+   * The ID of the route table associated with the IPv4 gateway instance.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -104,13 +104,13 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the IPv4 gateway. Valid values:
+   * The status of the IPv4 gateway instance. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Modifying**
-   * *   **Deleting**
-   * *   **Deleted**
+   * - **Creating**: being created.
+   * - **Created**: created and available.
+   * - **Modifying**: being modified.
+   * - **Deleting**: being deleted.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Created
@@ -118,12 +118,12 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags that are added to the resource group.
+   * The tag list.
    */
   tags?: ListIpv4GatewaysResponseBodyIpv4GatewayModelsTags[];
   /**
    * @remarks
-   * The ID of the VPC with which the IPv4 gateways are associated.
+   * The ID of the VPC associated with the IPv4 gateway instance.
    * 
    * @example
    * vpc-5tsrxlw7dv074gci4****
@@ -174,15 +174,14 @@ export class ListIpv4GatewaysResponseBodyIpv4GatewayModels extends $dara.Model {
 export class ListIpv4GatewaysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of IPv4 gateways.
+   * The list of IPv4 gateway instances.
    */
   ipv4GatewayModels?: ListIpv4GatewaysResponseBodyIpv4GatewayModels[];
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If no value is returned for **NextToken**, no next queries are sent.
-   * *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -190,7 +189,7 @@ export class ListIpv4GatewaysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D265800-E306-529C-8418-84B0A1D201DB

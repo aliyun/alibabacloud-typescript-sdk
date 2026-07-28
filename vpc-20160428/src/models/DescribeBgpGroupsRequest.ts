@@ -13,10 +13,10 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   bgpGroupId?: string;
   /**
    * @remarks
-   * Specifies whether the BGP group is the default one. Valid values:
+   * Specifies whether the BGP group is the default BGP group. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: The BGP group is not the default BGP group.
+   * - **true**: The BGP group is the default BGP group.
    * 
    * @example
    * false
@@ -26,7 +26,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The maximum value is **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -42,9 +42,9 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the VBR is deployed.
+   * The region ID of the VBR. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual border router (VBR) that is associated with the BGP group.
+   * The ID of the VBR associated with the BGP group.
    * 
    * @example
    * vbr-bp1ctxy813985gkuk****

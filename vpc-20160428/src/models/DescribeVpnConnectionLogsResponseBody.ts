@@ -31,7 +31,7 @@ export class DescribeVpnConnectionLogsResponseBodyData extends $dara.Model {
 export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of log entries on the current page.
    * 
    * @example
    * 10
@@ -40,10 +40,10 @@ export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
   data?: DescribeVpnConnectionLogsResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the log is accurate. Valid values:
+   * Indicates whether the queried logs are accurate. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Accurate.
+   * - **false**: Not accurate.
    * 
    * @example
    * true
@@ -51,7 +51,7 @@ export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
   isCompleted?: boolean;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10

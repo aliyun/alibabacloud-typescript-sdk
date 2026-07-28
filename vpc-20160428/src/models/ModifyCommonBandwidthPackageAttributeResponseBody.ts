@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCommonBandwidthPackageAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B450CAD8-50BC-4506-ADA7-35C6CE63E96B

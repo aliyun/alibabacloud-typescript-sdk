@@ -23,8 +23,9 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
    * @remarks
    * The business status of the IPv6 Translation Service instance. Valid values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
+   * - **Normal**: normal.
+   * 
+   * - **FinancialLocked**: locked.
    * 
    * @example
    * Normal
@@ -50,7 +51,7 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -58,7 +59,7 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -66,10 +67,11 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The billing method of the IPv6 Translation Service instance. Valid values:
+   * The billing transform type of the IPv6 Translation Service instance. Valid values:
    * 
-   * *   **Prepay**: subscription
-   * *   **Postpay**: pay-as-you-go
+   * - **Prepay**: subscription.
+   * 
+   * - **Postpay**: pay-as-you-go.
    * 
    * @example
    * Prepay
@@ -77,7 +79,7 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region of the IPv6 Translation Service instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -89,7 +91,7 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The specification of the IPv6 Translation Service instance. Set the value to **small**.
+   * The specification of the IPv6 Translation Service instance. Valid values: **small**.
    * 
    * @example
    * small
@@ -99,13 +101,19 @@ export class DescribeIPv6TranslatorsRequest extends $dara.Model {
    * @remarks
    * The status of the IPv6 Translation Service instance. Valid values:
    * 
-   * *   **init**
-   * *   **provisioning**
-   * *   **active**
-   * *   **updating**
-   * *   **upgrading**
-   * *   **deleting**
-   * *   **deleted**
+   * - **init**: initializing.
+   * 
+   * - **provisioning**: being provisioned.
+   * 
+   * - **active**: available.
+   * 
+   * - **updating**: being updated.
+   * 
+   * - **upgrading**: being upgraded.
+   * 
+   * - **deleting**: being deleted.
+   * 
+   * - **deleted**: deleted.
    * 
    * @example
    * active

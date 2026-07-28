@@ -23,7 +23,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the flow log.
+   * The flow log ID.
    * 
    * This parameter is required.
    * 
@@ -43,22 +43,20 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   flowLogName?: string;
   /**
    * @remarks
-   * The version of the IP address. Valid values:
-   * 
-   * *   **IPV4**: the IPv4 address.
-   * *   **DualStack**: includes IPv4 and IPv6 address
+   * The IP address version of the traffic captured by the flow log.
    * 
    * @example
    * IPv4
    */
   ipVersion?: string;
+  logFormat?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the flow log is created.
+   * The region ID of the flow log.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -75,6 +73,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
       ipVersion: 'IpVersion',
+      logFormat: 'LogFormat',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -90,6 +89,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
       flowLogId: 'string',
       flowLogName: 'string',
       ipVersion: 'string',
+      logFormat: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

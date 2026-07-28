@@ -56,9 +56,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
   clientKey?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the SSL client certificate was created. Unit: milliseconds.
+   * The timestamp when the SSL client certificate was created. Unit: milliseconds.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1552550980000
@@ -66,9 +66,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The timestamp that indicates when the SSL client certificate expires. Unit: milliseconds.
+   * The timestamp when the SSL client certificate expires. Unit: milliseconds.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1647158980000
@@ -84,7 +84,7 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where the SSL client certificate is created.
+   * The region ID of the SSL client certificate.
    * 
    * @example
    * cn-hangzhou
@@ -100,9 +100,9 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the SSL client certificate belongs.
+   * The resource group ID of the SSL client certificate.
    * 
-   * The SSL client certificate and the SSL server associated with the SSL client certificate belong to the same resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+   * The SSL client certificate belongs to the same resource group as its associated SSL server. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -128,9 +128,11 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * @remarks
    * The status of the SSL client certificate. Valid values:
    * 
-   * *   **expiring-soon**
-   * *   **normal**
-   * *   **expired**
+   * - **expiring-soon**: The certificate will expire within one week.
+   * 
+   * - **normal**: Normal. 
+   * 
+   * - **expired**: Expired.
    * 
    * @example
    * normal

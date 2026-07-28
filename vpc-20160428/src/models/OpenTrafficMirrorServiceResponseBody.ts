@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenTrafficMirrorServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OpenTrafficMirrorServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information returned after traffic mirror is enabled.
+   * The message returned after the traffic mirroring feature is activated.
    * 
    * @example
    * successful

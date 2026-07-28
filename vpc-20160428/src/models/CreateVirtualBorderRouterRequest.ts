@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVirtualBorderRouterRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You must enter at least one tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreateVirtualBorderRouterRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify at most 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,10 +49,10 @@ export class CreateVirtualBorderRouterRequestTags extends $dara.Model {
 export class CreateVirtualBorderRouterRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of the VBR. Unit: Mbit/s.
+   * The bandwidth of the VBR instance. Unit: Mbit/s.
    * 
-   * *   When you create a VBR for a dedicated connection, valid values are **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2048**, **5120**, **8192**, **10240**, **20480**, **40960**, **50120**, **61440**, and **102400**.
-   * *   You do not need to set this parameter when you create a VBR for a hosted connection. The bandwidth is already configured when the hosted connection is created.
+   * - When you create a VBR instance for a dedicated Express Connect circuit, valid values are **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2048**, **5120**, **8192**, **10240**, **20480**, **40960**, **50120**, **61440**, and **102400**.
+   * - When you create a VBR instance for shared Express Connect circuits, you do not need to configure this parameter. The bandwidth of the VBR is the bandwidth of the shared Express Connect circuits that is specified in Settings when the shared Express Connect circuits are created.
    * 
    * @example
    * 100
@@ -60,9 +60,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
-   * 
-   * >  Only the owner of the Express Connect circuit can set this parameter.
+   * The circuit code provided by the carrier for the Express Connect circuit. 
+   *           
+   * > Only the owner of the Express Connect circuit can specify this parameter.
    * 
    * @example
    * longtel001
@@ -72,9 +72,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests.
+   * The client generates the value of this parameter. Make sure that the value is unique among different requests.
    * 
-   * >  If you do not set this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -82,9 +82,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the VBR.
+   * The description of the VBR instance.  
    * 
-   * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
    * desc
@@ -94,8 +94,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable IPv6. Valid values:
    * 
-   * *   **true**: enables IPv6.
-   * *   **false** (default): disables IPv6.
+   * - **true**: Enabled.
+   * 
+   * - **false** (default): Disabled.
    * 
    * @example
    * true
@@ -103,9 +104,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   enableIpv6?: boolean;
   /**
    * @remarks
-   * The IP address of the VBR. Only the owner of the VBR can set or modify this parameter.
+   * The Alibaba Cloud-side IP address of the VBR instance. Only the VBR owner can specify or modify this property.
    * 
-   * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+   * This parameter is required when you create a VBR instance for the owner of the Express Connect circuit.
    * 
    * @example
    * 192.168.XX.XX
@@ -113,9 +114,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   localGatewayIp?: string;
   /**
    * @remarks
-   * The IPv6 address of the VBR. Only the owner of the VBR can set or modify this parameter.
+   * The Alibaba Cloud-side IPv6 address of the VBR instance. Only the VBR owner can specify or modify this property.
    * 
-   * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+   * This parameter is required when you create a VBR instance for the owner of the Express Connect circuit.
    * 
    * @example
    * 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
@@ -123,9 +124,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   localIpv6GatewayIp?: string;
   /**
    * @remarks
-   * The name of the VBR.
+   * The name of the VBR instance.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -135,9 +136,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IP address of the gateway device in the data center. Only the owner of the VBR can set or modify this parameter.
+   * The customer-side IP address of the VBR instance. Only the VBR owner can specify or modify this property.
    * 
-   * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+   * This parameter is required when you create a VBR instance for the owner of the Express Connect circuit.
    * 
    * @example
    * 116.62.XX.XX
@@ -145,9 +146,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   peerGatewayIp?: string;
   /**
    * @remarks
-   * The IPv6 address of the gateway device in the data center. Only the owner of the VBR can set or modify this parameter.
+   * The customer-side IPv6 address of the VBR instance. Only the VBR owner can specify or modify this property.
    * 
-   * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+   * This parameter is required when you create a VBR instance for the owner of the Express Connect circuit.
    * 
    * @example
    * 2001:XXXX:4:4:4:4:4:4
@@ -155,9 +156,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   peerIpv6GatewayIp?: string;
   /**
    * @remarks
-   * The subnet mask of the IPv6 addresses of the VBR and the gateway device in the data center.
+   * The subnet mask for the Alibaba Cloud-side and customer-side IPv6 addresses of the VBR instance. 
    * 
-   * The two IPv6 addresses must fall within the same subnet.
+   * The two IPv6 addresses must be in the same subnet.
    * 
    * @example
    * 2408:4004:cc:400::/56
@@ -165,9 +166,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   peeringIpv6SubnetMask?: string;
   /**
    * @remarks
-   * The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
+   * The subnet mask for the Alibaba Cloud-side and customer-side IP addresses of the VBR instance. 
    * 
-   * The two IP addresses must fall within the same subnet.
+   * The two IP addresses must be in the same subnet.
    * 
    * @example
    * 255.255.255.252
@@ -175,9 +176,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   peeringSubnetMask?: string;
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The instance ID of the Express Connect circuit. 
    * 
-   * You can create a VBR for a dedicated connection or a hosted connection.
+   * You can create a VBR instance for a dedicated Express Connect circuit or for shared Express Connect circuits.
    * 
    * This parameter is required.
    * 
@@ -189,7 +190,7 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
    * @remarks
    * The region ID of the Express Connect circuit.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -201,7 +202,7 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
    * @remarks
    * The resource group ID.
    * 
-   * For more information about resource group, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -211,14 +212,14 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tags of the resource.
    */
   tags?: CreateVirtualBorderRouterRequestTags[];
   /**
    * @remarks
-   * The account ID of the VBR owner.
+   * The account ID of the VBR instance owner.
    * 
-   * The default value is the ID of the current Alibaba Cloud account.
+   * The default value is the Alibaba Cloud account ID used for logon.
    * 
    * @example
    * 168811111****
@@ -226,9 +227,9 @@ export class CreateVirtualBorderRouterRequest extends $dara.Model {
   vbrOwnerId?: number;
   /**
    * @remarks
-   * The VLAN ID of the VBR. Valid values: **0 to 2999**.
+   * The VLAN ID of the VBR instance. Valid values: **0 to 2999**. 
    * 
-   * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
+   * > Only the owner of the Express Connect circuit can specify this parameter. The VLAN IDs of two VBR instances on the same Express Connect circuit must be different.
    * 
    * This parameter is required.
    * 

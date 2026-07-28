@@ -23,7 +23,7 @@ export class ListIpsecServersRequest extends $dara.Model {
   ipsecServerName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **20**. Default value: **10**.
+   * The number of entries per page. Valid values: **1** to **20**. Default value: **10**.
    * 
    * @example
    * 10
@@ -31,10 +31,11 @@ export class ListIpsecServersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-   * *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * - If this is the first query or no subsequent query is to be sent, you do not need to specify this parameter.
+   * 
+   * - If a subsequent query is to be sent, set the value to the NextToken value returned in the previous call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -42,9 +43,9 @@ export class ListIpsecServersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where the IPsec server is created.
+   * The region ID of the IPsec server.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -56,7 +57,7 @@ export class ListIpsecServersRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPsec server belongs.
    * 
-   * The IPsec server and its associated VPN gateway belong to the same resource group. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the ID of the resource group to which the VPN gateway belongs.
+   * The IPsec server belongs to the same resource group as the associated VPN gateway instance. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the resource group ID of the VPN gateway instance.
    * 
    * @example
    * rg-acfmzs372yg****

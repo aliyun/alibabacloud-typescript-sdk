@@ -7,7 +7,7 @@ export class DescribeVpnGatewaysRequestTag extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * You can specify at most 20 tag keys at a time.
+   * You can specify up to 20 tag keys at a time.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class DescribeVpnGatewaysRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * FinanceJoshua
@@ -49,10 +49,11 @@ export class DescribeVpnGatewaysRequestTag extends $dara.Model {
 export class DescribeVpnGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The payment status of the VPN gateway. Valid values:
+   * The billing status of the VPN gateway. Valid values:
    * 
-   * *   **Normal**
-   * *   **FinancialLocked**
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: locked due to overdue payment.
    * 
    * @example
    * Normal
@@ -60,20 +61,21 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * VPN 网关类型，取值：
-   * Traditional：传统型VPN网关，覆盖IPsec功能和SSL功能
-   * Enhance.SiteToSite：增强型站点入云VPN，只覆盖IPsec功能
+   * The type of the VPN gateway. Valid values:
+   * - Traditional: a traditional VPN gateway that supports both IPsec-VPN and SSL-VPN features.
+   * - Enhanced.SiteToSite: an enhanced site-to-cloud VPN gateway that supports only the IPsec-VPN feature.
    * 
    * @example
-   * Enhance.SiteToSite
+   * Enhanced.SiteToSite
    */
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether to return information about pending orders. Valid values:
+   * Specifies whether to include pending order data. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **false** (default): does not include pending order data.
+   * 
+   * - **true**: includes pending order data.
    * 
    * @example
    * true
@@ -83,7 +85,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -91,7 +93,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries per page for paging queries. Valid values: **1** to **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -99,9 +101,9 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway.
+   * The region ID of the VPN gateway. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -113,7 +115,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the VPN gateway belongs.
    * 
-   *  You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group list.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -125,11 +127,15 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
    * @remarks
    * The status of the VPN gateway. Valid values:
    * 
-   * *   **init**
-   * *   **provisioning**
-   * *   **active**
-   * *   **updating**
-   * *   **deleting**
+   * - **init**: initializing.
+   * 
+   * - **provisioning**: preparing.
+   * 
+   * - **active**: Normal.
+   * 
+   * - **updating**: updating.
+   * 
+   * - **deleting**: deleting.
    * 
    * @example
    * active
@@ -137,7 +143,7 @@ export class DescribeVpnGatewaysRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags that are added to the VPN gateway.
+   * The list of tags bound to the VPN gateway.
    */
   tag?: DescribeVpnGatewaysRequestTag[];
   /**

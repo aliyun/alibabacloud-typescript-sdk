@@ -146,7 +146,7 @@ export class DescribeIpv6GatewaysResponseBody extends $dara.Model {
   ipv6Gateways?: DescribeIpv6GatewaysResponseBodyIpv6Gateways;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class DescribeIpv6GatewaysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of entries in the list.
    * 
    * @example
    * 10
@@ -14,12 +14,17 @@ export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys 
   /**
    * @remarks
    * The type of the route. Valid values:
+   * - **all**: all route types.
+   * - **custom**: custom route.
+   * - **system**: system route.
+   * - **bgp**: BGP route.
+   * - **cen**: Cloud Enterprise Network (CEN) route.
+   * - **type_vpn_bgp_internal**: VPN BGP route.
+   * - **ECR**: Express Connect Router (ECR) route.
    * 
-   * *   **All**: all route types
-   * *   **Custom**: a custom route
-   * *   **System**: a system route
-   * *   **BGP**: a BGP route
-   * *   **CEN**: a CEN route
+   * 
+   * 
+   * > The returned system routes are the system routes in the system route table.
    * 
    * @example
    * Custom
@@ -51,7 +56,7 @@ export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys 
 export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys extends $dara.Model {
   /**
    * @remarks
-   * The information about the routes of different types in one route table.
+   * The collection of route entry counts by type in a single route table.
    */
   entrySummarys?: GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys[];
   /**
@@ -91,7 +96,7 @@ export class GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys extends $dara
 export class GetVpcRouteEntrySummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC668356-BCB4-42FD-9BC3-FA2B2E04B634
@@ -99,7 +104,7 @@ export class GetVpcRouteEntrySummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the routes in the route tables.
+   * The information about all route tables returned.
    */
   routeEntrySummarys?: GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys[];
   static names(): { [key: string]: string } {

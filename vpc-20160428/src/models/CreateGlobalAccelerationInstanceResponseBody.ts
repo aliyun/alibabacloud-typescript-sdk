@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGlobalAccelerationInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the GA instance.
+   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * @example
    * ga-bp1fi6sq7npnicmjj****
@@ -13,7 +13,7 @@ export class CreateGlobalAccelerationInstanceResponseBody extends $dara.Model {
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The public IP address of the GA instance.
+   * The public IP address of the Alibaba Cloud Global Accelerator (GA) instance.
    * 
    * If **BandwidthType** is set to **Sharing**, this parameter is not returned.
    * 

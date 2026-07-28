@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource. You can specify at most 20 tag keys. It cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N added to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
 export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway endpoint.
+   * The endpoint instance ID of the gateway endpoint.
    * 
    * @example
    * vpce-bp1i1212ss2whuwyw****
@@ -67,7 +67,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -75,10 +75,9 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+   * Specifies whether a next query token is available. Valid values:
+   * - Leave this parameter empty for the first query or when no more results are available.
+   * - If more results are available, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -88,9 +87,9 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway endpoint.
+   * The region ID of the gateway endpoint that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -110,7 +109,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the endpoint service.
+   * The service name of the endpoint service.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss
@@ -118,12 +117,12 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: ListVpcGatewayEndpointsRequestTags[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+   * The ID of the VPC to which the gateway endpoint belongs.
    * 
    * @example
    * vpc-bp1gsk7h12ew7oegk****

@@ -7,9 +7,9 @@ export class DeleteVpnPbrRouteEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -40,9 +40,9 @@ export class DeleteVpnPbrRouteEntryRequest extends $dara.Model {
    * The policy priority of the policy-based route.
    * 
    * - If no policy priority was previously configured for the policy-based route, you do not need to specify this parameter.
-   * - If a policy priority was previously configured for the policy-based route, this parameter is optional.
+   * - If a policy priority was previously configured for the policy-based route, you can choose whether to specify this parameter.
    * 
-   *     If you specify this parameter, set it to the previously configured policy priority. If you set it to a different value, the operation fails.
+   *     If you specify this parameter, enter the policy priority that was previously configured for the policy-based route. If you enter a different value, the operation fails.
    * 
    * @example
    * 10

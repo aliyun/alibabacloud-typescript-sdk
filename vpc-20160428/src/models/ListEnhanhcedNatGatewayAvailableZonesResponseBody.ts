@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * The name of the zone.
+   * The zone name.
    * 
    * @example
    * 中东1 可用区A
@@ -13,7 +13,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones extends $dar
   localName?: string;
   /**
    * @remarks
-   * The ID of the zone where the instance is deployed.
+   * The zone ID.
    * 
    * @example
    * me-east-1a
@@ -45,7 +45,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones extends $dar
 export class ListEnhanhcedNatGatewayAvailableZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8AE6F367-52EA-535D-9A3D-EF23D70527C8

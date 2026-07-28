@@ -69,7 +69,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigBgpConfig
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IKE phase.
+   * The IKE phase authentication algorithm.
    * 
    * @example
    * sha1
@@ -77,7 +77,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IKE phase.
+   * The IKE phase encryption algorithm.
    * 
    * @example
    * aes
@@ -85,7 +85,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IKE phase. Unit: seconds.
+   * The IKE phase lifetime. Unit: seconds.
    * 
    * @example
    * 86400
@@ -95,8 +95,8 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
    * @remarks
    * The IKE negotiation mode. Valid values:
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * - **main**: Main mode. This mode provides high security during negotiation.
+   * - **aggressive**: Aggressive mode. This mode supports fast negotiation and a higher success rate.
    * 
    * @example
    * main
@@ -112,7 +112,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikePfs?: string;
   /**
    * @remarks
-   * The IKE version.
+   * The version of the IKE protocol.
    * 
    * @example
    * ikev2
@@ -182,7 +182,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IPsec phase.
+   * The IPsec phase authentication algorithm.
    * 
    * @example
    * sha1
@@ -190,7 +190,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IPsec phase.
+   * The IPsec phase encryption algorithm.
    * 
    * @example
    * aes
@@ -198,7 +198,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The lifetime in the IPsec phase. Unit: seconds.
+   * The IPsec phase lifetime. Unit: seconds.
    * 
    * @example
    * 86400
@@ -240,80 +240,14 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
 }
 
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig extends $dara.Model {
-  /**
-   * @remarks
-   * IKE阶段认证算法。
-   * 
-   * @example
-   * sha1
-   */
   ikeAuthAlg?: string;
-  /**
-   * @remarks
-   * IKE阶段加密算法。
-   * 
-   * @example
-   * aes
-   */
   ikeEncAlg?: string;
-  /**
-   * @remarks
-   * IKE阶段生存时间。单位：秒。
-   * 
-   * @example
-   * 86400
-   */
   ikeLifetime?: number;
-  /**
-   * @remarks
-   * IKE协商模式。
-   * 
-   * - **main**：主模式，协商过程安全性高。
-   * - **aggressive**：野蛮模式，协商快速且协商成功率高。
-   * 
-   * @example
-   * main
-   */
   ikeMode?: string;
-  /**
-   * @remarks
-   * IKE阶段DH分组。
-   * 
-   * @example
-   * group2
-   */
   ikePfs?: string;
-  /**
-   * @remarks
-   * IKE协议的版本。
-   * 
-   * @example
-   * ikev2
-   */
   ikeVersion?: string;
-  /**
-   * @remarks
-   * 本地IDC侧隧道的标识。
-   * 
-   * @example
-   * 47.21.XX.XX
-   */
   localId?: string;
-  /**
-   * @remarks
-   * 预共享密钥。
-   * 
-   * @example
-   * pgw6dy7d1i8i****
-   */
   psk?: string;
-  /**
-   * @remarks
-   * 阿里云侧隧道的标识。
-   * 
-   * @example
-   * 47.24.XX.XX
-   */
   remoteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -353,37 +287,9 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
 }
 
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig extends $dara.Model {
-  /**
-   * @remarks
-   * IPsec阶段认证算法。
-   * 
-   * @example
-   * sha1
-   */
   ipsecAuthAlg?: string;
-  /**
-   * @remarks
-   * IPsec阶段加密算法。
-   * 
-   * @example
-   * aes
-   */
   ipsecEncAlg?: string;
-  /**
-   * @remarks
-   * IPsec阶段生存时间。单位：秒。
-   * 
-   * @example
-   * 86400
-   */
   ipsecLifetime?: number;
-  /**
-   * @remarks
-   * IPsec阶段DH分组。
-   * 
-   * @example
-   * group2
-   */
   ipsecPfs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -413,39 +319,10 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsCo
 }
 
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig extends $dara.Model {
-  /**
-   * @remarks
-   * 第一阶段协商的配置信息。
-   */
   ikeConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig;
-  /**
-   * @remarks
-   * 第二阶段协商的配置信息。
-   */
   ipsecConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig;
-  /**
-   * @remarks
-   * 本地IDC侧隧道的标识。
-   * 
-   * @example
-   * 47.21.XX.XX
-   */
   local?: string;
-  /**
-   * @remarks
-   * 阿里云侧隧道的标识。
-   * 
-   * @example
-   * 47.24.XX.XX
-   */
   remote?: string;
-  /**
-   * @remarks
-   * 隧道ID。
-   * 
-   * @example
-   * tun-opsqc4d97wni27****
-   */
   tunnelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -512,12 +389,12 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
   bgpConfigs?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigBgpConfigs;
   /**
    * @remarks
-   * The configurations of Phase 1 negotiations.
+   * The configuration of Phase 1 negotiation.
    */
   ikeConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig;
   /**
    * @remarks
-   * The configurations of Phase 2 negotiations.
+   * The configuration of Phase 2 negotiation.
    */
   ipsecConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConfig;
   /**
@@ -530,7 +407,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
   local?: string;
   /**
    * @remarks
-   * The CIDR block on the data center side.
+   * The CIDR block on the on-premises data center side.
    * 
    * @example
    * 10.0.0.0/8
@@ -546,7 +423,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig extends 
   remote?: string;
   /**
    * @remarks
-   * The CIDR block on the virtual private cloud (VPC) side.
+   * The CIDR block on the VPC side.
    * 
    * @example
    * 192.168.0.0/16
@@ -611,7 +488,7 @@ export class DownloadVpnConnectionConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of the peer gateway device.
+   * The configuration of the peer gateway device of the IPsec-VPN connection.
    */
   vpnConnectionConfig?: DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig;
   static names(): { [key: string]: string } {

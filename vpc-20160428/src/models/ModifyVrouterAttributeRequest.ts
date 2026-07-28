@@ -7,7 +7,7 @@ export class ModifyVRouterAttributeRequest extends $dara.Model {
    * @remarks
    * The description of the vRouter.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * My VRouter
@@ -17,9 +17,9 @@ export class ModifyVRouterAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the vRouter.
+   * The region ID of the vRouter to modify.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class ModifyVRouterAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The vRouter ID.
+   * The ID of the vRouter.
    * 
    * This parameter is required.
    * 

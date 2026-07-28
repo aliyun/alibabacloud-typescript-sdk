@@ -7,9 +7,9 @@ export class CopyNetworkAclEntriesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123
@@ -18,8 +18,8 @@ export class CopyNetworkAclEntriesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * * **true**: performs a dry run. The system checks the request for potential issues without performing the actual operation.
-   * * **false** (default): sends the request. If the request passes the check, the operation is performed.
+   * * **true**: performs a dry run.
+   * * **false** (default): sends the request.
    * 
    * @example
    * false
@@ -39,7 +39,7 @@ export class CopyNetworkAclEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the network ACL. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region where the network ACL resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -21,7 +21,7 @@ export class CreateVpcResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the route table that is automatically created by the system after the VPC is created.
+   * The ID of the route table that is automatically created when the VPC is created.
    * 
    * @example
    * vtb-bp145q7glnuzdv****
@@ -29,7 +29,7 @@ export class CreateVpcResponseBody extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The ID of the vRouter that is automatically created by the system after the VPC is created.
+   * The ID of the vRouter that is automatically created when the VPC is created.
    * 
    * @example
    * vrt-bp1lhl0taikrteen8****

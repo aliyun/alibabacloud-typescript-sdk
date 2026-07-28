@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIPv6TranslatorAclListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL that you want to delete.
+   * The ID of the access control policy group to delete.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteIPv6TranslatorAclListRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -27,7 +27,7 @@ export class DeleteIPv6TranslatorAclListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the IPv6 translation service instance.
+   * The region of the IPv6 Translation Service instance.
    * 
    * This parameter is required.
    * 

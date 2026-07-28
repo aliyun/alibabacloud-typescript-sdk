@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $dara.Model {
   /**
    * @remarks
-   * The description of the failover test.
+   * The description of the failover test job.
    * 
-   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description is 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -15,7 +15,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   description?: string;
   /**
    * @remarks
-   * The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+   * The failover test duration. Unit: minutes. Valid values: **1 to 4320**.
    * 
    * @example
    * 60
@@ -23,7 +23,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   jobDuration?: string;
   /**
    * @remarks
-   * The ID of the failover test.
+   * The ID of the failover test job.
    * 
    * @example
    * ftj-bp1yh6mvi13aq3g8w****
@@ -31,10 +31,11 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   jobId?: string;
   /**
    * @remarks
-   * Indicates whether the failover test is performed immediately. Valid values:
+   * The failover test type. Valid values:
    * 
-   * *   **StartNow**
-   * *   **StartLater**
+   * - **StartNow**: starts immediately. The failover test starts immediately after the job is created.
+   * 
+   * - **StartLater**: starts later. Only the job is created without starting the test.
    * 
    * @example
    * StartNow
@@ -42,9 +43,9 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   jobType?: string;
   /**
    * @remarks
-   * The name of the failover test.
+   * The name of the failover test job.
    * 
-   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name is 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -52,12 +53,12 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   name?: string;
   /**
    * @remarks
-   * The IDs of failover test resources.
+   * The list of failover test resource IDs.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of failover test resource. Only **PHYSICALCONNECTION** is returned.
+   * The resource type for the failover test. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
    * 
    * @example
    * PHYSICALCONNECTION
@@ -65,7 +66,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   resourceType?: string;
   /**
    * @remarks
-   * The start time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2023-11-21T14:00:00Z
@@ -73,13 +74,17 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   startTime?: string;
   /**
    * @remarks
-   * The status of the failover test. Valid values:
+   * The status of the failover test job. Valid values:
    * 
-   * *   **Init**
-   * *   **Starting**
-   * *   **Testing**
-   * *   **Stopping**
-   * *   **Stopped**
+   * - **Init**: pending.
+   * 
+   * - **Starting**: starting.
+   * 
+   * - **Testing**: in progress.
+   * 
+   * - **Stopping**: stopping.
+   * 
+   * - **Stopped**: completed.
    * 
    * @example
    * Init
@@ -87,7 +92,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   status?: string;
   /**
    * @remarks
-   * The end time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2023-11-21T15:00:00Z
@@ -138,7 +143,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
 export class DescribeFailoverTestJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The failover test.
+   * The failover test job.
    */
   failoverTestJobModel?: DescribeFailoverTestJobResponseBodyFailoverTestJobModel;
   /**

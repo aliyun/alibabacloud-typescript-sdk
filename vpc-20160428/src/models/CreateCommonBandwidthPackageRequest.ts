@@ -7,7 +7,7 @@ export class CreateCommonBandwidthPackageRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -49,18 +49,17 @@ export class CreateCommonBandwidthPackageRequestTag extends $dara.Model {
 export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The peak bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s. 
+   * The maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s. 
    * 
    * <props="intl"><ph>Default value range: **1** to **1000**. Default value: **1**.</ph>
    * 
    * <props="china">
    * 
-   * - If **InternetChargeType** is set to **PayByBandwidth**, which indicates that the billable method of the Internet Shared Bandwidth instance is pay-by-bandwidth, the default value range of **Bandwidth** is **2** to **20000**.
-   * - If **InternetChargeType** is set to **PayBy95**, which indicates that the billable method of the Internet Shared Bandwidth instance is pay-by-enhanced-95th-percentile, the default value range of **Bandwidth** is **200** to **20000**.
-   * - If **InternetChargeType** is set to **PayByDominantTraffic**, which indicates that the billable method of the Internet Shared Bandwidth instance is pay-by-dominant-traffic, the default value range of **Bandwidth** is **1** to **2000**.
+   * - If **InternetChargeType** is set to **PayByBandwidth**, which indicates that the billing method of the Internet Shared Bandwidth instance is pay-by-bandwidth, the default value range of **Bandwidth** is **2** to **20000**.
+   * - If **InternetChargeType** is set to **PayBy95**, which indicates that the billing method of the Internet Shared Bandwidth instance is enhanced 95th percentile billing, the default value range of **Bandwidth** is **200** to **20000**.
+   * - If **InternetChargeType** is set to **PayByDominantTraffic**, which indicates that the billing method of the Internet Shared Bandwidth instance is pay-by-dominant-traffic, the default value range of **Bandwidth** is **1** to **2000**.
    * 
    *  Default value: **1000**.
-   * .
    * 
    * This parameter is required.
    * 
@@ -72,7 +71,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
@@ -93,8 +92,8 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
    * The line type. Valid values:
-   * - **BGP** (default): BGP (multi-ISP) lines. All regions support BGP (multi-ISP) lines.
-   * - **BGP_PRO**: BGP (multi-ISP) premium lines. Currently, only the Hong Kong (China), Singapore, Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions support BGP (multi-ISP) premium Internet Shared Bandwidth instances.
+   * - **BGP** (default): BGP (multi-ISP) lines. BGP (multi-ISP) lines are supported in all regions.
+   * - **BGP_PRO**: BGP (multi-ISP) premium lines. Currently, BGP (multi-ISP) premium Internet Shared Bandwidth instances are supported only in the Hong Kong (China), Singapore, Japan (Tokyo), Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
    * 
    * If you are a single-ISP bandwidth whitelist user, you can also select the following types:
    * - **ChinaTelecom**: China Telecom
@@ -104,7 +103,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
    * - **ChinaUnicom_L2**: China Unicom L2
    * - **ChinaMobile_L2**: China Mobile L2
    * 
-   * If you are a Finance Cloud user in the China (Hangzhou) region, this parameter is required. Set the value to **BGP_FinanceCloud**.
+   * If you are an Alibaba Finance Cloud user in Hangzhou, this parameter is required. Set the value to **BGP_FinanceCloud**.
    * 
    * @example
    * BGP
@@ -112,7 +111,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   ISP?: string;
   /**
    * @remarks
-   * The billable method of the Internet Shared Bandwidth instance. Valid values:
+   * The billing method of the Internet Shared Bandwidth instance. Valid values:
    * <props="intl">**PayByTraffic** (pay-by-data-transfer).
    * 
    * <props="china">
@@ -120,7 +119,6 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
    * - **PayByBandwidth** (default): pay-by-bandwidth.
    * - **PayBy95**: pay-by-enhanced-95th-percentile.
    * - **PayByDominantTraffic**: pay-by-dominant-traffic.
-   * .
    * 
    * @example
    * 中国站示例值：PayByBandwidth，国际站示例值：PayByTraffic
@@ -173,15 +171,15 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security protection level.
+   * The edition of Anti-DDoS.
    * 
-   * - If you do not set this parameter, Anti-DDoS Origin Basic is used by default.
+   * - If you leave this parameter empty, Anti-DDoS Origin Basic is used by default.
    * 
    * - If you set this parameter to **AntiDDoS_Enhanced**, Anti-DDoS Origin Enhanced is used.
    * 
    * <props="china"><ph>You can set this parameter when **InternetChargeType** is set to **PayBy95**.</ph>
    * 
-   * You can specify up to 10 security protection levels.
+   * You can add up to 10 security protection levels.
    * 
    * > This parameter is deprecated.
    * 
@@ -197,7 +195,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
    * The zone of the Internet Shared Bandwidth instance.
-   * This parameter is required when you create an Internet Shared Bandwidth instance for a CloudBox.
+   * This parameter is required when you create an Internet Shared Bandwidth instance for a cloud box.
    * 
    * @example
    * ap-southeast-1-lzdvn-cb

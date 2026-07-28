@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The CIDR block.
    * 
    * @example
    * 47.0.XX.XX/24
@@ -13,7 +13,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   cidrBlock?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The time when the CIDR block was created. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2022-05-10T01:37:38Z
@@ -21,7 +21,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   creationTime?: string;
   /**
    * @remarks
-   * The information about the CIDR blocks.
+   * The instance ID of the IPAM pool.
    * 
    * @example
    * pippool-6wetvn6fumkgycssx****
@@ -29,7 +29,10 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   publicIpAddressPoolId?: string;
   /**
    * @remarks
-   * The time when the CIDR block was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+   * The status of the CIDR block in the IP address pool. Valid values:
+   * - **Created**: available.
+   * - **Deleting**: being deleted.
+   * - **Modifying**: being modified.
    * 
    * @example
    * Created
@@ -37,7 +40,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   status?: string;
   /**
    * @remarks
-   * The total number of available IP addresses in the CIDR block.
+   * The total number of available IP addresses in the CIDR block of the IP address pool.
    * 
    * @example
    * 20
@@ -45,11 +48,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   totalIpNum?: number;
   /**
    * @remarks
-   * The status of the CIDR block in the IP address pool. Valid values:
-   * 
-   * *   **Created**: available
-   * *   **Deleting**: being deleted
-   * *   **Modifying**: being modified
+   * The number of used IP addresses in the CIDR block of the IP address pool.
    * 
    * @example
    * 20
@@ -89,10 +88,9 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
 export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If **NextToken** was not returned, it indicates that no additional results exist.
-   * *   If **NextToken** is returned, the value is the token that is used for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -100,12 +98,12 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The list of CIDR blocks in the IP address pool.
    */
   publicIpPoolCidrBlockList?: ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
@@ -113,7 +111,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The maximum number of entries returned. Valid values: **10** to **100**. Default value: **10**.
+   * The total number of entries returned.
    * 
    * @example
    * 10

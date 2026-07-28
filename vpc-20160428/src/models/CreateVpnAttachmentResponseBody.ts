@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpnAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned by the current operation. **200** indicates that the operation is successful.
+   * The status code returned by the current task. **200** indicates that the task is successful.
    * 
    * @example
    * 200
@@ -13,9 +13,9 @@ export class CreateVpnAttachmentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+   * The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1658201810000
@@ -23,7 +23,7 @@ export class CreateVpnAttachmentResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The information returned by the current operation.
+   * The message returned by the current task.
    * 
    * @example
    * successful
@@ -47,10 +47,10 @@ export class CreateVpnAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current operation is successful.
+   * Indicates whether the current task is successfully executed.
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Successfully executed.
+   * - **false**: Failed to execute.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class CreateVpnAttachmentResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the IPsec-VPN connection.
+   * The IPsec-VPN connection ID.
    * 
    * @example
    * vco-p0wb09rama8qwwgfn****

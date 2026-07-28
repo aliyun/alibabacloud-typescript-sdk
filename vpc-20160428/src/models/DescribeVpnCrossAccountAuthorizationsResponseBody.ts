@@ -13,7 +13,7 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
   aliUid?: number;
   /**
    * @remarks
-   * The instance ID of the CEN instance to which the IPsec-VPN connection authorization is granted.
+   * The instance ID of the CEN instance to which the IPsec-VPN connection grants authorization.
    * 
    * @example
    * cen-vv8h0t3klfpaae****
@@ -39,9 +39,9 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
   bindUid?: number;
   /**
    * @remarks
-   * The timestamp when the cross-account authorization was created for the IPsec-VPN connection.
+   * The timestamp when the cross-account authorization of the IPsec-VPN connection was created.
    * 
-   * The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the cross-account authorization was created.
+   * The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the cross-account authorization was created.
    * 
    * @example
    * 1658201810000
@@ -89,7 +89,7 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
 export class DescribeVpnCrossAccountAuthorizationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cross-account authorization information for the IPsec-VPN connection.
+   * The list of cross-account authorization information of the IPsec-VPN connection.
    */
   crossAccountAuthorizations?: DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthorizations[];
   /**
@@ -102,7 +102,7 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries per page when paging is used.
    * 
    * @example
    * 10

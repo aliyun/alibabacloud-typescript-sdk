@@ -61,7 +61,7 @@ export class DescribeIPv6TranslatorAclListAttributesResponseBody extends $dara.M
   aclEntries?: DescribeIPv6TranslatorAclListAttributesResponseBodyAclEntries;
   /**
    * @remarks
-   * The ACL ID.
+   * The ID of the access control policy group.
    * 
    * @example
    * ipv6transacl-bp1de2****
@@ -69,7 +69,7 @@ export class DescribeIPv6TranslatorAclListAttributesResponseBody extends $dara.M
   aclId?: string;
   /**
    * @remarks
-   * The name of the ACL.
+   * The name of the access control policy group.
    * 
    * @example
    * acl1
@@ -77,7 +77,7 @@ export class DescribeIPv6TranslatorAclListAttributesResponseBody extends $dara.M
   aclName?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeIPv6TranslatorAclListAttributesResponseBody extends $dara.M
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

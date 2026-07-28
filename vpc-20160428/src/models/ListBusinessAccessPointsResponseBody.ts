@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels extends $dara.Model {
-  /**
-   * @remarks
-   * The model of the optical module.
-   */
   opticalModuleModel?: string;
-  /**
-   * @remarks
-   * The port type.
-   */
   portType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,7 +31,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModu
 export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access point.
+   * The ID of the Express Connect circuit access point.
    * 
    * @example
    * ap-cn-hangzhou-xs-B
@@ -47,7 +39,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
   accessPointId?: string;
   /**
    * @remarks
-   * The name of the access point.
+   * The name of the Express Connect circuit access point.
    * 
    * @example
    * 杭州-萧山-B
@@ -55,9 +47,9 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
   accessPointName?: string;
   /**
    * @remarks
-   * The ID of the Cloud Box instance.
+   * The CloudBox instance ID.
    * 
-   * > This parameter is returned only for access points that are associated with Cloud Box instances.
+   * > This parameter is available when the queried Express Connect circuit and access point are CloudBox Express Connect circuits and CloudBox access points.
    * 
    * @example
    * cb-****
@@ -79,26 +71,17 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
    * 120.247514
    */
   longitude?: number;
-  /**
-   * @remarks
-   * The supported model of the optical module.
-   */
   opticalModuleModels?: ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels[];
   /**
    * @remarks
-   * The connectivity provider for the Express Connect circuit. Valid values:
+   * The telecommunications service providers that support physical line access. Valid values:
    * 
    * - **CT**: China Telecom.
-   * 
    * - **CU**: China Unicom.
-   * 
    * - **CM**: China Mobile.
-   * 
-   * - **CO**: other connectivity providers in the Chinese mainland.
-   * 
+   * - **CO**: Other Chinese providers.
    * - **Equinix**: Equinix.
-   * 
-   * - **Other**: other connectivity providers outside the Chinese mainland.
+   * - **Other**: Other providers outside the Chinese mainland.
    * 
    * @example
    * CT
@@ -106,23 +89,17 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
   supportLineOperator?: string;
   /**
    * @remarks
-   * The port types supported by the access point. Valid values:
+   * The port types available for purchase at the Express Connect circuit access point. Valid values:
    * 
-   * - **100Base-T**: 100 Mbit/s copper port.
+   * - **100Base-T**: 100M Ethernet port.
+   * - **1000Base-T**: 1 GE electrical port.
+   * - **1000Base-LX**: GE single-mode optical port (10 km).
+   * - **10GBase-T**: 10 GE electrical port.
+   * - **10GBase-LR**: 10 GE single-mode optical port (10 km).
+   * - **40GBase-LR**: 40 GE single-mode optical port.
+   * - **100GBase-LR**: 100 GE single-mode optical port.
    * 
-   * - **1000Base-T**: 1,000 Mbit/s copper port.
-   * 
-   * - **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km).
-   * 
-   * - **10GBase-T**: 10,000 Mbit/s copper port.
-   * 
-   * - **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km).
-   * 
-   * - **40GBase-LR**: 40,000 Mbit/s single-mode optical port.
-   * 
-   * - **100GBase-LR**: 100,000 Mbit/s single-mode optical port.
-   * 
-   * > The 40GBase-LR and 100GBase-LR port types are subject to availability. To use these port types, contact your account manager.
+   * >  40GBase-LR and 100GBase-LR ports are created based on actual backend port availability. Contact your account manager for details.
    * 
    * @example
    * 1000Base-T
@@ -169,7 +146,7 @@ export class ListBusinessAccessPointsResponseBodyBusinessAccessPoints extends $d
 export class ListBusinessAccessPointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of access points.
+   * The list of all access point information for Express Connect circuits.
    */
   businessAccessPoints?: ListBusinessAccessPointsResponseBodyBusinessAccessPoints[];
   /**

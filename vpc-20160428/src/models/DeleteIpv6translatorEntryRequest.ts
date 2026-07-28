@@ -7,7 +7,7 @@ export class DeleteIPv6TranslatorEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -15,7 +15,7 @@ export class DeleteIPv6TranslatorEntryRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the IPv6 mapping entry to be deleted.
+   * The ID of the IPv6 Translation Service mapping entry to delete.
    * 
    * @example
    * ipv6transentry-bp1g8bhrde****
@@ -23,9 +23,9 @@ export class DeleteIPv6TranslatorEntryRequest extends $dara.Model {
   ipv6TranslatorEntryId?: string;
   /**
    * @remarks
-   * The ID of the IPv6 Translation Service instance.
+   * The instance ID of the IPv6 Translation Service.
    * 
-   * > If you do not specify **Ipv6TranslatorEntryId**, all mapping entries in the specified instance are deleted.
+   * > If you do not specify the **Ipv6TranslatorEntryId** parameter, all mapping entries of the specified instance are deleted.
    * 
    * @example
    * ipv6trans-bp1858ys****
@@ -35,7 +35,7 @@ export class DeleteIPv6TranslatorEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+   * The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query region IDs.
    * 
    * This parameter is required.
    * 

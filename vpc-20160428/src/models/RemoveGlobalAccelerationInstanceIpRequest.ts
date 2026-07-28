@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveGlobalAccelerationInstanceIpRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared-bandwidth instance.
+   * The instance ID of the Internet Shared Bandwidth instance.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class RemoveGlobalAccelerationInstanceIpRequest extends $dara.Model {
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The ID of the EIP.
+   * The ID of the EIP instance. 
    * 
-   * To query the EIP ID, call DescribeEipAddresses.
+   * You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/36018.html) operation to query the EIP instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,9 +29,7 @@ export class RemoveGlobalAccelerationInstanceIpRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the shared-bandwidth instance is located.
-   * 
-   * To query the region ID, call DescribeRegions.
+   * The region where the Internet Shared Bandwidth instance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

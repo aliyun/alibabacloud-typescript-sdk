@@ -272,7 +272,7 @@ export class DescribeCommonBandwidthPackagesResponseBody extends $dara.Model {
   commonBandwidthPackages?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackages;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -280,7 +280,7 @@ export class DescribeCommonBandwidthPackagesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateRouteTableFromGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C5644C9A-7480-13B6-AECB-30FF142E3724

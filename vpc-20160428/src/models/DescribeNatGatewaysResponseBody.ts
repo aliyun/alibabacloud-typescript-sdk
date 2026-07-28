@@ -489,7 +489,7 @@ export class DescribeNatGatewaysResponseBody extends $dara.Model {
   natGateways?: DescribeNatGatewaysResponseBodyNatGateways;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 10
@@ -513,7 +513,7 @@ export class DescribeNatGatewaysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the NAT gateway list.
+   * The total number of NAT gateway entries in the list.
    * 
    * @example
    * 1

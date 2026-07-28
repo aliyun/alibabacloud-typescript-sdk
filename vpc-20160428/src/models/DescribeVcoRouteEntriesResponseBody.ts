@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The list of autonomous system (AS) numbers that the BGP route goes through.
+   * The list of autonomous system (AS) numbers that the BGP route passes through.
    * 
    * @example
    * [12000]
@@ -21,9 +21,9 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   community?: string;
   /**
    * @remarks
-   * The timestamp when the route was created.
+   * The timestamp when the destination route was created.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the Unix format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1658217008000
@@ -39,10 +39,10 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   nextHop?: string;
   /**
    * @remarks
-   * The list of next hops.
+   * The list of next-hop tunnels.
    * 
-   * > - This parameter is returned only by dual-tunnel IPsec connections.
-   * > - This parameter is returned only when the tunnel status is **Phase 2 Negotiation Successful**.
+   * > - This information is returned only for IPsec-VPN connections in dual-tunnel mode.
+   * > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiations succeeded**.
    */
   nextHopTunnelIdList?: string[];
   /**
@@ -55,10 +55,10 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   routeDest?: string;
   /**
    * @remarks
-   * The route type. Valid values:
+   * The type of the route. Valid values:
    * 
-   * *   **custom**: a destination-based route
-   * *   **bgp**: a BGP route
+   * - **custom**: destination route.
+   * - **bgp**: BGP route.
    * 
    * @example
    * custom
@@ -68,8 +68,8 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The source of the BGP route. Valid values:
    * 
-   * *   **CLOUD**: indicates that the current BGP route is learned by the IPsec-VPN connection from the transit router.
-   * *   **VPN_BGP**: indicates that the current BGP route is learned by the IPsec-VPN connection from the data center.
+   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
+   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
    * 
    * @example
    * CLOUD
@@ -77,10 +77,10 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   source?: string;
   /**
    * @remarks
-   * The status of the route.
+   * The status of the route. Valid values:
    * 
-   * *   **published**: indicates that the current route is advertised to the transit router.
-   * *   **Active**: indicates that the current BGP route is available.
+   * - **published**: The destination route is published to the transit router instance.
+   * - **Active**: The BGP route is available.
    * 
    * @example
    * published
@@ -96,9 +96,9 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The weight of the destination-based route.
+   * The weight of the destination route.
    * 
-   * >  The current parameter has no effect.
+   * > This parameter is not in use.
    * 
    * @example
    * 100
@@ -151,7 +151,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
 export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Model {
   /**
    * @remarks
-   * The number of route entries.
+   * The number of routes.
    * 
    * @example
    * 3
@@ -159,10 +159,10 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
   routeCount?: number;
   /**
    * @remarks
-   * The route type. Valid values:
+   * The type of the route. Valid values:
    * 
-   * *   **custom**: destination-based route.
-   * *   **bgp**: BGP route.
+   * - **custom**: destination route.
+   * - **bgp**: BGP route.
    * 
    * @example
    * bgp
@@ -172,8 +172,8 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
    * @remarks
    * The source of the BGP route. Valid values:
    * 
-   * *   **CLOUD**: The current BGP route is learned by the IPsec connection from the transit router.
-   * *   **VPN_BGP**: The current BGP route is learned by the IPsec connection from the data center.
+   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
+   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
    * 
    * @example
    * VPN_BGP
@@ -207,7 +207,7 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
 export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -215,7 +215,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 10
@@ -223,7 +223,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E18980E8-C8C2-31BD-8156-AE2BBDEC87E1
@@ -231,7 +231,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -239,14 +239,14 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of route entries.
+   * The list of routes.
    */
   vcoRouteEntries?: DescribeVcoRouteEntriesResponseBodyVcoRouteEntries[];
   /**
    * @remarks
-   * The information on route entries of the dual-tunnel IPsec connection.
+   * The route statistics of the IPsec-VPN connection in dual-tunnel mode.
    * 
-   * >  This parameter is returned only for IPsec connections in dual-tunnel mode.
+   * > This information is returned only for IPsec-VPN connections in dual-tunnel mode.
    */
   vpnRouteCounts?: DescribeVcoRouteEntriesResponseBodyVpnRouteCounts[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag keys.
+   * The tag key.
    * 
    * @example
    * keyword
@@ -21,10 +21,9 @@ export class DescribeTagKeysRequest extends $dara.Model {
   maxResult?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If this is your first query or no next query is to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * The pagination token. Valid values:
+   * - If this is the first query or no subsequent query exists, leave this parameter empty.
+   * - If a subsequent query exists, set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -36,7 +35,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -46,7 +45,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 20 resource IDs.
+   * The resource ID. You can specify up to 50 resource IDs.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -55,13 +54,13 @@ export class DescribeTagKeysRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **VSWITCH**: vSwitch
-   * *   **ROUTETABLE**: route table
-   * *   **EIP**: elastic IP address (EIP)
-   * *   **VpnGateway**: VPN gateway
-   * *   **NATGATEWAY**: NAT gateway
-   * *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
+   * - **VPC**: virtual private cloud (VPC) instance.
+   * - **VSWITCH**: vSwitch instance.
+   * - **ROUTETABLE**: route table instance.
+   * - **EIP**: Elastic IP Address (EIP) instance.
+   * - **VpnGateWay**: VPN gateway instance.
+   * - **NATGATEWAY**: NAT gateway instance.
+   * - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.
    * 
    * @example
    * VPC

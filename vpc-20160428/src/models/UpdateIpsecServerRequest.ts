@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIpsecServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The client CIDR block from which an IP address is allocated to the virtual network interface controller (NIC) of the client.
+   * The client CIDR block, which is the CIDR block from which IP addresses are assigned to virtual network interface controllers (NICs) of the client.
    * 
-   * >  The client CIDR block must not overlap with the CIDR blocks of the VPC.
+   * > The client CIDR block cannot conflict with the VPC CIDR block.
    * 
    * @example
    * 10.0.0.0/24
@@ -17,9 +17,9 @@ export class UpdateIpsecServerRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * e4567-e89b-12d3-a456-42665544****
@@ -27,10 +27,11 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck this request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request without modifying the configurations of the IPsec server. The system checks the required parameters, request format, and service limits. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false**: sends the request. This is the default value. If the request passes the precheck, the system modifies the configurations of the IPsec server.
+   * - **true**: performs a dry run without modifying the IPsec server configuration. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error message is returned. If the check succeeds, `DryRunOperation` is returned.
+   * 
+   * - **false** (default): performs a dry run and sends the request. After the check succeeds, the IPsec server configuration is modified.
    * 
    * @example
    * false
@@ -38,10 +39,11 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * Specifies whether to delete the negotiated IPsec tunnel and initiate the negotiation again. Valid values:
+   * Specifies whether to delete the currently negotiated IPsec tunnel and re-initiate negotiation. Valid values:
    * 
-   * *   **true**: immediately initiates negotiations after the configuration is complete.
-   * *   **false**: initiates negotiations when inbound traffic is detected.
+   * - **true**: Negotiation is initiated immediately after the configuration is complete.
+   * 
+   * - **false**: Negotiation is initiated when inbound traffic is detected.
    * 
    * @example
    * false
@@ -49,16 +51,23 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   effectImmediately?: boolean;
   /**
    * @remarks
-   * The configuration of Phase 1 negotiations. Valid values:
+   * The Phase 1 negotiation parameter settings. Valid values:
    * 
-   * *   **IkeVersion**: The IKE version. Valid values: **ikev1** and **ikev2**.
-   * *   **IkeMode**: The IKE negotiation mode. Default value: **main**.
-   * *   **IkeEncAlg**: the encryption algorithm that is used in Phase 1 negotiation. Default value: **aes**.
-   * *   **IkeAuthAlg**: the authentication algorithm that is used in Phase 1 negotiation. Default value: **sha1**.
-   * *   **IkePfs**: The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Default value: **group2**.
-   * *   **IkeLifetime**: The SA lifetime determined by Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
-   * *   **LocalId**: The identifier of the IPsec server. Only FQDN and IP address formats are supported.
-   * *   **RemoteId**: the peer identifier. Only FQDN and IP address formats are supported.
+   * - **IkeVersion**: The version of the IKE protocol. Valid values: **ikev1** or **ikev2**.
+   * 
+   * - **IkeMode**: The negotiation pattern of the IKE version. Default value: **main**.
+   * 
+   * - **IkeEncAlg**: The encryption algorithm used in Phase 1 negotiations. Default value: **aes**.
+   * 
+   * - **IkeAuthAlg**: The authentication algorithm used in Phase 1 negotiations. Default value: **sha1**.
+   * 
+   * - **IkePfs**: The Diffie-Hellman key exchange algorithm used in Phase 1 negotiations. Default value: **group2**.
+   * 
+   * - **IkeLifetime**: The epoch of the SA negotiated in Phase 1. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * 
+   * - **LocalId**: The identity of the IPsec server. FQDN and IP address formats are supported.
+   * 
+   * - **RemoteId**: The identity of the peer. FQDN and IP address formats are supported.
    * 
    * @example
    * {"IkeVersion":"ikev2","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400}
@@ -66,12 +75,15 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   ikeConfig?: string;
   /**
    * @remarks
-   * The configuration of Phase 2 negotiation. Valid values:
+   * The Phase 2 negotiation parameter settings. Valid values:
    * 
-   * *   **IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiation. Default value: **aes**.
-   * *   **IpsecAuthAlg**: the authentication algorithm that is used in Phase 2 negotiation. Default value: **sha1**.
-   * *   **IpsecPfs**: forwards packets of all protocols. The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiation. Default value: **group2**.
-   * *   **IpsecLifetime**: the SA lifetime determined by Phase 2 negotiation. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * - **IpsecEncAlg**: The encryption algorithm used in Phase 2 negotiations. Default value: **aes**.
+   * 
+   * - **IpsecAuthAlg**: The authentication algorithm used in Phase 2 negotiations. Default value: **sha1**.
+   * 
+   * - **IpsecPfs**: Forward all protocol packets. The Diffie-Hellman key exchange algorithm used in Phase 2 negotiations. Default value: **group2**.
+   * 
+   * - **IpsecLifetime**: The epoch of the SA negotiated in Phase 2. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
    * 
    * @example
    * {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
@@ -79,7 +91,7 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   ipsecConfig?: string;
   /**
    * @remarks
-   * The IPsec server ID.
+   * The ID of the IPsec server.
    * 
    * This parameter is required.
    * 
@@ -91,7 +103,7 @@ export class UpdateIpsecServerRequest extends $dara.Model {
    * @remarks
    * The name of the IPsec server.
    * 
-   * It must be 1 to 100 characters in length.
+   * The name must be 1 to 100 characters in length.
    * 
    * @example
    * test
@@ -99,9 +111,9 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   ipsecServerName?: string;
   /**
    * @remarks
-   * The local CIDR blocks, which are the CIDR blocks of the virtual private cloud (VPC) for the client to access.
+   * The local CIDR block, which is the CIDR block on the VPC side that needs to communicate with the client CIDR block.
    * 
-   * Multiple CIDR blocks are separated with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
+   * Separate multiple CIDR blocks with commas (,). Example: 192.168.1.0/24,192.168.2.0/24.
    * 
    * @example
    * 192.168.0.0/24,172.17.0.0/16
@@ -111,11 +123,11 @@ export class UpdateIpsecServerRequest extends $dara.Model {
    * @remarks
    * The pre-shared key.
    * 
-   * The pre-shared key that is used for authentication between the IPsec server and the client. The key must be 1 to 100 characters in length.
+   * The pre-shared key is used for identity authentication between the IPsec server and the client. The key must be 1 to 100 characters in length.
    * 
-   * You can call [ListIpsecServers](https://help.aliyun.com/document_detail/2794120.html) to query keys generated by the system.
+   * You can call the [ListIpsecServers](https://help.aliyun.com/document_detail/2794120.html) operation to query the key generated by the system.
    * 
-   * > The pre-shared key of the IPsec server key must be the same as that of the client. Otherwise, the connection between the IPsec server and the client cannot be established.
+   * > The pre-shared key of the IPsec server must be the same as the authentication key of the client. Otherwise, a connection cannot be established between the IPsec server and the client.
    * 
    * @example
    * Cfd123****
@@ -123,7 +135,7 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   psk?: string;
   /**
    * @remarks
-   * Specifies whether to enable pre-shared key authentication. If you set the value to **true**, pre-shared key authentication is enabled.
+   * Specifies whether to enable pre-shared key authentication. Valid values: **true**, which indicates that pre-shared key authentication is enabled.
    * 
    * @example
    * true
@@ -131,9 +143,9 @@ export class UpdateIpsecServerRequest extends $dara.Model {
   pskEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the region where the IPsec server is created.
+   * The region ID of the IPsec server.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

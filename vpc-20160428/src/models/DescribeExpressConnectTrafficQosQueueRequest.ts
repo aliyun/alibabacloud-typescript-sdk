@@ -9,7 +9,7 @@ export class DescribeExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -27,19 +27,19 @@ export class DescribeExpressConnectTrafficQosQueueRequest extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The QoS queue IDs.
+   * The collection of QoS queue IDs.
    */
   queueIdList?: string[];
   /**
    * @remarks
-   * The QoS queue names.
+   * The collection of QoS queue names.
    */
   queueNameList?: string[];
   /**
    * @remarks
    * The region ID of the QoS policy.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

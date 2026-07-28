@@ -17,7 +17,7 @@ export class DeletePhysicalConnectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The instance ID of the Express Connect circuit instance.
+   * The instance ID of the Express Connect circuit.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DeletePhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The region ID of the Express Connect circuit. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

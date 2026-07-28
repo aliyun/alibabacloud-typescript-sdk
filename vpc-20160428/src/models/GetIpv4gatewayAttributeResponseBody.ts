@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpv4GatewayAttributeResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class GetIpv4GatewayAttributeResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N added to the resource.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -55,8 +55,9 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the IPv4 gateway is activated. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The IPv4 gateway is activated.
+   * 
+   * - **false**: The IPv4 gateway is not activated.
    * 
    * @example
    * true
@@ -64,7 +65,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The description of the IPv4 gateway.
+   * The description of the IPv4 gateway instance.
    * 
    * @example
    * new
@@ -72,7 +73,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   ipv4GatewayDescription?: string;
   /**
    * @remarks
-   * The ID of the IPv4 gateway.
+   * The instance ID of the IPv4 gateway.
    * 
    * @example
    * ipv4gw-5tsnc6s4ogsedtp3k****
@@ -80,7 +81,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   ipv4GatewayId?: string;
   /**
    * @remarks
-   * The name of the IPv4 gateway.
+   * The name of the IPv4 gateway instance.
    * 
    * @example
    * name
@@ -88,7 +89,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   ipv4GatewayName?: string;
   /**
    * @remarks
-   * The ID of the route table associated with the IPv4 gateway.
+   * The ID of the route table associated with the IPv4 gateway instance.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -112,14 +113,19 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the IPv4 gateway. Valid values:
+   * The status of the IPv4 gateway instance. Valid values:
    * 
-   * *   **Creating**
-   * *   **Created**
-   * *   **Modifying**
-   * *   **Deleting**
-   * *   **Deleted**
-   * *   **Activating**
+   * - **Creating**: The IPv4 gateway is being created.
+   * 
+   * - **Created**: The IPv4 gateway is created and available.
+   * 
+   * - **Modifying**: The IPv4 gateway is being modified.
+   * 
+   * - **Deleting**: The IPv4 gateway is being deleted.
+   * 
+   * - **Deleted**: The IPv4 gateway is deleted.
+   * 
+   * - **Activating**: The IPv4 gateway is being activated.
    * 
    * @example
    * Created
@@ -132,7 +138,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   tags?: GetIpv4GatewayAttributeResponseBodyTags[];
   /**
    * @remarks
-   * The ID of the VPC with which the IPv4 gateway is associated.
+   * The ID of the VPC associated with the IPv4 gateway instance.
    * 
    * @example
    * vpc-5tsrxlw7dv074gci4****

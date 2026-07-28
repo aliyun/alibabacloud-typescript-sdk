@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenFlowLogServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OpenFlowLogServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information returned after the flow log feature is enabled.
+   * The message returned when the flow log service is activated.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class OpenFlowLogServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 28CF47AB-B6C0-5FA2-80C7-2B28826A92CB

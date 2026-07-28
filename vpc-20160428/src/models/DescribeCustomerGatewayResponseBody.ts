@@ -57,7 +57,7 @@ export class DescribeCustomerGatewayResponseBodyTags extends $dara.Model {
 export class DescribeCustomerGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The autonomous system number (ASN) of the gateway device in the data center.
+   * The autonomous system number of the on-premises data center gateway device.
    * 
    * @example
    * 65535
@@ -65,7 +65,7 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
   asn?: number;
   /**
    * @remarks
-   * The authentication key of the Border Gateway Protocol (BGP) routing protocol for the gateway device in the data center.
+   * The authentication key of the BGP routing protocol for the on-premises data center gateway device.
    * 
    * @example
    * AuthKey****
@@ -73,9 +73,9 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
   authKey?: string;
   /**
    * @remarks
-   * The timestamp generated when the customer gateway was created. Unit: milliseconds.
+   * The timestamp when the customer gateway was created. Unit: milliseconds.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the customer gateway was created.
    * 
    * @example
    * 1492747187000
@@ -83,7 +83,7 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the customer gateway.
+   * The instance ID of the customer gateway.
    * 
    * @example
    * cgw-bp1pvpl9r9adju6l5****
@@ -99,7 +99,7 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP address of the gateway device in the data center.
+   * The IP address of the on-premises data center gateway device.
    * 
    * @example
    * 139.32.XX.XX
@@ -125,7 +125,7 @@ export class DescribeCustomerGatewayResponseBody extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the customer gateway belongs.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPv6 address for which the IPv6 egress-only rule is configured.
+   * The ID of the IPv6 address for which an IPv6 egress-only rule is configured.
    * 
    * @example
    * ipv6-bp12uzwhac8tv3xx6****
@@ -60,7 +60,7 @@ export class DescribeIpv6EgressOnlyRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10

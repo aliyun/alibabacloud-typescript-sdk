@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateRouteTableWithGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F89C2176-8F10-55EF-90CF-CF99D1E3F816

@@ -13,7 +13,7 @@ export class CreateTrafficMirrorFilterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the traffic mirror belongs.
+   * The ID of the resource group to which the traffic mirroring filter belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****

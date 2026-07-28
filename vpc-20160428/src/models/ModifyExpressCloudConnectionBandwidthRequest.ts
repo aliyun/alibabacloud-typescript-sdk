@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyExpressCloudConnectionBandwidthRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of the ECC instance.
+   * The bandwidth of the Express Cloud Connection (ECC) instance.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ModifyExpressCloudConnectionBandwidthRequest extends $dara.Model {
   bandwidth?: string;
   /**
    * @remarks
-   * The ID of the ECC instance.
+   * The instance ID of the Express Cloud Connection (ECC) instance.
    * 
    * This parameter is required.
    * 

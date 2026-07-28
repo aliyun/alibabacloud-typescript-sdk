@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * The Alibaba Cloud account ID of the VPC instance owner in the authorization relationship.
    * 
    * @example
    * 1250123456123456
@@ -13,7 +13,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   aliUid?: number;
   /**
    * @remarks
-   * The time when permissions on the VPC were granted to the VBR.
+   * The time when the VPC-connected instance granted authorization to the VBR instance.
    * 
    * @example
    * 2022-09-02T11:46Z
@@ -21,10 +21,10 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   gmtCreate?: string;
   /**
    * @remarks
-   * The VBRs that have permissions on the VPC. Valid values:
+   * The scope of VBR instances that are granted authorization. Valid values:
    * 
-   * *   **All**: VBRs that reside in the specified region and belong to the specified Alibaba Cloud account all have permissions on the VPC.
-   * *   **Specify**: Only the specified VBR has permissions on the VPC.
+   * - **All**: The VPC-connected instance is authorized to all VBR instances under the specified region and Alibaba Cloud account.
+   * - **Specify**: The VPC-connected instance is authorized to a specified VBR instance.
    * 
    * @example
    * All
@@ -32,7 +32,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   grantType?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC-connected instance in the authorization relationship.
    * 
    * @example
    * vpc-bp1brjuegjc88v3u9****
@@ -40,7 +40,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The name of the VPC instance in the authorization relationship.
    * 
    * @example
    * VPCname
@@ -48,7 +48,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   instanceName?: string;
   /**
    * @remarks
-   * The ID of the vRouter.
+   * The vRouter ID of the VPC instance in the authorization relationship.
    * 
    * @example
    * vrt-bp1i0yzgjd8ra05ec****
@@ -56,7 +56,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   instanceRouterId?: string;
   /**
    * @remarks
-   * The ID of the region where the VPC is deployed.
+   * The region ID of the VPC instance in the authorization relationship.
    * 
    * @example
    * cn-hangzhou
@@ -64,10 +64,10 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   regionNo?: string;
   /**
    * @remarks
-   * The query result. Valid values:
+   * The status of the authorization relationship. Valid values:
    * 
-   * *   **Created**: The VBR has permissions on the VPC.
-   * *   **Deleted**: The VBR does not have permissions on the VPC.
+   * - **Created**: An authorization relationship exists between the VPC-connected instance and the VBR instance.
+   * - **Deleted**: No authorization relationship exists between the VPC-connected instance and the VBR instance.
    * 
    * @example
    * Created
@@ -75,7 +75,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The ID of the VBR.
+   * The instance ID of the VBR instance in the authorization relationship.
    * 
    * @example
    * vbr-m5ex0xf63xk8s5bob****
@@ -83,7 +83,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   vbrInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VBR belongs.
+   * The Alibaba Cloud account ID of the VBR instance owner.
    * 
    * @example
    * 1210123456123456
@@ -91,7 +91,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   vbrOwnerUid?: number;
   /**
    * @remarks
-   * The ID of the region where the VBR is deployed.
+   * The region ID of the VBR instance in the authorization relationship.
    * 
    * @example
    * cn-hangzhou
@@ -141,7 +141,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
 export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of query results.
    * 
    * @example
    * 1
@@ -149,12 +149,12 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The query results.
+   * The list of authorization relationship query results.
    */
   ecGrantRelations?: DescribeEcGrantRelationResponseBodyEcGrantRelations[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
@@ -178,7 +178,7 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublicIpAddressPoolCidrBlocksRequest extends $dara.Model {
   /**
    * @remarks
-   * The CIDR blocks.
+   * The CIDR block.
    * 
    * @example
    * 47.0.XX.XX/24
@@ -14,9 +14,8 @@ export class ListPublicIpAddressPoolCidrBlocksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without querying the CIDR block information in the IP address pool. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -32,10 +31,9 @@ export class ListPublicIpAddressPoolCidrBlocksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * The pagination token. Valid values:
+   * - You do not need to specify this parameter for the first request or if no subsequent query exists.
+   * - If a subsequent query exists, set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -45,7 +43,7 @@ export class ListPublicIpAddressPoolCidrBlocksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the IP address pool.
+   * The instance ID of the IPAM pool.
    * 
    * This parameter is required.
    * 
@@ -55,7 +53,7 @@ export class ListPublicIpAddressPoolCidrBlocksRequest extends $dara.Model {
   publicIpAddressPoolId?: string;
   /**
    * @remarks
-   * The region ID of the CIDR blocks.
+   * The region ID of the CIDR block that you want to query.
    * 
    * This parameter is required.
    * 

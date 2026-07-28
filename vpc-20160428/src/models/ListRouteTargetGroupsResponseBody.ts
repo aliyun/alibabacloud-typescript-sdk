@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMemberList extends $dara.Model {
   /**
    * @remarks
-   * The enable status of the route target group member. Values:
+   * The enable status of the route target group member. Valid values:
    * 
    * - **Enable**: Enabled.
    * - **Disable**: Disabled.
    * 
-   * Only disabled route target group members can be modified to other instances. Enabled route target group members cannot be modified.
+   * Only members in the Disable state can be modified to other instances. Members in the Enable state cannot be modified.
    * 
    * @example
    * Enable
@@ -18,10 +18,10 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMember
   enableStatus?: string;
   /**
    * @remarks
-   * The health check status of the route target group member. Values:
+   * The health check status of the route target group member. Valid values:
    * 
-   * - **Normal**: Normal
-   * - **Abnormal**: Abnormal
+   * - **Normal**: Normal.
+   * - **Abnormal**: Abnormal.
    * 
    * @example
    * Normal
@@ -29,7 +29,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMember
   healthCheckStatus?: string;
   /**
    * @remarks
-   * The ID of the route target group member instance.
+   * The routing target group member instance ID.
    * 
    * @example
    * ep-xxxx
@@ -37,7 +37,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMember
   memberId?: string;
   /**
    * @remarks
-   * The type of the route target group member.
+   * The member type of the route target group.
    * 
    * Currently supported types:
    * 
@@ -49,12 +49,12 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMember
   memberType?: string;
   /**
    * @remarks
-   * The weight value of the route target group member. Values:
+   * The weight of the route target group member. Valid values:
    * 
-   * - **100**: Indicates that the member is the primary instance.
-   * - **0**: Indicates that the member is the backup instance.
+   * - **100**: The member is the active instance.
+   * - **0**: The member is the standby instance.
    * 
-   * The weight value can only be set during creation and cannot be modified.
+   * The weight can only be set during creation and cannot be modified.
    * 
    * @example
    * 100
@@ -92,7 +92,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMember
 export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the resource tag.
+   * The tag key of the resource.
    * 
    * @example
    * image/upload/cbbec42e0be33abb27babefcbe0397f0
@@ -100,7 +100,9 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsTags extends $dar
   key?: string;
   /**
    * @remarks
-   * The value of the resource tag. Up to 20 tag values are supported. If you need to pass this value, you can input an empty string. A maximum of 128 characters is allowed. The value cannot start with `aliyun` or `acs:`, and it must not contain `http://` or `https://`.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * 8
@@ -132,9 +134,9 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroupsTags extends $dar
 export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Model {
   /**
    * @remarks
-   * The configuration mode of the route target group. Supported modes are as follows:
+   * The configuration mode of the route target group. Valid values:
    * 
-   * - **Active-Standby**: Active-standby mode.
+   * - **Active-Standby**: active/standby mode.
    * 
    * @example
    * Active-Standby
@@ -152,7 +154,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
    * @remarks
    * The region ID of the VPC to which the route target group belongs.
    * 
-   * You can obtain the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) interface.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -168,7 +170,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
   resourceGroupId?: string;
   /**
    * @remarks
-   * Description of the route target group.
+   * The description of the route target group.
    * 
    * @example
    * myRouteTargetGroupDescription
@@ -176,7 +178,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
   routeTargetGroupDescription?: string;
   /**
    * @remarks
-   * The ID of the route target group instance.
+   * The routing target group instance ID.
    * 
    * @example
    * rtg-xxxx
@@ -192,21 +194,21 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
   routeTargetGroupName?: string;
   /**
    * @remarks
-   * The list of route target group members.
+   * The list of members in the route target group.
    */
   routeTargetMemberList?: ListRouteTargetGroupsResponseBodyRouteTargetGroupsRouteTargetMemberList[];
   /**
    * @remarks
-   * Status of the route target group. Values:
+   * The status of the routing target group. Valid values:
    * 
-   * - **Recovering**: Active-Standby rollback in progress
-   * - **Switched**: Active-Standby switched
-   * - **Available**: Available
-   * - **Abnormal**: Standby instance abnormal
-   * - **Pending**: Creating
-   * - **Switching**: Active-Standby switching in progress
-   * - **Deleting**: Deleting
-   * - **Unavailable**: Both primary and standby instances are abnormal
+   * - **Recovering**: The active/standby switchback is in progress.
+   * - **Switched**: The active/standby switchover is complete.
+   * - **Available**: Available.
+   * - **Abnormal**: The standby instance has instance failures.
+   * - **Pending**: Being created.
+   * - **Switching**: The active/standby switchover is in progress.
+   * - **Deleting**: Being deleted.
+   * - **Unavailable**: Both primary and secondary instances have instance failures.
    * 
    * @example
    * Available
@@ -214,9 +216,9 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The tag values. A maximum of 20 tag values are supported. If you need to pass this value, you can input an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * A maximum of 128 characters are supported. The value cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    */
   tags?: ListRouteTargetGroupsResponseBodyRouteTargetGroupsTags[];
   /**
@@ -277,7 +279,7 @@ export class ListRouteTargetGroupsResponseBodyRouteTargetGroups extends $dara.Mo
 export class ListRouteTargetGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -285,7 +287,7 @@ export class ListRouteTargetGroupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query. Value: If NextToken is empty, it indicates there is no next query. If NextToken has a return value, it indicates the token for the next query.
+   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. If a value is returned for NextToken, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -293,7 +295,7 @@ export class ListRouteTargetGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
@@ -301,12 +303,12 @@ export class ListRouteTargetGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of route target groups.
+   * The list of route target groups.
    */
   routeTargetGroups?: ListRouteTargetGroupsResponseBodyRouteTargetGroups[];
   /**
    * @remarks
-   * Number of items in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 1

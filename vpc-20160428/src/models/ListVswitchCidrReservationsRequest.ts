@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVSwitchCidrReservationsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, the value cannot be an empty string.
    * 
    * A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
@@ -15,9 +15,9 @@ export class ListVSwitchCidrReservationsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, the value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -49,10 +49,10 @@ export class ListVSwitchCidrReservationsRequestTags extends $dara.Model {
 export class ListVSwitchCidrReservationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP version of the reserved CIDR block. Valid values:
+   * The IP version of the reserved CIDR block for a vSwitch. Valid values:
    * 
-   * *   **IPv4** (default)
-   * *   **IPv6**
+   * - **IPv4** (default): IPv4.
+   * - **IPv6**: IPv6.
    * 
    * @example
    * IPv4
@@ -60,7 +60,7 @@ export class ListVSwitchCidrReservationsRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -68,10 +68,9 @@ export class ListVSwitchCidrReservationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token. Valid values:
+   * - If this is the first request or no subsequent query exists, leave this parameter empty.
+   * - If a subsequent query exists, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -83,7 +82,7 @@ export class ListVSwitchCidrReservationsRequest extends $dara.Model {
    * @remarks
    * The region ID of the vSwitch.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -95,19 +94,19 @@ export class ListVSwitchCidrReservationsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    */
   tags?: ListVSwitchCidrReservationsRequestTags[];
   /**
    * @remarks
-   * The ID of the reserved CIDR block. You can specify at most 10 IDs.
+   * The instance IDs of the reserved CIDR block for a vSwitch. You can specify up to 10 reserved CIDR blocks.
    */
   vSwitchCidrReservationIds?: string[];
   /**
    * @remarks
-   * The type of the reserved CIDR block. Set the value to **prefix**.
+   * The type of the reserved CIDR block for a vSwitch. Valid values: **prefix**, which indicates that addresses are allocated by CIDR block.
    * 
-   * >  When you allocate CIDR blocks, or enable the service to automatically allocate CIDR blocks to elastic network interfaces (ENIs), the CIDR blocks to allocate must fall into the reserved CIDR block. If the reserved CIDR is exhausted, an error message is returned.
+   * > When users or cloud services automatically assign CIDR blocks to elastic network interfaces (ENIs), the CIDR blocks must be allocated from the reserved CIDR block. If all addresses in the reserved CIDR block are allocated, the system returns an error.
    * 
    * @example
    * prefix
@@ -115,7 +114,7 @@ export class ListVSwitchCidrReservationsRequest extends $dara.Model {
   vSwitchCidrReservationType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch for which you want to query reserved CIDR blocks.
+   * The ID of the vSwitch to which the reserved CIDR block for a vSwitch belongs.
    * 
    * @example
    * vsw-25navfgbue4g****

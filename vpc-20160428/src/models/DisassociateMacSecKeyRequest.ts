@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateMacSecKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The key name. Only hexadecimal characters are supported. Lowercase characters are automatically converted to uppercase. When the encryption algorithm type is GCM-AES-128 or GCM-AES-XPN-128, the length must be 32 hexadecimal characters. When the encryption algorithm type is GCM-AES-256 or GCM-AES-XPN-256, the length must be 64 hexadecimal characters.
+   * The key name. Only hexadecimal characters are supported. Lowercase characters are automatically converted to uppercase. When the encryption algorithm is GCM-AES-128 or GCM-AES-XPN-128, the length must be 32 hexadecimal characters. When the encryption algorithm is GCM-AES-256 or GCM-AES-XPN-256, the length must be 64 hexadecimal characters.
    * 
    * This parameter is required.
    * 

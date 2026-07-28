@@ -13,11 +13,10 @@ export class UpdateVirtualPhysicalConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the VLAN ID of the virtual physical connection was successfully modified.
+   * Indicates whether the VLAN ID of the shared Express Connect circuit is modified.
    * 
-   * - **true**: The VLAN ID was modified.
-   * 
-   * - **false**: The VLAN ID was not modified.
+   * - **true**: The VLAN ID is modified.
+   * - **false**: The VLAN ID failed to be modified.
    * 
    * @example
    * true

@@ -40,10 +40,11 @@ export class DescribeVpnSslServerLogsResponseBody extends $dara.Model {
   data?: DescribeVpnSslServerLogsResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the log is accurate. Valid values:
+   * Indicates whether the queried logs are accurate. Valid values:
    * 
-   * *   **true**: accurate
-   * *   **false**: inaccurate
+   * - **true**: Accurate.
+   * 
+   * - **false**: Not accurate.
    * 
    * @example
    * true
@@ -51,7 +52,7 @@ export class DescribeVpnSslServerLogsResponseBody extends $dara.Model {
   isCompleted?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -59,7 +60,7 @@ export class DescribeVpnSslServerLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -67,7 +68,7 @@ export class DescribeVpnSslServerLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DEDAC5B1-9292-5BF7-BDDF-61BA58CFB2FB

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIPv6TranslatorRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Valid values: **true and false**.
+   * Specifies whether automatic payment is enabled for the subscription bill. Valid values: **true|false**.
    * 
    * @example
    * false
@@ -13,9 +13,9 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The bandwidth of the IPv6 Translation Service instance. Unit: Mbit/s. Valid values: **1** to **200**. If you do not specify the bandwidth for the mapping entry, the bandwidth is shared with the mapping entry.
+   * The billing bandwidth of the IPv6 Translation Service instance, in Mbit/s. Valid values: **1** to **200**. If you do not set the bandwidth for translation mapping entries, the mapping entries in the instance share this bandwidth. 
    * 
-   * > If you do not specify this parameter, the default bandwidth is 10 Mbit/s.
+   * > If you do not specify the bandwidth, the default value is 10 Mbit/s.
    * 
    * @example
    * 10
@@ -23,7 +23,7 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. The client token must be unique among different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * sha111
@@ -31,10 +31,10 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The subscription duration.
+   * The subscription duration. Valid values:
    * 
-   * *   If the billing cycle is **Month**, valid values are **1** to **9**.
-   * *   If the billing cycle is **Year**, set the value to **3**.
+   * - If the billing cycle is **Month**, valid values are **1** to **9**.  
+   * - If the billing cycle is **Year**, the value is **3**.
    * 
    * @example
    * 1
@@ -42,7 +42,7 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The name of the IPv6 Translation Service instance. The default name is the instance ID. It must be 2 to 100 characters in length and must start with a letter. It can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+   * The name of the IPv6 Translation Service instance. The name defaults to the instance ID. The name must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
    * 
    * @example
    * ipv6_1
@@ -52,10 +52,11 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the IPv6 Translation Service instance. Valid values:
+   * The payment method of the IPv6 Translation Service instance. Valid values: 
    * 
-   * *   **PREPAY**: subscription
-   * *   **POSTPAY**: pay-as-you-go
+   * - **PREPAY**: subscription.
+   * 
+   * - **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -63,10 +64,11 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The billing cycle of the subscription. Valid values:
+   * The billing cycle for subscription. Valid values: 
    * 
-   * *   **Month** (default)
-   * *   **Year**
+   * - **Month** (default): monthly subscription.
+   * 
+   * - **Year**: yearly subscription.
    * 
    * @example
    * Month
@@ -74,7 +76,7 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -86,7 +88,7 @@ export class CreateIPv6TranslatorRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The specification of the IPv6 Translation Service instance. Set the value to **small**.
+   * The specification of the IPv6 Translation Service instance. Valid values: **small**.
    * 
    * @example
    * small

@@ -7,9 +7,9 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e0****
@@ -27,7 +27,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the HaVip.
+   * The ID of the HaVip that you want to modify.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
    * @remarks
    * The name of the HaVip.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -49,9 +49,9 @@ export class ModifyHaVipAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the HaVip belongs.
+   * The region ID of the HaVip.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

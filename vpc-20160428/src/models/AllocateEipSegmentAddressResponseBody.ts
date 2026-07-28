@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateEipSegmentAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the contiguous EIP group.
+   * The instance ID of the contiguous EIP group.
    * 
    * @example
    * eipsg-2zett8ba055tbsxme****

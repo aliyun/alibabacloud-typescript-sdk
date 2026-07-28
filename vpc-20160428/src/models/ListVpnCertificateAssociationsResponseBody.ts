@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations extends $dara.Model {
   /**
    * @remarks
-   * The time when the Anycast EIP was associated.
+   * The time when the association was created.
    * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2020-12-29T09:30:29Z
@@ -23,10 +23,11 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
   certificateId?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
-   * *   **Encryption**
-   * *   **Signature**
+   * - **Encryption**: encryption certificate.
+   * 
+   * - **Signature**: signing certificate.
    * 
    * @example
    * Signature
@@ -34,7 +35,7 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
   certificateType?: string;
   /**
    * @remarks
-   * The ID of the region where the VPN gateway is created.
+   * The region ID of the VPN gateway.
    * 
    * @example
    * cn-hangzhou
@@ -42,7 +43,7 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
   regionId?: string;
   /**
    * @remarks
-   * The ID of the VPN gateway.
+   * The VPN gateway instance ID.
    * 
    * @example
    * vpn-bp1usbiorilk51760****
@@ -80,7 +81,7 @@ export class ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations e
 export class ListVpnCertificateAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -88,10 +89,11 @@ export class ListVpnCertificateAssociationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   If **NextToken** is empty, no next page exists.
-   * *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+   * - If **NextToken** is empty, no next query exists.
+   * 
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * caeba0bbb2be****
@@ -107,7 +109,7 @@ export class ListVpnCertificateAssociationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of associations.
    * 
    * @example
    * 4
@@ -115,7 +117,7 @@ export class ListVpnCertificateAssociationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The association information.
+   * The list of associations.
    */
   vpnCertificateRelations?: ListVpnCertificateAssociationsResponseBodyVpnCertificateRelations[];
   static names(): { [key: string]: string } {

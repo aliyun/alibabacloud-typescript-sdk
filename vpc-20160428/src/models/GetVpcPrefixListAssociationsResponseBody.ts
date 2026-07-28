@@ -74,12 +74,12 @@ export class GetVpcPrefixListAssociationsResponseBodyPrefixListAssociation exten
    * @remarks
    * The association status of the prefix list. Valid values:
    * 
-   * - **Created**: The association is created.
-   * - **ModifyFailed**: The association is not updated to the latest version.
-   * - **Creating**: The association is being created.
-   * - **Modifying**: The association is being modified.
-   * - **Deleting**: The association is being deleted.
-   * - **Deleted**: The association is deleted.
+   * - **Created**: succeeded.
+   * - **ModifyFailed**: not associated with the latest version.
+   * - **Creating**: being created.
+   * - **Modifying**: being modified.
+   * - **Deleting**: being deleted.
+   * - **Deleted**: deleted.
    * 
    * @example
    * Success
@@ -134,7 +134,7 @@ export class GetVpcPrefixListAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is empty, no subsequent query is required.
    * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example

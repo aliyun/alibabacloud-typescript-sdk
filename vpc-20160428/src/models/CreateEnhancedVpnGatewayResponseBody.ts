@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnhancedVpnGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the enhanced VPN gateway.
+   * The name of the VPN gateway.
    * 
    * @example
    * MYVPN
@@ -21,7 +21,7 @@ export class CreateEnhancedVpnGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the enhanced VPN gateway instance.
+   * The instance ID of the enhanced VPN gateway.
    * 
    * @example
    * vpn-uf68lxhgr7ftbqr3p****

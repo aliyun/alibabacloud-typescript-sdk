@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficMirrorFilterRulesResponseBodyEgressRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the outbound rule.
+   * The instance ID of the outbound rule.
    * 
    * @example
    * tmr-j6cok23ugp53eeib5****
@@ -35,7 +35,7 @@ export class CreateTrafficMirrorFilterRulesResponseBodyEgressRules extends $dara
 export class CreateTrafficMirrorFilterRulesResponseBodyIngressRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the inbound rule.
+   * The instance ID of the inbound rule.
    * 
    * @example
    * tmr-j6c6rtallo51ouzv3****
@@ -75,7 +75,7 @@ export class CreateTrafficMirrorFilterRulesResponseBody extends $dara.Model {
   ingressRules?: CreateTrafficMirrorFilterRulesResponseBodyIngressRules[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 07F272E2-6AD5-433A-8207-A607C76F1676

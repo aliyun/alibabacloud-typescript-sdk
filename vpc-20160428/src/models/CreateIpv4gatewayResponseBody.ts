@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpv4GatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPv4 gateway.
+   * The instance ID of the IPv4 gateway.
    * 
    * @example
    * ipv4gw-5tsnc6s4ogsedtp3k****
@@ -13,7 +13,7 @@ export class CreateIpv4GatewayResponseBody extends $dara.Model {
   ipv4GatewayId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F282742B-1BBB-5F63-A3AF-E92EC575A1A6
@@ -21,7 +21,7 @@ export class CreateIpv4GatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****

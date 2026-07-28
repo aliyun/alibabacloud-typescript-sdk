@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E9654534-5A38-5545-813F-0403D49042FB

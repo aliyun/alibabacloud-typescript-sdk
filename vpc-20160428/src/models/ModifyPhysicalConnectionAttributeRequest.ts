@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+   * The circuit code provided by the carrier for the Express Connect circuit.
    * 
    * @example
    * longtel001
@@ -15,9 +15,9 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * efefe566754h
@@ -25,9 +25,9 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the Express Connect circuit.
+   * The description of the Express Connect circuit.  
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
    * 物理专线的描述信息
@@ -35,14 +35,14 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The connectivity provider of the Express Connect circuit. Valid values:
+   * The carrier that provides the access to the physical line. Valid values:
    * 
-   * *   **CT**: China Telecom
-   * *   **CU**: China Unicom
-   * *   **CM**: China Mobile
-   * *   **CO**: other connectivity providers in the Chinese mainland
-   * *   **Equinix**: Equinix
-   * *   **Other**: other connectivity providers outside the Chinese mainland
+   * - **CT**: China Telecom.
+   * - **CU**: China Unicom.
+   * - **CM**: China Mobile.
+   * - **CO**: other carriers in the Chinese mainland.
+   * - **Equinix**: Equinix.
+   * - **Other**: other carriers outside the Chinese mainland.
    * 
    * @example
    * CT
@@ -50,9 +50,9 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   lineOperator?: string;
   /**
    * @remarks
-   * The name of the Express Connect circuit.
+   * The name of the Express Connect circuit.  
    * 
-   * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
    * 物理专线的名称
@@ -62,7 +62,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The geographical location of the data center.
+   * The geographical location of the on-premises data center.
    * 
    * @example
    * 浙江省杭州市XX区XX街道XX号
@@ -80,17 +80,17 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   physicalConnectionId?: string;
   /**
    * @remarks
-   * The port type of the Express Connect circuit. Valid values:
+   * The port type of the Express Connect circuit access point. Valid values:
    * 
-   * *   **100Base-T**: 100 Mbit/s copper Ethernet port
-   * *   **1000Base-T** (default): 1,000 Mbit/s copper Ethernet port
-   * *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 kilometers)
-   * *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-   * *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
-   * *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
-   * *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+   * - **100Base-T**: 100M Ethernet port.
+   * - **1000Base-T (default)**: 1 GE port.
+   * - **1000Base-LX**: GE single-mode optical port (10 km).
+   * - **10GBase-T**: 10 GE port.
+   * - **10GBase-LR**: 10 GE single-mode optical port (10 km).
+   * - **40GBase-LR**: 40 GE single-mode optical port.
+   * - **100GBase-LR**: 100 GE single-mode optical port.
    * 
-   * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+   * > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
    * 
    * @example
    * 1000Base-LX
@@ -98,7 +98,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   portType?: string;
   /**
    * @remarks
-   * The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+   * The ID of the redundant Express Connect circuit. The redundant circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
    * 
    * @example
    * pc-119mfjzm7
@@ -108,7 +108,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the Express Connect circuit.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -120,7 +120,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The bandwidth value for the connection over the Express Connect circuit. Unit: Mbit/s. Valid values: 2 to 10240.
+   * The bandwidth of the Express Connect circuit access interface. Unit: Mbit/s. Valid values: 2 to 10240.
    * 
    * @example
    * 5

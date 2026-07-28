@@ -45,7 +45,7 @@ export class DescribeRouteTablesRequest extends $dara.Model {
    * @remarks
    * The ID of the route table to query.
    * 
-   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
+   * >You must specify at least one of the following parameters: **VRouterId**, **RouteTableId**, **RouterId**, and **RouteTableName**. You cannot specify both **VRouterId** and **RouterId**.
    * 
    * @example
    * vtb-bp145q7glnuzdvzu2****
@@ -55,9 +55,9 @@ export class DescribeRouteTablesRequest extends $dara.Model {
    * @remarks
    * The name of the route table to query.
    * 
-   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
-   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
+   * >You must specify at least one of the following parameters: **VRouterId**, **RouteTableId**, **RouterId**, and **RouteTableName**. You cannot specify both **VRouterId** and **RouterId**.
    * 
    * @example
    * doctest
@@ -67,7 +67,7 @@ export class DescribeRouteTablesRequest extends $dara.Model {
    * @remarks
    * The ID of the router to which the route table belongs.
    * 
-   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
+   * >You must specify at least one of the following parameters: **VRouterId**, **RouteTableId**, **RouterId**, and **RouteTableName**. You cannot specify both **VRouterId** and **RouterId**.
    * 
    * @example
    * vrt-bp1lhl0taikrteen8****
@@ -86,7 +86,7 @@ export class DescribeRouteTablesRequest extends $dara.Model {
   routerType?: string;
   /**
    * @remarks
-   * The destination type of the route to query. Valid values:
+   * The type of the route entry to query. Valid values:
    * 
    * - **Custom**: custom route.
    * - **System**: system route.
@@ -102,7 +102,7 @@ export class DescribeRouteTablesRequest extends $dara.Model {
    * @remarks
    * The ID of the vRouter to query.
    * 
-   * >You must specify at least one of the following parameters: VRouterId, RouteTableId, RouterId, and RouteTableName. You cannot specify both VRouterId and RouterId at the same time.
+   * >You must specify at least one of the following parameters: **VRouterId**, **RouteTableId**, **RouterId**, and **RouteTableName**. You cannot specify both **VRouterId** and **RouterId**.
    * 
    * @example
    * vrt-bp1lhl0taikrteen****

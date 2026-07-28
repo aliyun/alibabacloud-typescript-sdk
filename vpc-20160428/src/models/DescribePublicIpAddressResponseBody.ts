@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePublicIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status codes returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response messages.
+   * The response message.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The range of the public IP addresses of the VPC in the region.
+   * The range of public IP addresses in a virtual private cloud (VPC) in the specified region.
    * 
    * @example
    * 110.11.1.0/24
@@ -45,7 +45,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   publicIpAddress?: string[];
   /**
    * @remarks
-   * The ID of the region to which the public IP addresses belong.
+   * The region ID of the public IP address.
    * 
    * @example
    * cn-hangzhou
@@ -61,10 +61,11 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the query was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The query was successful.
+   * 
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -72,7 +73,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The number of returned entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 1

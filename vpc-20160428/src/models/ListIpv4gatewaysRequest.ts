@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIpv4GatewaysRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListIpv4GatewaysRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. It can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListIpv4GatewaysRequestTags extends $dara.Model {
 export class ListIpv4GatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPv4 gateway.
+   * The ID of the IPv4 gateway instance that you want to query.
    * 
    * @example
    * ipv4gw-5tsnc6s4ogsedtp3k****
@@ -57,9 +57,9 @@ export class ListIpv4GatewaysRequest extends $dara.Model {
   ipv4GatewayId?: string;
   /**
    * @remarks
-   * The name of the IPv4 gateway.
+   * The name of the IPv4 gateway instance that you want to query.
    * 
-   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * name
@@ -67,7 +67,7 @@ export class ListIpv4GatewaysRequest extends $dara.Model {
   ipv4GatewayName?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -75,10 +75,9 @@ export class ListIpv4GatewaysRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If this is your first query and no next queries are to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+   * The pagination token. Valid values:
+   * - If this is the first query or no subsequent query exists, leave this parameter empty.
+   * - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -88,9 +87,9 @@ export class ListIpv4GatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the IPv4 gateways to be queried are deployed.
+   * The region ID of the IPv4 gateways that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -110,12 +109,12 @@ export class ListIpv4GatewaysRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tag list.
    */
   tags?: ListIpv4GatewaysRequestTags[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) with which the IPv4 gateway is associated.
+   * The ID of the VPC associated with the IPv4 gateway instance that you want to query.
    * 
    * @example
    * vpc-5tsrxlw7dv074gci4****

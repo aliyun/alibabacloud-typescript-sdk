@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/vpc20160428",
-  "version": "7.2.2",
+  "version": "7.2.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",

@@ -7,9 +7,9 @@ export class DescribeServerRelatedGlobalAccelerationInstancesRequest extends $da
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the GA instance.
+   * The region where the Alibaba Cloud Global Accelerator (GA) instance resides. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,11 @@ export class DescribeServerRelatedGlobalAccelerationInstancesRequest extends $da
   serverId?: string;
   /**
    * @remarks
-   * The type of the backend service instance. Valid values:
+   * The type of the backend service instance. Valid values: 
    * 
-   * *   **EcsInstance** (default): Elastic Compute Service (ECS)
-   * *   **SlbInstance**: Server Load Balancer (SLB)
+   * - **EcsInstance** (default): ECS instance.
+   * 
+   * - **SlbInstance**: load balancing instance.
    * 
    * @example
    * EcsInstance

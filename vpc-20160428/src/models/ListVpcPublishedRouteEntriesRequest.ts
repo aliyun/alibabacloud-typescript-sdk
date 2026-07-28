@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry, supporting both IPv4 and IPv6 segments.
+   * The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,7 +13,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The number of entries to display per batch query. Range: **1**~**500**, default value is **50**.
+   * The number of entries per page in a paged query. Valid values: **1** to **500**. Default value: **50**.
    * 
    * @example
    * 50
@@ -21,9 +21,9 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates whether there is a token for the next query. Values:
-   * - If **NextToken** is empty, it means there is no next query.
-   * - If **NextToken** has a return value, this value indicates the token for the start of the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** has a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -33,7 +33,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +43,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The ID of the route publishing target instance.
+   * The instance ID of the route publish target.
    * 
    * @example
    * ecr-dhw2xsds5****
@@ -61,7 +61,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The type of the route publishing target.
+   * The type of the route publish target.
    * 
    * This parameter is required.
    * 

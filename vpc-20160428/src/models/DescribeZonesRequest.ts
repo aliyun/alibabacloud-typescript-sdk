@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language used in the **LocalName** parameter. Valid values:
+   * The display language of the zone name **LocalName** in the response. Valid values:
    * 
-   * *   **zh-cn**: Chinese
-   * *   **en-us**: English
-   * *   **ja**: Japanese
+   * - **zh-cn**: Chinese.
+   * 
+   * - **en-us**: English.
+   * 
+   * - **ja**: Japanese.
    * 
    * @example
    * zh-cn
@@ -19,7 +21,7 @@ export class DescribeZonesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the region where the zones reside. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +33,7 @@ export class DescribeZonesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The zone type. Default value: **AvailabilityZone**.
+   * The type of zones to query. Default value: **AvailabilityZone**, which indicates a standard cloud zone.
    * 
    * @example
    * AvailabilityZone

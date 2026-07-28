@@ -15,7 +15,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
    * @remarks
    * The description of the VBR failover group.
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
    * desc
@@ -31,7 +31,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the other VBR in the VBR failover group.
+   * The instance ID of the other VBR in the VBR failover group.
    * 
    * @example
    * vbr-bp12mw1f8k3jgygk9****
@@ -39,7 +39,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   peerVbrId?: string;
   /**
    * @remarks
-   * The ID of the region in which the VBR is deployed.
+   * The region ID of the VBR.
    * 
    * @example
    * cn-hangzhou
@@ -55,10 +55,11 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the VBR failover group.
+   * The status of the VBR failover group. Valid values:
    * 
-   * *   **Creating**
-   * *   **Active**
+   * - **Creating**: being created.
+   * 
+   * - **Active**: Normal.
    * 
    * @example
    * Active
@@ -66,7 +67,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VBR failover group.
+   * The VBR failover group instance ID.
    * 
    * @example
    * vbrha-sa1sxheuxtd98****
@@ -74,7 +75,7 @@ export class DescribeVbrHaResponseBody extends $dara.Model {
   vbrHaId?: string;
   /**
    * @remarks
-   * The VBR ID.
+   * The VBR instance ID.
    * 
    * @example
    * vbr-bp1jcg5cmxjbl9xgc****

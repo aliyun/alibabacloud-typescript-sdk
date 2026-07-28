@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance for which you want to configure fine-grained monitoring.
+   * The instance ID of the instance for which you want to configure high-definition second-level monitoring.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance type. Set the value to **EIP**.
+   * The type of the instance. Set the value to **EIP**.
    * 
    * @example
    * EIP
@@ -23,7 +23,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service (SLS) project.
+   * The name of the LogProject in Simple Log Service.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the LogStore in Simple Log Service.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -59,10 +59,10 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of fine-grained monitoring. Valid values:
+   * The high-definition second-level monitoring status of the instance. Valid values:
    * 
-   * *   **ON**
-   * *   **OFF**
+   * - **ON**: Enables high-definition second-level monitoring.
+   * - **OFF**: Disables high-definition second-level monitoring.
    * 
    * This parameter is required.
    * 

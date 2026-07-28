@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExpressCloudConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECC instance.
+   * The instance ID of the Express Cloud Connection.
    * 
    * @example
    * ecc-jg************

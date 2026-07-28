@@ -314,7 +314,7 @@ export class DescribeEipAddressesResponseBody extends $dara.Model {
   eipAddresses?: DescribeEipAddressesResponseBodyEipAddresses;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 10
@@ -338,7 +338,7 @@ export class DescribeEipAddressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

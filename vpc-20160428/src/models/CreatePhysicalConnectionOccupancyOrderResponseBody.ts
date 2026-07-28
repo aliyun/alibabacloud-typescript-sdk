@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePhysicalConnectionOccupancyOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order that is placed.
+   * The ID of the order.
    * 
    * @example
    * 50187055895****
@@ -35,7 +35,7 @@ export class CreatePhysicalConnectionOccupancyOrderResponseBodyData extends $dar
 export class CreatePhysicalConnectionOccupancyOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details.
+   * The detailed information about the data.
    */
   data?: CreatePhysicalConnectionOccupancyOrderResponseBodyData;
   /**

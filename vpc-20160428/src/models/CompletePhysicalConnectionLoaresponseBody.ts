@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CompletePhysicalConnectionLOAResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F8983C74-E068-4509-B442-89BD82C8F43B

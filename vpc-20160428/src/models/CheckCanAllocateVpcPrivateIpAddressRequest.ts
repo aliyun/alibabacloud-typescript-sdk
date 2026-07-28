@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCanAllocateVpcPrivateIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the private IP address. Valid values:
+   * The type of the private IP address to check. Valid values:
    * 
-   * *   **ipv4** If you want to query an IPv4 address, this parameter is optional.
-   * *   **ipv6** If you want to query an IPv6 address, this parameter is required.
+   * - **ipv4**: IPv4. This parameter is optional when the private IP address is of the IPv4 type.
+   * - **ipv6**: IPv6. This parameter is required when the private IP address is of the IPv6 type.
    * 
    * @example
    * ipv4
@@ -18,7 +18,7 @@ export class CheckCanAllocateVpcPrivateIpAddressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
+   * The private IP address to check. The private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,9 @@ export class CheckCanAllocateVpcPrivateIpAddressRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The region ID of the vSwitch to which the private IP address that you want to query belongs.
+   * The region ID of the vSwitch to which the private IP address belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class CheckCanAllocateVpcPrivateIpAddressRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the vSwitch to which the private IP address to be queried belongs.
+   * The ID of the vSwitch to which the private IP address belongs.
    * 
    * This parameter is required.
    * 

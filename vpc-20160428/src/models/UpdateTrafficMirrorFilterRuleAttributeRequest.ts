@@ -7,9 +7,9 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -17,7 +17,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The new destination CIDR block of the inbound or outbound traffic.
+   * The destination CIDR block of the network traffic for the inbound or outbound rule to be modified.
    * 
    * @example
    * 10.0.0.0/24
@@ -25,9 +25,9 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The new destination port range of the inbound or outbound traffic.
+   * The destination port range of the network traffic for the inbound or outbound rule to be modified.
    * 
-   * > If you set **Protocol** to **ICMP**, you cannot change the port range.
+   * > If **Protocol** is set to **ICMP**, the port range cannot be modified.
    * 
    * @example
    * -1/-1
@@ -35,11 +35,11 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   destinationPortRange?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * - **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The new priority of the inbound or outbound rule. A smaller value indicates a higher priority.
+   * The priority of the inbound or outbound rule to be modified. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -57,15 +57,15 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The new protocol that is used by the traffic to be mirrored by the inbound or outbound rule. Valid values:
+   * The Protocol Type of the network traffic to be mirrored by the inbound or outbound rule. Valid values:
    * 
-   * - **ALL**: all protocols
+   * - **ALL**: all protocols.
    * 
-   * - **ICMP**: Internet Control Message Protocol (ICMP)
+   * - **ICMP**: Internet Control Message Protocol.
    * 
-   * - **TCP**: TCP
+   * - **TCP**: Transmission Control Protocol.
    * 
-   * - **UDP**: User Datagram Protocol (UDP)
+   * - **UDP**: User Datagram Protocol.
    * 
    * @example
    * ICMP
@@ -73,9 +73,9 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the region to which the mirrored traffic belongs.
+   * The region ID of the traffic mirror.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](https://help.aliyun.com/document_detail/207513.html).
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 
@@ -87,11 +87,11 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new action of the inbound or outbound rule. Valid values:
+   * The collection policy of the inbound or outbound rule to be modified. Valid values:
    * 
-   * - **accept**: accepts network traffic.
+   * - **accept**: collects network traffic.
    * 
-   * - **drop**: drops network traffic.
+   * - **drop**: does not collect network traffic.
    * 
    * @example
    * accept
@@ -99,7 +99,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The new source CIDR block of the inbound or outbound traffic.
+   * The source CIDR block of the network traffic for the inbound or outbound rule to be modified.
    * 
    * @example
    * 0.0.0.0/0
@@ -107,9 +107,8 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The new source port range of the inbound or outbound traffic.
-   * 
-   * > If you set **Protocol** to **ICMP**, you cannot change the port range.
+   * The source port range of the network traffic for the inbound or outbound rule to be modified.
+   * > If **Protocol** is set to **ICMP**, the port range cannot be modified.
    * 
    * @example
    * 22/40
@@ -117,7 +116,7 @@ export class UpdateTrafficMirrorFilterRuleAttributeRequest extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The ID of the inbound or outbound rule.
+   * The instance ID of the inbound or outbound rule of the traffic mirroring filter.
    * 
    * This parameter is required.
    * 

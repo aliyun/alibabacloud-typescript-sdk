@@ -82,7 +82,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   forwardTableEntries?: DescribeForwardTableEntriesResponseBodyForwardTableEntries;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -106,7 +106,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

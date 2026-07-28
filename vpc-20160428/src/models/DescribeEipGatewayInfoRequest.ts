@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEipGatewayInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the secondary ENI that is associated with the EIP.
+   * The ID of the secondary elastic network interfaces (ENIs) to which the EIP that you want to query is attached. This parameter refers to the network interface controller (NIC) associated with the EIP.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeEipGatewayInfoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region to which the EIP that you want to query belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region to which the EIP belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

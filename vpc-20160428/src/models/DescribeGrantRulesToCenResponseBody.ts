@@ -61,7 +61,7 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   cenGrantRules?: DescribeGrantRulesToCenResponseBodyCenGrantRules;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F5BB78C8-5F41-464F-B9FF-5E0A7198BA26

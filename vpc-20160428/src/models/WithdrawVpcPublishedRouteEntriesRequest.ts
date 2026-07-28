@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block
+   * The destination CIDR block of the route entry.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $dara.M
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID of the route entry.
    * 
    * This parameter is required.
    * 
@@ -49,10 +49,10 @@ export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $dara.M
 export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without withdrawing the published routing entry. The system checks the required parameters, request format, and business limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+   * - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the operation to withdraw the VPC published routing entry is performed.
    * 
    * @example
    * false
@@ -62,7 +62,7 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. Call the DescribeRegions operation to access it.
+   * The region ID of the instance. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -72,12 +72,12 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The route entries to be withdrawn. Maximum value: 50.
+   * The list of route entries to withdraw. You can specify up to 50 route entries.
    */
   routeEntries?: WithdrawVpcPublishedRouteEntriesRequestRouteEntries[];
   /**
    * @remarks
-   * Target instance ID.
+   * The publish route entry target instance ID.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The type of target instance.
+   * The type of the route publish target.
    * 
    * This parameter is required.
    * 

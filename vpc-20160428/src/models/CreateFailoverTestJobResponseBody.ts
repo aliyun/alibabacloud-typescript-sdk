@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFailoverTestJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the failover test.
+   * The ID of the failover test job.
    * 
    * @example
    * ftj-bp1yh6mvi13aq3g8w****

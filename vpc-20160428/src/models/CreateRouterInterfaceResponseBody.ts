@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouterInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order number. This parameter is returned if InstanceChargeType is set to PrePaid.
+   * The order ID. This parameter is returned when the subscription billing method is selected.
    * 
    * @example
    * 20210101123456

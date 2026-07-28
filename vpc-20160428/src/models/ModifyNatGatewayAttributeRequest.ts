@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNatGatewayAttributeRequestLogDelivery extends $dara.Model {
   /**
    * @remarks
-   * Session log write type. Value: **sls**, Alibaba Cloud Log Service SLS.
+   * The type of session log delivery. Valid values: **sls**, which indicates Simple Log Service.
    * 
    * @example
    * sls
@@ -13,7 +13,7 @@ export class ModifyNatGatewayAttributeRequestLogDelivery extends $dara.Model {
   logDeliveryType?: string;
   /**
    * @remarks
-   * Session log write address. Value: acs:log:${regionName}:${projectOwnerAliUid}:project/${projectName}/logstore/${logstoreName}
+   * The destination address for session log delivery. Value: acs:log:${regionName}:${projectOwnerAliUid}:project/${projectName}/logstore/${logstoreName}
    * 
    * @example
    * acs:log:cn-hangzhou:0000:project/nat_session_log_project/logstore/session_log_test
@@ -45,9 +45,9 @@ export class ModifyNatGatewayAttributeRequestLogDelivery extends $dara.Model {
 export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the NAT gateway.
+   * The description of the NAT gateway that you want to modify.
    * 
-   * The description must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * Description
@@ -55,14 +55,12 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Modifies the mode in which the EIP is associated with the NAT gateway. The value can be empty or **NAT**, which specifies the NAT mode.
+   * The EIP attach pattern of the NAT gateway. Valid values: The value can be empty. If the value is not empty, only **NAT** is allowed, which indicates that the attach pattern is EIP Normal pattern.
    * 
-   * > 
    * 
-   * *   You can only change **MULTI_BINDED** to **NAT**. You cannot change **NAT** to **MULTI_BINDED**. For more information about the **MULTI_BINDED** mode, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
-   * 
-   * *   When you change the association mode, your network may be interrupted for seconds. The duration increases with the number of EIPs. You can change the association mode for at most 5 EIPs at the same time. We recommend changing the association mode during off-peak hours.
-   * *   After the association mode is changed to **NAT**, the Internet NAT gateway is compatible with an IPv4 gateway. If an EIP is associated with a NAT gateway in NAT mode, the EIP occupies a private IP address of the vSwitch to which the NAT gateway belongs. Ensure the vSwitch has sufficient private IP addresses for EIPs to be associated with the NAT gateway.
+   * > - You can only change the pattern from **MULTI_BINDED** to **NAT**. You cannot change the pattern from **NAT** to **MULTI_BINDED**. For more information about the **MULTI_BINDED** pattern, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
+   * - During the EIP attach pattern switchover procedure, network connectivity may experience second-level transient connections (the transient connection duration increases as the number of EIPs increases. Currently, configuration changes are supported for NAT gateways with up to 5 EIPs attached). Execute the switchover during off-peak hours.
+   * - After the EIP attach pattern is changed to **NAT**, the Internet NAT gateway is compatible with the IPv4 gateway. However, attaching a public EIP occupies a private IP in the vSwitch where the NAT gateway resides. Make sure that sufficient private IP addresses are available in the vSwitch. If no available idle private IP addresses exist in the vSwitch, new EIPs cannot be attached.
    * 
    * @example
    * NAT
@@ -70,8 +68,10 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   eipBindMode?: string;
   /**
    * @remarks
-   * Whether to enable session logging, with values:
-   * - **true**: Session logging is enabled. 
+   * Specifies whether to enable session logging. Valid values:
+   * 
+   * - **true**: Session logging is enabled.
+   * 
    * - **false**: Session logging is disabled.
    * 
    * @example
@@ -80,10 +80,10 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   enableSessionLog?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the Internet Control Message Protocol (ICMP) non-retrieval feature. Valid values:
+   * Specifies whether to enable ICMP echo reply. Valid values:
    * 
-   * *   **false** (default)
-   * *   **true**
+   * - **true** (default): Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -91,12 +91,12 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   icmpReplyEnabled?: boolean;
   /**
    * @remarks
-   * Session log configuration information.
+   * The session log configuration.
    */
   logDelivery?: ModifyNatGatewayAttributeRequestLogDelivery;
   /**
    * @remarks
-   * The name of the NAT gateway.
+   * The name of the NAT gateway that you want to modify.
    * 
    * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -106,7 +106,7 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway.
+   * The ID of the NAT gateway that you want to modify.
    * 
    * This parameter is required.
    * 
@@ -118,7 +118,7 @@ export class ModifyNatGatewayAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the NAT gateway.
+   * The region ID of the NAT gateway that you want to modify. 
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 

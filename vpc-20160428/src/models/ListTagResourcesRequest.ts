@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys.
+   * The tag key of the resource. You can specify up to 20 tag keys.
    * 
-   * The tag key can be up to 128 characters in length. It cannot be an empty string. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot be an empty string or start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
+   * > Specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
    * 
    * @example
    * FinanceDept
@@ -17,11 +17,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 20 tag values.
+   * The tag value of the resource. You can specify up to 20 tag values.
    * 
    * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
+   * > Specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
    * 
    * @example
    * FinanceJoshua
@@ -61,11 +61,11 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The pagination token. Valid values:
    * 
-   * - If this is the first query or no next query exists, you do not need to set this parameter.
+   * - Leave this parameter empty for the first request or if no subsequent query exists.
    * 
-   * - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
+   * - If a subsequent query exists, set this parameter to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -87,7 +87,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the resources. You can specify up to 50 resource IDs.
+   * The resource ID. You can specify up to 50 resource IDs.
    * 
    * @example
    * vpc-bp16qjewdsunr41m1****
@@ -97,21 +97,21 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * - **VPC**: VPC instance.
-   * - **VSWITCH**: vSwitch instance.
+   * The resource type. Valid values:
+   * - **VPC**: virtual private cloud (VPC) instance.
+   * - **VSWITCH**: virtual switch instance.
    * - **ROUTETABLE**: route table instance.
-   * - **EIP**: Elastic IP Address (EIP) instance.
+   * - **EIP**: elastic IP address (EIP) instance.
    * - **VPNGATEWAY**: VPN gateway instance.
    * - **NATGATEWAY**: NAT gateway instance.
-   * - **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan instance.
+   * - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.
    * - **PREFIXLIST**: prefix list instance.
-   * - **PUBLICIPADDRESSPOOL**: IP address pool instance.
+   * - **PUBLICIPADDRESSPOOL**: IP IPAM pool instance.
    * - **IPV4GATEWAY**: IPv4 gateway instance.
    * - **IPV6GATEWAY**: IPv6 gateway instance.
    * - **NETWORKACL**: network ACL instance.
-   * - **TRAFFICMIRRORFILTER**: traffic mirroring filter instance.
-   * - **TRAFFICMIRRORSESSION**: traffic mirroring session instance.
+   * - **TRAFFICMIRRORFILTER**: traffic mirror filter instance.
+   * - **TRAFFICMIRRORSESSION**: traffic mirror session instance.
    * - **FLOWLOG**: flow log instance.
    * - **HAVIP**: high-availability virtual IP address (HAVIP) instance.
    * - **DHCPOPTIONSSET**: DHCP options set instance.

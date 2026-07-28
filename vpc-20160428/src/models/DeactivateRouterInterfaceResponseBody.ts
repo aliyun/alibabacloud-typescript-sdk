@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeactivateRouterInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BE7EB53A-99AB-4DA8-AEDE-75FA90D046A6

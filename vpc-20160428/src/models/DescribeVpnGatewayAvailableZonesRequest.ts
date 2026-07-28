@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which the returned results are displayed. Valid values:
+   * The language of the response. Valid values:
    * 
    * - **zh-CN**: Chinese.
    * - **en-US** (default): English.
@@ -17,9 +17,9 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   /**
    * @remarks
    * The VPN gateway type. Valid values:
-   * - **Traditional**: Returns zone information for creating traditional VPN gateways.
-   * - **Enhanced.SiteToSite**: Returns zone information for creating enhanced site-to-cloud VPN gateways.
-   * - **Default value**: Returns zone information for creating all types of VPN gateways.
+   * - **Traditional**: Returns zone information for zones where traditional VPN gateways can be created.
+   * - **Enhanced.SiteToSite**: Returns zone information for zones where enhanced site-to-cloud VPN gateways can be created.
+   * - **Default value**: Returns zone information for zones where all types of VPN gateways can be created.
    * 
    * @example
    * Traditional
@@ -45,7 +45,7 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
    * - If the IPsec-VPN connection is associated with a VPN gateway instance, this parameter specifies the bandwidth specification of the VPN gateway instance.
    * - If the IPsec-VPN connection is associated with a transit router, this parameter specifies the expected bandwidth specification that the IPsec-VPN connection can support.
    * 
-   * Different bandwidth specifications may affect the zone information returned. Valid values:
+   * Different bandwidth specifications may affect the returned zone information. Valid values:
    * 
    * - **5M**
    * - **10M**
@@ -54,7 +54,7 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
    * - **100M**
    * - **200M**
    * - **500M**
-   * - **1000M**.
+   * - **1000M**
    * 
    * This parameter is required.
    * 

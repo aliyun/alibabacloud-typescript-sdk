@@ -81,7 +81,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $dara.
 export class DescribeSnatTableEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -106,7 +106,7 @@ export class DescribeSnatTableEntriesResponseBody extends $dara.Model {
   snatTableEntries?: DescribeSnatTableEntriesResponseBodySnatTableEntries;
   /**
    * @remarks
-   * The number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1

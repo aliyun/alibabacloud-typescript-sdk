@@ -8,6 +8,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
   compress?: boolean;
   connections?: number;
   createTime?: number;
+  dnsServers?: string;
   enableMultiFactorAuth?: boolean;
   IDaaSApplicationId?: string;
   IDaaSInstanceId?: string;
@@ -30,6 +31,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       compress: 'Compress',
       connections: 'Connections',
       createTime: 'CreateTime',
+      dnsServers: 'DnsServers',
       enableMultiFactorAuth: 'EnableMultiFactorAuth',
       IDaaSApplicationId: 'IDaaSApplicationId',
       IDaaSInstanceId: 'IDaaSInstanceId',
@@ -55,6 +57,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServersSslVpnServer extends 
       compress: 'boolean',
       connections: 'number',
       createTime: 'number',
+      dnsServers: 'string',
       enableMultiFactorAuth: 'boolean',
       IDaaSApplicationId: 'string',
       IDaaSInstanceId: 'string',
@@ -111,7 +114,7 @@ export class DescribeSslVpnServersResponseBodySslVpnServers extends $dara.Model 
 export class DescribeSslVpnServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -119,7 +122,7 @@ export class DescribeSslVpnServersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging query.
    * 
    * @example
    * 10
@@ -136,7 +139,7 @@ export class DescribeSslVpnServersResponseBody extends $dara.Model {
   sslVpnServers?: DescribeSslVpnServersResponseBodySslVpnServers;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1

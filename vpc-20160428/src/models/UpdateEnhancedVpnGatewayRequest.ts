@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEnhancedVpnGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic route propagation for the enhanced VPN gateway. Valid values:
+   * Specifies whether to enable the routing automatic propagation feature for the enhanced VPN gateway instance. Valid values:
    * 
-   * - **true**<br>
-   *   The enhanced VPN gateway automatically learns system routes from the system route table of the VPC and propagates routes from the on-premises data center to the system route table of the VPC.<br>
+   * - **true**: enabled.<br>
+   * After routing automatic propagation is enabled, the enhanced VPN gateway instance uses automatic learning to obtain system routes from the system route table of the VPC instance and automatically propagates routes of the on-premises data center to the system route table of the VPC instance.
    * 
-   * - **false**<br>
-   *   Automatic route propagation is disabled. Before you disable this feature, make sure that BGP dynamic routing is disabled for all IPsec-VPN connections of the enhanced VPN gateway.<br>
+   * - **false**: disabled.<br>
+   * Before you disable routing automatic propagation, make sure that BGP dynamic route is disabled for all IPsec-VPN connections under the enhanced VPN gateway.
    * 
    * @example
    * true
@@ -21,9 +21,9 @@ export class UpdateEnhancedVpnGatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can generate a token from your client to make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify a `ClientToken`, the system automatically uses the `RequestId` of the API request as the `ClientToken`. Each API request has a different `RequestId`.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -43,7 +43,7 @@ export class UpdateEnhancedVpnGatewayRequest extends $dara.Model {
    * @remarks
    * The new name of the enhanced VPN gateway.
    * 
-   * The name must be 2 to 100 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+   * The name must be 2 to 100 characters in length. It cannot start with http:// or https://. It must start with an uppercase or lowercase letter and can contain uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). Other special characters are not supported.
    * 
    * @example
    * myvpn
@@ -53,7 +53,7 @@ export class UpdateEnhancedVpnGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the enhanced VPN gateway is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * The region ID of the enhanced VPN gateway instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class UpdateEnhancedVpnGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the enhanced VPN gateway.
+   * The ID of the enhanced VPN gateway instance.
    * 
    * This parameter is required.
    * 

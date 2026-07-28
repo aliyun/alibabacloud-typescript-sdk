@@ -40,7 +40,7 @@ export class UnassociateEipAddressRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the cloud resource from which to disassociate the EIP.
-   * You can enter the instance ID of a NAT gateway, Classic Load Balancer (CLB) instance, ECS instance, secondary elastic network interface controller (NIC), high availability virtual IP address instance, or an IP address.
+   * You can enter the instance ID of a NAT gateway, Classic Load Balancer (CLB) instance, ECS instance, secondary elastic network interface controller (NIC), high-availability virtual IP address, or an IP address.
    * 
    * @example
    * i-hp3akk9irtd69jad****
@@ -52,13 +52,13 @@ export class UnassociateEipAddressRequest extends $dara.Model {
    * 
    * - **EcsInstance** (default): an ECS instance in a virtual private cloud (VPC).   
    * 
-   * - **SlbInstance**: a load balancing instance in a virtual private cloud (VPC).   
+   * - **SlbInstance**: an SLB instance in a virtual private cloud (VPC).   
    * 
    * - **NetworkInterface**: a secondary elastic network interface controller (NIC) in a virtual private cloud (VPC).
    * 
    * - **Nat**: a NAT gateway.  
    * 
-   * - **HaVip**: a high availability virtual IP address.
+   * - **HaVip**: a high-availability virtual IP address.
    * - **IpAddress**: an IP address.
    * 
    * @example
@@ -69,7 +69,7 @@ export class UnassociateEipAddressRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The private IP address of the ECS instance or secondary elastic network interface controller (NIC) instance from which to disassociate the EIP.
+   * The private IP address of the ECS instance or secondary elastic network interface controller (NIC) from which to disassociate the EIP.
    * 
    * @example
    * 192.XX.XX.2
@@ -78,7 +78,7 @@ export class UnassociateEipAddressRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the EIP to disassociate.
-   *  You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
+   *  You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * @example
    * cn-hangzhou

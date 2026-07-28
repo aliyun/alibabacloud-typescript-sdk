@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   /**
    * @remarks
-   * The IP prefix address range to which the queried NAT IP address belongs.
+   * The CIDR block of the IP prefix to which the NAT IP address belongs.
    * 
    * @example
    * 192.168.0.0/28
@@ -13,10 +13,11 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
-   * Indicates whether the IP address is the default IP address of the NAT gateway. Valid values:
+   * Indicates whether the NAT IP address is the default one. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The NAT IP address is the default one.
+   * 
+   * - **false**: The NAT IP address is not the default one.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the Virtual Private Cloud (VPC) NAT gateway to which the IP address is assigned.
+   * The instance ID of the VPC NAT gateway to which the NAT IP address belongs.
    * 
    * @example
    * ngw-gw8v16wgvtq26vh59****
@@ -32,7 +33,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The IP address.
+   * The NAT IP address.
    * 
    * @example
    * 192.168.0.126
@@ -40,7 +41,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIp?: string;
   /**
    * @remarks
-   * The CIDR block to which the IP address belongs.
+   * The CIDR block to which the NAT IP address belongs.
    * 
    * @example
    * 192.168.0.0/24
@@ -48,7 +49,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIpCidr?: string;
   /**
    * @remarks
-   * The description of the IP address.
+   * The description of the NAT IP address.
    * 
    * @example
    * default
@@ -56,7 +57,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIpDescription?: string;
   /**
    * @remarks
-   * The ID of the IP address.
+   * The instance ID of the NAT IP address.
    * 
    * @example
    * vpcnatip-gw8a863sut1zijxh0****
@@ -64,7 +65,7 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIpId?: string;
   /**
    * @remarks
-   * The name of the IP address.
+   * The name of the NAT IP address.
    * 
    * @example
    * default
@@ -72,14 +73,14 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   natIpName?: string;
   /**
    * @remarks
-   * The status of the IP address. Valid values:
+   * The status of the NAT IP address. Valid values:
    * 
-   * *   **Available**: available
-   * *   **Deleted**: deleted
-   * *   **Deleting**: deleting
-   * *   **Creating**: creating
-   * *   **Associated**: specified in an SNAT or DNAT entry
-   * *   **Associating**: being specified in an SNAT or DNAT entry
+   * - **Available**: available.
+   * - **Deleted**: deleted.
+   * - **Deleting**: being deleted.
+   * - **Creating**: being created.
+   * - **Associated**: associated with an SNAT or DNAT entry.
+   * - **Associating**: being associated with an SNAT or DNAT entry.
    * 
    * @example
    * Available
@@ -125,15 +126,14 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
 export class ListNatIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of IP addresses of the NAT gateway.
+   * The list of NAT IP addresses.
    */
   natIps?: ListNatIpsResponseBodyNatIps[];
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-   * *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -141,7 +141,7 @@ export class ListNatIpsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7E78CEEA-BF8F-44D1-9DCD-D9141135B71E
@@ -149,7 +149,7 @@ export class ListNatIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of IP addresses that are returned.
+   * The total number of NAT IP addresses returned.
    * 
    * @example
    * 1

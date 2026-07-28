@@ -9,7 +9,7 @@ export class CreateVbrHaRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * CBCE910E-D396-4944-8****
@@ -29,7 +29,7 @@ export class CreateVbrHaRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
+   * - **true**: performs a dry run without starting the instance. The system checks whether the required parameters are specified, whether the request format is valid, and whether the instance status is Normal. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
    * 
    * - **false** (default): sends the request. After the request passes the check, the instance is started.
    * 
@@ -71,7 +71,7 @@ export class CreateVbrHaRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the VBR.
+   * The VBR instance ID.
    * 
    * This parameter is required.
    * 

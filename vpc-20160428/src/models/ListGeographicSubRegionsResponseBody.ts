@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGeographicSubRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries.
+   * The number of entries in the list.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListGeographicSubRegionsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The region list.
+   * The list of regions to query.
    */
   geographicSubRegions?: string[];
   /**

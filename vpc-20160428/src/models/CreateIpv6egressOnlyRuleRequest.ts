@@ -7,9 +7,9 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the value of RequestId as the client token. The value of RequestId is different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -27,7 +27,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A dry run of the request without actually executing it.
+   * Specifies whether to perform a dry run without performing the actual request.
    */
   dryRun?: boolean;
   /**
@@ -44,7 +44,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
    * @remarks
    * The type of the instance for which you want to create an egress-only rule.
    * 
-   * Default value: **Ipv6Address**
+   * Set the value to **Ipv6Address** (default), which indicates the IPv6 address type.
    * 
    * @example
    * Ipv6Address
@@ -52,7 +52,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the IPv6 gateway.
+   * The instance ID of the IPv6 gateway.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the IPv6 gateway is deployed.
+   * The region ID of the IPv6 gateway.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 

@@ -9,7 +9,7 @@ export class DeleteExpressConnectTrafficQosRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -19,7 +19,7 @@ export class DeleteExpressConnectTrafficQosRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The QoS policy ID.
+   * The ID of the QoS policy.
    * 
    * This parameter is required.
    * 

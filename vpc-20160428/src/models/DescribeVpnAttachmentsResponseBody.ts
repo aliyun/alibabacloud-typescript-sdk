@@ -45,7 +45,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags extends $dara.
 export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Model {
   /**
    * @remarks
-   * The type of resource to which the IPsec-VPN connection is attached. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
+   * The type of resource to which the IPsec-VPN connection is associated. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
    * 
    * @example
    * CEN
@@ -55,8 +55,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * @remarks
    * Indicates whether the IPsec-VPN connection is associated with a transit router instance that belongs to a different Alibaba Cloud account.
    * 
-   * - **true**: yes.
-   * - **false**: no.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -90,11 +90,11 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * @remarks
    * The system tags of the IPsec-VPN connection.
    * 
-   * You can use system tags to check whether the IPsec-VPN connection supports BGP. You do not need to pay attention to other properties.
+   * You can use system tags to check whether the IPsec-VPN connection supports BGP. You can ignore other properties.
    * 
    * **BGPSupport**: indicates whether the IPsec-VPN connection supports BGP.
-   *    - **true**: supported.
-   *    - **false**: not supported.
+   *    - **true**: Supported.
+   *    - **false**: Not supported.
    * 
    * @example
    * {\\"description\\":\\"转发1.7.22\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"BGPSupport\\":\\"true\\",\\"IDaaSNewVersion\\":\\"true\\"}
@@ -102,12 +102,12 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
   tag?: string;
   /**
    * @remarks
-   * The list of tags that are attached to the IPsec-VPN connection.
+   * The list of tags associated with the IPsec-VPN connection.
    */
   tags?: DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags[];
   /**
    * @remarks
-   * The ID of the transit routing instance to which the IPsec-VPN connection is attached.
+   * The instance ID of the forward routing vRouter to which the IPsec-VPN connection is attached.
    * 
    * @example
    * tr-p0wkh4yryb1dnanqw****
@@ -124,8 +124,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
   /**
    * @remarks
    * The bandwidth specification of a single VPN tunnel. Valid values:
-   * Standard (default): standard. The default bandwidth is 1 Gbit/s.
-   * Large: large. The default bandwidth is 3 Gbit/s.
+   * Standard (default): standard. The default bandwidth is 1 Gbps.
+   * Large: large. The default bandwidth is 3 Gbps.
    * 
    * @example
    * Standard
@@ -176,7 +176,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
 export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -184,7 +184,7 @@ export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is used.
+   * The number of entries per page in paging queries.
    * 
    * @example
    * 10
@@ -200,7 +200,7 @@ export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -208,7 +208,7 @@ export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of IPsec-VPN connections that are associated with transit router instances.
+   * The list of IPsec-VPN connections associated with transit router instances.
    */
   vpnAttachments?: DescribeVpnAttachmentsResponseBodyVpnAttachments[];
   static names(): { [key: string]: string } {

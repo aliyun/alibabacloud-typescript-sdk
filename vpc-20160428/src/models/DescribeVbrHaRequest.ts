@@ -7,9 +7,9 @@ export class DescribeVbrHaRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * CBCE910E-D396-4944-8****
@@ -17,10 +17,11 @@ export class DescribeVbrHaRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid Values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, `DRYRUN.SUCCESS` is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without starting the instance. The system checks whether required parameters are specified, whether the request format is valid, and whether the instance status is valid. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
+   * 
+   * - **false** (default): sends a normal request. After the request passes the check, the instance is directly started.
    * 
    * @example
    * false
@@ -30,7 +31,7 @@ export class DescribeVbrHaRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which the VBR is deployed.
+   * The region ID of the VBR.
    * 
    * This parameter is required.
    * 
@@ -42,7 +43,7 @@ export class DescribeVbrHaRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VBR failover group.
+   * The VBR failover group instance ID.
    * 
    * @example
    * vbrha-sa1sxheuxtd98****
@@ -50,7 +51,7 @@ export class DescribeVbrHaRequest extends $dara.Model {
   vbrHaId?: string;
   /**
    * @remarks
-   * The VBR ID.
+   * The VBR instance ID.
    * 
    * @example
    * vbr-bp1jcg5cmxjbl9xgc****

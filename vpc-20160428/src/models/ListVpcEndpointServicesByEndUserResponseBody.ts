@@ -13,7 +13,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   defaultPolicyDocument?: string;
   /**
    * @remarks
-   * The domain name of the cloud service to which the endpoint service belongs.
+   * The domain name of the cloud service associated with the endpoint service in the queried region.
    * 
    * @example
    * oss-admin.aliyuncs.com
@@ -21,7 +21,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceDomain?: string;
   /**
    * @remarks
-   * The ID of the endpoint service.
+   * The instance ID of the endpoint service.
    * 
    * @example
    * vpces-m5enwdmilo210aibo9****
@@ -37,10 +37,10 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceName?: string;
   /**
    * @remarks
-   * Indicate whether the endpoint service supports the access policy. Valid values:
+   * Indicates whether the endpoint service supports access policies. Valid values:
    * 
-   * *   **false**
-   * *   **true**
+   * - **false**: Access policies are not supported.
+   * - **true**: Access policies are supported.
    * 
    * @example
    * true
@@ -78,7 +78,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
 export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -86,10 +86,9 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If no value is returned for **NextToken**, no next queries are sent.
-   * *   If **NextToken** is returned, the value is the token that is used for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -97,7 +96,7 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
@@ -105,7 +104,7 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of entries returned.
+   * The list of available endpoint services.
    */
   services?: ListVpcEndpointServicesByEndUserResponseBodyServices[];
   /**

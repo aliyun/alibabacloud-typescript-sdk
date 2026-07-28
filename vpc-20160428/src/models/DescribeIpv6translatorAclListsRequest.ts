@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIPv6TranslatorAclListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL.
+   * The ID of the access control policy group.
    * 
    * @example
    * ipv6transacl-bp1de2****
@@ -13,7 +13,7 @@ export class DescribeIPv6TranslatorAclListsRequest extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The name of the ACL.
+   * The name of the access control policy group.
    * 
    * @example
    * acl1
@@ -23,7 +23,7 @@ export class DescribeIPv6TranslatorAclListsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeIPv6TranslatorAclListsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class DescribeIPv6TranslatorAclListsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the ACL.
+   * The region of the access control policy group.
    * 
    * This parameter is required.
    * 

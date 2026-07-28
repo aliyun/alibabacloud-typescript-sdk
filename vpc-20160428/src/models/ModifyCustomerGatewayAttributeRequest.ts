@@ -61,7 +61,7 @@ export class ModifyCustomerGatewayAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the customer gateway. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
