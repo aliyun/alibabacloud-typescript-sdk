@@ -3,12 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateOpenGlobalDataResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  httpStatusCode?: number;
   requestId?: string;
   result?: boolean;
   resultCode?: string;
   resultMessage?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      httpStatusCode: 'HttpStatusCode',
       requestId: 'RequestId',
       result: 'Result',
       resultCode: 'ResultCode',
@@ -18,6 +22,8 @@ export class CreateOpenGlobalDataResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
+      httpStatusCode: 'number',
       requestId: 'string',
       result: 'boolean',
       resultCode: 'string',
