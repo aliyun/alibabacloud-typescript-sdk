@@ -39,7 +39,7 @@ export class JobSettings extends $dara.Model {
   dataJuicerConfig?: DataJuicerConfig;
   /**
    * @remarks
-   * Specifies whether to skip the inventory check. Valid values:
+   * Specifies whether to skip inventory check. Valid values:
    * - true
    * - false
    * 
@@ -57,7 +57,7 @@ export class JobSettings extends $dara.Model {
   driver?: string;
   /**
    * @remarks
-   * The CPU affinity setting. This setting takes effect only when general-purpose subscription computing resources are used.
+   * The CPU affinity setting. This setting is effective only when using general computing subscription resources.
    * 
    * @example
    * true
@@ -76,7 +76,7 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Specifies whether OSS append writes are allowed. Valid values:
+   * Specifies whether to allow OSS append write. Valid values:
    * - true
    * - false
    * 
@@ -86,7 +86,7 @@ export class JobSettings extends $dara.Model {
   enableOssAppend?: boolean;
   /**
    * @remarks
-   * Specifies whether the job is allowed to use RDMA. Valid values:
+   * Specifies whether to allow the job to use RDMA. Valid values:
    * - true
    * - false
    * 
@@ -106,7 +106,7 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether the job is allowed to use tidal resources. Valid values:
+   * Specifies whether to allow the job to use tidal resources. Valid values:
    * - true
    * - false
    * 
@@ -116,7 +116,7 @@ export class JobSettings extends $dara.Model {
   enableTideResource?: boolean;
   /**
    * @remarks
-   * The configuration parameters for fault tolerance monitoring after it is enabled. For example, you can specify whether to enable log hang-based detection.
+   * The configuration parameters for fault tolerance monitoring after it is enabled, such as whether to enable log hang-based detection.
    * 
    * @example
    * --enable-log-hang-detection true
@@ -124,7 +124,7 @@ export class JobSettings extends $dara.Model {
   errorMonitoringArgs?: string;
   /**
    * @remarks
-   * The duration (in minutes) for which the job is retained after it ends.
+   * The retention duration after job completion, in minutes.
    * 
    * @example
    * 30
@@ -132,7 +132,7 @@ export class JobSettings extends $dara.Model {
   jobReservedMinutes?: number;
   /**
    * @remarks
-   * The retention policy after the job ends.
+   * The retention policy after job completion.
    * 
    * @example
    * Always
@@ -140,12 +140,12 @@ export class JobSettings extends $dara.Model {
   jobReservedPolicy?: string;
   /**
    * @remarks
-   * The output model configuration. This parameter currently takes effect only in federated training scenarios.
+   * The output model configuration. This parameter is currently effective only in federated training scenarios.
    */
   modelConfig?: ModelConfig;
   /**
    * @remarks
-   * The oversold resource usage mode for the job (not accepted, acceptable, or only accepted).
+   * The oversold resource usage mode for the job (reject/accept/only accept).
    * 
    * @example
    * AcceptQuotaOverSold

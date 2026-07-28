@@ -50,7 +50,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   displayNameSearchMode?: string;
   /**
    * @remarks
-   * Filters jobs based on whether running on specified nodes is enabled.
+   * Specifies whether to filter jobs that have assigned-node execution enabled.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   enableAssignNode?: string;
   /**
    * @remarks
-   * The end time of the query range. Jobs are filtered by creation time. Default value: the current time.
+   * The end time of the query range. The job creation time is used for filtering. Default value: the current time.
    * 
    * @example
    * 2025-04-16T07:26:41Z
@@ -74,7 +74,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   fromAllWorkspaces?: boolean;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the images field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the images field. Supports Chinese and English tokenization.
    * 
    * @example
    * pytorch
@@ -159,7 +159,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   oversoldInfo?: string;
   /**
    * @remarks
-   * The page number to return in a paged query. Minimum value: 1. Default value: 1.
+   * The page number to return in a paged query. Minimum value: 1. Default value: 1. Paging starts from page 1.
    * 
    * @example
    * 1
@@ -176,9 +176,9 @@ export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * - PrePaid: resource quota
-   * - Spot: preemptible resources
-   * - PostPaid: public resources
+   * - PrePaid: resource quota.
+   * - Spot: preemptible resources.
+   * - PostPaid: public resources.
    * 
    * @example
    * PostPaid
@@ -186,7 +186,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Filters jobs created by the specified workflow ID.
+   * Filters jobs created by the specified pipeline ID.
    * 
    * @example
    * flow-*******
@@ -194,7 +194,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the node failed reason field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the node failed reason field. Supports Chinese and English tokenization.
    * 
    * @example
    * OOM
@@ -202,15 +202,16 @@ export class ListJobsShrinkRequest extends $dara.Model {
   reasonSearch?: string;
   /**
    * @remarks
-   * The resource group ID. For information about how to query the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. For information about how to obtain the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * r*****
    */
   resourceId?: string;
+  resourceIds?: string;
   /**
    * @remarks
-   * Filters the job list by the resource quota name. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+   * The name of the resource quota, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
    * 
    * @example
    * quota***
@@ -240,7 +241,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time of the query range. Jobs are filtered by creation time. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
+   * The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
    * 
    * @example
    * 2025-04-16T07:25:34Z
@@ -274,7 +275,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The template ID. Filters jobs created from the specified template.
+   * The template ID, used to filter jobs created from the specified template.
    * 
    * @example
    * tmlabc123
@@ -290,7 +291,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   timeRangeField?: string;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the user_command field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the user_command field. Supports Chinese and English tokenization.
    * 
    * @example
    * python train.py
@@ -298,7 +299,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   userCommandSearch?: string;
   /**
    * @remarks
-   * Filters the job list by the user ID of the job submitter.
+   * The user ID of the job submitter, used to filter the job list.
    * 
    * @example
    * 20**************
@@ -306,7 +307,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   userIdForFilter?: string;
   /**
    * @remarks
-   * Filters the job list by the username of the job submitter. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
+   * The username of the job submitter, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
    * 
    * @example
    * test***
@@ -314,7 +315,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID.<props="china"> For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 1****
@@ -346,6 +347,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       pipelineId: 'PipelineId',
       reasonSearch: 'ReasonSearch',
       resourceId: 'ResourceId',
+      resourceIds: 'ResourceIds',
       resourceQuotaName: 'ResourceQuotaName',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
@@ -387,6 +389,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       pipelineId: 'string',
       reasonSearch: 'string',
       resourceId: 'string',
+      resourceIds: 'string',
       resourceQuotaName: 'string',
       showOwn: 'boolean',
       sortBy: 'string',

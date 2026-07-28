@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { EnvVar } from "./EnvVar";
 import { ResourceRequirements } from "./ResourceRequirements";
+import { SecurityContext } from "./SecurityContext";
 
 
 export class ContainerSpec extends $dara.Model {
@@ -41,6 +42,7 @@ export class ContainerSpec extends $dara.Model {
    * The container resources.
    */
   resources?: ResourceRequirements;
+  securityContext?: SecurityContext;
   /**
    * @remarks
    * The working directory in the container.
@@ -57,6 +59,7 @@ export class ContainerSpec extends $dara.Model {
       image: 'Image',
       name: 'Name',
       resources: 'Resources',
+      securityContext: 'SecurityContext',
       workingDir: 'WorkingDir',
     };
   }
@@ -69,6 +72,7 @@ export class ContainerSpec extends $dara.Model {
       image: 'string',
       name: 'string',
       resources: ResourceRequirements,
+      securityContext: SecurityContext,
       workingDir: 'string',
     };
   }
@@ -85,6 +89,9 @@ export class ContainerSpec extends $dara.Model {
     }
     if(this.resources && typeof (this.resources as any).validate === 'function') {
       (this.resources as any).validate();
+    }
+    if(this.securityContext && typeof (this.securityContext as any).validate === 'function') {
+      (this.securityContext as any).validate();
     }
     super.validate();
   }

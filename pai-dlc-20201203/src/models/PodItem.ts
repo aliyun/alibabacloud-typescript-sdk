@@ -49,6 +49,11 @@ export class PodItem extends $dara.Model {
    * Worker
    */
   type?: string;
+  /**
+   * @example
+   * sysom
+   */
+  supportedProfilingTypes?: string;
   static names(): { [key: string]: string } {
     return {
       gmtCreateTime: 'GmtCreateTime',
@@ -64,6 +69,7 @@ export class PodItem extends $dara.Model {
       status: 'Status',
       subStatus: 'SubStatus',
       type: 'Type',
+      supportedProfilingTypes: 'supportedProfilingTypes',
     };
   }
 
@@ -82,6 +88,7 @@ export class PodItem extends $dara.Model {
       status: 'string',
       subStatus: 'string',
       type: 'string',
+      supportedProfilingTypes: 'string',
     };
   }
 

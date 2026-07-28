@@ -30,7 +30,7 @@ export class JobItemCodeSource extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The commit ID of the code repository used for this job.
+   * The commit ID of the code repository used by this job.
    * 
    * @example
    * 44da109b59f8596152987eaa8f3b2487bb******
@@ -114,9 +114,7 @@ export class JobItemDataSources extends $dara.Model {
 export class JobItemUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default routing. Valid values:
-   * - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-   * - eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
+   * The default route. Valid values:
    * 
    * @example
    * eth0
@@ -246,7 +244,7 @@ export class JobItem extends $dara.Model {
   enablePreemptibleJob?: boolean;
   /**
    * @remarks
-   * Indicates whether Debugger analysis is enabled.
+   * Indicates whether debugger analysis is enabled.
    * 
    * @example
    * false
@@ -254,12 +252,12 @@ export class JobItem extends $dara.Model {
   enabledDebugger?: boolean;
   /**
    * @remarks
-   * The environment variables injected at job runtime.
+   * The environment variables injected into the job at runtime.
    */
   envs?: { [key: string]: string };
   /**
    * @remarks
-   * The time when the job was created, in UTC format.
+   * The job creation time in UTC format.
    * 
    * @example
    * 2025-04-16T07:25:34Z
@@ -267,7 +265,7 @@ export class JobItem extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the job failed, in UTC format.
+   * The time when the job failed (UTC).
    * 
    * @example
    * null
@@ -275,7 +273,7 @@ export class JobItem extends $dara.Model {
   gmtFailedTime?: string;
   /**
    * @remarks
-   * The time when the job finished, in UTC format.
+   * The time when the job finished (UTC).
    * 
    * @example
    * 2025-04-16T07:28:20Z
@@ -283,7 +281,7 @@ export class JobItem extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The time when the job was last modified, in UTC format.
+   * The time when the job was modified (UTC).
    * 
    * @example
    * 2025-04-16T07:28:22Z
@@ -291,7 +289,7 @@ export class JobItem extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The time when the job started running, in UTC format.
+   * The time when the job started running in UTC format.
    * 
    * @example
    * 2025-04-16T07:26:41Z
@@ -299,7 +297,7 @@ export class JobItem extends $dara.Model {
   gmtRunningTime?: string;
   /**
    * @remarks
-   * The time when the job was stopped, in UTC format.
+   * The time when the job was stopped (UTC).
    * 
    * @example
    * null
@@ -307,7 +305,7 @@ export class JobItem extends $dara.Model {
   gmtStoppedTime?: string;
   /**
    * @remarks
-   * The time when the job was submitted, in UTC format.
+   * The job submission time in UTC format.
    * 
    * @example
    * 2025-04-16T07:26:14Z
@@ -315,7 +313,7 @@ export class JobItem extends $dara.Model {
   gmtSubmittedTime?: string;
   /**
    * @remarks
-   * The time when the job completed successfully, in UTC format.
+   * The time when the job completed successfully in UTC format.
    * 
    * @example
    * 2025-04-16T07:28:20Z
@@ -339,7 +337,7 @@ export class JobItem extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The maximum running duration of the job.
+   * The maximum job running duration.
    * 
    * @example
    * 0
@@ -348,20 +346,12 @@ export class JobItem extends $dara.Model {
   jobReplicaStatuses?: JobReplicaStatus[];
   /**
    * @remarks
-   * The node configurations of the job at runtime.
+   * The node configurations for the job at runtime.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
    * The job type. Valid values:
-   * - TFJob
-   * - PyTorchJob
-   * - MPIJob
-   * - XGBoostJob
-   * - OneFlowJob
-   * - ElasticBatchJob
-   * - RayJob
-   * - SlurmJob
    * 
    * @example
    * TFJob
@@ -382,7 +372,7 @@ export class JobItem extends $dara.Model {
   nodeNames?: string[];
   /**
    * @remarks
-   * The pods.
+   * Pods。
    */
   pods?: PodItem[];
   /**
@@ -395,10 +385,7 @@ export class JobItem extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The reason code for the current job status. Valid values:
-   * - InvalidParameter
-   * - JobSucceeded
-   * - JobStoppedByUser
+   * The reason code for the job entering its current status. Valid values:
    * 
    * @example
    * JobStoppedByUser
@@ -406,7 +393,7 @@ export class JobItem extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The detailed description of the reason for the current job status.
+   * The detailed description of the reason for the job entering its current status.
    * 
    * @example
    * Job is stopped by user.
@@ -462,7 +449,7 @@ export class JobItem extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The resource quota name.
+   * The resource name.
    * 
    * @example
    * test
@@ -494,8 +481,6 @@ export class JobItem extends $dara.Model {
   /**
    * @remarks
    * The job status. Valid values:
-   * - Succeeded
-   * - Failed
    * 
    * @example
    * Stopped
@@ -503,12 +488,12 @@ export class JobItem extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The job status transition history.
+   * The job status transition information.
    */
   statusHistory?: StatusTransitionItem[];
   /**
    * @remarks
-   * The job substatus, such as the preemption retry status.
+   * The job sub-status, such as preemption retry status.
    * 
    * @example
    * Restarting
@@ -516,7 +501,7 @@ export class JobItem extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The system environment variable configurations.
+   * The system environment variable configuration.
    */
   systemEnvs?: { [key: string]: string };
   templateId?: string;
@@ -531,7 +516,7 @@ export class JobItem extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The directory where the third-party library file Requirements.txt is located.
+   * The directory where the third-party library file requirements.txt is located.
    * 
    * @example
    * /root/code/
@@ -584,7 +569,7 @@ export class JobItem extends $dara.Model {
   userVpc?: JobItemUserVpc;
   /**
    * @remarks
-   * The username of the user who submitted the job.
+   * The username of the job submitter.
    * 
    * @example
    * pai-dlc-role
@@ -614,6 +599,11 @@ export class JobItem extends $dara.Model {
    * dlc-workspace
    */
   workspaceName?: string;
+  /**
+   * @example
+   * sysom
+   */
+  supportedProfilingTypes?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
@@ -677,6 +667,7 @@ export class JobItem extends $dara.Model {
       workingDir: 'WorkingDir',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
+      supportedProfilingTypes: 'supportedProfilingTypes',
     };
   }
 
@@ -743,6 +734,7 @@ export class JobItem extends $dara.Model {
       workingDir: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
+      supportedProfilingTypes: 'string',
     };
   }
 

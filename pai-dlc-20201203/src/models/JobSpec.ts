@@ -17,7 +17,7 @@ import { SystemDisk } from "./SystemDisk";
 export class JobSpec extends $dara.Model {
   /**
    * @remarks
-   * The scheduling node assignment configuration.
+   * The assigned scheduling node configuration.
    */
   assignNodeSpec?: AssignNodeSpec;
   /**
@@ -27,9 +27,10 @@ export class JobSpec extends $dara.Model {
   autoScalingSpec?: AutoScalingSpec;
   /**
    * @remarks
-   * Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
+   * Specifies whether this role is considered when determining job success. This parameter takes effect only when the success policy is set to Partial.
    */
   considerInSuccessPolicy?: boolean;
+  driver?: string;
   /**
    * @remarks
    * The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
@@ -116,7 +117,7 @@ export class JobSpec extends $dara.Model {
   systemDisk?: SystemDisk;
   /**
    * @remarks
-   * Type is closely related to Job Type. Different Job Types support different Worker Types.
+   * Type is closely related to Job Type. Different job types support different worker types.
    * 
    * - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
    * 
@@ -148,6 +149,7 @@ export class JobSpec extends $dara.Model {
       assignNodeSpec: 'AssignNodeSpec',
       autoScalingSpec: 'AutoScalingSpec',
       considerInSuccessPolicy: 'ConsiderInSuccessPolicy',
+      driver: 'Driver',
       ecsSpec: 'EcsSpec',
       elasticSpotSpecs: 'ElasticSpotSpecs',
       extraPodSpec: 'ExtraPodSpec',
@@ -176,6 +178,7 @@ export class JobSpec extends $dara.Model {
       assignNodeSpec: AssignNodeSpec,
       autoScalingSpec: AutoScalingSpec,
       considerInSuccessPolicy: 'boolean',
+      driver: 'string',
       ecsSpec: 'string',
       elasticSpotSpecs: { 'type': 'array', 'itemType': ElasticSpotSpec },
       extraPodSpec: ExtraPodSpec,

@@ -246,6 +246,11 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
    * Worker
    */
   type?: string;
+  /**
+   * @example
+   * sysom
+   */
+  supportedProfilingTypes?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
@@ -261,6 +266,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
       status: 'Status',
       subStatus: 'SubStatus',
       type: 'Type',
+      supportedProfilingTypes: 'supportedProfilingTypes',
     };
   }
 
@@ -279,6 +285,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
       status: 'string',
       subStatus: 'string',
       type: 'string',
+      supportedProfilingTypes: 'string',
     };
   }
 
@@ -310,7 +317,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The node finish time (UTC).
+   * The pod finish time (UTC).
    * 
    * @example
    * 2021-01-12T15:36:05Z
@@ -318,7 +325,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtFinishTime?: string;
   /**
    * @remarks
-   * The node start time (UTC).
+   * The pod start time (UTC).
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -331,7 +338,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
   /**
    * @remarks
-   * The network IP address of the node.
+   * The network IP address of the pod.
    * 
    * @example
    * 10.0.1.2
@@ -344,7 +351,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The node ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the node.
+   * The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events of the pod.
    * 
    * @example
    * Worker
@@ -373,7 +380,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The node status. Valid values:
+   * The pod status. Valid values:
    * 
    * - Pending
    * - Running
@@ -397,12 +404,17 @@ export class GetJobResponseBodyPods extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The node type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
+   * The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
    * 
    * @example
    * Worker
    */
   type?: string;
+  /**
+   * @example
+   * sysom
+   */
+  supportedProfilingTypes?: string;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
@@ -419,6 +431,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
       status: 'Status',
       subStatus: 'SubStatus',
       type: 'Type',
+      supportedProfilingTypes: 'supportedProfilingTypes',
     };
   }
 
@@ -438,6 +451,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
       status: 'string',
       subStatus: 'string',
       type: 'string',
+      supportedProfilingTypes: 'string',
     };
   }
 
@@ -459,7 +473,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
 export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Model {
   /**
    * @remarks
-   * The job-level blacklist.
+   * The job blacklist.
    */
   addJobLevelBlacklist?: boolean;
   /**
@@ -567,7 +581,7 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The restart duration, in seconds.
+   * The restart duration.
    */
   restartDurationInSec?: number;
   /**
@@ -633,8 +647,8 @@ export class GetJobResponseBodyUserVpc extends $dara.Model {
    * @remarks
    * The default routing. This parameter is valid only for general computing resources. Valid values:
    * 
-   * eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-   * eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
+   * eth0: uses the default network interface controller (NIC) to access external networks through a public gateway.
+   * eth1: uses the user elastic network interfaces (ENIs) to access external networks through a private gateway.
    */
   defaultRoute?: string;
   /**
@@ -702,8 +716,8 @@ export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: Visible to all members in the workspace.
-   * - PRIVATE (default): Visible only to you and administrators in the workspace.
+   * - PUBLIC: Visible to all users in this workspace.
+   * - PRIVATE (default): Visible only to you and administrators in this workspace.
    * 
    * @example
    * PRIVATE
@@ -839,7 +853,7 @@ export class GetJobResponseBody extends $dara.Model {
   jobReplicaStatuses?: JobReplicaStatus[];
   /**
    * @remarks
-   * The node configurations in the job. For more information, see the **JobSpecs** parameter in the CreateJob API.
+   * The node configurations in the job. Refer to **JobSpecs** in the CreateJob API.
    */
   jobSpecs?: JobSpec[];
   /**
@@ -852,7 +866,7 @@ export class GetJobResponseBody extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * All nodes running in the job.
+   * All pods running in the job.
    */
   pods?: GetJobResponseBodyPods[];
   /**
@@ -865,7 +879,7 @@ export class GetJobResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The status detail code, which categorizes the sub-status under the current status (Status).
+   * The status detail code, which is a classification of the sub-status under the current status (Status).
    * 
    * @example
    * JobStoppedByUser
@@ -979,7 +993,7 @@ export class GetJobResponseBody extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The folder that contains the third-party library (requirements.txt) file.
+   * The folder where the third-party library (requirements.txt) file is located.
    * 
    * @example
    * /root/code/
@@ -1027,6 +1041,11 @@ export class GetJobResponseBody extends $dara.Model {
    * dlc-workspace
    */
   workspaceName?: string;
+  /**
+   * @example
+   * sysom
+   */
+  supportedProfilingTypes?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
@@ -1076,6 +1095,7 @@ export class GetJobResponseBody extends $dara.Model {
       userVpc: 'UserVpc',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
+      supportedProfilingTypes: 'supportedProfilingTypes',
     };
   }
 
@@ -1128,6 +1148,7 @@ export class GetJobResponseBody extends $dara.Model {
       userVpc: GetJobResponseBodyUserVpc,
       workspaceId: 'string',
       workspaceName: 'string',
+      supportedProfilingTypes: 'string',
     };
   }
 

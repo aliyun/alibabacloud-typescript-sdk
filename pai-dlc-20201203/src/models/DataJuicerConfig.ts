@@ -6,11 +6,10 @@ import { ResourceLimit } from "./ResourceLimit";
 export class DataJuicerConfig extends $dara.Model {
   /**
    * @remarks
-   * The command type.
+   * The command type. Valid values:
    * 
-   * - shell: A shell command.
-   * 
-   * - config: The YAML configuration for DataJuicer.
+   * - shell: shell command.
+   * - config: DataJuicer YAML configuration.
    * 
    * @example
    * config
@@ -18,21 +17,27 @@ export class DataJuicerConfig extends $dara.Model {
   commandType?: string;
   /**
    * @remarks
-   * Specifies whether to enable resource estimation.
+   * Specifies whether to enable resource estimation. When resource estimation is enabled, the execution mode must be distributed, and the command type must be config (DataJuicer YAML configuration).
+   * 
+   * @example
+   * true
    */
   enableResourceEstimation?: boolean;
   /**
    * @remarks
-   * The execution mode.
+   * The execution mode. Valid values:
    * 
-   * - standalone: Single node.
-   * 
-   * - distributed: Distributed.
+   * - standalone: single-node.
+   * - distributed: distributed.
    * 
    * @example
    * standalone
    */
   executionMode?: string;
+  /**
+   * @remarks
+   * The resource estimation limit. This parameter takes effect only when resource estimation is enabled.
+   */
   resourceLimit?: ResourceLimit;
   static names(): { [key: string]: string } {
     return {

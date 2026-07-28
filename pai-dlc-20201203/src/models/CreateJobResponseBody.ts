@@ -13,7 +13,7 @@ export class CreateJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID, used for diagnostics and troubleshooting.
+   * The ID of this request, used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx

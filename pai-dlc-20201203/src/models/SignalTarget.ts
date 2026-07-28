@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SignalTarget extends $dara.Model {
+  /**
+   * @remarks
+   * The pod name. Required when Scope is set to pods.
+   */
   podNames?: string[];
+  /**
+   * @remarks
+   * The role information. Required when Scope is set to roles.
+   */
   roles?: string[];
+  /**
+   * @remarks
+   * The send scope.
+   * 
+   * @example
+   * pods
+   */
   scope?: string;
   static names(): { [key: string]: string } {
     return {
