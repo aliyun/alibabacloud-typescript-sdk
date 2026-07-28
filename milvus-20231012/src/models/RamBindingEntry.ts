@@ -2,44 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateAccessControlListRequest extends $dara.Model {
+export class RamBindingEntry extends $dara.Model {
   /**
    * @remarks
-   * The public access control ID.
+   * The unique identifier (UID) of the bound RAM user.
    * 
    * @example
-   * acl-123xxx
+   * 1234567890123456
    */
-  aclId?: string;
+  boundUid?: string;
   /**
    * @remarks
-   * The CIDR block.
+   * The bound RAM username.
    * 
    * @example
-   * ``192.168.**.**``/24,``172.1.**.**``/16
+   * test-user
    */
-  cidr?: string;
+  boundUserName?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The Milvus username.
    * 
    * @example
-   * c-123xxx
+   * root
    */
-  instanceId?: string;
+  milvusUsername?: string;
   static names(): { [key: string]: string } {
     return {
-      aclId: 'AclId',
-      cidr: 'Cidr',
-      instanceId: 'InstanceId',
+      boundUid: 'boundUid',
+      boundUserName: 'boundUserName',
+      milvusUsername: 'milvusUsername',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclId: 'string',
-      cidr: 'string',
-      instanceId: 'string',
+      boundUid: 'string',
+      boundUserName: 'string',
+      milvusUsername: 'string',
     };
   }
 

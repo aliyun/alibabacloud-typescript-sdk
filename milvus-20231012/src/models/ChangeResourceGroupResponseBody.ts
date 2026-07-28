@@ -5,38 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * The details about the access denial.
    * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The data returned.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Failed to find instance c-123xxx
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -4,7 +4,15 @@ import { PromotionInfo } from "./PromotionInfo";
 
 
 export class PriceInfoPriceModules extends $dara.Model {
+  /**
+   * @remarks
+   * The original amount of the price module.
+   */
   originalAmount?: string;
+  /**
+   * @remarks
+   * The type of the price module.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,8 +38,20 @@ export class PriceInfoPriceModules extends $dara.Model {
 }
 
 export class PriceInfoRules extends $dara.Model {
+  /**
+   * @remarks
+   * The amount associated with the pricing rule.
+   */
   amount?: string;
+  /**
+   * @remarks
+   * The name of the pricing rule.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the pricing rule.
+   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,13 +79,45 @@ export class PriceInfoRules extends $dara.Model {
 }
 
 export class PriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The currency of the price.
+   */
   currency?: string;
+  /**
+   * @remarks
+   * The discount amount.
+   */
   discountAmount?: string;
+  /**
+   * @remarks
+   * The optional promotions.
+   */
   optionalPromotions?: PromotionInfo[];
+  /**
+   * @remarks
+   * The original price.
+   */
   originalAmount?: string;
+  /**
+   * @remarks
+   * The price modules.
+   */
   priceModules?: PriceInfoPriceModules[];
+  /**
+   * @remarks
+   * The pricing rules.
+   */
   rules?: PriceInfoRules[];
+  /**
+   * @remarks
+   * The tax amount.
+   */
   taxAmount?: string;
+  /**
+   * @remarks
+   * The actual trade price.
+   */
   tradeAmount?: string;
   static names(): { [key: string]: string } {
     return {

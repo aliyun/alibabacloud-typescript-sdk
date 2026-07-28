@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublicNetworkStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the failed permission verification.
+   * Details about the access denied error.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
@@ -13,7 +13,7 @@ export class UpdatePublicNetworkStatusResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class UpdatePublicNetworkStatusResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Failed to find instance
@@ -45,7 +45,7 @@ export class UpdatePublicNetworkStatusResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABCD-1234-5678-EFGH

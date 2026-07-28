@@ -3,28 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAclGroupsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR blocks in the group.
+   */
   cidrs?: string[];
   /**
+   * @remarks
+   * The timestamp of the group\\"s creation.
+   * 
    * @example
    * 2022-10-17T13:53:27Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * 376774
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-xxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account. This parameter is read-only.
+   * 
    * @example
    * 50832118
    */
@@ -65,17 +84,30 @@ export class ListAclGroupsResponseBodyData extends $dara.Model {
 
 export class ListAclGroupsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details about the access denial. Returned only for requests denied due to insufficient RAM permissions.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListAclGroupsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 66A13C31-473A-5B3A-8974-0B07A40649CF
    */

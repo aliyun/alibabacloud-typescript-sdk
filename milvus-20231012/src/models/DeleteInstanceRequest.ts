@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

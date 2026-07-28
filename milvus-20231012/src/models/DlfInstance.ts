@@ -2,54 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAclGroupRequest extends $dara.Model {
+export class DlfInstance extends $dara.Model {
   /**
    * @remarks
-   * Specify one or more CIDR blocks, separated by commas.
+   * The unique ID of the DLF instance.
    * 
    * @example
-   * 140.205.11.0/24,140.205.11.2
-   */
-  cidrs?: string;
-  /**
-   * @remarks
-   * The name of the ACL group.
-   * 
-   * @example
-   * test
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * c-xxxx
+   * dlf-cn-xxx
    */
   instanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The name of the DLF instance.
+   * 
+   * @example
+   * my-dlf-instance
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The type of the DLF instance.
+   * 
+   * @example
+   * DLF_2_0
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The ID of the region where the DLF instance is located.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The current status of the DLF instance.
+   * 
+   * @example
+   * RUNNING
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      cidrs: 'cidrs',
-      groupName: 'groupName',
       instanceId: 'instanceId',
+      instanceName: 'instanceName',
+      instanceType: 'instanceType',
       regionId: 'regionId',
+      status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cidrs: 'string',
-      groupName: 'string',
       instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
       regionId: 'string',
+      status: 'string',
     };
   }
 

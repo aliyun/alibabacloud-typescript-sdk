@@ -21,7 +21,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region code.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -51,6 +51,10 @@ export class ListInstancesShrinkRequest extends $dara.Model {
    * rg-123xxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags used to filter instances.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {

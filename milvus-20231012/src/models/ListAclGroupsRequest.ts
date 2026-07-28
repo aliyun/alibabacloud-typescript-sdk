@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAclGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-123xxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The reason for the update.
+   * The reason for the modification.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * User-defined configuration.
+   * The custom user configuration.
    * 
    * @example
    * dataCoord:\\n  segment:\\n    maxSize: 1024

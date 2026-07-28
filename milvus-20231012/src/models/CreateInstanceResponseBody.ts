@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * c-xxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * xxx
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,12 +44,22 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateInstanceResponseBodyData;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

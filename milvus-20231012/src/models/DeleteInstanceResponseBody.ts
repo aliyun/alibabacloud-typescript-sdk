@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-xxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 123456
    */
   orderId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

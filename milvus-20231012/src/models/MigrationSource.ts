@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MigrationSourceAuthInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication type.
+   */
   authType?: string;
+  /**
+   * @remarks
+   * The password used for authentication.
+   */
   password?: string;
+  /**
+   * @remarks
+   * The token used for authentication.
+   */
   token?: string;
+  /**
+   * @remarks
+   * The username used for authentication.
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +51,15 @@ export class MigrationSourceAuthInfo extends $dara.Model {
 }
 
 export class MigrationSourceEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint address of the migration source.
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The port number of the migration source.
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,8 +85,20 @@ export class MigrationSourceEndpoint extends $dara.Model {
 }
 
 export class MigrationSource extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication information of the migration source.
+   */
   authInfo?: MigrationSourceAuthInfo;
+  /**
+   * @remarks
+   * The name of the database to migrate.
+   */
   database?: string;
+  /**
+   * @remarks
+   * The endpoint information of the migration source.
+   */
   endpoint?: MigrationSourceEndpoint;
   static names(): { [key: string]: string } {
     return {

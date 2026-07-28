@@ -2,44 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateAccessControlListRequest extends $dara.Model {
+export class DlfDatabase extends $dara.Model {
   /**
    * @remarks
-   * The public access control ID.
+   * The name of the database.
    * 
    * @example
-   * acl-123xxx
+   * my_database
    */
-  aclId?: string;
+  databaseName?: string;
   /**
    * @remarks
-   * The CIDR block.
+   * The description of the database.
    * 
    * @example
-   * ``192.168.**.**``/24,``172.1.**.**``/16
+   * Test database
    */
-  cidr?: string;
+  description?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The number of tables in the database. Read-only.
    * 
    * @example
-   * c-123xxx
+   * 10
    */
-  instanceId?: string;
+  tableCount?: number;
   static names(): { [key: string]: string } {
     return {
-      aclId: 'AclId',
-      cidr: 'Cidr',
-      instanceId: 'InstanceId',
+      databaseName: 'databaseName',
+      description: 'description',
+      tableCount: 'tableCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclId: 'string',
-      cidr: 'string',
-      instanceId: 'string',
+      databaseName: 'string',
+      description: 'string',
+      tableCount: 'number',
     };
   }
 

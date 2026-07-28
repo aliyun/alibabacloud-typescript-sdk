@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAclGroupCidrsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the allow list group.
+   */
   groupName?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-xxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The new CIDR blocks for the allow list group. To specify multiple CIDR blocks, separate them with a comma.
+   * 
    * @example
    * 140.205.11.0/24,140.205.11.2
    */

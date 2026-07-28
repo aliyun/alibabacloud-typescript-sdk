@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The CIDR blocks.
+   * The CIDR block.
    * 
    * @example
    * ``192.168.**.**``/24,``172.1.**.**``/16
@@ -13,9 +13,9 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The component type. Valid values:
+   * The component type. Valid value:
    * 
-   * *   Proxy
+   * - Proxy
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   componentType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdatePublicNetworkStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Enable /disable the Internet.
+   * Specifies whether to enable public network access.
    * 
    * This parameter is required.
    * 

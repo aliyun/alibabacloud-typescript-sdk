@@ -5,27 +5,46 @@ import { InstanceDetail } from "./InstanceDetail";
 
 export class ListInstancesV2ResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instances?: InstanceDetail[];
   /**
+   * @remarks
+   * The maximum number of records to retrieve in a single request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token (not currently enabled).
+   * 
    * @example
    * None
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 15
    */

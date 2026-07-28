@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 

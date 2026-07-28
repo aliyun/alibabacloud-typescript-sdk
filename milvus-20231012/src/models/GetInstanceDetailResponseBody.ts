@@ -2,31 +2,53 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoListPodsList extends $dara.Model {
+  podId?: string;
+  podName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      podId: 'podId',
+      podName: 'podName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      podId: 'string',
+      podName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList extends $dara.Model {
   /**
    * @remarks
    * The component type. Valid values:
    * 
-   * *   standalone
-   * *   proxy
-   * *   mix_coordinator
-   * *   query
-   * *   index
-   * *   data
-   * 
    * @example
-   * QueryNode
+   * standalone
    */
   componentType?: string;
   /**
    * @remarks
-   * The number of CUs.
+   * The number of compute units (CUs).
    * 
    * @example
    * 8
    */
   cuNum?: number;
   /**
+   * @remarks
+   * The CU specifications. Valid values:
+   * 
    * @example
    * 4
    */
@@ -57,6 +79,22 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
    */
   replica?: number;
   zoneId?: string;
+  /**
+   * @example
+   * true
+   */
+  dataDiskEnabled?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  dataDiskSize?: number;
+  /**
+   * @example
+   * alicloud-disk-essd-pl1
+   */
+  dataDiskStorageClass?: string;
+  podsList?: GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoListPodsList[];
   static names(): { [key: string]: string } {
     return {
       componentType: 'ComponentType',
@@ -67,6 +105,10 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       payType: 'PayType',
       replica: 'Replica',
       zoneId: 'ZoneId',
+      dataDiskEnabled: 'dataDiskEnabled',
+      dataDiskSize: 'dataDiskSize',
+      dataDiskStorageClass: 'dataDiskStorageClass',
+      podsList: 'podsList',
     };
   }
 
@@ -80,10 +122,17 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       payType: 'string',
       replica: 'number',
       zoneId: 'string',
+      dataDiskEnabled: 'boolean',
+      dataDiskSize: 'number',
+      dataDiskStorageClass: 'string',
+      podsList: { 'type': 'array', 'itemType': GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoListPodsList },
     };
   }
 
   validate() {
+    if(Array.isArray(this.podsList)) {
+      $dara.Model.validateArray(this.podsList);
+    }
     super.validate();
   }
 
@@ -95,7 +144,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
 export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   /**
    * @remarks
-   * The port of the Attu component.
+   * The Attu component port.
    * 
    * @example
    * 3000
@@ -103,7 +152,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   attuPort?: number;
   /**
    * @remarks
-   * The public IP address.
+   * The public network address.
    * 
    * @example
    * c-123xxx-.milvus.aliyuncs.com
@@ -111,7 +160,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   internetUrl?: string;
   /**
    * @remarks
-   * The internal IP address.
+   * The internal network address.
    * 
    * @example
    * c-123xxx-internal.milvus.aliyuncs.com
@@ -124,7 +173,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   milvusResourceInfoList?: GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList[];
   /**
    * @remarks
-   * The size of the data stored in OSS.
+   * The OSS storage data size.
    * 
    * @example
    * 125.15 GB
@@ -132,7 +181,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   ossStorageSize?: string;
   /**
    * @remarks
-   * The timestamp when the OSS metric is stored.
+   * The timestamp of the OSS storage metric.
    * 
    * @example
    * 1718604000000
@@ -156,7 +205,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $dara.Model {
   totalCuNum?: number;
   /**
    * @remarks
-   * The total number of disks.
+   * The total disk size.
    * 
    * @example
    * 500
@@ -236,51 +285,81 @@ export class GetInstanceDetailResponseBodyDataHighAvailability extends $dara.Mod
 
 export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of CUs for the Data node.
+   * 
    * @example
    * 4
    */
   dataNodeCuNum?: number;
   /**
+   * @remarks
+   * The number of replicas for the Data node.
+   * 
    * @example
    * 2
    */
   dataNodeReplica?: number;
   /**
+   * @remarks
+   * The number of CUs for the Index node.
+   * 
    * @example
    * 4
    */
   indexNodeCuNum?: number;
   /**
+   * @remarks
+   * The number of replicas for the Index node.
+   * 
    * @example
    * 2
    */
   indexNodeReplica?: number;
   /**
+   * @remarks
+   * The number of CUs for the MixCoordinator node.
+   * 
    * @example
    * 4
    */
   mixCoodinatorNodeCuNum?: number;
   /**
+   * @remarks
+   * The number of replicas for the MixCoordinator node.
+   * 
    * @example
    * 2
    */
   mixCoodinatorNodeReplica?: number;
   /**
+   * @remarks
+   * The number of CUs for the Proxy node.
+   * 
    * @example
    * 4
    */
   proxyNodeCuNum?: number;
   /**
+   * @remarks
+   * The number of replicas for the Proxy node.
+   * 
    * @example
    * 2
    */
   proxyNodeReplica?: number;
   /**
+   * @remarks
+   * The number of CUs for the Query node.
+   * 
    * @example
    * 4
    */
   queryNodeCuNum?: number;
   /**
+   * @remarks
+   * The number of replicas for the Query node.
+   * 
    * @example
    * 2
    */
@@ -326,11 +405,17 @@ export class GetInstanceDetailResponseBodyDataMeasureConfig extends $dara.Model 
 
 export class GetInstanceDetailResponseBodyDataTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * value1
    */
@@ -387,7 +472,7 @@ export class GetInstanceDetailResponseBodyDataVSwitches extends $dara.Model {
 export class GetInstanceDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AclId for Public Network Access Control.
+   * The ACL ID for public network access control.
    * 
    * @example
    * acl-123xxx
@@ -403,7 +488,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The name of the bucket.
+   * The bucket name.
    * 
    * @example
    * milvus-test
@@ -411,7 +496,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The address of the bucket.
+   * The bucket path.
    * 
    * @example
    * https://oss.console.aliyun.com/bucket/oss-cn-beijing/xxxx/object?spm=a2cug.25127996.0.0.577990370Ebsqt&path=milvus-c-123xxxx
@@ -431,6 +516,9 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Indicates whether high availability is enabled.
+   * 
    * @example
    * true
    */
@@ -447,7 +535,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   highAvailability?: GetInstanceDetailResponseBodyDataHighAvailability;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * c-123xxx
@@ -457,29 +545,29 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * *   creating.
-   * *   running.
-   * *   updating. Cluster scaling (up/down), configuration changes, and enabling/disabling public network access.
-   * *   disable. The cluster has expired and needs to be renewed for activation.
-   * *   deleting.
-   * *   deleted.
-   * 
    * @example
    * running
    */
   instanceStatus?: string;
   kmsKeyId?: string;
   maintainablePeriod?: string;
+  /**
+   * @remarks
+   * The configuration information.
+   */
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
   multiZoneMode?: string;
   /**
+   * @remarks
+   * The node type. Valid values:
+   * 
    * @example
    * perf
    */
   nodeType?: string;
   /**
    * @remarks
-   * Indicates whether Internet access is enabled.
+   * Indicates whether public network access is enabled.
    * 
    * @example
    * true
@@ -489,19 +577,13 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The specification details. Valid values:
    * 
-   * *   trial.
-   * *   standard.
-   * 
    * @example
    * standard
    */
   packageType?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   0: pay-as-you-go
-   * *   1: subscription
+   * The billing type. Valid values:
    * 
    * @example
    * 1
@@ -517,7 +599,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region code.
+   * The region.
    * 
    * @example
    * cn-beijing
@@ -533,7 +615,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The runtime.
+   * The running time.
    * 
    * @example
    * 1743679
@@ -547,10 +629,14 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * sg-123xxx
    */
   sgId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: GetInstanceDetailResponseBodyDataTags[];
   /**
    * @remarks
-   * The version of the software stack.
+   * The software stack version.
    * 
    * @example
    * 2.4.1-1.0-0.0.1
@@ -558,7 +644,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   templateVersion?: string;
   /**
    * @remarks
-   * User-defined configuration.
+   * The user-defined configuration.
    * 
    * @example
    * dataCoord:\\n  segment:\\n    maxSize: 1024
@@ -567,7 +653,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   vSwitches?: GetInstanceDetailResponseBodyDataVSwitches[];
   /**
    * @remarks
-   * The kernel version.
+   * The Milvus version.
    * 
    * @example
    * 2.4
@@ -575,7 +661,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-123xxx
@@ -583,7 +669,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-123xxx
@@ -597,6 +683,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * cn-beijing-g
    */
   zoneId?: string;
+  maintainablePeriodTimeZone?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
@@ -632,6 +719,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       vpcId: 'VpcId',
       vswId: 'VswId',
       zoneId: 'ZoneId',
+      maintainablePeriodTimeZone: 'maintainablePeriodTimeZone',
     };
   }
 
@@ -670,6 +758,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       vpcId: 'string',
       vswId: 'string',
       zoneId: 'string',
+      maintainablePeriodTimeZone: 'string',
     };
   }
 
@@ -700,7 +789,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
 export class GetInstanceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the failed permission verification.
+   * The details of the permission verification failure.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
@@ -708,12 +797,12 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: GetInstanceDetailResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Instance.NotFound
@@ -737,7 +826,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABCD-1234-5678-EFGH

@@ -5,12 +5,22 @@ import { InstanceDetail } from "./InstanceDetail";
 
 export class GetInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The instance details.
+   */
   instance?: InstanceDetail;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

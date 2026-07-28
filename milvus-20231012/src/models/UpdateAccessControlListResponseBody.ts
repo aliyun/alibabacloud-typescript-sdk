@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAccessControlListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the failed permission verification.
+   * The details of the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
@@ -13,7 +13,7 @@ export class UpdateAccessControlListResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class UpdateAccessControlListResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * ILLEGAL.MilvusCidrFormat
@@ -37,7 +37,7 @@ export class UpdateAccessControlListResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code of the request.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class UpdateAccessControlListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABCD-1234-5678-EFGH

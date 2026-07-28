@@ -4,17 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABCD-1234-5678-EFGH
    */
   requestId?: string;
   /**
+   * @remarks
+   * The operation result.
+   * 
    * @example
    * true
    */
   data?: boolean;
   orderId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

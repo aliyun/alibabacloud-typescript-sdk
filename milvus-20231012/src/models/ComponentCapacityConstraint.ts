@@ -2,24 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetInstanceDetailRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * c-123xxx
-   */
-  instanceId?: string;
+export class ComponentCapacityConstraint extends $dara.Model {
+  componentType?: string;
+  maxCapacity?: number;
+  minCapacity?: number;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
+      componentType: 'componentType',
+      maxCapacity: 'maxCapacity',
+      minCapacity: 'minCapacity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
+      componentType: 'string',
+      maxCapacity: 'number',
+      minCapacity: 'number',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDefaultRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the failed permission verification.
+   * Details about the access denial.
    * 
    * @example
    * { "PolicyType": "AccountLevelIdentityBasedPolicy", "AuthPrincipalOwnerId": "xxxx", "EncodedDiagnosticMessage": "xxxx", "AuthPrincipalType": "SubUser", "AuthPrincipalDisplayName": "xxxx", "NoPermissionType": "ImplicitDeny", "AuthAction": "milvus:xxxx" }
@@ -13,7 +13,7 @@ export class CreateDefaultRoleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateDefaultRoleResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code
+   * The error code.
    * 
    * @example
    * Instance.NotFound
@@ -29,7 +29,7 @@ export class CreateDefaultRoleResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Failed to find instance c-123xxx

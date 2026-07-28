@@ -5,14 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList extends $dara.Model {
   /**
    * @remarks
-   * The type of the component. Valid values:
+   * The component type. Valid values:
    * 
-   * *   standalone
-   * *   proxy
-   * *   mix_coordinator
-   * *   query
-   * *   index
-   * *   data
+   * - `standalone`
+   * 
+   * - `proxy`
+   * 
+   * - `mix_coordinator`
+   * 
+   * - `query`
+   * 
+   * - `index`
+   * 
+   * - `data`
    * 
    * @example
    * standalone
@@ -28,7 +33,7 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
   cuNum?: number;
   /**
    * @remarks
-   * The disk size.
+   * The disk size in GB.
    * 
    * @example
    * 100
@@ -82,7 +87,7 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
 export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   /**
    * @remarks
-   * The port of the Attu component.
+   * The Attu port.
    * 
    * @example
    * 3000
@@ -90,7 +95,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   attuPort?: number;
   /**
    * @remarks
-   * The public IP address.
+   * The public endpoint.
    * 
    * @example
    * c-123xxx.milvus.aliyuncs.com
@@ -106,7 +111,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   intranetUrl?: string;
   /**
    * @remarks
-   * The resource details.
+   * A list of resource details for the instance\\"s components.
    */
   milvusResourceInfoList?: ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList[];
   /**
@@ -119,7 +124,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   proxyPort?: number;
   /**
    * @remarks
-   * The number of CUs.
+   * The total number of CUs.
    * 
    * @example
    * 24
@@ -127,7 +132,7 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
   totalCuNum?: number;
   /**
    * @remarks
-   * The total capacity of the disk.
+   * The total disk size in GB.
    * 
    * @example
    * 500
@@ -171,11 +176,17 @@ export class ListInstancesResponseBodyDataClusterInfo extends $dara.Model {
 
 export class ListInstancesResponseBodyDataTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -205,13 +216,16 @@ export class ListInstancesResponseBodyDataTags extends $dara.Model {
 
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether automatic backup is enabled.
+   * 
    * @example
    * true
    */
   autoBackup?: boolean;
   /**
    * @remarks
-   * The start time.
+   * The creation time of the instance.
    * 
    * @example
    * 1718608505000
@@ -232,7 +246,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time of the instance.
    * 
    * @example
    * 1721232000000
@@ -240,7 +254,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * c-123xxx
@@ -248,27 +262,35 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The status of the bastion host. Valid values:
+   * The instance status. Valid values:
    * 
-   * *   creating.
-   * *   running.
-   * *   updating. Cluster scaling (up/down), configuration changes, and enabling/disabling public network access.
-   * *   disable. The cluster has expired and needs to be renewed for activation.
-   * *   deleting.
-   * *   deleted.
+   * - `creating`: The instance is being created.
+   * 
+   * - `running`: The instance is running.
+   * 
+   * - `updating`: The instance is being updated. This includes scaling the instance, changing configurations, or modifying public network access.
+   * 
+   * - `disable`: The instance is unavailable because it has expired and requires renewal.
+   * 
+   * - `deleting`: The instance is being deleted.
+   * 
+   * - `deleted`: The instance has been deleted.
    * 
    * @example
    * running
    */
   instanceStatus?: string;
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * perf
    */
   nodeType?: string;
   /**
    * @remarks
-   * Indicates whether Internet access is enabled.
+   * Indicates whether public network access is enabled.
    * 
    * @example
    * true
@@ -276,10 +298,11 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   openPublicNet?: boolean;
   /**
    * @remarks
-   * The specification details. Valid values:
+   * The instance edition. Valid values:
    * 
-   * *   trial.
-   * *   standard.
+   * - `trial`: Trial Edition.
+   * 
+   * - `standard`: Standard Edition.
    * 
    * @example
    * trial
@@ -287,10 +310,11 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   0: pay-as-you-go
-   * *   1: subscription
+   * - `0`: pay-as-you-go.
+   * 
+   * - `1`: subscription.
    * 
    * @example
    * 1
@@ -298,7 +322,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   payType?: number;
   /**
    * @remarks
-   * The commodity code.
+   * The product code.
    * 
    * @example
    * milvus_milvuspre_public_cn
@@ -306,7 +330,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The region code.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -322,7 +346,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The runtime.
+   * The duration the instance has been running.
    * 
    * @example
    * 536611
@@ -336,12 +360,24 @@ export class ListInstancesResponseBodyData extends $dara.Model {
    * sg-123xxx
    */
   sgId?: string;
+  /**
+   * @remarks
+   * The tags attached to the instance.
+   */
   tags?: ListInstancesResponseBodyDataTags[];
+  /**
+   * @remarks
+   * The template version.
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The instance version.
+   */
   version?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-123xxx
@@ -349,7 +385,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-123xxx
@@ -357,7 +393,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   vswId?: string;
   /**
    * @remarks
-   * The zone.
+   * The zone ID.
    * 
    * @example
    * cn-beijing-g
@@ -435,7 +471,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the failed permission verification.
+   * Details for an access denial error.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
@@ -443,12 +479,12 @@ export class ListInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The returned result.
+   * An array of instance objects.
    */
   data?: ListInstancesResponseBodyData[];
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Instance.NotFound
@@ -472,7 +508,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABCD-1234-5678-EFGH
@@ -488,7 +524,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number.
+   * The total number of instances found.
    * 
    * @example
    * 15
