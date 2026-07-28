@@ -5,6 +5,11 @@ export { DescribeFileModerationResultResponseBodyDataPageResultTextResult } from
 export { DescribeFileModerationResultResponseBodyDataPageResult } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels } from './DescribeFileModerationResultResponseBody';
+export { DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary } from './DescribeFileModerationResultResponseBody';
 export { DescribeFileModerationResultResponseBodyDataPageSummary } from './DescribeFileModerationResultResponseBody';

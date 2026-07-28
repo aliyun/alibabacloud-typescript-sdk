@@ -56,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Document review results
+   * Queries the document content moderation result.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +91,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Document review results
+   * Queries the document content moderation result.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @returns DescribeFileModerationResultResponse
@@ -1006,7 +1006,7 @@ export default class Client extends OpenApi {
    * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
    * 
    * @remarks
-   * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+   * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1044,7 +1044,7 @@ export default class Client extends OpenApi {
    * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
    * 
    * @remarks
-   * If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+   * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @returns MultiModalGuardAsyncResultResponse
@@ -1055,7 +1055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+   * Performs synchronous multimodal content moderation. Supports image base64 strings.
    * 
    * @param request - MultiModalGuardForBase64Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1069,6 +1069,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileBase64Str)) {
+      body["FileBase64Str"] = request.fileBase64Str;
+    }
+
     if (!$dara.isNull(request.imageBase64Str)) {
       body["ImageBase64Str"] = request.imageBase64Str;
     }
@@ -1096,7 +1100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+   * Performs synchronous multimodal content moderation. Supports image base64 strings.
    * 
    * @param request - MultiModalGuardForBase64Request
    * @returns MultiModalGuardForBase64Response

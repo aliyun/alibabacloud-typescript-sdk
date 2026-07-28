@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score.
+   * The risk score.
    * 
    * @example
    * 25.0
@@ -18,7 +18,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
    * The description.
    * 
    * @example
-   * 这个是标题
+   * This is a title.
    */
   description?: string;
   /**
@@ -57,7 +57,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation extends $dara.Model {
   /**
    * @remarks
-   * The height of the detected area.
+   * The H value of the coordinate point.
    * 
    * @example
    * 44
@@ -65,7 +65,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   h?: number;
   /**
    * @remarks
-   * The width of the detected area.
+   * The W value of the coordinate point.
    * 
    * @example
    * 33
@@ -73,7 +73,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   w?: number;
   /**
    * @remarks
-   * The X coordinate of the point.
+   * The X value of the coordinate point.
    * 
    * @example
    * 11
@@ -81,7 +81,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   x?: number;
   /**
    * @remarks
-   * The Y-coordinate of the point.
+   * The Y value of the coordinate point.
    * 
    * @example
    * 22
@@ -120,7 +120,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
    * The description.
    * 
    * @example
-   * 这个是标题
+   * This is a title.
    */
   description?: string;
   /**
@@ -143,7 +143,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
   riskLevel?: string;
   /**
    * @remarks
-   * The service that was called.
+   * The invoked service.
    * 
    * @example
    * baselineCheck
@@ -190,20 +190,20 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * The description.
    * 
    * @example
-   * 这是一个标题
+   * This is a title.
    */
   description?: string;
   /**
    * @remarks
-   * The description of the label.
+   * The label descriptions.
    * 
    * @example
-   * 疑似广告内容
+   * Suspected advertising content.
    */
   descriptions?: string;
   /**
    * @remarks
-   * The value of the label.
+   * The label values.
    * 
    * @example
    * porn
@@ -219,7 +219,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskLevel?: string;
   /**
    * @remarks
-   * Details about the hit risk.
+   * The details of the hit risks.
    * 
    * @example
    * xxx
@@ -227,7 +227,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskTips?: string;
   /**
    * @remarks
-   * The risk keywords that were hit.
+   * The risk keywords that are hit.
    * 
    * @example
    * xxx
@@ -246,12 +246,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * The text content.
    * 
    * @example
-   * 吧啦吧啦
+   * blah blah.
    */
   text?: string;
   /**
    * @remarks
-   * Information about the text segment.
+   * The text segment information.
    * 
    * @example
    * [0,999]
@@ -297,12 +297,12 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
 export class DescribeFileModerationResultResponseBodyDataPageResult extends $dara.Model {
   /**
    * @remarks
-   * The image moderation results.
+   * The image moderation result.
    */
   imageResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResult[];
   /**
    * @remarks
-   * The URL of the image.
+   * The image URL.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.jpg
@@ -318,7 +318,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
   pageNum?: number;
   /**
    * @remarks
-   * The text moderation results.
+   * The text moderation result.
    */
   textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
   /**
@@ -367,7 +367,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
 export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $dara.Model {
   /**
    * @remarks
-   * The description of the label.
+   * The label description.
    * 
    * @example
    * test
@@ -454,13 +454,173 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
   }
 }
 
+export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC extends $dara.Model {
+  contentProducer?: string;
+  contentPropagator?: string;
+  label?: string;
+  produceID?: string;
+  propagateID?: string;
+  reservedCode1?: string;
+  reservedCode2?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentProducer: 'ContentProducer',
+      contentPropagator: 'ContentPropagator',
+      label: 'Label',
+      produceID: 'ProduceID',
+      propagateID: 'PropagateID',
+      reservedCode1: 'ReservedCode1',
+      reservedCode2: 'ReservedCode2',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentProducer: 'string',
+      contentPropagator: 'string',
+      label: 'string',
+      produceID: 'string',
+      propagateID: 'string',
+      reservedCode1: 'string',
+      reservedCode2: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData extends $dara.Model {
+  AIGC?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC;
+  explain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIGC: 'AIGC',
+      explain: 'Explain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIGC: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC,
+      explain: 'string',
+    };
+  }
+
+  validate() {
+    if(this.AIGC && typeof (this.AIGC as any).validate === 'function') {
+      (this.AIGC as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt extends $dara.Model {
+  aigcData?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData;
+  static names(): { [key: string]: string } {
+    return {
+      aigcData: 'AigcData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aigcData: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData,
+    };
+  }
+
+  validate() {
+    if(this.aigcData && typeof (this.aigcData as any).validate === 'function') {
+      (this.aigcData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels extends $dara.Model {
+  confidence?: number;
+  description?: string;
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary extends $dara.Model {
+  ext?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt;
+  riskLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels[];
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      riskLabels: 'RiskLabels',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt,
+      riskLabels: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels },
+      riskLevel: 'string',
+    };
+  }
+
+  validate() {
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
+    }
+    if(Array.isArray(this.riskLabels)) {
+      $dara.Model.validateArray(this.riskLabels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $dara.Model {
   /**
    * @remarks
-   * The description of the label.
+   * The label descriptions.
    * 
    * @example
-   * 未检测出风险
+   * No risk detected.
    */
   description?: string;
   /**
@@ -558,6 +718,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
    * 1
    */
   pageSum?: number;
+  riskSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary;
   /**
    * @remarks
    * The text summary information.
@@ -567,6 +728,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
     return {
       imageSummary: 'ImageSummary',
       pageSum: 'PageSum',
+      riskSummary: 'RiskSummary',
       textSummary: 'TextSummary',
     };
   }
@@ -575,6 +737,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
     return {
       imageSummary: DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary,
       pageSum: 'number',
+      riskSummary: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary,
       textSummary: DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary,
     };
   }
@@ -582,6 +745,9 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
   validate() {
     if(this.imageSummary && typeof (this.imageSummary as any).validate === 'function') {
       (this.imageSummary as any).validate();
+    }
+    if(this.riskSummary && typeof (this.riskSummary as any).validate === 'function') {
+      (this.riskSummary as any).validate();
     }
     if(this.textSummary && typeof (this.textSummary as any).validate === 'function') {
       (this.textSummary as any).validate();
@@ -597,7 +763,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
 export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccountId specified in the request.
+   * The AccountId passed in by the customer.
    * 
    * @example
    * accountIdtest123
@@ -605,7 +771,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the data.
+   * The data ID.
    * 
    * @example
    * 26769ada6e264e7ba9aa048241e12be9
@@ -613,7 +779,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The document type. This parameter is optional.
+   * Optional. The document type.
    * 
    * @example
    * doc
@@ -621,7 +787,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * A list of moderation results.
+   * The list of moderation results.
    */
   pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
   /**
@@ -639,7 +805,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The download URL for the file.
+   * The file download URL.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
@@ -687,7 +853,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
 export class DescribeFileModerationResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the request was successful.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -708,7 +874,7 @@ export class DescribeFileModerationResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492

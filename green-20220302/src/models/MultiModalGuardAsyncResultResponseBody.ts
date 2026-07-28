@@ -16,12 +16,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
    * The label description.
    * 
    * @example
-   * 毒品
+   * drugs.
    */
   description?: string;
   /**
    * @remarks
-   * The extended information of the detection result.
+   * The extended information of the moderation result.
    * 
    * @example
    * {}
@@ -91,12 +91,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   level?: string;
   /**
    * @remarks
-   * The list of detection results.
+   * The list of moderation results.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetailResult[];
   /**
    * @remarks
-   * The moderation recommendation. Valid values:
+   * The recommended action. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
@@ -109,8 +109,8 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   suggestion?: string;
   /**
    * @remarks
-   * The detection type. Valid values:
-   * - contentModeration: content compliance detection
+   * The moderation type. Valid values:
+   * - contentModeration: content compliance moderation
    * - promptAttack: prompt attack detection
    * - sensitiveData: sensitive content detection
    * - modelHallucination: model hallucination detection
@@ -153,7 +153,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
 export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
   /**
    * @remarks
-   * The detection details.
+   * The moderation details.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetail[];
   /**
@@ -174,7 +174,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails e
   startTime?: number;
   /**
    * @remarks
-   * The moderation recommendation. Valid values:
+   * The recommended action. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
@@ -190,7 +190,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails e
    * The transcribed text of the audio segment.
    * 
    * @example
-   * 今天天气真不错
+   * The weather is really nice today.
    */
   text?: string;
   /**
@@ -299,12 +299,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailRe
    * The label description.
    * 
    * @example
-   * 广告
+   * advertisement.
    */
   description?: string;
   /**
    * @remarks
-   * The extended information of the detection result.
+   * The extended information of the moderation result.
    * 
    * @example
    * {}
@@ -374,12 +374,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   level?: string;
   /**
    * @remarks
-   * The detection result.
+   * The moderation result.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult[];
   /**
    * @remarks
-   * The moderation recommendation. Valid values:
+   * The recommended action. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
@@ -392,8 +392,8 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   suggestion?: string;
   /**
    * @remarks
-   * The detection type. Valid values:
-   * - contentModeration: content compliance detection
+   * The moderation type. Valid values:
+   * - contentModeration: content compliance moderation
    * - promptAttack: prompt attack detection
    * - sensitiveData: sensitive content detection
    * - modelHallucination: model hallucination detection
@@ -436,15 +436,21 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The list of detection results.
+   * The list of moderation results.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 401
    */
   errorCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * parameter invalid
    */
@@ -459,7 +465,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
   offset?: number;
   /**
    * @remarks
-   * The moderation recommendation. Valid values:
+   * The recommended action. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.
@@ -480,7 +486,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
   timestamp?: number;
   /**
    * @remarks
-   * The temporary URL of the frame.
+   * The temporary URL of the segment.
    * 
    * @example
    * https://xxx.jpeg
@@ -525,7 +531,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara.Model {
   /**
    * @remarks
-   * The frame detection results.
+   * The frame moderation results.
    */
   frames?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames[];
   /**
@@ -538,7 +544,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara
   sliceNum?: number;
   /**
    * @remarks
-   * The moderation recommendation. Valid values:
+   * The recommended action. Valid values:
    * 
    * - block: Block the content.
    * - pass: Allow the content.

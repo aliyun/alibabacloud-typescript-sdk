@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MultiModalGuardForBase64Request extends $dara.Model {
+  fileBase64Str?: string;
   /**
    * @remarks
    * The base64-encoded string of the image.
@@ -29,6 +30,7 @@ export class MultiModalGuardForBase64Request extends $dara.Model {
   serviceParameters?: string;
   static names(): { [key: string]: string } {
     return {
+      fileBase64Str: 'FileBase64Str',
       imageBase64Str: 'ImageBase64Str',
       service: 'Service',
       serviceParameters: 'ServiceParameters',
@@ -37,6 +39,7 @@ export class MultiModalGuardForBase64Request extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileBase64Str: 'string',
       imageBase64Str: 'string',
       service: 'string',
       serviceParameters: 'string',
