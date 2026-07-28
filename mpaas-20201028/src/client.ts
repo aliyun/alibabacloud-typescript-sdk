@@ -1851,6 +1851,14 @@ export default class Client extends OpenApi {
       body["FileUrl"] = request.fileUrl;
     }
 
+    if (!$dara.isNull(request.harmonyMaxVersion)) {
+      body["HarmonyMaxVersion"] = request.harmonyMaxVersion;
+    }
+
+    if (!$dara.isNull(request.harmonyMinVersion)) {
+      body["HarmonyMinVersion"] = request.harmonyMinVersion;
+    }
+
     if (!$dara.isNull(request.iosMaxVersion)) {
       body["IosMaxVersion"] = request.iosMaxVersion;
     }

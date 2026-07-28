@@ -8,6 +8,8 @@ export class CreateMdsCubeResourceRequest extends $dara.Model {
   appId?: string;
   extendInfo?: string;
   fileUrl?: string;
+  harmonyMaxVersion?: string;
+  harmonyMinVersion?: string;
   iosMaxVersion?: string;
   iosMinVersion?: string;
   mockDataUrl?: string;
@@ -26,6 +28,8 @@ export class CreateMdsCubeResourceRequest extends $dara.Model {
       appId: 'AppId',
       extendInfo: 'ExtendInfo',
       fileUrl: 'FileUrl',
+      harmonyMaxVersion: 'HarmonyMaxVersion',
+      harmonyMinVersion: 'HarmonyMinVersion',
       iosMaxVersion: 'IosMaxVersion',
       iosMinVersion: 'IosMinVersion',
       mockDataUrl: 'MockDataUrl',
@@ -47,6 +51,8 @@ export class CreateMdsCubeResourceRequest extends $dara.Model {
       appId: 'string',
       extendInfo: 'string',
       fileUrl: 'string',
+      harmonyMaxVersion: 'string',
+      harmonyMinVersion: 'string',
       iosMaxVersion: 'string',
       iosMinVersion: 'string',
       mockDataUrl: 'string',
