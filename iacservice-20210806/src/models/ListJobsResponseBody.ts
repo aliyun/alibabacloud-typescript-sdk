@@ -4,18 +4,45 @@ import { JobsStatusDetailValue } from "./JobsStatusDetailValue";
 
 
 export class ListJobsResponseBodyJobsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the job is a destroy job.
+   * 
+   * @example
+   * true
+   */
   isDestroy?: boolean;
+  /**
+   * @remarks
+   * The template description.
+   * 
+   * @example
+   * moduleDescription
+   */
   moduleDescription?: string;
   /**
+   * @remarks
+   * The template version.
+   * 
    * @example
    * v4
    */
   moduleVersion?: string;
   /**
+   * @remarks
+   * The resource change details.
+   * 
    * @example
-   * {}
+   * +0 ~0 -0
    */
   resourcesChanged?: string;
+  /**
+   * @remarks
+   * The operation command.
+   * 
+   * @example
+   * destroy
+   */
   subCommand?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,40 +74,106 @@ export class ListJobsResponseBodyJobsConfig extends $dara.Model {
 }
 
 export class ListJobsResponseBodyJobs extends $dara.Model {
+  /**
+   * @remarks
+   * The job configuration.
+   */
   config?: ListJobsResponseBodyJobsConfig;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-05T02:13:43Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job description.
+   * 
    * @example
-   * OK
+   * plan
    */
   description?: string;
+  /**
+   * @remarks
+   * The execution duration.
+   * 
+   * @example
+   * 5m
+   */
   elapsedTime?: number;
+  /**
+   * @remarks
+   * The execution type. Valid values:
+   * 
+   * - Manual: manual execution. This is the default value.
+   * - Auto: automatic execution.
+   * 
+   * @example
+   * Manual
+   */
   executeType?: string;
   /**
+   * @remarks
+   * Indicates whether the assertion check passed.
+   * 
    * @example
    * true
    */
   isPassAssertCheck?: boolean;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
-   * job-433aead756057fff9e4dca57b147c
+   * job-433aff9e4dca57b147c
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * - Pending: The initial status after the job is created.
+   * - PlanQueued: After the job is created, if no workflow is available, the job is queued.
+   * - Planning: The resource job is in the Plan execution phase.
+   * - ConfigProactiveInProgress: Compliance pre-check is in progress. The compliance pre-check feature must be enabled for the account.
+   * - ConfigProactiveSuccess: Compliance pre-check succeeded. The compliance pre-check feature must be enabled for the account.
+   * - Planned: The resource job has completed the Plan execution.
+   * - PlannedAndFinished: After the Plan execution is complete, no diff is found. This is a final status.
+   * - Confirmed: The resource job is waiting for confirmation after the Plan execution is complete.
+   * - ApplyQueued: During job execution, if no workflow is available, the job is queued.
+   * - Applying: The resource job is in the Apply execution phase.
+   * - Applied: The resource job has completed the Apply execution. This is a final status.
+   * - Errored: The job execution encountered an error. This is a final status.
+   * - Canceled: The job execution was canceled. This is a final status.
+   * - Discarded: The plan of the resource job was discarded. This is a final status.
+   * - ConfigProactiveFailure: Compliance pre-check failed. The compliance pre-check feature must be enabled for the account.
+   * 
    * @example
    * Errored
    */
   status?: string;
+  /**
+   * @remarks
+   * The status details.
+   */
   statusDetail?: { [key: string]: JobsStatusDetailValue };
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * task-518855d9a058c1176866c2c3efb
+   * task-518876866c2c3efb
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The Terraform provider version.
+   * 
+   * @example
+   * 1.240.0
+   */
   terraformProviderVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,23 +223,39 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
 }
 
 export class ListJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of jobs.
+   */
   jobs?: ListJobsResponseBodyJobs[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 882304F9-6DB1-5593-A719-33473D082B9C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 11
    */

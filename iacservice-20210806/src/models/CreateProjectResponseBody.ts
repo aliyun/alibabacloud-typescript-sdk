@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * p-433aead7560572f8d95b25775c
    */
   projectId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3E49127A-BB65-5CCD-AB93-0EC0A43E5446
    */

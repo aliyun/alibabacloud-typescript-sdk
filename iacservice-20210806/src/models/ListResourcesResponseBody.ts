@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourcesResponseBodyResourcesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * test
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -38,67 +44,118 @@ export class ListResourcesResponseBodyResourcesTags extends $dara.Model {
 
 export class ListResourcesResponseBodyResources extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * 365845
    */
   accountId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-05-03T02:22:59Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The dependent resources.
+   */
   dependsOnResourceIds?: string[];
   /**
+   * @remarks
+   * The product code.
+   * 
    * @example
    * ECS
    */
   productCode?: string;
   /**
+   * @remarks
+   * The resource properties.
+   * 
    * @example
    * {}
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * The property variables.
+   * 
    * @example
    * {}
    */
   propertyVariables?: { [key: string]: any };
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource ARN.
+   * 
    * @example
    * acs:vpc:cn-hangzhou:12345:test
    */
   resourceArn?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-aekzyqyghofqbxy
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * i-efegsewrttfd
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource name.
+   * 
    * @example
    * test
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The URL of the resources page.
+   * 
+   * @example
+   * https:://ecs.aliyncs.com
+   */
   resourcePageUrl?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Task
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * enable
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListResourcesResponseBodyResourcesTags[];
   /**
    * @remarks
@@ -117,6 +174,9 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
    */
   terraformCode?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-a
    */
@@ -189,23 +249,39 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
 }
 
 export class ListResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The resource information.
+   */
   resources?: ListResourcesResponseBodyResources[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67585D9B-EFA5-5E51-BAB1-8FF07DA1B36F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 9
    */

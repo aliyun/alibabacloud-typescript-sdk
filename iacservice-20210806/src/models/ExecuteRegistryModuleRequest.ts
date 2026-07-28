@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteRegistryModuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ExecuteRegistryModuleRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The set of parameters used by the template.
+   * 
    * @example
    * {\\"region\\": \\"cn-hangzhou\\", \\"vpcId\\": \\"vpc-bp145sc90s26q0qbkfb6i\\", \\"functionName\\": \\"filemgr-cn-hangzhou-063fd4aead\\", \\"mountPointsServerAddr\\": \\"063fd4aead-dex50.cn-hangzhou.nas.aliyuncs.com\\"}
    */

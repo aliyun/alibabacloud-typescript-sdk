@@ -4,24 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateParameterSetAttributeRequestParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
-   * t
+   * region
    */
   name?: string;
   secret?: boolean;
   /**
+   * @remarks
+   * The parameter set status. Valid values:
+   * 
+   * - HAS_VALUE (default): Defines a specific value.
+   * - EXPLICIT_NULL: Explicitly set to null.
+   * 
    * @example
    * HAS_VALUE
    */
   status?: string;
   /**
+   * @remarks
+   * The parameter type. Valid values: string, number, bool, map(string), and list(string).
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The parameter value. Use JSON for complex types.
+   * 
    * @example
-   * vpc-bp1mjm9exduos1bipw9x6
+   * cn-zhangjiakou
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -55,18 +70,27 @@ export class UpdateParameterSetAttributeRequestParameters extends $dara.Model {
 
 export class UpdateParameterSetAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the parameter set. Maximum length: 1024 characters.
+   * 
    * @example
-   * test
+   * This is parameterSet
    */
   description?: string;
   /**
    * @remarks
+   * The name of the parameter set. Maximum length: 128 characters.
+   * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * demo
    */
   name?: string;
+  /**
+   * @remarks
+   * The parameter list.
+   */
   parameters?: UpdateParameterSetAttributeRequestParameters[];
   static names(): { [key: string]: string } {
     return {

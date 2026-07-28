@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelResourceExportTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource export task.
+   * 
    * @example
    * ex-3b6cb9fa4751a6e5cdc6460282
    */
   exportTaskId?: string;
   /**
+   * @remarks
+   * The version of the export task.
+   * 
    * @example
    * v1
    */
   exportVersion?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 136B3926-DD90-5DB2-96EC-8BAD6407D1C9
    */

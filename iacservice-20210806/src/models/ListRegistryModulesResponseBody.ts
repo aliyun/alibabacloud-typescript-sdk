@@ -3,17 +3,98 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model {
+  /**
+   * @remarks
+   * The permission. A value of private indicates that the module is private.
+   * 
+   * @example
+   * private
+   */
   acl?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2025-06-10 16:16:04
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the registry module.
+   * 
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The number of downloads.
+   * 
+   * @example
+   * 32
+   */
   downloads?: number;
+  /**
+   * @remarks
+   * The name of the registry module.
+   * 
+   * @example
+   * ModuleName
+   */
   moduleName?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * NamespaceName
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The provider type. A value of alicloud indicates Alibaba Cloud.
+   * 
+   * @example
+   * alicloud
+   */
   provider?: string;
+  /**
+   * @remarks
+   * The list of accounts with which the registry module is shared.
+   */
   sharedAccounts?: number[];
+  /**
+   * @remarks
+   * The module source.
+   * 
+   * @example
+   * namespaceName/ModuleName
+   */
   source?: string;
+  /**
+   * @remarks
+   * The module source URL.
+   * 
+   * @example
+   * URL
+   */
   sourceUrl?: string;
+  /**
+   * @remarks
+   * The templatetype.
+   * 
+   * @example
+   * system
+   */
   type?: string;
+  /**
+   * @remarks
+   * The latest version number.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,22 +144,38 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
 
 export class ListRegistryModulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 173
    */
   count?: number;
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page. A value of null indicates that no more pages are available.
+   * 
    * @example
-   * LC4NJL3Ru2bIiRdnbADPQp4dD+2BRJj42DLT6GrZysw=
+   * iRdnbADPQp4dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of registry modules.
+   */
   registryModules?: ListRegistryModulesResponseBodyRegistryModules[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D25216A9-C0F7-5A3A-A7E4-2B3D4F3A355D
    */

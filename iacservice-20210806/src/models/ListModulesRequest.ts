@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListModulesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the template.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the template.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,24 +43,51 @@ export class ListModulesRequestTag extends $dara.Model {
 }
 
 export class ListModulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * @example
+   * g-kw1a50tj8rk7cki2q8bbat
+   */
   groupId?: string;
   /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported for template names.
+   * 
    * @example
    * key
    */
   keyword?: string;
   moduleName?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * p-al1c58tb2lu9oej36kclvf
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * The list of template tags.
+   */
   tag?: ListModulesRequestTag[];
   static names(): { [key: string]: string } {
     return {

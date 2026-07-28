@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTerraformPlanRequest extends $dara.Model {
   /**
    * @remarks
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ExecuteTerraformPlanRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The Terraform code to execute. If the execution content has not changed, you can specify only stateId.
+   * 
    * @example
    * terraform {
    *   required_providers {
@@ -33,6 +38,9 @@ export class ExecuteTerraformPlanRequest extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the state file. If this parameter is specified, the Plan command continues to run based on the existing state file.
+   * 
    * @example
    * task-xxx
    */

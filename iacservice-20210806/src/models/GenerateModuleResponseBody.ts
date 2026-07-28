@@ -4,16 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateModuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The generated Terraform HCL template code content.
+   * 
    * @example
-   * demo
+   * terraform {
+   *   required_providers {
+   *     alicloud = {
+   *       source   = "aliyun/alicloud"
+   *       version  = "1.260.0"
+   *     }
+   *   }
+   * }
+   * 
+   * resource "alicloud_vpc" "default" {
+   *  vpc_name = "vpc-test"
+   * }
    */
   module?: string;
   /**
+   * @remarks
+   * The variables and resource properties in the generated template code.
+   * 
    * @example
-   * {}
+   * {"vpc_name":"vpc-test"}
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6B40D088-E929-504B-8802-C1759A993FA2
    */

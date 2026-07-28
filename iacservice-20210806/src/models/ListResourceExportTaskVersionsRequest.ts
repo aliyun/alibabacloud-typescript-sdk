@@ -4,26 +4,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceExportTaskVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The export version number.
+   * 
    * @example
    * v1
    */
   exportVersion?: string;
   /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported for export version names.
+   * 
    * @example
    * key
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The export status. Valid values:
+   * 
+   * - Queue: queued
+   * - Pending: preparing to run
+   * - Success: succeeded
+   * - Errored: failed
+   * - Canceled: canceled.
+   * 
    * @example
    * Errored
    */

@@ -3,14 +3,79 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2025-02-08T02:22:16Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The product page URL.
+   * 
+   * @example
+   * URL
+   */
   detailUrl?: string;
+  /**
+   * @remarks
+   * The number of downloads.
+   * 
+   * @example
+   * 24
+   */
   downloads?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * ecs-cluster
+   */
   moduleName?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   * 
+   * @example
+   * alibabacloud
+   */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The provider type. Valid values:
+   * 
+   * - alicloud: Alibaba Cloud.
+   * 
+   * @example
+   * alicloud
+   */
   provider?: string;
+  /**
+   * @remarks
+   * The template source.
+   * 
+   * @example
+   * namespaceName/ModuleName
+   */
   source?: string;
+  /**
+   * @remarks
+   * The template source URL.
+   * 
+   * @example
+   * URL
+   */
   sourceUrl?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,8 +115,15 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
 }
 
 export class GetRegistryModuleVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The version information.
+   */
   moduleVersion?: GetRegistryModuleVersionResponseBodyModuleVersion;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 62DF26B0-53F0-5747-9D7F-FEF444FB4E24
    */

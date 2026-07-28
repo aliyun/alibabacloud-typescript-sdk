@@ -4,18 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRegistryModuleAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The access permission. Valid values:
+   * 
+   * - private: private.
+   * 
    * @example
    * private
    */
   acl?: string;
   /**
    * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * a65451293e64979ba7a4b573950217fe
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the Registry template.
+   * 
    * @example
-   * test
+   * description
    */
   description?: string;
   static names(): { [key: string]: string } {

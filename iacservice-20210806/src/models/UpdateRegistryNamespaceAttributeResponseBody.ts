@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRegistryNamespaceAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
-   * test
+   * NamespaceName
    */
   namespaceName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CA5C5B39-D1DC-5309-8E97-B9A91DA21094
    */

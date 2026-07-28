@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListStackConfigsResponseBodyConfigsComponentConfigComponent extends $dara.Model {
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * log
    */
@@ -31,21 +34,33 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigComponent extends
 
 export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $dara.Model {
   /**
+   * @remarks
+   * The output description.
+   * 
    * @example
    * the name of sls project
    */
   description?: string;
   /**
+   * @remarks
+   * The output name.
+   * 
    * @example
    * project_name
    */
   name?: string;
   /**
+   * @remarks
+   * The output type.
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The output value.
+   * 
    * @example
    * log-test
    */
@@ -79,22 +94,37 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $d
 
 export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * ap-southeast-3
    */
   default?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * region of sls project
    */
   description?: string;
   /**
+   * @remarks
+   * The variable name.
+   * 
    * @example
    * region
    */
   name?: string;
   sensitive?: boolean;
   /**
+   * @remarks
+   * The variable type, such as:
+   * - string
+   * - list(string)
+   * - map(string).
+   * 
    * @example
    * string
    */
@@ -129,8 +159,20 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends 
 }
 
 export class ListStackConfigsResponseBodyConfigsComponentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of components.
+   */
   component?: ListStackConfigsResponseBodyConfigsComponentConfigComponent[];
+  /**
+   * @remarks
+   * The list of component outputs.
+   */
   output?: ListStackConfigsResponseBodyConfigsComponentConfigOutput[];
+  /**
+   * @remarks
+   * The list of component variables.
+   */
   variable?: ListStackConfigsResponseBodyConfigsComponentConfigVariable[];
   static names(): { [key: string]: string } {
     return {
@@ -168,6 +210,9 @@ export class ListStackConfigsResponseBodyConfigsComponentConfig extends $dara.Mo
 
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigDeployment extends $dara.Model {
   /**
+   * @remarks
+   * The deployment name.
+   * 
    * @example
    * production
    */
@@ -195,26 +240,41 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigDeployment exten
 
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput extends $dara.Model {
   /**
+   * @remarks
+   * The output description.
+   * 
    * @example
    * the name of sls project
    */
   description?: string;
   /**
+   * @remarks
+   * The output name.
+   * 
    * @example
    * project_name
    */
   name?: string;
   /**
+   * @remarks
+   * The actual output value after the stack deployment is complete.
+   * 
    * @example
    * log-test
    */
   result?: string;
   /**
+   * @remarks
+   * The output type, such as string or list(string).
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The original definition of the output value. Currently, string or list(string) is supported. You can reference a deployment output in the format: deployment.{deploymentName}.{deploymentOutputName}.
+   * 
    * @example
    * deployment.production.project_name
    */
@@ -250,11 +310,17 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
 
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigUpstreamInput extends $dara.Model {
   /**
+   * @remarks
+   * The input name.
+   * 
    * @example
    * network
    */
   name?: string;
   /**
+   * @remarks
+   * The input source. Currently, only an upstream stack can be specified. The format is {iacEndpoint}/{accountId}/{upstreamStackName}.
+   * 
    * @example
    * IacEndpoint/156718871222312/stack_network
    */
@@ -283,8 +349,20 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigUpstreamInput ex
 }
 
 export class ListStackConfigsResponseBodyConfigsDeploymentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of deployments.
+   */
   deployment?: ListStackConfigsResponseBodyConfigsDeploymentConfigDeployment[];
+  /**
+   * @remarks
+   * The list of outputs.
+   */
   publishOutput?: ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput[];
+  /**
+   * @remarks
+   * The list of upstream inputs.
+   */
   upstreamInput?: ListStackConfigsResponseBodyConfigsDeploymentConfigUpstreamInput[];
   static names(): { [key: string]: string } {
     return {
@@ -321,30 +399,65 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfig extends $dara.M
 }
 
 export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The component configuration.
+   */
   componentConfig?: ListStackConfigsResponseBodyConfigsComponentConfig;
   /**
+   * @remarks
+   * The content of the component configuration.
+   * 
    * @example
    * format_version: IaCService/2021-08-06\\ndescription: create ALB \\nvariable:\\n  - name: region\\n    type: string\\n ...
    */
   componentContent?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-08-15T16:14:06Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The deployment configuration.
+   */
   deploymentConfig?: ListStackConfigsResponseBodyConfigsDeploymentConfig;
   /**
+   * @remarks
+   * The content of the deployment configuration.
+   * 
    * @example
    * format_version: IaCService/2021-08-06\\ndescription: create ALB\\nupstream_input:\\n  - name: stack_network\\n ...
    */
   deploymentContent?: string;
   failedReason?: string;
   /**
+   * @remarks
+   * The status of the stack configuration.
+   * | Name | Description |
+   * |------|------|
+   * | Creating | Being created. |
+   * | Created | Created. |
+   * | Waiting | Waiting for deployment. |
+   * | Deploying | Being deployed. |
+   * | Deployed | Deployed. |
+   * | Errored | Deployment failed. |
+   * | Deleting | Being deleted. |
+   * | Deleted | Deleted. |
+   * | DeleteFailed | Deletion failed. |
+   * | DetectTriggered | Drift detection triggered. |.
+   * 
    * @example
    * Deployed
    */
   status?: string;
   /**
+   * @remarks
+   * The configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
+   * 
    * @example
    * v1
    */
@@ -391,14 +504,23 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
 }
 
 export class ListStackConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of stack configurations.
+   */
   configs?: ListStackConfigsResponseBodyConfigs[];
   /**
+   * @remarks
+   * The maximum number of records returned in this request.
+   * 
    * @example
    * 24
    */
   maxResults?: number;
   /**
    * @remarks
+   * The position from which the current call starts reading. An empty value indicates that all data has been read.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -406,11 +528,17 @@ export class ListStackConfigsResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9BEDBCF8-03BE-5A59-AC93-9263942B37E8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records that match the request conditions. This parameter is optional and may not be returned by default.
+   * 
    * @example
    * 43
    */

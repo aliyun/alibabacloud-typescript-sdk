@@ -4,24 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * region
    */
   name?: string;
   secret?: boolean;
   /**
+   * @remarks
+   * The parameter set status. Valid values:
+   * 
+   * HAS_VALUE (default): A specific value is defined.
+   * 
+   * EXPLICIT_NULL: The value is explicitly set to null.
+   * 
    * @example
    * HAS_VALUE
    */
   status?: string;
   /**
+   * @remarks
+   * The parameter type (string/number/bool/map(string)/list(string)).
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
-   * 111
+   * cn-beijing
    */
   value?: any;
   static names(): { [key: string]: string } {
@@ -55,16 +71,29 @@ export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.
 
 export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2022-06-09T03:46:18Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The resource ID. When the resource type is ModuleVersion, the value is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * 
    * @example
    * task-433aead756057ffdf5326bf1e12ed
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Module: template
+   * - ModuleVersion: template version
+   * - Task: task.
+   * 
    * @example
    * Module
    */
@@ -96,31 +125,54 @@ export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dar
 
 export class ListParameterSetsResponseBodyParameterSets extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2022-05-14T10:05:19Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Indicates whether deletion protection is enabled.
+   * 
    * @example
    * false
    */
   deletionProtection?: boolean;
   /**
+   * @remarks
+   * The description of the parameter set.
+   * 
    * @example
-   * OK
+   * This is parameterSet
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the parameter set.
+   * 
    * @example
-   * 12
+   * demo
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parameter set.
+   * 
    * @example
    * pts-433aead756057ea135b21e89c
    */
   parameterSetId?: string;
+  /**
+   * @remarks
+   * The parameters in the parameter set.
+   */
   parameters?: ListParameterSetsResponseBodyParameterSetsParameters[];
+  /**
+   * @remarks
+   * The relationships associated with the parameter set.
+   */
   relationList?: ListParameterSetsResponseBodyParameterSetsRelationList[];
   static names(): { [key: string]: string } {
     return {
@@ -163,22 +215,38 @@ export class ListParameterSetsResponseBodyParameterSets extends $dara.Model {
 
 export class ListParameterSetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The parameter sets.
+   */
   parameterSets?: ListParameterSetsResponseBodyParameterSets[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E188A8C-D77A-53F2-9578-E9AD8ABF2FA9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 50
    */

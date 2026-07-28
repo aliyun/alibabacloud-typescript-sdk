@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class JobsStatusDetailValue extends $dara.Model {
   /**
+   * @remarks
+   * 备注
+   * 
    * @example
-   * ""
+   * comment
    */
   comment?: string;
   /**
+   * @remarks
+   * 作业执行结果
+   * 
    * @example
-   * ""
+   * Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
    */
   jobResult?: string;
   /**
+   * @remarks
+   * 到达状态时间
+   * 
    * @example
    * 2022-06-13 17:11:34
    */

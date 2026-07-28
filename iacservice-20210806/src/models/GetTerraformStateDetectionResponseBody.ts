@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTerraformStateDetectionResponseBodyJobChangedResourcesAttributeChanges extends $dara.Model {
   /**
+   * @remarks
+   * The attribute name.
+   * 
    * @example
    * vpc_name
    */
   attributePath?: string;
   /**
+   * @remarks
+   * The server-side state value.
+   * 
    * @example
    * test_remote
    */
   remoteValue?: string;
   /**
+   * @remarks
+   * The template-declared value.
+   * 
    * @example
    * test_hcl
    */
@@ -44,23 +53,39 @@ export class GetTerraformStateDetectionResponseBodyJobChangedResourcesAttributeC
 }
 
 export class GetTerraformStateDetectionResponseBodyJobChangedResources extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of attribute changes.
+   */
   attributeChanges?: GetTerraformStateDetectionResponseBodyJobChangedResourcesAttributeChanges[];
   /**
+   * @remarks
+   * The change type.
+   * 
    * @example
    * create
    */
   changedType?: string;
   /**
+   * @remarks
+   * Indicates whether resource drift exists.
+   * 
    * @example
    * false
    */
   hasDrift?: boolean;
   /**
+   * @remarks
+   * The Terraform resource ID.
+   * 
    * @example
    * vpc-axxxxx
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+   * 
    * @example
    * vpc:alicloud_vpc.default
    */
@@ -99,16 +124,25 @@ export class GetTerraformStateDetectionResponseBodyJobChangedResources extends $
 
 export class GetTerraformStateDetectionResponseBodyJobDriftedResourcesAttributeDrifts extends $dara.Model {
   /**
+   * @remarks
+   * The attribute name.
+   * 
    * @example
    * vpc_name
    */
   attributePath?: string;
   /**
+   * @remarks
+   * The server-side state value.
+   * 
    * @example
    * test_remote
    */
   remoteValue?: string;
   /**
+   * @remarks
+   * The value stored in the state file.
+   * 
    * @example
    * test_state
    */
@@ -139,18 +173,31 @@ export class GetTerraformStateDetectionResponseBodyJobDriftedResourcesAttributeD
 }
 
 export class GetTerraformStateDetectionResponseBodyJobDriftedResources extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of attribute drifts.
+   */
   attributeDrifts?: GetTerraformStateDetectionResponseBodyJobDriftedResourcesAttributeDrifts[];
   /**
+   * @remarks
+   * The drift type.
+   * 
    * @example
    * update
    */
   driftedType?: string;
   /**
+   * @remarks
+   * The Terraform resource ID.
+   * 
    * @example
    * vpc-bxxxxx
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+   * 
    * @example
    * vpc:alicloud_vpc.default2
    */
@@ -186,24 +233,51 @@ export class GetTerraformStateDetectionResponseBodyJobDriftedResources extends $
 }
 
 export class GetTerraformStateDetectionResponseBodyJob extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of resources with state changes.
+   */
   changedResources?: GetTerraformStateDetectionResponseBodyJobChangedResources[];
+  /**
+   * @remarks
+   * The collection of resources with state drift.
+   */
   driftedResources?: GetTerraformStateDetectionResponseBodyJobDriftedResources[];
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * planned failed
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The task identifier. For a Stack task, the value is in the format of <$stackId>:<$deploymentName>. For a Task task, the value is <$TaskId>.
+   * 
    * @example
    * stack-as181axxxxxx:development_xxxx
    */
   identifier?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * - Pending: the initial status after the job is created.
+   * - PlanQueued: the job is queued because no containers are available after the job is created.
+   * - Planning: the resource job is in the Plan execution phase.
+   * - Planned: the resource job has completed the Plan execution.
+   * - PlannedAndFinished: no differences are found after the Plan execution is complete. The job is in a final status.
+   * - Errored: the job execution encountered an error and entered a final status.
+   * 
    * @example
    * Errored
    */
   status?: string;
   /**
+   * @remarks
+   * The task type.
+   * 
    * @example
    * Stack
    */
@@ -246,6 +320,10 @@ export class GetTerraformStateDetectionResponseBodyJob extends $dara.Model {
 }
 
 export class GetTerraformStateDetectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The job details.
+   */
   job?: GetTerraformStateDetectionResponseBodyJob;
   /**
    * @remarks

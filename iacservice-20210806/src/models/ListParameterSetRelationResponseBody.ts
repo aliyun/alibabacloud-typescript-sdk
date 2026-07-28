@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParameterSetRelationResponseBodyParameterSets extends $dara.Model {
   /**
+   * @remarks
+   * The time when the parameter set was created.
+   * 
    * @example
    * 2022-05-14T10:05:19Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * 123111
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the parameter set.
+   * 
    * @example
    * alb_enable_ipv6_4.2
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parameter set.
+   * 
    * @example
    * pts-kw1b11jlssrabb638ptums
    */
   parameterSetId?: string;
+  /**
+   * @remarks
+   * The content of the parameter set.
+   */
   parameters?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -57,13 +73,23 @@ export class ListParameterSetRelationResponseBodyParameterSets extends $dara.Mod
 }
 
 export class ListParameterSetRelationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of parameter sets.
+   */
   parameterSets?: ListParameterSetRelationResponseBodyParameterSets[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2F24E990-E8D3-5C18-ABEA-C7A3F1831C57
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 5
    */

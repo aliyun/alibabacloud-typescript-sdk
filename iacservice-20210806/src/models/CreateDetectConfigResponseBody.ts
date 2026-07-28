@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDetectConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Drift detection configuration ID
+   * 
    * @example
    * dc-xxxx
    */
   detectConfigId?: string;
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * String
    */

@@ -3,6 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * - Task: regular task (default)
+   * - SceneTestingTask: scenario-based testing task
+   * - Stack: resource stack.
+   * 
+   * @example
+   * SceneTestingTask
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {

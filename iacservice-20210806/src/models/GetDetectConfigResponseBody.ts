@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDetectConfigResponseBodyDetectConfigAlarmConfigs extends $dara.Model {
   /**
+   * @remarks
+   * Alerting address.
+   * 
    * @example
    * https://metrichub-cms-cn-hangzhou.aliyuncs.com/event/notify?xxxxx
    */
   address?: string;
   /**
+   * @remarks
+   * Alerting method. Currently, only `cms` is supported.
+   * 
    * @example
    * cms
    */
@@ -37,38 +43,66 @@ export class GetDetectConfigResponseBodyDetectConfigAlarmConfigs extends $dara.M
 }
 
 export class GetDetectConfigResponseBodyDetectConfig extends $dara.Model {
+  /**
+   * @remarks
+   * List of alerting addresses
+   */
   alarmConfigs?: GetDetectConfigResponseBodyDetectConfigAlarmConfigs[];
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 2026-04-10T02:30:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Cron expression (UTC+8). Required when the trigger type is Cron.
+   * 
    * @example
    * 0 0 0 ? * 1
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Description.
+   * 
    * @example
    * this is a description
    */
   description?: string;
   /**
+   * @remarks
+   * Drift detection configuration ID
+   * 
    * @example
    * dc-xxxx
    */
   detectConfigId?: string;
   /**
+   * @remarks
+   * Drift detection configuration name
+   * 
    * @example
    * test
    */
   detectConfigName?: string;
   /**
+   * @remarks
+   * Is scheduled detection enabled
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Trigger type  
+   * 
+   * - Manual: Execute manually  
+   * - Cron: Trigger on schedule
+   * 
    * @example
    * Cron
    */
@@ -112,10 +146,14 @@ export class GetDetectConfigResponseBodyDetectConfig extends $dara.Model {
 }
 
 export class GetDetectConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Drift detection configuration information
+   */
   detectConfig?: GetDetectConfigResponseBodyDetectConfig;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * BF72A6FB-B071-5F2E-A036-9D62545B962C

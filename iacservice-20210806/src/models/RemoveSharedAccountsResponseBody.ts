@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveSharedAccountsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8294F4ED-8DBA-5441-B3F2-61C3C5374990
    */

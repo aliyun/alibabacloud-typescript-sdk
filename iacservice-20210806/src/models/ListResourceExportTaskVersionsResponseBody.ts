@@ -4,16 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule extends $dara.Model {
   /**
+   * @remarks
+   * The module type in which the exported template is saved. Valid values:
+   * 
+   * - OSS: OSS
+   * - Registry: Terraform Registry.
+   * 
    * @example
    * OSS
    */
   source?: string;
   /**
+   * @remarks
+   * The path where the template content is saved.
+   * 
+   * - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
+   * 
+   * - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+   * 
    * @example
-   * alibaba/security-group/alicloud
+   * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
    */
   sourcePath?: string;
   /**
+   * @remarks
+   * The path of the state file corresponding to the module.
+   * 
    * @example
    * /
    */
@@ -45,10 +61,25 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule
 
 export class ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules extends $dara.Model {
   /**
+   * @remarks
+   * The name of the inclusion rule for resource export. Valid values:
+   * 
+   * - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
+   * - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: ap-southeast-1.
+   * - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
+   * - ResourceGroupId: the resource group ID. Example: rg-1234.
+   * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1h.
+   * 
+   * Multiple filter conditions are combined by using the AND operator. A resource is matched only if all filter conditions are met.
+   * 
    * @example
-   * ZoneId
+   * RegionId
    */
   key?: string;
+  /**
+   * @remarks
+   * The values of the inclusion rules for resource export.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -78,16 +109,29 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules e
 
 export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extends $dara.Model {
   /**
+   * @remarks
+   * The module type where the exported template is stored. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
+   * 
    * @example
    * OSS
    */
   source?: string;
   /**
+   * @remarks
+   * The download URL of the module where the exported template is stored.
+   * 
+   * - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
+   * 
+   * - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+   * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
    */
   sourcePath?: string;
   /**
+   * @remarks
+   * The version of the module where the exported template is stored.
+   * 
    * @example
    * v1
    */
@@ -118,8 +162,15 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extend
 }
 
 export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Terraform resource properties corresponding to the resource type.
+   */
   properties?: string[];
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * Vswitch
    */
@@ -152,48 +203,93 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables exte
 
 export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-05-11T02:18:50Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
-   * demo
+   * this is description
    */
   description?: string;
   /**
+   * @remarks
+   * The execution duration.
+   * 
    * @example
    * 4521
    */
   elapsedTime?: number;
   /**
+   * @remarks
+   * The ID of the resource export task.
+   * 
    * @example
    * ex-al1711jl6hd8u5crggeq6v
    */
   exportTaskId?: string;
+  /**
+   * @remarks
+   * Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
+   */
   exportToModule?: ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule;
   /**
+   * @remarks
+   * The resource export version.
+   * 
    * @example
    * v3
    */
   exportVersion?: string;
   /**
+   * @remarks
+   * The reason for the export failure.
+   * 
    * @example
    * Reason
    */
   failedReason?: string;
+  /**
+   * @remarks
+   * The list of inclusion rules used when exporting resources.
+   */
   includeRules?: ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules[];
+  /**
+   * @remarks
+   * The module configuration of the exported resources.
+   */
   modules?: ListResourceExportTaskVersionsResponseBodyExportTasksModules[];
   /**
+   * @remarks
+   * The name of the export task.
+   * 
    * @example
-   * vpc_all
+   * TaskName
    */
   name?: string;
   /**
+   * @remarks
+   * The version export status. Valid values:
+   * - Queue: queued
+   * - Pending: preparing to run
+   * - Success: succeeded
+   * - Errored: failed
+   * - Canceled: canceled.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of variables. Parameters of the exported resources are set as variables.
+   */
   variables?: ListResourceExportTaskVersionsResponseBodyExportTasksVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -251,23 +347,39 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
 }
 
 export class ListResourceExportTaskVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of export task versions.
+   */
   exportTasks?: ListResourceExportTaskVersionsResponseBodyExportTasks[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 860FDEEE-1CA3-55F3-97F6-63FC40B7962D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 72
    */

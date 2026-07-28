@@ -3,54 +3,102 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 路由表
+   */
   description?: string;
   /**
+   * @remarks
+   * The product name.
+   * 
    * @example
    * VPC
    */
   product?: string;
+  /**
+   * @remarks
+   * The product name.
+   * 
+   * @example
+   * 专有网络VPC
+   */
   productName?: string;
   /**
+   * @remarks
+   * The URL of the resource details page.
+   * 
    * @example
    * https://vpc.console.aliyun.com/vpc/${RegionId}/route-tables/${RouteTableId}
    */
   resourceDetailPageUrl?: string;
   /**
+   * @remarks
+   * The URL of the resources page.
+   * 
    * @example
    * https://vpc.console.aliyun.com/vpc/${RegionId}/route-tables
    */
   resourceListPageUrl?: string;
   resourceType?: string;
   /**
+   * @remarks
+   * The resource status.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The version from which the resource status takes effect.
+   * 
    * @example
    * 1.0.0
    */
   statusStartVersion?: string;
   /**
+   * @remarks
+   * The product subcategory in Terraform.
+   * 
    * @example
    * VPC
    */
   subcategory?: string;
   /**
+   * @remarks
+   * Specifies whether Terraformer is supported.
+   * 
    * @example
    * true
    */
   supportTerraformer?: string;
   /**
+   * @remarks
+   * The Terraform provider version.
+   * 
    * @example
    * 1.248.0
    */
   terraformProviderVersion?: string;
   /**
+   * @remarks
+   * The resource type in Terraform.
+   * 
    * @example
    * alicloud_route_table
    */
   terraformResourceType?: string;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * 路由表
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,22 +147,38 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
 
 export class ListResourceTypesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries per page. Valid values: 0 to 200. Default value: 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * LC4NJL3Ru2bIiRdnbADPQp4dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9bcaac3c-420d-4303-87ab-7638c07b0a0b
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resources.
+   */
   resourceTypes?: ListResourceTypesResponseBodyResourceTypes[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 93
    */

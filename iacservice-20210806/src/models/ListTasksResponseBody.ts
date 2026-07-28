@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTasksResponseBodyTasksGroupInfo extends $dara.Model {
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * g-4267dcfbf1b6d1e0652bfbbe995
    */
   groupId?: string;
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
    * abc
    */
   groupName?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * p-433aead7560571cf1b2bfbbe92b
    */
   projectId?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * abc
    */
@@ -51,9 +63,37 @@ export class ListTasksResponseBodyTasksGroupInfo extends $dara.Model {
 }
 
 export class ListTasksResponseBodyTasksTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the task.
+   * 
+   * @example
+   * name
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag key of the module.
+   * 
+   * @example
+   * name
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the task.
+   * 
+   * @example
+   * iac-demo
+   */
   tagValue?: string;
+  /**
+   * @remarks
+   * The tag value of the task.
+   * 
+   * @example
+   * iac-demo
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,48 +123,111 @@ export class ListTasksResponseBodyTasksTags extends $dara.Model {
 }
 
 export class ListTasksResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the task is automatically executed.
+   * 
+   * @example
+   * false
+   */
   autoApply?: boolean;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2022-07-11T15:09:53Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job ID of the current task.
+   * 
    * @example
    * job-123asd
    */
   currentJobId?: string;
   /**
+   * @remarks
+   * The current job status.
+   * 
    * @example
    * Pending
    */
   currentJobStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources are included.
+   * 
+   * @example
+   * false
+   */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The task group information.
+   */
   groupInfo?: ListTasksResponseBodyTasksGroupInfo;
+  /**
+   * @remarks
+   * The latest version of the module.
+   * 
+   * @example
+   * v3
+   */
   latestModuleVersion?: string;
   /**
+   * @remarks
+   * The module ID.
+   * 
    * @example
    * mod-518855d9a058c331e9c60bc0ce
    */
   moduleId?: string;
+  /**
+   * @remarks
+   * The module name.
+   * 
+   * @example
+   * mod-name
+   */
   moduleName?: string;
   /**
+   * @remarks
+   * The module version.
+   * 
    * @example
    * v1
    */
   moduleVersion?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
-   * abc
+   * TaskName
    */
   name?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * - Available: The task is available, and no job is running.
+   * - Running: The task is running, and the current job is in progress.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of task tags.
+   */
   tags?: ListTasksResponseBodyTasksTags[];
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * task-1525e992f1b621b0ca51647876e
    */
@@ -184,24 +287,40 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
 
 export class ListTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 98610149-488B-5E48-B981-8D4CE1AF77CD
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tasks.
+   */
   tasks?: ListTasksResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
-   * 5
+   * 55
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

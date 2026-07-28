@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDetectConfigsResponseBodyDetectConfigsAlarmConfigs extends $dara.Model {
   /**
+   * @remarks
+   * Alerting address.
+   * 
    * @example
    * https://metrichub-cms-cn-hangzhou.aliyuncs.com/event/notify?xxxxx
    */
   address?: string;
   /**
+   * @remarks
+   * Alerting method. Currently only `cms` is supported.
+   * 
    * @example
    * cms
    */
@@ -37,38 +43,66 @@ export class ListDetectConfigsResponseBodyDetectConfigsAlarmConfigs extends $dar
 }
 
 export class ListDetectConfigsResponseBodyDetectConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * List of alerting addresses
+   */
   alarmConfigs?: ListDetectConfigsResponseBodyDetectConfigsAlarmConfigs[];
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 2026-04-10T02:30:04Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Cron expression (UTC+8). Required when the trigger type is Cron.
+   * 
    * @example
    * 0 0 0 ? * 1
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Description.
+   * 
    * @example
    * this is a description
    */
   description?: string;
   /**
+   * @remarks
+   * Drift detection configuration ID
+   * 
    * @example
    * dc-xxxx
    */
   detectConfigId?: string;
   /**
+   * @remarks
+   * Name of the drift detection configuration.
+   * 
    * @example
    * test
    */
   detectConfigName?: string;
   /**
+   * @remarks
+   * Whether drift detection is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Trigger type  
+   * 
+   * - Manual: Execute manually  
+   * - Cron: Trigger on schedule
+   * 
    * @example
    * Cron
    */
@@ -112,26 +146,39 @@ export class ListDetectConfigsResponseBodyDetectConfigs extends $dara.Model {
 }
 
 export class ListDetectConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of drift detection configurations
+   */
   detectConfigs?: ListDetectConfigsResponseBodyDetectConfigs[];
   /**
+   * @remarks
+   * Maximum number of records to retrieve in a single request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Paging nextToken.
+   * 
    * @example
    * 30BaZ9ekYWXJdqshYecA++coNg7qT1Zbm3RfLyFIZeY=
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * 79284133-D4BA-56B3-954C-D538256F7EAA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 82
    */

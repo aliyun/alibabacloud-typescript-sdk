@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListParameterSetRelationRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the resource. For ModuleVersion, concatenate <moduleId>-<versionId>.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,13 @@ export class ListParameterSetRelationRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The type of the resource. Valid values:
+   * - Module
+   * - ModuleVersion
+   * - Task
+   * - SceneTestingTask
+   * - Stack.
+   * 
    * This parameter is required.
    * 
    * @example

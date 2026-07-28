@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CreateDetectConfigRequestAlarmConfigs extends $dara.Model {
   /**
+   * @remarks
+   * Alerting address.
+   * 
    * @example
    * https://metrichub-cms-cn-hangzhou.aliyuncs.com/event/notify?xxxxx
    */
   address?: string;
   /**
+   * @remarks
+   * Alerting method. Currently only `cms` is supported.
+   * 
    * @example
    * cms
    */
@@ -39,9 +45,15 @@ export class CreateDetectConfigRequestAlarmConfigs extends $dara.Model {
 }
 
 export class CreateDetectConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of alerting addresses
+   */
   alarmConfigs?: CreateDetectConfigRequestAlarmConfigs[];
   /**
    * @remarks
+   * Idempotence token, format: `[0-9a-zA-Z-]{1,64}`. It is recommended to use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,25 +61,42 @@ export class CreateDetectConfigRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Cron expression (UTC+8). Required when trigger type is `Cron`.
+   * 
    * @example
    * 0 0 0 ? * 1
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Description, up to 256 characters in length.
+   * 
    * @example
    * example
    */
   description?: string;
   /**
    * @remarks
+   * Detection configuration Name
+   * 
    * This parameter is required.
    * 
    * @example
    * test
    */
   detectConfigName?: string;
+  /**
+   * @remarks
+   * Whether the Detection feature is Enabled. The default value is `true`.
+   */
   enabled?: boolean;
   /**
+   * @remarks
+   * Trigger type  
+   * - Manual: Execute manually  
+   * - Cron: Trigger on a schedule
+   * 
    * @example
    * Manual
    */

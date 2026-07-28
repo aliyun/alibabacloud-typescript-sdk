@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E602681C-A811-5787-9DC3-48BED7537071
    */

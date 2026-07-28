@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,17 +15,36 @@ export class CreateJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The job description. Length: 1 to 64 characters.
+   * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * description
    */
   description?: string;
   /**
+   * @remarks
+   * The operation command. Valid values:
+   * 
+   * - plan: performs a preview. This is the default value.
+   * - refresh: refreshes the resource status.
+   * - destroy: destroys resources.
+   * 
    * @example
-   * null
+   * refresh
    */
   subCommand?: string;
+  /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * - Task: regular task. This is the default value.
+   * - SceneTestingTask: scenario-based testing task.
+   * 
+   * @example
+   * Task
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {

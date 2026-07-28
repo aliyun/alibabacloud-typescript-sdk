@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModuleVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,24 @@ export class CreateModuleVersionRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The version description. The description can be up to 256 characters in length.
+   * 
    * @example
-   * test
+   * this is description
    */
   description?: string;
   /**
    * @remarks
+   * The template version name. The name must meet the following requirements:
+   * 
+   * - The name must be 2 to 128 characters in length.
+   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+   * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * versionName
    */
   name?: string;
   static names(): { [key: string]: string } {

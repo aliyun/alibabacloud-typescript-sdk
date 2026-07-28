@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateParameterSetRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of parameter set IDs to be associated with the resource. Maximum length: 5.
+   * 
    * This parameter is required.
    */
   parameterSetIds?: string[];
   /**
    * @remarks
+   * The resource ID. If the resource type is ModuleVersion, the value is a combination of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,13 @@ export class DissociateParameterSetRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Module: template
+   * - ModuleVersion: template version
+   * - Task: node
+   * - Stack: resource stack.
+   * 
    * This parameter is required.
    * 
    * @example

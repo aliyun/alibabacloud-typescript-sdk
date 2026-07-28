@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateDetectConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * B6ED9F71-7FA8-598E-B64D-4606FB3FCCC9

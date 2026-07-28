@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRegistryModuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C896FE0A-1BEA-5D01-BFF4-B03B82B9CA3D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template source, which is a concatenation of \\<namespaceName>/\\<ModuleName>.
+   * 
    * @example
-   * test_namespace/RegistryModule-test
+   * namespaceName/ModuleName
    */
   source?: string;
   static names(): { [key: string]: string } {

@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssociateGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * 
    * @example
    * a65451293e64979ba7a4b573950217fe
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * p-433aead7560571a87349d054b4
    */
   projectId?: string;
   /**
    * @remarks
+   * The list of resource IDs.
+   * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - SceneTestingTask: scenario-based testing task.
+   * - Task: regular task.
+   * - Module: template.
+   * 
    * @example
    * Task
    */

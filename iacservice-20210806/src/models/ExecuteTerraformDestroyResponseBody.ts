@@ -12,6 +12,9 @@ export class ExecuteTerraformDestroyResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The state file ID.
+   * 
    * @example
    * task-xxxx
    */

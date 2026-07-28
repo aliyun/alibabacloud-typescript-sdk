@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListProjectRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * name
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,17 +43,34 @@ export class ListProjectRequestTag extends $dara.Model {
 }
 
 export class ListProjectRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The search keyword. Name-based search is supported.
+   * 
+   * @example
+   * test-case2
+   */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: ListProjectRequestTag[];
   static names(): { [key: string]: string } {
     return {

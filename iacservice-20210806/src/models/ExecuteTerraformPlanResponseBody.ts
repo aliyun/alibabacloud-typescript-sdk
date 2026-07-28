@@ -12,6 +12,9 @@ export class ExecuteTerraformPlanResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the state file.
+   * 
    * @example
    * task-xxxx
    */

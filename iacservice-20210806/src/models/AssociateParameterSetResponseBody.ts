@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssociateParameterSetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BF75EF50-955D-5E1F-AB23-A657C2C6D3C7
    */

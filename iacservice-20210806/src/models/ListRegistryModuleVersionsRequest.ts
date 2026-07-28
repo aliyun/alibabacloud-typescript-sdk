@@ -4,27 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistryModuleVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
+   * The Registry template name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * ecs-rds
+   * ModuleName
    */
   moduleName?: string;
   /**
    * @remarks
+   * The workspace name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * terraform-alicloud-modules
+   * MamespaceName
    */
   namespaceName?: string;
   /**
+   * @remarks
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * 
    * @example
    * TRkuCaTw/VsEHrnCZgrBA0ftQSEJU/lzo2ei7MJjplg=
    */

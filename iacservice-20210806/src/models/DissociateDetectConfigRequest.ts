@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DissociateDetectConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * Drift detection configuration ID
+   * 
    * @example
    * dc-xxxx
    */
   detectConfigId?: string;
   /**
    * @remarks
+   * ID of the association target. StackId or TaskId
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,11 @@ export class DissociateDetectConfigRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
+   * Type of the association target
+   * 
+   * - Task: Orchestration job  
+   * - Stack: Resource stack
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListParameterSetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The keyword for exact match search. The search is case-insensitive.
+   * 
    * @example
-   * key
+   * vpc
    */
   keyword?: string;
   /**
@@ -14,11 +17,17 @@ export class ListParameterSetsRequest extends $dara.Model {
    */
   kmsKeyId?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * 
    * @example
    * 20
    */

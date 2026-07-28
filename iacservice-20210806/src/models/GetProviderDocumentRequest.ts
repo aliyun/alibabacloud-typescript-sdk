@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetResourceExportTaskRequest extends $dara.Model {
+export class GetProviderDocumentRequest extends $dara.Model {
+  providerVersion?: string;
   /**
    * @remarks
-   * The export version.
-   * 
-   * @example
-   * v3
+   * This parameter is required.
    */
-  exportVersion?: string;
+  terraformResourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      exportVersion: 'exportVersion',
+      providerVersion: 'providerVersion',
+      terraformResourceType: 'terraformResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      exportVersion: 'string',
+      providerVersion: 'string',
+      terraformResourceType: 'string',
     };
   }
 

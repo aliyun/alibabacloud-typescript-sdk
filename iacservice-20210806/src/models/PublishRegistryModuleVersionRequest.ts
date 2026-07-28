@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PublishRegistryModuleVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,22 +15,28 @@ export class PublishRegistryModuleVersionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The template name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * oss-bucket
+   * ModuleName
    */
   moduleName?: string;
   /**
    * @remarks
+   * The workspace name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * terraform-alicloud-modules
+   * NamespaceName
    */
   namespaceName?: string;
   /**
    * @remarks
+   * The version number. The value must conform to the [semantic version](http://semver.org/) specification, such as 1.0.1. The initial version is 1.0.0.
+   * 
    * This parameter is required.
    * 
    * @example

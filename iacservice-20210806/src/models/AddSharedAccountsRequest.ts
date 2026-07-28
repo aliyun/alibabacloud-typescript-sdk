@@ -3,13 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddSharedAccountsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of Alibaba Cloud account IDs.
+   */
   accountIds?: number[];
   /**
+   * @remarks
+   * The ID of the shared resource.
+   * 
+   *  - If the type is Namespace, set this parameter to the workspace name. 
+   * 
+   * - If the type is RegistryModule, set this parameter to \\<namespaceName>/\\<ModuleName>.
+   * 
    * @example
-   * Public
+   * terraform-alicloud-modules/mongodb
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - RegistryModule: Registry template.
+   * - Namespace: workspace.
+   * 
    * @example
    * RegistryModule
    */

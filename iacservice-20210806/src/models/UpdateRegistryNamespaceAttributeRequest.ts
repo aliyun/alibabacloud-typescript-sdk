@@ -4,18 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRegistryNamespaceAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The access permission. Valid values:
+   * 
+   * - private: private access.
+   * 
    * @example
    * private
    */
   acl?: string;
   /**
    * @remarks
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 2da11a5501f18cc5e004
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
-   * 123
+   * description
    */
   description?: string;
   static names(): { [key: string]: string } {

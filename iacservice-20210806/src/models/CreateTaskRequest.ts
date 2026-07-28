@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTaskRequestGroupInfo extends $dara.Model {
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
-   * g-5fd38c9b92d541a7083a86432e2
+   * g-5fd38c9b83a86432e2
    */
   groupId?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
-   * project-433aead7560572057e5d9167608
+   * p-433aeade5d9167608
    */
   projectId?: string;
   static names(): { [key: string]: string } {
@@ -37,7 +43,21 @@ export class CreateTaskRequestGroupInfo extends $dara.Model {
 }
 
 export class CreateTaskRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the node.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value of the node.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,8 +83,29 @@ export class CreateTaskRequestTags extends $dara.Model {
 }
 
 export class CreateTaskRequestTaskBackend extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint information.
+   * 
+   * @example
+   * ss-cn-beijing.aliyuncs.com
+   */
   bucketEndpoint?: string;
+  /**
+   * @remarks
+   * The bucket name.
+   * 
+   * @example
+   * iac-runtime-test
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The object path.
+   * 
+   * @example
+   * /log
+   */
   objectPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,17 +134,29 @@ export class CreateTaskRequestTaskBackend extends $dara.Model {
 
 export class CreateTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically execute the node. Default value: false.
+   * - true: After the preview is complete (terraform plan), the execution (terraform apply) is automatically performed without manual confirmation.
+   * - false: After the preview is complete (terraform plan), manual confirmation is required before the execution (terraform apply) starts.
+   * 
    * @example
-   * true
+   * false
    */
   autoApply?: boolean;
   /**
+   * @remarks
+   * Specifies whether to automatically destroy resources after creation. Default value: false.
+   * - true: After the execution is complete (terraform apply), the destroy operation (terraform destroy) is automatically performed without manual confirmation.
+   * - false: After the execution is complete (terraform apply), no further action is taken.
+   * 
    * @example
    * true
    */
   autoDestroy?: boolean;
   /**
    * @remarks
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,22 +164,40 @@ export class CreateTaskRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the node.
+   * 
    * @example
-   * demo
+   * this is description
    */
   description?: string;
+  /**
+   * @remarks
+   * The project group information.
+   */
   groupInfo?: CreateTaskRequestGroupInfo;
+  /**
+   * @remarks
+   * Specifies whether to use a state file. Default value: false. This parameter is applicable when the template originates from resource export. Only one node can use this parameter.
+   * 
+   * @example
+   * false
+   */
   initModuleState?: boolean;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * mod-148e7853433574fff6b316f4eb737e
+   * mod-144fff6b316f4eb737e
    */
   moduleId?: string;
   /**
    * @remarks
+   * The template version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -135,30 +206,77 @@ export class CreateTaskRequest extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
+   * The node name. The name must meet the following requirements:
+   * 
+   * - The name must be 2 to 128 characters in length.
+   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+   * - The name must be unique among all node resources within the current account.
+   * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * TaskName
    */
   name?: string;
+  /**
+   * @remarks
+   * The collection of associated parameter set IDs.
+   */
   parameterSetIds?: string[];
+  /**
+   * @remarks
+   * The list of resource protection strategies.
+   */
   protectionStrategy?: string[];
   /**
+   * @remarks
+   * The RAM role. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
+   * 
    * @example
-   * {}
+   * RoleName
    */
   ramRole?: string;
-  skipPropertyValidation?: boolean;
-  tags?: CreateTaskRequestTags[];
-  taskBackend?: CreateTaskRequestTaskBackend;
   /**
+   * @remarks
+   * Specifies whether to skip enumeration value validation. Default value: false.
+   * 
    * @example
-   * 1.2.6
+   * true
+   */
+  skipPropertyValidation?: boolean;
+  skipRegionValidation?: boolean;
+  /**
+   * @remarks
+   * The list of tags for the node.
+   */
+  tags?: CreateTaskRequestTags[];
+  /**
+   * @remarks
+   * The node backend configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
+   */
+  taskBackend?: CreateTaskRequestTaskBackend;
+  terraformProviderVersion?: string;
+  /**
+   * @remarks
+   * The Terraform version. Call the **ListAvailableTerraformVersions** operation to obtain the list of supported versions. Default value: 1.5.7.
+   * 
+   * @example
+   * 1.5.7
    */
   terraformVersion?: string;
   /**
+   * @remarks
+   * The job trigger method. Valid values:
+   * 
+   * - Manual: manual trigger (default).
+   * - NewVersion: triggered when a new template version is published.
+   * - ParameterSetUpdated: triggered when the parameter set content changes or the parameter set attach relationship changes.
+   * - Auto: automatically triggered when the node properties change, such as node creation, execution version change, or job trigger policy change (when changed from another value to Auto).
+   * 
+   * The **ramRole** parameter is required when the trigger method is not manual.
+   * 
    * @example
-   * Always
+   * Manual
    */
   triggerStrategy?: string;
   static names(): { [key: string]: string } {
@@ -176,8 +294,10 @@ export class CreateTaskRequest extends $dara.Model {
       protectionStrategy: 'protectionStrategy',
       ramRole: 'ramRole',
       skipPropertyValidation: 'skipPropertyValidation',
+      skipRegionValidation: 'skipRegionValidation',
       tags: 'tags',
       taskBackend: 'taskBackend',
+      terraformProviderVersion: 'terraformProviderVersion',
       terraformVersion: 'terraformVersion',
       triggerStrategy: 'triggerStrategy',
     };
@@ -198,8 +318,10 @@ export class CreateTaskRequest extends $dara.Model {
       protectionStrategy: { 'type': 'array', 'itemType': 'string' },
       ramRole: 'string',
       skipPropertyValidation: 'boolean',
+      skipRegionValidation: 'boolean',
       tags: { 'type': 'array', 'itemType': CreateTaskRequestTags },
       taskBackend: CreateTaskRequestTaskBackend,
+      terraformProviderVersion: 'string',
       terraformVersion: 'string',
       triggerStrategy: 'string',
     };

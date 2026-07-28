@@ -2,24 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateProjectResponseBody extends $dara.Model {
+export class GetProviderDocumentResponseBody extends $dara.Model {
+  document?: string;
+  providerVersion?: string;
   /**
    * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C62888F6-254D-5589-BF05-0D9EE698C187
+   * Id of the request
    */
   requestId?: string;
+  terraformResourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      document: 'document',
+      providerVersion: 'providerVersion',
       requestId: 'requestId',
+      terraformResourceType: 'terraformResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      document: 'string',
+      providerVersion: 'string',
       requestId: 'string',
+      terraformResourceType: 'string',
     };
   }
 

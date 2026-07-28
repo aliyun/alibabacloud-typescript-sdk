@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListStacksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The keyword used to perform a fuzzy search by stack name.
+   * 
    * @example
    * key
    */
@@ -14,26 +17,53 @@ export class ListStacksRequest extends $dara.Model {
    */
   kmsKeyId?: string;
   /**
+   * @remarks
+   * The maximum number of results to return. Default value: 100. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. This parameter is empty if no more pages are available.
+   * 
    * @example
    * LC4NJL3Ru2bIiRdnbADPQp4dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The stack status.
+   * | Name | Description |
+   * |------|------|
+   * | Creating | Being created |
+   * | Created | Creation complete |
+   * | Waiting | Waiting for deployment |
+   * | Deploying | Being deployed |
+   * | Deployed | Deployment complete |
+   * | Errored | Deployment failed |
+   * | Deleting | Being deleted |
+   * | Deleted | Deleted |
+   * | DeleteFailed | Deletion failed |
+   * | DetectTriggered | Drift detection triggered |.
+   * 
    * @example
    * Deployed
    */

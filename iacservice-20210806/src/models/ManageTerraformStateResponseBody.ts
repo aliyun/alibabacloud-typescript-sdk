@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ManageTerraformStateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-5fd38c9xxxxx
    */

@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRegistryNamespaceResponseBodyNamespace extends $dara.Model {
   /**
+   * @remarks
+   * The permissions.
+   * 
    * @example
    * private
    */
   acl?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-03-20T02:18:29Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
-   * demo
+   * description
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the administrator.
+   * 
    * @example
    * admin
    */
   maintainer?: string;
   /**
+   * @remarks
+   * The number of Registry templates in the workspace.
+   * 
    * @example
    * 21
    */
   modules?: number;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
-   * test_namespace
+   * NamespaceName
    */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The list of shared accounts.
+   */
   sharedAccounts?: number[];
   /**
+   * @remarks
+   * The type of the workspace.
+   * 
    * @example
    * share
    */
@@ -78,8 +103,15 @@ export class GetRegistryNamespaceResponseBodyNamespace extends $dara.Model {
 }
 
 export class GetRegistryNamespaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The workspace information.
+   */
   namespace?: GetRegistryNamespaceResponseBodyNamespace;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 26684763-5BAB-58C8-BA4F-9D622AB7AD14
    */

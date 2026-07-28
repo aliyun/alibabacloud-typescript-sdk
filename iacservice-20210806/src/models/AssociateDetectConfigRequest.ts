@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateDetectConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Drift detection configuration ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AssociateDetectConfigRequest extends $dara.Model {
   detectConfigId?: string;
   /**
    * @remarks
+   * Target ID to associate. StackId or TaskId
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,10 @@ export class AssociateDetectConfigRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
+   * Target type to associate  
+   * - Task: orchestration job  
+   * - Stack: resource stack
+   * 
    * This parameter is required.
    * 
    * @example

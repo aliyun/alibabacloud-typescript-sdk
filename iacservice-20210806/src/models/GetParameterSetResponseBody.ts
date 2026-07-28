@@ -4,24 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetParameterSetResponseBodyParameterSetParameters extends $dara.Model {
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
-   * test1121
+   * region
    */
   name?: string;
   secret?: boolean;
   /**
+   * @remarks
+   * The status of the parameter. Valid values:
+   * 
+   * - HAS_VALUE (default): A specific value is defined.
+   * - EXPLICIT_NULL: The value is explicitly set to null.
+   * 
    * @example
    * HAS_VALUE
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the parameter. Valid values: string, number, bool, map(string), and list(string).
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the parameter.
+   * 
    * @example
-   * vpc-2ze83xrka9ktxy0pnaxn5
+   * cn-hangzhou
    */
   value?: any;
   static names(): { [key: string]: string } {
@@ -55,16 +70,29 @@ export class GetParameterSetResponseBodyParameterSetParameters extends $dara.Mod
 
 export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the parameter set was created.
+   * 
    * @example
    * 2022-04-24T22:58:50Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The resource ID. When the resource type is ModuleVersion, the ID is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * 
    * @example
    * mod-433aead756057101546eb5d50c1
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - Module: template
+   * - ModuleVersion: template version
+   * - Task: task.
+   * 
    * @example
    * Module
    */
@@ -96,26 +124,46 @@ export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.M
 
 export class GetParameterSetResponseBodyParameterSet extends $dara.Model {
   /**
+   * @remarks
+   * The time when the parameter set was created.
+   * 
    * @example
    * 2022-01-30T02:14:16Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the parameter set.
+   * 
    * @example
-   * OK
+   * This is parameterSet
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the parameter set.
+   * 
    * @example
-   * abc
+   * demo
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parameter set.
+   * 
    * @example
    * pts-3b6cb9fa4751afff9c5e4e01624b9
    */
   parameterSetId?: string;
+  /**
+   * @remarks
+   * The parameters in the parameter set.
+   */
   parameters?: GetParameterSetResponseBodyParameterSetParameters[];
+  /**
+   * @remarks
+   * The association relationships.
+   */
   relationList?: GetParameterSetResponseBodyParameterSetRelationList[];
   static names(): { [key: string]: string } {
     return {
@@ -155,8 +203,15 @@ export class GetParameterSetResponseBodyParameterSet extends $dara.Model {
 }
 
 export class GetParameterSetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter set details.
+   */
   parameterSet?: GetParameterSetResponseBodyParameterSet;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 99905C7C-1320-5E7F-A798-3071482EB08E
    */

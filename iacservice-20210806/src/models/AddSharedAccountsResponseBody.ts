@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddSharedAccountsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0D797DC3-FF04-5C21-81EB-XXXXXXXXX
    */

@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistryNamespacesResponseBodyNamespaces extends $dara.Model {
   /**
+   * @remarks
+   * The permissions.
+   * 
    * @example
    * private
    */
   acl?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-01-15T02:16:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The workspace description.
+   * 
    * @example
-   * dd
+   * description
    */
   description?: string;
   /**
+   * @remarks
+   * The administrator name.
+   * 
    * @example
    * admin
    */
   maintainer?: string;
   /**
+   * @remarks
+   * The number of Registry templates in the workspace.
+   * 
    * @example
    * 21
    */
   modules?: number;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
-   * test_namespace
+   * NamespaceName
    */
   namespaceName?: string;
+  /**
+   * @remarks
+   * The list of shared accounts.
+   */
   sharedAccounts?: number[];
   /**
+   * @remarks
+   * The workspace type.
+   * 
    * @example
    * shared
    */
@@ -79,22 +104,38 @@ export class ListRegistryNamespacesResponseBodyNamespaces extends $dara.Model {
 
 export class ListRegistryNamespacesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 53
    */
   count?: number;
   /**
+   * @remarks
+   * The maximum number of records returned at a time.
+   * 
    * @example
    * 24
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The list of workspaces.
+   */
   namespaces?: ListRegistryNamespacesResponseBodyNamespaces[];
   /**
+   * @remarks
+   * The token for the next page. A value of null indicates that no more pages are available.
+   * 
    * @example
-   * IPTL1Zpr1andEF4lQ3XAYFTgtpI04QQpc5dyKpESXBc=
+   * IPTL1XAYFTgtpI04QQpc5dyKpESXBc=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FFB0033-A016-5A9D-9283-C123AAA7F71D
    */

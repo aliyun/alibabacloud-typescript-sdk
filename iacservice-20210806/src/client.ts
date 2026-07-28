@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-zhangjiakou': "iac.cn-zhangjiakou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("iacservice", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -114,7 +117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增共享账号信息
+   * Adds shared accounts.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - AddSharedAccountsRequest
    * @param headers - map
@@ -155,7 +161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增共享账号信息
+   * Adds shared accounts.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - AddSharedAccountsRequest
    * @returns AddSharedAccountsResponse
@@ -167,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将参数集关联资源
+   * Associate drift detection configuration
    * 
    * @param request - AssociateDetectConfigRequest
    * @param headers - map
@@ -208,7 +217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将参数集关联资源
+   * Associate drift detection configuration
    * 
    * @param request - AssociateDetectConfigRequest
    * @returns AssociateDetectConfigResponse
@@ -220,7 +229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分组关联
+   * Associates resources with a group.
    * 
    * @param request - AssociateGroupRequest
    * @param headers - map
@@ -265,7 +274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分组关联
+   * Associates resources with a group.
    * 
    * @param request - AssociateGroupRequest
    * @returns AssociateGroupResponse
@@ -277,7 +286,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将参数集关联资源
+   * Associates parameter sets.
+   * 
+   * @remarks
+   * After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+   * - Module: template
+   * - ModuleVersion: template version
+   * - Task: node.
    * 
    * @param request - AssociateParameterSetRequest
    * @param headers - map
@@ -318,7 +333,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将参数集关联资源
+   * Associates parameter sets.
+   * 
+   * @remarks
+   * After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+   * - Module: template
+   * - ModuleVersion: template version
+   * - Task: node.
    * 
    * @param request - AssociateParameterSetRequest
    * @returns AssociateParameterSetResponse
@@ -330,7 +351,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消资源导出任务
+   * Cancels a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CancelResourceExportTaskRequest
    * @param headers - map
@@ -363,7 +387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消资源导出任务
+   * Cancels a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CancelResourceExportTaskRequest
    * @returns CancelResourceExportTaskResponse
@@ -375,7 +402,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建偏差检测配置
+   * Creates a drift detection configuration that supports manual or scheduled triggering.
+   * 
+   * @remarks
+   * ## Request Description  
+   * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+   * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+   * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+   * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
    * 
    * @param request - CreateDetectConfigRequest
    * @param headers - map
@@ -432,7 +466,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建偏差检测配置
+   * Creates a drift detection configuration that supports manual or scheduled triggering.
+   * 
+   * @remarks
+   * ## Request Description  
+   * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+   * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+   * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+   * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
    * 
    * @param request - CreateDetectConfigRequest
    * @returns CreateDetectConfigResponse
@@ -444,7 +485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分组
+   * Creates a group.
    * 
    * @param request - CreateGroupRequest
    * @param headers - map
@@ -533,7 +574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分组
+   * Creates a group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -545,7 +586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建作业
+   * Creates a job and runs a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -590,7 +634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建作业
+   * Creates a job and runs a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -602,7 +649,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Module
+   * Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateModuleRequest
    * @param headers - map
@@ -667,7 +717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Module
+   * Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateModuleRequest
    * @returns CreateModuleResponse
@@ -679,7 +732,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publish a template version.
+   * Publishes a new version for a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+   * - Use semantic versioning (such as `v1.0.0`).
    * 
    * @param request - CreateModuleVersionRequest
    * @param headers - map
@@ -720,7 +778,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publish a template version.
+   * Publishes a new version for a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+   * - Use semantic versioning (such as `v1.0.0`).
    * 
    * @param request - CreateModuleVersionRequest
    * @returns CreateModuleVersionResponse
@@ -732,7 +795,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建参数集
+   * Adds a new parameter set. You can set the name, description, and parameter list.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation creates a new parameter set.
+   * - The name field is required and can be up to 128 characters in length.
+   * - Each element in the parameters array must contain the name field. Other fields are optional.
+   * - Use the clientToken field to ensure the idempotence of the request.
+   * - The request header must contain authentication information to ensure secure access.
    * 
    * @param request - CreateParameterSetRequest
    * @param headers - map
@@ -777,7 +848,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建参数集
+   * Adds a new parameter set. You can set the name, description, and parameter list.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation creates a new parameter set.
+   * - The name field is required and can be up to 128 characters in length.
+   * - Each element in the parameters array must contain the name field. Other fields are optional.
+   * - Use the clientToken field to ensure the idempotence of the request.
+   * - The request header must contain authentication information to ensure secure access.
    * 
    * @param request - CreateParameterSetRequest
    * @returns CreateParameterSetResponse
@@ -789,7 +868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建项目
+   * Creates a project.
    * 
    * @param request - CreateProjectRequest
    * @param headers - map
@@ -830,7 +909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建项目
+   * Creates a project.
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -842,7 +921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RegistryModule
+   * Creates a Registry template.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - CreateRegistryModuleRequest
    * @param headers - map
@@ -899,7 +981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RegistryModule
+   * Creates a Registry template.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - CreateRegistryModuleRequest
    * @returns CreateRegistryModuleResponse
@@ -911,7 +996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateRegistryNamespaceRequest
    * @param headers - map
@@ -960,7 +1048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateRegistryNamespaceRequest
    * @returns CreateRegistryNamespaceResponse
@@ -972,7 +1063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建导出任务
+   * Creates a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateResourceExportTaskRequest
    * @param headers - map
@@ -1041,7 +1135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建导出任务
+   * Creates a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateResourceExportTaskRequest
    * @returns CreateResourceExportTaskResponse
@@ -1053,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源栈
+   * Creates a resource stack and triggers deployment.
    * 
    * @param request - CreateStackRequest
    * @param headers - map
@@ -1073,6 +1170,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parameterSetIds)) {
+      body["parameterSetIds"] = request.parameterSetIds;
     }
 
     if (!$dara.isNull(request.ramRole)) {
@@ -1110,7 +1211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源栈
+   * Creates a resource stack and triggers deployment.
    * 
    * @param request - CreateStackRequest
    * @returns CreateStackResponse
@@ -1122,7 +1223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Creates a node.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateTaskRequest
    * @param headers - map
@@ -1184,12 +1288,20 @@ export default class Client extends OpenApi {
       body["skipPropertyValidation"] = request.skipPropertyValidation;
     }
 
+    if (!$dara.isNull(request.skipRegionValidation)) {
+      body["skipRegionValidation"] = request.skipRegionValidation;
+    }
+
     if (!$dara.isNull(request.tags)) {
       body["tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.taskBackend)) {
       body["taskBackend"] = request.taskBackend;
+    }
+
+    if (!$dara.isNull(request.terraformProviderVersion)) {
+      body["terraformProviderVersion"] = request.terraformProviderVersion;
     }
 
     if (!$dara.isNull(request.terraformVersion)) {
@@ -1219,7 +1331,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Creates a node.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - CreateTaskRequest
    * @returns CreateTaskResponse
@@ -1231,7 +1346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除偏差检测配置
+   * Delete drift detection configuration
    * 
    * @param request - DeleteDetectConfigRequest
    * @param headers - map
@@ -1258,7 +1373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除偏差检测配置
+   * Delete drift detection configuration
    * 
    * @param request - DeleteDetectConfigRequest
    * @returns DeleteDetectConfigResponse
@@ -1270,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除分组
+   * Deletes a group.
    * 
    * @param request - DeleteGroupRequest
    * @param headers - map
@@ -1297,7 +1412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除分组
+   * Deletes a group.
    * 
    * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
@@ -1309,7 +1424,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板
+   * Deletes a specified template and all its versions.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation deletes a specified template.
+   * - Deletion is irreversible. Proceed with caution.
    * 
    * @param request - DeleteModuleRequest
    * @param headers - map
@@ -1336,7 +1456,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板
+   * Deletes a specified template and all its versions.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation deletes a specified template.
+   * - Deletion is irreversible. Proceed with caution.
    * 
    * @param request - DeleteModuleRequest
    * @returns DeleteModuleResponse
@@ -1348,7 +1473,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除参数集
+   * Deletes a specified parameter set by parameter set ID.
+   * 
+   * @remarks
+   * Deletes a specified parameter set.
    * 
    * @param request - DeleteParameterSetRequest
    * @param headers - map
@@ -1375,7 +1503,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除参数集
+   * Deletes a specified parameter set by parameter set ID.
+   * 
+   * @remarks
+   * Deletes a specified parameter set.
    * 
    * @param request - DeleteParameterSetRequest
    * @returns DeleteParameterSetResponse
@@ -1387,7 +1518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除项目
+   * Deletes a project.
    * 
    * @param request - DeleteProjectRequest
    * @param headers - map
@@ -1414,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除项目
+   * Deletes a project.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -1426,7 +1557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RegistryModule
+   * Deletes a Registry template.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryModuleRequest
    * @param headers - map
@@ -1453,7 +1587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RegistryModule
+   * Deletes a Registry template.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryModuleRequest
    * @returns DeleteRegistryModuleResponse
@@ -1465,7 +1602,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RegistryModule版本
+   * Deletes a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryModuleVersionRequest
    * @param headers - map
@@ -1492,7 +1632,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RegistryModule版本
+   * Deletes a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryModuleVersionRequest
    * @returns DeleteRegistryModuleVersionResponse
@@ -1504,7 +1647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryNamespaceRequest
    * @param headers - map
@@ -1531,7 +1677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteRegistryNamespaceRequest
    * @returns DeleteRegistryNamespaceResponse
@@ -1543,7 +1692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源导出任务
+   * Deletes a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteResourceExportTaskRequest
    * @param headers - map
@@ -1570,7 +1722,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源导出任务
+   * Deletes a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - DeleteResourceExportTaskRequest
    * @returns DeleteResourceExportTaskResponse
@@ -1582,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源栈
+   * Deletes a stack.
    * 
    * @param request - DeleteStackRequest
    * @param headers - map
@@ -1615,7 +1770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源栈
+   * Deletes a stack.
    * 
    * @param request - DeleteStackRequest
    * @returns DeleteStackResponse
@@ -1627,7 +1782,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除任务
+   * Deletes a node.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
+   * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
    * 
    * @param request - DeleteTaskRequest
    * @param headers - map
@@ -1654,7 +1813,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除任务
+   * Deletes a node.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
+   * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
    * 
    * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
@@ -1666,7 +1829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起状态文件一致性检测
+   * Initiates a state file consistency check.
+   * 
+   * @remarks
+   * This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
    * 
    * @param request - DetectTerraformStateRequest
    * @param headers - map
@@ -1707,7 +1873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起状态文件一致性检测
+   * Initiates a state file consistency check.
+   * 
+   * @remarks
+   * This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
    * 
    * @param request - DetectTerraformStateRequest
    * @returns DetectTerraformStateResponse
@@ -1719,7 +1888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除参数集关联资源关系
+   * Disassociate drift detection configuration
    * 
    * @param request - DissociateDetectConfigRequest
    * @param headers - map
@@ -1760,7 +1929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除参数集关联资源关系
+   * Disassociate drift detection configuration
    * 
    * @param request - DissociateDetectConfigRequest
    * @returns DissociateDetectConfigResponse
@@ -1772,7 +1941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消关联分组
+   * Dissociates a resource group.
    * 
    * @param request - DissociateGroupRequest
    * @param headers - map
@@ -1813,7 +1982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消关联分组
+   * Dissociates a resource group.
    * 
    * @param request - DissociateGroupRequest
    * @returns DissociateGroupResponse
@@ -1825,7 +1994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除参数集关联资源关系
+   * Dissociates a parameter set from other resources.
    * 
    * @param request - DissociateParameterSetRequest
    * @param headers - map
@@ -1866,7 +2035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除参数集关联资源关系
+   * Dissociates a parameter set from other resources.
    * 
    * @param request - DissociateParameterSetRequest
    * @returns DissociateParameterSetResponse
@@ -1878,7 +2047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行RegistryModule
+   * Executes a Module officially provided by Alibaba Cloud Terraform.
+   * 
+   * @remarks
+   * This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
    * 
    * @param request - ExecuteRegistryModuleRequest
    * @param headers - map
@@ -1915,7 +2087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行RegistryModule
+   * Executes a Module officially provided by Alibaba Cloud Terraform.
+   * 
+   * @remarks
+   * This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
    * 
    * @param request - ExecuteRegistryModuleRequest
    * @returns ExecuteRegistryModuleResponse
@@ -1927,7 +2102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行资源导出任务
+   * Runs a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ExecuteResourceExportTaskRequest
    * @param headers - map
@@ -1960,7 +2138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行资源导出任务
+   * Runs a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ExecuteResourceExportTaskRequest
    * @returns ExecuteResourceExportTaskResponse
@@ -1972,7 +2153,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformApply
+   * Executes TerraformApply.
+   * 
+   * @remarks
+   * Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+   * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ExecuteTerraformApplyRequest
    * @param headers - map
@@ -2013,7 +2198,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformApply
+   * Executes TerraformApply.
+   * 
+   * @remarks
+   * Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+   * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ExecuteTerraformApplyRequest
    * @returns ExecuteTerraformApplyResponse
@@ -2025,7 +2214,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformDestroy
+   * Executes Terraform Destroy.
+   * 
+   * @remarks
+   * Executes the Terraform Destroy command to destroy resources created by Terraform.
    * 
    * @param request - ExecuteTerraformDestroyRequest
    * @param headers - map
@@ -2062,7 +2254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformDestroy
+   * Executes Terraform Destroy.
+   * 
+   * @remarks
+   * Executes the Terraform Destroy command to destroy resources created by Terraform.
    * 
    * @param request - ExecuteTerraformDestroyRequest
    * @returns ExecuteTerraformDestroyResponse
@@ -2074,7 +2269,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformPlan
+   * Executes a Terraform plan.
+   * 
+   * @remarks
+   * Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+   * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ExecuteTerraformPlanRequest
    * @param headers - map
@@ -2115,7 +2314,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行TerraformPlan
+   * Executes a Terraform plan.
+   * 
+   * @remarks
+   * Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+   * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ExecuteTerraformPlanRequest
    * @returns ExecuteTerraformPlanResponse
@@ -2127,7 +2330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成模板
+   * Generates Terraform HCL template code.
    * 
    * @param request - GenerateModuleRequest
    * @param headers - map
@@ -2184,7 +2387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成模板
+   * Generates Terraform HCL template code.
    * 
    * @param request - GenerateModuleRequest
    * @returns GenerateModuleResponse
@@ -2196,7 +2399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 偏差检测配置详情
+   * Retrieve drift detection configuration
    * 
    * @param request - GetDetectConfigRequest
    * @param headers - map
@@ -2223,7 +2426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 偏差检测配置详情
+   * Retrieve drift detection configuration
    * 
    * @param request - GetDetectConfigRequest
    * @returns GetDetectConfigResponse
@@ -2235,7 +2438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Terraform运行结果
+   * Retrieves the result of a Terraform run.
+   * 
+   * @remarks
+   * Retrieves the result of a Terraform run.
    * 
    * @param request - GetExecuteStateRequest
    * @param headers - map
@@ -2262,7 +2468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Terraform运行结果
+   * Retrieves the result of a Terraform run.
+   * 
+   * @remarks
+   * Retrieves the result of a Terraform run.
    * 
    * @param request - GetExecuteStateRequest
    * @returns GetExecuteStateResponse
@@ -2274,7 +2483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分组
+   * Queries a group.
    * 
    * @param request - GetGroupRequest
    * @param headers - map
@@ -2301,7 +2510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分组
+   * Queries a group.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -2313,7 +2522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 作业详情
+   * Retrieves job information.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -2346,7 +2558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 作业详情
+   * Retrieves job information.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -2358,7 +2573,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Module Details
+   * Queries the details of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
    * 
    * @param request - GetModuleRequest
    * @param headers - map
@@ -2385,7 +2604,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Module Details
+   * Queries the details of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
    * 
    * @param request - GetModuleRequest
    * @returns GetModuleResponse
@@ -2397,7 +2620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板版本详情
+   * Queries the details of a specific version of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
    * 
    * @param request - GetModuleVersionRequest
    * @param headers - map
@@ -2424,7 +2651,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板版本详情
+   * Queries the details of a specific version of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
    * 
    * @param request - GetModuleVersionRequest
    * @returns GetModuleVersionResponse
@@ -2436,7 +2667,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 参数集详情
+   * Retrieves the details of a parameter set by parameter set ID.
+   * 
+   * @remarks
+   * ## Description
+   * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+   * - Authentication is required to call this operation.
+   * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
    * 
    * @param request - GetParameterSetRequest
    * @param headers - map
@@ -2463,7 +2700,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 参数集详情
+   * Retrieves the details of a parameter set by parameter set ID.
+   * 
+   * @remarks
+   * ## Description
+   * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+   * - Authentication is required to call this operation.
+   * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
    * 
    * @param request - GetParameterSetRequest
    * @returns GetParameterSetResponse
@@ -2475,7 +2718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询项目
+   * Queries a project.
    * 
    * @param request - GetProjectRequest
    * @param headers - map
@@ -2502,7 +2745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询项目
+   * Queries a project.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -2514,7 +2757,59 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule信息
+   * Retrieves the resource documentation of a Terraform provider.
+   * 
+   * @param request - GetProviderDocumentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProviderDocumentResponse
+   */
+  async getProviderDocumentWithOptions(request: $_model.GetProviderDocumentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProviderDocumentResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.providerVersion)) {
+      query["providerVersion"] = request.providerVersion;
+    }
+
+    if (!$dara.isNull(request.terraformResourceType)) {
+      query["terraformResourceType"] = request.terraformResourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProviderDocument",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/version/terraform/provider/document`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProviderDocumentResponse>(await this.callApi(params, req, runtime), new $_model.GetProviderDocumentResponse({}));
+  }
+
+  /**
+   * Retrieves the resource documentation of a Terraform provider.
+   * 
+   * @param request - GetProviderDocumentRequest
+   * @returns GetProviderDocumentResponse
+   */
+  async getProviderDocument(request: $_model.GetProviderDocumentRequest): Promise<$_model.GetProviderDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProviderDocumentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a Registry module.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryModuleRequest
    * @param headers - map
@@ -2541,7 +2836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule信息
+   * Queries a Registry module.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryModuleRequest
    * @returns GetRegistryModuleResponse
@@ -2553,7 +2851,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule版本信息
+   * Queries a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryModuleVersionRequest
    * @param headers - map
@@ -2580,7 +2881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule版本信息
+   * Queries a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryModuleVersionRequest
    * @returns GetRegistryModuleVersionResponse
@@ -2592,7 +2896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间信息
+   * Queries a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryNamespaceRequest
    * @param headers - map
@@ -2619,7 +2926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间信息
+   * Queries a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - GetRegistryNamespaceRequest
    * @returns GetRegistryNamespaceResponse
@@ -2631,7 +2941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导出任务详情
+   * Queries the details of a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetResourceExportTaskRequest
    * @param headers - map
@@ -2664,7 +2977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导出任务详情
+   * Queries the details of a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetResourceExportTaskRequest
    * @returns GetResourceExportTaskResponse
@@ -2676,7 +2992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源类型信息
+   * Retrieves resource type information.
+   * 
+   * @remarks
+   * ## Request description.
    * 
    * @param request - GetResourceTypeRequest
    * @param headers - map
@@ -2717,7 +3036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源类型信息
+   * Retrieves resource type information.
+   * 
+   * @remarks
+   * ## Request description.
    * 
    * @param request - GetResourceTypeRequest
    * @returns GetResourceTypeResponse
@@ -2729,7 +3051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源栈
+   * Queries a stack.
    * 
    * @param request - GetStackRequest
    * @param headers - map
@@ -2756,7 +3078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源栈
+   * Queries a stack.
    * 
    * @param request - GetStackRequest
    * @returns GetStackResponse
@@ -2768,7 +3090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署详情接口
+   * Queries the list of deployments for a stack.
    * 
    * @param request - GetStackDeploymentsRequest
    * @param headers - map
@@ -2821,7 +3143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 部署详情接口
+   * Queries the list of deployments for a stack.
    * 
    * @param request - GetStackDeploymentsRequest
    * @returns GetStackDeploymentsResponse
@@ -2833,7 +3155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源栈部署结果
+   * Retrieves the trigger result of a stack.
    * 
    * @param request - GetStackExecutionResultRequest
    * @param headers - map
@@ -2860,7 +3182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源栈部署结果
+   * Retrieves the trigger result of a stack.
    * 
    * @param request - GetStackExecutionResultRequest
    * @returns GetStackExecutionResultResponse
@@ -2872,7 +3194,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Retrieves the details of a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetTaskRequest
    * @param headers - map
@@ -2899,7 +3224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Retrieves the details of a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - GetTaskRequest
    * @returns GetTaskResponse
@@ -2911,7 +3239,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取状态文件检测结果
+   * Retrieves the detection result of a state file.
+   * 
+   * @remarks
+   * This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
    * 
    * @param request - GetTerraformStateDetectionRequest
    * @param headers - map
@@ -2938,7 +3269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取状态文件检测结果
+   * Retrieves the detection result of a state file.
+   * 
+   * @remarks
+   * This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
    * 
    * @param request - GetTerraformStateDetectionRequest
    * @returns GetTerraformStateDetectionResponse
@@ -2950,7 +3284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联到资源的偏差检测配置列表
+   * List drift detection associations
    * 
    * @param request - ListDetectConfigRelationsRequest
    * @param headers - map
@@ -2991,7 +3325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联到资源的偏差检测配置列表
+   * List drift detection associations
    * 
    * @param request - ListDetectConfigRelationsRequest
    * @returns ListDetectConfigRelationsResponse
@@ -3003,7 +3337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 偏差检测配置列表
+   * List drift detection configurations
    * 
    * @param request - ListDetectConfigsRequest
    * @param headers - map
@@ -3044,7 +3378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 偏差检测配置列表
+   * List drift detection configurations
    * 
    * @param request - ListDetectConfigsRequest
    * @returns ListDetectConfigsResponse
@@ -3056,7 +3390,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的egistryModule版本示例列表
+   * Retrieves the list of official Terraform Module examples.
+   * 
+   * @remarks
+   * This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+   * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+   *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+   *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+   *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+   *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+   * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
    * 
    * @param request - ListExplorerRegistryModuleExamplesRequest
    * @param headers - map
@@ -3113,7 +3459,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的egistryModule版本示例列表
+   * Retrieves the list of official Terraform Module examples.
+   * 
+   * @remarks
+   * This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+   * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+   *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+   *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+   *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+   *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+   * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
    * 
    * @param request - ListExplorerRegistryModuleExamplesRequest
    * @returns ListExplorerRegistryModuleExamplesResponse
@@ -3125,7 +3483,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的egistryModule版本列表
+   * Lists the version information of official Terraform modules provided by Alibaba Cloud.
+   * 
+   * @remarks
+   * This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+   * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+   *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+   *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+   *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+   * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
    * 
    * @param request - ListExplorerRegistryModuleVersionsRequest
    * @param headers - map
@@ -3178,7 +3547,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的egistryModule版本列表
+   * Lists the version information of official Terraform modules provided by Alibaba Cloud.
+   * 
+   * @remarks
+   * This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+   * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+   *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+   *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+   *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+   * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
    * 
    * @param request - ListExplorerRegistryModuleVersionsRequest
    * @returns ListExplorerRegistryModuleVersionsResponse
@@ -3190,7 +3570,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的Registry Module列表
+   * Lists information about official Terraform modules provided by Alibaba Cloud.
+   * 
+   * @remarks
+   * This operation queries information about official Terraform modules provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+   * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+   *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+   * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
    * 
    * @param request - ListExplorerRegistryModulesRequest
    * @param headers - map
@@ -3239,7 +3628,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Explorer的Registry Module列表
+   * Lists information about official Terraform modules provided by Alibaba Cloud.
+   * 
+   * @remarks
+   * This operation queries information about official Terraform modules provided by Alibaba Cloud.
+   * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+   * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+   * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+   *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+   *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+   * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
    * 
    * @param request - ListExplorerRegistryModulesRequest
    * @returns ListExplorerRegistryModulesResponse
@@ -3251,7 +3649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分组列表
+   * Queries the list of groups.
    * 
    * @param tmpReq - ListGroupRequest
    * @param headers - map
@@ -3306,7 +3704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分组列表
+   * Queries the list of groups.
    * 
    * @param request - ListGroupRequest
    * @returns ListGroupResponse
@@ -3318,7 +3716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 作业列表
+   * Queries a list of jobs.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListJobsRequest
    * @param headers - map
@@ -3367,7 +3768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 作业列表
+   * Queries a list of jobs.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -3379,7 +3783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板版本列表
+   * Retrieves a list of template versions.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListModuleVersionRequest
    * @param headers - map
@@ -3420,7 +3827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板版本列表
+   * Retrieves a list of template versions.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListModuleVersionRequest
    * @returns ListModuleVersionResponse
@@ -3432,7 +3842,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举模板
+   * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+   * 
+   * @remarks
+   * ## Operation description
+   * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+   * ### Notes
+   * - Use the pageNumber and pageSize parameters to control the number of returned results.
+   * - Use the name parameter to perform a fuzzy match on template names.
+   * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+   * - Use the status parameter to filter templates by status, such as Created or Published.
+   * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
    * 
    * @param tmpReq - ListModulesRequest
    * @param headers - map
@@ -3495,7 +3915,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举模板
+   * Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+   * 
+   * @remarks
+   * ## Operation description
+   * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+   * ### Notes
+   * - Use the pageNumber and pageSize parameters to control the number of returned results.
+   * - Use the name parameter to perform a fuzzy match on template names.
+   * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+   * - Use the status parameter to filter templates by status, such as Created or Published.
+   * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
    * 
    * @param request - ListModulesRequest
    * @returns ListModulesResponse
@@ -3507,7 +3937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联到资源的参数集列表
+   * Lists the parameter sets associated with a resource.
    * 
    * @param request - ListParameterSetRelationRequest
    * @param headers - map
@@ -3544,7 +3974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关联到资源的参数集列表
+   * Lists the parameter sets associated with a resource.
    * 
    * @param request - ListParameterSetRelationRequest
    * @returns ListParameterSetRelationResponse
@@ -3556,7 +3986,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 参数集列表
+   * Queries and retrieves a paginated list of parameter sets with keyword search support.
+   * 
+   * @remarks
+   * ## Operation description
+   * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+   * ### Notes
+   * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+   * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
    * 
    * @param request - ListParameterSetsRequest
    * @param headers - map
@@ -3601,7 +4038,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 参数集列表
+   * Queries and retrieves a paginated list of parameter sets with keyword search support.
+   * 
+   * @remarks
+   * ## Operation description
+   * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+   * ### Notes
+   * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+   * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
    * 
    * @param request - ListParameterSetsRequest
    * @returns ListParameterSetsResponse
@@ -3613,7 +4057,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 所有产品列表
+   * Queries the list of all products.
+   * 
+   * @remarks
+   * ## Operation description
+   * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+   * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+   * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+   * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
    * 
    * @param request - ListProductsRequest
    * @param headers - map
@@ -3670,7 +4121,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 所有产品列表
+   * Queries the list of all products.
+   * 
+   * @remarks
+   * ## Operation description
+   * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+   * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+   * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+   * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
    * 
    * @param request - ListProductsRequest
    * @returns ListProductsResponse
@@ -3682,7 +4140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询项目列表
+   * Queries the list of projects.
    * 
    * @param tmpReq - ListProjectRequest
    * @param headers - map
@@ -3733,7 +4191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询项目列表
+   * Queries the list of projects.
    * 
    * @param request - ListProjectRequest
    * @returns ListProjectResponse
@@ -3745,7 +4203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule版本列表
+   * Queries the list of Registry template versions.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryModuleVersionsRequest
    * @param headers - map
@@ -3790,7 +4251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule版本列表
+   * Queries the list of Registry template versions.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryModuleVersionsRequest
    * @returns ListRegistryModuleVersionsResponse
@@ -3802,7 +4266,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule列表
+   * Queries a list of registry modules.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryModulesRequest
    * @param headers - map
@@ -3855,7 +4322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取RegistryModule列表
+   * Queries a list of registry modules.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryModulesRequest
    * @returns ListRegistryModulesResponse
@@ -3867,7 +4337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Queries the list of workspaces.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryNamespacesRequest
    * @param headers - map
@@ -3912,7 +4385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Queries the list of workspaces.
+   * 
+   * @remarks
+   * Single-user call frequency: 200 calls per second.
    * 
    * @param request - ListRegistryNamespacesRequest
    * @returns ListRegistryNamespacesResponse
@@ -3924,7 +4400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务版本列表
+   * Retrieves the list of versions for a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListResourceExportTaskVersionsRequest
    * @param headers - map
@@ -3973,7 +4452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务版本列表
+   * Retrieves the list of versions for a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - ListResourceExportTaskVersionsRequest
    * @returns ListResourceExportTaskVersionsResponse
@@ -3985,7 +4467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导出任务列表
+   * Queries the list of resource export tasks.
+   * 
+   * @remarks
+   * Rate limit per user: 100 calls per second.
    * 
    * @param request - ListResourceExportTasksRequest
    * @param headers - map
@@ -4030,7 +4515,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导出任务列表
+   * Queries the list of resource export tasks.
+   * 
+   * @remarks
+   * Rate limit per user: 100 calls per second.
    * 
    * @param request - ListResourceExportTasksRequest
    * @returns ListResourceExportTasksResponse
@@ -4042,7 +4530,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源类型列表
+   * Queries a list of resource types by filter conditions with pagination support.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
    * 
    * @param tmpReq - ListResourceTypesRequest
    * @param headers - map
@@ -4121,7 +4613,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源类型列表
+   * Queries a list of resource types by filter conditions with pagination support.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
    * 
    * @param request - ListResourceTypesRequest
    * @returns ListResourceTypesResponse
@@ -4133,7 +4629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源列表
+   * Retrieves the resources of a node.
    * 
    * @param request - ListResourcesRequest
    * @param headers - map
@@ -4182,7 +4678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源列表
+   * Retrieves the resources of a node.
    * 
    * @param request - ListResourcesRequest
    * @returns ListResourcesResponse
@@ -4194,7 +4690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源栈配置列表
+   * Queries the list of stack configurations.
    * 
    * @param request - ListStackConfigsRequest
    * @param headers - map
@@ -4239,7 +4735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源栈配置列表
+   * Queries the list of stack configurations.
    * 
    * @param request - ListStackConfigsRequest
    * @returns ListStackConfigsResponse
@@ -4251,7 +4747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举资源栈
+   * Queries the list of stacks.
    * 
    * @param request - ListStacksRequest
    * @param headers - map
@@ -4308,7 +4804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举资源栈
+   * Queries the list of stacks.
    * 
    * @param request - ListStacksRequest
    * @returns ListStacksResponse
@@ -4320,7 +4816,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务列表
+   * Queries a list of tasks.
+   * 
+   * @remarks
+   * The maximum number of times that a single user can call this operation per second: 100.
    * 
    * @param tmpReq - ListTasksRequest
    * @param headers - map
@@ -4395,7 +4894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务列表
+   * Queries a list of tasks.
+   * 
+   * @remarks
+   * The maximum number of times that a single user can call this operation per second: 100.
    * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
@@ -4407,7 +4909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * terraformProvider版本
+   * Retrieves the list of Terraform provider versions.
    * 
    * @param request - ListTerraformProviderVersionsRequest
    * @param headers - map
@@ -4452,7 +4954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * terraformProvider版本
+   * Retrieves the list of Terraform provider versions.
    * 
    * @param request - ListTerraformProviderVersionsRequest
    * @returns ListTerraformProviderVersionsResponse
@@ -4464,7 +4966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 支持状态文件的资源导入和移除
+   * Supports resource import and removal for state files.
+   * 
+   * @remarks
+   * This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+   * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ManageTerraformStateRequest
    * @param headers - map
@@ -4517,7 +5023,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 支持状态文件的资源导入和移除
+   * Supports resource import and removal for state files.
+   * 
+   * @remarks
+   * This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+   * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
    * 
    * @param request - ManageTerraformStateRequest
    * @returns ManageTerraformStateResponse
@@ -4529,7 +5039,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 控制作业
+   * After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+   * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - OperateJobRequest
    * @param headers - map
@@ -4566,7 +5080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 控制作业
+   * After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+   * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+   * 
+   * @remarks
+   * Per-user call frequency: 100 calls per second.
    * 
    * @param request - OperateJobRequest
    * @returns OperateJobResponse
@@ -4578,7 +5096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布RegistryModule版本
+   * Publishes a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - PublishRegistryModuleVersionRequest
    * @param headers - map
@@ -4623,7 +5144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布RegistryModule版本
+   * Publishes a Registry template version.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - PublishRegistryModuleVersionRequest
    * @returns PublishRegistryModuleVersionResponse
@@ -4635,7 +5159,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除共享账号信息
+   * Removes a shared account.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param tmpReq - RemoveSharedAccountsRequest
    * @param headers - map
@@ -4682,7 +5209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除共享账号信息
+   * Removes a shared account.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - RemoveSharedAccountsRequest
    * @returns RemoveSharedAccountsResponse
@@ -4694,7 +5224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发资源栈部署
+   * Trigger Stack execution
    * 
    * @param request - TriggerStackExecutionRequest
    * @param headers - map
@@ -4743,7 +5273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发资源栈部署
+   * Trigger Stack execution
    * 
    * @param request - TriggerStackExecutionRequest
    * @returns TriggerStackExecutionResponse
@@ -4755,7 +5285,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新偏差检测配置
+   * Updates the drift detection configuration information for the specified ID.
+   * 
+   * @remarks
+   * ## Request Description  
+   * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+   * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+   * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+   * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
    * 
    * @param request - UpdateDetectConfigRequest
    * @param headers - map
@@ -4812,7 +5349,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新偏差检测配置
+   * Updates the drift detection configuration information for the specified ID.
+   * 
+   * @remarks
+   * ## Request Description  
+   * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+   * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+   * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+   * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
    * 
    * @param request - UpdateDetectConfigRequest
    * @returns UpdateDetectConfigResponse
@@ -4824,7 +5368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ExplorerModule
+   * Updates an Explorer template.
+   * 
+   * @remarks
+   * Updates an Explorer template.
    * 
    * @param request - UpdateExplorerModuleAttributeRequest
    * @param headers - map
@@ -4865,7 +5412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ExplorerModule
+   * Updates an Explorer template.
+   * 
+   * @remarks
+   * Updates an Explorer template.
    * 
    * @param request - UpdateExplorerModuleAttributeRequest
    * @returns UpdateExplorerModuleAttributeResponse
@@ -4877,7 +5427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改分组
+   * Modifies a group.
    * 
    * @param request - UpdateGroupRequest
    * @param headers - map
@@ -4962,7 +5512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改分组
+   * Modifies a group.
    * 
    * @param request - UpdateGroupRequest
    * @returns UpdateGroupResponse
@@ -4974,7 +5524,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Module
+   * Updates the name, description, tags, and other information of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+   * - The update operation does not affect the content or version information of the template.
+   * - To enable or disable deletion protection, use the deletionProtection parameter.
+   * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
    * 
    * @param request - UpdateModuleAttributeRequest
    * @param headers - map
@@ -5035,7 +5592,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Module
+   * Updates the name, description, tags, and other information of a specified template.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+   * - The update operation does not affect the content or version information of the template.
+   * - To enable or disable deletion protection, use the deletionProtection parameter.
+   * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
    * 
    * @param request - UpdateModuleAttributeRequest
    * @returns UpdateModuleAttributeResponse
@@ -5047,7 +5611,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新参数集
+   * Updates the attributes of a specified parameter set, such as the name and description.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+   * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+   * - The clientToken field can be used to ensure the idempotence of the request.
+   * - The update operation requires a valid parameterSetId as a path parameter.
+   * - The request must include authentication information to pass identity verification.
    * 
    * @param request - UpdateParameterSetAttributeRequest
    * @param headers - map
@@ -5088,7 +5660,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新参数集
+   * Updates the attributes of a specified parameter set, such as the name and description.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+   * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+   * - The clientToken field can be used to ensure the idempotence of the request.
+   * - The update operation requires a valid parameterSetId as a path parameter.
+   * - The request must include authentication information to pass identity verification.
    * 
    * @param request - UpdateParameterSetAttributeRequest
    * @returns UpdateParameterSetAttributeResponse
@@ -5100,7 +5680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改项目
+   * Updates project information.
    * 
    * @param request - UpdateProjectRequest
    * @param headers - map
@@ -5141,7 +5721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改项目
+   * Updates project information.
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -5153,7 +5733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RegistryModule
+   * Updates a Registry template.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateRegistryModuleAttributeRequest
    * @param headers - map
@@ -5194,7 +5777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RegistryModule
+   * Updates a Registry template.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateRegistryModuleAttributeRequest
    * @returns UpdateRegistryModuleAttributeResponse
@@ -5206,7 +5792,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作空间
+   * Modifies a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateRegistryNamespaceAttributeRequest
    * @param headers - map
@@ -5247,7 +5836,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作空间
+   * Modifies a workspace.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateRegistryNamespaceAttributeRequest
    * @returns UpdateRegistryNamespaceAttributeResponse
@@ -5259,7 +5851,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新导出任务
+   * Modifies a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateResourceExportTaskAttributeRequest
    * @param headers - map
@@ -5328,7 +5923,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新导出任务
+   * Modifies a resource export task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateResourceExportTaskAttributeRequest
    * @returns UpdateResourceExportTaskAttributeResponse
@@ -5340,7 +5938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源栈
+   * Modifies a stack. When the configuration changes, a stack deployment is triggered.
    * 
    * @param request - UpdateStackRequest
    * @param headers - map
@@ -5393,7 +5991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源栈
+   * Modifies a stack. When the configuration changes, a stack deployment is triggered.
    * 
    * @param request - UpdateStackRequest
    * @returns UpdateStackResponse
@@ -5405,7 +6003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改任务
+   * Updates the properties of a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateTaskAttributeRequest
    * @param headers - map
@@ -5459,8 +6060,16 @@ export default class Client extends OpenApi {
       body["skipPropertyValidation"] = request.skipPropertyValidation;
     }
 
+    if (!$dara.isNull(request.skipRegionValidation)) {
+      body["skipRegionValidation"] = request.skipRegionValidation;
+    }
+
     if (!$dara.isNull(request.tags)) {
       body["tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.terraformProviderVersion)) {
+      body["terraformProviderVersion"] = request.terraformProviderVersion;
     }
 
     if (!$dara.isNull(request.terraformVersion)) {
@@ -5490,7 +6099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改任务
+   * Updates the properties of a task.
+   * 
+   * @remarks
+   * Single-user call frequency: 100 calls per second.
    * 
    * @param request - UpdateTaskAttributeRequest
    * @returns UpdateTaskAttributeResponse
@@ -5502,7 +6114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模版上传
+   * Uploads a template.
    * 
    * @param request - UploadModuleRequest
    * @param headers - map
@@ -5553,7 +6165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模版上传
+   * Uploads a template.
    * 
    * @param request - UploadModuleRequest
    * @returns UploadModuleResponse
@@ -5651,7 +6263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模版预检
+   * Performs a dry run on a template.
+   * 
+   * @remarks
+   * Performs a dry run on the content of a Terraform configuration file.
    * 
    * @param request - ValidateModuleRequest
    * @param headers - map
@@ -5714,7 +6329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模版预检
+   * Performs a dry run on a template.
+   * 
+   * @remarks
+   * Performs a dry run on the content of a Terraform configuration file.
    * 
    * @param request - ValidateModuleRequest
    * @param headers - map
@@ -5763,7 +6381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模版预检
+   * Performs a dry run on a template.
+   * 
+   * @remarks
+   * Performs a dry run on the content of a Terraform configuration file.
    * 
    * @param request - ValidateModuleRequest
    * @returns ValidateModuleResponse

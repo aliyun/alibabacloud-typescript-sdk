@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DetectTerraformStateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the detection task.
+   * 
    * @example
    * job-dcsdxxxxxx
    */

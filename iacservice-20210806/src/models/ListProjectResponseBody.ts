@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListProjectResponseBodyProjectsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,27 +44,46 @@ export class ListProjectResponseBodyProjectsTags extends $dara.Model {
 
 export class ListProjectResponseBodyProjects extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2022-05-10T10:08:34Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The project description.
+   * 
    * @example
    * abc
    */
   description?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * 1234
    */
   name?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * p-148e7853433574fffe9fec72ed9b72
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListProjectResponseBodyProjectsTags[];
   /**
+   * @remarks
+   * The number of tasks.
+   * 
    * @example
    * 2
    */
@@ -91,22 +124,38 @@ export class ListProjectResponseBodyProjects extends $dara.Model {
 
 export class ListProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 3
    */
   count?: number;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of projects.
+   */
   projects?: ListProjectResponseBodyProjects[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 136B3926-DD90-5DB2-96EC-8BAD6407D1C9
    */

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteResourceExportTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The resource export ID.
+   * 
    * @example
    * ex-3b6cb9fa4751a6e645ad8365e6
    */
   exportTaskId?: string;
   /**
+   * @remarks
+   * The resource export version.
+   * 
    * @example
    * v1
    */
   exportVersion?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B0A7C19-9077-5975-ACBD-DEE718787992
    */

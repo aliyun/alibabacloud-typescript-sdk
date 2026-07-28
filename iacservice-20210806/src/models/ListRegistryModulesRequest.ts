@@ -4,27 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistryModulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword. Fuzzy search by module name is supported.
+   * 
    * @example
    * key
    */
   keyword?: string;
   /**
+   * @remarks
+   * The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
-   * test_namespace
+   * NamespaceName
    */
   namespaceName?: string;
   /**
+   * @remarks
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * 
    * @example
    * NFzbQCa7/yd7rAuSo5xZb54dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
   status?: string;
   /**
+   * @remarks
+   * The workspace type. Valid values:
+   * 
+   * - system: public module
+   * 
+   * - self: custom module
+   * 
+   * - shared: shared module
+   * 
+   * - community: community module
+   * 
+   * By default, all types are returned.
+   * 
    * @example
    * system
    */

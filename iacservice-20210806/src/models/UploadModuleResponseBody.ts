@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadModuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0DDD8773-5756-5508-BE36-D03DE43E2450
    */
   requestId?: string;
+  /**
+   * @remarks
+   * If ResourceType is set to ModuleVersion, this parameter takes effect and returns the version ID after publishing.
+   * 
+   * @example
+   * v1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
