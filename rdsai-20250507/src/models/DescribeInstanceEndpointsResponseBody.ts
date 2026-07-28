@@ -64,6 +64,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
    * 8.152.XXX.XXX:8000
    */
   connectionString?: string;
+  domain?: string;
   /**
    * @remarks
    * The IP address.
@@ -94,6 +95,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
+      domain: 'Domain',
       IP: 'IP',
       ipType: 'IpType',
       port: 'Port',
@@ -103,6 +105,7 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
   static types(): { [key: string]: any } {
     return {
       connectionString: 'string',
+      domain: 'string',
       IP: 'string',
       ipType: 'string',
       port: 'string',

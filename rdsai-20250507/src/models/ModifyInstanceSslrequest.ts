@@ -34,8 +34,8 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable or disable SSL. Valid values:
-   * * **1**: Enable SSL.
-   * * **0**: Disable SSL.
+   * * **1**: Enable.
+   * * **0**: Disable.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ModifyInstanceSSLRequest extends $dara.Model {
   SSLEnabled?: number;
   /**
    * @remarks
-   * The content of the custom certificate.
+   * The custom certificate content.
    * 
    * > This parameter is required when **CAType** is set to **custom**.
    * 

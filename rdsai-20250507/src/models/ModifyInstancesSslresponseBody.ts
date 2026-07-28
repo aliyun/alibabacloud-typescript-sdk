@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstancesSSLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The RDS Supabase instances whose SSL settings are modified.
+   * The list of instance IDs of AI applications that were successfully modified.
    * 
    * @example
    * [
@@ -22,10 +22,12 @@ export class ModifyInstancesSSLResponseBody extends $dara.Model {
    * 32DEFB4A-xxxx-ADD5-918E4FD7AB8C
    */
   requestId?: string;
+  SSLExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
       instanceNames: 'InstanceNames',
       requestId: 'RequestId',
+      SSLExpiredTime: 'SSLExpiredTime',
     };
   }
 
@@ -33,6 +35,7 @@ export class ModifyInstancesSSLResponseBody extends $dara.Model {
     return {
       instanceNames: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      SSLExpiredTime: 'string',
     };
   }
 

@@ -1678,7 +1678,7 @@ export default class Client extends OpenApi {
    * Queries the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1723,7 +1723,7 @@ export default class Client extends OpenApi {
    * Queries the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3665,12 +3665,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SSL settings of RDS Supabase instances in batches.
+   * Batch modifies the SSL configurations of RDS AI application instances.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - ModifyInstancesSSLRequest
@@ -3728,12 +3728,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the SSL settings of RDS Supabase instances in batches.
+   * Batch modifies the SSL configurations of RDS AI application instances.
    * 
    * @remarks
-   * ### 适用引擎
+   * ### Applicable engine
    * RDS PostgreSQL
-   * ### 相关功能文档
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyInstancesSSLRequest

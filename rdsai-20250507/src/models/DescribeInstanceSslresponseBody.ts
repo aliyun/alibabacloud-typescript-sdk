@@ -38,6 +38,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
    * 1
    */
   SSLEnabled?: string;
+  SSLExpiredTime?: string;
   /**
    * @remarks
    * The custom certificate content.
@@ -61,6 +62,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
       instanceName: 'InstanceName',
       requestId: 'RequestId',
       SSLEnabled: 'SSLEnabled',
+      SSLExpiredTime: 'SSLExpiredTime',
       serverCert: 'ServerCert',
       serverKey: 'ServerKey',
     };
@@ -73,6 +75,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
       instanceName: 'string',
       requestId: 'string',
       SSLEnabled: 'string',
+      SSLExpiredTime: 'string',
       serverCert: 'string',
       serverKey: 'string',
     };

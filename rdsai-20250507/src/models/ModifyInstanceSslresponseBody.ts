@@ -20,11 +20,13 @@ export class ModifyInstanceSSLResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
+  SSLExpiredTime?: string;
   static names(): { [key: string]: string } {
     return {
       branchName: 'BranchName',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
+      SSLExpiredTime: 'SSLExpiredTime',
     };
   }
 
@@ -33,6 +35,7 @@ export class ModifyInstanceSSLResponseBody extends $dara.Model {
       branchName: 'string',
       instanceName: 'string',
       requestId: 'string',
+      SSLExpiredTime: 'string',
     };
   }
 
