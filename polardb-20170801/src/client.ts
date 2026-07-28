@@ -788,6 +788,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates resource control.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+   * 
+   * @param request - BindResourceControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindResourceControlResponse
+   */
+  async bindResourceControlWithOptions(request: $_model.BindResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindResourceControlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceControlName)) {
+      query["ResourceControlName"] = request.resourceControlName;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!$dara.isNull(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindResourceControl",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindResourceControlResponse>(await this.callApi(params, req, runtime), new $_model.BindResourceControlResponse({}));
+  }
+
+  /**
+   * Associates resource control.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+   * 
+   * @param request - BindResourceControlRequest
+   * @returns BindResourceControlResponse
+   */
+  async bindResourceControl(request: $_model.BindResourceControlRequest): Promise<$_model.BindResourceControlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindResourceControlWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels O\\\\\\&M events at a time.
    * 
    * @param request - CancelActiveOperationTasksRequest
@@ -5998,6 +6064,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a resource control.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+   * 
+   * @param request - CreateResourceControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceControlResponse
+   */
+  async createResourceControlWithOptions(request: $_model.CreateResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceControlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cpuCount)) {
+      query["CpuCount"] = request.cpuCount;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxCpu)) {
+      query["MaxCpu"] = request.maxCpu;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceControlName)) {
+      query["ResourceControlName"] = request.resourceControlName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResourceControl",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResourceControlResponse>(await this.callApi(params, req, runtime), new $_model.CreateResourceControlResponse({}));
+  }
+
+  /**
+   * Creates a resource control.
+   * 
+   * @remarks
+   * ## Operation description
+   * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+   * 
+   * @param request - CreateResourceControlRequest
+   * @returns CreateResourceControlResponse
+   */
+  async createResourceControl(request: $_model.CreateResourceControlRequest): Promise<$_model.CreateResourceControlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createResourceControlWithOptions(request, runtime);
+  }
+
+  /**
    * Ccreates a service-linked role.
    * 
    * @param request - CreateServiceLinkedRoleRequest
@@ -8828,6 +8960,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a resource control.
+   * 
+   * @remarks
+   * > The cluster must be in the Running state. Otherwise, the operation fails.
+   * 
+   * @param request - DeleteResourceControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceControlResponse
+   */
+  async deleteResourceControlWithOptions(request: $_model.DeleteResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceControlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceControlName)) {
+      query["ResourceControlName"] = request.resourceControlName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceControl",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteResourceControlResponse>(await this.callApi(params, req, runtime), new $_model.DeleteResourceControlResponse({}));
+  }
+
+  /**
+   * Deletes a resource control.
+   * 
+   * @remarks
+   * > The cluster must be in the Running state. Otherwise, the operation fails.
+   * 
+   * @param request - DeleteResourceControlRequest
+   * @returns DeleteResourceControlResponse
+   */
+  async deleteResourceControl(request: $_model.DeleteResourceControlRequest): Promise<$_model.DeleteResourceControlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteResourceControlWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes SQL throttling rules.
    * 
    * @param request - DeleteSQLRateLimitingRulesRequest
@@ -11045,6 +11233,52 @@ export default class Client extends OpenApi {
   async describeApplicationSessionIds(request: $_model.DescribeApplicationSessionIdsRequest): Promise<$_model.DescribeApplicationSessionIdsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApplicationSessionIdsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the usage of an AI application.
+   * 
+   * @param request - DescribeApplicationUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationUsageResponse
+   */
+  async describeApplicationUsageWithOptions(request: $_model.DescribeApplicationUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.days)) {
+      query["Days"] = request.days;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationUsage",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationUsageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationUsageResponse({}));
+  }
+
+  /**
+   * Queries the usage of an AI application.
+   * 
+   * @param request - DescribeApplicationUsageRequest
+   * @returns DescribeApplicationUsageResponse
+   */
+  async describeApplicationUsage(request: $_model.DescribeApplicationUsageRequest): Promise<$_model.DescribeApplicationUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationUsageWithOptions(request, runtime);
   }
 
   /**
@@ -22310,6 +22544,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the endpoint address of a PolarDB application.
+   * 
+   * @param tmpReq - ModifyApplicationEndpointAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationEndpointAddressResponse
+   */
+  async modifyApplicationEndpointAddressWithOptions(tmpReq: $_model.ModifyApplicationEndpointAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationEndpointAddressResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyApplicationEndpointAddressShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.newPorts)) {
+      request.newPortsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.newPorts, "NewPorts", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!$dara.isNull(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    if (!$dara.isNull(request.newConnectionStringPrefix)) {
+      query["NewConnectionStringPrefix"] = request.newConnectionStringPrefix;
+    }
+
+    if (!$dara.isNull(request.newPortsShrink)) {
+      query["NewPorts"] = request.newPortsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationEndpointAddress",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationEndpointAddressResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationEndpointAddressResponse({}));
+  }
+
+  /**
+   * Modifies the endpoint address of a PolarDB application.
+   * 
+   * @param request - ModifyApplicationEndpointAddressRequest
+   * @returns ModifyApplicationEndpointAddressResponse
+   */
+  async modifyApplicationEndpointAddress(request: $_model.ModifyApplicationEndpointAddressRequest): Promise<$_model.ModifyApplicationEndpointAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationEndpointAddressWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configuration parameters of a sub-component within a specified PolarDB application.
    * 
    * @param tmpReq - ModifyApplicationParameterRequest
@@ -26714,6 +27012,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies resource control.
+   * 
+   * @remarks
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * 
+   * @param request - ModifyResourceControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourceControlResponse
+   */
+  async modifyResourceControlWithOptions(request: $_model.ModifyResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourceControlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cpuCount)) {
+      query["CpuCount"] = request.cpuCount;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxCpu)) {
+      query["MaxCpu"] = request.maxCpu;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceControlName)) {
+      query["ResourceControlName"] = request.resourceControlName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyResourceControl",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyResourceControlResponse>(await this.callApi(params, req, runtime), new $_model.ModifyResourceControlResponse({}));
+  }
+
+  /**
+   * Modifies resource control.
+   * 
+   * @remarks
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * 
+   * @param request - ModifyResourceControlRequest
+   * @returns ModifyResourceControlResponse
+   */
+  async modifyResourceControl(request: $_model.ModifyResourceControlRequest): Promise<$_model.ModifyResourceControlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyResourceControlWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies a cross-cloud resource plan.
    * 
    * @param request - ModifyResourcePackageRequest
@@ -29012,6 +29374,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Unbinds a resource control.
+   * 
+   * @remarks
+   * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+   * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+   * 
+   * @param request - UnbindResourceControlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindResourceControlResponse
+   */
+  async unbindResourceControlWithOptions(request: $_model.UnbindResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindResourceControlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceControlName)) {
+      query["ResourceControlName"] = request.resourceControlName;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!$dara.isNull(request.targetValue)) {
+      query["TargetValue"] = request.targetValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindResourceControl",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindResourceControlResponse>(await this.callApi(params, req, runtime), new $_model.UnbindResourceControlResponse({}));
+  }
+
+  /**
+   * Unbinds a resource control.
+   * 
+   * @remarks
+   * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+   * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+   * 
+   * @param request - UnbindResourceControlRequest
+   * @returns UnbindResourceControlResponse
+   */
+  async unbindResourceControl(request: $_model.UnbindResourceControlRequest): Promise<$_model.UnbindResourceControlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindResourceControlWithOptions(request, runtime);
+  }
+
+  /**
    * Uninstalls a PolarClaw plugin.
    * 
    * @param request - UninstallPolarClawPluginRequest
@@ -29671,6 +30099,52 @@ export default class Client extends OpenApi {
   async updatePolarClawSkill(request: $_model.UpdatePolarClawSkillRequest): Promise<$_model.UpdatePolarClawSkillResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePolarClawSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * Upgrades an application to a new version.
+   * 
+   * @param request - UpgradeApplicationVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeApplicationVersionResponse
+   */
+  async upgradeApplicationVersionWithOptions(request: $_model.UpgradeApplicationVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeApplicationVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.upgradePolicy)) {
+      query["UpgradePolicy"] = request.upgradePolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeApplicationVersion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeApplicationVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeApplicationVersionResponse({}));
+  }
+
+  /**
+   * Upgrades an application to a new version.
+   * 
+   * @param request - UpgradeApplicationVersionRequest
+   * @returns UpgradeApplicationVersionResponse
+   */
+  async upgradeApplicationVersion(request: $_model.UpgradeApplicationVersionRequest): Promise<$_model.UpgradeApplicationVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeApplicationVersionWithOptions(request, runtime);
   }
 
   /**
