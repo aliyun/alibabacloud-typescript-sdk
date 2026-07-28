@@ -1,29 +1,40 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AutopilotPolicy } from "./AutopilotPolicy";
 
 
-export class DeployDeploymentDraftAsyncResponseBodyData extends $dara.Model {
+export class GetAutopilotPolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous ticket. Use this ID to query the result of the asynchronous operation.
+   * Indicates whether automatic tuning is enabled. A value of true indicates that automatic tuning is in the ACTIVE state. A value of false indicates that tuning is not enabled.
    * 
    * @example
-   * b3dcdb25-bf36-457d-92ba-a36077e8****
+   * false
    */
-  ticketId?: string;
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The tuning policy configuration.
+   */
+  policyConfig?: AutopilotPolicy;
   static names(): { [key: string]: string } {
     return {
-      ticketId: 'ticketId',
+      enabled: 'enabled',
+      policyConfig: 'policyConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ticketId: 'string',
+      enabled: 'boolean',
+      policyConfig: AutopilotPolicy,
     };
   }
 
   validate() {
+    if(this.policyConfig && typeof (this.policyConfig as any).validate === 'function') {
+      (this.policyConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -32,17 +43,15 @@ export class DeployDeploymentDraftAsyncResponseBodyData extends $dara.Model {
   }
 }
 
-export class DeployDeploymentDraftAsyncResponseBody extends $dara.Model {
+export class GetAutopilotPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the asynchronous operation. This parameter is returned when the request is successful.
+   * The Autopilot tuning policy response data.
    */
-  data?: DeployDeploymentDraftAsyncResponseBodyData;
+  data?: GetAutopilotPolicyResponseBodyData;
   /**
    * @remarks
-   * - If success is false, an error code is returned.
-   * 
-   * - If success is true, an empty value is returned.
+   * The business error code. This field is not empty when success is false. This field is empty when success is true.
    * 
    * @example
    * ""
@@ -50,9 +59,7 @@ export class DeployDeploymentDraftAsyncResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * - If success is false, an error message is returned.
-   * 
-   * - If success is true, an empty value is returned.
+   * The business error message. This field is not empty when success is false. This field is empty when success is true.
    * 
    * @example
    * ""
@@ -60,7 +67,7 @@ export class DeployDeploymentDraftAsyncResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The status code of the business operation. A value other than 200 indicates that the operation failed.
+   * The business status code, which is always 200. Use the success field to determine whether the request was successful.
    * 
    * @example
    * 200
@@ -95,7 +102,7 @@ export class DeployDeploymentDraftAsyncResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: DeployDeploymentDraftAsyncResponseBodyData,
+      data: GetAutopilotPolicyResponseBodyData,
       errorCode: 'string',
       errorMessage: 'string',
       httpCode: 'number',

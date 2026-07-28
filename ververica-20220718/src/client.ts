@@ -156,6 +156,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates a streaming conversation with an AI Agent.
+   * 
+   * @param request - ChatAiAgentRequest
+   * @param headers - ChatAiAgentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatAiAgentResponse
+   */
+  async *chatAiAgentWithSSE(namespace: string, request: $_model.ChatAiAgentRequest, headers: $_model.ChatAiAgentHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatAiAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hitlDecisions)) {
+      body["hitlDecisions"] = request.hitlDecisions;
+    }
+
+    if (!$dara.isNull(request.refs)) {
+      body["refs"] = request.refs;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userMessage)) {
+      body["userMessage"] = request.userMessage;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatAiAgent",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/advisor/v2/namespaces/${$dara.URL.percentEncode(namespace)}/ai-agent/stream/agent/v2/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatAiAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatAiAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Initiates a streaming conversation with an AI Agent.
+   * 
+   * @param request - ChatAiAgentRequest
+   * @param headers - ChatAiAgentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatAiAgentResponse
+   */
+  async chatAiAgentWithOptions(namespace: string, request: $_model.ChatAiAgentRequest, headers: $_model.ChatAiAgentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ChatAiAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hitlDecisions)) {
+      body["hitlDecisions"] = request.hitlDecisions;
+    }
+
+    if (!$dara.isNull(request.refs)) {
+      body["refs"] = request.refs;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.userMessage)) {
+      body["userMessage"] = request.userMessage;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatAiAgent",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/advisor/v2/namespaces/${$dara.URL.percentEncode(namespace)}/ai-agent/stream/agent/v2/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatAiAgentResponse>(await this.callApi(params, req, runtime), new $_model.ChatAiAgentResponse({}));
+  }
+
+  /**
+   * Initiates a streaming conversation with an AI Agent.
+   * 
+   * @param request - ChatAiAgentRequest
+   * @returns ChatAiAgentResponse
+   */
+  async chatAiAgent(namespace: string, request: $_model.ChatAiAgentRequest): Promise<$_model.ChatAiAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ChatAiAgentHeaders({ });
+    return await this.chatAiAgentWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Creates a deployment.
    * 
    * @param request - CreateDeploymentRequest
@@ -1858,6 +1992,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+   * 
+   * @param request - GetAutopilotPolicyRequest
+   * @param headers - GetAutopilotPolicyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutopilotPolicyResponse
+   */
+  async getAutopilotPolicyWithOptions(namespace: string, deploymentId: string, request: $_model.GetAutopilotPolicyRequest, headers: $_model.GetAutopilotPolicyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutopilotPolicyResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutopilotPolicy",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/${$dara.URL.percentEncode(deploymentId)}/autopilotpolicy-describe`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutopilotPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetAutopilotPolicyResponse({}));
+  }
+
+  /**
+   * Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+   * 
+   * @param request - GetAutopilotPolicyRequest
+   * @returns GetAutopilotPolicyResponse
+   */
+  async getAutopilotPolicy(namespace: string, deploymentId: string, request: $_model.GetAutopilotPolicyRequest): Promise<$_model.GetAutopilotPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetAutopilotPolicyHeaders({ });
+    return await this.getAutopilotPolicyWithOptions(namespace, deploymentId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the details of a specified catalog or all catalogs.
    * 
    * @param request - GetCatalogsRequest
@@ -3185,6 +3367,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the Autopilot tuning history records.
+   * 
+   * @param request - ListAutopilotTuningHistoriesRequest
+   * @param headers - ListAutopilotTuningHistoriesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutopilotTuningHistoriesResponse
+   */
+  async listAutopilotTuningHistoriesWithOptions(namespace: string, deploymentId: string, request: $_model.ListAutopilotTuningHistoriesRequest, headers: $_model.ListAutopilotTuningHistoriesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutopilotTuningHistoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.acceptLanguage)) {
+      realHeaders["Accept-Language"] = String(headers.acceptLanguage);
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutopilotTuningHistories",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/${$dara.URL.percentEncode(deploymentId)}/tuninghistories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutopilotTuningHistoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAutopilotTuningHistoriesResponse({}));
+  }
+
+  /**
+   * Retrieves the Autopilot tuning history records.
+   * 
+   * @param request - ListAutopilotTuningHistoriesRequest
+   * @returns ListAutopilotTuningHistoriesResponse
+   */
+  async listAutopilotTuningHistories(namespace: string, deploymentId: string, request: $_model.ListAutopilotTuningHistoriesRequest): Promise<$_model.ListAutopilotTuningHistoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListAutopilotTuningHistoriesHeaders({ });
+    return await this.listAutopilotTuningHistoriesWithOptions(namespace, deploymentId, request, headers, runtime);
+  }
+
+  /**
    * Obtains a list of existing custom connectors.
    * 
    * @param headers - ListCustomConnectorsHeaders
@@ -4505,6 +4757,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.SubmitSqlPreviewHeaders({ });
     return await this.submitSqlPreviewWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Updates an Autopilot tuning policy.
+   * 
+   * @param request - UpdateAutopilotPolicyRequest
+   * @param headers - UpdateAutopilotPolicyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAutopilotPolicyResponse
+   */
+  async updateAutopilotPolicyWithOptions(namespace: string, deploymentId: string, request: $_model.UpdateAutopilotPolicyRequest, headers: $_model.UpdateAutopilotPolicyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAutopilotPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.policyConfig)) {
+      body["policyConfig"] = request.policyConfig;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAutopilotPolicy",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/autopilot/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/${$dara.URL.percentEncode(deploymentId)}/autopilotpolicy-update`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAutopilotPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAutopilotPolicyResponse({}));
+  }
+
+  /**
+   * Updates an Autopilot tuning policy.
+   * 
+   * @param request - UpdateAutopilotPolicyRequest
+   * @returns UpdateAutopilotPolicyResponse
+   */
+  async updateAutopilotPolicy(namespace: string, deploymentId: string, request: $_model.UpdateAutopilotPolicyRequest): Promise<$_model.UpdateAutopilotPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateAutopilotPolicyHeaders({ });
+    return await this.updateAutopilotPolicyWithOptions(namespace, deploymentId, request, headers, runtime);
   }
 
   /**
