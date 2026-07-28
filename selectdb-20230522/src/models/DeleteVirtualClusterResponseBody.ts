@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteVirtualClusterResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * selectdb-cn-wny3li0****-be
    */
   dbClusterId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
@@ -37,10 +43,14 @@ export class DeleteVirtualClusterResponseBodyData extends $dara.Model {
 }
 
 export class DeleteVirtualClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteVirtualClusterResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 06758CAB-1204-5852-A471-29C87D5C1D0F

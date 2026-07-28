@@ -6,6 +6,9 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   /**
    * @remarks
    * The comments on the parameter.
+   * 
+   * @example
+   * 存储引擎并发扫描硬盘的线程数。采用线程池统一管理。
    */
   comment?: string;
   /**
@@ -51,6 +54,9 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   /**
    * @remarks
    * The category of the parameter.
+   * 
+   * @example
+   * Query
    */
   paramCategory?: string;
   /**
@@ -102,7 +108,7 @@ export class DescribeDBClusterConfigResponseBodyData extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * selectdb-cn-wny3li00g02-be
+   * selectdb-cn-wny3li0****-be
    */
   dbClusterId?: string;
   /**
@@ -118,7 +124,7 @@ export class DescribeDBClusterConfigResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * selectdb-cn-wny3li00g02
+   * selectdb-cn-wny3li0****
    */
   dbInstanceName?: string;
   /**

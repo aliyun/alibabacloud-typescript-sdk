@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAllDBInstanceClassRequest extends $dara.Model {
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * Configuration file to modify. For compute clusters, it is fixed as be.conf. For fe clusters, it is fixed as fe.conf.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,23 +15,27 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * selectdb-cn-7213c8yvv09-be
+   * selectdb-cn-7213c8*****-be
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * selectdb-xxxd8a5h60y
+   * selectdb-cn-7213c8*****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to perform parallel operations on the cluster node.
+   * Whether to operate cluster nodes in parallel
    * 
    * @example
    * false
@@ -37,18 +43,26 @@ export class ModifyDBClusterConfigRequest extends $dara.Model {
   parallelOperation?: boolean;
   /**
    * @remarks
+   * JSON string of parameters and parameter values.
+   * 
    * This parameter is required.
    * 
    * @example
-   * [{\\"name\\":\\"param1\\",\\"value\\":\\"1234577777\\"},{\\"name\\":\\"param2\\",\\"value\\":\\"${yyyyMMdd}\\"}]
+   * {"param1_name":"param1_value","param2_name":"param2_value"}
    */
   parameters?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Upgrade method. If not specified, the upgrade will be performed immediately. If set to 1, the upgrade will be performed during the maintenance window.
+   * 
    * @example
    * 1
    */

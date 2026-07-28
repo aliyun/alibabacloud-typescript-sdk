@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateElasticRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule for computing resources of the required cluster.
+   * The target compute resource class for the cluster.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateElasticRuleRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * The time when you want to execute the scheduled scaling rule.
+   * The start time of the time-based scaling rule.
    * 
    * This parameter is required.
    * 
@@ -45,11 +45,7 @@ export class CreateElasticRuleRequest extends $dara.Model {
   elasticRuleStartTime?: string;
   /**
    * @remarks
-   * The execution cycle.
-   * 
-   * Valid value:
-   * 
-   * *   Day
+   * The execution epoch.
    * 
    * This parameter is required.
    * 

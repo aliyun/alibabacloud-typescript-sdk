@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVirtualClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the primary cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class CreateVirtualClusterRequest extends $dara.Model {
   activeClusterId?: string;
   /**
    * @remarks
+   * The name of the cluster. The name must start with a letter and be up to 64 characters long. It can contain letters (case-insensitive), digits, and underscores (_). The name cannot contain two or more consecutive underscores. The cluster name must be unique within the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class CreateVirtualClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,8 @@ export class CreateVirtualClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +46,8 @@ export class CreateVirtualClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the standby cluster.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * Database version.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,17 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
    * 2.4
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform parallel operations on cluster nodes
+   * 
+   * @example
+   * false
+   */
   parallelOperation?: boolean;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +44,10 @@ export class UpgradeDBInstanceEngineVersionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The update mode. If you do not specify this parameter, the system immediately updates the database engine version. If you set this parameter to 1, the system updates the database engine version during the maintenance window.
+   * Upgrade method.
+   * 
+   * - If you do not specify this parameter, the system immediately upgrades the instance.
+   * - If you set this parameter to 1, the system upgrades the instance during the maintenance window.
    * 
    * @example
    * 1

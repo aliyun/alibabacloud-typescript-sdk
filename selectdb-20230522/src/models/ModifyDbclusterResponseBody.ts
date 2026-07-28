@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 219396937240838
    */
@@ -46,14 +55,21 @@ export class ModifyDBClusterResponseBodyData extends $dara.Model {
 export class ModifyDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The instance ID.
    * 
    * @example
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ModifyDBClusterResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0BF61F90-ACED-55DF-A6FE-56714B2BFCF6
    */

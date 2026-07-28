@@ -15,6 +15,22 @@ export class ModifyDBClusterRequest extends $dara.Model {
   clusterNodeType?: string;
   /**
    * @remarks
+   * The instance class of the cluster. Valid values:
+   * 
+   * - **selectdb.xlarge**: 4 cores, 32 GB memory.
+   * 
+   * - **selectdb.2xlarge**: 8 cores, 64 GB memory.
+   * 
+   * - **selectdb.4xlarge**: 16 cores, 128 GB memory.
+   * 
+   * - **selectdb.8xlarge**: 32 cores, 256 GB memory.
+   * 
+   * - **selectdb.16xlarge**: 16 cores, 512 GB memory.
+   * 
+   * - **selectdb.24xlarge**: 24 cores, 768 GB memory.
+   * 
+   * - **selectdb.32xlarge**: 32 cores, 1024 GB memory.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +39,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBClusterClass?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +49,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,7 +59,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to selectdb.
+   * The database type. The value is fixed to selectdb.
    * 
    * @example
    * selectdb
@@ -47,6 +67,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

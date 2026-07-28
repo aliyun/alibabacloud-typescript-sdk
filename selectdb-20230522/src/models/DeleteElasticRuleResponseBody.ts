@@ -17,8 +17,9 @@ export class DeleteElasticRuleResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

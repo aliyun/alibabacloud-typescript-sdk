@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDBInstanceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example

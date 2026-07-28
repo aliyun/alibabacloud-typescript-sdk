@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 

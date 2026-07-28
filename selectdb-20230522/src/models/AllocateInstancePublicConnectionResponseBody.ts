@@ -6,6 +6,9 @@ export class AllocateInstancePublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
+   * 
+   * @example
+   * New instance test
    */
   instanceName?: string;
   /**

@@ -4,27 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * >Warning: This is a reserved parameter and is not supported.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to start the next query.
+   * >Warning: This is a reserved parameter and is not supported.
+   * 
    * @example
    * 4ea98363565e4951e0b5e8707e68181f
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +49,8 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The VPC ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +59,8 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The zone ID.
+   * 
    * This parameter is required.
    * 
    * @example

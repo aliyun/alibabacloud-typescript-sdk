@@ -4,39 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.Model {
   /**
+   * @remarks
+   * Type code.
+   * 
    * @example
    * selectdb.xlarge
    */
   classCode?: string;
   /**
+   * @remarks
+   * Number of CPU cores.
+   * 
    * @example
    * 4
    */
   cpuCores?: number;
   /**
+   * @remarks
+   * Default cache.
+   * 
    * @example
    * 200
    */
   defaultStorageInGB?: number;
   /**
+   * @remarks
+   * Maximum cache.
+   * 
    * @example
    * 2000
    */
   maxStorageInGB?: number;
   /**
    * @remarks
-   * The memory size.
+   * Memory.
    * 
    * @example
-   * 32
+   * 16
    */
   memoryInGB?: number;
   /**
+   * @remarks
+   * Minimum cache.
+   * 
    * @example
    * 100
    */
   minStorageInGB?: number;
   /**
+   * @remarks
+   * Cache increment.
+   * 
    * @example
    * 100
    */
@@ -77,10 +95,13 @@ export class DescribeAllDBInstanceClassResponseBodyClassCodeList extends $dara.M
 export class DescribeAllDBInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * Instance type list.
    */
   classCodeList?: DescribeAllDBInstanceClassResponseBodyClassCodeList[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */

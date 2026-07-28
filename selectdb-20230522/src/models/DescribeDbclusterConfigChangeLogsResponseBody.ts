@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs extends $dara.Model {
   /**
+   * @remarks
+   * The time when the task was created. The time is in GMT.
+   * 
    * @example
    * 2022-10-11T08:53:32Z
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The time when the task was last modified. The time is in GMT.
+   * 
    * @example
    * 2024-03-08T10:08Z
    */
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the change log.
+   * The ID of the change record.
    * 
    * @example
    * 617975
@@ -23,7 +29,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs ex
   id?: number;
   /**
    * @remarks
-   * Indicates whether the modification has taken effect.
+   * Indicates whether the configuration has taken effect.
    * 
    * @example
    * false
@@ -31,18 +37,24 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyDataParamChangeLogs ex
   isApplied?: boolean;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the configuration item.
    * 
    * @example
    * cumulative_compaction_rounds_for_each_base_compaction_round
    */
   name?: string;
   /**
+   * @remarks
+   * The new parameter value.
+   * 
    * @example
    * 12
    */
   newValue?: string;
   /**
+   * @remarks
+   * The original parameter value.
+   * 
    * @example
    * 10
    */
@@ -86,10 +98,13 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyData extends $dara.Mod
    * The cluster ID.
    * 
    * @example
-   * selectdb-cn-wny3li00g02-be
+   * selectdb-cn-7213c8****-be
    */
   dbClusterId?: string;
   /**
+   * @remarks
+   * The numeric ID of the instance.
+   * 
    * @example
    * 6585
    */
@@ -99,7 +114,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyData extends $dara.Mod
    * The instance ID.
    * 
    * @example
-   * selectdb-cn-wny3li00g02
+   * selectdb-cn-7213c8****
    */
   dbInstanceName?: string;
   /**
@@ -149,18 +164,21 @@ export class DescribeDBClusterConfigChangeLogsResponseBodyData extends $dara.Mod
 
 export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * failed
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The information returned.
+   * The returned data.
    */
   data?: DescribeDBClusterConfigChangeLogsResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not returned.
+   * The dynamic code. This parameter is not used. Ignore this parameter.
    * 
    * @example
    * 0
@@ -168,13 +186,16 @@ export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not returned.
+   * The dynamic message. This parameter is not used. Ignore this parameter.
    * 
    * @example
    * An error occurred while processing your request.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F8900A96-67F7-5274-A41B-7722E1ECF8C9
    */

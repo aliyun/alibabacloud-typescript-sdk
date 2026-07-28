@@ -2,8 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBInstancesResponseBodyItemsFEClusterList extends $dara.Model {
+  dbClusterId?: string;
+  nodeCount?: number;
+  singleNodeCpuCores?: number;
+  singleNodeMemoryInGB?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      nodeCount: 'NodeCount',
+      singleNodeCpuCores: 'SingleNodeCpuCores',
+      singleNodeMemoryInGB: 'SingleNodeMemoryInGB',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      nodeCount: 'number',
+      singleNodeCpuCores: 'number',
+      singleNodeMemoryInGB: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstancesResponseBodyItemsMultiZone extends $dara.Model {
+  /**
+   * @remarks
+   * The list of vSwitch IDs.
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-beijing-k
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,11 +79,17 @@ export class DescribeDBInstancesResponseBodyItemsMultiZone extends $dara.Model {
 
 export class DescribeDBInstancesResponseBodyItemsTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * testKey
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * testValue
    */
@@ -68,7 +120,7 @@ export class DescribeDBInstancesResponseBodyItemsTags extends $dara.Model {
 export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The edition of the instance. Default value: basic.
+   * The instance edition. The default value is basic.
    * 
    * @example
    * basic
@@ -78,8 +130,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go
+   * 
+   * - **Prepaid**: subscription
    * 
    * @example
    * PrePaid
@@ -101,24 +154,45 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The deployment mode of the instance:
+   * 
+   * - multi_az: zone-redundant storage.
+   * 
+   * - single_az: locally redundant storage.
+   * 
+   * @example
+   * single_az
+   */
   deployScheme?: string;
   /**
    * @remarks
    * The description of the instance.
+   * 
+   * @example
+   * New instance test
    */
   description?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database type.
    * 
    * @example
    * selectdb
    */
   engine?: string;
+  /**
+   * @remarks
+   * The minor engine version of the instance.
+   * 
+   * @example
+   * 4.0.4
+   */
   engineMinorVersion?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database version.
    * 
    * @example
    * 2.4
@@ -126,17 +200,18 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The time when the cluster expires.
+   * The expiration time of the cluster.
    * 
-   * >  A specific value is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, no value is returned.
+   * > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, this parameter is empty.
    * 
    * @example
    * 2024-03-29T03:47:05Z
    */
   expireTime?: string;
+  FEClusterList?: DescribeDBInstancesResponseBodyItemsFEClusterList[];
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in UTC.
+   * The time when the task was created (GMT).
    * 
    * @example
    * 2023-08-12T04:14Z
@@ -144,7 +219,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the task was last modified. The time is displayed in UTC.
+   * The time when the task was last modified (GMT).
    * 
    * @example
    * 2023-08-12T19:05Z
@@ -152,7 +227,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The type of the instance.
+   * The instance usage type.
    * 
    * @example
    * Instance
@@ -162,8 +237,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether the instance is deleted. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance is deleted.
+   * 
+   * - **false**: The instance is not deleted.
    * 
    * @example
    * false
@@ -187,28 +263,44 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   lockReason?: string;
   /**
    * @remarks
-   * The end timestamp of the maintenance window.
+   * The timestamp that indicates the end of the maintenance window.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   maintainEndTimeStr?: string;
   /**
    * @remarks
-   * The end time of the instance maintenance window.
+   * The end time of the maintenance window for the instance.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   maintainEndtime?: string;
   /**
    * @remarks
-   * The start timestamp of the maintenance window.
+   * The timestamp that indicates the start of the maintenance window.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   maintainStartTimeStr?: string;
   /**
    * @remarks
-   * The start time of the instance maintenance window.
+   * The start time of the maintenance window for the instance.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   maintainStarttime?: string;
+  /**
+   * @remarks
+   * The multi-zone configuration.
+   */
   multiZone?: DescribeDBInstancesResponseBodyItemsMultiZone[];
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: GB.
+   * The instance storage size. Unit: GB.
    * 
    * @example
    * 200
@@ -216,7 +308,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   objectStoreSize?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   parentInstance?: string;
   /**
@@ -229,7 +324,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of CPU cores of the instance.
+   * The allocated CPU for the resource.
    * 
    * @example
    * 8
@@ -237,12 +332,15 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   resourceCpu?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The memory capacity of the instance.
+   * The memory size.
    * 
    * @example
    * 64
@@ -250,7 +348,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   resourceMemory?: number;
   /**
    * @remarks
-   * The maximum number of RCUs.
+   * The maximum number of RDS Capacity Units (RCUs) for the instance.
    * 
    * @example
    * 0
@@ -258,7 +356,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum number of RDS capacity units (RCUs).
+   * The minimum number of RDS Capacity Units (RCUs) for the instance.
    * 
    * @example
    * 0
@@ -266,20 +364,35 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * This parameter is not returned.
+   * This field is redundant.
+   * 
+   * @example
+   * 空
    */
   scaleReplica?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance is a serverless instance.
+   * 
+   * @example
+   * false
+   */
   serverless?: boolean;
   /**
    * @remarks
    * The state of the instance. Valid values:
    * 
-   * *   **CREATING**: The instance is being created.
-   * *   **ACTIVATION**: The instance is running.
-   * *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
-   * *   **ORDER_PREPARING**: The order is being confirmed.
-   * *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
-   * *   **DELETING**: The instance is being deleted.
+   * - **CREATING**: The instance is being created.
+   * 
+   * - **ACTIVATION**: The instance is running.
+   * 
+   * - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+   * 
+   * - **ORDER_PREPARING**: The order is being confirmed.
+   * 
+   * - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
+   * 
+   * - **DELETING**: The instance is being deleted.
    * 
    * @example
    * ACTIVATION
@@ -287,7 +400,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The cache size.
+   * The storage capacity.
    * 
    * @example
    * 100
@@ -295,7 +408,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The storage type of the instance.
+   * The storage class of the instance.
    * 
    * @example
    * cloud_essd
@@ -303,27 +416,36 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The details about each tag returned.
+   * The list of tags of the instance.
    */
   tags?: DescribeDBInstancesResponseBodyItemsTags[];
   /**
    * @remarks
-   * The ID of the cluster that is monitored by Managed Service for Prometheus.
+   * The ID of the Prometheus monitoring cluster.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   tenantClusterId?: string;
   /**
    * @remarks
-   * The token that is used to access Managed Service for Prometheus.
+   * The token for connecting to Prometheus monitoring.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   tenantToken?: string;
   /**
    * @remarks
-   * The ID of the account that uses Managed Service for Prometheus.
+   * The user account label for Prometheus monitoring.
+   * 
+   * @example
+   * Reserved parameter. Not returned.
    */
   tenantUserId?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp175iuvg8nxqraf2****
@@ -347,7 +469,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The connection string of the instance.
+   * The connection address.
+   * 
+   * @example
+   * Not applicable.
    */
   connectionString?: string;
   static names(): { [key: string]: string } {
@@ -362,6 +487,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       engineMinorVersion: 'EngineMinorVersion',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      FEClusterList: 'FEClusterList',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       instanceUsedType: 'InstanceUsedType',
@@ -409,6 +535,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       engineMinorVersion: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      FEClusterList: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyItemsFEClusterList },
       gmtCreated: 'string',
       gmtModified: 'string',
       instanceUsedType: 'string',
@@ -445,6 +572,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.FEClusterList)) {
+      $dara.Model.validateArray(this.FEClusterList);
+    }
     if(Array.isArray(this.multiZone)) {
       $dara.Model.validateArray(this.multiZone);
     }
@@ -462,16 +592,18 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
 export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about each instance returned.
+   * The list of instance details.
    */
   items?: DescribeDBInstancesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default value)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -479,7 +611,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page number.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -495,7 +627,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

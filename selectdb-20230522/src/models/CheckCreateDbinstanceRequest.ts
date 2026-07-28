@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The reserved cache size, in GB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,12 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,26 +28,38 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * A client-generated token that is used to ensure the idempotence of the request. The token must be unique among different requests. The token can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+   * 
    * @example
    * AB
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The connection string of the instance.
+   * 
    * @example
    * selectdb-cn-7213c8y****-public.selectdbfe.pre.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The specifications of the instance. Valid values:
+   * The instance type. Valid values:
    * 
-   * *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory.
-   * *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory.
-   * *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory.
-   * *   **selectdb.8xlarge**: 32 CPU cores and 256 GB of memory.
-   * *   **selectdb.16xlarge**: 64 CPU cores and 512 GB of memory.
-   * *   **selectdb.24xlarge**: 96 CPU cores and 768 GB of memory.
-   * *   **selectdb.32xlarge**: 128 CPU cores and 1,024 GB of memory.
+   * - **selectdb.xlarge**: 4 cores, 32 GB.
+   * 
+   * - **selectdb.2xlarge**: 8 cores, 64 GB.
+   * 
+   * - **selectdb.4xlarge**: 16 cores, 128 GB.
+   * 
+   * - **selectdb.8xlarge**: 32 cores, 256 GB.
+   * 
+   * - **selectdb.16xlarge**: 64 cores, 512 GB.
+   * 
+   * - **selectdb.24xlarge**: 96 cores, 768 GB.
+   * 
+   * - **selectdb.32xlarge**: 128 cores, 1024 GB.
    * 
    * This parameter is required.
    * 
@@ -47,10 +67,17 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
    * selectdb.xlarge
    */
   DBInstanceClass?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * New instance test
+   */
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * The database engine type.
    * 
    * @example
    * SelectDB
@@ -58,21 +85,32 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine.
+   * The database engine version.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2.4
+   * 3.0
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * - **Year**
+   * 
+   * - **Month**
+   * 
+   * > This parameter is required and takes effect only when **ChargeType** is set to **Prepaid**.
+   * 
    * @example
    * Month
    */
   period?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,24 +118,31 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-4690g37929****
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The IP address whitelist for the instance. Separate multiple IP addresses with commas (,).
+   * 
    * @example
    * 172.16.XX.XX/12,192.168.XX.XX/22
    */
   securityIPList?: string;
   /**
    * @remarks
-   * The subscription duration of the instance. Valid values:
+   * The subscription duration. Valid values:
    * 
-   * *   If Period is set to Year, valid values of UsedTime are 1, 2, 3, 4, and 5.
-   * *   If Period is set to Month, valid values of UsedTime are 1 to 12.
+   * - If Period is set to Year, valid values are 1, 2, 3, 4, and 5.
    * 
-   * >  This parameter takes effect and is required only if ChargeType is set to Prepaid.
+   * - If Period is set to Month, valid values are integers from 1 to 12.
+   * 
+   * > This parameter is required and takes effect only when ChargeType is set to Prepaid.
    * 
    * @example
    * 1
@@ -105,6 +150,8 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -113,7 +160,7 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * This parameter is required.
    * 
@@ -123,6 +170,8 @@ export class CheckCreateDBInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The zone ID.
+   * 
    * This parameter is required.
    * 
    * @example

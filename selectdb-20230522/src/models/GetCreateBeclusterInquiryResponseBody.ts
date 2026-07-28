@@ -70,7 +70,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The amount of money.
+   * The amount.
    * 
    * @example
    * 1.76
@@ -112,7 +112,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
 export class GetCreateBEClusterInquiryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information returned.
+   * The returned data.
    */
   data?: GetCreateBEClusterInquiryResponseBodyData;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeZonesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-i
    */
@@ -37,13 +43,23 @@ export class DescribeZonesResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of results.
+   */
   items?: DescribeZonesResponseBodyItems[];
   /**
+   * @remarks
+   * The number of entries per page for a paged query.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results. If this parameter is empty, all results have been returned.
+   * 
    * @example
    * 40831b4f-d91d-4796-9589-ad306ec528d5
    */

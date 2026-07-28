@@ -7,8 +7,9 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
    * @remarks
    * The IP address type. Valid values:
    * 
-   * *   ipv4
-   * *   ipv6 (not supported)
+   * - ipv4
+   * 
+   * - ipv6 (not supported)
    * 
    * @example
    * ipv4

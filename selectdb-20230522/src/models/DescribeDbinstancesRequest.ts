@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBInstancesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * testKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * testValue
    */
@@ -40,6 +46,9 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the instance.
+   * 
+   * @example
+   * New instance test
    */
   DBInstanceDescription?: string;
   /**
@@ -54,12 +63,17 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * @remarks
    * The state of the instance. Valid values:
    * 
-   * *   **CREATING**: The instance is being created.
-   * *   **ACTIVATION**: The instance is running.
-   * *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
-   * *   **ORDER_PREPARING**: The order is being confirmed.
-   * *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
-   * *   **DELETING**: The instance is being deleted.
+   * - **CREATING**: The instance is being created.
+   * 
+   * - **ACTIVATION**: The instance is running.
+   * 
+   * - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+   * 
+   * - **ORDER_PREPARING**: The order is being confirmed.
+   * 
+   * - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
+   * 
+   * - **DELETING**: The instance is being deleted.
    * 
    * @example
    * ACTIVATION
@@ -75,11 +89,13 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -87,7 +103,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -97,13 +113,17 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-4690g37929****
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The list of tags of instances.
+   */
   tag?: DescribeDBInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {

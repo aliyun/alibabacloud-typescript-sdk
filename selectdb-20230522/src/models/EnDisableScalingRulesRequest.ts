@@ -48,8 +48,9 @@ export class EnDisableScalingRulesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * This parameter is required.
    * 

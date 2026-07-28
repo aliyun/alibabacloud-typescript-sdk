@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopBEClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BC854513-E85E-54F3-9842-B9CCD3308CDD
    */

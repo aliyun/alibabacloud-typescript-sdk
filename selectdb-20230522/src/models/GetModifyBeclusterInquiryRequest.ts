@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   /**
    * @remarks
-   * The size of the elastic cache.
+   * The elastic cache space.
    * 
    * @example
    * 200
@@ -14,11 +14,6 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
    * 
    * This parameter is required.
    * 
@@ -38,13 +33,6 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
    * @remarks
    * The commodity code.
    * 
-   * Valid values:
-   * 
-   * *   selectdb_pre_public_intl: subscription commodity on the international site (alibabacloud.com)
-   * *   selectdb_go_public_cn: pay-as-you-go commodity on the China site (aliyun.com)
-   * *   selectdb_go_public_intl: pay-as-you-go commodity on the international site (alibabacloud.com)
-   * *   selectdb_pre_public_cn: subscription commodity on the China site (aliyun.com)
-   * 
    * This parameter is required.
    * 
    * @example
@@ -53,7 +41,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The number of elastic CPU cores.
+   * The elastic computing resources.
    * 
    * @example
    * 4
@@ -71,7 +59,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to change the billing method of the cluster.
+   * Specifies whether this is an inquiry for changing the billing method of the cluster.
    * 
    * @example
    * true
@@ -79,7 +67,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   modifyClusterChargeType?: boolean;
   /**
    * @remarks
-   * The size of the reserved cache.
+   * The reserved cache space.
    * 
    * @example
    * 200
@@ -87,7 +75,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   preCacheSize?: number;
   /**
    * @remarks
-   * The number of reserved CPU cores.
+   * The reserved computing resources.
    * 
    * @example
    * 4
@@ -96,14 +84,6 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   /**
    * @remarks
    * The billing cycle.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * *   Minute
-   * *   Hour
-   * *   Day
    * 
    * This parameter is required.
    * 
@@ -118,7 +98,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The number of clusters whose specifications are to be changed.
+   * The quantity.
    * 
    * This parameter is required.
    * 

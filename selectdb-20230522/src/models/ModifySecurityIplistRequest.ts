@@ -27,9 +27,11 @@ export class ModifySecurityIPListRequest extends $dara.Model {
    * @remarks
    * The mode in which you want to modify the whitelist. Valid values:
    * 
-   * *   **0**: overwrites the IP addresses in the whitelist.
-   * *   **1**: adds IP addresses to the whitelist.
-   * *   **2**: removes IP addresses from the whitelist.
+   * - **0**: overwrites the IP addresses in the whitelist.
+   * 
+   * - **1**: adds IP addresses to the whitelist.
+   * 
+   * - **2**: removes IP addresses from the whitelist.
    * 
    * This parameter is required.
    * 

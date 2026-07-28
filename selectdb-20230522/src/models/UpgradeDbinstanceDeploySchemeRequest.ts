@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBInstanceDeploySchemeRequestMultiZone extends $dara.Model {
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
+   * The zone ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class UpgradeDBInstanceDeploySchemeRequestMultiZone extends $dara.Model {
 export class UpgradeDBInstanceDeploySchemeRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,11 +59,15 @@ export class UpgradeDBInstanceDeploySchemeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * A list of multi-zone configurations.
+   * 
    * This parameter is required.
    */
   multiZone?: UpgradeDBInstanceDeploySchemeRequestMultiZone[];
   /**
    * @remarks
+   * The ID of the region where the instance resides.
+   * 
    * This parameter is required.
    * 
    * @example

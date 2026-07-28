@@ -45,7 +45,7 @@ export class ModifyElasticRuleRequest extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   Day
+   * - Day
    * 
    * @example
    * Day

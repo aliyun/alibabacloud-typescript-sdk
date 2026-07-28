@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyVirtualClusterRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the primary cluster.
+   * 
    * @example
    * selectdb-o2yg***-be
    */
   activeClusterId?: string;
   /**
    * @remarks
+   * The virtual cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ModifyVirtualClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ModifyVirtualClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class ModifyVirtualClusterRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the standby cluster.
+   * 
    * @example
    * selectdb-pu6y****-be
    */

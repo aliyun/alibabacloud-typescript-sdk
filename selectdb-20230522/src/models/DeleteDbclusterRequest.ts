@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBClusterRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class DeleteDBClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,6 +25,8 @@ export class DeleteDBClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,7 +35,7 @@ export class DeleteDBClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 代表资源组的资源属性字段
+   * The resource group ID.
    * 
    * @example
    * rg-4690g37929****

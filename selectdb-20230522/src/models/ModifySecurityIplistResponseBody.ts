@@ -6,6 +6,9 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the instance.
+   * 
+   * @example
+   * Instance test
    */
   DBInstanceName?: string;
   /**

@@ -15,12 +15,12 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
   optionCode?: string;
   /**
    * @example
-   * 通用优惠券可抵扣100
+   * General coupon deducts 100
    */
   promotionDesc?: string;
   /**
    * @example
-   * 通用优惠券
+   * General coupon
    */
   promotionName?: string;
   /**
@@ -70,7 +70,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The estimated refund amount when the subscription cluster of a subscription instance is changed to a pay-as-you-go cluster.
+   * The estimated refund amount when you change the billing method of a subscription cluster to pay-as-you-go.
    * 
    * @example
    * -100
@@ -78,7 +78,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   refundAmount?: string;
   /**
    * @remarks
-   * The amount of money.
+   * The amount.
    * 
    * @example
    * 1.76
@@ -122,7 +122,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
 export class GetModifyBEClusterInquiryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information returned.
+   * The returned data.
    */
   data?: GetModifyBEClusterInquiryResponseBodyData;
   /**

@@ -6,6 +6,9 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   /**
    * @remarks
    * The zone description.
+   * 
+   * @example
+   * 北京H可用区
    */
   description?: string;
   /**
@@ -27,6 +30,9 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   /**
    * @remarks
    * The zone name.
+   * 
+   * @example
+   * Beijing H
    */
   name?: string;
   /**

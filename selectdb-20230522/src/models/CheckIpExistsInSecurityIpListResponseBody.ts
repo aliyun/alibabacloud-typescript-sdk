@@ -34,9 +34,6 @@ export class CheckIpExistsInSecurityIpListResponseBodyData extends $dara.Model {
 export class CheckIpExistsInSecurityIpListResponseBody extends $dara.Model {
   data?: CheckIpExistsInSecurityIpListResponseBodyData;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */

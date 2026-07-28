@@ -11,7 +11,34 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'us-west-1': "selectdb.us-west-1.aliyuncs.com",
+      'us-east-1': "selectdb.us-east-1.aliyuncs.com",
+      'na-south-1': "selectdb.na-south-1.aliyuncs.com",
+      'eu-west-1': "selectdb.eu-west-1.aliyuncs.com",
+      'eu-central-1': "selectdb.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "selectdb.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "selectdb.cn-wulanchabu.aliyuncs.com",
+      'cn-shenzhen': "selectdb.cn-shenzhen.aliyuncs.com",
+      'cn-shanghai-finance-1': "selectdb.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai': "selectdb.cn-shanghai.aliyuncs.com",
+      'cn-qingdao': "selectdb.cn-qingdao.aliyuncs.com",
+      'cn-huhehaote': "selectdb.cn-huhehaote.aliyuncs.com",
+      'cn-hongkong': "selectdb.cn-hongkong.aliyuncs.com",
+      'cn-heyuan': "selectdb.aliyuncs.com",
+      'cn-hangzhou': "selectdb.aliyuncs.com",
+      'cn-guangzhou': "selectdb.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "selectdb.cn-chengdu.aliyuncs.com",
+      'cn-beijing': "selectdb.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "selectdb.aliyuncs.com",
+      'ap-southeast-6': "selectdb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "selectdb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "selectdb.aliyuncs.com",
+      'ap-southeast-1': "selectdb.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-2': "selectdb.aliyuncs.com",
+      'ap-northeast-1': "selectdb.ap-northeast-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("selectdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -88,7 +115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Moves a specified database instance to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -131,7 +158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Moves a specified database instance to a different resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -142,7 +169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a precheck before an ApsaraDB for SelectDB instance is created.
+   * Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
    * 
    * @param request - CheckCreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -237,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a precheck before an ApsaraDB for SelectDB instance is created.
+   * Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
    * 
    * @param request - CheckCreateDBInstanceRequest
    * @returns CheckCreateDBInstanceResponse
@@ -248,8 +275,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 判断指定 IP 是否已经存在于网络白名单组
-   * 
    * @param request - CheckIpExistsInSecurityIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckIpExistsInSecurityIpListResponse
@@ -275,8 +300,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 判断指定 IP 是否已经存在于网络白名单组
-   * 
    * @param request - CheckIpExistsInSecurityIpListRequest
    * @returns CheckIpExistsInSecurityIpListResponse
    */
@@ -286,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the service-linked role of ApsaraDB for SelectDB.
+   * Call this operation to check the service-linked role.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -321,7 +344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the service-linked role of ApsaraDB for SelectDB.
+   * Call this operation to check the service-linked role.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -332,10 +355,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster in an ApsaraDB for SelectDB instance.
+   * Creates a cluster for a specified ApsaraDB for SelectDB instance.
    * 
    * @remarks
-   * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+   * >Warning: 
+   * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -436,10 +460,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster in an ApsaraDB for SelectDB instance.
+   * Creates a cluster for a specified ApsaraDB for SelectDB instance.
    * 
    * @remarks
-   * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+   * >Warning: 
+   * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -454,8 +479,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-   * *   The instance clusters reside in different zones.
-   * *   The billing method of the instance clusters is consistent.
+   * - The instance clusters reside in different zones.
+   * - The billing method of the instance clusters is consistent.
    * 
    * @param request - CreateDBClusterBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -502,8 +527,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-   * *   The instance clusters reside in different zones.
-   * *   The billing method of the instance clusters is consistent.
+   * - The instance clusters reside in different zones.
+   * - The billing method of the instance clusters is consistent.
    * 
    * @param request - CreateDBClusterBindingRequest
    * @returns CreateDBClusterBindingResponse
@@ -515,6 +540,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an ApsaraDB for SelectDB instance.
+   * 
+   * @remarks
+   * Subscription instances cannot be deleted.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,6 +687,9 @@ export default class Client extends OpenApi {
   /**
    * Creates an ApsaraDB for SelectDB instance.
    * 
+   * @remarks
+   * Subscription instances cannot be deleted.
+   * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
    */
@@ -668,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled scaling rule.
+   * Creates a time-based scaling rule.
    * 
    * @param request - CreateElasticRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -723,7 +754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled scaling rule.
+   * Creates a time-based scaling rule.
    * 
    * @param request - CreateElasticRuleRequest
    * @returns CreateElasticRuleResponse
@@ -734,7 +765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked role for ApsaraDB for SelectDB.
+   * Call this operation to create a service-linked role.
    * 
    * @param request - CreateServiceLinkedRoleForSelectDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -769,7 +800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked role for ApsaraDB for SelectDB.
+   * Call this operation to create a service-linked role.
    * 
    * @param request - CreateServiceLinkedRoleForSelectDBRequest
    * @returns CreateServiceLinkedRoleForSelectDBResponse
@@ -780,7 +811,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建虚拟集群
+   * Creates a virtual cluster.
+   * 
+   * @remarks
+   * This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+   * - The minor engine version of the instance is 4.0.7 or later.
+   * - The primary and standby clusters are in different zones.
    * 
    * @param request - CreateVirtualClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -827,7 +863,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建虚拟集群
+   * Creates a virtual cluster.
+   * 
+   * @remarks
+   * This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+   * - The minor engine version of the instance is 4.0.7 or later.
+   * - The primary and standby clusters are in different zones.
    * 
    * @param request - CreateVirtualClusterRequest
    * @returns CreateVirtualClusterResponse
@@ -952,7 +993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApsaraDB for SelectDB instance.
+   * Deletes a specified ApsaraDB SelectDB instance.
+   * 
+   * @remarks
+   * Subscription instances cannot be deleted.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +1037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an ApsaraDB for SelectDB instance.
+   * Deletes a specified ApsaraDB SelectDB instance.
+   * 
+   * @remarks
+   * Subscription instances cannot be deleted.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -1066,7 +1113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除虚拟集群
+   * Deletes a virtual cluster.
+   * 
+   * @remarks
+   * > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
    * 
    * @param request - DeleteVirtualClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1105,7 +1155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除虚拟集群
+   * Deletes a virtual cluster.
+   * 
+   * @remarks
+   * > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
    * 
    * @param request - DeleteVirtualClusterRequest
    * @returns DeleteVirtualClusterResponse
@@ -1116,7 +1169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all instance specifications.
+   * Retrieves all instance type information.
    * 
    * @param request - DescribeAllDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all instance specifications.
+   * Retrieves all instance type information.
    * 
    * @param request - DescribeAllDBInstanceClassRequest
    * @returns DescribeAllDBInstanceClassResponse
@@ -1216,7 +1269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
+   * Queries the change logs for cluster configurations.
    * 
    * @param request - DescribeDBClusterConfigChangeLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1267,7 +1320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
+   * Queries the change logs for cluster configurations.
    * 
    * @param request - DescribeDBClusterConfigChangeLogsRequest
    * @returns DescribeDBClusterConfigChangeLogsResponse
@@ -1278,7 +1331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群的各规格缓存限制
+   * Queries the cache limits for each cluster specification.
    * 
    * @param request - DescribeDBClusterStorageLimitationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,7 +1370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群的各规格缓存限制
+   * Queries the cache limits for each cluster specification.
    * 
    * @param request - DescribeDBClusterStorageLimitationRequest
    * @returns DescribeDBClusterStorageLimitationResponse
@@ -1328,7 +1381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an ApsaraDB for SelectDB instance.
+   * Gets the details of a specified instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1367,7 +1420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about an ApsaraDB for SelectDB instance.
+   * Gets the details of a specified instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1378,7 +1431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an ApsaraDB for SelectDB instance.
+   * Queries the network information of a specified ApsaraDB SelectDB instance.
    * 
    * @param request - DescribeDBInstanceNetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,7 +1470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an ApsaraDB for SelectDB instance.
+   * Queries the network information of a specified ApsaraDB SelectDB instance.
    * 
    * @param request - DescribeDBInstanceNetInfoRequest
    * @returns DescribeDBInstanceNetInfoResponse
@@ -1428,7 +1481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about ApsaraDB for SelectDB instances.
+   * Queries instances.
    * 
    * @param tmpReq - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1497,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about ApsaraDB for SelectDB instances.
+   * Queries instances.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -1543,6 +1596,124 @@ export default class Client extends OpenApi {
   async describeElasticRules(request: $_model.DescribeElasticRulesRequest): Promise<$_model.DescribeElasticRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeElasticRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the Profile analysis for a query.
+   * 
+   * @remarks
+   * We recommend using the visual interface to run a query and obtain its QueryID. For more information, see [query audit](https://help.aliyun.com/zh/selectdb/audit-queries).
+   * >Notice: 
+   * Version limitations
+   * - Version 3.0 is not supported.
+   * - This feature is not available for instances created before 2025-08-01. To enable this feature for an older instance, please submit a ticket.
+   * 
+   * @param request - DescribeProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProfileResponse
+   */
+  async describeProfileWithOptions(request: $_model.DescribeProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProfileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeProfile",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeProfileResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProfileResponse({}));
+  }
+
+  /**
+   * Retrieves the Profile analysis for a query.
+   * 
+   * @remarks
+   * We recommend using the visual interface to run a query and obtain its QueryID. For more information, see [query audit](https://help.aliyun.com/zh/selectdb/audit-queries).
+   * >Notice: 
+   * Version limitations
+   * - Version 3.0 is not supported.
+   * - This feature is not available for instances created before 2025-08-01. To enable this feature for an older instance, please submit a ticket.
+   * 
+   * @param request - DescribeProfileRequest
+   * @returns DescribeProfileResponse
+   */
+  async describeProfile(request: $_model.DescribeProfileRequest): Promise<$_model.DescribeProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the execution plan (Explain) for a query.
+   * 
+   * @param request - DescribeQueryExplainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQueryExplainResponse
+   */
+  async describeQueryExplainWithOptions(request: $_model.DescribeQueryExplainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeQueryExplainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.queryId)) {
+      query["QueryId"] = request.queryId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeQueryExplain",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeQueryExplainResponse>(await this.callApi(params, req, runtime), new $_model.DescribeQueryExplainResponse({}));
+  }
+
+  /**
+   * Retrieves the execution plan (Explain) for a query.
+   * 
+   * @param request - DescribeQueryExplainRequest
+   * @returns DescribeQueryExplainResponse
+   */
+  async describeQueryExplain(request: $_model.DescribeQueryExplainRequest): Promise<$_model.DescribeQueryExplainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeQueryExplainWithOptions(request, runtime);
   }
 
   /**
@@ -1634,7 +1805,123 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeVSwitches
+   * Retrieve slow query statistics for a time range.
+   * 
+   * @param request - DescribeSlowQueryStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowQueryStatsResponse
+   */
+  async describeSlowQueryStatsWithOptions(request: $_model.DescribeSlowQueryStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowQueryStatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.thresholdMs)) {
+      query["ThresholdMs"] = request.thresholdMs;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSlowQueryStats",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSlowQueryStatsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSlowQueryStatsResponse({}));
+  }
+
+  /**
+   * Retrieve slow query statistics for a time range.
+   * 
+   * @param request - DescribeSlowQueryStatsRequest
+   * @returns DescribeSlowQueryStatsResponse
+   */
+  async describeSlowQueryStats(request: $_model.DescribeSlowQueryStatsRequest): Promise<$_model.DescribeSlowQueryStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSlowQueryStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取表结构
+   * 
+   * @param request - DescribeTableSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTableSchemaResponse
+   */
+  async describeTableSchemaWithOptions(request: $_model.DescribeTableSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTableSchemaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.table)) {
+      query["Table"] = request.table;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTableSchema",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTableSchemaResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTableSchemaResponse({}));
+  }
+
+  /**
+   * 获取表结构
+   * 
+   * @param request - DescribeTableSchemaRequest
+   * @returns DescribeTableSchemaResponse
+   */
+  async describeTableSchema(request: $_model.DescribeTableSchemaRequest): Promise<$_model.DescribeTableSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTableSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries vSwitches in a specified zone.
    * 
    * @param request - DescribeVSwitchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1689,7 +1976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeVSwitches
+   * Queries vSwitches in a specified zone.
    * 
    * @param request - DescribeVSwitchesRequest
    * @returns DescribeVSwitchesResponse
@@ -1700,7 +1987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeZones
+   * Describes the available zones.
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1739,7 +2026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeZones
+   * Describes the available zones.
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -1812,7 +2099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
+   * Queries pricing information for creating a new cluster in a SelectDB instance.
    * 
    * @param request - GetCreateBEClusterInquiryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1839,7 +2126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
+   * Queries pricing information for creating a new cluster in a SelectDB instance.
    * 
    * @param request - GetCreateBEClusterInquiryRequest
    * @returns GetCreateBEClusterInquiryResponse
@@ -1850,7 +2137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
+   * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1877,7 +2164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
+   * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @returns GetModifyBEClusterInquiryResponse
@@ -1888,7 +2175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
+   * Modifies the cluster name of an ApsaraDB SelectDB instance.
    * 
    * @param request - ModifyBEClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1939,7 +2226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
+   * Modifies the cluster name of an ApsaraDB SelectDB instance.
    * 
    * @param request - ModifyBEClusterAttributeRequest
    * @returns ModifyBEClusterAttributeResponse
@@ -1950,7 +2237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales a cluster in an ApsaraDB for SelectDB instance.
+   * Scales out or in a specified ApsaraDB for SelectDB cluster.
    * 
    * @param request - ModifyDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2021,7 +2308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales a cluster in an ApsaraDB for SelectDB instance.
+   * Scales out or in a specified ApsaraDB for SelectDB cluster.
    * 
    * @param request - ModifyDBClusterRequest
    * @returns ModifyDBClusterResponse
@@ -2032,7 +2319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
+   * Modifies the cluster configuration.
    * 
    * @param request - ModifyDBClusterConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,7 +2374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
+   * Modifies the cluster configuration.
    * 
    * @param request - ModifyDBClusterConfigRequest
    * @returns ModifyDBClusterConfigResponse
@@ -2292,7 +2579,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改虚拟集群
+   * Modifies a virtual cluster.
+   * 
+   * @remarks
+   * - You can modify the primary cluster independently.
+   * - You can modify the standby cluster independently.
+   * - You can switch between the primary and standby clusters.
+   * >Warning: 
+   * You cannot modify both the primary and standby clusters in the same operation.
    * 
    * @param request - ModifyVirtualClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2339,7 +2633,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改虚拟集群
+   * Modifies a virtual cluster.
+   * 
+   * @remarks
+   * - You can modify the primary cluster independently.
+   * - You can modify the standby cluster independently.
+   * - You can switch between the primary and standby clusters.
+   * >Warning: 
+   * You cannot modify both the primary and standby clusters in the same operation.
    * 
    * @param request - ModifyVirtualClusterRequest
    * @returns ModifyVirtualClusterResponse
@@ -2404,7 +2705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the password of an account for an ApsaraDB for SelectDB instance.
+   * Resets the password for a database account in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ResetAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2431,7 +2732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the password of an account for an ApsaraDB for SelectDB instance.
+   * Resets the password for a database account in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ResetAccountPasswordRequest
    * @returns ResetAccountPasswordResponse
@@ -2442,7 +2743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a cluster in an ApsaraDB for SelectDB instance.
+   * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - RestartDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,7 +2796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a cluster in an ApsaraDB for SelectDB instance.
+   * Restarts the cluster of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - RestartDBClusterRequest
    * @returns RestartDBClusterResponse
@@ -2506,7 +2807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a cluster in an ApsaraDB for SelectDB instance.
+   * Starts a specified ApsaraDB SelectDB cluster.
    * 
    * @param request - StartBEClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2549,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a cluster in an ApsaraDB for SelectDB instance.
+   * Starts a specified ApsaraDB SelectDB cluster.
    * 
    * @param request - StartBEClusterRequest
    * @returns StartBEClusterResponse
@@ -2560,7 +2861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a cluster in an ApsaraDB for SelectDB instance.
+   * Stops a specified ApsaraDB SelectDB cluster.
    * 
    * @param request - StopBEClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2603,7 +2904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a cluster in an ApsaraDB for SelectDB instance.
+   * Stops a specified ApsaraDB SelectDB cluster.
    * 
    * @param request - StopBEClusterRequest
    * @returns StopBEClusterResponse
@@ -2614,7 +2915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打用户标签
+   * Adds tags to one or more instances.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2657,7 +2958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打用户标签
+   * Adds tags to one or more instances.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2668,7 +2969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源去除用户标签
+   * Removes tags from instances.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2715,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源去除用户标签
+   * Removes tags from instances.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -2726,7 +3027,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpgradeDBInstanceDeployScheme
+   * Upgrades a locally redundant instance to a zone-redundant instance.
+   * 
+   * @remarks
+   * When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
+   * > Version requirements
+   * >
+   * > - The minor version of the instance must be 4.0.4 or later.
    * 
    * @param tmpReq - UpgradeDBInstanceDeploySchemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2775,7 +3082,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpgradeDBInstanceDeployScheme
+   * Upgrades a locally redundant instance to a zone-redundant instance.
+   * 
+   * @remarks
+   * When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
+   * > Version requirements
+   * >
+   * > - The minor version of the instance must be 4.0.4 or later.
    * 
    * @param request - UpgradeDBInstanceDeploySchemeRequest
    * @returns UpgradeDBInstanceDeploySchemeResponse
@@ -2786,7 +3099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the database engine version of an ApsaraDB for SelectDB instance.
+   * Upgrades the database version of a specified ApsaraDB SelectDB instance.
    * 
    * @param request - UpgradeDBInstanceEngineVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,7 +3150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the database engine version of an ApsaraDB for SelectDB instance.
+   * Upgrades the database version of a specified ApsaraDB SelectDB instance.
    * 
    * @param request - UpgradeDBInstanceEngineVersionRequest
    * @returns UpgradeDBInstanceEngineVersionResponse

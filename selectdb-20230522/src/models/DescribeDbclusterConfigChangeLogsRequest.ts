@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration file that you want to modify. For a compute cluster, set the value to be.conf. For a frontend (FE) cluster, set the value to fe.conf.
+   * The configuration file that was modified. The value is \\`be.conf\\` for a compute cluster and \\`fe.conf\\` for an FE cluster.
    * 
    * @example
    * be.conf
@@ -18,7 +18,7 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * selectdb-cn-7213c8yvv09-be
+   * selectdb-cn-7213c8****-be
    */
   DBClusterId?: string;
   /**
@@ -28,21 +28,23 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * selectdb-cn-jia3ma3b003
+   * selectdb-cn-7213c8****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2023-05-08T15:59:59Z
+   * 2023-05-08 15:59:59
    */
   endTime?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,12 +53,12 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2023-04-25T09:48:23Z
+   * 2023-04-25 09:48:23
    */
   startTime?: string;
   static names(): { [key: string]: string } {

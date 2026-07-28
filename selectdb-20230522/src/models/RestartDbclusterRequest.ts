@@ -25,7 +25,7 @@ export class RestartDBClusterRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to perform parallel operations on the cluster node.
+   * Specifies whether to restart the cluster nodes in parallel.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class RestartDBClusterRequest extends $dara.Model {
   parallelOperation?: boolean;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class RestartDBClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-4690g37929****

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartBEClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F203FA74-3041-589F-BE66-E570793A0C91
    */

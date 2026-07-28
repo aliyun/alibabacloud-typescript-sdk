@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVirtualClusterResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * selectdb-cn-7213cjv2ez-be
    */
   dbClusterId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
@@ -37,10 +43,14 @@ export class CreateVirtualClusterResponseBodyData extends $dara.Model {
 }
 
 export class CreateVirtualClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateVirtualClusterResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 5ED62C81-9948-5612-81E1-EA3853752306

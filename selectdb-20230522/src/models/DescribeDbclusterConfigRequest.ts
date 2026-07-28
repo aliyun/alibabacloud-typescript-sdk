@@ -7,8 +7,9 @@ export class DescribeDBClusterConfigRequest extends $dara.Model {
    * @remarks
    * The configuration file to be modified.
    * 
-   * *   For a compute cluster, set the value to be.conf.
-   * *   For a frontend (FE) cluster, set the value to fe.conf.
+   * - For a compute cluster, set the value to be.conf.
+   * 
+   * - For a frontend (FE) cluster, set the value to fe.conf.
    * 
    * This parameter is required.
    * 

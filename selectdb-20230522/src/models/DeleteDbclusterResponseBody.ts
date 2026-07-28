@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDBClusterResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 220088764060782
    */
@@ -37,8 +43,15 @@ export class DeleteDBClusterResponseBodyData extends $dara.Model {
 }
 
 export class DeleteDBClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteDBClusterResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F203FA74-3041-589F-BE66-E570793A0C91
    */

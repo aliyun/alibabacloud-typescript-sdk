@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The destination resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * The ID of the instance you want to move.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The type of the resource. Default value: `DBInstance`.
+   * 
    * @example
    * DBInstance
    */

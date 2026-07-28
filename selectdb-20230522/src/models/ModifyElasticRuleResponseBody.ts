@@ -41,7 +41,7 @@ export class ModifyElasticRuleResponseBodyData extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   Day
+   * - Day
    * 
    * @example
    * Day

@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList extends $dara.Model {
   /**
+   * @remarks
+   * The specification code.
+   * 
    * @example
    * selectdb.xlarge
    */
   classCode?: string;
   /**
+   * @remarks
+   * The number of vCPU cores.
+   * 
    * @example
    * 4
    */
   cpuCores?: number;
   /**
+   * @remarks
+   * The default cache size in GB.
+   * 
    * @example
    * 8
    */
   defaultStorageInGB?: number;
   /**
+   * @remarks
+   * The maximum cache size in GB.
+   * 
    * @example
    * 16
    */
   maxStorageInGB?: number;
   /**
+   * @remarks
+   * The memory size in GB.
+   * 
    * @example
    * 16
    */
   memoryInGB?: number;
   /**
+   * @remarks
+   * The minimum cache size in GB.
+   * 
    * @example
    * 2
    */
   minStorageInGB?: number;
   /**
+   * @remarks
+   * The cache step size in GB.
+   * 
    * @example
    * 1
    */
@@ -72,6 +93,10 @@ export class DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList ext
 }
 
 export class DescribeDBClusterStorageLimitationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cache specifications.
+   */
   classCodeList?: DescribeDBClusterStorageLimitationResponseBodyDataClassCodeList[];
   static names(): { [key: string]: string } {
     return {
@@ -99,22 +124,38 @@ export class DescribeDBClusterStorageLimitationResponseBodyData extends $dara.Mo
 
 export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denial. This field is returned only when the RAM verification fails.
+   * 
    * @example
    * failed
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeDBClusterStorageLimitationResponseBodyData;
   /**
+   * @remarks
+   * The dynamic code. This parameter is not used. Ignore this parameter.
+   * 
    * @example
    * 0
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic message. This parameter is not used. Ignore this parameter.
+   * 
    * @example
    * An error occurred while processing your request.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */

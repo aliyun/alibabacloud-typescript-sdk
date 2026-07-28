@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID.
+   * 
    * @example
-   * selectdb-cn-wny3li00g02-be
+   * selectdb-cn-7213c8*****
    */
   dbClusterId?: string;
   /**
+   * @remarks
+   * Instance numeric ID.
+   * 
    * @example
    * 6585
    */
   dbInstanceId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
-   * selectdb-cn-wny3li00g02
+   * selectdb-cn-7213c8*****
    */
   dbInstanceName?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 107878719
    */
@@ -52,14 +64,21 @@ export class ModifyDBClusterConfigResponseBodyData extends $dara.Model {
 
 export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Access denied details.
+   * 
    * @example
    * failed
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Return data.
+   */
   data?: ModifyDBClusterConfigResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not returned.
+   * Dynamic code, currently not in use, please ignore.
    * 
    * @example
    * 0
@@ -67,13 +86,16 @@ export class ModifyDBClusterConfigResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not returned.
+   * Dynamic message, currently not in use, please ignore.
    * 
    * @example
    * An error occurred while processing your request.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * BC854513-E85E-54F3-9842-B9CCD3308CDD
    */
