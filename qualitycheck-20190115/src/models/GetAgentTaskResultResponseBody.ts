@@ -49,7 +49,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
    * The result returned by the large language model.
    * 
    * @example
-   * 175/xl the fabric feels very comfortable, looks quite slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
+   * 175/XL the fabric feels very comfortable, looks slim when worn, great clothes super good-looking, quality and feel are top-notch, very satisfied with this purchase.
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse ex
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList extends $dara.Model {
   /**
    * @remarks
-   * The field name.
+   * The property name.
    * 
    * @example
    * phone
@@ -97,7 +97,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
   remarks?: string;
   /**
    * @remarks
-   * The field value.
+   * The property value.
    * 
    * @example
    * 1234561
@@ -136,7 +136,7 @@ export class GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList 
 export class GetAgentTaskResultResponseBodyDataResponseFieldResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of fields.
+   * The list of properties.
    */
   fieldVoList?: GetAgentTaskResultResponseBodyDataResponseFieldResponseFieldVoList[];
   static names(): { [key: string]: string } {
@@ -174,7 +174,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether the tag is matched.
+   * Indicates whether the label is matched.
    * 
    * @example
    * true
@@ -256,7 +256,7 @@ export class GetAgentTaskResultResponseBodyDataResponseServiceInspectionResponse
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList extends $dara.Model {
   /**
    * @remarks
-   * The tag dimension.
+   * The label dimension.
    * 
    * @example
    * Customer intent.
@@ -264,7 +264,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
   dimension?: string;
   /**
    * @remarks
-   * Indicates whether the tag is matched.
+   * Indicates whether the label is matched.
    * 
    * @example
    * true
@@ -326,7 +326,7 @@ export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCat
 export class GetAgentTaskResultResponseBodyDataResponseTagCategoryResponse extends $dara.Model {
   /**
    * @remarks
-   * The list of tags.
+   * The list of labels.
    */
   tagCategoryVoList?: GetAgentTaskResultResponseBodyDataResponseTagCategoryResponseTagCategoryVoList[];
   static names(): { [key: string]: string } {
@@ -504,7 +504,7 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
   customerPromptResponse?: GetAgentTaskResultResponseBodyDataResponseCustomerPromptResponse;
   /**
    * @remarks
-   * The field extraction result.
+   * The property extraction result.
    */
   fieldResponse?: GetAgentTaskResultResponseBodyDataResponseFieldResponse;
   /**
@@ -562,17 +562,44 @@ export class GetAgentTaskResultResponseBodyDataResponse extends $dara.Model {
   }
 }
 
+export class GetAgentTaskResultResponseBodyDataUsage extends $dara.Model {
+  inputTokens?: string;
+  outputTokens?: string;
+  totalTokens?: string;
+  tymxPlusCount?: string;
+  tymxTurboCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+      tymxPlusCount: 'TymxPlusCount',
+      tymxTurboCount: 'TymxTurboCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'string',
+      outputTokens: 'string',
+      totalTokens: 'string',
+      tymxPlusCount: 'string',
+      tymxTurboCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   dialogues?: GetAgentTaskResultResponseBodyDataDialogues[];
   errorMessage?: string;
-  /**
-   * @remarks
-   * The number of input tokens.
-   * 
-   * @example
-   * 100
-   */
-  inputTokens?: string;
   /**
    * @remarks
    * The request ID returned by the large language model service.
@@ -583,14 +610,6 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
   llmRequestId?: string;
   /**
    * @remarks
-   * The number of output tokens.
-   * 
-   * @example
-   * 200
-   */
-  outputTokens?: string;
-  /**
-   * @remarks
    * The result of the computation task.
    */
   response?: GetAgentTaskResultResponseBodyDataResponse;
@@ -598,10 +617,10 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - 1: pending
-   * - 2: running
-   * - 3: succeeded
-   * - 4: failed
+   * - 1: pending.
+   * - 2: running.
+   * - 3: succeeded.
+   * - 4: failed.
    * 
    * @example
    * 1
@@ -615,30 +634,7 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
    * A6BEC8D-9A5B-4BE5-8432-4F635E***
    */
   taskId?: string;
-  /**
-   * @remarks
-   * The total number of tokens.
-   * 
-   * @example
-   * 300
-   */
-  totalTokens?: string;
-  /**
-   * @remarks
-   * The number of times the plus model is used.
-   * 
-   * @example
-   * 1
-   */
-  tyxmPlusCount?: string;
-  /**
-   * @remarks
-   * The number of times the turbo model is used.
-   * 
-   * @example
-   * 1
-   */
-  tyxmTurboCount?: string;
+  usage?: GetAgentTaskResultResponseBodyDataUsage;
   /**
    * @remarks
    * The session ID.
@@ -651,15 +647,11 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
     return {
       dialogues: 'Dialogues',
       errorMessage: 'ErrorMessage',
-      inputTokens: 'InputTokens',
       llmRequestId: 'LlmRequestId',
-      outputTokens: 'OutputTokens',
       response: 'Response',
       status: 'Status',
       taskId: 'TaskId',
-      totalTokens: 'TotalTokens',
-      tyxmPlusCount: 'TyxmPlusCount',
-      tyxmTurboCount: 'TyxmTurboCount',
+      usage: 'Usage',
       vid: 'Vid',
     };
   }
@@ -668,15 +660,11 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
     return {
       dialogues: { 'type': 'array', 'itemType': GetAgentTaskResultResponseBodyDataDialogues },
       errorMessage: 'string',
-      inputTokens: 'string',
       llmRequestId: 'string',
-      outputTokens: 'string',
       response: GetAgentTaskResultResponseBodyDataResponse,
       status: 'string',
       taskId: 'string',
-      totalTokens: 'string',
-      tyxmPlusCount: 'string',
-      tyxmTurboCount: 'string',
+      usage: GetAgentTaskResultResponseBodyDataUsage,
       vid: 'string',
     };
   }
@@ -687,6 +675,9 @@ export class GetAgentTaskResultResponseBodyData extends $dara.Model {
     }
     if(this.response && typeof (this.response as any).validate === 'function') {
       (this.response as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
     }
     super.validate();
   }
@@ -728,10 +719,10 @@ export class GetAgentTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
+   * Indicates whether the request was successful. You can use this field to determine whether the request was successful:
    * 
-   * - **true**: The request succeeded.
-   * - **false/null**: The request failed.
+   * - **true**: successful.
+   * - **false/null**: failed.
    * 
    * @example
    * true

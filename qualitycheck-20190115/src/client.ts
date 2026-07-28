@@ -1384,52 +1384,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a speech recognition quality check task.
-   * 
-   * @param request - DeletePrecisionTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeletePrecisionTaskResponse
-   */
-  async deletePrecisionTaskWithOptions(request: $_model.DeletePrecisionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrecisionTaskResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeletePrecisionTask",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeletePrecisionTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrecisionTaskResponse({}));
-  }
-
-  /**
-   * Delete a speech recognition quality check task.
-   * 
-   * @param request - DeletePrecisionTaskRequest
-   * @returns DeletePrecisionTaskResponse
-   */
-  async deletePrecisionTask(request: $_model.DeletePrecisionTaskRequest): Promise<$_model.DeletePrecisionTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deletePrecisionTaskWithOptions(request, runtime);
-  }
-
-  /**
    * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
    * 
    * @param request - DeleteQualityCheckSchemeRequest
@@ -2065,7 +2019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task result of an agent node.
+   * Retrieves the task result of an Agent node.
    * 
    * @param request - GetAgentTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2100,7 +2054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task result of an agent node.
+   * Retrieves the task result of an Agent node.
    * 
    * @param request - GetAgentTaskResultRequest
    * @returns GetAgentTaskResultResponse
@@ -2430,52 +2384,6 @@ export default class Client extends OpenApi {
   async getNextResultToVerify(request: $_model.GetNextResultToVerifyRequest): Promise<$_model.GetNextResultToVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNextResultToVerifyWithOptions(request, runtime);
-  }
-
-  /**
-   * Retrieves the details of a (speech recognition) detection task.
-   * 
-   * @param request - GetPrecisionTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetPrecisionTaskResponse
-   */
-  async getPrecisionTaskWithOptions(request: $_model.GetPrecisionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPrecisionTaskResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetPrecisionTask",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetPrecisionTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetPrecisionTaskResponse({}));
-  }
-
-  /**
-   * Retrieves the details of a (speech recognition) detection task.
-   * 
-   * @param request - GetPrecisionTaskRequest
-   * @returns GetPrecisionTaskResponse
-   */
-  async getPrecisionTask(request: $_model.GetPrecisionTaskRequest): Promise<$_model.GetPrecisionTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getPrecisionTaskWithOptions(request, runtime);
   }
 
   /**
@@ -3068,57 +2976,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about all scoring items.
-   * 
-   * @deprecated OpenAPI GetScoreInfo is deprecated
-   * 
-   * @param request - GetScoreInfoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetScoreInfoResponse
-   */
-  async getScoreInfoWithOptions(request: $_model.GetScoreInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScoreInfoResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetScoreInfo",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetScoreInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetScoreInfoResponse({}));
-  }
-
-  /**
-   * Retrieves information about all scoring items.
-   * 
-   * @deprecated OpenAPI GetScoreInfo is deprecated
-   * 
-   * @param request - GetScoreInfoRequest
-   * @returns GetScoreInfoResponse
-   */
-  // Deprecated
-  async getScoreInfo(request: $_model.GetScoreInfoRequest): Promise<$_model.GetScoreInfoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getScoreInfoWithOptions(request, runtime);
-  }
-
-  /**
    * Retrieves the configuration that is specified by its ID.
    * 
    * @deprecated OpenAPI GetSkillGroupConfig is deprecated
@@ -3510,52 +3367,6 @@ export default class Client extends OpenApi {
   async listDataSet(request: $_model.ListDataSetRequest): Promise<$_model.ListDataSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataSetWithOptions(request, runtime);
-  }
-
-  /**
-   * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-   * 
-   * @param request - ListPrecisionTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListPrecisionTaskResponse
-   */
-  async listPrecisionTaskWithOptions(request: $_model.ListPrecisionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrecisionTaskResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ListPrecisionTask",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ListPrecisionTaskResponse>(await this.callApi(params, req, runtime), new $_model.ListPrecisionTaskResponse({}));
-  }
-
-  /**
-   * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-   * 
-   * @param request - ListPrecisionTaskRequest
-   * @returns ListPrecisionTaskResponse
-   */
-  async listPrecisionTask(request: $_model.ListPrecisionTaskRequest): Promise<$_model.ListPrecisionTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.listPrecisionTaskWithOptions(request, runtime);
   }
 
   /**
@@ -4484,52 +4295,6 @@ export default class Client extends OpenApi {
   async submitComplaint(request: $_model.SubmitComplaintRequest): Promise<$_model.SubmitComplaintResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitComplaintWithOptions(request, runtime);
-  }
-
-  /**
-   * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-   * 
-   * @param request - SubmitPrecisionTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SubmitPrecisionTaskResponse
-   */
-  async submitPrecisionTaskWithOptions(request: $_model.SubmitPrecisionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitPrecisionTaskResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "SubmitPrecisionTask",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.SubmitPrecisionTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitPrecisionTaskResponse({}));
-  }
-
-  /**
-   * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-   * 
-   * @param request - SubmitPrecisionTaskRequest
-   * @returns SubmitPrecisionTaskResponse
-   */
-  async submitPrecisionTask(request: $_model.SubmitPrecisionTaskRequest): Promise<$_model.SubmitPrecisionTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.submitPrecisionTaskWithOptions(request, runtime);
   }
 
   /**
@@ -6008,98 +5773,6 @@ export default class Client extends OpenApi {
   async uploadRule(request: $_model.UploadRuleRequest): Promise<$_model.UploadRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadRuleWithOptions(request, runtime);
-  }
-
-  /**
-   * Saves the verification result of a single file.
-   * 
-   * @param request - VerifyFileRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns VerifyFileResponse
-   */
-  async verifyFileWithOptions(request: $_model.VerifyFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyFileResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "VerifyFile",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.VerifyFileResponse>(await this.callApi(params, req, runtime), new $_model.VerifyFileResponse({}));
-  }
-
-  /**
-   * Saves the verification result of a single file.
-   * 
-   * @param request - VerifyFileRequest
-   * @returns VerifyFileResponse
-   */
-  async verifyFile(request: $_model.VerifyFileRequest): Promise<$_model.VerifyFileResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.verifyFileWithOptions(request, runtime);
-  }
-
-  /**
-   * Save the verification result for a single sentence.
-   * 
-   * @param request - VerifySentenceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns VerifySentenceResponse
-   */
-  async verifySentenceWithOptions(request: $_model.VerifySentenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifySentenceResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!$dara.isNull(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "VerifySentence",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.VerifySentenceResponse>(await this.callApi(params, req, runtime), new $_model.VerifySentenceResponse({}));
-  }
-
-  /**
-   * Save the verification result for a single sentence.
-   * 
-   * @param request - VerifySentenceRequest
-   * @returns VerifySentenceResponse
-   */
-  async verifySentence(request: $_model.VerifySentenceRequest): Promise<$_model.VerifySentenceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.verifySentenceWithOptions(request, runtime);
   }
 
 }

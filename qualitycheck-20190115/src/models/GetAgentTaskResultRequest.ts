@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentTaskResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business workspace.
+   * The ID of the business space.
    * 
    * @example
    * 123456
