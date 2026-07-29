@@ -2,21 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetMediaComprehensionJobRequest extends $dara.Model {
-  /**
-   * @example
-   * 68ca759e798b40b4903b255*******
-   */
-  jobId?: string;
+export class GetYikeAccountCreditRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
     };
   }
 

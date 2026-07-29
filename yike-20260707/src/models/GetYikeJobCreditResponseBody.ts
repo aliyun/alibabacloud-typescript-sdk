@@ -2,25 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitMediaComprehensionJobResponseBody extends $dara.Model {
+export class GetYikeJobCreditResponseBody extends $dara.Model {
   /**
    * @example
-   * ""
+   * success
    */
-  errorCode?: string;
+  creditStatus?: string;
   /**
    * @example
-   * 68ca759e798b40b4903b255********
+   * 20
+   */
+  jobCreditCost?: number;
+  /**
+   * @example
+   * ag_12412424****
    */
   jobId?: string;
   /**
    * @example
-   * ******11-DB8D-4A9A-875B-275798******
+   * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      errorCode: 'ErrorCode',
+      creditStatus: 'CreditStatus',
+      jobCreditCost: 'JobCreditCost',
       jobId: 'JobId',
       requestId: 'RequestId',
     };
@@ -28,7 +34,8 @@ export class SubmitMediaComprehensionJobResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      errorCode: 'string',
+      creditStatus: 'string',
+      jobCreditCost: 'number',
       jobId: 'string',
       requestId: 'string',
     };

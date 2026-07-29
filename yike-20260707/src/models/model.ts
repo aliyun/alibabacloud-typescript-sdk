@@ -22,12 +22,13 @@ export { GetMediaResponseBodyMediaInfoMediaDynamicInfo } from './GetMediaRespons
 export { GetMediaResponseBodyMediaInfo } from './GetMediaResponseBody';
 export { GetMediaComprehensionJobResponseBodyMediaComprehensionJob } from './GetMediaComprehensionJobResponseBody';
 export { GetVideoGenerationJobResponseBodyVideoGenerationJob } from './GetVideoGenerationJobResponseBody';
+export { GetYikeAccountCreditResponseBodyCreditInfo } from './GetYikeAccountCreditResponseBody';
+export { GetYikeAccountCreditResponseBodyMembershipInfo } from './GetYikeAccountCreditResponseBody';
 export { ListAssetCategoriesResponseBodyCategories } from './ListAssetCategoriesResponseBody';
 export { SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo } from './SearchMediaResponseBody';
 export { SearchMediaResponseBodyMediaInfoListFileInfoList } from './SearchMediaResponseBody';
 export { SearchMediaResponseBodyMediaInfoListMediaBasicInfo } from './SearchMediaResponseBody';
 export { SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData } from './SearchMediaResponseBody';
-export { SearchMediaResponseBodyMediaInfoListMediaDynamicInfoMediaExtraInfo } from './SearchMediaResponseBody';
 export { SearchMediaResponseBodyMediaInfoListMediaDynamicInfo } from './SearchMediaResponseBody';
 export { SearchMediaResponseBodyMediaInfoList } from './SearchMediaResponseBody';
 export { BatchGetMediasRequest } from './BatchGetMediasRequest';
@@ -57,6 +58,12 @@ export { GetMediaComprehensionJobResponse } from './GetMediaComprehensionJobResp
 export { GetVideoGenerationJobRequest } from './GetVideoGenerationJobRequest';
 export { GetVideoGenerationJobResponseBody } from './GetVideoGenerationJobResponseBody';
 export { GetVideoGenerationJobResponse } from './GetVideoGenerationJobResponse';
+export { GetYikeAccountCreditRequest } from './GetYikeAccountCreditRequest';
+export { GetYikeAccountCreditResponseBody } from './GetYikeAccountCreditResponseBody';
+export { GetYikeAccountCreditResponse } from './GetYikeAccountCreditResponse';
+export { GetYikeJobCreditRequest } from './GetYikeJobCreditRequest';
+export { GetYikeJobCreditResponseBody } from './GetYikeJobCreditResponseBody';
+export { GetYikeJobCreditResponse } from './GetYikeJobCreditResponse';
 export { ImportMediaRequest } from './ImportMediaRequest';
 export { ImportMediaResponseBody } from './ImportMediaResponseBody';
 export { ImportMediaResponse } from './ImportMediaResponse';
@@ -75,6 +82,9 @@ export { SubmitMediaComprehensionJobResponse } from './SubmitMediaComprehensionJ
 export { SubmitVideoGenerationJobRequest } from './SubmitVideoGenerationJobRequest';
 export { SubmitVideoGenerationJobResponseBody } from './SubmitVideoGenerationJobResponseBody';
 export { SubmitVideoGenerationJobResponse } from './SubmitVideoGenerationJobResponse';
+export { SubmitVideoTranslationJobRequest } from './SubmitVideoTranslationJobRequest';
+export { SubmitVideoTranslationJobResponseBody } from './SubmitVideoTranslationJobResponseBody';
+export { SubmitVideoTranslationJobResponse } from './SubmitVideoTranslationJobResponse';
 export { UpdateAssetCategoryRequest } from './UpdateAssetCategoryRequest';
 export { UpdateAssetCategoryResponseBody } from './UpdateAssetCategoryResponseBody';
 export { UpdateAssetCategoryResponse } from './UpdateAssetCategoryResponse';

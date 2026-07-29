@@ -61,7 +61,7 @@ export class ListAssetCategoriesResponseBody extends $dara.Model {
    * @example
    * 50
    */
-  total?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
@@ -74,7 +74,7 @@ export class ListAssetCategoriesResponseBody extends $dara.Model {
     return {
       categories: { 'type': 'array', 'itemType': ListAssetCategoriesResponseBodyCategories },
       requestId: 'string',
-      total: 'string',
+      total: 'number',
     };
   }
 

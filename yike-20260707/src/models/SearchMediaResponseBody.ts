@@ -317,16 +317,10 @@ export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData
    * BaseMedia
    */
   entityId?: string;
-  /**
-   * @example
-   * system
-   */
-  type?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       entityId: 'EntityId',
-      type: 'Type',
     };
   }
 
@@ -334,76 +328,6 @@ export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData
     return {
       data: 'string',
       entityId: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfoMediaExtraInfo extends $dara.Model {
-  /**
-   * @example
-   * ***cd4754a89b6****
-   */
-  aiAuditJobId?: string;
-  /**
-   * @example
-   * normal
-   */
-  aiAuditLabel?: string;
-  /**
-   * @example
-   * Passed
-   */
-  aiAuditResult?: string;
-  /**
-   * @example
-   * Success
-   */
-  aiAuditStatus?: string;
-  /**
-   * @example
-   * ****aed4739c394b38c***
-   */
-  aiAuditTemplate?: string;
-  /**
-   * @example
-   * Init
-   */
-  manualAuditResult?: string;
-  /**
-   * @example
-   * Init
-   */
-  manualAuditStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aiAuditJobId: 'AiAuditJobId',
-      aiAuditLabel: 'AiAuditLabel',
-      aiAuditResult: 'AiAuditResult',
-      aiAuditStatus: 'AiAuditStatus',
-      aiAuditTemplate: 'AiAuditTemplate',
-      manualAuditResult: 'ManualAuditResult',
-      manualAuditStatus: 'ManualAuditStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aiAuditJobId: 'string',
-      aiAuditLabel: 'string',
-      aiAuditResult: 'string',
-      aiAuditStatus: 'string',
-      aiAuditTemplate: 'string',
-      manualAuditResult: 'string',
-      manualAuditStatus: 'string',
     };
   }
 
@@ -418,27 +342,21 @@ export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfoMediaExtraInfo 
 
 export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfo extends $dara.Model {
   dynamicMetaData?: SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData;
-  mediaExtraInfo?: SearchMediaResponseBodyMediaInfoListMediaDynamicInfoMediaExtraInfo;
   static names(): { [key: string]: string } {
     return {
       dynamicMetaData: 'DynamicMetaData',
-      mediaExtraInfo: 'MediaExtraInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dynamicMetaData: SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData,
-      mediaExtraInfo: SearchMediaResponseBodyMediaInfoListMediaDynamicInfoMediaExtraInfo,
     };
   }
 
   validate() {
     if(this.dynamicMetaData && typeof (this.dynamicMetaData as any).validate === 'function') {
       (this.dynamicMetaData as any).validate();
-    }
-    if(this.mediaExtraInfo && typeof (this.mediaExtraInfo as any).validate === 'function') {
-      (this.mediaExtraInfo as any).validate();
     }
     super.validate();
   }
@@ -449,11 +367,6 @@ export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfo extends $dara.
 }
 
 export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
-  /**
-   * @example
-   * {\\"intField1\\":12,\\"strField1\\":\\"abc\\"}
-   */
-  customFields?: string;
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
   mediaBasicInfo?: SearchMediaResponseBodyMediaInfoListMediaBasicInfo;
   mediaDynamicInfo?: SearchMediaResponseBodyMediaInfoListMediaDynamicInfo;
@@ -464,7 +377,6 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
-      customFields: 'CustomFields',
       fileInfoList: 'FileInfoList',
       mediaBasicInfo: 'MediaBasicInfo',
       mediaDynamicInfo: 'MediaDynamicInfo',
@@ -474,7 +386,6 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      customFields: 'string',
       fileInfoList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListFileInfoList },
       mediaBasicInfo: SearchMediaResponseBodyMediaInfoListMediaBasicInfo,
       mediaDynamicInfo: SearchMediaResponseBodyMediaInfoListMediaDynamicInfo,

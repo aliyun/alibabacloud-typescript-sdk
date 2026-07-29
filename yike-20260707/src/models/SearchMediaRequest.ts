@@ -10,11 +10,6 @@ export class SearchMediaRequest extends $dara.Model {
   categoryId?: number;
   /**
    * @example
-   * BaseMedia
-   */
-  entityId?: string;
-  /**
-   * @example
    * title = \\"中国\\" and utcCreate = [\\"1693367158561\\",\\"1693367158562\\"]
    */
   match?: string;
@@ -35,23 +30,16 @@ export class SearchMediaRequest extends $dara.Model {
   scrollToken?: string;
   /**
    * @example
-   * test-1
-   */
-  searchLibName?: string;
-  /**
-   * @example
    * utcCreate:Desc
    */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
-      entityId: 'EntityId',
       match: 'Match',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       scrollToken: 'ScrollToken',
-      searchLibName: 'SearchLibName',
       sortBy: 'SortBy',
     };
   }
@@ -59,12 +47,10 @@ export class SearchMediaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'number',
-      entityId: 'string',
       match: 'string',
       pageNo: 'number',
       pageSize: 'number',
       scrollToken: 'string',
-      searchLibName: 'string',
       sortBy: 'string',
     };
   }

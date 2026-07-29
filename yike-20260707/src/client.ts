@@ -382,6 +382,10 @@ export default class Client extends OpenApi {
   /**
    * 查询媒资内容理解作业
    * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于查询媒资内容理解作业。
+   * 
    * @param request - GetMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMediaComprehensionJobResponse
@@ -412,6 +416,10 @@ export default class Client extends OpenApi {
 
   /**
    * 查询媒资内容理解作业
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于查询媒资内容理解作业。
    * 
    * @param request - GetMediaComprehensionJobRequest
    * @returns GetMediaComprehensionJobResponse
@@ -465,6 +473,83 @@ export default class Client extends OpenApi {
   async getVideoGenerationJob(request: $_model.GetVideoGenerationJobRequest): Promise<$_model.GetVideoGenerationJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getVideoGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一刻主账户会员计划及积分情况
+   * 
+   * @param request - GetYikeAccountCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeAccountCreditResponse
+   */
+  async getYikeAccountCreditWithOptions(request: $_model.GetYikeAccountCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeAccountCreditResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeAccountCredit",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeAccountCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeAccountCreditResponse({}));
+  }
+
+  /**
+   * 获取一刻主账户会员计划及积分情况
+   * 
+   * @param request - GetYikeAccountCreditRequest
+   * @returns GetYikeAccountCreditResponse
+   */
+  async getYikeAccountCredit(request: $_model.GetYikeAccountCreditRequest): Promise<$_model.GetYikeAccountCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeAccountCreditWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一刻任务实际消耗积分
+   * 
+   * @param request - GetYikeJobCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeJobCreditResponse
+   */
+  async getYikeJobCreditWithOptions(request: $_model.GetYikeJobCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeJobCreditResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeJobCredit",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeJobCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeJobCreditResponse({}));
+  }
+
+  /**
+   * 查询一刻任务实际消耗积分
+   * 
+   * @param request - GetYikeJobCreditRequest
+   * @returns GetYikeJobCreditResponse
+   */
+  async getYikeJobCredit(request: $_model.GetYikeJobCreditRequest): Promise<$_model.GetYikeJobCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeJobCreditWithOptions(request, runtime);
   }
 
   /**
@@ -625,10 +710,6 @@ export default class Client extends OpenApi {
       query["CategoryId"] = request.categoryId;
     }
 
-    if (!$dara.isNull(request.entityId)) {
-      query["EntityId"] = request.entityId;
-    }
-
     if (!$dara.isNull(request.match)) {
       query["Match"] = request.match;
     }
@@ -643,10 +724,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scrollToken)) {
       query["ScrollToken"] = request.scrollToken;
-    }
-
-    if (!$dara.isNull(request.searchLibName)) {
-      query["SearchLibName"] = request.searchLibName;
     }
 
     if (!$dara.isNull(request.sortBy)) {
@@ -762,6 +839,10 @@ export default class Client extends OpenApi {
   /**
    * 提交媒资内容理解作业
    * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitMediaComprehensionJobResponse
@@ -796,6 +877,10 @@ export default class Client extends OpenApi {
 
   /**
    * 提交媒资内容理解作业
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
    * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @returns SubmitMediaComprehensionJobResponse
@@ -885,6 +970,96 @@ export default class Client extends OpenApi {
   async submitVideoGenerationJob(request: $_model.SubmitVideoGenerationJobRequest): Promise<$_model.SubmitVideoGenerationJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitVideoGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频翻译任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+   * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+   * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+   * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+   * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+   * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+   * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+   * 
+   * @param request - SubmitVideoTranslationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoTranslationJobResponse
+   */
+  async submitVideoTranslationJobWithOptions(request: $_model.SubmitVideoTranslationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoTranslationJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.jobParameters)) {
+      body["JobParameters"] = request.jobParameters;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      body["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["Output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoTranslationJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoTranslationJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoTranslationJobResponse({}));
+  }
+
+  /**
+   * 提交视频翻译任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+   * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+   * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+   * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+   * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+   * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+   * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+   * 
+   * @param request - SubmitVideoTranslationJobRequest
+   * @returns SubmitVideoTranslationJobResponse
+   */
+  async submitVideoTranslationJob(request: $_model.SubmitVideoTranslationJobRequest): Promise<$_model.SubmitVideoTranslationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoTranslationJobWithOptions(request, runtime);
   }
 
   /**

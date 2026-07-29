@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitMediaComprehensionJobRequest extends $dara.Model {
+  /**
+   * @example
+   * {"ProductName":"Quiet Blender Soymilk Maker","BrandName":"LiangChu","SellingPoints":["Low-noise blending","One-touch self-cleaning"]}
+   */
   jobParams?: string;
+  /**
+   * @example
+   * {"NotifyAddress": "http://xxx.callback.url"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
