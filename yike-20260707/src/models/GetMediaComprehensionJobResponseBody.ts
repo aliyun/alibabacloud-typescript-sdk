@@ -2,6 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * The specified product does not exist.
+   */
+  errorMessage?: string;
+  mediaIds?: string[];
+  /**
+   * @example
+   * "{\\"source_video_url\\":\\"http://xxx.mp4\\",\\"narrative_overview\\":{******}}"
+   */
+  result?: string;
+  /**
+   * @example
+   * Executing
+   */
+  status?: string;
+  /**
+   * @example
+   * {"NotifyAddress": "http://xxx.callback.url"}
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      mediaIds: 'MediaIds',
+      result: 'Result',
+      status: 'Status',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      mediaIds: { 'type': 'array', 'itemType': 'string' },
+      result: 'string',
+      status: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mediaIds)) {
+      $dara.Model.validateArray(this.mediaIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $dara.Model {
   /**
    * @example
@@ -72,6 +133,7 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
 }
 
 export class GetMediaComprehensionJobResponseBody extends $dara.Model {
+  job?: GetMediaComprehensionJobResponseBodyJob;
   mediaComprehensionJob?: GetMediaComprehensionJobResponseBodyMediaComprehensionJob;
   /**
    * @example
@@ -80,6 +142,7 @@ export class GetMediaComprehensionJobResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      job: 'Job',
       mediaComprehensionJob: 'MediaComprehensionJob',
       requestId: 'RequestId',
     };
@@ -87,12 +150,16 @@ export class GetMediaComprehensionJobResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      job: GetMediaComprehensionJobResponseBodyJob,
       mediaComprehensionJob: GetMediaComprehensionJobResponseBodyMediaComprehensionJob,
       requestId: 'string',
     };
   }
 
   validate() {
+    if(this.job && typeof (this.job as any).validate === 'function') {
+      (this.job as any).validate();
+    }
     if(this.mediaComprehensionJob && typeof (this.mediaComprehensionJob as any).validate === 'function') {
       (this.mediaComprehensionJob as any).validate();
     }

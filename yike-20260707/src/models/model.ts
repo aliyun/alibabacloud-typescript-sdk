@@ -20,6 +20,7 @@ export { GetMediaResponseBodyMediaInfoMediaBasicInfo } from './GetMediaResponseB
 export { GetMediaResponseBodyMediaInfoMediaDynamicInfoDynamicMetaData } from './GetMediaResponseBody';
 export { GetMediaResponseBodyMediaInfoMediaDynamicInfo } from './GetMediaResponseBody';
 export { GetMediaResponseBodyMediaInfo } from './GetMediaResponseBody';
+export { GetMediaComprehensionJobResponseBodyJob } from './GetMediaComprehensionJobResponseBody';
 export { GetMediaComprehensionJobResponseBodyMediaComprehensionJob } from './GetMediaComprehensionJobResponseBody';
 export { GetVideoGenerationJobResponseBodyVideoGenerationJob } from './GetVideoGenerationJobResponseBody';
 export { GetYikeAccountCreditResponseBodyCreditInfo } from './GetYikeAccountCreditResponseBody';

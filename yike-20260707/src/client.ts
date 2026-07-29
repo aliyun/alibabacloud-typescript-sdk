@@ -850,8 +850,16 @@ export default class Client extends OpenApi {
   async submitMediaComprehensionJobWithOptions(request: $_model.SubmitMediaComprehensionJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitMediaComprehensionJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
+    }
+
     if (!$dara.isNull(request.jobParams)) {
       query["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      query["JobType"] = request.jobType;
     }
 
     if (!$dara.isNull(request.userData)) {

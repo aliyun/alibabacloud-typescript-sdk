@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaComprehensionJobRequest extends $dara.Model {
   /**
    * @example
+   * {"Medias":[{"Type":"video","Url":"https://xxx.mp4"}]}
+   */
+  input?: string;
+  /**
+   * @example
    * {"ProductName":"Quiet Blender Soymilk Maker","BrandName":"LiangChu","SellingPoints":["Low-noise blending","One-touch self-cleaning"]}
    */
   jobParams?: string;
+  /**
+   * @example
+   * VideoBreakdown
+   */
+  jobType?: string;
   /**
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
@@ -15,14 +25,18 @@ export class SubmitMediaComprehensionJobRequest extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      input: 'Input',
       jobParams: 'JobParams',
+      jobType: 'JobType',
       userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      input: 'string',
       jobParams: 'string',
+      jobType: 'string',
       userData: 'string',
     };
   }
