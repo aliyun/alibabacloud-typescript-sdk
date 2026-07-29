@@ -603,6 +603,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the log configuration of a user.
+   * 
+   * @param request - GetAccountAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountAttributesResponse
+   */
+  async getAccountAttributesWithOptions(request: $_model.GetAccountAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccountAttributesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAccountAttributes",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAccountAttributesResponse>(await this.callApi(params, req, runtime), new $_model.GetAccountAttributesResponse({}));
+  }
+
+  /**
+   * Retrieves the log configuration of a user.
+   * 
+   * @param request - GetAccountAttributesRequest
+   * @returns GetAccountAttributesResponse
+   */
+  async getAccountAttributes(request: $_model.GetAccountAttributesRequest): Promise<$_model.GetAccountAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAccountAttributesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the attributes of an endpoint.
    * 
    * @param request - GetEndpointAttributeRequest
@@ -1180,6 +1215,64 @@ export default class Client extends OpenApi {
   async revokeEndpointAcl(request: $_model.RevokeEndpointAclRequest): Promise<$_model.RevokeEndpointAclResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeEndpointAclWithOptions(request, runtime);
+  }
+
+  /**
+   * SetAccountAttributes
+   * 
+   * @param request - SetAccountAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAccountAttributesResponse
+   */
+  async setAccountAttributesWithOptions(request: $_model.SetAccountAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAccountAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.logEnabled)) {
+      query["LogEnabled"] = request.logEnabled;
+    }
+
+    if (!$dara.isNull(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!$dara.isNull(request.messageTraceEnabled)) {
+      query["MessageTraceEnabled"] = request.messageTraceEnabled;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAccountAttributes",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAccountAttributesResponse>(await this.callApi(params, req, runtime), new $_model.SetAccountAttributesResponse({}));
+  }
+
+  /**
+   * SetAccountAttributes
+   * 
+   * @param request - SetAccountAttributesRequest
+   * @returns SetAccountAttributesResponse
+   */
+  async setAccountAttributes(request: $_model.SetAccountAttributesRequest): Promise<$_model.SetAccountAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAccountAttributesWithOptions(request, runtime);
   }
 
   /**
