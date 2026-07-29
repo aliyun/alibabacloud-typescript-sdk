@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The certification authority (CA) brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
+   * The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
    * 
    * @example
    * Digicert
@@ -51,7 +51,7 @@ export class ListInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The keyword for fuzzy match. Matches domain names, instance names, or corresponding resource IDs.
+   * The keyword for fuzzy search. Matches domain names, instance names, or corresponding resource IDs.
    * 
    * @example
    * test
@@ -76,13 +76,13 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **inactive**: pending use.
-   * - **pending**: under review. The latest certificate is being reviewed.
-   * - **willExpire**: about to expire.
-   * - **expired**: expired.
-   * - **refund**: refunded.
-   * - **normal**: normal.
-   * - **closed**: closed and unavailable.
+   * - **inactive**: Pending use.
+   * - **pending**: Under review. The latest certificate is being reviewed.
+   * - **willExpire**: About to expire.
+   * - **expired**: Expired.
+   * - **refund**: Refunded.
+   * - **normal**: Normal.
+   * - **closed**: Closed and unavailable.
    * 
    * @example
    * inactive

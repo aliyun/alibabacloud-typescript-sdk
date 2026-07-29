@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RevokeCertificateRequest extends $dara.Model {
+  /**
+   * @example
+   * 51001
+   */
   certificateId?: number;
   /**
    * @remarks

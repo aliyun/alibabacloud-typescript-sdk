@@ -67,6 +67,7 @@ export class GetContactResponseBody extends $dara.Model {
    * EECA10D5-BD0F-4EF1-B3EA-B4578E5C6F8E
    */
   requestId?: string;
+  webhookList?: string[];
   /**
    * @remarks
    * The webhook URLs of DingTalk, WeCom, or Lark chatbots. The value is a string in list format.
@@ -85,6 +86,7 @@ export class GetContactResponseBody extends $dara.Model {
       mobileStatus: 'MobileStatus',
       name: 'Name',
       requestId: 'RequestId',
+      webhookList: 'WebhookList',
       webhooks: 'Webhooks',
     };
   }
@@ -99,11 +101,15 @@ export class GetContactResponseBody extends $dara.Model {
       mobileStatus: 'number',
       name: 'string',
       requestId: 'string',
+      webhookList: { 'type': 'array', 'itemType': 'string' },
       webhooks: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.webhookList)) {
+      $dara.Model.validateArray(this.webhookList);
+    }
     super.validate();
   }
 

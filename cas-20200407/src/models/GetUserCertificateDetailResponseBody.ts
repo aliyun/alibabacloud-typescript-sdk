@@ -135,7 +135,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   buyInAliyun?: boolean;
   /**
    * @remarks
-   * The certificate content that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The certificate content that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * ---BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
@@ -155,6 +155,9 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    */
   certIdentifier?: string;
   /**
+   * @remarks
+   * The SHA-2 algorithm value of the certificate.
+   * 
    * @example
    * E696C2DB574DF99467A90BEF62B341294A9B0C731D228A0BD38265E1467D8EF0
    */
@@ -185,7 +188,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * The encryption certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The encryption certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -195,7 +198,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   encryptCert?: string;
   /**
    * @remarks
-   * The private key of the encryption certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The private key of the encryption certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -205,7 +208,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   encryptPrivateKey?: string;
   /**
    * @remarks
-   * The certificate expiration date, in the format of YYYY-MM-DD.
+   * The certificate expiration date in the format of YYYY-MM-DD.
    * 
    * @example
    * 2023-10-25
@@ -255,7 +258,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The private key that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The private key that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
@@ -311,7 +314,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used to troubleshoot issues.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -351,7 +354,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   sha2?: string;
   /**
    * @remarks
-   * The signing certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The signing certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -361,7 +364,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   signCert?: string;
   /**
    * @remarks
-   * The private key of the signing certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+   * The private key of the signing certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
    * 
    * @example
    * -----BEGIN EC PRIVATE KEY-----
@@ -371,7 +374,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
   signPrivateKey?: string;
   /**
    * @remarks
-   * The certificate issuance date, in the format of YYYY-MM-DD.
+   * The certificate issuance date in the format of YYYY-MM-DD.
    * 
    * @example
    * 2018-07-13

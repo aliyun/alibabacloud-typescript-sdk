@@ -51,6 +51,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
    * John
    */
   name?: string;
+  webhookList?: string[];
   /**
    * @remarks
    * The webhook URL.
@@ -67,6 +68,7 @@ export class ListContactResponseBodyContactList extends $dara.Model {
       mobile: 'Mobile',
       mobileStatus: 'MobileStatus',
       name: 'Name',
+      webhookList: 'WebhookList',
       webhooks: 'Webhooks',
     };
   }
@@ -79,11 +81,15 @@ export class ListContactResponseBodyContactList extends $dara.Model {
       mobile: 'string',
       mobileStatus: 'number',
       name: 'string',
+      webhookList: { 'type': 'array', 'itemType': 'string' },
       webhooks: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.webhookList)) {
+      $dara.Model.validateArray(this.webhookList);
+    }
     super.validate();
   }
 

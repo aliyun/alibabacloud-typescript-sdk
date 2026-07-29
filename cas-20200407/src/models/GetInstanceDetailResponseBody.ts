@@ -250,16 +250,23 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The end time of the latest certificate, in timestamp format. This value is empty if no certificate has been issued.
+   * The end time of the latest certificate, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
    * 
    * @example
    * 1801324800000
    */
   certificateNotAfter?: number;
+  /**
+   * @remarks
+   * The start time of the latest certificate, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
+   * 
+   * @example
+   * 1781568000000
+   */
   certificateNotBefore?: number;
   /**
    * @remarks
-   * The revocation time of the latest certificate, in timestamp format.
+   * The revocation time of the latest certificate, in UNIX timestamp format. The value is accurate to the second.
    * 
    * @example
    * 1801324800000
@@ -308,7 +315,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   contactIdList?: number[];
   /**
    * @remarks
-   * The code of the country or region where the certificate organization is located. For example, CN indicates China, and US indicates the United States. This field is required when generating a certificate signing request. Default value: CN.
+   * The country or region code of the certificate organization. For example, CN indicates China, and US indicates the United States. This field is required when generating a certificate signing request. Default value: CN.
    * 
    * @example
    * CN
@@ -337,7 +344,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The list of domain names to be validated.
+   * The list of domain validations.
    */
   domainValidationList?: GetInstanceDetailResponseBodyDomainValidationList[];
   /**
@@ -360,7 +367,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   generateCsrMethod?: string;
   /**
    * @remarks
-   * The expiration time of the instance, in timestamp format. This value is empty if no certificate has been issued.
+   * The expiration time of the instance, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
    * 
    * @example
    * 1801324800000
@@ -376,7 +383,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start time of the instance, in timestamp format. This value is empty if no certificate has been issued.
+   * The start time of the instance, in UNIX timestamp format. This value is empty if no certificate has been issued. The value is accurate to the second.
    * 
    * @example
    * 1801324800000
@@ -407,7 +414,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   keyAlgorithm?: string;
   /**
    * @remarks
-   * The end time of the instance purchase, in timestamp format. This value is used to determine the purchase duration of the instance.
+   * The end time of the instance purchase, in UNIX timestamp format. This value is used to determine the purchase duration of the instance.
    * 
    * @example
    * 1801324800000
@@ -415,7 +422,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   orderEndTime?: number;
   /**
    * @remarks
-   * The start time of the instance purchase, in timestamp format. This value is used to determine the refund time limit.
+   * The start time of the instance purchase, in UNIX timestamp format. This value is used to determine the refund time limit. The value is accurate to the second.
    * 
    * @example
    * 1801324800000
@@ -489,7 +496,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
    * 
    * - payed: the instance upgrade has been paid.
    * 
-   * - issued: the latest certificate has been issued for the upgraded instance.
+   * - issued: the latest certificate has been issued after the instance upgrade.
    * 
    * @example
    * none
@@ -497,7 +504,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
   upgradeStatus?: string;
   /**
    * @remarks
-   * The validation method for the certificate application. Valid values:
+   * The certificate validation method. Valid values:
    * - DNS: DNS validation, using TXT or CNAME.
    * - HTTP: file-based validation.
    * 
