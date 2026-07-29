@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceCustomizedDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The certificate ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class UpdateInstanceCustomizedDomainRequest extends $dara.Model {
    */
   certId?: string;
   /**
+   * @remarks
+   * The region where the certificate resides.
+   * 
    * @example
    * cn-hangzhou
    */
   certRegionId?: string;
   /**
    * @remarks
+   * The custom domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class UpdateInstanceCustomizedDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class UpdateInstanceCustomizedDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The modified domain name.
+   * 
    * This parameter is required.
    * 
    * @example

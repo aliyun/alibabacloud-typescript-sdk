@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInstanceCustomizedDomainResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * success
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * True
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEE92FA9-3181-5174-8A06-BE2252FA462E
    */

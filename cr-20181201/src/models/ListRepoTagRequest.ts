@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoTagRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -13,9 +13,11 @@ export class ListRepoTagRequest extends $dara.Model {
    * cri-kmsiwlxxdcva****
    */
   instanceId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +25,7 @@ export class ListRepoTagRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries per page. The maximum value is 100.
    * 
    * @example
    * 30
@@ -31,7 +33,7 @@ export class ListRepoTagRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * This parameter is required.
    * 
@@ -42,6 +44,8 @@ export class ListRepoTagRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       repoId: 'RepoId',
@@ -51,6 +55,8 @@ export class ListRepoTagRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
       repoId: 'string',

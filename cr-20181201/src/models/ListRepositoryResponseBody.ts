@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   /**
    * @remarks
-   * The time when the repository was created.
+   * The creation time.
    * 
    * @example
    * 1564153576000
@@ -13,7 +13,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the Container Registry instance to which the repository belongs.
+   * The instance ID.
    * 
    * @example
    * cri-kmsiwlxxdcv****
@@ -21,7 +21,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the repository was last modified.
+   * The last modification time.
    * 
    * @example
    * 1564153576000
@@ -29,10 +29,11 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The type of the repository building. Valid values:
+   * The repository build type. Valid values:
    * 
-   * *   `AUTO`: The repository is automatically built.
-   * *   `MANUAL`: The repository is manually built.
+   * - `AUTO`: Automatically triggered build.
+   * 
+   * - `MANUAL`: Manually triggered build.
    * 
    * @example
    * MANUAL
@@ -40,7 +41,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoBuildType?: string;
   /**
    * @remarks
-   * The ID of the repository.
+   * The repository ID.
    * 
    * @example
    * crr-03cuozrsqhkw****
@@ -48,7 +49,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * test
@@ -56,7 +57,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The repository namespace.
    * 
    * @example
    * test
@@ -64,7 +65,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * The status of the repository.
+   * The repository status.
    * 
    * @example
    * NORMAL
@@ -72,10 +73,11 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoStatus?: string;
   /**
    * @remarks
-   * The type of the repository. Valid values:
+   * The repository type. Valid values:
    * 
-   * *   `PUBLIC`
-   * *   `PRIVATE`
+   * - `PUBLIC`: Public.
+   * 
+   * - `PRIVATE`: Private.
    * 
    * @example
    * PRIVATE
@@ -83,7 +85,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   repoType?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the repository belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm4n5kzyfxxxx
@@ -91,7 +93,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The summary of the repository.
+   * The summary information.
    * 
    * @example
    * test OK
@@ -99,7 +101,7 @@ export class ListRepositoryResponseBodyRepositories extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * Indicates whether the feature of image tag immutability is enabled for the repository.
+   * The image tag immutability.
    * 
    * @example
    * true
@@ -165,6 +167,8 @@ export class ListRepositoryResponseBody extends $dara.Model {
    * true
    */
   isSuccess?: boolean;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The page number.
@@ -175,7 +179,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -183,7 +187,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about the repositories.
+   * The list of repositories.
    */
   repositories?: ListRepositoryResponseBodyRepositories[];
   /**
@@ -196,7 +200,7 @@ export class ListRepositoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of the queried image repositories.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -206,6 +210,8 @@ export class ListRepositoryResponseBody extends $dara.Model {
     return {
       code: 'Code',
       isSuccess: 'IsSuccess',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       repositories: 'Repositories',
@@ -218,6 +224,8 @@ export class ListRepositoryResponseBody extends $dara.Model {
     return {
       code: 'string',
       isSuccess: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
       repositories: { 'type': 'array', 'itemType': ListRepositoryResponseBodyRepositories },

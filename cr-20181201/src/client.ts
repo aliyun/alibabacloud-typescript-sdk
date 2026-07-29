@@ -51,9 +51,7 @@ export default class Client extends OpenApi {
       'ap-southeast-6': "cr.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "cr.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "cr.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "cr.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "cr.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "cr.ap-south-1.aliyuncs.com",
       'ap-northeast-2': "cr.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "cr.ap-northeast-1.aliyuncs.com",
     };
@@ -2179,7 +2177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例自定义域名
+   * Deletes a custom domain name from an instance.
    * 
    * @param request - DeleteInstanceCustomizedDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2218,7 +2216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例自定义域名
+   * Deletes a custom domain name from an instance.
    * 
    * @param request - DeleteInstanceCustomizedDomainRequest
    * @returns DeleteInstanceCustomizedDomainResponse
@@ -3256,6 +3254,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the custom domain name of an instance.
+   * 
    * @param request - GetInstanceCustomizedDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceCustomizedDomainResponse
@@ -3293,6 +3293,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the custom domain name of an instance.
+   * 
    * @param request - GetInstanceCustomizedDomainRequest
    * @returns GetInstanceCustomizedDomainResponse
    */
@@ -5028,7 +5030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries image tags in a repository.
+   * Queries the list of image versions (tags).
    * 
    * @param request - ListRepoTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5039,6 +5041,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!$dara.isNull(request.pageNo)) {
@@ -5071,7 +5081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries image tags in a repository.
+   * Queries the list of image versions (tags).
    * 
    * @param request - ListRepoTagRequest
    * @returns ListRepoTagResponse
@@ -5210,7 +5220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the image repository list.
+   * Queries a list of image repositories.
    * 
    * @param request - ListRepositoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5221,6 +5231,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!$dara.isNull(request.pageNo)) {
@@ -5261,7 +5279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the image repository list.
+   * Queries a list of image repositories.
    * 
    * @param request - ListRepositoryRequest
    * @returns ListRepositoryResponse
@@ -6062,7 +6080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例自定义域名
+   * Updates the custom domain name of an instance.
    * 
    * @param request - UpdateInstanceCustomizedDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6109,7 +6127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例自定义域名
+   * Updates the custom domain name of an instance.
    * 
    * @param request - UpdateInstanceCustomizedDomainRequest
    * @returns UpdateInstanceCustomizedDomainResponse

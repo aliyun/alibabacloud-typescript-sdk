@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepositoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Registry instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,8 @@ export class ListRepositoryRequest extends $dara.Model {
    * cri-kmsiwlxxdcva****
    */
   instanceId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The page number.
@@ -23,7 +25,7 @@ export class ListRepositoryRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. If you specify a value larger than 100 for this parameter, the system reports a parameter error or uses 100 as the maximum value.
+   * The number of entries per page. The maximum value is 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the actual maximum number of entries returned.
    * 
    * @example
    * 30
@@ -31,7 +33,7 @@ export class ListRepositoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the repository.
+   * The repository name.
    * 
    * @example
    * repo-test
@@ -39,7 +41,7 @@ export class ListRepositoryRequest extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The name of the namespace to which the repository belongs.
+   * The repository namespace name.
    * 
    * @example
    * repo-namespace-test
@@ -47,11 +49,11 @@ export class ListRepositoryRequest extends $dara.Model {
   repoNamespaceName?: string;
   /**
    * @remarks
-   * Repository status. Valid values:
+   * The repository status. Valid values:
    * 
    * - `NORMAL`: Normal.
    * 
-   * - `DELETING`: Deleting.
+   * - `DELETING`: Being deleted.
    * 
    * - `DELETED`: Deleted.
    * 
@@ -64,6 +66,8 @@ export class ListRepositoryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       repoName: 'RepoName',
@@ -75,6 +79,8 @@ export class ListRepositoryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
       repoName: 'string',

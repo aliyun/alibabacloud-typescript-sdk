@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRepoTagResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The digest of the image.
+   * The digest value.
    * 
    * @example
    * 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1****
@@ -21,7 +21,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageCreate?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * 45023655bf39c382e26a8607d057c27871dee163c1ecf48cc1ebf2a1****
@@ -29,7 +29,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The size of the image.
+   * The image size, in bytes.
    * 
    * @example
    * 27107966
@@ -37,7 +37,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageSize?: number;
   /**
    * @remarks
-   * The time when the image was last updated.
+   * The time when the image was updated.
    * 
    * @example
    * 1572875608000
@@ -45,7 +45,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   imageUpdate?: string;
   /**
    * @remarks
-   * The status of the image.
+   * The status.
    * 
    * @example
    * NORMAL
@@ -53,7 +53,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the image.
+   * The image tag.
    * 
    * @example
    * v0.1
@@ -95,7 +95,7 @@ export class ListRepoTagResponseBodyImages extends $dara.Model {
 export class ListRepoTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * success
@@ -103,7 +103,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The images.
+   * The image list.
    */
   images?: ListRepoTagResponseBodyImages[];
   /**
@@ -114,9 +114,11 @@ export class ListRepoTagResponseBody extends $dara.Model {
    * true
    */
   isSuccess?: boolean;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -124,7 +126,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -132,7 +134,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 031572FA-7D8F-4C05-B790-1071E0E05DE6
@@ -140,7 +142,7 @@ export class ListRepoTagResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -151,6 +153,8 @@ export class ListRepoTagResponseBody extends $dara.Model {
       code: 'Code',
       images: 'Images',
       isSuccess: 'IsSuccess',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       requestId: 'RequestId',
@@ -163,6 +167,8 @@ export class ListRepoTagResponseBody extends $dara.Model {
       code: 'string',
       images: { 'type': 'array', 'itemType': ListRepoTagResponseBodyImages },
       isSuccess: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
       requestId: 'string',
