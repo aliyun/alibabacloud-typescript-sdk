@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainCredentialRequest extends $dara.Model {
   /**
    * @remarks
+   * The identifier for the credential to obtain.
+   * 
    * This parameter is required.
    * 
    * @example

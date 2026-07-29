@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserToOrganizationalUnitsRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of organization IDs.
+   * 
    * This parameter is required.
    * 
    * @example

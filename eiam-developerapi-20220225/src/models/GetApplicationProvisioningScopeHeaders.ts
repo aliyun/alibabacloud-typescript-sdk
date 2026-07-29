@@ -6,7 +6,9 @@ export class GetApplicationProvisioningScopeHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
+   * The authentication information.
+   * Format: Bearer ${access_token}.
+   * Example: Bearer ATxxxx.
    * 
    * This parameter is required.
    * 

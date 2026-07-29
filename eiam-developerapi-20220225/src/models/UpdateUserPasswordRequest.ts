@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateUserPasswordRequest extends $dara.Model {
   /**
+   * @remarks
+   * The new password. For the password requirements, see the password policy in the console.
+   * 
    * @example
    * xxxx
    */

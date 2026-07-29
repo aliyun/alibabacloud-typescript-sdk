@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGroupsForUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
    * @remarks
-   * nextToken
+   * The token to retrieve the next page of results. Leave this parameter empty to query from the first page.
    * 
    * @example
    * NTxxx

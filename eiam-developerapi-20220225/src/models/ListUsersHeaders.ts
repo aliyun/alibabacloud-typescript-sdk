@@ -6,7 +6,7 @@ export class ListUsersHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication information. The value is in the Bearer ${access_token} format. Example: Bearer ATxxxx.
+   * The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
    * 
    * This parameter is required.
    * 

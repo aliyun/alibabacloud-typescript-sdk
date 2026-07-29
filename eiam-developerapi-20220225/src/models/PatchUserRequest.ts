@@ -23,9 +23,11 @@ export class PatchUserRequestCustomFields extends $dara.Model {
    * @remarks
    * The operation to be performed on the field. Valid values:
    * 
-   * *   add
-   * *   replace If you leave the value of the extended field empty, the replace operation is converted to an add operation.
-   * *   remove
+   * - add
+   * 
+   * - replace If you leave the value of the extended field empty, the replace operation is converted to an add operation.
+   * 
+   * - remove
    * 
    * @example
    * replace

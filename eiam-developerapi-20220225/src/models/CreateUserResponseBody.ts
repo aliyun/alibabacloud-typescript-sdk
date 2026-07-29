@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The user ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx

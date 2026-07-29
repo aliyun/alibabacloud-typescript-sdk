@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReinstateAuthenticationTokenByConsumerRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the authentication token consumer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ReinstateAuthenticationTokenByConsumerRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
+   * The credential provider identifier.
+   * 
    * This parameter is required.
    * 
    * @example

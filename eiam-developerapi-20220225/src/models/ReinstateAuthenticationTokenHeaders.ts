@@ -6,6 +6,10 @@ export class ReinstateAuthenticationTokenHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The authentication information. Format: Bearer ${access_token}.
+   * 
+   * > Enter an IDaaS-issued Access Token.
+   * 
    * This parameter is required.
    * 
    * @example

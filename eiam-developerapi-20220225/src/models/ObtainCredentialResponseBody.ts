@@ -4,8 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ObtainCredentialResponseBodyCredentialContentApiKeyContent extends $dara.Model {
   /**
+   * @remarks
+   * The API key value.
+   * 
    * @example
-   * nsklncmwizncxxxx
+   * sk-nsklncmwizncxxxx
    */
   apiKey?: string;
   static names(): { [key: string]: string } {
@@ -32,13 +35,16 @@ export class ObtainCredentialResponseBodyCredentialContentApiKeyContent extends 
 export class ObtainCredentialResponseBodyCredentialContentOauthClientContent extends $dara.Model {
   /**
    * @remarks
-   * OAuth协议的client_id
+   * The `client_id` for OAuth 2.0.
    * 
    * @example
    * dmvncmxersdxxxxxx
    */
   clientId?: string;
   /**
+   * @remarks
+   * The `client_secret` for OAuth 2.0.
+   * 
    * @example
    * nsklnertyt5ddwizncxxxx
    */
@@ -67,10 +73,14 @@ export class ObtainCredentialResponseBodyCredentialContentOauthClientContent ext
 }
 
 export class ObtainCredentialResponseBodyCredentialContent extends $dara.Model {
+  /**
+   * @remarks
+   * Contains details for an API key credential. Returned only when `credentialType` is `api_key`.
+   */
   apiKeyContent?: ObtainCredentialResponseBodyCredentialContentApiKeyContent;
   /**
    * @remarks
-   * OAuth客户端认证凭证类型的凭据内容。
+   * Contains details for an OAuth client credential. Returned only when `credentialType` is `oauth_client`.
    */
   oauthClientContent?: ObtainCredentialResponseBodyCredentialContentOauthClientContent;
   static names(): { [key: string]: string } {
@@ -105,7 +115,7 @@ export class ObtainCredentialResponseBodyCredentialContent extends $dara.Model {
 export class ObtainCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 云角色创建时间
+   * The creation time of the credential, formatted as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -113,12 +123,16 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 凭据的内容。
+   * The detailed content of the credential. The structure of this object depends on the value of `credentialType`.
    */
   credentialContent?: ObtainCredentialResponseBodyCredentialContent;
   /**
    * @remarks
-   * 凭据的创建类型。
+   * Indicates how the credential was created. Valid values:
+   * 
+   * - `system_init`: System-initiated.
+   * 
+   * - `user_custom`: User-created.
    * 
    * @example
    * user_custom
@@ -127,7 +141,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialExternalId?: string;
   /**
    * @remarks
-   * 凭据ID。
+   * The credential ID.
    * 
    * @example
    * cred_mkv7rgt4d7i4u7zqtzev2mxxxx
@@ -135,7 +149,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * 凭据标识
+   * The credential identifier.
    * 
    * @example
    * credential_identifier_test
@@ -143,7 +157,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialIdentifier?: string;
   /**
    * @remarks
-   * 凭据名称
+   * The credential name.
    * 
    * @example
    * credential_name
@@ -151,7 +165,11 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * 凭据的使用场景标签。
+   * The usage scenario for the credential. Valid values:
+   * 
+   * - `llm`: For use with a large language model.
+   * 
+   * - `saas`: For use with a third-party SaaS application.
    * 
    * @example
    * llm
@@ -159,7 +177,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialScenarioLabel?: string;
   /**
    * @remarks
-   * 凭据的共享范围。
+   * The sharing scope of the credential, such as whether it is exclusive to a specific account.
    * 
    * @example
    * user_exclusive
@@ -167,7 +185,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialSharingScope?: string;
   /**
    * @remarks
-   * 凭据所属的主体ID。
+   * The ID of the credential\\"s subject.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -175,7 +193,9 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialSubjectId?: string;
   /**
    * @remarks
-   * 凭据所属的主体类型。
+   * The credential\\"s subject type. Valid values:
+   * 
+   * - `authentication_token_provider`: An authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -183,7 +203,11 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialSubjectType?: string;
   /**
    * @remarks
-   * 凭据类型。
+   * The credential type. Valid values:
+   * 
+   * - `api_key`: The credential is an API key.
+   * 
+   * - `oauth_client`: The credential represents an OAuth client.
    * 
    * @example
    * api_key
@@ -191,7 +215,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * 描述
+   * The credential description.
    * 
    * @example
    * credential_description
@@ -199,7 +223,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 凭据的专属账户ID。
+   * The ID of the account that exclusively owns the credential. This field is present only when `credentialSharingScope` is `user_exclusive`.
    * 
    * @example
    * user_xxx
@@ -207,7 +231,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   exclusiveUserId?: string;
   /**
    * @remarks
-   * EIAM实例ID。
+   * The EIAM instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -215,7 +239,11 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 凭据状态
+   * The status of the credential. Valid values:
+   * 
+   * - `enabled`: The credential can be used.
+   * 
+   * - `disabled`: The credential cannot be used.
    * 
    * @example
    * enabled
@@ -223,7 +251,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 云角色更新时间
+   * The last update time of the credential, formatted as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1649830227000

@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateTokenByAuthorizationServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Access credential.
+   * 
    * @example
    * eyJraWQiOiJLRVlLZ0Iyxxxxx
    */
   accessToken?: string;
   /**
+   * @remarks
+   * Expiration time of the access credential, as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1653288641
    */
   expiresAt?: number;
   /**
+   * @remarks
+   * Validity period of the access credential, in seconds.
+   * 
    * @example
    * 1200
    */
   expiresIn?: number;
   /**
+   * @remarks
+   * Identity credential.
+   * 
    * @example
    * eyJraWQiOiJLRVlLZ0Iyxxxxx
    */
   idToken?: string;
   /**
+   * @remarks
+   * Refresh token.
+   * 
    * @example
    * ATxxxxx
    */
   refreshToken?: string;
   /**
+   * @remarks
+   * Scope.
+   * 
    * @example
    * openid
    */
   scope?: string;
   /**
+   * @remarks
+   * Token type.
+   * 
    * @example
    * Bearer
    */

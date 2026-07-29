@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateAuthenticationTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The original authentication token.
+   * 
+   * > Pass either the original authentication token or a derived short token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +16,13 @@ export class ValidateAuthenticationTokenRequest extends $dara.Model {
    */
   token?: string;
   /**
+   * @remarks
+   * A hint about the type of the authentication token.
+   * 
+   * >Notice: 
+   * 
+   * No value is currently required for this parameter.
+   * 
    * @example
    * -
    */

@@ -6,6 +6,10 @@ export class ObtainCredentialHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * Authentication information. The format is `Bearer ${access_token}`.
+   * 
+   * > Use an access token issued by IDaaS.
+   * 
    * This parameter is required.
    * 
    * @example

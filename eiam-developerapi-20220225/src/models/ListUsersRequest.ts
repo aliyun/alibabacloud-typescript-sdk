@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the organizational unit.
+   * The organization ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -13,7 +13,7 @@ export class ListUsersRequest extends $dara.Model {
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * The number of records to return on each page. The default value is 20. The value must be in the range of 1 to 100.
    * 
    * @example
    * 20

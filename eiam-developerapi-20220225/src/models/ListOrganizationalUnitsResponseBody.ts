@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the organization was created. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1652083425923
@@ -13,10 +13,10 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the organizational unit.
+   * The description of the organization.
    * 
    * @example
-   * test organizational unit
+   * 测试组织
    */
   description?: string;
   /**
@@ -29,9 +29,9 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The external ID of the organizational unit. The external ID can be used to map external data to the data of the organizational unit in EIAM of Identity as a Service (IDaaS). By default, the external ID is the organizational unit ID.
+   * The external ID of the organization. This ID is used to map external data to the organization\\"s data in IDaaS. The default value is the IDaaS organization ID.
    * 
-   * Note: For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+   * Note: The external ID must be unique for the same source type and source ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -39,7 +39,7 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   organizationalUnitExternalId?: string;
   /**
    * @remarks
-   * The ID of the organizational unit.
+   * The organization ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -47,7 +47,7 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   organizationalUnitId?: string;
   /**
    * @remarks
-   * The name of the organizational unit.
+   * The organization name.
    * 
    * @example
    * name001
@@ -55,9 +55,9 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   organizationalUnitName?: string;
   /**
    * @remarks
-   * The source ID of the organizational unit.
+   * The source ID of the organization.
    * 
-   * If the organizational unit was created in IDaaS, its source ID is the ID of the IDaaS instance. If the organizational unit was imported, its source ID is the enterprise ID in the source. For example, if the organizational unit was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
+   * For the \\`build_in\\` type, the default value is the instance ID. For other types, the value is the enterprise ID from the source. For example, if the source is DingTalk, the value is the \\`corpId\\` of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -65,12 +65,15 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   organizationalUnitSourceId?: string;
   /**
    * @remarks
-   * The source type of the organizational unit. Valid values:
+   * The source type of the organization. Valid values:
    * 
-   * *   build_in: The organizational unit was created in IDaaS.
-   * *   ding_talk: The organizational unit was imported from DingTalk.
-   * *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
-   * *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * - \\`build_in\\`: The organization is created in IDaaS.
+   * 
+   * - \\`ding_talk\\`: The organization is imported from DingTalk.
+   * 
+   * - \\`ad\\`: The organization is imported from Active Directory (AD).
+   * 
+   * - \\`ldap\\`: The organization is imported from LDAP.
    * 
    * @example
    * build_in
@@ -78,7 +81,7 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   organizationalUnitSourceType?: string;
   /**
    * @remarks
-   * The ID of the parent organizational unit.
+   * The parent organization ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -86,7 +89,7 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The time when the organizational unit was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the organization was last updated. This is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1652083425923
@@ -134,12 +137,12 @@ export class ListOrganizationalUnitsResponseBodyData extends $dara.Model {
 export class ListOrganizationalUnitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried organizational units.
+   * A list of data objects.
    */
   data?: ListOrganizationalUnitsResponseBodyData[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1000

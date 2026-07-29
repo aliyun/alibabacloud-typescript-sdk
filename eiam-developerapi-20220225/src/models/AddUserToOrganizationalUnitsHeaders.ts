@@ -6,6 +6,9 @@ export class AddUserToOrganizationalUnitsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The authentication information.
+   * Format: Bearer ${access_token}.
+   * 
    * This parameter is required.
    * 
    * @example

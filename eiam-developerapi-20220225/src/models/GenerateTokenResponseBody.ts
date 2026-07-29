@@ -13,7 +13,7 @@ export class GenerateTokenResponseBody extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The time when the token expires. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The expiration time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1653288641
@@ -21,7 +21,7 @@ export class GenerateTokenResponseBody extends $dara.Model {
   expiresAt?: number;
   /**
    * @remarks
-   * The remaining validity period of the token. Unit: seconds.
+   * The validity period of the token in seconds.
    * 
    * @example
    * 1200
@@ -45,7 +45,9 @@ export class GenerateTokenResponseBody extends $dara.Model {
   refreshToken?: string;
   /**
    * @remarks
-   * The type of the token. Valid values: Basic Bearer
+   * The token type. Valid values:
+   * Basic - Basic type
+   * Bearer - Bearer type
    * 
    * @example
    * Bearer

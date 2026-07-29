@@ -6,6 +6,10 @@ export class ListAuthenticationTokensHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * Authentication information. Format: Bearer ${access_token}.
+   * 
+   * > Enter an IDaaS-issued Access Token.
+   * 
    * This parameter is required.
    * 
    * @example

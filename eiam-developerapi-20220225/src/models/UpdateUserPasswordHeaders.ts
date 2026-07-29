@@ -6,6 +6,8 @@ export class UpdateUserPasswordHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The authentication credential. Format: \\`Bearer ${access_token}\\`. Example: \\`Bearer ATxxxx\\`.
+   * 
    * This parameter is required.
    * 
    * @example

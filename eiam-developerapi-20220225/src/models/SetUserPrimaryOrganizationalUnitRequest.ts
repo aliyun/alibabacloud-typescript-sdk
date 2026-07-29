@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetUserPrimaryOrganizationalUnitRequest extends $dara.Model {
   /**
    * @remarks
+   * The primary organization ID.
+   * 
    * This parameter is required.
    * 
    * @example

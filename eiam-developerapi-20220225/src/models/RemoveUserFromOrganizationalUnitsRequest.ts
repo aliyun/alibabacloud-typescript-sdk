@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserFromOrganizationalUnitsRequest extends $dara.Model {
   /**
    * @remarks
+   * The organizational unit IDs.
+   * 
    * This parameter is required.
    * 
    * @example

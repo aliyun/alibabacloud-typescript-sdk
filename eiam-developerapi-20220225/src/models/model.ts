@@ -3,6 +3,7 @@ export { CreateUserRequestPasswordInitializationConfig } from './CreateUserReque
 export { CreateUserExclusiveCredentialRequestCredentialContentApiKeyContent } from './CreateUserExclusiveCredentialRequest';
 export { CreateUserExclusiveCredentialRequestCredentialContent } from './CreateUserExclusiveCredentialRequest';
 export { FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent } from './FetchOauthAuthenticationTokenResponseBody';
+export { FetchOAuthAuthenticationTokenResponseBodyOauthAuthorizationSession } from './FetchOauthAuthenticationTokenResponseBody';
 export { GenerateJwtAuthenticationTokenResponseBodyJwtContent } from './GenerateJwtAuthenticationTokenResponseBody';
 export { GetUserResponseBodyCustomFields } from './GetUserResponseBody';
 export { GetUserResponseBodyGroups } from './GetUserResponseBody';
@@ -15,6 +16,7 @@ export { ListUsersResponseBodyData } from './ListUsersResponseBody';
 export { ListUsersForGroupResponseBodyData } from './ListUsersForGroupResponseBody';
 export { ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAlibabaCloudStsToken } from './ObtainCloudAccountRoleAccessCredentialResponseBody';
 export { ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAwsStsToken } from './ObtainCloudAccountRoleAccessCredentialResponseBody';
+export { ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialTencentCloudStsToken } from './ObtainCloudAccountRoleAccessCredentialResponseBody';
 export { ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredential } from './ObtainCloudAccountRoleAccessCredentialResponseBody';
 export { ObtainCredentialResponseBodyCredentialContentApiKeyContent } from './ObtainCredentialResponseBody';
 export { ObtainCredentialResponseBodyCredentialContentOauthClientContent } from './ObtainCredentialResponseBody';

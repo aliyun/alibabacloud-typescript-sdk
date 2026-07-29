@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ReinstateAuthenticationTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The original authentication token.
+   * 
+   * > You can pass either the original authentication token or its derived short token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +16,13 @@ export class ReinstateAuthenticationTokenRequest extends $dara.Model {
    */
   token?: string;
   /**
+   * @remarks
+   * A hint about the authentication token type.
+   * 
+   * >Notice: 
+   * 
+   * Do not provide a value for this parameter.
+   * 
    * @example
    * -
    */

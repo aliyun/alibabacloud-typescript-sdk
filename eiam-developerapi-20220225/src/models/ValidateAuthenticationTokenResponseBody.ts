@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValidateAuthenticationTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the authentication token is valid.
+   * 
    * @example
    * true
    */

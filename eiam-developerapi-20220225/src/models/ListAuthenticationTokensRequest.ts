@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthenticationTokensRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the authentication token consumer.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListAuthenticationTokensRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
+   * Credential provider identifier.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,21 +24,33 @@ export class ListAuthenticationTokensRequest extends $dara.Model {
    */
   credentialProviderIdentifier?: string;
   /**
+   * @remarks
+   * Indicates whether the authentication token is expired.
+   * 
    * @example
    * false
    */
   expired?: boolean;
   /**
+   * @remarks
+   * Maximum number of records to return in this paged query.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token that marks the start of the next page in a paged query.
+   * 
    * @example
    * NTxxxxxexample
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Indicates whether the authentication token is revoked.
+   * 
    * @example
    * false
    */

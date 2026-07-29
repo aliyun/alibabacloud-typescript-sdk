@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApplicationProvisioningScopeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of group IDs.
+   */
   groupIds?: string[];
   /**
    * @remarks
-   * The IDs of organizational units.
+   * The list of organization IDs.
    * 
    * @example
    * [ou_xxx001]

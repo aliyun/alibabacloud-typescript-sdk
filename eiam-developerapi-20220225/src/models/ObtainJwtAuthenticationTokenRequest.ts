@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ObtainJwtAuthenticationTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the authentication token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ObtainJwtAuthenticationTokenRequest extends $dara.Model {
   authenticationTokenId?: string;
   /**
    * @remarks
+   * The ID of the authentication token consumer.
+   * 
    * This parameter is required.
    * 
    * @example

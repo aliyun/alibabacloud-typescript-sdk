@@ -3,14 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserExclusiveCredentialResponseBody extends $dara.Model {
+  credentialCiphertext?: string;
   /**
+   * @remarks
+   * The credential ID.
+   * 
    * @example
    * cred_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   credentialId?: string;
   /**
    * @remarks
-   * 凭据标识。
+   * The credential identifier.
    * 
    * @example
    * credential_identifier_test
@@ -18,6 +22,7 @@ export class CreateUserExclusiveCredentialResponseBody extends $dara.Model {
   credentialIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
+      credentialCiphertext: 'credentialCiphertext',
       credentialId: 'credentialId',
       credentialIdentifier: 'credentialIdentifier',
     };
@@ -25,6 +30,7 @@ export class CreateUserExclusiveCredentialResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      credentialCiphertext: 'string',
       credentialId: 'string',
       credentialIdentifier: 'string',
     };

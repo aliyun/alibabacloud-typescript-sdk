@@ -8,7 +8,7 @@ export class CreateOrganizationalUnitRequest extends $dara.Model {
    * The description of the organizational unit.
    * 
    * @example
-   * test organizational unit
+   * 测试组织
    */
   description?: string;
   /**

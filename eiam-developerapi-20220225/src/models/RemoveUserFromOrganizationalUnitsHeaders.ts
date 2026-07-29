@@ -6,6 +6,10 @@ export class RemoveUserFromOrganizationalUnitsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
+   * The authorization credential for the request.
+   * Format: Bearer ${access_token}.
+   * Example: Bearer ATxxxx.
+   * 
    * This parameter is required.
    * 
    * @example

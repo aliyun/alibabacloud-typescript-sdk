@@ -169,7 +169,7 @@ export class GetUserResponseBody extends $dara.Model {
    * The description of the account.
    * 
    * @example
-   * xxxx
+   * 测试账户
    */
   description?: string;
   /**
@@ -318,10 +318,13 @@ export class GetUserResponseBody extends $dara.Model {
    * @remarks
    * The source type of the account. Valid values:
    * 
-   * *   build_in: The account was created in IDaaS.
-   * *   ding_talk: The account was imported from DingTalk.
-   * *   ad: The account was imported from Microsoft Active Directory (AD).
-   * *   ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
+   * - build_in: The account was created in IDaaS.
+   * 
+   * - ding_talk: The account was imported from DingTalk.
+   * 
+   * - ad: The account was imported from Microsoft Active Directory (AD).
+   * 
+   * - ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
    * 
    * @example
    * build_in
