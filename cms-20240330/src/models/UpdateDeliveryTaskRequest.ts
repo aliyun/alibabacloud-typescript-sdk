@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
+   * The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The delivery target type. Valid values:
-   * - AcsMaxCompute: MaxCompute.
-   * - AcsKafka: Message Queue for Apache Kafka.
-   * - Prometheus: Managed Service for Prometheus.
+   * The delivery target type.
    * 
    * @example
    * Prometheus
@@ -64,14 +61,12 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filter conditions. The entire value is replaced and not incrementally merged.
+   * The metric filter conditions. The entire value is replaced and incremental merging is not performed.
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filtering mode. Valid values:
-   * - Deny: denied.
-   * - Allow: allowed.
+   * The metric filtering mode.
    * 
    * @example
    * Deny
@@ -92,10 +87,11 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   sinkList?: UpdateDeliveryTaskRequestSinkList[];
   /**
    * @remarks
-   * The task status. This parameter is used to start or stop the task. Valid values:
-   * - Running: running.
-   * - Enable: enabled.
-   * - Disable: disabled.
+   * The task status. This parameter is used to start or stop a task. Valid values:
+   * 
+   * - Enable: enables the task.
+   * - Disable: disables the task.
+   * - Running: the task is running.
    * 
    * @example
    * Enable
@@ -111,7 +107,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can also contain Chinese characters.
+   * The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can be in Chinese.
    * 
    * @example
    * new-task-name

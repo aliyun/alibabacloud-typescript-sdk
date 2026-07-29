@@ -1566,6 +1566,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+   * 
+   * @remarks
+   * Creates a service task for an application in a specified workspace.
+   * Common use cases:
+   * - heapdump: Triggers a JVM heap dump.
+   * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+   * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+   * - LiveDebug Code Replace: Performs hot code replacement.
+   * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+   * 
+   * @param request - CreateServiceTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceTaskResponse
+   */
+  async createServiceTaskWithOptions(workspace: string, serviceId: string, request: $_model.CreateServiceTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ip)) {
+      body["ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.taskConfig)) {
+      body["taskConfig"] = request.taskConfig;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceTask",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/serviceTask/${$dara.URL.percentEncode(workspace)}/${$dara.URL.percentEncode(serviceId)}/task`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceTaskResponse({}));
+  }
+
+  /**
+   * Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+   * 
+   * @remarks
+   * Creates a service task for an application in a specified workspace.
+   * Common use cases:
+   * - heapdump: Triggers a JVM heap dump.
+   * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+   * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+   * - LiveDebug Code Replace: Performs hot code replacement.
+   * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+   * 
+   * @param request - CreateServiceTaskRequest
+   * @returns CreateServiceTaskResponse
+   */
+  async createServiceTask(workspace: string, serviceId: string, request: $_model.CreateServiceTaskRequest): Promise<$_model.CreateServiceTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceTaskWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
    * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
    * 
    * @param request - CreateTicketRequest
@@ -2656,6 +2727,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a specified ServiceTask under a specified application.
+   * 
+   * @remarks
+   * Deletes a specified service task by taskId.
+   * heapdump: Simultaneously deletes the corresponding heap dump record.
+   * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+   * 
+   * @param request - DeleteServiceTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceTaskResponse
+   */
+  async deleteServiceTaskWithOptions(workspace: string, serviceId: string, taskId: string, request: $_model.DeleteServiceTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceTask",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/serviceTask/${$dara.URL.percentEncode(workspace)}/${$dara.URL.percentEncode(serviceId)}/task/${$dara.URL.percentEncode(taskId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceTaskResponse({}));
+  }
+
+  /**
+   * Deletes a specified ServiceTask under a specified application.
+   * 
+   * @remarks
+   * Deletes a specified service task by taskId.
+   * heapdump: Simultaneously deletes the corresponding heap dump record.
+   * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+   * 
+   * @param request - DeleteServiceTaskRequest
+   * @returns DeleteServiceTaskResponse
+   */
+  async deleteServiceTask(workspace: string, serviceId: string, taskId: string, request: $_model.DeleteServiceTaskRequest): Promise<$_model.DeleteServiceTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteServiceTaskWithOptions(workspace, serviceId, taskId, request, headers, runtime);
   }
 
   /**
@@ -4507,6 +4633,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getServiceRecordWithOptions(workspace, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询ServiceTask
+   * 
+   * @remarks
+   * 根据 taskId 查询单个服务任务详情。
+   * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+   * 
+   * @param request - GetServiceTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceTaskResponse
+   */
+  async getServiceTaskWithOptions(workspace: string, serviceId: string, taskId: string, request: $_model.GetServiceTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceTask",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/serviceTask/${$dara.URL.percentEncode(workspace)}/${$dara.URL.percentEncode(serviceId)}/task/${$dara.URL.percentEncode(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceTaskResponse({}));
+  }
+
+  /**
+   * 查询ServiceTask
+   * 
+   * @remarks
+   * 根据 taskId 查询单个服务任务详情。
+   * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+   * 
+   * @param request - GetServiceTaskRequest
+   * @returns GetServiceTaskResponse
+   */
+  async getServiceTask(workspace: string, serviceId: string, taskId: string, request: $_model.GetServiceTaskRequest): Promise<$_model.GetServiceTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceTaskWithOptions(workspace, serviceId, taskId, request, headers, runtime);
   }
 
   /**
@@ -6560,6 +6739,77 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceRecordsWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * 列举ServiceTask
+   * 
+   * @remarks
+   * 按任务类型列举应用下的服务任务。
+   * - type=heapdump：返回堆转储任务列表
+   * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+   * - type=live_debug_*：返回对应 LiveDebug 任务列表
+   * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+   * 
+   * @param request - ListServiceTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceTaskResponse
+   */
+  async listServiceTaskWithOptions(workspace: string, serviceId: string, request: $_model.ListServiceTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchCondition)) {
+      query["searchCondition"] = request.searchCondition;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceTask",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/serviceTask/${$dara.URL.percentEncode(workspace)}/${$dara.URL.percentEncode(serviceId)}/tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceTaskResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceTaskResponse({}));
+  }
+
+  /**
+   * 列举ServiceTask
+   * 
+   * @remarks
+   * 按任务类型列举应用下的服务任务。
+   * - type=heapdump：返回堆转储任务列表
+   * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+   * - type=live_debug_*：返回对应 LiveDebug 任务列表
+   * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+   * 
+   * @param request - ListServiceTaskRequest
+   * @returns ListServiceTaskResponse
+   */
+  async listServiceTask(workspace: string, serviceId: string, request: $_model.ListServiceTaskRequest): Promise<$_model.ListServiceTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceTaskWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
