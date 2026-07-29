@@ -9,6 +9,8 @@ export { DescribeGlobalDesktopsResponseBodyDesktops } from './DescribeGlobalDesk
 export { DescribeOfficeSitesResponseBodyOfficeSites } from './DescribeOfficeSitesResponseBody';
 export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBody';
 export { DescribeSnapshotsResponseBodySnapshots } from './DescribeSnapshotsResponseBody';
+export { DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs } from './DescribeUserResourcesResponseBody';
+export { DescribeUserResourcesResponseBodyAgentBriefSummary } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesClients } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesDesktopDurationList } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesDesktopTimers } from './DescribeUserResourcesResponseBody';
@@ -66,9 +68,6 @@ export { GetLoginTokenRequest } from './GetLoginTokenRequest';
 export { GetLoginTokenShrinkRequest } from './GetLoginTokenShrinkRequest';
 export { GetLoginTokenResponseBody } from './GetLoginTokenResponseBody';
 export { GetLoginTokenResponse } from './GetLoginTokenResponse';
-export { IsKeepAliveRequest } from './IsKeepAliveRequest';
-export { IsKeepAliveResponseBody } from './IsKeepAliveResponseBody';
-export { IsKeepAliveResponse } from './IsKeepAliveResponse';
 export { QueryEdsAgentReportConfigRequest } from './QueryEdsAgentReportConfigRequest';
 export { QueryEdsAgentReportConfigResponseBody } from './QueryEdsAgentReportConfigResponseBody';
 export { QueryEdsAgentReportConfigResponse } from './QueryEdsAgentReportConfigResponse';

@@ -32,7 +32,7 @@ export class DescribeFingerPrintTemplatesResponseBodyFingerPrintTemplates extend
    * The user ID.
    * 
    * @example
-   * liming
+   * alice
    */
   endUserId?: string;
   /**

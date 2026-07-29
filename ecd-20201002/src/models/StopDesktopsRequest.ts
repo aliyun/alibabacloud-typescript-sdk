@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client ID. The system generates a unique ID for each client.
+   * A unique ID that the client generates.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StopDesktopsRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The operating system (OS) of the device that runs the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client).
+   * The operating system of the device where the client runs.
    * 
    * @example
    * Windows_NT 10.0.18363 x64
@@ -23,7 +23,7 @@ export class StopDesktopsRequest extends $dara.Model {
   clientOS?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
+   * A client token to ensure idempotence. Generate a unique ASCII string for each request. The string must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 6ce412a8-399f-49f9-9518-66ee028a****
@@ -31,7 +31,7 @@ export class StopDesktopsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The client version. If you use a WUYING client, you can view the client version in the **About** dialog box on the client logon page.
+   * The client version. If you use the WUYING Workspace client, find this value in the **About** dialog box on the logon screen.
    * 
    * @example
    * 2.1.0-R-20210731.151756
@@ -39,7 +39,7 @@ export class StopDesktopsRequest extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
+   * The IDs of the cloud computers. You can specify from 1 to 20 IDs.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class StopDesktopsRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The logon token.
+   * The logon credential.
    * 
    * @example
    * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
@@ -58,7 +58,7 @@ export class StopDesktopsRequest extends $dara.Model {
   osUpdate?: boolean;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class StopDesktopsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The logon token.
+   * The logon credential.
    * 
    * @example
    * 04b7b80a0b020715c5c1b4175fc4771698****9e2a759557a4624665fd53ae40

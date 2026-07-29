@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReportSessionStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * End user.
+   * 
    * @example
    * liming
    */
   endUserId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class ReportSessionStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ReportSessionStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * Duration of the session change.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ReportSessionStatusRequest extends $dara.Model {
   sessionChangeTime?: number;
   /**
    * @remarks
+   * Session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +53,8 @@ export class ReportSessionStatusRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * Session status.
+   * 
    * This parameter is required.
    * 
    * @example

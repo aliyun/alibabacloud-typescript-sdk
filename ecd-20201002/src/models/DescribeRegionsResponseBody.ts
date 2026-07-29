@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The region endpoint.
+   * The endpoint of the region.
    * 
    * @example
    * ecd.cn-hangzhou.aliyuncs.com
@@ -45,7 +45,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * The region object.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**

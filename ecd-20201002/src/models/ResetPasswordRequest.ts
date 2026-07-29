@@ -36,7 +36,7 @@ export class ResetPasswordRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * liming
+   * alice
    */
   endUserId?: string;
   /**
@@ -64,7 +64,7 @@ export class ResetPasswordRequest extends $dara.Model {
    * The phone number of the user.
    * 
    * @example
-   * 1827912****
+   * 138****1111
    */
   phone?: string;
   static names(): { [key: string]: string } {

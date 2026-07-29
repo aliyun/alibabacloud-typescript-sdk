@@ -5,16 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDesktopsResponseBodyDesktopsClients extends $dara.Model {
   /**
    * @remarks
-   * The client type.
-   * 
-   * Valid values:
-   * 
-   * *   html5: the web client.
-   * *   android: the Android client.
-   * *   linux: Linux client.
-   * *   ios: the iOS client.
-   * *   windows: the Windows client.
-   * *   macos: the macOS client.
+   * Client type.
    * 
    * @example
    * windows
@@ -22,12 +13,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsClients extends $dara.Mod
   clientType?: string;
   /**
    * @remarks
-   * The status of the client.
-   * 
-   * Valid values:
-   * 
-   * *   OFF: does not allow logon.
-   * *   ON: allows logon.
+   * Client status.
    * 
    * @example
    * ON
@@ -59,7 +45,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsClients extends $dara.Mod
 export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $dara.Model {
   /**
    * @remarks
-   * Whether to allow clients to set policies.
+   * Whether clients can set policies.
    * 
    * @example
    * true
@@ -67,9 +53,9 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The CRON expression for the scheduled task.
+   * Cron expression for the scheduled task.
    * 
-   * For example, a `0 0 4 1/1 * ?` indicates that the operation is executed every day from 4:00 a.m. on the first day of each month.
+   * Example: `0 0 4 1/1 * ?` means run daily starting at 4:00 AM on the first day of each month.
    * 
    * @example
    * 0 0 0 ? * 1
@@ -77,7 +63,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   cronExpression?: string;
   /**
    * @remarks
-   * Indicates whether to forcibly execute the scheduled task. To `true` indicates that cloud computer and connection status detection are ignored, and scheduled tasks are forcibly executed.
+   * Whether to enforce execution. If `true`, the scheduled task runs regardless of cloud desktop or connection status.
    * 
    * @example
    * false
@@ -85,7 +71,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   enforce?: boolean;
   /**
    * @remarks
-   * The task duration.
+   * Task execution time.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -93,7 +79,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   executionTime?: string;
   /**
    * @remarks
-   * The interval at which the monitoring data was queried. Unit: seconds.
+   * Time interval, in seconds.
    * 
    * @example
    * 60
@@ -101,12 +87,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   interval?: number;
   /**
    * @remarks
-   * The type of the scheduled task.
-   * 
-   * Valid values:
-   * 
-   * *   HIBERNATE
-   * *   SHUTDOWN
+   * Scheduled task type.
    * 
    * @example
    * SHUTDOWN
@@ -114,13 +95,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   operationType?: string;
   /**
    * @remarks
-   * For a reset task, you must set the reset type.
-   * 
-   * Valid values:
-   * 
-   * *   RESET_TYPE_SYSTEM: resets the system disk.
-   * *   RESET_TYPE_USER_DISK: resets the data disk.
-   * *   RESET_TYPE_BOTH: resets the system disk and data disk.
+   * Reset type for reset tasks.
    * 
    * @example
    * RESET_TYPE_BOTH
@@ -128,18 +103,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
   resetType?: string;
   /**
    * @remarks
-   * The type of the scheduled task.
-   * 
-   * Valid values:
-   * 
-   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
-   * *   NoConnectShutdown: connectionless shutdown.
-   * *   TimerBoot: scheduled start.
-   * *   TimerReset: scheduled reset.
-   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
-   * *   TimerShutdown: Stops the cloud computers on schedule.
-   * *   NoOperationReboot: scheduled restart upon inactivity.
-   * *   TimerReboot: scheduled restart.
+   * Scheduled task type.
    * 
    * @example
    * NoConnectShutdown
@@ -183,7 +147,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers extends $da
 export class DescribeGlobalDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   /**
    * @remarks
-   * The disk ID.
+   * Disk ID.
    * 
    * @example
    * d-jedbpr4sl9l37****
@@ -191,7 +155,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDisks extends $dara.Model
   diskId?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB.
+   * Disk size, in GiB.
    * 
    * @example
    * 80
@@ -199,12 +163,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDisks extends $dara.Model
   diskSize?: number;
   /**
    * @remarks
-   * The disk type.
-   * 
-   * Valid value:
-   * 
-   * *   SYSTEM: a system disk.
-   * *   DATA: a data disk.
+   * Disk type.
    * 
    * @example
    * SYSTEM
@@ -238,7 +197,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsDisks extends $dara.Model
 export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model {
   /**
    * @remarks
-   * Subscription Channel
+   * Subscription channel.
    * 
    * @example
    * Enterprise
@@ -246,7 +205,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   channel?: string;
   /**
    * @remarks
-   * The current version number of the cloud computer.
+   * Current version number of the cloud desktop.
    * 
    * @example
    * 0.0.0-D-20220102.xxxx
@@ -254,7 +213,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   currentAppVersion?: string;
   /**
    * @remarks
-   * Whether to force upgrade.
+   * Whether the upgrade is forced.
    * 
    * @example
    * false
@@ -262,7 +221,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   force?: boolean;
   /**
    * @remarks
-   * The version number of the application after the update.
+   * New application version number after the update.
    * 
    * @example
    * 0.0.0-R-20220307.xxxx
@@ -271,7 +230,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   newDcdVersion?: string;
   /**
    * @remarks
-   * The name of the project.
+   * Project name.
    * 
    * @example
    * testProject
@@ -279,12 +238,15 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   project?: string;
   /**
    * @remarks
-   * The description of the version that can be upgraded.
+   * Description of the upgradable version.
+   * 
+   * @example
+   * Test upgrade package 03-07
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The English release note for the new image version.
+   * English description of the upgradable version.
    * 
    * @example
    * Release note
@@ -292,7 +254,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   releaseNoteEn?: string;
   /**
    * @remarks
-   * The Japanese release note for the new image version.
+   * Japanese description of the upgradable version.
    * 
    * @example
    * リリースノート
@@ -300,7 +262,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate extends $dara.
   releaseNoteJp?: string;
   /**
    * @remarks
-   * The size of the update package for the cloud computer image. Unit: MiB.
+   * Size of the upgradable version package, in MiB.
    * 
    * @example
    * 100
@@ -351,12 +313,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsSessions extends $dara.Mo
    * End user information.
    * 
    * @example
-   * User1
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * Time when the session was created.
    * 
    * @example
    * 2021-03-07T08:23Z
@@ -388,12 +350,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktopsSessions extends $dara.Mo
 export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the cloud computer pool.
-   * 
-   * Valid value:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
+   * Billing method.
    * 
    * @example
    * PostPaid
@@ -401,21 +358,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The information about the supported clients.
+   * Supported client information.
    */
   clients?: DescribeGlobalDesktopsResponseBodyDesktopsClients[];
   /**
    * @remarks
-   * The state of the endpoint connection.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * *   Disconnecting
-   * *   Pending.
-   * *   Connecting.
-   * *   Disconnected.
-   * *   Deleting
+   * Endpoint connection status.
    * 
    * @example
    * Disconnected
@@ -423,7 +371,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * Number of CPUs.
    * 
    * @example
    * 2
@@ -431,7 +379,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the cloud computer was created.
+   * Time when the cloud desktop was created.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -439,7 +387,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * Shared cloud desktop ID.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -447,7 +395,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The cloud compute ID.
+   * Cloud desktop ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -455,7 +403,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * Cloud desktop name.
    * 
    * @example
    * testDesktopName
@@ -463,7 +411,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The cloud computer status.
+   * Cloud desktop status.
    * 
    * @example
    * Running
@@ -471,12 +419,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The cloud computer timer object.
+   * Cloud desktop timer object.
    */
   desktopTimers?: DescribeGlobalDesktopsResponseBodyDesktopsDesktopTimers[];
   /**
    * @remarks
-   * The cloud computer type.
+   * Cloud desktop specification.
    * 
    * @example
    * ecd.basic.large
@@ -484,7 +432,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The network ID of the office. Same as `OfficeSiteId`.
+   * Office site ID. Same as `OfficeSiteId`.
    * 
    * @example
    * cn-hangzhou+dir-jedbpr4sl9l37****
@@ -492,28 +440,29 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The disks.
+   * Disk information.
    */
   disks?: DescribeGlobalDesktopsResponseBodyDesktopsDisks[];
   /**
    * @remarks
-   * The names of end users.
+   * End user name.
    * 
    * @example
-   * User1
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The list of end user.
+   * List of end users.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The expiration time of the cloud computer.
+   * Time when the cloud desktop expires.
    * 
-   * *   For a cloud computer that is a package year or month, the return value is meaningful.
-   * *   For pay-as-you-go cloud computers, the `2099-12-31T15:59Z` is returned.
+   * - Valid for subscription cloud desktops.
+   * 
+   * - For pay-as-you-go cloud desktops, always returns `2099-12-31T15:59Z`.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -521,12 +470,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The information about image update.
+   * Image update information.
    */
   fotaUpdate?: DescribeGlobalDesktopsResponseBodyDesktopsFotaUpdate;
   /**
    * @remarks
-   * The GPU memory size. For GPU-accelerated cloud computers, this return value is significant. Unit: MB.
+   * GPU memory size. Valid for GPU cloud desktops. Unit: MB.
    * 
    * @example
    * 2048
@@ -534,7 +483,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   gpuMemory?: number;
   /**
    * @remarks
-   * Indicates whether this is a beta version of the hibernation feature.
+   * Whether this is a hibernation beta version.
    * 
    * @example
    * true
@@ -542,7 +491,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   hibernationBeta?: boolean;
   /**
    * @remarks
-   * The hostname of the cloud desktop.
+   * Host name.
    * 
    * @example
    * testName
@@ -550,7 +499,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The image ID.
+   * Image ID.
    * 
    * @example
    * m-4zfb6zj728hhr****
@@ -558,7 +507,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was last started.
+   * Last startup time — the most recent time the cloud desktop started.
    * 
    * @example
    * 2021-07-13T15:59Z
@@ -566,17 +515,20 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   lastStartTime?: string;
   /**
    * @remarks
-   * The region name.
+   * Region name.
+   * 
+   * @example
+   * China (Shanghai)
    */
   localName?: string;
   /**
    * @remarks
-   * The list of cloud computer status.
+   * List of cloud desktop management statuses.
    */
   managementFlags?: string[];
   /**
    * @remarks
-   * The memory of the cloud computer. Unit: MiB.
+   * Cloud desktop memory size, in MiB.
    * 
    * @example
    * 4096
@@ -584,15 +536,15 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The IP address of the ENI.
+   * Network interface IP address.
    * 
    * @example
-   * 192.168.xx.xx
+   * 192.168.XX.XX
    */
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The IDs of the office networks.
+   * Office site ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -600,7 +552,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * OS Type
+   * Operating system type
    * 
    * @example
    * Windows
@@ -609,12 +561,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   osDescription?: string;
   /**
    * @remarks
-   * The operating system.
-   * 
-   * Valid value:
-   * 
-   * *   Linux
-   * *   Windows
+   * Operating system type.
    * 
    * @example
    * Windows
@@ -622,15 +569,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The OS platform.
-   * 
-   * Valid value:
-   * 
-   * *   Ubuntu
-   * *   UOS
-   * *   CentOS
-   * *   Windows Server 2019
-   * *   Windows Server 2016
+   * Operating system platform.
    * 
    * @example
    * Ubuntu
@@ -638,7 +577,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The cloud computer policy ID.
+   * Cloud desktop policy ID.
    * 
    * @example
    * pg-9cktlowtxfl6****
@@ -646,12 +585,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The type of the protocol.
-   * 
-   * Valid value:
-   * 
-   * *   High-definition Experience (HDX)
-   * *   ASP
+   * Protocol type.
    * 
    * @example
    * ASP
@@ -659,7 +593,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * If a shared cloud computer is assigned a real cloud computer, the ID of the cloud computer is displayed.
+   * If this is a shared cloud desktop and a real cloud desktop has been assigned, this field shows the cloud desktop ID.
    * 
    * @example
    * ecd-gx2x1dhsm****
@@ -667,7 +601,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   realDesktopId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -676,12 +610,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   regionLocation?: string;
   /**
    * @remarks
-   * The type of the session.
-   * 
-   * Valid value:
-   * 
-   * *   SINGLE_SESSION
-   * *   MULTIPLE_SESSION
+   * Session type.
    * 
    * @example
    * SINGLE_SESSION
@@ -689,17 +618,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The list of session information.
+   * List of session information.
    */
   sessions?: DescribeGlobalDesktopsResponseBodyDesktopsSessions[];
   /**
    * @remarks
-   * Indicates whether hibernation is supported.
-   * 
-   * Valid values:
-   * 
-   * *   true: supported
-   * *   false: not supported
+   * Whether hibernation is supported.
    * 
    * @example
    * true
@@ -707,7 +631,7 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
   supportHibernation?: boolean;
   /**
    * @remarks
-   * The custom cloud computer name.
+   * User-defined cloud desktop name.
    * 
    * @example
    * testDesktop
@@ -836,12 +760,12 @@ export class DescribeGlobalDesktopsResponseBodyDesktops extends $dara.Model {
 export class DescribeGlobalDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the cloud computer.
+   * Detailed cloud desktop information.
    */
   desktops?: DescribeGlobalDesktopsResponseBodyDesktops[];
   /**
    * @remarks
-   * The token used to start the next query. If NextToken is empty, it indicates that there is no next query.
+   * Token that marks the start of the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * eyJkZWZhdWx0IjpbIjIwMjItMDgtMTdUM****
@@ -849,7 +773,7 @@ export class DescribeGlobalDesktopsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 4686A731-D601-548C-83E2-4CB6371E****

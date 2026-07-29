@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCloudDriveServiceMountTokenResponseBodyToken extends $dara.Model {
   /**
+   * @remarks
+   * Enterprise File Gateway domain name.
+   * 
    * @example
    * h****
    */
   domainId?: string;
   /**
+   * @remarks
+   * Expiration Time.
+   * 
    * @example
    * 2022-10-10T04:41:35Z
    */
   expiredAfter?: string;
   /**
+   * @remarks
+   * Current status of the Enterprise File Gateway user.
+   * 
    * @example
    * enabled
    */
@@ -35,6 +44,9 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $dara.Model
    */
   totalSize?: number;
   /**
+   * @remarks
+   * Used capacity. Unit: GiB.
+   * 
    * @example
    * 605089
    */
@@ -72,6 +84,9 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $dara.Model
 
 export class GetCloudDriveServiceMountTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * DC27288A-F9E1-5092-9B5B-71C27D15****
    */

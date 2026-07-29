@@ -20,7 +20,7 @@ export class ChangePasswordRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * liming
+   * alice
    */
   endUserId?: string;
   /**

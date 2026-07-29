@@ -2,6 +2,115 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs extends $dara.Model {
+  /**
+   * @example
+   * ENTERPRISE_JVS
+   */
+  agentPlatform?: string;
+  /**
+   * @example
+   * OpenClaw
+   */
+  agentProvider?: string;
+  /**
+   * @example
+   * https://xxx.png
+   */
+  avatarNoResourceUrl?: string;
+  /**
+   * @example
+   * https://abc.com/efg.png
+   */
+  avatarUrl?: string;
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  /**
+   * @example
+   * JVS Claw
+   */
+  displayName?: string;
+  /**
+   * @example
+   * Intelligent Evolution, Happy Shrimp Farming.
+   */
+  subTitle?: string;
+  /**
+   * @example
+   * https://test.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentPlatform: 'AgentPlatform',
+      agentProvider: 'AgentProvider',
+      avatarNoResourceUrl: 'AvatarNoResourceUrl',
+      avatarUrl: 'AvatarUrl',
+      count: 'Count',
+      displayName: 'DisplayName',
+      subTitle: 'SubTitle',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentPlatform: 'string',
+      agentProvider: 'string',
+      avatarNoResourceUrl: 'string',
+      avatarUrl: 'string',
+      count: 'number',
+      displayName: 'string',
+      subTitle: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyAgentBriefSummary extends $dara.Model {
+  agentBriefs?: DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs[];
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentBriefs: 'AgentBriefs',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentBriefs: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.agentBriefs)) {
+      $dara.Model.validateArray(this.agentBriefs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserResourcesResponseBodyResourcesClients extends $dara.Model {
   /**
    * @remarks
@@ -13,12 +122,7 @@ export class DescribeUserResourcesResponseBodyResourcesClients extends $dara.Mod
   clientType?: string;
   /**
    * @remarks
-   * The status.
-   * 
-   * Valid values:
-   * 
-   * *   OFF
-   * *   ON
+   * The support status.
    * 
    * @example
    * ON
@@ -50,7 +154,7 @@ export class DescribeUserResourcesResponseBodyResourcesClients extends $dara.Mod
 export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance order.
+   * The order instance ID.
    * 
    * @example
    * mdp-0bxls4qpi6bl6****
@@ -58,7 +162,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   orderInstanceId?: string;
   /**
    * @remarks
-   * The time when the package was created.
+   * The creation time.
    * 
    * @example
    * 2025-01-17T07:01Z
@@ -66,7 +170,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageCreationTime?: string;
   /**
    * @remarks
-   * The expiration time of the package.
+   * The expiration time.
    * 
    * @example
    * 2025-02-17T15:59Z
@@ -82,7 +186,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageId?: string;
   /**
    * @remarks
-   * The package status.
+   * The status.
    * 
    * @example
    * Available
@@ -90,14 +194,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageStatus?: string;
   /**
    * @remarks
-   * The package type.
-   * 
-   * Valid values:
-   * 
-   * *   FREE_PACKAGE: a free package.
-   * *   NORMAL_PACKAGE: a paid package (120-hour computing plan).
-   * *   POSTPAID_PACKAGE: a pay-as-you-go package (200-hour computing plan).
-   * *   Duration: an hourly package.
+   * The duration package type.
    * 
    * @example
    * NORMAL_PACKAGE
@@ -105,12 +202,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageType?: string;
   /**
    * @remarks
-   * The policy for the cloud computer status once the monthly package quota is exhausted.
-   * 
-   * Valid values:
-   * 
-   * *   Shutdown: The cloud computer enters the Stopped or Hibernated state.
-   * *   PostPaid: The cloud computer continues providing services that are billed on the pay-as-you-go basis.
+   * The cloud desktop status policy after the monthly quota of the plan is used up.
    * 
    * @example
    * Postpaid
@@ -118,7 +210,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageUsedUpStrategy?: string;
   /**
    * @remarks
-   * The package\\"s effective end time for the current month.
+   * The end time of the current monthly package.
    * 
    * @example
    * 2025-02-17T15:59Z
@@ -126,7 +218,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   periodEndTime?: string;
   /**
    * @remarks
-   * The package\\"s effective start time for the current month.
+   * The start time of the current monthly package.
    * 
    * @example
    * 2025-01-17T07:01Z
@@ -134,9 +226,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   periodStartTime?: string;
   /**
    * @remarks
-   * The maximum fee for the package in the second phase.
-   * 
-   * >  This parameter is returned if you set ResourceType to `POSTPAID_PACKAG` or `FREE_PACKAGE`.
+   * The cap amount for the second-phase package.
    * 
    * @example
    * 199
@@ -152,7 +242,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   totalDuration?: number;
   /**
    * @remarks
-   * The subscription duration consumed.
+   * The used duration.
    * 
    * @example
    * 16850
@@ -204,7 +294,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
 export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to allow end users to configure scheduled tasks on clients.
+   * Indicates whether the client is allowed to configure this setting.
    * 
    * @example
    * false
@@ -212,7 +302,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   allowClientSetting?: string;
   /**
    * @remarks
-   * The cron expression specified in the scheduled task.
+   * The cron expression of the scheduled task.
    * 
    * @example
    * 0 30 13 ? * 1-7
@@ -220,7 +310,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   cronExpression?: string;
   /**
    * @remarks
-   * Indicates whether to forcibly execute the scheduled task.
+   * Indicates whether the task is forcibly executed.
    * 
    * @example
    * false
@@ -228,7 +318,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   enforce?: boolean;
   /**
    * @remarks
-   * The time when the scheduled task is executed.
+   * The execution time.
    * 
    * @example
    * 2025-01-21T11:37Z
@@ -236,7 +326,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   executionTime?: string;
   /**
    * @remarks
-   * The interval at which the scheduled task is executed.
+   * The interval of the scheduled task.
    * 
    * @example
    * 15
@@ -244,7 +334,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   interval?: number;
   /**
    * @remarks
-   * The type of the scheduled action.
+   * The operation type.
    * 
    * @example
    * Hibernate
@@ -252,7 +342,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   operationType?: string;
   /**
    * @remarks
-   * The reset option.
+   * The reset type.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -312,7 +402,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   channel?: string;
   /**
    * @remarks
-   * The current version number of the cloud computer\\"s image.
+   * The version number of the current image on the cloud desktop.
    * 
    * @example
    * 2.7.0-R-20250122.154826
@@ -320,7 +410,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   currentAppVersion?: string;
   /**
    * @remarks
-   * Specifies whether to implement a forced update.
+   * Indicates whether the upgrade is mandatory.
    * 
    * @example
    * false
@@ -328,7 +418,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   force?: boolean;
   /**
    * @remarks
-   * The target version number of the cloud computer\\"s image.
+   * The version number available for upgrade on the cloud desktop.
    * 
    * @example
    * 2.7.0-R-20250125.154826
@@ -336,7 +426,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   newAppVersion?: string;
   /**
    * @remarks
-   * The latest version available for updating the component disk.
+   * The component disk version number available for upgrade.
    * 
    * @example
    * 2.6.9-R-20250123.153415
@@ -352,31 +442,31 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   project?: string;
   /**
    * @remarks
-   * The version description of the cloud computer\\"s image.
+   * The release note for the available upgrade version.
    * 
    * @example
-   * up
+   * New version.
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The English release note for the new image version.
+   * The English release note for the available upgrade version.
    * 
    * @example
-   * up
+   * new version
    */
   releaseNoteEn?: string;
   /**
    * @remarks
-   * The Japanese release note for the new image version.
+   * The Japanese release note for the available upgrade version.
    * 
    * @example
-   * up
+   * 新バージョン.
    */
   releaseNoteJp?: string;
   /**
    * @remarks
-   * The size of the update package for the cloud computer image. Unit: KB.
+   * The installation package size of the available upgrade version. Unit: KB.
    * 
    * @example
    * 474981930
@@ -425,6 +515,9 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends 
   /**
    * @remarks
    * The patch description.
+   * 
+   * @example
+   * Install this update to modify the files that are used to detect viruses, spyware, and other potentially unwanted software. Once installed, this item cannot be removed.
    */
   description?: string;
   /**
@@ -438,6 +531,9 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends 
   /**
    * @remarks
    * The patch title.
+   * 
+   * @example
+   * Patch for ****.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -468,7 +564,7 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends 
 export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Model {
   /**
    * @remarks
-   * The ID of the check task.
+   * The check ID.
    * 
    * @example
    * wua-1740652957251743***
@@ -476,7 +572,7 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
   checkId?: string;
   /**
    * @remarks
-   * The patch numbers.
+   * The patch number list information.
    * 
    * @example
    * KB2267***
@@ -484,7 +580,7 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
   kbListString?: string;
   /**
    * @remarks
-   * The number of packets.
+   * The number of packages.
    * 
    * @example
    * 1
@@ -492,12 +588,12 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
   packageCount?: number;
   /**
    * @remarks
-   * The patch packages.
+   * The list of patch package information.
    */
   packages?: DescribeUserResourcesResponseBodyResourcesOsUpdatePackages[];
   /**
    * @remarks
-   * The update categorization URL.
+   * The update catalog URL.
    * 
    * @example
    * https://catalog.update.microsoft.com/home.aspx
@@ -536,9 +632,10 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
 }
 
 export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Model {
+  lastClientIp?: string;
   /**
    * @remarks
-   * 用户的昵称。
+   * The nickname of the user.
    * 
    * @example
    * user-001
@@ -546,7 +643,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   nickName?: string;
   /**
    * @remarks
-   * The timestamp when the resource session was established.
+   * The time when the resource session was connected.
    * 
    * @example
    * 2025-01-22T11:03:36Z
@@ -554,7 +651,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   resourceSessionStartTime?: string;
   /**
    * @remarks
-   * The username used to log on to the resource.
+   * The username logged on to the resource.
    * 
    * @example
    * user001
@@ -562,7 +659,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   userId?: string;
   /**
    * @remarks
-   * The User Principal Name (UPN) of the resource-bound user (if applicable). This parameter is returned only when you query the current user\\"s sessions.
+   * The User Principal Name (UPN) of the user bound to the resource, if available. This value is populated only for the session of the currently queried user.
    * 
    * @example
    * benchmark_test@test.shenzhen
@@ -570,6 +667,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
+      lastClientIp: 'LastClientIp',
       nickName: 'NickName',
       resourceSessionStartTime: 'ResourceSessionStartTime',
       userId: 'UserId',
@@ -579,6 +677,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      lastClientIp: 'string',
       nickName: 'string',
       resourceSessionStartTime: 'string',
       userId: 'string',
@@ -600,19 +699,18 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The access type.
    * 
-   * Valid values:
-   * 
-   * *   INTERNET: access over the Internet.
-   * *   VPC: access over an enterprise VPC.
-   * *   ANY: access over the Internet or an enterprise VPC.
-   * 
    * @example
    * INTERNET
    */
   accessType?: string;
   /**
+   * @example
+   * https://wuying.aliyun.com/OpenIM/chat?desktopId=ecd-xxxxx
+   */
+  agentImUrl?: string;
+  /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 194101959****
@@ -620,7 +718,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The app ID. This parameter is for apps only.
+   * The application ID. This parameter is specific to resources of the App type.
    * 
    * @example
    * app-0001
@@ -628,13 +726,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The authorization mode of the cloud app.
-   * 
-   * Valid values:
-   * 
-   * *   App: authorizes access to apps.
-   * *   AppInstanceGroup: authorizes access to delivery groups.
-   * *   Session: authorizes access to sessions.
+   * The cloud application authorization mode.
    * 
    * @example
    * App
@@ -642,7 +734,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * The level-2 resource category. This parameter is for apps only.
+   * The secondary category of the resource. This parameter is specific to resources of the App type.
    * 
    * @example
    * 0
@@ -650,7 +742,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The level-1 resource category. This parameter is for apps only.
+   * The primary category of the resource. This parameter is specific to resources of the App type.
    * 
    * @example
    * 1
@@ -658,7 +750,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   categoryType?: number;
   /**
    * @remarks
-   * The drive name. This parameter is for enterprise drives only.
+   * The cloud drive name. This parameter is specific to resources of the CloudDrive type.
    * 
    * @example
    * cn-shanghai+cds-695277****
@@ -666,7 +758,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   cdsName?: string;
   /**
    * @remarks
-   * The ID of the centralized resource.
+   * The centralized resource ID.
    * 
    * @example
    * ecds-0****
@@ -676,23 +768,18 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The billing method.
    * 
-   * Valid values:
-   * 
-   * *   Postpaid (default): pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
    * @example
    * PrePaid
    */
   chargeType?: string;
   /**
    * @remarks
-   * The client types supported by resources.
+   * The list of client types supported by the resource.
    */
   clients?: DescribeUserResourcesResponseBodyResourcesClients[];
   /**
    * @remarks
-   * The connection attributes in JSON format. The client does not need to process the attributes; they are directly passed to the resource management center when the app resource is created.
+   * The connection properties in JSON string format. The client does not need to parse the content. The value is passed directly to the central resource management service when the application resource establishes a connection.
    * 
    * @example
    * {"authMode":"App"}
@@ -708,17 +795,17 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cloud computer plans.
+   * The list of cloud desktop package information.
    */
   desktopDurationList?: DescribeUserResourcesResponseBodyResourcesDesktopDurationList[];
   /**
    * @remarks
-   * The scheduled tasks for cloud computers.
+   * The list of Cloud Desktop scheduled task settings.
    */
   desktopTimers?: DescribeUserResourcesResponseBodyResourcesDesktopTimers[];
   /**
    * @remarks
-   * The expiration time of the subscription resource.
+   * The expiration time of subscription resources.
    * 
    * @example
    * 2025-02-22T16:00:00Z
@@ -726,7 +813,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The ID of the external domain. This parameter is for enterprise drives only.
+   * The external domain ID. This parameter is specific to resources of the CloudDrive type.
    * 
    * @example
    * stg114510
@@ -734,7 +821,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
-   * The ID of the external user. This parameter is for enterprise drives only.
+   * The external user ID. This parameter is specific to resources of the CloudDrive type.
    * 
    * @example
    * test001
@@ -742,12 +829,12 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
-   * The update info of the cloud computer.
+   * The cloud desktop upgrade information.
    */
   fotaUpdate?: DescribeUserResourcesResponseBodyResourcesFotaUpdate;
   /**
    * @remarks
-   * Indicates whether cross-region access is supported. This parameter is for enterprise drives only.
+   * Indicates whether cross-region access is supported. This parameter is specific to resources of the CloudDrive type.
    * 
    * @example
    * true
@@ -755,7 +842,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   globalStatus?: boolean;
   /**
    * @remarks
-   * Indicates whether an update exists.
+   * Indicates whether an update is available.
    * 
    * @example
    * true
@@ -763,12 +850,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   hasUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether this is a beta version of the hibernation feature.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the resource is a hibernation beta version.
    * 
    * @example
    * false
@@ -776,7 +858,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   hibernationBeta?: boolean;
   /**
    * @remarks
-   * The resource icon. This parameter is for apps only.
+   * The resource icon URL. This parameter is specific to resources of the App type.
    * 
    * @example
    * http://example.com/icon.png
@@ -784,7 +866,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The time when the resource was last started.
+   * The last time the resource was started.
    * 
    * @example
    * 2025-01-24T03:12:04Z
@@ -793,11 +875,14 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
    * The region name.
+   * 
+   * @example
+   * Singapore.
    */
   localName?: string;
   /**
    * @remarks
-   * The management status.
+   * The list of management statuses.
    */
   managementStatuses?: string[];
   /**
@@ -812,20 +897,13 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The order status.
    * 
-   * Valid values:
-   * 
-   * *   Ceased: Your account has an overdue payment.
-   * *   Released: The order is closed.
-   * *   Expired: The subscription resource has expired.
-   * *   Normal: The order is normal.
-   * 
    * @example
    * Normal
    */
   orderStatus?: string;
   /**
    * @remarks
-   * The OS platform.
+   * The operating system platform information.
    * 
    * @example
    * Windows Server 2022
@@ -833,18 +911,15 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   os?: string;
   /**
    * @remarks
-   * The description of the OS platform.
+   * The operating system platform description.
+   * 
+   * @example
+   * Windows Genuine License.
    */
   osDescription?: string;
   /**
    * @remarks
-   * The OS type.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * *   Windows
-   * *   Android
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -852,19 +927,12 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The update info of the OS.
+   * The operating system upgrade information.
    */
   osUpdate?: DescribeUserResourcesResponseBodyResourcesOsUpdate;
   /**
    * @remarks
-   * The service type.
-   * 
-   * Valid values:
-   * 
-   * *   CloudDesktop: regular cloud computers or cloud computer shares.
-   * *   CloudApp: App Streaming
-   * *   CloudBrowser: Cloud Browser.
-   * *   AndroidCloud: Cloud Phone.
+   * The product type.
    * 
    * @example
    * AndroidCloud
@@ -874,18 +942,13 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The protocol type.
    * 
-   * Valid values:
-   * 
-   * *   HDX
-   * *   ASP
-   * 
    * @example
    * ASP
    */
   protocolType?: string;
   /**
    * @remarks
-   * The real ID of the cloud computer (from a share). This parameter is returned only when the cloud computer share has ongoing sessions.
+   * The real cloud desktop ID of the shared cloud desktop. This value exists only when the shared cloud desktop has an active session.
    * 
    * @example
    * ecd-0001
@@ -901,12 +964,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The geographical location.
-   * 
-   * Valid values:
-   * 
-   * *   Mainland: regions in the Chinese mainland.
-   * *   Overseas: regions outside the Chinese mainland, including China (Hong Kong).
+   * The region location.
    * 
    * @example
    * Mainland
@@ -932,11 +990,6 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The resource level.
    * 
-   * Valid values:
-   * 
-   * *   Center: a centralized resource.
-   * *   Region: a unit resource.
-   * 
    * @example
    * Center
    */
@@ -953,12 +1006,6 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The session status.
    * 
-   * Valid values:
-   * 
-   * *   Unknown
-   * *   Connected
-   * *   Disconnected
-   * 
    * @example
    * Connected
    */
@@ -966,20 +1013,6 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
    * The resource status.
-   * 
-   * Valid values:
-   * 
-   * *   Unknown: The resource status is unknown.
-   * *   Stopped: The resource is stopped.
-   * *   Failed: The resource failed to be created.
-   * *   Starting: The resource is being started.
-   * *   Rebuilding: The resource is changing.
-   * *   Running: The resource is running.
-   * *   Stopping: The resource is being stopped.
-   * *   FotaUpdating: The image is being updated.
-   * *   Pending: The resource is still being prepared.
-   * *   Deleting: The resource is being deleted.
-   * *   Unavailable: The resource is unavailable.
    * 
    * @example
    * Running
@@ -989,13 +1022,6 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * Valid values:
-   * 
-   * *   App: cloud apps including App Streaming, Cloud Phone, and Cloud Browser.
-   * *   Desktop: cloud computers.
-   * *   DesktopGroup: cloud computer shares.
-   * *   CloudDrive: enterprise drives.
-   * 
    * @example
    * Desktop
    */
@@ -1004,41 +1030,27 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The session type.
    * 
-   * Valid values:
-   * 
-   * *   SINGLE_SESSION
-   * *   MULTIPLE_SESSION
-   * 
    * @example
    * SINGLE_SESSION
    */
   sessionType?: string;
   /**
    * @remarks
-   * The sessions established between users and resources.
+   * The list of resource user session information.
    */
   sessions?: DescribeUserResourcesResponseBodyResourcesSessions[];
   /**
    * @remarks
    * The sub-billing method.
    * 
-   * Valid values:
-   * 
-   * *   monthPackage: monthly subscription.
-   * *   PrePaid: hourly plans.
-   * 
    * @example
    * PrePaid
    */
   subPayType?: string;
+  supportAgentIm?: boolean;
   /**
    * @remarks
    * Indicates whether hibernation is supported.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
    * 
    * @example
    * true
@@ -1046,12 +1058,12 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   supportHibernation?: boolean;
   /**
    * @remarks
-   * The supported actions. This parameter is returned only for cloud computers or phones.
+   * The list of supported action types. Currently supported only for cloud phones and cloud desktops (including shared cloud desktops).
    */
   supportedActions?: string[];
   /**
    * @remarks
-   * The theme color of the resource. This parameter is for apps only.
+   * The resource theme color. This parameter is specific to resources of the App type.
    * 
    * @example
    * #FFFFFF
@@ -1059,17 +1071,24 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   themeColor?: string;
   /**
    * @remarks
-   * The custom name of the resource.
+   * The user-defined name.
+   * 
+   * @example
+   * My cloud desktop
    */
   userCustomName?: string;
   /**
    * @remarks
-   * The resource version. This parameter is for apps only.
+   * The resource version. This parameter is specific to resources of the App type.
+   * 
+   * @example
+   * Resource version.
    */
   version?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
+      agentImUrl: 'AgentImUrl',
       aliUid: 'AliUid',
       appId: 'AppId',
       authMode: 'AuthMode',
@@ -1115,6 +1134,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       sessionType: 'SessionType',
       sessions: 'Sessions',
       subPayType: 'SubPayType',
+      supportAgentIm: 'SupportAgentIm',
       supportHibernation: 'SupportHibernation',
       supportedActions: 'SupportedActions',
       themeColor: 'ThemeColor',
@@ -1126,6 +1146,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessType: 'string',
+      agentImUrl: 'string',
       aliUid: 'number',
       appId: 'string',
       authMode: 'string',
@@ -1171,6 +1192,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       sessionType: 'string',
       sessions: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesSessions },
       subPayType: 'string',
+      supportAgentIm: 'boolean',
       supportHibernation: 'boolean',
       supportedActions: { 'type': 'array', 'itemType': 'string' },
       themeColor: 'string',
@@ -1213,9 +1235,10 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
 }
 
 export class DescribeUserResourcesResponseBody extends $dara.Model {
+  agentBriefSummary?: DescribeUserResourcesResponseBodyAgentBriefSummary;
   /**
    * @remarks
-   * 返回最大数量。
+   * The maximum number of results returned.
    * 
    * @example
    * 100
@@ -1223,7 +1246,7 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token used to start the next query. An empty NextToken indicates that there is no next page.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -1231,12 +1254,12 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource types that failed to be queried.
+   * The list of resource types that failed to be queried.
    */
   queryFailedResourceTypes?: string[];
   /**
    * @remarks
-   * The version number of the ranking data.
+   * The ranking data version number.
    * 
    * @example
    * 1732869815062
@@ -1252,12 +1275,12 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resource details.
    */
   resources?: DescribeUserResourcesResponseBodyResources[];
   /**
    * @remarks
-   * 总数。
+   * The total count.
    * 
    * @example
    * 10
@@ -1265,6 +1288,7 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      agentBriefSummary: 'AgentBriefSummary',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       queryFailedResourceTypes: 'QueryFailedResourceTypes',
@@ -1277,6 +1301,7 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentBriefSummary: DescribeUserResourcesResponseBodyAgentBriefSummary,
       maxResults: 'number',
       nextToken: 'string',
       queryFailedResourceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -1288,6 +1313,9 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.agentBriefSummary && typeof (this.agentBriefSummary as any).validate === 'function') {
+      (this.agentBriefSummary as any).validate();
+    }
     if(Array.isArray(this.queryFailedResourceTypes)) {
       $dara.Model.validateArray(this.queryFailedResourceTypes);
     }

@@ -56,7 +56,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * The name of the restore point.
    * 
    * @example
-   * Data Disk Backup
+   * Data disk backup
    */
   restorePointName?: string;
   /**
