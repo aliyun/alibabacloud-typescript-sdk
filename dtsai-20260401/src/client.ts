@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-beijing': "dtsai.cn-beijing.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dtsai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -114,7 +117,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Creates a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - CreateDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -135,12 +142,28 @@ export default class Client extends OpenApi {
       query["FileUrl"] = request.fileUrl;
     }
 
+    if (!$dara.isNull(request.imageMode)) {
+      query["ImageMode"] = request.imageMode;
+    }
+
+    if (!$dara.isNull(request.ossFileUrl)) {
+      query["OssFileUrl"] = request.ossFileUrl;
+    }
+
     if (!$dara.isNull(request.outputFormat)) {
       query["OutputFormat"] = request.outputFormat;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resultType)) {
+      query["ResultType"] = request.resultType;
+    }
+
+    if (!$dara.isNull(request.tableFormat)) {
+      query["TableFormat"] = request.tableFormat;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -161,7 +184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Creates a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - CreateDocParserJobRequest
    * @returns CreateDocParserJobResponse
@@ -258,7 +285,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Retrieves the result of a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: Free of charge during the public preview period.
+   * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
    * 
    * @param request - DescribeDocParserJobResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -293,7 +325,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Retrieves the result of a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: Free of charge during the public preview period.
+   * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
    * 
    * @param request - DescribeDocParserJobResultRequest
    * @returns DescribeDocParserJobResultResponse
@@ -304,7 +341,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Queries the status of a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - DescribeDocParserJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -339,7 +380,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Queries the status of a document parsing task.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) is supported.
+   * - Fees: The service is free of charge during the public preview period.
    * 
    * @param request - DescribeDocParserJobStatusRequest
    * @returns DescribeDocParserJobStatusResponse
@@ -350,7 +395,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Retrieves the content of a web page.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) and Singapore regions are supported.
+   * - Pricing: Free of charge during the public preview period.
    * 
    * @param request - WebFetchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -389,7 +438,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Retrieves the content of a web page.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) and Singapore regions are supported.
+   * - Pricing: Free of charge during the public preview period.
    * 
    * @param request - WebFetchRequest
    * @returns WebFetchResponse
@@ -400,7 +453,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Performs a web search.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) and Singapore regions are supported.
+   * - Fees: Free of charge during the public preview. No fees are charged.
    * 
    * @param request - WebSearchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -439,7 +496,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网页搜索
+   * Performs a web search.
+   * 
+   * @remarks
+   * - Region: Only China (Beijing) and Singapore regions are supported.
+   * - Fees: Free of charge during the public preview. No fees are charged.
    * 
    * @param request - WebSearchRequest
    * @returns WebSearchResponse

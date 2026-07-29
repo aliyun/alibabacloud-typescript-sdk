@@ -5,8 +5,29 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class WebSearchResponseBodySearchResult extends $dara.Model {
+  /**
+   * @remarks
+   * The summary of the web page content.
+   * 
+   * @example
+   * Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications.
+   */
   snippet?: string;
+  /**
+   * @remarks
+   * The title of the web page.
+   * 
+   * @example
+   * Spring Boot
+   */
   title?: string;
+  /**
+   * @remarks
+   * The URL of the web page.
+   * 
+   * @example
+   * https://xxx/projects/spring-boot
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,13 +55,66 @@ export class WebSearchResponseBodySearchResult extends $dara.Model {
 }
 
 export class WebSearchResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * ErrorMessage Code
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * ErrorMessage Example
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The search query statement.
+   * 
+   * @example
+   * Spring Boot
+   */
   query?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A30D0930-xxxx-xxxx-xxxx-C2C661CC8B58
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The search result list.
+   */
   searchResult?: WebSearchResponseBodySearchResult[];
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of results returned.
+   * 
+   * @example
+   * 10
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WebFetchRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The output format. Valid values:
+   * 
+   * - **markdown**: Markdown format.
+   * 
+   * - **html**: HTML format.
+   * 
+   * - **text**: Plain text format.
+   * 
+   * @example
+   * markdown
+   */
   outputFormat?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The URL of the target web page to crawl.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * https://xxx/projects/spring-boot
    */
   url?: string;
   static names(): { [key: string]: string } {

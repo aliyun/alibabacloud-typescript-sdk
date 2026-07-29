@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocParserJobResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The document parsing task ID. You can obtain this ID by calling CreateDocParserJob.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * job_abc123
    */
   jobId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
   static names(): { [key: string]: string } {

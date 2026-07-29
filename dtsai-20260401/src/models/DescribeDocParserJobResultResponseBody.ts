@@ -3,11 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDocParserJobResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * JobNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The specified job does not exist.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A30D0930-xxxx-xxxx-xxxx-C2C661CC8B58
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The document parsing result. The format is determined by the OutputFormat parameter specified in the CreateDocParserJob request.
+   * 
+   * @example
+   * # Document Title
+   */
   result?: string;
+  resultType?: string;
+  resultUrl?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16,6 +60,8 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
       httpStatusCode: 'HttpStatusCode',
       requestId: 'RequestId',
       result: 'Result',
+      resultType: 'ResultType',
+      resultUrl: 'ResultUrl',
       success: 'Success',
     };
   }
@@ -27,6 +73,8 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
       httpStatusCode: 'number',
       requestId: 'string',
       result: 'string',
+      resultType: 'string',
+      resultUrl: 'string',
       success: 'boolean',
     };
   }
