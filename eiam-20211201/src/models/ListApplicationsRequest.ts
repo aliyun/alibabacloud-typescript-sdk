@@ -6,7 +6,7 @@ export class ListApplicationsRequestCustomFields extends $dara.Model {
   /**
    * @remarks
    * The custom field identifier. Valid values:
-   * - agent_type: the agent type.
+   * - agent_type: The agent type.
    * 
    * @example
    * agent_type
@@ -76,6 +76,13 @@ export class ListApplicationsRequest extends $dara.Model {
    * Ram Account SSO
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The application template ID.
+   * 
+   * @example
+   * apt_ramuser_xxxx
+   */
   applicationTemplateId?: string;
   /**
    * @remarks
@@ -110,6 +117,13 @@ export class ListApplicationsRequest extends $dara.Model {
    * enabled
    */
   m2MClientStatus?: string;
+  /**
+   * @remarks
+   * The ServiceCode of the cloud service that manages the application template.
+   * 
+   * @example
+   * waf
+   */
   managedServiceCode?: string;
   /**
    * @remarks
@@ -135,10 +149,17 @@ export class ListApplicationsRequest extends $dara.Model {
    * enabled
    */
   resourceServerStatus?: string;
+  /**
+   * @remarks
+   * Specifies whether the application template is managed by a cloud service.
+   * 
+   * @example
+   * true
+   */
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The SSO type filter condition. Multiple types can be separated by commas, such as oauth2/m2m,oidc+oauth2/m2m.
+   * The SSO type filter condition. Multiple types can be separated by commas. Example: oauth2/m2m,oidc+oauth2/m2m.
    * 
    * @example
    * oauth2/m2m

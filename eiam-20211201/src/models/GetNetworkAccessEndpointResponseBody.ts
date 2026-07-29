@@ -2,7 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint extends $dara.Model {
+  backupEgressPrivateIpAddresses?: string[];
+  backupEgressPublicIpAddresses?: string[];
+  backupSecurityGroupId?: string;
+  backupVSwitchIds?: string[];
+  backupVpcId?: string;
+  backupVpcRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupEgressPrivateIpAddresses: 'BackupEgressPrivateIpAddresses',
+      backupEgressPublicIpAddresses: 'BackupEgressPublicIpAddresses',
+      backupSecurityGroupId: 'BackupSecurityGroupId',
+      backupVSwitchIds: 'BackupVSwitchIds',
+      backupVpcId: 'BackupVpcId',
+      backupVpcRegionId: 'BackupVpcRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupEgressPrivateIpAddresses: { 'type': 'array', 'itemType': 'string' },
+      backupEgressPublicIpAddresses: { 'type': 'array', 'itemType': 'string' },
+      backupSecurityGroupId: 'string',
+      backupVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      backupVpcId: 'string',
+      backupVpcRegionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.backupEgressPrivateIpAddresses)) {
+      $dara.Model.validateArray(this.backupEgressPrivateIpAddresses);
+    }
+    if(Array.isArray(this.backupEgressPublicIpAddresses)) {
+      $dara.Model.validateArray(this.backupEgressPublicIpAddresses);
+    }
+    if(Array.isArray(this.backupVSwitchIds)) {
+      $dara.Model.validateArray(this.backupVSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $dara.Model {
+  backupVpcEndpoint?: GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint;
   /**
    * @remarks
    * The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
@@ -13,7 +61,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   createTime?: number;
   /**
    * @remarks
-   * The private egress IP addresses of the dedicated network access endpoint. This parameter is returned only when NetworkEndpointType is set to private.
+   * The private egress IP address range of the dedicated network access endpoint. This parameter is returned only when NetworkEndpointType is set to private.
    * 
    * @example
    * 172.168.x.x
@@ -21,7 +69,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   egressPrivateIpAddresses?: string[];
   /**
    * @remarks
-   * The public egress IP addresses of the shared network access endpoint. This parameter is returned only when NetworkEndpointType is set to shared.
+   * The public egress IP address range of the shared network access endpoint. This parameter is returned only when NetworkEndpointType is set to shared.
    * 
    * @example
    * 203.0.XX.XX/27
@@ -37,7 +85,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   instanceId?: string;
   /**
    * @remarks
-   * The dedicated network access endpoint ID.
+   * The ID of the dedicated network access endpoint.
    * 
    * @example
    * nae_examplexxx
@@ -55,8 +103,8 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
    * @remarks
    * The type of the network access endpoint. Valid values:
    * 
-   * - shared: shared network access endpoint.
-   * - private: dedicated network access endpoint.
+   * - shared: Shared network access endpoint.
+   * - private: Dedicated network access endpoint.
    * 
    * @example
    * private
@@ -74,10 +122,10 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
    * @remarks
    * The status of the network access endpoint. Valid values:
    * 
-   * - pending: pending initialization.
-   * - creating: being created.
-   * - running: running.
-   * - deleting: being deleted.
+   * - pending: Pending initialization.
+   * - creating: Being created.
+   * - running: Running.
+   * - deleting: Being deleted.
    * 
    * @example
    * running
@@ -117,6 +165,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   vpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupVpcEndpoint: 'BackupVpcEndpoint',
       createTime: 'CreateTime',
       egressPrivateIpAddresses: 'EgressPrivateIpAddresses',
       egressPublicIpAddresses: 'EgressPublicIpAddresses',
@@ -135,6 +184,7 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
 
   static types(): { [key: string]: any } {
     return {
+      backupVpcEndpoint: GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint,
       createTime: 'number',
       egressPrivateIpAddresses: { 'type': 'array', 'itemType': 'string' },
       egressPublicIpAddresses: { 'type': 'array', 'itemType': 'string' },
@@ -152,6 +202,9 @@ export class GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint extends $
   }
 
   validate() {
+    if(this.backupVpcEndpoint && typeof (this.backupVpcEndpoint as any).validate === 'function') {
+      (this.backupVpcEndpoint as any).validate();
+    }
     if(Array.isArray(this.egressPrivateIpAddresses)) {
       $dara.Model.validateArray(this.egressPrivateIpAddresses);
     }

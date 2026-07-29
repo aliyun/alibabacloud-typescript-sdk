@@ -110,7 +110,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The ServiceCode of the Alibaba Cloud service that manages the application template.
+   * The ServiceCode of the cloud service that manages the application template.
    * 
    * @example
    * rpa
@@ -142,7 +142,7 @@ export class ListApplicationsResponseBodyApplications extends $dara.Model {
   resourceServerStatus?: string;
   /**
    * @remarks
-   * Indicates whether the application template is managed by an Alibaba Cloud service.
+   * Specifies whether the application template is managed by a cloud service.
    * 
    * @example
    * true

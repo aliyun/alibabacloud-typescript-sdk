@@ -1020,7 +1020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determines whether an instance has the feature of a specific module.
+   * Determines whether an instance has the capability of a specific module.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,6 +1039,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.moduleKey)) {
       query["ModuleKey"] = request.moduleKey;
+    }
+
+    if (!$dara.isNull(request.resourceLabelKey)) {
+      query["ResourceLabelKey"] = request.resourceLabelKey;
+    }
+
+    if (!$dara.isNull(request.resourceLabelValue)) {
+      query["ResourceLabelValue"] = request.resourceLabelValue;
     }
 
     if (!$dara.isNull(request.subFeatureKey)) {
@@ -1063,7 +1071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Determines whether an instance has the feature of a specific module.
+   * Determines whether an instance has the capability of a specific module.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @returns CheckInstanceModuleStatusResponse
@@ -10212,7 +10220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more EIAM applications by using paged query. Paging is supported.
+   * Queries information about one or more EIAM applications by using paging.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10303,7 +10311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more EIAM applications by using paged query. Paging is supported.
+   * Queries information about one or more EIAM applications by using paging.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -12388,6 +12396,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.serviceManaged)) {
+      query["ServiceManaged"] = request.serviceManaged;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
@@ -12494,7 +12506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the network endpoints for an IDaaS EIAM instance.
+   * Queries the list of network access endpoints under an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12549,7 +12561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the network endpoints for an IDaaS EIAM instance.
+   * Queries the list of network access endpoints under an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @returns ListNetworkAccessEndpointsResponse

@@ -189,6 +189,7 @@ export { GetInstanceModuleInfoResponseBodyModuleFeatures } from './GetInstanceMo
 export { GetInstanceModuleInfoResponseBodyModule } from './GetInstanceModuleInfoResponseBody';
 export { GetInstanceQuotaResponseBodyQuota } from './GetInstanceQuotaResponseBody';
 export { GetLoginRedirectApplicationForBrandResponseBodyBrandLoginRedirectApplication } from './GetLoginRedirectApplicationForBrandResponseBody';
+export { GetNetworkAccessEndpointResponseBodyNetworkAccessEndpointBackupVpcEndpoint } from './GetNetworkAccessEndpointResponseBody';
 export { GetNetworkAccessEndpointResponseBodyNetworkAccessEndpoint } from './GetNetworkAccessEndpointResponseBody';
 export { GetNetworkZoneResponseBodyNetworkZone } from './GetNetworkZoneResponseBody';
 export { GetOrganizationalUnitResponseBodyOrganizationalUnit } from './GetOrganizationalUnitResponseBody';
@@ -357,6 +358,7 @@ export { ListInstancesResponseBodyInstancesReplicationConfiguration } from './Li
 export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody';
 export { ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions } from './ListNetworkAccessEndpointAvailableRegionsResponseBody';
 export { ListNetworkAccessEndpointAvailableZonesResponseBodyZones } from './ListNetworkAccessEndpointAvailableZonesResponseBody';
+export { ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint } from './ListNetworkAccessEndpointsResponseBody';
 export { ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints } from './ListNetworkAccessEndpointsResponseBody';
 export { ListNetworkAccessPathsResponseBodyNetworkAccessPaths } from './ListNetworkAccessPathsResponseBody';
 export { ListNetworkZonesResponseBodyNetworkZones } from './ListNetworkZonesResponseBody';

@@ -45,6 +45,7 @@ export class ListInstancesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  serviceManaged?: boolean;
   /**
    * @remarks
    * The instance status. Valid values:
@@ -62,6 +63,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceIds: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      serviceManaged: 'ServiceManaged',
       status: 'Status',
     };
   }
@@ -73,6 +75,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
+      serviceManaged: 'boolean',
       status: 'string',
     };
   }

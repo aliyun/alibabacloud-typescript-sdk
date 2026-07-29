@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.Model {
   /**
    * @remarks
-   * The time when the dedicated network access endpoint access path was created, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
    */
   createTime?: number;
+  crossRegionReplicationRole?: string;
   /**
    * @remarks
    * The instance ID.
@@ -21,7 +22,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The dedicated network access endpoint ID.
+   * The ID of the dedicated network access endpoint.
    * 
    * @example
    * nae_examplexxx
@@ -29,7 +30,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The ID of the dedicated network access endpoint access path.
+   * The ID of the dedicated network access endpoint path.
    * 
    * @example
    * nap_examplexxx
@@ -37,7 +38,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkAccessPathId?: string;
   /**
    * @remarks
-   * The ENI ID used by the dedicated network access endpoint access path.
+   * The ID of the ENI used by the dedicated network access endpoint path.
    * 
    * @example
    * eni-examplexxx
@@ -45,7 +46,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The private endpoint of the ENI used by the dedicated network access endpoint access path on the private network.
+   * The private endpoint of the ENI used by the dedicated network access endpoint path.
    * 
    * @example
    * cn-hangzhou
@@ -53,12 +54,12 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   privateIpAddress?: string;
   /**
    * @remarks
-   * The status of the dedicated network access endpoint access path. Valid values:
+   * The status of the dedicated network access endpoint path. Valid values:
    *  
-   * - pending: pending initialization.
-   * - creating: being created.
-   * - running: running.
-   * - deleting: being deleted.
+   * - pending: Pending initialization.
+   * - creating: Being created.
+   * - running: Running.
+   * - deleting: Being deleted.
    * 
    * @example
    * running
@@ -66,7 +67,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   status?: string;
   /**
    * @remarks
-   * The time when the dedicated network access endpoint access path was last updated, in UNIX timestamp format. Unit: milliseconds.
+   * The last update time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -74,15 +75,18 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
   updateTime?: number;
   /**
    * @remarks
-   * The vSwitch ID to which the ENI of the dedicated network access endpoint access path belongs.
+   * The ID of the vSwitch to which the ENI of the dedicated network access endpoint path belongs.
    * 
    * @example
    * vsw-examplexxx
    */
   vSwitchId?: string;
+  vpcId?: string;
+  vpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      crossRegionReplicationRole: 'CrossRegionReplicationRole',
       instanceId: 'InstanceId',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
       networkAccessPathId: 'NetworkAccessPathId',
@@ -91,12 +95,15 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
       status: 'Status',
       updateTime: 'UpdateTime',
       vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      vpcRegionId: 'VpcRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       createTime: 'number',
+      crossRegionReplicationRole: 'string',
       instanceId: 'string',
       networkAccessEndpointId: 'string',
       networkAccessPathId: 'string',
@@ -105,6 +112,8 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
       status: 'string',
       updateTime: 'number',
       vSwitchId: 'string',
+      vpcId: 'string',
+      vpcRegionId: 'string',
     };
   }
 
@@ -120,7 +129,7 @@ export class ListNetworkAccessPathsResponseBodyNetworkAccessPaths extends $dara.
 export class ListNetworkAccessPathsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of network access endpoint access paths.
+   * The list of network access endpoint paths.
    */
   networkAccessPaths?: ListNetworkAccessPathsResponseBodyNetworkAccessPaths[];
   /**

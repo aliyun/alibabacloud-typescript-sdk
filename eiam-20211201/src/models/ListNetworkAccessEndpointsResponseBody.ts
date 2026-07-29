@@ -2,10 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint extends $dara.Model {
+  backupEgressPrivateIpAddresses?: string[];
+  backupEgressPublicIpAddresses?: string[];
+  backupSecurityGroupId?: string;
+  backupVSwitchIds?: string[];
+  backupVpcId?: string;
+  backupVpcRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupEgressPrivateIpAddresses: 'BackupEgressPrivateIpAddresses',
+      backupEgressPublicIpAddresses: 'BackupEgressPublicIpAddresses',
+      backupSecurityGroupId: 'BackupSecurityGroupId',
+      backupVSwitchIds: 'BackupVSwitchIds',
+      backupVpcId: 'BackupVpcId',
+      backupVpcRegionId: 'BackupVpcRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupEgressPrivateIpAddresses: { 'type': 'array', 'itemType': 'string' },
+      backupEgressPublicIpAddresses: { 'type': 'array', 'itemType': 'string' },
+      backupSecurityGroupId: 'string',
+      backupVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      backupVpcId: 'string',
+      backupVpcRegionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.backupEgressPrivateIpAddresses)) {
+      $dara.Model.validateArray(this.backupEgressPrivateIpAddresses);
+    }
+    if(Array.isArray(this.backupEgressPublicIpAddresses)) {
+      $dara.Model.validateArray(this.backupEgressPublicIpAddresses);
+    }
+    if(Array.isArray(this.backupVSwitchIds)) {
+      $dara.Model.validateArray(this.backupVSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extends $dara.Model {
+  backupVpcEndpoint?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint;
   /**
    * @remarks
-   * The time when the network endpoint was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -21,7 +69,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   instanceId?: string;
   /**
    * @remarks
-   * The network endpoint ID.
+   * The network access endpoint ID.
    * 
    * @example
    * nae_examplexxx
@@ -29,7 +77,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The name of the network endpoint.
+   * The network access endpoint name.
    * 
    * @example
    * VPC access endpoint for xx service
@@ -37,11 +85,10 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointName?: string;
   /**
    * @remarks
-   * The type of the network endpoint. Valid values:
+   * The type of the network access endpoint. Valid values:
    * 
-   * - shared: a shared network endpoint.
-   * 
-   * - private: a private network endpoint.
+   * - shared: Shared network access endpoint.
+   * - private: Dedicated network access endpoint.
    * 
    * @example
    * private
@@ -49,7 +96,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The ID of the security group used by the private network endpoint.
+   * The security group ID used by the dedicated network access endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -57,15 +104,12 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   securityGroupId?: string;
   /**
    * @remarks
-   * The status of the network endpoint. Valid values:
-   * 
-   * - pending: The endpoint is pending initialization.
-   * 
-   * - creating: The endpoint is being created.
-   * 
-   * - running: The endpoint is running.
-   * 
-   * - deleting: The endpoint is being deleted.
+   * The status of the network access endpoint. Valid values:
+   *  
+   * - pending: Pending initialization.
+   * - creating: Being created.
+   * - running: Running.
+   * - deleting: Being deleted.
    * 
    * @example
    * running
@@ -73,7 +117,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   status?: string;
   /**
    * @remarks
-   * The time when the network endpoint was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+   * The last update time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -81,7 +125,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   updateTime?: number;
   /**
    * @remarks
-   * A list of vSwitches to which the private network endpoint is connected.
+   * The list of vSwitches for the dedicated network access endpoint.
    * 
    * @example
    * vsw-examplexxx
@@ -89,7 +133,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the VPC to which the private network endpoint is connected.
+   * The VPC ID of the dedicated network access endpoint.
    * 
    * @example
    * vpc-examplexxx
@@ -97,7 +141,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vpcId?: string;
   /**
    * @remarks
-   * The region ID of the VPC to which the private network endpoint is connected.
+   * The region of the VPC for the dedicated network access endpoint.
    * 
    * @example
    * cn-hangzhou
@@ -105,6 +149,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vpcRegionId?: string;
   static names(): { [key: string]: string } {
     return {
+      backupVpcEndpoint: 'BackupVpcEndpoint',
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
@@ -121,6 +166,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
 
   static types(): { [key: string]: any } {
     return {
+      backupVpcEndpoint: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint,
       createTime: 'number',
       instanceId: 'string',
       networkAccessEndpointId: 'string',
@@ -136,6 +182,9 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   }
 
   validate() {
+    if(this.backupVpcEndpoint && typeof (this.backupVpcEndpoint as any).validate === 'function') {
+      (this.backupVpcEndpoint as any).validate();
+    }
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);
     }
@@ -150,12 +199,12 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
 export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A collection of network endpoints.
+   * The list of network access endpoints.
    */
   networkAccessEndpoints?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints[];
   /**
    * @remarks
-   * The token returned for the next query.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -171,7 +220,7 @@ export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

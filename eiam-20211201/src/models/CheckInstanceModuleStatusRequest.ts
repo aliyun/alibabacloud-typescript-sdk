@@ -31,6 +31,8 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
    * urn:alibaba:idaas:license:module:ud
    */
   moduleKey?: string;
+  resourceLabelKey?: string;
+  resourceLabelValue?: string;
   /**
    * @remarks
    * The tertiary module identifier.
@@ -44,6 +46,8 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
       featureKey: 'FeatureKey',
       instanceId: 'InstanceId',
       moduleKey: 'ModuleKey',
+      resourceLabelKey: 'ResourceLabelKey',
+      resourceLabelValue: 'ResourceLabelValue',
       subFeatureKey: 'SubFeatureKey',
     };
   }
@@ -53,6 +57,8 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
       featureKey: 'string',
       instanceId: 'string',
       moduleKey: 'string',
+      resourceLabelKey: 'string',
+      resourceLabelValue: 'string',
       subFeatureKey: 'string',
     };
   }

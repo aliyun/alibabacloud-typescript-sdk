@@ -79,7 +79,7 @@ export class ListInstancesResponseBodyInstancesReplicationConfiguration extends 
   primaryInstanceRegionId?: string;
   /**
    * @remarks
-   * The time when the disaster recovery data replication was created, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time of the disaster recovery data replication, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1778499337000
@@ -186,6 +186,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * Indicates whether the instance is managed by an Alibaba Cloud service.
    * 
    * @example
+   * true
+   * 
+   * **if can be null:**
    * true
    */
   serviceManaged?: boolean;
