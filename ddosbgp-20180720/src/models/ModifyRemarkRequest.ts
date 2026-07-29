@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRemarkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin instance for which you want to add remarks.
+   * The ID of the Anti-DDoS Origin instance for which you want to set a remark.
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+   * > You can call [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) to query the IDs of all Anti-DDoS Origin instances.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class ModifyRemarkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance resides.
+   * The region ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
    * 
    * @example
    * cn-hangzhou
@@ -27,9 +27,7 @@ export class ModifyRemarkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks for the Anti-DDoS Origin instance.
-   * 
-   * This parameter is required.
+   * The remark for the Anti-DDoS Origin instance.
    * 
    * @example
    * test-remark

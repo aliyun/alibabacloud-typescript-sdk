@@ -37,9 +37,11 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The event that triggers automatic association. Valid values:
    * 
-   * *   **any**: The instance is automatically associated with an object based on traffic scrubbing events or blackhole filtering events.
-   * *   **clean**: The instance is automatically associated with an object based on traffic scrubbing events.
-   * *   **blackhole**: The instance is automatically associated with an object based on blackhole filtering events.
+   * - **any**: The instance is automatically associated with an object based on traffic scrubbing events or blackhole filtering events.
+   * 
+   * - **clean**: The instance is automatically associated with an object based on traffic scrubbing events.
+   * 
+   * - **blackhole**: The instance is automatically associated with an object based on blackhole filtering events.
    */
   autoProtectCondition?: DescribeInstanceListResponseBodyInstanceListAutoProtectCondition;
   /**
@@ -54,8 +56,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The type of the instance.
    * 
-   * *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
-   * *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+   * - **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
+   * 
+   * - **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
    * 
    * @example
    * 0
@@ -73,8 +76,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * Indicates whether overdue payments exist. Valid values:
    * 
-   * *   **0**: Overdue payments do not exist.
-   * *   **1**: Overdue payments exist.
+   * - **0**: Overdue payments do not exist.
+   * 
+   * - **1**: Overdue payments exist.
    * 
    * @example
    * 1
@@ -100,8 +104,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The mitigation plan of the instance. Valid values:
    * 
-   * *   **0**: the Professional mitigation plan
-   * *   **1**: the Enterprise mitigation plan
+   * - **0**: the Professional mitigation plan
+   * 
+   * - **1**: the Enterprise mitigation plan
    * 
    * @example
    * 1592886047000
@@ -111,7 +116,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The number of protected public IP addresses for which blackhole filtering is triggered.
    * 
-   * >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
+   * > You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
    * 
    * @example
    * ddosbgp-cn-oew1pjrk****
@@ -121,10 +126,13 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * The application scope of the instance.
    * 
-   * *   **1**: The instance supports public IP addresses in all regions.
-   * *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
-   * *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
-   * *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+   * - **1**: The instance supports public IP addresses in all regions.
+   * 
+   * - **2**: The instance supports public IP addresses in regions in the Chinese mainland.
+   * 
+   * - **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
+   * 
+   * - **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
    * 
    * @example
    * 1
@@ -152,8 +160,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
-   * *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
+   * - **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
+   * 
+   * - **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
    * 
    * @example
    * test
@@ -171,8 +180,9 @@ export class DescribeInstanceListResponseBodyInstanceList extends $dara.Model {
    * @remarks
    * Indicates whether auto-renewal is enabled for the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * 1

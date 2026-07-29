@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * test**
@@ -13,7 +13,7 @@ export class ListPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number.
+   * Settings the page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListPolicyRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -29,14 +29,7 @@ export class ListPolicyRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The service type. Valid values:
-   * 
-   * *   **ecs**: Elastic Compute Service (ECS).
-   * *   **slb**: Server Load Balancer (SLB).
-   * *   **eip**: Elastic IP Address (EIP).
-   * *   **gf-eip**: EIP with Anti-DDoS (Enhanced) enabled.
-   * 
-   * >  This parameter is available only if Type is set to `default`.
+   * The applicable product type. Valid values:
    * 
    * @example
    * ecs
@@ -44,11 +37,7 @@ export class ListPolicyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The type of the policy. Valid values:
-   * 
-   * *   **default**: the default mitigation policy.
-   * *   **l3**: IP-specific mitigation policies.
-   * *   **l4**: port-specific mitigation policies.
+   * The policy type. Valid values:
    * 
    * @example
    * l3

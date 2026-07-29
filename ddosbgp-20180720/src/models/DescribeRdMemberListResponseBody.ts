@@ -16,7 +16,7 @@ export class DescribeRdMemberListResponseBodyMemberList extends $dara.Model {
    * The name of the member.
    * 
    * @example
-   * test1
+   * tes***
    */
   name?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeRdMemberListResponseBodyMemberList extends $dara.Model {
    * The Alibaba Cloud account ID of the member.
    * 
    * @example
-   * 1960279802016267
+   * 196027980201****
    */
   uid?: string;
   static names(): { [key: string]: string } {

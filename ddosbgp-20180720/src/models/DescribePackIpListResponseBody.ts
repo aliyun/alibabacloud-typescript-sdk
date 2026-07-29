@@ -13,7 +13,7 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The ID of the member.
+   * The UID of the member account.
    * 
    * @example
    * 170858869679****
@@ -21,7 +21,7 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The time when the near-origin traffic diversion feature was disabled.
+   * The end time of cross-border traffic blocking.
    * 
    * @example
    * 1715658000
@@ -29,7 +29,7 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   nsmExpireAt?: number;
   /**
    * @remarks
-   * The time when the near-origin traffic diversion feature was enabled.
+   * The start time of cross-border traffic blocking.
    * 
    * @example
    * 1715655000
@@ -37,10 +37,11 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   nsmStartAt?: number;
   /**
    * @remarks
-   * The status of the near-origin traffic diversion feature. Valid values:
+   * The status of cross-border traffic blocking. Valid values:
    * 
-   * *   **1**: The near-origin traffic diversion feature is enabled.
-   * *   **0**: The near-origin traffic diversion feature is disabled.
+   * - **1**: Cross-border traffic is being blocked.
+   * 
+   * - **0**: Cross-border traffic is not blocked.
    * 
    * @example
    * 0
@@ -50,10 +51,13 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
    * @remarks
    * The type of the cloud asset to which the IP address belongs. Valid values:
    * 
-   * *   **ECS**: an ECS instance.
-   * *   **SLB**: a CLB (formerly SLB) instance.
-   * *   **EIP**: an EIP. If the IP address belongs to an ALB instance, the value EIP is returned.
-   * *   **WAF**: a WAF instance.
+   * - **ECS**: an ECS instance.
+   * 
+   * - **SLB**: a CLB instance.
+   * 
+   * - **EIP**: an EIP instance. This includes the EIP used by an ALB instance.
+   * 
+   * - **WAF**: a WAF instance.
    * 
    * @example
    * ECS
@@ -61,9 +65,9 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * The region to which the protected IP address belongs.
+   * The region where the protected IP address is deployed.
    * 
-   * >  If the protected IP address is in the same region as the instance, this parameter is not returned.
+   * > This parameter is not returned if the protected IP address is deployed in the same region as the instance.
    * 
    * @example
    * cn-hangzhou
@@ -71,9 +75,9 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The description of the cloud asset to which the IP address belongs. The asset can be an ECS instance or an SLB instance.
+   * The remarks on the cloud asset to which the IP address belongs, such as an ECS instance or an SLB instance.
    * 
-   * >  If no descriptions are provided for the asset, this parameter is not returned.
+   * > This parameter is not returned if no remarks are specified for the cloud asset.
    * 
    * @example
    * test
@@ -81,10 +85,11 @@ export class DescribePackIpListResponseBodyIpList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The status of the IP address. Valid values:
+   * The current status of the IP address. Valid values:
    * 
-   * *   **normal**: The IP address is not under attack.
-   * *   **hole_begin**: Blackhole filtering is triggered for the IP address.
+   * - **normal**: The IP address is not under attack.
+   * 
+   * - **hole_begin**: The IP address is in blackhole filtering status.
    * 
    * @example
    * normal
@@ -140,7 +145,7 @@ export class DescribePackIpListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The IP addresses that are protected by the instance.
+   * The list of IP addresses that are protected by the Anti-DDoS Origin instance.
    */
   ipList?: DescribePackIpListResponseBodyIpList[];
   /**
@@ -153,10 +158,11 @@ export class DescribePackIpListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The call is successful.
-   * *   **false**: The call fails.
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -164,7 +170,7 @@ export class DescribePackIpListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The number of protected IP addresses.
+   * The number of protected IP addresses that are returned.
    * 
    * @example
    * 1

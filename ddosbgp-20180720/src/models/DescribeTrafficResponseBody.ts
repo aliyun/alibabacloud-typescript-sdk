@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of attack traffic. Unit: bit/s.
+   * The bandwidth of attack traffic. Unit: bps.
    * 
-   * >  This parameter is returned only if attack traffic exists.
+   * > This field is returned only when attack traffic exists.
    * 
    * @example
    * 0
@@ -15,9 +15,8 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   attackBps?: number;
   /**
    * @remarks
-   * The packet forwarding rate of attack traffic. Unit: packets per second.
-   * 
-   * >  This parameter is returned only if attack traffic exists.
+   * The packet forwarding rate of attack traffic. Unit: pps.
+   * > This field is returned only when attack traffic exists.
    * 
    * @example
    * 0
@@ -27,8 +26,8 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
    * @remarks
    * The type of the traffic statistics. Valid values:
    * 
-   * *   **max**: the peak traffic within the specified interval
-   * *   **avg**: the average traffic within the specified interval
+   * - **max**: the peak traffic within the statistical interval.
+   * - **avg**: the average traffic within the statistical interval.
    * 
    * @example
    * max
@@ -36,7 +35,7 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   flowType?: string;
   /**
    * @remarks
-   * The bandwidth of the total traffic. Unit: Kbit/s.
+   * The bandwidth of total traffic. Unit: Kbps.
    * 
    * @example
    * 417
@@ -44,7 +43,7 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   kbps?: number;
   /**
    * @remarks
-   * The ID of the traffic statistics.
+   * The ID of the traffic statistics entry.
    * 
    * @example
    * 8e33f19e-5644-11eb-b5c1-d89d67182200
@@ -52,7 +51,7 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The packet forwarding rate of the total traffic. Unit: packets per second.
+   * The packet forwarding rate of total traffic. Unit: pps.
    * 
    * @example
    * 274
@@ -60,7 +59,7 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The time when the traffic statistics are calculated. This value is a UNIX timestamp. Unit: seconds.
+   * The time of the traffic statistics. Expressed as a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1620951900
@@ -102,7 +101,7 @@ export class DescribeTrafficResponseBodyFlowList extends $dara.Model {
 export class DescribeTrafficResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried traffic statistics.
+   * The traffic statistics.
    */
   flowList?: DescribeTrafficResponseBodyFlowList[];
   /**

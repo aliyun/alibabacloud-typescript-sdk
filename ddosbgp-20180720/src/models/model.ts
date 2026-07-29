@@ -14,6 +14,7 @@ export { DescribeInstanceListResponseBodyInstanceListAutoProtectCondition } from
 export { DescribeInstanceListResponseBodyInstanceList } from './DescribeInstanceListResponseBody';
 export { DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig } from './DescribeInstanceSpecsResponseBody';
 export { DescribeInstanceSpecsResponseBodyInstanceSpecs } from './DescribeInstanceSpecsResponseBody';
+export { DescribeNetworkLayerInterceptsResponseBodyInterceptionRecords } from './DescribeNetworkLayerInterceptsResponseBody';
 export { DescribeOpEntitiesResponseBodyOpEntities } from './DescribeOpEntitiesResponseBody';
 export { DescribePackIpListResponseBodyIpList } from './DescribePackIpListResponseBody';
 export { DescribeRdMemberListResponseBodyMemberList } from './DescribeRdMemberListResponseBody';
@@ -27,6 +28,7 @@ export { ListPolicyResponseBodyPolicyListContentL4RuleListConditionListOffset } 
 export { ListPolicyResponseBodyPolicyListContentL4RuleListConditionList } from './ListPolicyResponseBody';
 export { ListPolicyResponseBodyPolicyListContentL4RuleList } from './ListPolicyResponseBody';
 export { ListPolicyResponseBodyPolicyListContentPortRuleList } from './ListPolicyResponseBody';
+export { ListPolicyResponseBodyPolicyListContentSipDefense } from './ListPolicyResponseBody';
 export { ListPolicyResponseBodyPolicyListContentSourceBlockList } from './ListPolicyResponseBody';
 export { ListPolicyResponseBodyPolicyListContentSourceLimit } from './ListPolicyResponseBody';
 export { ListPolicyResponseBodyPolicyListContent } from './ListPolicyResponseBody';
@@ -42,6 +44,7 @@ export { ModifyPolicyRequestContentL4RuleListConditionListOffset } from './Modif
 export { ModifyPolicyRequestContentL4RuleListConditionList } from './ModifyPolicyRequest';
 export { ModifyPolicyRequestContentL4RuleList } from './ModifyPolicyRequest';
 export { ModifyPolicyRequestContentPortRuleList } from './ModifyPolicyRequest';
+export { ModifyPolicyRequestContentSipDefense } from './ModifyPolicyRequest';
 export { ModifyPolicyRequestContentSourceBlockList } from './ModifyPolicyRequest';
 export { ModifyPolicyRequestContentSourceLimit } from './ModifyPolicyRequest';
 export { ModifyPolicyRequestContent } from './ModifyPolicyRequest';
@@ -50,6 +53,7 @@ export { ModifyPolicyContentRequestContentL4RuleListConditionListOffset } from '
 export { ModifyPolicyContentRequestContentL4RuleListConditionList } from './ModifyPolicyContentRequest';
 export { ModifyPolicyContentRequestContentL4RuleList } from './ModifyPolicyContentRequest';
 export { ModifyPolicyContentRequestContentPortRuleList } from './ModifyPolicyContentRequest';
+export { ModifyPolicyContentRequestContentSipDefense } from './ModifyPolicyContentRequest';
 export { ModifyPolicyContentRequestContentSourceBlockList } from './ModifyPolicyContentRequest';
 export { ModifyPolicyContentRequestContentSourceLimit } from './ModifyPolicyContentRequest';
 export { ModifyPolicyContentRequestContent } from './ModifyPolicyContentRequest';
@@ -112,6 +116,9 @@ export { DescribeInstanceListResponse } from './DescribeInstanceListResponse';
 export { DescribeInstanceSpecsRequest } from './DescribeInstanceSpecsRequest';
 export { DescribeInstanceSpecsResponseBody } from './DescribeInstanceSpecsResponseBody';
 export { DescribeInstanceSpecsResponse } from './DescribeInstanceSpecsResponse';
+export { DescribeNetworkLayerInterceptsRequest } from './DescribeNetworkLayerInterceptsRequest';
+export { DescribeNetworkLayerInterceptsResponseBody } from './DescribeNetworkLayerInterceptsResponseBody';
+export { DescribeNetworkLayerInterceptsResponse } from './DescribeNetworkLayerInterceptsResponse';
 export { DescribeOpEntitiesRequest } from './DescribeOpEntitiesRequest';
 export { DescribeOpEntitiesResponseBody } from './DescribeOpEntitiesResponseBody';
 export { DescribeOpEntitiesResponse } from './DescribeOpEntitiesResponse';

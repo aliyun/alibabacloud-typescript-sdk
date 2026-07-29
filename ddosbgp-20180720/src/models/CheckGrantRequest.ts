@@ -7,8 +7,9 @@ export class CheckGrantRequest extends $dara.Model {
    * @remarks
    * Specifies whether to allow Anti-DDoS Origin to check the service-linked role. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -18,7 +19,7 @@ export class CheckGrantRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the Anti-DDoS Origin instance resides.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou

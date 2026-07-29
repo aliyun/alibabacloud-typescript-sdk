@@ -21,13 +21,21 @@ export class DetachFromPolicyRequestIpPortProtocolList extends $dara.Model {
    * 8*
    */
   port?: number;
+  /**
+   * @remarks
+   * The port range of the protected object.
+   * > Only port-specific mitigation policies support this parameter.
+   * 
+   * @example
+   * 8*-9*
+   */
   portRange?: string;
   /**
    * @remarks
    * The protocol type of the protected object. Valid values:
    * 
-   * *   **tcp**
-   * *   **udp**
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
    * 
    * @example
    * tcp
@@ -63,18 +71,17 @@ export class DetachFromPolicyRequestIpPortProtocolList extends $dara.Model {
 export class DetachFromPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The protected objects.
+   * The list of protected objects.
    * 
    * This parameter is required.
    */
   ipPortProtocolList?: DetachFromPolicyRequestIpPortProtocolList[];
   /**
    * @remarks
-   * The type of the policy. Valid values:
-   * 
-   * *   **default**: the default mitigation policies.
-   * *   **l3**: IP-specific mitigation policies.
-   * *   **l4**: port-specific mitigation policies.
+   * The policy type. Valid values:
+   * - **default**: default mitigation policy.
+   * - **l3**: IP-specific mitigation policy.
+   * - **l4**: port-specific mitigation policy.
    * 
    * This parameter is required.
    * 
@@ -82,6 +89,17 @@ export class DetachFromPolicyRequest extends $dara.Model {
    * l3
    */
   policyType?: string;
+  /**
+   * @remarks
+   * The version of the port-specific mitigation policy. Valid values:
+   * 
+   * - **Not specified**: dissociates the default surf anti-DDoS engine policy.
+   * - **2**: dissociates the new stream anti-DDoS engine policy.
+   * > Only port-specific mitigation policies support this parameter.
+   * 
+   * @example
+   * 2
+   */
   portVersion?: string;
   static names(): { [key: string]: string } {
     return {

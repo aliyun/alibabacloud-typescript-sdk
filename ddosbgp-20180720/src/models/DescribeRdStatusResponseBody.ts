@@ -15,9 +15,11 @@ export class DescribeRdStatusResponseBody extends $dara.Model {
    * @remarks
    * The type of the Alibaba Cloud account. Valid values:
    * 
-   * *   **MasterAccount**: management account.
-   * *   **DelegatedAdminAccount**: delegated administrator account.
-   * *   **MemberAccount**: member.
+   * - **MasterAccount**: management account.
+   * 
+   * - **DelegatedAdminAccount**: delegated administrator account.
+   * 
+   * - **MemberAccount**: member.
    * 
    * @example
    * MemberAccount

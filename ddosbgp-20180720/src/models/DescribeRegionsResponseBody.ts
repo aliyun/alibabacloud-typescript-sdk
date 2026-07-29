@@ -13,7 +13,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   regionEnName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the regions of cloud assets that can be protected by Anti-DDoS Origin. The information includes region IDs and names.
+   * The region information of cloud assets that can be protected by Anti-DDoS Origin, including region IDs and names.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
@@ -76,10 +76,9 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

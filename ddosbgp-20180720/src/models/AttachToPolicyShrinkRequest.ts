@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachToPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The protected objects.
+   * The list of protection objects.
    * 
    * This parameter is required.
    */
@@ -20,6 +20,17 @@ export class AttachToPolicyShrinkRequest extends $dara.Model {
    * cd8b4d70-e4e0-413a-b390-e71d********
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The version of the port-specific mitigation policy. Valid values:
+   * 
+   * - **Not specified**: Associates the default surf anti-DDoS engine policy.
+   * - **2**: Associates the new stream anti-DDoS engine policy.
+   * > Only port-specific mitigation policies support this parameter.
+   * 
+   * @example
+   * 2
+   */
   portVersion?: string;
   static names(): { [key: string]: string } {
     return {

@@ -10,7 +10,7 @@ export class ModifyPolicyContentShrinkRequest extends $dara.Model {
   contentShrink?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * This parameter is required.
    * 
@@ -20,12 +20,19 @@ export class ModifyPolicyContentShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the policy.
+   * The policy name.
    * 
    * @example
    * demo**
    */
   name?: string;
+  /**
+   * @remarks
+   * The version of the port-specific mitigation policy. Valid values:
+   * 
+   * @example
+   * 2
+   */
   portVersion?: string;
   static names(): { [key: string]: string } {
     return {

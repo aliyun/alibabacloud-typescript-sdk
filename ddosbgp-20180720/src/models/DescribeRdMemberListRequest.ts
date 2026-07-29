@@ -24,7 +24,7 @@ export class DescribeRdMemberListRequest extends $dara.Model {
    * The ID of the resource directory.
    * 
    * @example
-   * rd-x9bLhd
+   * rd-x9bL**
    */
   resourceDirectoryId?: string;
   static names(): { [key: string]: string } {

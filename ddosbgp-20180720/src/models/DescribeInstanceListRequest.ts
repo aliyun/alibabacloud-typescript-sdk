@@ -15,8 +15,9 @@ export class DescribeInstanceListRequestTag extends $dara.Model {
    * @remarks
    * The mitigation plan of the Anti-DDoS Origin instance. Valid values:
    * 
-   * *   0: the Professional mitigation plan.
-   * *   1: the Enterprise mitigation plan.
+   * - 0: the Professional mitigation plan.
+   * 
+   * - 1: the Enterprise mitigation plan.
    * 
    * @example
    * test-value
@@ -73,8 +74,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * @remarks
    * The sorting method. Valid values:
    * 
-   * *   **desc**: the descending order. This is the default value.
-   * *   **asc**: the ascending order.
+   * - **desc**: the descending order. This is the default value.
+   * 
+   * - **asc**: the ascending order.
    * 
    * @example
    * 47.89.XX.XX
@@ -92,7 +94,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * @remarks
    * The ID of the region where the Anti-DDoS Origin instance to query resides.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
    * 
    * @example
    * expireTime
@@ -110,8 +112,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * @remarks
    * The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
    * 
-   * *   **Ipv4**: IPv4
-   * *   **Ipv6**: IPv6
+   * - **Ipv4**: IPv4
+   * 
+   * - **Ipv6**: IPv6
    * 
    * This parameter is required.
    * 
@@ -123,8 +126,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
    * @remarks
    * The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
    * 
-   * *   **0**: the Professional mitigation plan
-   * *   **1**: the Enterprise mitigation plan
+   * - **0**: the Professional mitigation plan
+   * 
+   * - **1**: the Enterprise mitigation plan
    * 
    * This parameter is required.
    * 

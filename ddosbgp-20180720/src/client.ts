@@ -33,6 +33,10 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "ddosbgp.aliyuncs.com",
       'cn-shanghai-finance-1': "ddosbgp.aliyuncs.com",
       'cn-north-2-gov-1': "ddosbgp.aliyuncs.com",
+      'us-west-1': "ddosbgp.us-west-1.aliyuncs.com",
+      'us-east-1': "ddosbgp.us-east-1.aliyuncs.com",
+      'cn-hongkong': "ddosbgp.cn-hongkong.aliyuncs.com",
+      'ap-southeast-1': "ddosbgp.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ddosbgp", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -216,7 +220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a mitigation policy to a protected object.
+   * Associates protection objects with a mitigation policy.
+   * 
+   * @remarks
+   * A mitigation policy that is associated with protection objects cannot be deleted.
    * 
    * @param tmpReq - AttachToPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a mitigation policy to a protected object.
+   * Associates protection objects with a mitigation policy.
+   * 
+   * @remarks
+   * A mitigation policy that is associated with protection objects cannot be deleted.
    * 
    * @param request - AttachToPolicyRequest
    * @returns AttachToPolicyResponse
@@ -368,6 +378,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a mitigation policy.
    * 
+   * @remarks
+   * A mitigation policy that is associated with protected objects cannot be deleted.
+   * 
    * @param request - CreatePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyResponse
@@ -406,6 +419,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a mitigation policy.
+   * 
+   * @remarks
+   * A mitigation policy that is associated with protected objects cannot be deleted.
    * 
    * @param request - CreatePolicyRequest
    * @returns CreatePolicyResponse
@@ -482,10 +498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specific IP addresses from an Anti-DDoS Origin instance.
-   * 
-   * @remarks
-   * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+   * Deletes an IP address from Anti-DDoS Origin and disables protection for that IP address.
    * 
    * @param request - DeleteIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -528,10 +541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes specific IP addresses from an Anti-DDoS Origin instance.
-   * 
-   * @remarks
-   * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+   * Deletes an IP address from Anti-DDoS Origin and disables protection for that IP address.
    * 
    * @param request - DeleteIpRequest
    * @returns DeleteIpResponse
@@ -840,7 +850,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
+   * Queries the pay-as-you-go billing information of an Anti-DDoS Origin instance.
+   * 
+   * @remarks
+   * This operation is used to perform a paged query of the billing details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. The billing details include instance IDs, validity periods, and statuses. Paging is supported for this query.
    * 
    * @param request - DescribeDdosOriginInstanceBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
+   * Queries the pay-as-you-go billing information of an Anti-DDoS Origin instance.
+   * 
+   * @remarks
+   * This operation is used to perform a paged query of the billing details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. The billing details include instance IDs, validity periods, and statuses. Paging is supported for this query.
    * 
    * @param request - DescribeDdosOriginInstanceBillRequest
    * @returns DescribeDdosOriginInstanceBillResponse
@@ -948,10 +964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of all Anti-DDoS Origin instances.
+   * Retrieves the details of all Anti-DDoS Origin instances.
    * 
    * @remarks
-   * Queries the details of all Anti-DDoS Origin instances.
+   * Retrieves the details of all Anti-DDoS Origin instances.
    * 
    * @param request - DescribeInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1030,10 +1046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of all Anti-DDoS Origin instances.
+   * Retrieves the details of all Anti-DDoS Origin instances.
    * 
    * @remarks
-   * Queries the details of all Anti-DDoS Origin instances.
+   * Retrieves the details of all Anti-DDoS Origin instances.
    * 
    * @param request - DescribeInstanceListRequest
    * @returns DescribeInstanceListResponse
@@ -1091,6 +1107,98 @@ export default class Client extends OpenApi {
   async describeInstanceSpecs(request: $_model.DescribeInstanceSpecsRequest): Promise<$_model.DescribeInstanceSpecsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceSpecsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the network-layer interception records of Anti-DDoS Origin instances.
+   * 
+   * @remarks
+   * This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+   * ### QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * 
+   * @param request - DescribeNetworkLayerInterceptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkLayerInterceptsResponse
+   */
+  async describeNetworkLayerInterceptsWithOptions(request: $_model.DescribeNetworkLayerInterceptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNetworkLayerInterceptsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.destinationIp)) {
+      query["DestinationIp"] = request.destinationIp;
+    }
+
+    if (!$dara.isNull(request.destinationPort)) {
+      query["DestinationPort"] = request.destinationPort;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkProtocol)) {
+      query["NetworkProtocol"] = request.networkProtocol;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.protocolNumber)) {
+      query["ProtocolNumber"] = request.protocolNumber;
+    }
+
+    if (!$dara.isNull(request.sourcePort)) {
+      query["SourcePort"] = request.sourcePort;
+    }
+
+    if (!$dara.isNull(request.srcIp)) {
+      query["SrcIp"] = request.srcIp;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetworkLayerIntercepts",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNetworkLayerInterceptsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNetworkLayerInterceptsResponse({}));
+  }
+
+  /**
+   * Queries the network-layer interception records of Anti-DDoS Origin instances.
+   * 
+   * @remarks
+   * This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+   * ### QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+   * 
+   * @param request - DescribeNetworkLayerInterceptsRequest
+   * @returns DescribeNetworkLayerInterceptsResponse
+   */
+  async describeNetworkLayerIntercepts(request: $_model.DescribeNetworkLayerInterceptsRequest): Promise<$_model.DescribeNetworkLayerInterceptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetworkLayerInterceptsWithOptions(request, runtime);
   }
 
   /**
@@ -1182,12 +1290,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+   * Queries the list of protected IP addresses for a single Anti-DDoS Origin instance.
    * 
    * @remarks
-   * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * You can call this operation to query a paginated list of protected IP addresses for an Anti-DDoS Origin instance. The query returns details such as the IP addresses, the types of cloud assets to which the IP addresses belong, and their current status, such as whether they are under blackhole filtering.
+   * ### QPS limit
+   * This operation has a queries per second (QPS) limit of 10 for each user. Calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation within this limit.
    * 
    * @param request - DescribePackIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1246,12 +1354,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+   * Queries the list of protected IP addresses for a single Anti-DDoS Origin instance.
    * 
    * @remarks
-   * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.  
-   * ## Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * You can call this operation to query a paginated list of protected IP addresses for an Anti-DDoS Origin instance. The query returns details such as the IP addresses, the types of cloud assets to which the IP addresses belong, and their current status, such as whether they are under blackhole filtering.
+   * ### QPS limit
+   * This operation has a queries per second (QPS) limit of 10 for each user. Calls that exceed this limit are throttled, which may affect your business. We recommend that you call this operation within this limit.
    * 
    * @param request - DescribePackIpListRequest
    * @returns DescribePackIpListResponse
@@ -1314,7 +1422,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the status of the multi-account management feature.
    * 
-   * @param request - DescribeRdStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRdStatusResponse
    */
@@ -1344,7 +1451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
+   * Queries all regions supported by Anti-DDoS Origin Enterprise.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1379,7 +1486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
+   * Queries all regions supported by Anti-DDoS Origin Enterprise.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1390,13 +1497,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+   * Queries the traffic statistics of a specified Anti-DDoS Origin instance within a specified time period.
    * 
    * @remarks
-   * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
-   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
-   * ## Limits
-   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the traffic statistics of a specified Anti-DDoS Origin instance within a specified time range.
+   * > When calling this operation, you must set the **InstanceId** parameter to specify the Anti-DDoS Origin instance to query.
+   * ### QPS limit
+   * The single-user QPS limit for this operation is 1 call per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeTrafficRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1459,13 +1566,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+   * Queries the traffic statistics of a specified Anti-DDoS Origin instance within a specified time period.
    * 
    * @remarks
-   * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.  
-   * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.  
-   * ## Limits
-   * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Queries the traffic statistics of a specified Anti-DDoS Origin instance within a specified time range.
+   * > When calling this operation, you must set the **InstanceId** parameter to specify the Anti-DDoS Origin instance to query.
+   * ### QPS limit
+   * The single-user QPS limit for this operation is 1 call per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeTrafficRequest
    * @returns DescribeTrafficResponse
@@ -1476,7 +1583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes protected objects from a mitigation policy.
+   * Dissociates a mitigation policy from a protected object.
    * 
    * @param tmpReq - DetachFromPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,7 +1628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes protected objects from a mitigation policy.
+   * Dissociates a mitigation policy from a protected object.
    * 
    * @param request - DetachFromPolicyRequest
    * @returns DetachFromPolicyResponse
@@ -1742,7 +1849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries attachments to mitigation policies.
+   * Queries the associations of mitigation policies.
    * 
    * @param tmpReq - ListPolicyAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries attachments to mitigation policies.
+   * Queries the associations of mitigation policies.
    * 
    * @param request - ListPolicyAttachmentRequest
    * @returns ListPolicyAttachmentResponse
@@ -2010,10 +2117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the content of the mitigation policy.
+   * Modifies the content of a mitigation policy.
    * 
    * @remarks
-   * Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
+   * Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
    * 
    * @param tmpReq - ModifyPolicyContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2062,10 +2169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the content of the mitigation policy.
+   * Modifies the content of a mitigation policy.
    * 
    * @remarks
-   * Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
+   * Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
    * 
    * @param request - ModifyPolicyContentRequest
    * @returns ModifyPolicyContentResponse
@@ -2076,12 +2183,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds remarks for a single Anti-DDoS Origin instance.
+   * Sets a remark for a single Anti-DDoS Origin instance.
    * 
    * @remarks
-   * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
-   * ### [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Sets a remark for a single Anti-DDoS Origin instance.
+   * ### QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - ModifyRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2124,12 +2231,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds remarks for a single Anti-DDoS Origin instance.
+   * Sets a remark for a single Anti-DDoS Origin instance.
    * 
    * @remarks
-   * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
-   * ### [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * Sets a remark for a single Anti-DDoS Origin instance.
+   * ### QPS limit
+   * The single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
    * 
    * @param request - ModifyRemarkRequest
    * @returns ModifyRemarkResponse

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrafficRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. Specify a UNIX timestamp. Unit: seconds.
    * 
-   * If you do not specify this parameter, the current system time is used as the end time.
+   * If you do not set this parameter, the current time is used as the end time.
    * 
    * @example
    * 1563445054
@@ -15,16 +15,10 @@ export class DescribeTrafficRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The type of the traffic statistics to query. Valid values:
+   * The type of traffic statistics to query. Valid values:
    * 
-   * *   **max**: the peak traffic within the specified interval.
-   * *   **avg**: the average traffic within the specified interval.
-   * 
-   * Enumerated values:
-   * 
-   * *   all
-   * *   avg
-   * *   max
+   * - **max**: the peak traffic within the statistical interval.
+   * - **avg**: the average traffic within the statistical interval.
    * 
    * @example
    * max
@@ -34,9 +28,10 @@ export class DescribeTrafficRequest extends $dara.Model {
    * @remarks
    * The ID of the Anti-DDoS Origin instance to query.
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
+   * > You can call [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) to query the IDs of all Anti-DDoS Origin instances.
    * 
-   * If you specify an on-demand instance, you must configure the **Interval** parameter.
+   * 
+   * If the instance specified here is used for traffic diversion, you must set the **Interval** request parameter.
    * 
    * @example
    * ddosbgp-cn-n6w203qg****
@@ -44,7 +39,7 @@ export class DescribeTrafficRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The interval at which the traffic statistics are calculated. Unit: seconds. Default value: **5**.
+   * The time interval for traffic statistics. Unit: seconds. This parameter specifies the length of each interval for which traffic data is aggregated. Default value: **5**.
    * 
    * @example
    * 5
@@ -52,9 +47,9 @@ export class DescribeTrafficRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The public IP address of the asset to query. If you do not specify this parameter, the traffic statistics of all public IP addresses that are protected by the Anti-DDoS Origin instance are queried.
+   * The assets that are assigned public IP addresses to query. If you do not specify this parameter in Settings, the traffic statistics of all assets that are assigned public IP addresses protected by the Anti-DDoS Origin instance are queried.
    * 
-   * >  The public IP address must be a protected object of the Anti-DDoS Origin instance. You can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query all protected objects of the Anti-DDoS Origin instance.
+   * > The assets that are assigned public IP addresses must have been added as protected objects of the Anti-DDoS Origin instance. You can invoke [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) to query all protected objects of the Anti-DDoS Origin instance.
    * 
    * @example
    * 39.XX.XX.96
@@ -62,7 +57,7 @@ export class DescribeTrafficRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The Classless Inter-Domain Routing (CIDR) block of the on-demand instance that you want to query.
+   * The CIDR block used for traffic diversion to query.
    * 
    * @example
    * 111.XX.XX.0/24
@@ -70,9 +65,9 @@ export class DescribeTrafficRequest extends $dara.Model {
   ipnet?: string;
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance resides.
+   * The region ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
    * 
    * @example
    * cn-hangzhou
@@ -82,7 +77,7 @@ export class DescribeTrafficRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
    * 
-   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * If you do not set this parameter, the default resource group is used.
    * 
    * @example
    * rg-acfm2pz25js****
@@ -90,7 +85,7 @@ export class DescribeTrafficRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. Specify a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 

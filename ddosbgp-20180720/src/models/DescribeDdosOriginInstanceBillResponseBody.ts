@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Model {
   /**
    * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
-   * *   **memberUid**: the owner account.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **region**: the region.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
+   * The traffic distribution by area. The JSON structure contains the following fields:
+   * - **bytes**: the traffic of the EIP with Anti-DDoS (Enhanced) enabled in the corresponding region. Unit: bytes.
+   * - **memberUid**: the account to which the traffic belongs.
+   * - **instanceId**: the instance ID of the global pay-as-you-go instance associated with the EIP with Anti-DDoS (Enhanced) enabled.
+   * - **ip**: the corresponding elastic IP addresses (EIPs) with Anti-DDoS Proxy Enabled.
+   * - **region**: the area.
+   * > If memberUid is empty in the JSON, it indicates the current account information. The bytes field at the outermost level of the JSON represents the total traffic, and the inner bytes field represents the traffic for the corresponding account.
    * 
    * @example
    * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
@@ -21,12 +19,11 @@ export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Mo
   memberFlow?: string;
   /**
    * @remarks
-   * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of EIPs with Anti-DDoS (Enhanced) enabled in a region. Unit: bytes.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **ip**: the EIPs with Anti-DDoS (Enhanced) enabled.
-   * *   **region**: the region.
+   * The traffic distribution by area. The JSON structure contains the following fields:
+   * - **bytes**: the traffic of the EIP with Anti-DDoS (Enhanced) enabled in the corresponding region. Unit: bytes.
+   * - **instanceId**: the instance ID of the global pay-as-you-go instance associated with the EIP with Anti-DDoS (Enhanced) enabled.
+   * - **ip**: the corresponding elastic IP addresses (EIPs) with Anti-DDoS Proxy Enabled.
+   * - **region**: the area.
    * 
    * @example
    * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
@@ -42,7 +39,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Mo
   time?: number;
   /**
    * @remarks
-   * The total IP traffic of regular Alibaba Cloud services.
+   * The total traffic of Regular Alibaba Cloud service IP addresses.
    * 
    * @example
    * 6302081067
@@ -50,7 +47,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Mo
   totalBillFlow?: number;
   /**
    * @remarks
-   * The traffic of EIPs with Anti-DDoS (Enhanced) enabled. Unit: bytes.
+   * The IP Traffic of EIPs with Anti-DDoS (Enhanced) enabled. Unit: bytes.
    * 
    * @example
    * 6302081067
@@ -88,11 +85,10 @@ export class DescribeDdosOriginInstanceBillResponseBodyFlowList extends $dara.Mo
 export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList extends $dara.Model {
   /**
    * @remarks
-   * The application scope of the instance. Valid values:
-   * 
-   * *   **only_mainland_china**: regions in the Chinese mainland.
-   * *   **global**: all regions.
-   * *   **international_and_hmt**: regions outside the Chinese mainland.
+   * The protected asset region. Valid values:
+   * - **only_mainland_china**: the Chinese mainland only.
+   * - **global**: global.
+   * - **international_and_hmt**: outside the Chinese mainland, including international regions and Hong Kong (China), Macao (China), and Taiwan (China).
    * 
    * @example
    * global
@@ -100,7 +96,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
   coverage?: string;
   /**
    * @remarks
-   * The number of IP addresses protected by the pay-as-you-go instance in the Chinese mainland.
+   * The number of pay-as-you-go protected IP addresses in the Chinese mainland.
    * 
    * @example
    * 5
@@ -108,7 +104,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
   ipCntCn?: number;
   /**
    * @remarks
-   * The number of IP addresses protected by the pay-as-you-go instance outside the Chinese mainland.
+   * The number of pay-as-you-go protected IP addresses outside the Chinese mainland.
    * 
    * @example
    * 5
@@ -116,15 +112,13 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
   ipCntOv?: number;
   /**
    * @remarks
-   * The bill distribution by account. The JSON struct contains the following fields:
-   * 
-   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
-   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
-   * *   **memberUid**: the owner account.
-   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
-   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned.
+   * The account distribution of the bill. The JSON struct contains the following fields:
+   * - **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+   * - **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+   * - **memberUid**: the account to which the IP addresses belong.
+   * - **standardAssetsCnIpCount**: the number of Regular Alibaba Cloud service IP addresses in the Chinese mainland.
+   * - **standardAssetsOvIpCount**: the number of Regular Alibaba Cloud service IP addresses outside the Chinese mainland.
+   * > If memberUid is empty in the JSON, it indicates the current account information.
    * 
    * @example
    * [{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":18,\\"memberUid\\":\\"\\",\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0},{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":0,\\"memberUid\\":\\"1776997906319249\\",\\"standardAssetsCnIpCount\\":0,\\"standardAssetsOvIpCount\\":0}]
@@ -170,7 +164,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
 export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extends $dara.Model {
   /**
    * @remarks
-   * The number of days that the instance is activated.
+   * The number of days the service has been activated.
    * 
    * @example
    * 30
@@ -195,8 +189,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   /**
    * @remarks
    * The total number of protected IP addresses in the Chinese mainland.
-   * 
-   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * > The daily count of protected IP addresses is accumulated.
    * 
    * @example
    * 28
@@ -205,8 +198,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   /**
    * @remarks
    * The total number of protected IP addresses outside the Chinese mainland.
-   * 
-   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * > The daily count of protected IP addresses is accumulated.
    * 
    * @example
    * 30
@@ -214,7 +206,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   ipCountIntl?: number;
   /**
    * @remarks
-   * The ID of the member.
+   * The UID of the member accounts.
    * 
    * @example
    * 112873971277****
@@ -222,7 +214,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   memberUid?: string;
   /**
    * @remarks
-   * The total traffic of regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
+   * The total traffic of Regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
    * 
    * @example
    * 123456
@@ -230,7 +222,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   standardAssetsFlowCn?: number;
   /**
    * @remarks
-   * The total traffic of regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
+   * The total traffic of Regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
    * 
    * @example
    * 123456
@@ -238,7 +230,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extend
   standardAssetsFlowIntl?: number;
   /**
    * @remarks
-   * The ID of the administrator account.
+   * The UID of the management account.
    * 
    * @example
    * 102518028277****
@@ -285,14 +277,12 @@ export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList ex
   /**
    * @remarks
    * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
-   * *   **memberUid**: the owner account.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
-   * *   **ip**: the IP address of the regular Alibaba Cloud service protected by the Anti-DDoS Origin instance.
-   * *   **region**: the region.
-   * 
-   * >  If the memberUid field in the JSON struct is empty, the information about the current account is returned. The value of the bytes parameter in the outermost level of the JSON struct indicates the total traffic, and the values of the bytes parameters in inner levels indicate the traffic of the account.
+   * - **bytes**: the traffic of the Regular Alibaba Cloud service in the corresponding region. Unit: bytes.
+   * - **memberUid**: the account to which the traffic belongs.
+   * - **instanceId**: the ID of the global pay-as-you-go instance associated with the Regular Alibaba Cloud service.
+   * - **ip**: the instance ID associated with the Regular Alibaba Cloud service.
+   * - **region**: the region.
+   * > If memberUid is empty in the JSON, it indicates the current account information. The bytes field at the outermost level of the JSON represents the total traffic, and the inner bytes field represents the traffic for the corresponding account.
    * 
    * @example
    * [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
@@ -301,11 +291,10 @@ export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList ex
   /**
    * @remarks
    * The traffic distribution by region. The JSON struct contains the following fields:
-   * 
-   * *   **bytes**: the traffic volume of regular Alibaba Cloud services in a region. Unit: bytes.
-   * *   **instanceId**: the ID of the pay-as-you-go instance that protects the regular Alibaba Cloud services.
-   * *   **ip**: the IP address protected by the Anti-DDoS Origin instance.
-   * *   **region**: the region.
+   * - **bytes**: the traffic of the Regular Alibaba Cloud service in the corresponding region. Unit: bytes.
+   * - **instanceId**: the ID of the global pay-as-you-go instance associated with the Regular Alibaba Cloud service.
+   * - **ip**: the instance ID associated with the Anti-DDoS Origin instance.
+   * - **region**: the region.
    * 
    * @example
    * {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
@@ -321,7 +310,7 @@ export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList ex
   time?: number;
   /**
    * @remarks
-   * The traffic of regular Alibaba Cloud services. Unit: bytes.
+   * The traffic of Regular Alibaba Cloud services. Unit: bytes.
    * 
    * @example
    * 6302081067
@@ -357,10 +346,9 @@ export class DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList ex
 export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asset status.
-   * 
-   * *   **0**: No asset is added to the instance for protection.
-   * *   **1**: Assets are added to the instance for protection.
+   * The asset status. Valid values:
+   * - **0**: No assets have been associated with the current instance.
+   * - **1**: Assets have been associated with the current instance.
    * 
    * @example
    * 0
@@ -368,10 +356,10 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   assetStatus?: number;
   /**
    * @remarks
-   * The payment status. Valid values:
+   * The overdue payment status. Valid values:
    * 
-   * *   **0**: The payment is not overdue.
-   * *   **1**: The payment is overdue.
+   * - **0**: No overdue payment.
+   * - **1**: Overdue payment exists.
    * 
    * @example
    * 0
@@ -379,12 +367,12 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   debtStatus?: number;
   /**
    * @remarks
-   * The details about the traffic of EIPs with Anti-DDoS (Enhanced) enabled.
+   * The IP Traffic details of EIPs with Anti-DDoS (Enhanced) enabled.
    */
   flowList?: DescribeDdosOriginInstanceBillResponseBodyFlowList[];
   /**
    * @remarks
-   * The traffic distribution of EIPs with Anti-DDoS (Enhanced) enabled by region.
+   * The regional traffic distribution information of EIPs with Anti-DDoS (Enhanced) enabled.
    * 
    * @example
    * {\\"cn-hongkong\\": 166491566}
@@ -392,7 +380,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   flowRegion?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin (Pay-as-you-go) instance to query.
+   * The instance ID of the pay-as-you-go Anti-DDoS Origin instance to query.
    * 
    * @example
    * ddosorigin_cn-u7c3lcr9r02
@@ -408,17 +396,16 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   ipCount?: number;
   /**
    * @remarks
-   * The protected IP addresses and enabled features.
+   * The details of the protected IP address count and feature activation list.
    */
   ipCountOrFunctionList?: DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList[];
   /**
    * @remarks
-   * The IP address distribution. The JSON struct contains the following fields:
-   * 
-   * *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
-   * *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
-   * *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
-   * *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
+   * The IP distribution details. The JSON structure contains the following fields:
+   * - **eipCnIpCount**: the number of elastic IP addresses (EIPs) with Anti-DDoS Proxy Enabled in the Chinese mainland.
+   * - **eipOvIpCount**: the number of elastic IP addresses (EIPs) with Anti-DDoS Proxy Enabled outside the Chinese mainland.
+   * - **standardAssetsCnIpCount**: the number of Regular Alibaba Cloud service IP addresses in the Chinese mainland.
+   * - **standardAssetsOvIpCount**: the number of Regular Alibaba Cloud service IP addresses outside the Chinese mainland.
    * 
    * @example
    * {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
@@ -426,12 +413,12 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   ipInfo?: string;
   /**
    * @remarks
-   * The information about the monthly summary bills.
+   * The monthly summary information list.
    */
   monthlySummaryList?: DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList[];
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
    * 
    * @example
    * 72155560-F343-55C8-82FE-ED4D7E4AA97E
@@ -439,12 +426,12 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details about the traffic of regular Alibaba Cloud services.
+   * The traffic information of Regular Alibaba Cloud services.
    */
   standardAssetsFlowList?: DescribeDdosOriginInstanceBillResponseBodyStandardAssetsFlowList[];
   /**
    * @remarks
-   * The traffic distribution of regular Alibaba Cloud services by region.
+   * The regional traffic distribution information of Regular Alibaba Cloud services.
    * 
    * @example
    * {\\"cn-hongkong\\": 166491566}
@@ -452,7 +439,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   standardAssetsFlowRegion?: { [key: string]: any };
   /**
    * @remarks
-   * The total traffic of regular Alibaba Cloud services in the Chinese mainland in the current month.
+   * The total traffic of Regular Alibaba Cloud services in the Chinese mainland for the current month.
    * 
    * @example
    * 0
@@ -460,7 +447,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   standardAssetsTotalFlowCn?: number;
   /**
    * @remarks
-   * The total traffic of regular Alibaba Cloud services outside the Chinese mainland in the current month.
+   * The total traffic of Regular Alibaba Cloud services outside the Chinese mainland for the current month.
    * 
    * @example
    * 0
@@ -468,11 +455,11 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   standardAssetsTotalFlowOv?: number;
   /**
    * @remarks
-   * The instance status. Valid values:
+   * The activation status. Valid values:
    * 
-   * *   **1**: normal
-   * *   **2**: expired
-   * *   **3**: released
+   * - **1**: Normal.
+   * - **2**: Expired.
+   * - **3**: Released.
    * 
    * @example
    * 1
@@ -480,7 +467,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland in the current month. Unit: bytes.
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland for the current month. Unit: bytes.
    * 
    * @example
    * 6302081067
@@ -488,7 +475,7 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $dara.Model {
   totalFlowCn?: number;
   /**
    * @remarks
-   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland in the current month. Unit: bytes.
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland for the current month. Unit: bytes.
    * 
    * @example
    * 6204918019
