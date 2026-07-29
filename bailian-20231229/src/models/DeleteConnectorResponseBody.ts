@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteConnectorResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The connector ID.
+   * 
    * @example
    * conn_file_e0c9db4030b2465a9478028f7d76cd92_1234
    */
@@ -31,27 +34,48 @@ export class DeleteConnectorResponseBodyData extends $dara.Model {
 
 export class DeleteConnectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error status code.
+   * 
    * @example
    * Index.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The business data field of the operation.
+   */
   data?: DeleteConnectorResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User not authorized to operate on the specified resource
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1C139002-0EC5-584C-A755-4B8B9FA080BE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code returned by the operation.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

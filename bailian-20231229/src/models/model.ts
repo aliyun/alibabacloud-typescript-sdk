@@ -269,6 +269,7 @@ export { ListPromptTemplatesRequest } from './ListPromptTemplatesRequest';
 export { ListPromptTemplatesResponseBody } from './ListPromptTemplatesResponseBody';
 export { ListPromptTemplatesResponse } from './ListPromptTemplatesResponse';
 export { ListPublishedAgentRequest } from './ListPublishedAgentRequest';
+export { ListPublishedAgentShrinkRequest } from './ListPublishedAgentShrinkRequest';
 export { ListPublishedAgentResponseBody } from './ListPublishedAgentResponseBody';
 export { ListPublishedAgentResponse } from './ListPublishedAgentResponse';
 export { RetrieveRequest } from './RetrieveRequest';

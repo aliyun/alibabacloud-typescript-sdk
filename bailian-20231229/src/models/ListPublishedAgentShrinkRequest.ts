@@ -2,15 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListPublishedAgentRequest extends $dara.Model {
+export class ListPublishedAgentShrinkRequest extends $dara.Model {
   pageNo?: number;
   pageSize?: number;
-  subTypes?: string[];
+  subTypesShrink?: string;
   static names(): { [key: string]: string } {
     return {
       pageNo: 'pageNo',
       pageSize: 'pageSize',
-      subTypes: 'subTypes',
+      subTypesShrink: 'subTypes',
     };
   }
 
@@ -18,14 +18,11 @@ export class ListPublishedAgentRequest extends $dara.Model {
     return {
       pageNo: 'number',
       pageSize: 'number',
-      subTypes: { 'type': 'array', 'itemType': 'string' },
+      subTypesShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.subTypes)) {
-      $dara.Model.validateArray(this.subTypes);
-    }
     super.validate();
   }
 

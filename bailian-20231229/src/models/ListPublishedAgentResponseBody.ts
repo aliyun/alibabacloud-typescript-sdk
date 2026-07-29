@@ -258,16 +258,22 @@ export class ListPublishedAgentResponseBodyDataListApplicationConfig extends $da
 export class ListPublishedAgentResponseBodyDataList extends $dara.Model {
   applicationConfig?: ListPublishedAgentResponseBodyDataListApplicationConfig;
   code?: string;
+  description?: string;
   instructions?: string;
   modelId?: string;
   name?: string;
+  subType?: string;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
       applicationConfig: 'applicationConfig',
       code: 'code',
+      description: 'description',
       instructions: 'instructions',
       modelId: 'modelId',
       name: 'name',
+      subType: 'subType',
+      type: 'type',
     };
   }
 
@@ -275,9 +281,12 @@ export class ListPublishedAgentResponseBodyDataList extends $dara.Model {
     return {
       applicationConfig: ListPublishedAgentResponseBodyDataListApplicationConfig,
       code: 'string',
+      description: 'string',
       instructions: 'string',
       modelId: 'string',
       name: 'string',
+      subType: 'string',
+      type: 'number',
     };
   }
 
