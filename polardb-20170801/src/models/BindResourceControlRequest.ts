@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class BindResourceControlRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The PolarDB cluster ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * pm-xxxxxx
+   * pc-**************
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the PolarDB cluster.
    * 
    * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
    * 
@@ -25,32 +25,32 @@ export class BindResourceControlRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource control name.
+   * The name of the resource control rule. The name must be 1 to 63 ASCII bytes in length, start with a letter, and can contain only letters, digits, and underscores.
    * 
    * This parameter is required.
    * 
    * @example
-   * test-rc
+   * test_rc
    */
   resourceControlName?: string;
   /**
    * @remarks
-   * The target instance type.
+   * The type of the binding target. Valid values: USER, DATABASE, QUERY, CONNECTION. The value is case-insensitive.
    * 
    * This parameter is required.
    * 
    * @example
-   * 4
+   * USER
    */
   targetType?: string;
   /**
    * @remarks
-   * The target value. This parameter applies to target tracking rules and prediction rules. The value of TargetValue can contain up to three decimal places and must be greater than 0.
+   * The value of the binding target. The format depends on the value of TargetType. For more information, see the table below.
    * 
    * This parameter is required.
    * 
    * @example
-   * 646060ae9852280007a62545,68b696cb0a7fa600078d41af
+   * app_user
    */
   targetValue?: string;
   static names(): { [key: string]: string } {

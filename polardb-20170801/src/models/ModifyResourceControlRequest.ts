@@ -5,33 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyResourceControlRequest extends $dara.Model {
   /**
    * @remarks
-   * The total number of CPU cores.
+   * The modified maximum number of CPU cores. The minimum value is 1. The maximum value is determined by the cluster kernel parameter resource_control_cpu_count_limit. You must specify one and only one of this parameter and MaxCpu.
    * 
    * @example
-   * 4
+   * 8
    */
   cpuCount?: number;
   /**
    * @remarks
-   * The cluster ID.
+   * The PolarDB cluster ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * pc-****************
+   * pc-**************
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * The maximum number of CPUs. Unit: 0.001 CPU. A value of 1000 indicates one CPU. If you specify this parameter, instances whose CPU count is less than the specified value are returned.
+   * The modified maximum CPU quota percentage. Valid values: 1 to 100. You must specify one and only one of this parameter and CpuCount.
    * 
    * @example
-   * 1000000
+   * 30
    */
   maxCpu?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the PolarDB cluster.
    * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
    * 
    * @example
@@ -40,12 +40,12 @@ export class ModifyResourceControlRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource control name.
+   * The name of the resource control rule. The name must be 1 to 63 ASCII bytes in length, start with a letter, and can contain only letters, digits, and underscores.
    * 
    * This parameter is required.
    * 
    * @example
-   * test-rc
+   * test_rc
    */
   resourceControlName?: string;
   static names(): { [key: string]: string } {
