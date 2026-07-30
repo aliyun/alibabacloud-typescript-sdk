@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDatasetsRequest extends $dara.Model {
+export class ListDatasetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The dataset name.
@@ -11,7 +11,7 @@ export class ListDatasetsRequest extends $dara.Model {
    * product_faq_dataset
    */
   datasetName?: string;
-  labels?: { [key: string]: string[] };
+  labelsShrink?: string;
   /**
    * @remarks
    * The maximum number of results to return.
@@ -31,7 +31,7 @@ export class ListDatasetsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       datasetName: 'datasetName',
-      labels: 'labels',
+      labelsShrink: 'labels',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
     };
@@ -40,16 +40,13 @@ export class ListDatasetsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      labelsShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
     };
   }
 
   validate() {
-    if(this.labels) {
-      $dara.Model.validateMap(this.labels);
-    }
     super.validate();
   }
 

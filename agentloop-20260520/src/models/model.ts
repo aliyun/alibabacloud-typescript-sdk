@@ -204,6 +204,7 @@ export { ListContextStoresRequest } from './ListContextStoresRequest';
 export { ListContextStoresResponseBody } from './ListContextStoresResponseBody';
 export { ListContextStoresResponse } from './ListContextStoresResponse';
 export { ListDatasetsRequest } from './ListDatasetsRequest';
+export { ListDatasetsShrinkRequest } from './ListDatasetsShrinkRequest';
 export { ListDatasetsResponseBody } from './ListDatasetsResponseBody';
 export { ListDatasetsResponse } from './ListDatasetsResponse';
 export { ListEvaluationRunsRequest } from './ListEvaluationRunsRequest';

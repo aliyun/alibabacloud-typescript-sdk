@@ -39,6 +39,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    */
   description?: string;
   isFavorite?: boolean;
+  labels?: { [key: string]: string[] };
   /**
    * @remarks
    * The region ID.
@@ -77,6 +78,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       datasetName: 'datasetName',
       description: 'description',
       isFavorite: 'isFavorite',
+      labels: 'labels',
       regionId: 'regionId',
       requestId: 'requestId',
       schema: 'schema',
@@ -91,6 +93,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       datasetName: 'string',
       description: 'string',
       isFavorite: 'boolean',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       regionId: 'string',
       requestId: 'string',
       schema: { 'type': 'map', 'keyType': 'string', 'valueType': IndexKey },
@@ -99,6 +102,9 @@ export class GetDatasetResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
     if(this.schema) {
       $dara.Model.validateMap(this.schema);
     }

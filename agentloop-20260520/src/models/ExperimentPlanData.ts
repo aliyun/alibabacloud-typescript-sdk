@@ -8,6 +8,7 @@ export class ExperimentPlanData extends $dara.Model {
   description?: string;
   experimentCount?: number;
   experimentType?: string;
+  pipelineName?: string;
   planId?: string;
   planName?: string;
   querySql?: string;
@@ -20,6 +21,7 @@ export class ExperimentPlanData extends $dara.Model {
       description: 'description',
       experimentCount: 'experimentCount',
       experimentType: 'experimentType',
+      pipelineName: 'pipelineName',
       planId: 'planId',
       planName: 'planName',
       querySql: 'querySql',
@@ -35,6 +37,7 @@ export class ExperimentPlanData extends $dara.Model {
       description: 'string',
       experimentCount: 'number',
       experimentType: 'string',
+      pipelineName: 'string',
       planId: 'string',
       planName: 'string',
       querySql: 'string',

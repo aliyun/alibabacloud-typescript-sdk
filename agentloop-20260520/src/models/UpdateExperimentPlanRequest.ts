@@ -61,6 +61,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
    * {"question": "How do I get a refund?"}
    */
   input?: { [key: string]: any };
+  pipelineName?: string;
   /**
    * @remarks
    * The experiment plan name.
@@ -94,6 +95,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
       experimentType: 'experimentType',
       experiments: 'experiments',
       input: 'input',
+      pipelineName: 'pipelineName',
       planName: 'planName',
       querySql: 'querySql',
       selectedItemIds: 'selectedItemIds',
@@ -109,6 +111,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
       experimentType: 'string',
       experiments: { 'type': 'array', 'itemType': ExperimentConfig },
       input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      pipelineName: 'string',
       planName: 'string',
       querySql: 'string',
       selectedItemIds: { 'type': 'array', 'itemType': 'string' },

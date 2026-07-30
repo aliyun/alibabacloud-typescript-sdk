@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class CreateExperimentPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The associated dataset ID. If this parameter is not specified, the execution phase processes in simple mode.
+   * The ID of the associated dataset. If this parameter is not specified, the execution phase processes in simple mode.
    * 
    * @example
    * rca_benckmark_eval
@@ -23,7 +23,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The evaluator list. If configured, evaluation is automatically triggered when the experiment completes.
+   * The list of evaluators. After configuration, evaluation can be automatically triggered when the experiment completes.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_correctness", "name": "Builtin.agent_correctness", "type": "AGENT", "resultName": "Builtin.agent_correctness", "resultType": "score", "variableMapping": {"input": "experiment_input", "output": "experiment_output", "expected_output": "dataset.ground_truth_json"}, "filters": {"query": "", "sample": "100"}, "config": {"variables": [], "prompt": ""}}, {"evaluatorRef": "rca-toxicity-safety-accuracy", "name": "rca-toxicity-safety-accuracy", "type": "AGENT", "resultName": "rca-toxicity-safety-accuracy", "resultType": "score", "variableMapping": {"input": "experiment_input", "output": "experiment_output", "question": "dataset.question", "expected_output": "dataset.ground_truth_json", "payload_json": "dataset.payload_json"}, "filters": {"query": "", "sample": "100"}, "config": {"variables": [], "prompt": ""}}]
@@ -41,7 +41,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   experimentType?: string;
   /**
    * @remarks
-   * The experiment configuration list. A maximum of 5 entries are supported. For offline experiments, this parameter can be omitted or set to an empty array. For online experiments, at least one entry is required.
+   * The list of experiment configurations. A maximum of 5 configurations are supported. For offline experiments, this parameter can be omitted or set to an empty array. For online experiments, at least one configuration is required.
    * 
    * This parameter is required.
    * 
@@ -54,12 +54,13 @@ export class CreateExperimentPlanRequest extends $dara.Model {
    * Optional.
    * 
    * @example
-   * {"question": "How do I request a refund?"}
+   * {"question": "How do I get a refund?"}
    */
   input?: { [key: string]: any };
+  pipelineName?: string;
   /**
    * @remarks
-   * The experiment plan name. The name must be unique within the same AgentSpace under the same account.
+   * The experiment plan name. The name must be unique within the same AgentSpace and account.
    * 
    * This parameter is required.
    * 
@@ -77,7 +78,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   querySql?: string;
   /**
    * @remarks
-   * The list of selected data item IDs in partial dataset mode. Use this parameter together with `datasetId`.
+   * The list of selected data item IDs in partial dataset mode. This parameter must be used together with `datasetId`.
    * 
    * @example
    * ["019ef4d5-a0f0-7114-832d-5542d771cd8c", "019f1729-be9b-7769-a006-8e98023ad7ad"]
@@ -91,6 +92,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
       experimentType: 'experimentType',
       experiments: 'experiments',
       input: 'input',
+      pipelineName: 'pipelineName',
       planName: 'planName',
       querySql: 'querySql',
       selectedItemIds: 'selectedItemIds',
@@ -105,6 +107,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
       experimentType: 'string',
       experiments: { 'type': 'array', 'itemType': ExperimentConfig },
       input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      pipelineName: 'string',
       planName: 'string',
       querySql: 'string',
       selectedItemIds: { 'type': 'array', 'itemType': 'string' },

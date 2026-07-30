@@ -623,7 +623,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @param headers - map
@@ -655,6 +655,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.input)) {
       body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
     }
 
     if (!$dara.isNull(request.planName)) {
@@ -691,7 +695,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @returns CreateExperimentPlanResponse
@@ -1784,10 +1788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query an experiment plan
+   * Queries an experiment plan.
    * 
    * @remarks
-   * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+   * Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
    * 
    * @param request - GetExperimentPlanRequest
    * @param headers - map
@@ -1814,10 +1818,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query an experiment plan
+   * Queries an experiment plan.
    * 
    * @remarks
-   * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+   * Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
    * 
    * @param request - GetExperimentPlanRequest
    * @returns GetExperimentPlanResponse
@@ -2170,16 +2174,26 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of datasets.
    * 
-   * @param request - ListDatasetsRequest
+   * @param tmpReq - ListDatasetsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDatasetsResponse
    */
-  async listDatasetsWithOptions(agentSpace: string, request: $_model.ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
-    request.validate();
+  async listDatasetsWithOptions(agentSpace: string, tmpReq: $_model.ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDatasetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "labels", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.datasetName)) {
       query["datasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.labelsShrink)) {
+      query["labels"] = request.labelsShrink;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -3539,6 +3553,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.input)) {
       body["input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
     }
 
     if (!$dara.isNull(request.planName)) {

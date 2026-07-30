@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class GetExperimentPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in millisecond Unix timestamp.
+   * The creation time. This value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1782816000000
@@ -26,7 +26,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * 对比 checkout Agent 基线与优化版本
+   * Compare the checkout Agent baseline with the optimized version.
    */
   description?: string;
   /**
@@ -58,9 +58,10 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * Optional.
    * 
    * @example
-   * {"question": "如何退款？"}
+   * {"question": "How do I request a refund?"}
    */
   input?: { [key: string]: any };
+  pipelineName?: string;
   /**
    * @remarks
    * The experiment plan ID.
@@ -111,7 +112,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in millisecond Unix timestamp.
+   * The update time. This value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1782816600000
@@ -126,6 +127,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
       experimentType: 'experimentType',
       experiments: 'experiments',
       input: 'input',
+      pipelineName: 'pipelineName',
       planId: 'planId',
       planName: 'planName',
       querySql: 'querySql',
@@ -145,6 +147,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
       experimentType: 'string',
       experiments: { 'type': 'array', 'itemType': ExperimentConfig },
       input: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      pipelineName: 'string',
       planId: 'string',
       planName: 'string',
       querySql: 'string',
