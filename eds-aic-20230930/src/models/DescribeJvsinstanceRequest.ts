@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJVSInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -18,7 +18,7 @@ export class DescribeJVSInstanceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token from a previous request to retrieve the next page of results. Omit this parameter for the first request.
+   * The pagination token.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

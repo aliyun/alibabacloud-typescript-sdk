@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cron expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateScheduledTaskShrinkRequest extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
+   * The list of instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,29 +24,39 @@ export class CreateScheduledTaskShrinkRequest extends $dara.Model {
    */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The maximum number of executions.
+   * 
    * @example
    * 1
    */
   maxExecutions?: number;
   /**
+   * @remarks
+   * The run configuration.
+   * 
    * @example
    * {"maxSteps":10,"timeoutSeconds":3600}
    */
   runConfigShrink?: string;
   /**
    * @remarks
+   * The task name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 自动回复钉钉消息
+   * Auto-reply to DingTalk messages.
    */
   taskName?: string;
   /**
    * @remarks
+   * The user prompt.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 打开钉钉，回复前5个未读消息
+   * Open DingTalk and reply to the first 5 unread messages.
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates if automatic payment is enabled. Default: false.
+   * Specifies whether to enable automatic payment. Default value: false.
    * 
    * @example
    * false
@@ -14,7 +14,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   displayConfig?: string;
   /**
    * @remarks
-   * The downstream bandwidth limit, in Mbps.
+   * The downstream bandwidth throttling. Unit: Mbit/s.
    * 
    * @example
    * 50
@@ -30,7 +30,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The ID of the cloud phone matrix.
+   * The cloud phone matrix ID.
    * 
    * @example
    * cpn-0ugbptfu473fy****
@@ -38,7 +38,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The number of cloud phone instances. Call the [](t2729804.xdita#)operation to query the minimum and maximum number of allowed instances.
+   * The number of cloud phone instances. Call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the maximum and minimum instance count limits.
    * 
    * @example
    * 20
@@ -46,7 +46,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   phoneCount?: number;
   /**
    * @remarks
-   * The capacity of the internal storage, in GiB. Valid values: 10 to 4000. If you do not specify this parameter, the current capacity is retained.
+   * The device storage size. Valid values: 10 GiB to 4000 GiB. If this parameter is left empty, the current size is retained.
    * 
    * @example
    * 10
@@ -64,7 +64,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   swapSize?: number;
   /**
    * @remarks
-   * The upstream bandwidth limit, in Mbps.
+   * The upstream bandwidth throttling. Unit: Mbit/s.
    * 
    * @example
    * 50

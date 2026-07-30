@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
   /**
    * @remarks
-   * The credit limit.
+   * The quota limit.
    * 
    * @example
    * 10
@@ -15,9 +15,9 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
    * @remarks
    * The dimension of the current credit. Valid values:
    * 
-   * - total: total usage limit.
-   * - month: monthly. The limit resets based on the resource activation time cycle.
-   * - day: daily. The limit resets at 00:00.
+   * - total: Total usage limit.
+   * - month: Monthly. The quota resets based on the resource activation time cycle.
+   * - day: Daily. The quota resets at 00:00.
    * 
    * @example
    * day
@@ -49,6 +49,11 @@ export class ModifyJVSInstanceRequestCreditConfig extends $dara.Model {
 export class ModifyJVSInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The target version, such as 2607W1. Set this parameter to latest to automatically resolve to the latest available version.
+   */
+  agentVersion?: string;
+  /**
+   * @remarks
    * Specifies whether to apply the configuration to all instances.
    * 
    * @example
@@ -57,7 +62,7 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
   applyToAll?: boolean;
   /**
    * @remarks
-   * The credit limit configuration. Subsequent configurations overwrite previous ones.
+   * The credit quota configuration. If you submit the configuration multiple times, the latest configuration overwrites the previous one.
    */
   creditConfig?: ModifyJVSInstanceRequestCreditConfig[];
   imageId?: string;
@@ -76,6 +81,7 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentVersion: 'AgentVersion',
       applyToAll: 'ApplyToAll',
       creditConfig: 'CreditConfig',
       imageId: 'ImageId',
@@ -86,6 +92,7 @@ export class ModifyJVSInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentVersion: 'string',
       applyToAll: 'boolean',
       creditConfig: { 'type': 'array', 'itemType': ModifyJVSInstanceRequestCreditConfig },
       imageId: 'string',

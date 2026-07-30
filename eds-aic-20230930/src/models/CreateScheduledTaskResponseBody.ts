@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScheduledTaskResponseBodyTasksInstanceResults extends $dara.Model {
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * privateAccount not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * acp-iuyb1zv1ap6nb****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */
@@ -44,13 +53,23 @@ export class CreateScheduledTaskResponseBodyTasksInstanceResults extends $dara.M
 }
 
 export class CreateScheduledTaskResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The list of batch delivery results for instance scheduled tasks.
+   */
   instanceResults?: CreateScheduledTaskResponseBodyTasksInstanceResults[];
   /**
+   * @remarks
+   * The scheduled task ID.
+   * 
    * @example
    * sch-260705-agb*****
    */
   scheduledId?: string;
   /**
+   * @remarks
+   * The task configuration ID.
+   * 
    * @example
    * tsk-260705-0jj*****
    */
@@ -85,22 +104,38 @@ export class CreateScheduledTaskResponseBodyTasks extends $dara.Model {
 
 export class CreateScheduledTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9A51B1DF-96FF-3BCC-B08C-783161D3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of creation results.
+   */
   tasks?: CreateScheduledTaskResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */

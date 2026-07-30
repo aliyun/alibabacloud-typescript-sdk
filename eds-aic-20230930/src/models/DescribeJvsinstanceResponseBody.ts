@@ -2,10 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeJVSInstanceResponseBodyDataAgentVersion extends $dara.Model {
+  upgradeStatus?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      upgradeStatus: 'UpgradeStatus',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      upgradeStatus: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model {
   /**
    * @remarks
-   * The Credit limit.
+   * The quota limit. Valid values:
+   * - 0: not available for use.
+   * - >0: the quota is configured based on the numeric value.
+   * - -1: unlimited.
    * 
    * @example
    * -1
@@ -13,7 +42,10 @@ export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model
   creditLimit?: number;
   /**
    * @remarks
-   * The limit period.
+   * The quota period. Valid values:
+   * - total: The total usage limit.
+   * - month: Monthly. The quota resets based on the resource activation time as one cycle.
+   * - day: Daily. The quota resets at 00:00.
    * 
    * @example
    * day
@@ -42,10 +74,48 @@ export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model
   }
 }
 
+export class DescribeJVSInstanceResponseBodyDataInstalledSkills extends $dara.Model {
+  description?: string;
+  iconUrl?: string;
+  installedAt?: string;
+  skillId?: string;
+  skillName?: string;
+  skillType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iconUrl: 'IconUrl',
+      installedAt: 'InstalledAt',
+      skillId: 'SkillId',
+      skillName: 'SkillName',
+      skillType: 'SkillType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iconUrl: 'string',
+      installedAt: 'string',
+      skillId: 'string',
+      skillName: 'string',
+      skillType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeJVSInstanceResponseBodyDataUsedCredit extends $dara.Model {
   /**
    * @remarks
-   * The amount of Credit.
+   * The number of credits.
    * 
    * @example
    * 5
@@ -53,7 +123,7 @@ export class DescribeJVSInstanceResponseBodyDataUsedCredit extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The calculation period for used Credit.
+   * The dimension of the current credit.
    * 
    * @example
    * day
@@ -83,9 +153,10 @@ export class DescribeJVSInstanceResponseBodyDataUsedCredit extends $dara.Model {
 }
 
 export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
+  agentVersion?: DescribeJVSInstanceResponseBodyDataAgentVersion;
   /**
    * @remarks
-   * The time the instance was created.
+   * The creation time.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -93,7 +164,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The Credit limit configuration. If you apply multiple configurations, the latest one overwrites the others.
+   * The credit quota configuration. Subsequent quota configurations overwrite previous configurations.
    */
   creditConfig?: DescribeJVSInstanceResponseBodyDataCreditConfig[];
   /**
@@ -104,6 +175,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
    * 2026-04-10T01:31:32Z
    */
   expireTime?: string;
+  installedSkills?: DescribeJVSInstanceResponseBodyDataInstalledSkills[];
   /**
    * @remarks
    * The instance ID.
@@ -122,7 +194,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   jvsPackageId?: string;
   /**
    * @remarks
-   * The time the instance was last modified.
+   * The modification time.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -138,14 +210,16 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The amount of used Credit.
+   * The used credits.
    */
   usedCredit?: DescribeJVSInstanceResponseBodyDataUsedCredit[];
   static names(): { [key: string]: string } {
     return {
+      agentVersion: 'AgentVersion',
       createTime: 'CreateTime',
       creditConfig: 'CreditConfig',
       expireTime: 'ExpireTime',
+      installedSkills: 'InstalledSkills',
       instanceId: 'InstanceId',
       jvsPackageId: 'JvsPackageId',
       modifyTime: 'ModifyTime',
@@ -156,9 +230,11 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentVersion: DescribeJVSInstanceResponseBodyDataAgentVersion,
       createTime: 'string',
       creditConfig: { 'type': 'array', 'itemType': DescribeJVSInstanceResponseBodyDataCreditConfig },
       expireTime: 'string',
+      installedSkills: { 'type': 'array', 'itemType': DescribeJVSInstanceResponseBodyDataInstalledSkills },
       instanceId: 'string',
       jvsPackageId: 'string',
       modifyTime: 'string',
@@ -168,8 +244,14 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.agentVersion && typeof (this.agentVersion as any).validate === 'function') {
+      (this.agentVersion as any).validate();
+    }
     if(Array.isArray(this.creditConfig)) {
       $dara.Model.validateArray(this.creditConfig);
+    }
+    if(Array.isArray(this.installedSkills)) {
+      $dara.Model.validateArray(this.installedSkills);
     }
     if(Array.isArray(this.usedCredit)) {
       $dara.Model.validateArray(this.usedCredit);
@@ -185,12 +267,12 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
 export class DescribeJVSInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of JVS instances.
+   * The returned result object.
    */
   data?: DescribeJVSInstanceResponseBodyData[];
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -198,12 +280,13 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this field is empty, there are no more results.
+   * The token that indicates the current position from which to start reading. An empty value indicates reading from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
    */
   nextToken?: string;
+  pendingUpgradeCount?: number;
   /**
    * @remarks
    * The request ID.
@@ -225,6 +308,7 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
       data: 'Data',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      pendingUpgradeCount: 'PendingUpgradeCount',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
     };
@@ -235,6 +319,7 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
       data: { 'type': 'array', 'itemType': DescribeJVSInstanceResponseBodyData },
       maxResults: 'number',
       nextToken: 'string',
+      pendingUpgradeCount: 'number',
       requestId: 'string',
       totalCount: 'number',
     };

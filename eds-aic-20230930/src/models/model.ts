@@ -69,7 +69,9 @@ export { DescribeImageListRequestImageBizTags } from './DescribeImageListRequest
 export { DescribeImageListResponseBodyDataImageBizTags } from './DescribeImageListResponseBody';
 export { DescribeImageListResponseBodyData } from './DescribeImageListResponseBody';
 export { DescribeInvocationsResponseBodyData } from './DescribeInvocationsResponseBody';
+export { DescribeJVSInstanceResponseBodyDataAgentVersion } from './DescribeJvsinstanceResponseBody';
 export { DescribeJVSInstanceResponseBodyDataCreditConfig } from './DescribeJvsinstanceResponseBody';
+export { DescribeJVSInstanceResponseBodyDataInstalledSkills } from './DescribeJvsinstanceResponseBody';
 export { DescribeJVSInstanceResponseBodyDataUsedCredit } from './DescribeJvsinstanceResponseBody';
 export { DescribeJVSInstanceResponseBodyData } from './DescribeJvsinstanceResponseBody';
 export { DescribeKeyPairsResponseBodyData } from './DescribeKeyPairsResponseBody';
