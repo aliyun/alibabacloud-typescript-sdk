@@ -2980,7 +2980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of contacts.
+   * Retrieves the list of contacts.
    * 
    * @param request - ListContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3019,7 +3019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of contacts.
+   * Retrieves the list of contacts.
    * 
    * @param request - ListContactRequest
    * @returns ListContactResponse

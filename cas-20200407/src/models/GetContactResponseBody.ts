@@ -29,7 +29,7 @@ export class GetContactResponseBody extends $dara.Model {
   emailStatus?: number;
   /**
    * @remarks
-   * The ID card number of the contact. This parameter is required for the CFCA certificate brand and is not required for other brands.
+   * The ID card number of the contact. This is required for the CFCA certificate brand and not required for other brands.
    * 
    * @example
    * 142***************
@@ -67,10 +67,14 @@ export class GetContactResponseBody extends $dara.Model {
    * EECA10D5-BD0F-4EF1-B3EA-B4578E5C6F8E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The webhook URLs of DingTalk, WeCom, or Lark chatbots, in list format.
+   */
   webhookList?: string[];
   /**
    * @remarks
-   * The webhook URLs of DingTalk, WeCom, or Lark chatbots. The value is a string in list format.
+   * The webhook URLs of DingTalk, WeCom, or Lark chatbots, in list format as a string.
    * 
    * @example
    * [\\"https://open.feishu.cn/open-apis/bot/v2/hook/dc1aa9b9-47cd-4b34-91ef-73c1034208e5\\"]

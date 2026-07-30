@@ -51,6 +51,10 @@ export class ListContactResponseBodyContactList extends $dara.Model {
    * John
    */
   name?: string;
+  /**
+   * @remarks
+   * The webhook URL.
+   */
   webhookList?: string[];
   /**
    * @remarks

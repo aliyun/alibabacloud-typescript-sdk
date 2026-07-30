@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContactRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number for paged queries. Default value: **1**.
+   * The current page number for pagination. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListContactRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The search keyword, such as a keyword in the name, email address, or phone number.
+   * The search keyword. For example, a keyword in the name, email address, or phone number.
    * 
    * @example
    * 186
