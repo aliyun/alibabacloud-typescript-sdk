@@ -165,7 +165,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types.
+   * The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types. Valid values:
    * 
    * @example
    * Text

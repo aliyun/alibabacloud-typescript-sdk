@@ -32,7 +32,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The configuration information. The value is a JSON string.
+   * The configuration information. A JSON string.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
    * The policy description.
    * 
    * @example
-   * 这是策略描述。
+   * This is a policy description.
    */
   description?: string;
   /**

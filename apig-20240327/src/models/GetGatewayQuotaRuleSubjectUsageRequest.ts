@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
+  filterFailedRequests?: boolean;
   /**
    * @remarks
    * The page number of the detailed consumption (request) records of the consumer within the cycle.
@@ -21,6 +22,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      filterFailedRequests: 'filterFailedRequests',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -28,6 +30,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      filterFailedRequests: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
     };

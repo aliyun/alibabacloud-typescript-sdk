@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConsumerGroupInfo extends $dara.Model {
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The gateway type. Valid values: API or AI.
+   * 
    * @example
    * API
    */
   gatewayType?: string;
   /**
+   * @remarks
+   * The consumer group name.
+   * 
    * @example
    * api-consumer-group
    */

@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AgentServiceConfigCustomConfig extends $dara.Model {
   /**
    * @remarks
-   * apiKey
+   * The API key.
    * 
    * @example
    * app-xxx
@@ -15,7 +15,7 @@ export class AgentServiceConfigCustomConfig extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * API key generation mode.
+   * The key generation mode.
    * 
    * @example
    * Reference
@@ -128,7 +128,7 @@ export class AgentServiceConfigDifyConfig extends $dara.Model {
    * The interaction type.
    * 
    * @example
-   * chatbot
+   * chatflow
    */
   botType?: string;
   static names(): { [key: string]: string } {
@@ -167,17 +167,17 @@ export class AgentServiceConfig extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * User-defined configuration
+   * The custom configuration. Required when provider is set to custom.
    */
   customConfig?: AgentServiceConfigCustomConfig;
   /**
    * @remarks
-   * The Model Studio service configuration.
+   * The DashScope service configuration. Required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
    */
   dashScopeConfig?: AgentServiceConfigDashScopeConfig;
   /**
    * @remarks
-   * The Dify service configuration.
+   * The Dify service configuration. Required when provider is set to dify. The botType and apiKey parameters cannot be empty.
    */
   difyConfig?: AgentServiceConfigDifyConfig;
   /**
@@ -190,7 +190,7 @@ export class AgentServiceConfig extends $dara.Model {
   enableHealthCheck?: boolean;
   /**
    * @remarks
-   * Whether to enable outlier detection
+   * Specifies whether to enable outlier detection.
    * 
    * @example
    * true
@@ -198,7 +198,7 @@ export class AgentServiceConfig extends $dara.Model {
   enableOutlierDetection?: boolean;
   /**
    * @remarks
-   * The protocol.
+   * The list of communication protocols.
    */
   protocols?: string[];
   /**

@@ -21,7 +21,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The keyword for full match search. Case-insensitive.
+   * The keyword for full match search. The search is case-insensitive.
    * 
    * @example
    * dev
@@ -53,7 +53,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzq6bzz5uyg2q
@@ -64,6 +64,14 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
    * The list of tags.
    */
   tagShrink?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-2zeqrgx6jrlb063y06yjo
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
@@ -74,6 +82,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
       tagShrink: 'tag',
+      vpcId: 'vpcId',
     };
   }
 
@@ -87,6 +96,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
       pageSize: 'number',
       resourceGroupId: 'string',
       tagShrink: 'string',
+      vpcId: 'string',
     };
   }
 

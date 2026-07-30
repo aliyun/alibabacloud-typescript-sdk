@@ -6,10 +6,45 @@ import { ServiceHealthCheck } from "./ServiceHealthCheck";
 import { LabelDetail } from "./LabelDetail";
 
 
+export class ServiceOutlierDetection extends $dara.Model {
+  baseEjectionTime?: number;
+  enable?: boolean;
+  failurePercentageMinimumHosts?: number;
+  failurePercentageThreshold?: number;
+  interval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baseEjectionTime: 'baseEjectionTime',
+      enable: 'enable',
+      failurePercentageMinimumHosts: 'failurePercentageMinimumHosts',
+      failurePercentageThreshold: 'failurePercentageThreshold',
+      interval: 'interval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseEjectionTime: 'number',
+      enable: 'boolean',
+      failurePercentageMinimumHosts: 'number',
+      failurePercentageThreshold: 'number',
+      interval: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ServicePorts extends $dara.Model {
   /**
    * @remarks
-   * The port name.
+   * The name of the port.
    * 
    * @example
    * user-service
@@ -139,7 +174,7 @@ export class ServiceVersions extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The address information, including IP addresses or domain names.
+   * The address information, including IP addresses or domain name lists.
    */
   addresses?: string[];
   /**
@@ -160,9 +195,10 @@ export class Service extends $dara.Model {
    * 1725617840096
    */
   createTimestamp?: number;
+  dnsServers?: string[];
   /**
    * @remarks
-   * The CloudFlow execution mode.
+   * The execution mode of CloudFlow.
    * 
    * @example
    * StartExecution
@@ -178,7 +214,7 @@ export class Service extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The service group name.
+   * The name of the service group.
    * 
    * @example
    * publich
@@ -191,14 +227,13 @@ export class Service extends $dara.Model {
   healthCheck?: ServiceHealthCheck;
   /**
    * @remarks
-   * The health check status. Valid values:
-   * - Healthy
-   * - Unhealthy
+   * The health check status. Valid values: Healthy and Unhealthy.
    * 
    * @example
    * Healthy
    */
   healthStatus?: string;
+  healthyPanicThreshold?: number;
   /**
    * @remarks
    * The label information of the service.
@@ -211,7 +246,7 @@ export class Service extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * user-service
@@ -225,6 +260,7 @@ export class Service extends $dara.Model {
    * PUBLIC
    */
   namespace?: string;
+  outlierDetection?: ServiceOutlierDetection;
   /**
    * @remarks
    * The circuit-broken endpoints.
@@ -309,15 +345,18 @@ export class Service extends $dara.Model {
       agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
       createTimestamp: 'createTimestamp',
+      dnsServers: 'dnsServers',
       expressType: 'expressType',
       gatewayId: 'gatewayId',
       groupName: 'groupName',
       healthCheck: 'healthCheck',
       healthStatus: 'healthStatus',
+      healthyPanicThreshold: 'healthyPanicThreshold',
       labelDetails: 'labelDetails',
       modelProviderId: 'modelProviderId',
       name: 'name',
       namespace: 'namespace',
+      outlierDetection: 'outlierDetection',
       outlierEndpoints: 'outlierEndpoints',
       ports: 'ports',
       protocol: 'protocol',
@@ -339,15 +378,18 @@ export class Service extends $dara.Model {
       agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
       createTimestamp: 'number',
+      dnsServers: { 'type': 'array', 'itemType': 'string' },
       expressType: 'string',
       gatewayId: 'string',
       groupName: 'string',
       healthCheck: ServiceHealthCheck,
       healthStatus: 'string',
+      healthyPanicThreshold: 'number',
       labelDetails: { 'type': 'array', 'itemType': LabelDetail },
       modelProviderId: 'string',
       name: 'string',
       namespace: 'string',
+      outlierDetection: ServiceOutlierDetection,
       outlierEndpoints: { 'type': 'array', 'itemType': 'string' },
       ports: { 'type': 'array', 'itemType': ServicePorts },
       protocol: 'string',
@@ -373,11 +415,17 @@ export class Service extends $dara.Model {
     if(this.aiServiceConfig && typeof (this.aiServiceConfig as any).validate === 'function') {
       (this.aiServiceConfig as any).validate();
     }
+    if(Array.isArray(this.dnsServers)) {
+      $dara.Model.validateArray(this.dnsServers);
+    }
     if(this.healthCheck && typeof (this.healthCheck as any).validate === 'function') {
       (this.healthCheck as any).validate();
     }
     if(Array.isArray(this.labelDetails)) {
       $dara.Model.validateArray(this.labelDetails);
+    }
+    if(this.outlierDetection && typeof (this.outlierDetection as any).validate === 'function') {
+      (this.outlierDetection as any).validate();
     }
     if(Array.isArray(this.outlierEndpoints)) {
       $dara.Model.validateArray(this.outlierEndpoints);

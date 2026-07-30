@@ -92,6 +92,7 @@ export { JwtIdentityConfigJwtPayloadConfig } from './JwtIdentityConfig';
 export { JwtIdentityConfigJwtTokenConfig } from './JwtIdentityConfig';
 export { RiskCheckResultsMetadata } from './RiskCheckResults';
 export { RiskCheckResultsRiskDetails } from './RiskCheckResults';
+export { ServiceOutlierDetection } from './Service';
 export { ServicePorts } from './Service';
 export { ServiceVersionsLabels } from './Service';
 export { ServiceVersions } from './Service';

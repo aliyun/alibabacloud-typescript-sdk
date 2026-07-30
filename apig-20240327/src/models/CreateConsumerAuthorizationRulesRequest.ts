@@ -21,7 +21,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   parentResourceId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the target resource to authorize. The required ID type is determined by resourceType, and the prefix must match.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -81,7 +81,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   consumerId?: string;
   /**
    * @remarks
-   * The expiration mode. Currently, only LongTerm is supported.
+   * The expiration mode. Currently only LongTerm is supported.
    * 
    * @example
    * LongTerm
@@ -97,7 +97,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireTimestamp?: number;
   /**
    * @remarks
-   * The type of the authorization principal.
+   * The principal type.
    * 
    * @example
    * ConsumerGroup
@@ -105,7 +105,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   principalType?: string;
   /**
    * @remarks
-   * The resource identifier, which serves as a unique identifier for space reuse by non-standard code sources.
+   * The resource identifier. Serves as a unique identifier for space reuse by non-standard code sources.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**

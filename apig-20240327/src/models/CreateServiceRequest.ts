@@ -44,7 +44,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configuration.
+   * The AI service configuration. This parameter is required when sourceType is set to AI.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
@@ -54,7 +54,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   dnsServers?: string[];
   /**
    * @remarks
-   * The service expression type. Identifies the special type or mode of the service.
+   * The service expression type that identifies the special type or mode of the service.
    * 
    * @example
    * Standard
@@ -70,7 +70,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The model provider ID.
+   * The model provider ID. This parameter is applicable only to AI services.
    * 
    * @example
    * mp-xxx****
@@ -78,7 +78,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The service name.
+   * The service name. This parameter is required when sourceType is set to FC3.
    * 
    * @example
    * user-service
@@ -115,7 +115,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The validation options. Configuration options related to service validation.
+   * The validation options for service verification configuration.
    */
   validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
@@ -200,7 +200,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceConfigs?: CreateServiceRequestServiceConfigs[];
   /**
    * @remarks
-   * The service source. Valid values:
+   * The service source type. Valid values:
    * - MSE_NACOS: a service in MSE Nacos.
    * - K8S: a service in a Kubernetes cluster of Container Service.
    * - VIP: a fixed address service.

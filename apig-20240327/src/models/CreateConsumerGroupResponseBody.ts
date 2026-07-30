@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConsumerGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The gateway type. Valid values: API or AI.
+   * 
    * @example
    * API
    */
@@ -38,17 +44,30 @@ export class CreateConsumerGroupResponseBodyData extends $dara.Model {
 
 export class CreateConsumerGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code. Ok is returned if the request is successful.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateConsumerGroupResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

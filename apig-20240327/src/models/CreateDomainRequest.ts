@@ -6,7 +6,7 @@ import { TlsCipherSuitesConfig } from "./TlsCipherSuitesConfig";
 export class CreateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate identifier. This parameter is required for Dedicated+HTTPS.
+   * The CA certificate identifier. Optional for Dedicated+HTTPS. Not allowed for Serverless. Not validated for Dedicated+HTTP.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -14,7 +14,7 @@ export class CreateDomainRequest extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The certificate identifier.
+   * The certificate identifier. Required for Dedicated+HTTPS and must pass submission validation. Not allowed for Serverless. Not validated for Dedicated+HTTP.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -22,7 +22,7 @@ export class CreateDomainRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The client CA certificate.
+   * The client CA certificate. Conditionally required for Dedicated+HTTPS when MTLSEnabled is set to true. Not allowed for Serverless. Not validated for Dedicated+HTTP.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -34,7 +34,7 @@ export class CreateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The domain name scope.
+   * The domain name scope. Optional. If not specified, the default value is Dedicated.
    * 
    * @example
    * Dedicated
@@ -42,7 +42,7 @@ export class CreateDomainRequest extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. This parameter is not validated for Dedicated+HTTP.
+   * Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. It is not validated for Dedicated+HTTP.
    * 
    * @example
    * false
@@ -50,7 +50,7 @@ export class CreateDomainRequest extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * The gateway type.
+   * The gateway type. Optional. If not specified, the default value is API.
    * 
    * @example
    * API
@@ -58,7 +58,7 @@ export class CreateDomainRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The HTTP/2 setting.
+   * The HTTP/2 setting. Optional for Dedicated+HTTPS. If not specified, the default value is GlobalConfig. Not allowed for Serverless.
    * 
    * @example
    * Open
@@ -66,7 +66,7 @@ export class CreateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mTLS mutual authentication.
+   * Specifies whether to enable mTLS mutual authentication. Optional for Dedicated+HTTPS. When set to true, ClientCACert is required. Not allowed for Serverless.
    */
   mTLSEnabled?: boolean;
   /**
@@ -81,7 +81,7 @@ export class CreateDomainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type supported by the domain name. This parameter is required for Dedicated and only allows HTTP or HTTPS. This parameter is not allowed for Serverless.
+   * The protocol type supported by the domain name. This parameter is required for Dedicated and must not be specified for Serverless.
    * 
    * @example
    * HTTP
@@ -97,12 +97,12 @@ export class CreateDomainRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The cipher suite configuration.
+   * The cipher suite configuration. Optional for Dedicated+HTTPS and must pass cipher suite validation. Not allowed for Serverless. Set to empty for Dedicated+HTTP.
    */
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+   * The maximum TLS protocol version. Optional for Dedicated+HTTPS. If not specified, the value is derived from TlsMin and must be greater than or equal to TlsMin. Not allowed for Serverless.
    * 
    * @example
    * TLS1.3
@@ -110,7 +110,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+   * The minimum TLS protocol version. Optional for Dedicated+HTTPS. If not specified, the default value is TLS 1.0. Valid values range from TLS 1.0 to TLS 1.3, compatible with TLSv1.x. Not allowed for Serverless.
    * 
    * @example
    * TLS1.0

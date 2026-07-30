@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-8c13d2b4f8a1
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The consumer deployment status. Valid values: Processing, Failed, and Success.
+   * 
    * @example
    * Success
    */
   deployStatus?: string;
   /**
+   * @remarks
+   * The consumer description.
+   * 
    * @example
-   * 线上 API 调用方
+   * Online API caller.
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the consumer is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The time when the consumer joined the consumer group, in Unix millisecond timestamp.
+   * 
    * @example
    * 1715769600000
    */
   joinTimestamp?: number;
   /**
+   * @remarks
+   * The consumer name.
+   * 
    * @example
    * api-consumer
    */
@@ -65,18 +83,31 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
 }
 
 export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The consumer group member list.
+   */
   items?: ListConsumerGroupConsumersResponseBodyDataItems[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of consumers that match the filter conditions.
+   * 
    * @example
    * 2
    */
@@ -113,17 +144,30 @@ export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
 
 export class ListConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code. Ok is returned if the request is successful.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: ListConsumerGroupConsumersResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateConsumerGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The consumer group description.
+   * 
    * @example
-   * 用于线上 API 调用方分组
+   * Used for grouping online API callers.
    */
   description?: string;
   /**
+   * @remarks
+   * The consumer group name.
+   * 
    * @example
    * api-consumer-group
    */

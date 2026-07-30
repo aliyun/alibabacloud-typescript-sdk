@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetConsumerGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of consumers in the consumer group.
+   * 
    * @example
    * 3
    */
   consumerCount?: number;
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The creation time of the consumer group, in Unix millisecond timestamp.
+   * 
    * @example
    * 1715769600000
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The consumer group description.
+   * 
    * @example
-   * 用于线上 API 调用方分组
+   * Used for online API caller grouping.
    */
   description?: string;
   /**
+   * @remarks
+   * The gateway type. Valid values: API or AI.
+   * 
    * @example
    * API
    */
   gatewayType?: string;
   /**
+   * @remarks
+   * The consumer group name.
+   * 
    * @example
    * api-consumer-group
    */
   name?: string;
   /**
+   * @remarks
+   * The update time of the consumer group, in Unix millisecond timestamp.
+   * 
    * @example
    * 1715769600000
    */
@@ -73,17 +94,30 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
 
 export class GetConsumerGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code. Ok is returned if the request is successful.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetConsumerGroupResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

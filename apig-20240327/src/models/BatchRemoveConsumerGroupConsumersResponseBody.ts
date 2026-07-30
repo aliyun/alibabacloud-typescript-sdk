@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchRemoveConsumerGroupConsumersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of consumer IDs that failed to be removed.
+   */
   failedConsumerIds?: string[];
+  /**
+   * @remarks
+   * The list of consumer IDs skipped because they are not in the consumer group.
+   */
   skippedConsumerIds?: string[];
+  /**
+   * @remarks
+   * The list of consumer IDs successfully removed from the consumer group.
+   */
   successConsumerIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -42,17 +54,30 @@ export class BatchRemoveConsumerGroupConsumersResponseBodyData extends $dara.Mod
 
 export class BatchRemoveConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code. Ok is returned if the request is successful.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: BatchRemoveConsumerGroupConsumersResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

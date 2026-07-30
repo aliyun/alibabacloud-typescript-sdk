@@ -5,11 +5,17 @@ import { ServiceInfo } from "./ServiceInfo";
 
 export class CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths extends $dara.Model {
   /**
+   * @remarks
+   * The API path.
+   * 
    * @example
    * /v1/chat/completions
    */
   path?: string;
   /**
+   * @remarks
+   * The path type.
+   * 
    * @example
    * chat
    */
@@ -39,21 +45,33 @@ export class CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths exten
 
 export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Model {
   /**
+   * @remarks
+   * The credits consumption coefficient for cached tokens.
+   * 
    * @example
    * 0.015
    */
   cacheCost?: number;
   /**
+   * @remarks
+   * The credits consumption coefficient for input tokens.
+   * 
    * @example
    * 0.03
    */
   inputCost?: number;
   /**
+   * @remarks
+   * The credits consumption coefficient for output tokens.
+   * 
    * @example
    * 0.06
    */
   outputCost?: number;
   /**
+   * @remarks
+   * The credits billing type.
+   * 
    * @example
    * token
    */
@@ -87,21 +105,38 @@ export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
 
 export class CreateAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of input tokens.
+   * 
    * @example
    * 128000
    */
   maxInputTokens?: number;
   /**
+   * @remarks
+   * The maximum number of output tokens.
+   * 
    * @example
    * 4096
    */
   maxOutputTokens?: number;
   /**
+   * @remarks
+   * The maximum total number of tokens.
+   * 
    * @example
    * 132096
    */
   maxTokens?: number;
+  /**
+   * @remarks
+   * The supported input modalities.
+   */
   supportedInputModalities?: string[];
+  /**
+   * @remarks
+   * The supported output modalities.
+   */
   supportedOutputModalities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -139,40 +174,81 @@ export class CreateAiModelProviderResponseBodyDataModelCardsMeta extends $dara.M
 }
 
 export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model {
+  /**
+   * @remarks
+   * The list of available paths for the model.
+   */
   availablePaths?: CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths[];
+  /**
+   * @remarks
+   * The model credits consumption configuration.
+   */
   credit?: CreateAiModelProviderResponseBodyDataModelCardsCredit;
   /**
+   * @remarks
+   * The model capability features.
+   * 
    * @example
    * {"stream":true,"tools":true}
    */
   features?: { [key: string]: any };
   /**
+   * @remarks
+   * The gateway instance ID to which the model card belongs.
+   * 
    * @example
    * gw-ucbx3s2m****
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The model metadata.
+   */
   meta?: CreateAiModelProviderResponseBodyDataModelCardsMeta;
   /**
+   * @remarks
+   * The model card ID.
+   * 
    * @example
    * mc-xxx****
    */
   modelCardId?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * gpt-4
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model provider identifier to which the model card belongs.
+   * 
    * @example
    * openai
    */
   modelProvider?: string;
   /**
+   * @remarks
+   * The model source.
+   * 
    * @example
    * custom
    */
   source?: string;
   /**
+   * @remarks
+   * The URL of the model metadata.
+   * 
+   * @example
+   * https://dashscope-intl.aliyuncs.com
+   */
+  sourceURL?: string;
+  /**
+   * @remarks
+   * The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * @example
    * 2024-07-03T10:48:00Z
    */
@@ -188,6 +264,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
       modelName: 'modelName',
       modelProvider: 'modelProvider',
       source: 'source',
+      sourceURL: 'sourceURL',
       updateTime: 'updateTime',
     };
   }
@@ -203,6 +280,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
       modelName: 'string',
       modelProvider: 'string',
       source: 'string',
+      sourceURL: 'string',
       updateTime: 'string',
     };
   }
@@ -229,39 +307,68 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
 }
 
 export class CreateAiModelProviderResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of services bound to the provider.
+   */
   boundServices?: ServiceInfo[];
   /**
+   * @remarks
+   * The display name of the model provider.
+   * 
    * @example
    * OpenAI
    */
   displayName?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-ucbx3s2m****
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The list of model cards under the provider.
+   */
   modelCards?: CreateAiModelProviderResponseBodyDataModelCards[];
   /**
+   * @remarks
+   * The number of models under the provider.
+   * 
    * @example
    * 3
    */
   modelCount?: number;
   /**
+   * @remarks
+   * The model provider ID.
+   * 
    * @example
    * mp-xxx****
    */
   modelProviderId?: string;
   /**
+   * @remarks
+   * The model provider identifier.
+   * 
    * @example
    * openai
    */
   provider?: string;
   /**
+   * @remarks
+   * The provider source type.
+   * 
    * @example
    * custom
    */
   source?: string;
   /**
+   * @remarks
+   * The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * @example
    * 2024-07-03T10:48:00Z
    */
@@ -311,17 +418,30 @@ export class CreateAiModelProviderResponseBodyData extends $dara.Model {
 
 export class CreateAiModelProviderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response struct.
+   */
   data?: CreateAiModelProviderResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 464F9EA0-1052-51BD-8187-D292AA2D8D24
    */
