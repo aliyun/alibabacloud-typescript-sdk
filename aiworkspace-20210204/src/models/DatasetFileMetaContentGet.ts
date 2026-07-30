@@ -16,7 +16,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
    * The MIME type of the file. It includes a type and a subtype.
    * 
    * @example
-   * image/png
+   * text/png
    */
   contentType?: string;
   /**
@@ -93,8 +93,12 @@ export class DatasetFileMetaContentGet extends $dara.Model {
    * 
    * @example
    * {
-   *     "ImageHeight": 1080,
-   *     "ImageWidth": 1920
+   *     "Image":
+   *     {
+   *         "Width": 1920,
+   *         "Height": 1080,
+   *         "Channel": 3
+   *     }
    * }
    */
   metaAttributes?: string;
@@ -145,19 +149,13 @@ export class DatasetFileMetaContentGet extends $dara.Model {
    * {
    *     "ai":
    *     [
-   *         "Lane line",
-   *         "Water horse",
-   *         "Sunny day"
+   *         "Felis catus",
+   *         "Shorthair"
    *     ],
    *     "user":
    *     [
-   *         "Everett",
-   *         "Intelligent driving Dataset 1",
-   *         "Cloudy day"
-   *     ],
-   *     "user-delete-ai-tags":
-   *     [
-   *         "Sunny day"
+   *         "cat",
+   *         "White"
    *     ]
    * }
    */

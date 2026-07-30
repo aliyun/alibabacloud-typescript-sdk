@@ -7,10 +7,9 @@ import { ModelVersion } from "./ModelVersion";
 export class Model extends $dara.Model {
   /**
    * @remarks
-   * The workspace accessibility. Valid values:
-   * 
-   * *   PRIVATE (default): The model is accessible only to you and the administrator of the workspace.
-   * *   PUBLIC: The model is accessible to all members of the workspace.
+   * The workspace visibility. Valid values:
+   * - PRIVATE (default): visible only to yourself and administrators within the workspace.
+   * - PUBLIC: visible to all users in the workspace.
    * 
    * @example
    * PUBLIC
@@ -18,7 +17,7 @@ export class Model extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The domain where the model is applied, such as nlp (Natural Language Processing) and cv (Computer Vision).
+   * The domain. Describes the domain of the problem that the model solves, such as nlp (natural language processing) or cv (computer vision).
    * 
    * @example
    * nlp
@@ -42,7 +41,7 @@ export class Model extends $dara.Model {
   extraInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+   * The UTC time of model creation, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35Z
@@ -50,7 +49,7 @@ export class Model extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * 最后版本更新时间。
+   * The time when the latest version was updated.
    * 
    * @example
    * 2021-01-21T17:12:35Z
@@ -58,7 +57,7 @@ export class Model extends $dara.Model {
   gmtLatestVersionModifiedTime?: string;
   /**
    * @remarks
-   * The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+   * The time when the model was last updated in UTC, in ISO 8601 format.
    * 
    * @example
    * 2021-01-21T17:12:35Z
@@ -66,7 +65,7 @@ export class Model extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The labels.
+   * The label list. This parameter will be deprecated and replaced by Tag.
    */
   labels?: Label[];
   /**
@@ -79,12 +78,12 @@ export class Model extends $dara.Model {
    * The model description.
    * 
    * @example
-   * 情感分析。
+   * Sentiment analysis
    */
   modelDescription?: string;
   /**
    * @remarks
-   * The model document.
+   * The model documentation.
    * 
    * @example
    * https://***.md
@@ -103,12 +102,12 @@ export class Model extends $dara.Model {
    * The model name.
    * 
    * @example
-   * 情感分析
+   * Sentiment Analysis
    */
   modelName?: string;
   /**
    * @remarks
-   * The model type, such as checkpoint and LoRA.
+   * The model type, such as Checkpoint or LoRA.
    * 
    * @example
    * Checkpoint
@@ -116,7 +115,7 @@ export class Model extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * The sequence number of the model.
+   * The model sequence number.
    * 
    * @example
    * 101
@@ -124,7 +123,7 @@ export class Model extends $dara.Model {
   orderNumber?: number;
   /**
    * @remarks
-   * The community or organization to which the source model belongs, such as ModelScope or Hugging Face.
+   * The model origin. Describes the community or organization to which the source model belongs, such as ModelScope or HuggingFace.
    * 
    * @example
    * ModelScope
@@ -132,7 +131,7 @@ export class Model extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1557702098******
@@ -140,7 +139,7 @@ export class Model extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * 参数量，单位M。
+   * The number of parameters, in millions (M).
    * 
    * @example
    * 1024
@@ -156,12 +155,12 @@ export class Model extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * 标签列表
+   * The tag list.
    */
   tags?: Label[];
   /**
    * @remarks
-   * The task. The specific issue that the model resolves, such as text-classification.
+   * The task. Describes the specific problem that the model solves, such as text-classification (text categorization).
    * 
    * @example
    * text-classifiaction

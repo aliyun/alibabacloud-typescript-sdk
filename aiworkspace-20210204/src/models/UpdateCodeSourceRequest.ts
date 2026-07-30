@@ -3,10 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCodeSourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The clone mode. Valid values:
+   * - 0 (default): creates a new subdirectory.
+   * - 1: tiles to the current directory.
+   * 
+   * @example
+   * 0
+   */
   cloneType?: number;
   /**
    * @remarks
-   * The name of the code branch.
+   * The branch name of the code.
    * 
    * @example
    * dev
@@ -14,7 +23,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The commit ID.
+   * The commit ID of the code.
    * 
    * @example
    * 3a6*****
@@ -30,7 +39,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The access token for the username.
+   * The access token associated with the username.
    * 
    * @example
    * ***
@@ -38,7 +47,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username for the code repository.
+   * The username used to access the access code repository.
    * 
    * @example
    * demo-user
@@ -46,15 +55,15 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The description of the code source.
+   * The description of the code source configuration.
    * 
    * @example
-   * Training code for XX
+   * 用于XX的训练代码
    */
   description?: string;
   /**
    * @remarks
-   * The name of the code source.
+   * The name of the code source configuration.
    * 
    * @example
    * MyCodeSource1

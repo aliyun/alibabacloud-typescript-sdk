@@ -53,7 +53,7 @@ export class ListWorkspaceUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of users that meet the filter condition.
+   * The number of users that match the filter conditions.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the dataset version.
+   * The dataset version name.
    * 
    * @example
    * v1
@@ -13,7 +13,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
-   * The job action.
+   * The task action.
    * 
    * @example
    * SemanticIndex
@@ -21,10 +21,8 @@ export class ListDatasetJobsRequest extends $dara.Model {
   jobAction?: string;
   /**
    * @remarks
-   * The order in which to sort the results. This parameter is used with `SortBy`. Default: DESC.
-   * 
+   * The sorting order for the specified sorting field in a paged query. Used together with SortBy. Default value: DESC. Valid values:
    * - ASC: ascending order.
-   * 
    * - DESC: descending order.
    * 
    * @example
@@ -33,7 +31,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages are 1-indexed. Default: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +39,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 50
@@ -49,7 +47,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which to sort the results. By default, the results are sorted by `CreateTime` in descending order.
+   * The sort field. By default, results are sorted by creation time in descending order.
    * 
    * @example
    * CreateTime
@@ -57,16 +55,20 @@ export class ListDatasetJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The job status.
+   * The task status.
    * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * Specifies whether to return task logs.
+   */
   withLogs?: boolean;
   /**
    * @remarks
-   * The ID of the workspace. To obtain this ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 1234

@@ -44,18 +44,19 @@ export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
 
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
+   * @example
+   * wc-95******o36ylr
+   */
+  configId?: string;
+  /**
    * @remarks
    * The key of the configuration item. The following keys are supported:
    * 
-   * - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
-   * 
-   * - isAutoRecycle: The automatic recycling configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
-   * 
-   * - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * 
-   * - quotaMaximumDuration: The configuration for the maximum runtime of a DLC task in a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
-   * 
-   * - predefinedTags: The predefined labels for the workspace. Resources that you create must have these labels.
+   * - tempStoragePath: temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
+   * - isAutoRecycle: automatic reclamation configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
+   * - priorityConfig: priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * - quotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
+   * - predefinedTags: preset tags for the workspace. Resources that are created must include these tags.
    * 
    * @example
    * tempTableLifecycle
@@ -63,13 +64,27 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * @example
    * oss://***
    */
   configValue?: string;
+  /**
+   * @remarks
+   * The UTC time when the configuration item was created.
+   * 
+   * @example
+   * 2026-05-12T07:59:41.000Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * The UTC time when the configuration item was last modified.
+   * 
+   * @example
+   * 2026-07-28T03:44:10.000Z
+   */
   gmtModifiedTime?: string;
   /**
    * @remarks
@@ -78,6 +93,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   labels?: ListConfigsResponseBodyConfigsLabels[];
   static names(): { [key: string]: string } {
     return {
+      configId: 'ConfigId',
       configKey: 'ConfigKey',
       configValue: 'ConfigValue',
       gmtCreateTime: 'GmtCreateTime',
@@ -88,6 +104,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      configId: 'string',
       configKey: 'string',
       configValue: 'string',
       gmtCreateTime: 'string',
@@ -116,7 +133,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   configs?: ListConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A******C83E
@@ -124,7 +141,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned configuration items.
    * 
    * @example
    * 15

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCodeSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The display name of the code source configuration. Fuzzy match is supported.
+   * The display name of the code configuration. Fuzzy match is supported.
    * 
    * @example
    * MyDataSource
@@ -13,11 +13,9 @@ export class ListCodeSourcesRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * 
-   * - ASC (default): Ascending order.
-   * 
-   * - DESC: Descending order.
+   * The sort order for the specified field in a paged query. Valid values:
+   * - ASC (default): ascending order.
+   * - DESC: descending order.
    * 
    * @example
    * desc
@@ -25,7 +23,7 @@ export class ListCodeSourcesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1. The default value is 1.
+   * The page number of the code configuration list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +31,7 @@ export class ListCodeSourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is 20.
+   * The number of entries per page in a paged query. Default value: 20.
    * 
    * @example
    * 10
@@ -41,15 +39,11 @@ export class ListCodeSourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to use for sorting. Valid values:
-   * 
-   * - GmtModifyTime: The time when the code source was last modified.
-   * 
-   * - DisplayName: The display name.
-   * 
-   * - CodeSourceId: The code source ID.
-   * 
-   * - GmtCreateTime (default): The time when the code source was created.
+   * The field used for sorting. Valid values:
+   * - GmtModifyTime: the time when the code source was last modified.
+   * - DisplayName: the display name.
+   * - CodeSourceId: the code source ID.
+   * - GmtCreateTime (default): the time when the code source was created.
    * 
    * @example
    * GmtModifyTime
@@ -57,7 +51,7 @@ export class ListCodeSourcesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The workspace ID. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID. This parameter is required. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
    * 
    * @example
    * 1234

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the code source.
+   * The ID of the code source configuration.
    * 
    * @example
    * code-20********
@@ -13,7 +13,7 @@ export class UpdateCodeSourceResponseBody extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. Alibaba Cloud generates a unique identifier for the request.
    * 
    * @example
    * 40325405-579C-4D82****

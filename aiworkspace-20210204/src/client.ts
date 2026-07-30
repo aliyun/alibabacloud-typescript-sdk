@@ -366,7 +366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+   * Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
    * 
    * @param request - CreateCodeSourceRequest
    * @param headers - map
@@ -439,7 +439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+   * Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
    * 
    * @param request - CreateCodeSourceRequest
    * @returns CreateCodeSourceResponse
@@ -2800,7 +2800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified code source configuration.
+   * Retrieves the details of a code source configuration.
    * 
    * @param request - GetCodeSourceRequest
    * @param headers - map
@@ -2827,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified code source configuration.
+   * Retrieves the details of a code source configuration.
    * 
    * @param request - GetCodeSourceRequest
    * @returns GetCodeSourceResponse
@@ -2839,7 +2839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configurations of a workspace.
+   * Retrieves the workspace configuration.
    * 
    * @param request - GetConfigRequest
    * @param headers - map
@@ -2880,7 +2880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configurations of a workspace.
+   * Retrieves the workspace configuration.
    * 
    * @param request - GetConfigRequest
    * @returns GetConfigResponse
@@ -3536,6 +3536,14 @@ export default class Client extends OpenApi {
       query["Accessibility"] = request.accessibility;
     }
 
+    if (!$dara.isNull(request.callerAccessKeyId)) {
+      query["CallerAccessKeyId"] = request.callerAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.callerSecurityToken)) {
+      query["CallerSecurityToken"] = request.callerSecurityToken;
+    }
+
     if (!$dara.isNull(request.callerType)) {
       query["CallerType"] = request.callerType;
     }
@@ -3724,7 +3732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of code source configurations with support for paging, sorting, and filtering.
+   * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @param headers - map
@@ -3777,7 +3785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of code source configurations with support for paging, sorting, and filtering.
+   * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @returns ListCodeSourcesResponse
@@ -3789,7 +3797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the configurations for a workspace.
+   * Retrieves the list of workspace configurations.
    * 
    * @param request - ListConfigsRequest
    * @param headers - map
@@ -3834,7 +3842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the configurations for a workspace.
+   * Retrieves the list of workspace configurations.
    * 
    * @param request - ListConfigsRequest
    * @returns ListConfigsResponse
@@ -3957,7 +3965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in a dataset.
+   * Queries the list of dataset files.
    * 
    * @param tmpReq - ListDatasetFileMetasRequest
    * @param headers - map
@@ -4124,7 +4132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in a dataset.
+   * Queries the list of dataset files.
    * 
    * @param request - ListDatasetFileMetasRequest
    * @returns ListDatasetFileMetasResponse
@@ -4197,7 +4205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists dataset jobs.
+   * Retrieves a list of dataset tasks.
    * 
    * @param request - ListDatasetJobsRequest
    * @param headers - map
@@ -4262,7 +4270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists dataset jobs.
+   * Retrieves a list of dataset tasks.
    * 
    * @param request - ListDatasetJobsRequest
    * @returns ListDatasetJobsResponse
@@ -5517,7 +5525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists users that can be added as members to a workspace.
+   * Lists users who have not joined a workspace and can be added as workspace members.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @param headers - map
@@ -5554,7 +5562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists users that can be added as members to a workspace.
+   * Lists users who have not joined a workspace and can be added as workspace members.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @returns ListWorkspaceUsersResponse
@@ -6083,7 +6091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a code source.
+   * Updates a code source configuration.
    * 
    * @param request - UpdateCodeSourceRequest
    * @param headers - map
@@ -6148,7 +6156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a code source.
+   * Updates a code source configuration.
    * 
    * @param request - UpdateCodeSourceRequest
    * @returns UpdateCodeSourceResponse

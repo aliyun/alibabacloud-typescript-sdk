@@ -6,7 +6,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
    * The list of return fields for workspace details. This parameter limits the workspace properties returned in the result.
-   * Separate multiple properties with commas (,). Currently, only Id is supported, which represents the workspace ID.
+   * Separate multiple properties with commas (,). Currently, only Id is supported, which indicates the workspace ID.
    * 
    * @example
    * Id
@@ -32,7 +32,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   option?: string;
   /**
    * @remarks
-   * The sort order for the specified sort field in a paged query. Valid values:
+   * The sorting order for the specified sorting field during paging. Valid values:
    * * ASC (default): ascending order.
    * * DESC: descending order.
    * 
@@ -50,7 +50,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: 20.
+   * The number of entries per page for paging. Default value: 20.
    * 
    * @example
    * 20
@@ -66,7 +66,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The field used for sorting in a paged query. Default value: GmtCreateTime. Valid values:
+   * The sorting field for paging. Default value: GmtCreateTime. Valid values:
    * * GmtCreateTime (default): sorts by creation time.
    * * GmtModifiedTime: sorts by modification time.
    * 
@@ -89,6 +89,13 @@ export class ListWorkspacesRequest extends $dara.Model {
    * ENABLED
    */
   status?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 17*****1743
+   */
   userId?: string;
   /**
    * @remarks

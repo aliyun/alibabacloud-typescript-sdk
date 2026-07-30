@@ -7,19 +7,20 @@ export class GetPermissionRequest extends $dara.Model {
    * @remarks
    * The access type. Valid values:
    * 
-   * - PUBLIC: All members in the workspace can perform the operation.
-   * 
-   * - PRIVATE: Only the creator can perform the operation.
+   * - PUBLIC: All members in the current workspace can access the instance.
+   * - PRIVATE: Only the creator can access the instance.
    * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
+  callerAccessKeyId?: string;
+  callerSecurityToken?: string;
   callerType?: string;
   callerUid?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that created the workspace permission.
+   * The Alibaba Cloud account UID of the workspace permission creator.
    * 
    * @example
    * 17915******4216
@@ -28,11 +29,9 @@ export class GetPermissionRequest extends $dara.Model {
   labels?: { [key: string]: any };
   /**
    * @remarks
-   * Optional configurations. Separate multiple configurations with commas (,). Valid values:
-   * 
-   * - ResourceEmpty: The resource is empty. This value is used if you do not set the Resource parameter.
-   * 
-   * - DisableRam: RAM verification is disabled.
+   * The optional configurations. Separate multiple configurations with commas (,). Valid values:
+   * - ResourceEmpty: The resource is empty. The resource is empty if Resource is not specified.
+   * - DisableRam: RAM authentication is not performed.
    * 
    * @example
    * ResourceEmpty,DisableRam
@@ -50,6 +49,8 @@ export class GetPermissionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      callerAccessKeyId: 'CallerAccessKeyId',
+      callerSecurityToken: 'CallerSecurityToken',
       callerType: 'CallerType',
       callerUid: 'CallerUid',
       creator: 'Creator',
@@ -63,6 +64,8 @@ export class GetPermissionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      callerAccessKeyId: 'string',
+      callerSecurityToken: 'string',
       callerType: 'string',
       callerUid: 'string',
       creator: 'string',

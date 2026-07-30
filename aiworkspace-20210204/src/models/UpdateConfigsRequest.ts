@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of the label.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of the label.
    * 
    * @example
    * value1
@@ -45,19 +45,14 @@ export class UpdateConfigsRequestConfigsLabels extends $dara.Model {
 export class UpdateConfigsRequestConfigs extends $dara.Model {
   /**
    * @remarks
-   * The category of the configuration item. The following categories are supported:
+   * The category of the configuration item. Valid values:
    * 
-   * - CommonResourceConfig: General resource configuration.
-   * 
-   * - DLCAutoRecycle: DLC automatic recycling.
-   * 
+   * - CommonResourceConfig: general resource configuration.
+   * - DLCAutoRecycle: DLC automatic reclamation.
    * - DLCPriorityConfig: DLC priority settings.
-   * 
    * - DSWPriorityConfig: DSW priority settings.
-   * 
-   * - QuotaMaximumDuration: Configuration for the maximum runtime of a DLC job within a quota.
-   * 
-   * - CommonTagConfig: Tag settings.
+   * - QuotaMaximumDuration: the maximum running duration of DLC jobs in the quota.
+   * - CommonTagConfig: tag settings.
    * 
    * @example
    * CommonResourceConfig
@@ -65,17 +60,13 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The key of the configuration item. The following keys are supported:
+   * The key of the configuration item. Valid values:
    * 
-   * - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
-   * 
-   * - isAutoRecycle: The configuration for automatic resource recycling. This key is valid only when CategoryName is set to DLCAutoRecycle.
-   * 
-   * - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * 
-   * - quotaMaximumDuration: The maximum runtime configuration for a DLC job within a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
-   * 
-   * - predefinedTags: The predefined tags for the workspace. Created resources must have these tags.
+   * - tempStoragePath: the temporary storage path. This ConfigKey is valid only when CategoryName is set to CommonResourceConfig.
+   * - isAutoRecycle: the automatic reclamation configuration. This ConfigKey is valid only when CategoryName is set to DLCAutoRecycle.
+   * - priorityConfig: the priority configuration. This ConfigKey is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * - quotaMaximumDuration: the maximum running duration of DLC jobs in the quota. This ConfigKey is valid only when CategoryName is set to QuotaMaximumDuration.
+   * - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
    * 
    * @example
    * tempStoragePath
@@ -83,9 +74,9 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   configKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
-   * - If ConfigKey is set to predefinedTags, the format of ConfigValue is [{"Type":"Tag","Key":"Key1","Value":"{\\\\"Products\\\\":\\\\"DLC,DSW,EAS\\\\",\\\\"Values\\\\":\\\\"value1,value2,value3\\\\"}"}]. The Products field specifies which products use the predefined tags.
+   * - If ConfigKey is set to predefinedTags, the ConfigValue format is [{"Type":"Tag","Key":"Key1","Value":"{\\"Products\\":\\"DLC,DSW,EAS\\",\\"Values\\":\\"value1,value2,value3\\"}"}]. Products specifies which products use the preset tags.
    * 
    * @example
    * oss://test/s/
@@ -93,7 +84,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * A list of tags for the configuration item.
+   * The list of labels for the configuration item.
    */
   labels?: UpdateConfigsRequestConfigsLabels[];
   static names(): { [key: string]: string } {
@@ -129,7 +120,7 @@ export class UpdateConfigsRequestConfigs extends $dara.Model {
 export class UpdateConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of workspace configurations to update or add.
+   * The list of workspace configurations to update or create.
    */
   configs?: UpdateConfigsRequestConfigs[];
   static names(): { [key: string]: string } {

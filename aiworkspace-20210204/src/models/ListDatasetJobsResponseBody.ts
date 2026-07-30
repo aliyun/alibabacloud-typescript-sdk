@@ -6,7 +6,7 @@ import { DatasetJob } from "./DatasetJob";
 export class ListDatasetJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of dataset jobs.
+   * The list of dataset tasks.
    */
   datasetJobs?: DatasetJob[];
   /**
@@ -19,7 +19,7 @@ export class ListDatasetJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of jobs.
+   * The total number of tasks.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetFileMeta extends $dara.Model {
   /**
    * @remarks
-   * The MIME type of the file. It includes a type and a subtype.
+   * The MIME type of the file. Contains Type and SubType.
    * 
    * @example
    * image/jpeg
@@ -13,7 +13,7 @@ export class DatasetFileMeta extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The size of the file in bytes.
+   * The file size, in bytes.
    * 
    * @example
    * 120000
@@ -37,7 +37,7 @@ export class DatasetFileMeta extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The time when the file was created. The time is in UTC and in ISO 8601 format.
+   * The file creation time. UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -47,7 +47,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The file fingerprint. This value ensures the uniqueness of the file content and changes if the content is modified. The ETag is used for OSS files, and the MD5 value is used for NAS files.
+   * The file fingerprint value. Used to determine the uniqueness of the file content. This value changes when the file content is modified. OSS files use ETag, and NAS files use MD5 values.
    * 
    * @example
    * D41D8CD98F*****E9800998ECF8
@@ -55,7 +55,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileFingerPrint?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * cat.png
@@ -63,7 +63,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The type of the file. This corresponds to the main type of a Multipurpose Internet Mail Extensions (MIME) type.
+   * The file type. Same as MIME Type.
    * 
    * @example
    * image
@@ -71,7 +71,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The time when the file was last modified. The time is in Coordinated Universal Time (UTC) and in ISO 8601 format.
+   * The last modification time of the file. UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -81,7 +81,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileUpdateTime?: string;
   /**
    * @remarks
-   * Specific metadata for the file, such as the width and height of an image or the bitrate and resolution of a video. Currently, this metadata cannot be used for retrieval. The format is a JSON string.
+   * The specific metadata of the file. For example, image width and height information, or bitrate and resolution information for video files. Search capability is not currently supported. JSON string format.
    * 
    * @example
    * {     "ImageHeight": 400,     "ImageWidth": 800 }
@@ -97,7 +97,7 @@ export class DatasetFileMeta extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The ID of the job that last built the semantic index.
+   * The task ID of the last semantic index build.
    * 
    * @example
    * dsjob-klfwtjto****scvt3
@@ -105,7 +105,7 @@ export class DatasetFileMeta extends $dara.Model {
   semanticIndexJobId?: string;
   /**
    * @remarks
-   * The time when the semantic index was last updated. The time is in UTC and in ISO 8601 format.
+   * The last update time of the semantic index. UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -115,9 +115,9 @@ export class DatasetFileMeta extends $dara.Model {
   semanticIndexUpdateTime?: string;
   /**
    * @remarks
-   * The current status of the metadata:
-   * \\- ACTIVE: Active.
-   * \\- DELETED: Deleted.
+   * The current status of the metadata. Valid values:
+   * * ACTIVE: currently available.
+   * * DELETED: deleted.
    * 
    * @example
    * ACTIVE
@@ -125,17 +125,12 @@ export class DatasetFileMeta extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * A collection of tags for the metadata, in JSON string format. The collection includes the following groups:
-   * 
+   * The tag collection of the metadata in JSON string format. This includes:
    * - Algorithm tag group:
-   * 
-   *   - ai: A list of tag names aggregated from all algorithm-based tagging tasks for a single metadata record.
-   * 
+   *   - ai: The list of tag names aggregated from all algorithm tagging tasks for a single metadata entry.
    * - User-defined tag group:
-   * 
-   *   - user: A list of tag names that a user adds to a single metadata record.
-   * 
-   *   - user-delete-ai-tags: A list of tag names from the algorithm tag group that the user deletes from a single metadata record.
+   *   - user: The list of tag names manually added by the user for a single metadata entry.
+   *   - user-delete-ai-tags: The list of tag names in the algorithm tag group that the user wants to delete for a single metadata entry.
    * 
    * @example
    * {
@@ -160,7 +155,7 @@ export class DatasetFileMeta extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The thumbnail URL.
    * 
    * @example
    * https://test-bucket.oss-cn-shanghai.aliyuncs.com/dataset/cat.png?Expires=171280****&OSSAccessKeyId=LTAI************&Signature=****jZcXOn7FHMCT1DLE22NuNjs%3D
@@ -168,30 +163,14 @@ export class DatasetFileMeta extends $dara.Model {
   thumbnailUrl?: string;
   /**
    * @remarks
-   * The unique URI of the file. It records the unique path of the file. Paths for files in OSS and NAS are supported.
-   * 
+   * The unique URI of the file. Used to record the unique path of the file. Supports file paths in OSS and NAS.
    * <details>
-   * 
-   * <summary>
-   * 
-   * OSS
-   * 
-   * </summary>
-   * 
-   * oss\\://${bucket}/${path}
-   * 
+   * <summary>OSS</summary>
+   * oss://${bucket}/${path}
    * </details>
-   * 
    * <details>
-   * 
-   * <summary>
-   * 
-   * NAS
-   * 
-   * </summary>
-   * 
-   * nas\\://${fileSystemId}/${path}
-   * 
+   * <summary>NAS</summary>
+   * nas://${fileSystemId}/${path}
    * </details>
    * 
    * @example

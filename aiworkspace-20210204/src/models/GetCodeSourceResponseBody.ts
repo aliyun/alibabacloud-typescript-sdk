@@ -5,20 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class GetCodeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the code configuration. Valid values:
-   * 
-   * - PRIVATE: The configuration is visible only to you and the administrator in the workspace.
-   * 
-   * - PUBLIC: The configuration is visible to everyone in the workspace.
+   * The visibility of the code source configuration.
    * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The clone mode. Valid values:
+   * - 0: Create a new subdirectory.
+   * - 1: Tile to the current directory.
+   * 
+   * @example
+   * 0
+   */
   cloneType?: number;
   /**
    * @remarks
-   * The branch of the code repository.
+   * The code repository branch.
    * 
    * @example
    * master
@@ -26,7 +31,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The commit ID of the code.
+   * The code commit ID.
    * 
    * @example
    * 44da10***********
@@ -34,7 +39,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeCommit?: string;
   /**
    * @remarks
-   * The URL of the code repository.
+   * The code repository URL.
    * 
    * @example
    * https://code.aliyun.com/pai-dlc/examples.git
@@ -42,7 +47,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The token used to access the code repository.
+   * The access code repository token.
    * 
    * @example
    * xxxx
@@ -50,7 +55,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username for the code repository.
+   * The username of the code repository.
    * 
    * @example
    * user1
@@ -58,7 +63,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The ID of the code source configuration.
+   * The code source configuration ID.
    * 
    * @example
    * code-202**********
@@ -66,7 +71,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The detailed description of the code configuration.
+   * The detailed description of the code source configuration.
    * 
    * @example
    * This is my data source 1.
@@ -74,7 +79,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the code source configuration.
+   * The code source configuration name.
    * 
    * @example
    * MyCodeSource1
@@ -82,7 +87,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the code configuration was created. The time is in the ISO 8601 format.
+   * The creation time of the code source configuration. The time is in ISO 8601 format.
    * 
    * @example
    * 2021-01-12T23:36:01.123Z
@@ -90,7 +95,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the code configuration was last modified. The time is in the ISO 8601 format.
+   * The modification time of the code source configuration. The time is in ISO 8601 format.
    * 
    * @example
    * 2021-01-12T23:36:01.123Z
@@ -98,7 +103,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The local mount path for the code.
+   * The local mount directory of the code.
    * 
    * @example
    * /root/code
@@ -114,7 +119,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the user who created the code source configuration.
+   * The creator ID of the code source configuration.
    * 
    * @example
    * 1722********
@@ -122,7 +127,7 @@ export class GetCodeSourceResponseBody extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 1234

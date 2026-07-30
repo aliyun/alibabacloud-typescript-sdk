@@ -24,15 +24,19 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    * workspace description example
    */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the workspace.
+   */
   displayName?: string;
   /**
    * @remarks
-   * The list of environments in the workspace.
+   * The list of environments contained in the workspace.
    */
   envTypes?: string[];
   /**
    * @remarks
-   * The extended information. Currently, this includes TenantId, which represents the tenant ID.
+   * The extended information. Currently includes TenantId, which indicates the tenant ID.
    * 
    * @example
    * {"TenantId": "4286******98"}
@@ -40,7 +44,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   extraInfos?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the workspace was created. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
+   * The time when the workspace was created. The time is in the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -48,7 +52,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
+   * The time when the workspace was last modified. The time is in the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z

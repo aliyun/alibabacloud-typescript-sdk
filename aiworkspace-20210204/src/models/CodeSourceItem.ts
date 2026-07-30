@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CodeSourceItem extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the code source. Valid values:
-   * 
-   * - `PRIVATE`: Visible only to you and workspace administrators.
-   * 
-   * - `PUBLIC`: Visible to all workspace members.
+   * The visibility of the code source configuration.
    * 
    * @example
    * PUBLIC
@@ -17,7 +13,12 @@ export class CodeSourceItem extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The clone type.
+   * The clone mode. Valid values:
+   * - 0: Create a new subdirectory.
+   * - 1: Tile to the current directory.
+   * 
+   * @example
+   * 0
    */
   cloneType?: number;
   /**
@@ -30,7 +31,7 @@ export class CodeSourceItem extends $dara.Model {
   codeBranch?: string;
   /**
    * @remarks
-   * The commit ID.
+   * The code commit ID.
    * 
    * @example
    * 44da10**********
@@ -46,12 +47,12 @@ export class CodeSourceItem extends $dara.Model {
   codeRepo?: string;
   /**
    * @remarks
-   * The access token for the code repository.
+   * The token used as the access code for the code repository.
    */
   codeRepoAccessToken?: string;
   /**
    * @remarks
-   * The username for the code repository.
+   * The username used as the access code for the code repository.
    * 
    * @example
    * user
@@ -59,7 +60,7 @@ export class CodeSourceItem extends $dara.Model {
   codeRepoUserName?: string;
   /**
    * @remarks
-   * The code source ID.
+   * The code source configuration ID.
    * 
    * @example
    * code-202**********
@@ -67,7 +68,7 @@ export class CodeSourceItem extends $dara.Model {
   codeSourceId?: string;
   /**
    * @remarks
-   * The description of the code source.
+   * The detailed description.
    * 
    * @example
    * code source of dlc examples
@@ -75,7 +76,7 @@ export class CodeSourceItem extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the code source.
+   * The display name of the code source configuration.
    * 
    * @example
    * MyCodeSourceName1
@@ -83,7 +84,7 @@ export class CodeSourceItem extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the code source was created.
+   * The creation time.
    * 
    * @example
    * 2021-01-18T12:52:15Z
@@ -91,7 +92,7 @@ export class CodeSourceItem extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the code source was last modified.
+   * The modification time.
    * 
    * @example
    * 2021-01-18T12:52:15Z
@@ -99,7 +100,7 @@ export class CodeSourceItem extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The local mount path for the code repository.
+   * The local mount path of the code.
    * 
    * @example
    * /root/code/
@@ -107,7 +108,7 @@ export class CodeSourceItem extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The creator ID.
    * 
    * @example
    * 1157290171663117
