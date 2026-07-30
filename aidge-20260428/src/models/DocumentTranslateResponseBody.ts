@@ -64,7 +64,7 @@ export class DocumentTranslateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+   * Indicates whether the call is successful. true: successful. false: failed.
    * 
    * @example
    * True

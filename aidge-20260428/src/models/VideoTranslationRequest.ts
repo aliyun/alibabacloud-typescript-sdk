@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class VideoTranslationRequest extends $dara.Model {
   /**
    * @remarks
+   * The array of translation capabilities. Valid values: ["visual"].
+   * 
    * This parameter is required.
    */
   capabilities?: string[];
   /**
+   * @remarks
+   * The source language. This parameter is optional. Default value: auto (automatic detection).
+   * 
    * @example
    * zh
    */
   sourceLanguage?: string;
   /**
    * @remarks
+   * The target language. This parameter is required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +30,8 @@ export class VideoTranslationRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
+   * The video URL (MP4/MOV, ≤ 200 MB).
+   * 
    * This parameter is required.
    * 
    * @example

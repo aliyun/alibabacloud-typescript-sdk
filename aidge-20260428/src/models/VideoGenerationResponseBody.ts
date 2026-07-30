@@ -2,28 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class VideoTranslationResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The asynchronous task ID, used for subsequent queries.
-   * 
-   * @example
-   * 0ea3b66e88a543658520c994f08896a0
-   */
+export class VideoGenerationResponseBodyData extends $dara.Model {
   taskId?: string;
+  usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
+      usageMap: 'UsageMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
+      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
     };
   }
 
   validate() {
+    if(this.usageMap) {
+      $dara.Model.validateMap(this.usageMap);
+    }
     super.validate();
   }
 
@@ -32,40 +31,24 @@ export class VideoTranslationResponseBodyData extends $dara.Model {
   }
 }
 
-export class VideoTranslationResponseBody extends $dara.Model {
+export class VideoGenerationResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The status code.
-   * 
    * @example
-   * Processing
+   * 200
    */
   code?: string;
+  data?: VideoGenerationResponseBodyData;
   /**
-   * @remarks
-   * The asynchronous task submit status.
-   */
-  data?: VideoTranslationResponseBodyData;
-  /**
-   * @remarks
-   * The description message.
-   * 
    * @example
-   * Translation processing
+   * OK
    */
   message?: string;
   /**
-   * @remarks
-   * The request trace ID.
-   * 
    * @example
-   * req_20260608_jkl012
+   * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
-   * 
    * @example
    * True
    */
@@ -83,7 +66,7 @@ export class VideoTranslationResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: VideoTranslationResponseBodyData,
+      data: VideoGenerationResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

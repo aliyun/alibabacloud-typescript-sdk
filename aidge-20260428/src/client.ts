@@ -515,9 +515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates documents between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported. Excels in the following areas:
-   * - Content accuracy: translation accuracy, parameter and unit accuracy
-   * - Structural integrity: overall layout continuity, page margin and layout preservation
+   * Translates documents between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported. Excels in the following areas: - Content accuracy: translation accuracy, parameter and unit accuracy - Structural integrity: overall layout continuity, page margin and layout preservation.
    * 
    * @remarks
    * ## Product Introduction
@@ -526,13 +524,13 @@ export default class Client extends OpenApi {
    * - Content accuracy: translation accuracy, parameter and unit accuracy
    * - Structural integrity: overall layout continuity, page margin and layout preservation
    * ## Common scenarios
-   * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks, courseware, and other scenarios.
-   * 3. Features
-   * - Supports PDF and Word formats. Supports source documents containing multiple languages. Refer to section 4.5 for the detailed language list.
+   * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and other scenarios.
+   * ## Features
+   * - Supports PDF and Word formats. Supports source documents containing multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as other complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout preservation after translation.
-   * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
-   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. Contact the platform for additional capacity.
+   * - A single PDF supports up to 100 pages, and a single Word document supports up to 100 pages.
+   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
    * 
    * @param request - DocumentTranslateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -575,9 +573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates documents between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported. Excels in the following areas:
-   * - Content accuracy: translation accuracy, parameter and unit accuracy
-   * - Structural integrity: overall layout continuity, page margin and layout preservation
+   * Translates documents between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported. Excels in the following areas: - Content accuracy: translation accuracy, parameter and unit accuracy - Structural integrity: overall layout continuity, page margin and layout preservation.
    * 
    * @remarks
    * ## Product Introduction
@@ -586,13 +582,13 @@ export default class Client extends OpenApi {
    * - Content accuracy: translation accuracy, parameter and unit accuracy
    * - Structural integrity: overall layout continuity, page margin and layout preservation
    * ## Common scenarios
-   * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks, courseware, and other scenarios.
-   * 3. Features
-   * - Supports PDF and Word formats. Supports source documents containing multiple languages. Refer to section 4.5 for the detailed language list.
+   * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, textbooks and courseware, and other scenarios.
+   * ## Features
+   * - Supports PDF and Word formats. Supports source documents containing multiple languages. For a detailed language list, see section 4.5.
    * - Supports translation of text within images in documents, as well as other complex translation scenarios such as charts and special symbols.
    * - Supports high-fidelity layout preservation after translation.
-   * - A single PDF supports up to 100 pages. A single Word document supports up to 100 pages.
-   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 glossary entries. Contact the platform for additional capacity.
+   * - A single PDF supports up to 100 pages, and a single Word document supports up to 100 pages.
+   * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-empty value). Commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
    * 
    * @param request - DocumentTranslateRequest
    * @returns DocumentTranslateResponse
@@ -2415,29 +2411,92 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频翻译
+   * 电商视频生成（异步提交）
+   * 
+   * @param tmpReq - VideoGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VideoGenerationResponse
+   */
+  async videoGenerationWithOptions(tmpReq: $_model.VideoGenerationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VideoGenerationResponse> {
+    tmpReq.validate();
+    let request = new $_model.VideoGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.intent)) {
+      request.intentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intent, "Intent", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.intentShrink)) {
+      query["Intent"] = request.intentShrink;
+    }
+
+    if (!$dara.isNull(request.outputShrink)) {
+      query["Output"] = request.outputShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VideoGeneration",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VideoGenerationResponse>(await this.callApi(params, req, runtime), new $_model.VideoGenerationResponse({}));
+  }
+
+  /**
+   * 电商视频生成（异步提交）
+   * 
+   * @param request - VideoGenerationRequest
+   * @returns VideoGenerationResponse
+   */
+  async videoGeneration(request: $_model.VideoGenerationRequest): Promise<$_model.VideoGenerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.videoGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * Translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
    * 
    * @remarks
-   * ## 1. 产品简介
-   * 视频翻译 API 支持将视频画面中的嵌字（字幕、卖点文字等）翻译为目标语言，并擦除原文。适用于电商视频多语言分发、国际社交媒体营销、全球品牌广告投放等场景。
-   * API 采用异步调用模式：提交翻译任务后获取 `task_id`，通过查询接口轮询任务状态直至完成后获取结果。
-   * ## 2. 适用场景
-   * *   **跨境电商视频本地化**：将商品介绍视频中的卖点文字翻译为目标市场语言，助力海外平台推广。
+   * ## 1. Product Introduction
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
+   * The API uses an asynchronous call mode: after submitting a translation task, you obtain a `task_id`, then poll the query endpoint for the task status until the task is completed and results are available.
+   * ## 2. Common scenarios
+   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the target market language to facilitate overseas platform promotion.
    *     
-   * *   **国际社交媒体营销**：针对 TikTok、Instagram、YouTube 等平台，将视频画面文字内容一键本地化，提升海外用户理解度与转化率。
+   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube, improving comprehension and conversion rates among overseas users.
    *     
-   * *   **全球品牌广告投放**：根据投放地区语言自动生成对应版本视频，减少人工制作成本。
+   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region, reducing manual production costs.
    *     
-   * *   **培训与产品说明**：将培训课程或产品演示视频中的画面文字翻译为多语言版本，方便全球团队使用。
-   *     
-   * ## 3. 功能介绍
-   * | 能力 | 标识码 | 说明 |
+   * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
+   * ## 3. Features
+   * | Capability | Identifier | Description |
    * | --- | --- | --- |
-   * | 画面翻译 | `visual` | 翻译视频画面中的嵌字（字幕、卖点文字等），并擦除原文 |
-   * ## 4. 开发指南
-   * ### 4.1 提交翻译任务
-   * #### 请求
-   * `POST /api/v1/video/translation`
+   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text |
+   * ## 4. Developer guide.
+   * ### 4.1 Submit a translation task.
+   * #### Request
+   * `POST /api/v1/video/translation`
    * 
    * @param tmpReq - VideoTranslationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2486,29 +2545,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频翻译
+   * Translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text.
    * 
    * @remarks
-   * ## 1. 产品简介
-   * 视频翻译 API 支持将视频画面中的嵌字（字幕、卖点文字等）翻译为目标语言，并擦除原文。适用于电商视频多语言分发、国际社交媒体营销、全球品牌广告投放等场景。
-   * API 采用异步调用模式：提交翻译任务后获取 `task_id`，通过查询接口轮询任务状态直至完成后获取结果。
-   * ## 2. 适用场景
-   * *   **跨境电商视频本地化**：将商品介绍视频中的卖点文字翻译为目标市场语言，助力海外平台推广。
+   * ## 1. Product Introduction
+   * The video translation API translates embedded text (subtitles, promotional text, etc.) in video frames into a target language and erases the original text. This API is applicable to scenarios such as multilingual distribution of e-commerce videos, international social media marketing, and global brand advertising.
+   * The API uses an asynchronous call mode: after submitting a translation task, you obtain a `task_id`, then poll the query endpoint for the task status until the task is completed and results are available.
+   * ## 2. Common scenarios
+   * *   **Cross-border e-commerce video localization**: Translates promotional text in product introduction videos into the target market language to facilitate overseas platform promotion.
    *     
-   * *   **国际社交媒体营销**：针对 TikTok、Instagram、YouTube 等平台，将视频画面文字内容一键本地化，提升海外用户理解度与转化率。
+   * *   **International social media marketing**: Localizes text content in video frames with one click for platforms such as TikTok, Instagram, and YouTube, improving comprehension and conversion rates among overseas users.
    *     
-   * *   **全球品牌广告投放**：根据投放地区语言自动生成对应版本视频，减少人工制作成本。
+   * *   **Global brand advertising**: Automatically generates video versions in the language of the target region, reducing manual production costs.
    *     
-   * *   **培训与产品说明**：将培训课程或产品演示视频中的画面文字翻译为多语言版本，方便全球团队使用。
-   *     
-   * ## 3. 功能介绍
-   * | 能力 | 标识码 | 说明 |
+   * *   **Training and product documentation**: Translates on-screen text in training courses or product demonstration videos into multiple languages for use by global teams.
+   * ## 3. Features
+   * | Capability | Identifier | Description |
    * | --- | --- | --- |
-   * | 画面翻译 | `visual` | 翻译视频画面中的嵌字（字幕、卖点文字等），并擦除原文 |
-   * ## 4. 开发指南
-   * ### 4.1 提交翻译任务
-   * #### 请求
-   * `POST /api/v1/video/translation`
+   * | Visual translation | `visual` | Translates embedded text (subtitles, promotional text, etc.) in video frames into the target language and erases the original text |
+   * ## 4. Developer guide.
+   * ### 4.1 Submit a translation task.
+   * #### Request
+   * `POST /api/v1/video/translation`
    * 
    * @param request - VideoTranslationRequest
    * @returns VideoTranslationResponse

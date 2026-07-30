@@ -31,7 +31,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
    * @remarks
    * The usage information.
    */
-  usageMap?: { [key: string]: number };
+  usageMap?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       result: 'Result',
@@ -46,7 +46,7 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
       result: 'string',
       status: 'string',
       taskId: 'string',
-      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
