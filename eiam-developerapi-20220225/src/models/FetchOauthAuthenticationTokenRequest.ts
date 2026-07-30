@@ -13,15 +13,26 @@ export class FetchOAuthAuthenticationTokenRequest extends $dara.Model {
    * test_example_identifier
    */
   credentialProviderIdentifier?: string;
+  /**
+   * @remarks
+   * Custom key-value pairs appended to the OAuth authorization URL to pass additional parameters supported by the OAuth provider.
+   */
   customParameters?: { [key: string]: string };
+  /**
+   * @remarks
+   * Specifies whether to ignore existing valid tokens and force re-authorization. Default value: false.
+   * 
+   * @example
+   * false
+   */
   forceAuthentication?: boolean;
   /**
    * @remarks
-   * The scope in the OAuth protocol.
+   * The scope corresponding to the OAuth protocol.
    * 
-   * > If not specified, the scope of the issued OAuth Access Token defaults to the Scope configuration of the corresponding credential provider.
+   * > If not specified, the scope of the issued OAuth Access Token defaults to the scope configuration of the corresponding credential provider.
    * 
-   * >Notice: Multiple Scope values are separated by spaces.
+   * >Notice: Multiple scope values are separated by spaces.
    * 
    * @example
    * example:test_01 example:test_02

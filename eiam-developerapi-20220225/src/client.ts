@@ -1383,6 +1383,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the current status and authorization result of an OAuth authorization session.
+   * 
+   * @param request - GetOAuthAuthorizationSessionRequest
+   * @param headers - GetOAuthAuthorizationSessionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOAuthAuthorizationSessionResponse
+   */
+  async getOAuthAuthorizationSessionWithOptions(instanceId: string, request: $_model.GetOAuthAuthorizationSessionRequest, headers: $_model.GetOAuthAuthorizationSessionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetOAuthAuthorizationSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionUri)) {
+      body["sessionUri"] = request.sessionUri;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOAuthAuthorizationSession",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/oauthAuthorizationSessions/_/actions/get`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOAuthAuthorizationSessionResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GetOAuthAuthorizationSessionResponse({}));
+  }
+
+  /**
+   * Queries the current status and authorization result of an OAuth authorization session.
+   * 
+   * @param request - GetOAuthAuthorizationSessionRequest
+   * @returns GetOAuthAuthorizationSessionResponse
+   */
+  async getOAuthAuthorizationSession(instanceId: string, request: $_model.GetOAuthAuthorizationSessionRequest): Promise<$_model.GetOAuthAuthorizationSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetOAuthAuthorizationSessionHeaders({ });
+    return await this.getOAuthAuthorizationSessionWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the information about an organizational unit.
    * 
    * @param request - GetOrganizationalUnitRequest

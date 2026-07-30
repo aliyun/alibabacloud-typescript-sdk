@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent extends $dara.Model {
   /**
    * @remarks
-   * The access_token field in the OAuth protocol Token endpoint response.
+   * The access_token field in the OAuth protocol token endpoint response.
    * 
    * @example
    * DgEBAGP2xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent ex
   accessTokenValue?: string;
   /**
    * @remarks
-   * The scope field in the OAuth protocol Token endpoint response.
+   * The scope field in the OAuth protocol token endpoint response.
    * 
    * @example
    * example:test_01 example:test_02
@@ -21,7 +21,7 @@ export class FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent ex
   scope?: string;
   /**
    * @remarks
-   * The token_type field in the OAuth protocol Token endpoint response.
+   * The token_type field in the OAuth protocol token endpoint response.
    * 
    * @example
    * Bearer
@@ -54,23 +54,35 @@ export class FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent ex
 
 export class FetchOAuthAuthenticationTokenResponseBodyOauthAuthorizationSession extends $dara.Model {
   /**
+   * @remarks
+   * The user authorization URL.
+   * 
    * @example
-   * https://auth.example.com
+   * https://login.dingtalk.com/oauth2/auth?client_id=...
    */
   authorizationUrl?: string;
   /**
+   * @remarks
+   * The authorization session ID.
+   * 
    * @example
-   * atpoas_yyy
+   * atpoas_01l6losojlojbbv01adsq56xxxxx
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The authorization session status.
+   * 
    * @example
    * pending
    */
   sessionStatus?: string;
   /**
+   * @remarks
+   * The authorization session URI.
+   * 
    * @example
-   * urn:ietf:params:oauth:request_uri:atpoas_yyy
+   * urn:ietf:params:oauth:request_uri:atpoas_01l6ljnvrpc5niakl3gj3amxxxxxx
    */
   sessionUri?: string;
   static names(): { [key: string]: string } {
@@ -129,10 +141,7 @@ export class FetchOAuthAuthenticationTokenResponseBody extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The consumer type of the authentication token. Valid values:
-   * 
-   * - application: application
-   * - custom: custom type
+   * The consumer type of the authentication token.
    * 
    * @example
    * application
@@ -156,9 +165,7 @@ export class FetchOAuthAuthenticationTokenResponseBody extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The creator type of the authentication token. Valid values:
-   * 
-   * - application: application
+   * The creator type of the authentication token.
    * 
    * @example
    * application
@@ -190,9 +197,13 @@ export class FetchOAuthAuthenticationTokenResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The authentication token content of the OAuth Access Token type.
+   * The content of the OAuth Access Token type authentication token.
    */
   oauthAccessTokenContent?: FetchOAuthAuthenticationTokenResponseBodyOauthAccessTokenContent;
+  /**
+   * @remarks
+   * The authorization session of the OAuth user_federation flow. Returned during first-time authorization or when user interaction is required.
+   */
   oauthAuthorizationSession?: FetchOAuthAuthenticationTokenResponseBodyOauthAuthorizationSession;
   /**
    * @remarks
