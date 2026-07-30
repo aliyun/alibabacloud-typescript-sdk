@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitTuringTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 5
-   */
   duration?: number;
-  /**
-   * @example
-   * 82veb0a6wc41asdv80
-   */
   idempotentKey?: string;
-  /**
-   * @example
-   * https://www.example.com/1.png
-   */
   imgUrl?: string;
-  /**
-   * @example
-   * 720P
-   */
   resolution?: string;
-  /**
-   * @example
-   * basic
-   */
   resourceType?: string;
-  /**
-   * @example
-   * live-wallpaper
-   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {

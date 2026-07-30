@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckTuringTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 871509423398305792
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

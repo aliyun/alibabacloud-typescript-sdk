@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitTuringTaskResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * 874890065171169280
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,24 +27,9 @@ export class SubmitTuringTaskResponseBodyResult extends $dara.Model {
 
 export class SubmitTuringTaskResponseBody extends $dara.Model {
   errorCode?: string;
-  /**
-   * @example
-   * 400
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 551FF252-6CFC-5DDA-9F84-9B07302385C2
-   */
   requestId?: string;
   result?: SubmitTuringTaskResponseBodyResult;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
