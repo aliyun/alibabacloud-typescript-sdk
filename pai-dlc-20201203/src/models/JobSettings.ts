@@ -55,6 +55,7 @@ export class JobSettings extends $dara.Model {
    * 535.54.03
    */
   driver?: string;
+  elasticSpotJobMaxRestartTimes?: number;
   /**
    * @remarks
    * The CPU affinity setting. This setting is effective only when using general computing subscription resources.
@@ -140,7 +141,7 @@ export class JobSettings extends $dara.Model {
   jobReservedPolicy?: string;
   /**
    * @remarks
-   * The output model configuration. This parameter is currently effective only in federated training scenarios.
+   * The output model configuration. This parameter is currently effective only in joint training scenarios.
    */
   modelConfig?: ModelConfig;
   /**
@@ -188,6 +189,7 @@ export class JobSettings extends $dara.Model {
       dataJuicerConfig: 'DataJuicerConfig',
       disableEcsStockCheck: 'DisableEcsStockCheck',
       driver: 'Driver',
+      elasticSpotJobMaxRestartTimes: 'ElasticSpotJobMaxRestartTimes',
       enableCPUAffinity: 'EnableCPUAffinity',
       enableDSWDev: 'EnableDSWDev',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
@@ -218,6 +220,7 @@ export class JobSettings extends $dara.Model {
       dataJuicerConfig: DataJuicerConfig,
       disableEcsStockCheck: 'boolean',
       driver: 'string',
+      elasticSpotJobMaxRestartTimes: 'number',
       enableCPUAffinity: 'boolean',
       enableDSWDev: 'boolean',
       enableErrorMonitoringInAIMaster: 'boolean',

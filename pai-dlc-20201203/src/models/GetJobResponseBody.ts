@@ -109,7 +109,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
+   * The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path in the data source is used.
    * 
    * @example
    * /mnt/data/
@@ -151,7 +151,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
 export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   /**
    * @remarks
-   * The pod running duration.
+   * The pod duration.
    */
   duration?: number;
   /**
@@ -201,7 +201,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   podId?: string;
   /**
    * @remarks
-   * The IP addresses of the pod.
+   * The pod IP addresses.
    */
   podIps?: PodNetworkInterface[];
   /**
@@ -230,9 +230,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pod sub-status, such as preemption status. Valid values:
-   * - Normal
-   * - Evicted
+   * The pod substatus, such as preemption status. Valid values:
    * 
    * @example
    * Normal
@@ -304,7 +302,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
 export class GetJobResponseBodyPods extends $dara.Model {
   /**
    * @remarks
-   * The pod running duration.
+   * The pod duration.
    */
   duration?: number;
   /**
@@ -333,7 +331,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtStartTime?: string;
   /**
    * @remarks
-   * The historical pods.
+   * The history pods.
    */
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
   /**
@@ -351,7 +349,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events of the pod.
+   * The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the pod.
    * 
    * @example
    * Worker
@@ -359,7 +357,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   podId?: string;
   /**
    * @remarks
-   * The IP addresses of the pod.
+   * The pod IP addresses.
    */
   podIps?: PodNetworkInterface[];
   /**
@@ -382,21 +380,13 @@ export class GetJobResponseBodyPods extends $dara.Model {
    * @remarks
    * The pod status. Valid values:
    * 
-   * - Pending
-   * - Running
-   * - Succeeded
-   * - Failed
-   * - Unknown
-   * 
    * @example
    * Running
    */
   status?: string;
   /**
    * @remarks
-   * The pod sub-status, such as preemption status. Valid values:
-   * - Normal
-   * - Evicted
+   * The pod substatus, such as preemption status. Valid values:
    * 
    * @example
    * Normal
@@ -404,7 +394,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
+   * The pod type, which corresponds to a JobSpec in JobSpecs of CreateJob.
    * 
    * @example
    * Worker
@@ -493,7 +483,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   errorCode?: string;
   /**
    * @remarks
-   * The fault message.
+   * The fault error message.
    */
   errorMsg?: string;
   /**
@@ -508,7 +498,7 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
   node?: string;
   /**
    * @remarks
-   * The instance.
+   * The pod.
    */
   pod?: string;
   /**
@@ -556,12 +546,12 @@ export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Mo
 export class GetJobResponseBodyRestartRecord extends $dara.Model {
   /**
    * @remarks
-   * The list of fault information.
+   * The list of fault error messages.
    */
   detailErrorInfoList?: GetJobResponseBodyRestartRecordDetailErrorInfoList[];
   /**
    * @remarks
-   * The job restart count.
+   * The number of job restarts.
    */
   jobRestartCount?: number;
   /**
@@ -576,17 +566,17 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   occurTime?: string;
   /**
    * @remarks
-   * The reason.
+   * The reason for the restart.
    */
   reason?: string;
   /**
    * @remarks
-   * The restart duration.
+   * The restart duration, in seconds.
    */
   restartDurationInSec?: number;
   /**
    * @remarks
-   * The restart failure reason.
+   * The reason for the restart failure.
    */
   restartFailReason?: string;
   restartLevelType?: string;
@@ -646,14 +636,11 @@ export class GetJobResponseBodyUserVpc extends $dara.Model {
   /**
    * @remarks
    * The default routing. This parameter is valid only for general computing resources. Valid values:
-   * 
-   * eth0: uses the default network interface controller (NIC) to access external networks through a public gateway.
-   * eth1: uses the user elastic network interfaces (ENIs) to access external networks through a private gateway.
    */
   defaultRoute?: string;
   /**
    * @remarks
-   * The extended CIDR blocks, for example, 192.168.0.1/24.
+   * The extended CIDR blocks. Example: 192.168.0.1/24.
    */
   extendedCidrs?: string[];
   /**
@@ -715,9 +702,7 @@ export class GetJobResponseBodyUserVpc extends $dara.Model {
 export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the job. Valid values:
-   * - PUBLIC: Visible to all users in this workspace.
-   * - PRIVATE (default): Visible only to you and administrators in this workspace.
+   * The visibility of the task. Valid values:
    * 
    * @example
    * PRIVATE
@@ -758,7 +743,7 @@ export class GetJobResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The job running duration, in seconds.
+   * The job duration, in seconds.
    * 
    * @example
    * 3602
@@ -771,7 +756,7 @@ export class GetJobResponseBody extends $dara.Model {
   elasticSpec?: JobElasticSpec;
   /**
    * @remarks
-   * Indicates whether the debugger is enabled for the job.
+   * Specifies whether the debugger task is enabled.
    * 
    * @example
    * false
@@ -800,7 +785,7 @@ export class GetJobResponseBody extends $dara.Model {
   gmtFailedTime?: string;
   /**
    * @remarks
-   * The job finish time (UTC).
+   * The time when the task finished (UTC).
    * 
    * @example
    * 2021-01-12T15:36:08Z
@@ -887,7 +872,7 @@ export class GetJobResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The detailed description of the status.
+   * The detailed description of the status detail.
    * 
    * @example
    * Job is stopped by user.
@@ -911,7 +896,7 @@ export class GetJobResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource level used by the job at runtime.
+   * The resource level used when the job runs.
    * 
    * @example
    * L0
@@ -932,7 +917,7 @@ export class GetJobResponseBody extends $dara.Model {
   restartRecord?: GetJobResponseBodyRestartRecord[];
   /**
    * @remarks
-   * The number of retries used and the maximum number of retries for the job.
+   * The used retry count and maximum retry count for the job.
    * 
    * @example
    * 0/10
@@ -946,25 +931,12 @@ export class GetJobResponseBody extends $dara.Model {
   schedulingStrategy?: string;
   /**
    * @remarks
-   * The additional parameter settings of the job.
+   * The additional parameter settings for the job.
    */
   settings?: JobSettings;
   /**
    * @remarks
    * The job running status. Valid values:
-   * - Creating
-   * - Queuing
-   * - Bidding (currently only for Lingjun spot jobs)
-   * - EnvPreparing
-   * - SanityChecking
-   * - Running
-   * - Restarting
-   * - Stopping
-   * - SucceededReserving
-   * - FailedReserving
-   * - Succeeded
-   * - Failed
-   * - Stopped
    * 
    * @example
    * Stopped
@@ -972,12 +944,12 @@ export class GetJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The historical statuses.
+   * The status history.
    */
   statusHistory?: StatusTransitionItem[];
   /**
    * @remarks
-   * The job sub-status, such as preemption retry status.
+   * The job substatus, such as preemption retry status.
    * 
    * @example
    * Restarting

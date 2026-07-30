@@ -789,7 +789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a job.
+   * Retrieves the detailed configuration and runtime information of a node.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -822,7 +822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration and runtime information of a job.
+   * Retrieves the detailed configuration and runtime information of a node.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
