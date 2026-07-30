@@ -2,31 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class VideoGenerationResponseBodyData extends $dara.Model {
+export class ImageTranslationPlusResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The asynchronous task ID. Use the queryTaskResult API to poll for results.
+   * 
    * @example
-   * 778fa8bd21804828a5d147050e30edac
+   * task-abc123
    */
   taskId?: string;
-  usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
       taskId: 'TaskId',
-      usageMap: 'UsageMap',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       taskId: 'string',
-      usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
     };
   }
 
   validate() {
-    if(this.usageMap) {
-      $dara.Model.validateMap(this.usageMap);
-    }
     super.validate();
   }
 
@@ -35,26 +32,44 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
   }
 }
 
-export class VideoGenerationResponseBody extends $dara.Model {
+export class ImageTranslationPlusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is not returned if the call is successful.
+   * 
    * @example
-   * success
+   * 200
    */
   code?: string;
-  data?: VideoGenerationResponseBodyData;
   /**
+   * @remarks
+   * The submit status of the asynchronous task.
+   */
+  data?: ImageTranslationPlusResponseBodyData;
+  /**
+   * @remarks
+   * The error message. This parameter is not returned if the call is successful.
+   * 
    * @example
-   * Success
+   * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * 70CBEFDF-BB17-1EB3-8A21-569F3124738F
+   * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
+   * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -70,7 +85,7 @@ export class VideoGenerationResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: VideoGenerationResponseBodyData,
+      data: ImageTranslationPlusResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

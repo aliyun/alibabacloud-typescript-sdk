@@ -12,6 +12,9 @@ export class VideoGenerationRequestInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 2026 New Slimming Women\\"s Summer Dress with Mid-Length Design, High-Quality Waist Definition for a Slender Look
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -46,7 +49,15 @@ export class VideoGenerationRequestInput extends $dara.Model {
 }
 
 export class VideoGenerationRequestIntent extends $dara.Model {
+  /**
+   * @example
+   * -
+   */
   channel?: string;
+  /**
+   * @example
+   * -
+   */
   goal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,13 +86,23 @@ export class VideoGenerationRequestOutput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   duration?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1080p
    */
   quality?: string;
+  /**
+   * @example
+   * 9:16
+   */
   ratio?: string;
   static names(): { [key: string]: string } {
     return {
