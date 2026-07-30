@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The ID of the batch.
+   * The batch ID of the scheduled task execution.
    * 
    * @example
    * ccg-0cvfvf6u1enx1****
@@ -13,7 +13,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The time when the batch was created.
+   * The time when the record was created.
    * 
    * @example
    * 2023-08-03T08:27:29Z
@@ -21,7 +21,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The number of failed tasks.
+   * The number of tasks that failed to execute.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The number of running tasks.
+   * The number of tasks that are currently running.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   runningCount?: number;
   /**
    * @remarks
-   * The number of skipped tasks.
+   * The number of tasks that were skipped.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class DescribeGlobalTimerBatchesResponseBodyResults extends $dara.Model {
   skippedCount?: number;
   /**
    * @remarks
-   * The number of successfully executed tasks.
+   * The total number of tasks that were executed successfully.
    * 
    * @example
    * 0
@@ -103,7 +103,7 @@ export class DescribeGlobalTimerBatchesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token to use to retrieve the next page of results. This parameter is returned only when more results are available.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -111,7 +111,7 @@ export class DescribeGlobalTimerBatchesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * E54EB497-D7B7-5F04-B744-D8DFA7B******
@@ -119,7 +119,7 @@ export class DescribeGlobalTimerBatchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of batches.
+   * The list of results.
    */
   results?: DescribeGlobalTimerBatchesResponseBodyResults[];
   static names(): { [key: string]: string } {

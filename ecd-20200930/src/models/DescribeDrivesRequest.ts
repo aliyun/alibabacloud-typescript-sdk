@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDrivesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the storage resources.
+   * The list of storage resource IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * *   Maximum value: 500.
-   * *   Default value: 20.
+   * - Maximum value: 500.
+   * - Default value: 20.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class DescribeDrivesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * AAAA****
@@ -29,7 +29,7 @@ export class DescribeDrivesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * @example
    * cn-hangzhou
@@ -37,12 +37,7 @@ export class DescribeDrivesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the storage resource.
-   * 
-   * Valid values:
-   * 
-   * *   NAS: NAS storage
-   * *   PDS: PDS storage
+   * The storage resource type.
    * 
    * @example
    * NAS

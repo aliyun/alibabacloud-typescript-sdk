@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDriveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value 200 indicates that the request was successful.
+   * The response code. 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteDriveResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the delete operation was successful.
+   * The deletion result.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class DeleteDriveResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class DeleteDriveResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B7AA****
@@ -37,7 +37,7 @@ export class DeleteDriveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

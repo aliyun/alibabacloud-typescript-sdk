@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The type of action performed.
+   * The type of action that was performed.
    * 
    * @example
    * REBOOT
@@ -21,7 +21,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The recorded information during the execution of the scheduled task.
+   * The record information during the execution of the scheduled task.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-0c951fy9arnk9****
@@ -45,13 +45,16 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The cloud computer name.
    * 
    * @example
    * DesktopName
    */
   desktopName?: string;
   /**
+   * @remarks
+   * The display result name.
+   * 
    * @example
    * SKIPPED
    */
@@ -78,19 +81,25 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    */
   resourceParentId?: string;
   /**
+   * @remarks
+   * Specifies whether the task can be retried.
+   * 
    * @example
    * true
    */
   retryable?: boolean;
   /**
    * @remarks
-   * The scheduled task group ID.
+   * The ID of the scheduled task group.
    * 
    * @example
    * ccg-xxxx
    */
   timerGroupId?: string;
   /**
+   * @remarks
+   * The timer record ID.
+   * 
    * @example
    * t-xxx
    */
@@ -163,7 +172,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
 export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -171,7 +180,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+   * The token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6mnFXZiT7NdvGNgkInJ****
@@ -187,7 +196,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The result information.
    */
   results?: DescribeGlobalTimerRecordsResponseBodyResults[];
   static names(): { [key: string]: string } {

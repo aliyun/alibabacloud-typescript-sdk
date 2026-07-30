@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindConfigGroupRequestResourceInfos extends $dara.Model {
   /**
    * @remarks
-   * The service type of the resource.
-   * 
-   * Valid value:
-   * 
-   * - CLOUD_DESKTOP: the cloud computer service.
+   * The product type to which the resource belongs.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -17,7 +13,7 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * ecd-1bo4xotjvwyon****
@@ -25,7 +21,7 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The region where the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -33,13 +29,7 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * - RESOURCE_GROUP: the resource group
-   * 
-   * - CLOUD_DESKTOP: the cloud computer service.
+   * The resource type.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -75,7 +65,7 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
 export class BindConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration group.
+   * The configuration group ID.
    * 
    * This parameter is required.
    * 
@@ -85,7 +75,7 @@ export class BindConfigGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai
@@ -93,7 +83,7 @@ export class BindConfigGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resources to which you want to bind the configuration group.
+   * The resource information to associate.
    * 
    * This parameter is required.
    */

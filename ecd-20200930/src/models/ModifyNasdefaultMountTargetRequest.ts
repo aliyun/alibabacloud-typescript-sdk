@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNASDefaultMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the NAS file system.
+   * The NAS file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyNASDefaultMountTargetRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The domain name of the mount target.
+   * The mount target domain name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyNASDefaultMountTargetRequest extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

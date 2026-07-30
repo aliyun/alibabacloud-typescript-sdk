@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends $dara.Model {
   /**
    * @remarks
-   * The **charge type**. Valid values: `POST_PAID` (post-paid), `PRE_PAID` (pre-paid), `MONTH_PACKAGE` (monthly subscription), and `DURATION` (duration package).
+   * The billing type. Valid values:
+   * - POST_PAID: pay-as-you-go.
+   * - PRE_PAID: subscription.
+   * - MONTH_PACKAGE: monthly package.
+   * - DURATION: duration-based package.
    * 
    * @example
    * PrePaid
@@ -13,7 +17,7 @@ export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends 
   chargeType?: string;
   /**
    * @remarks
-   * **The ID of the cloud desktop.**
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-8cndajrdrd424sb99
@@ -21,7 +25,7 @@ export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends 
   desktopId?: string;
   /**
    * @remarks
-   * **The name of the cloud desktop.**
+   * The cloud desktop name.
    * 
    * @example
    * TestName
@@ -29,7 +33,7 @@ export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends 
   desktopName?: string;
   /**
    * @remarks
-   * **The end user ID.**
+   * The end user ID.
    * 
    * @example
    * endUserId
@@ -45,7 +49,7 @@ export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends 
   regionId?: string;
   /**
    * @remarks
-   * The **usage duration**, in seconds. Note: This is a `Long` value. Ensure your client can handle the precision.
+   * The usage duration, in seconds. This value is of the Long type. Handle precision conversion on the frontend.
    * 
    * @example
    * 20000
@@ -85,7 +89,7 @@ export class QueryHistoryUsageDurationRankResponseBodyUsageDurationList extends 
 export class QueryHistoryUsageDurationRankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is not returned, there are no more results.
+   * The paging token for the next query.
    * 
    * @example
    * AAAAAWvmfbFWy0uSlxZ6pIAKAnuwt1ezsRqxI6hPibm27fMH
@@ -93,7 +97,7 @@ export class QueryHistoryUsageDurationRankResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -101,7 +105,7 @@ export class QueryHistoryUsageDurationRankResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of query results.
    * 
    * @example
    * 94
@@ -109,7 +113,7 @@ export class QueryHistoryUsageDurationRankResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of usage duration metrics.
+   * The list of user usage duration metrics.
    */
   usageDurationList?: QueryHistoryUsageDurationRankResponseBodyUsageDurationList[];
   static names(): { [key: string]: string } {

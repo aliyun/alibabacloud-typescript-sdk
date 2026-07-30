@@ -59,7 +59,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   includeDesktopGroup?: boolean;
   /**
    * @remarks
-   * >This parameter is not yet available.
+   * >This parameter is not yet available for use.
    * 
    * @example
    * ecd
@@ -73,6 +73,13 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The private IP address.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   networkInterfaceIp?: string;
   /**
    * @remarks

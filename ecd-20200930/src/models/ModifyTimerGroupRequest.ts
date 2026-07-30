@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * Timestamp for scheduled task execution. The task runs at the specified time.
+   * The specified time point for fixed-time scheduled task execution. After this parameter is specified, the scheduled task is executed at the specified time point.
    * 
    * @example
    * 1764660600967
@@ -15,7 +15,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   enforce?: boolean;
   /**
    * @remarks
-   * Image ID for image-change scheduled tasks.
+   * The image ID to change to. This parameter is used for image change scheduled tasks.
    * 
    * @example
    * m-5b0vjqbiqu010XXXXXX
@@ -25,7 +25,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   ipSegments?: string[];
   /**
    * @remarks
-   * Lock screen time for inactivity-based lock screen. Not supported for non-AD desktops.
+   * The lock screen time point for the no-operation lock screen feature. This parameter is not supported for non-AD desktops.
    * 
    * @example
    * 1800
@@ -103,7 +103,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
 export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow end users to configure scheduled tasks.
+   * Specifies whether to allow end users to configure scheduled tasks on their own.
    * 
    * @example
    * true
@@ -111,9 +111,9 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The Cron expression for the scheduled task.
+   * The cron expression of the scheduled task.
    * 
-   * > The Cron expression must be in UTC. For example, to schedule a task for 00:00 daily in China Standard Time (UTC+8), set this parameter to `0 0 16 ? * 1,2,3,4,5,6,7`.
+   * > Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.
    * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
@@ -121,7 +121,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to force execution. If this parameter is set to `true`, the scheduled task runs regardless of the desktop and connection status.
+   * Specifies whether to forcefully execute the task. If set to true, the scheduled task is forcefully executed regardless of the desktop and connection status.
    * 
    * @example
    * false
@@ -129,7 +129,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   enforce?: boolean;
   /**
    * @remarks
-   * The interval, in minutes.
+   * The time interval, in minutes.
    * 
    * @example
    * 10
@@ -138,7 +138,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   notificationTime?: number;
   /**
    * @remarks
-   * The operation to perform. This parameter applies only if `TimerType` is set to `NoConnect`.
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
    * 
    * @example
    * Shutdown
@@ -146,12 +146,12 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist for advanced inactivity detection. The scheduled task is not triggered if a process from this list is running.
+   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * Specifies which disks to reset.
+   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -160,7 +160,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   segmentTimers?: ModifyTimerGroupRequestConfigTimersSegmentTimers[];
   /**
    * @remarks
-   * The type of the scheduled task.
+   * The scheduled task type.
    * 
    * @example
    * TimerBoot
@@ -168,7 +168,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   timerType?: string;
   /**
    * @remarks
-   * The method for detecting inactivity.
+   * The trigger configuration type for no-operation scheduled tasks.
    * 
    * @example
    * Standard
@@ -224,7 +224,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
 export class ModifyTimerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The scheduled task configurations.
+   * The configuration information of scheduled tasks.
    */
   configTimers?: ModifyTimerGroupRequestConfigTimers[];
   /**
@@ -232,7 +232,7 @@ export class ModifyTimerGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * Scheduled task
+   * ScheduledTask.
    */
   description?: string;
   /**
@@ -247,15 +247,15 @@ export class ModifyTimerGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the configuration group.
+   * The configuration group name.
    * 
    * @example
-   * Scheduled task
+   * ScheduledTask.
    */
   name?: string;
   /**
    * @remarks
-   * The region ID. This feature is not tied to a specific region, but you must set this parameter to `cn-shanghai`.
+   * The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai

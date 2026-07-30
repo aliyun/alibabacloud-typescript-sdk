@@ -21,7 +21,7 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. Set this parameter to the `NextToken` value from a previous response.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -30,10 +30,8 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * - China (Shanghai)
-   * 
-   * - Singapore (Singapore)
+   * - Shanghai
+   * - Singapore
    * 
    * @example
    * cn-shanghai
@@ -42,7 +40,7 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
   resourceTypes?: string[];
   /**
    * @remarks
-   * The ID of the region where the cloud computers are located. This parameter filters the results to include only cloud computers in the specified region.
+   * The region ID used for searching. Filters cloud desktop information for the specified region.
    * 
    * @example
    * cn-hangzhou
@@ -50,19 +48,14 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
   searchRegionId?: string;
   /**
    * @remarks
-   * The type of the scheduled task. This operation returns batch information for timer-based scheduled tasks only.
+   * The type of task to query. Only scheduled tasks have batch information available.
    * 
-   * - `TimerBoot`: scheduled startup
-   * 
-   * - `TimerShutdown`: scheduled shutdown
-   * 
-   * - `TimerReboot`: scheduled reboot
-   * 
-   * - `TimerReset`: scheduled reset
-   * 
-   * - `TimerMaintenance`: scheduled maintenance
-   * 
-   * - `TimerHibernate`: scheduled hibernation
+   * - TimerBoot: scheduled startup
+   * - TimerShutdown: scheduled shutdown
+   * - TimerReboot: scheduled restart
+   * - TimerReset: scheduled reset
+   * - TimerMaintenance: scheduled maintenance
+   * - TimerHibernate: scheduled hibernation
    * 
    * @example
    * 1

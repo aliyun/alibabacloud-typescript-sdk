@@ -76,7 +76,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The time when the cloud desktop expires. This value is returned only for cloud desktops whose billable methods is subscription.
+   * The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -95,7 +95,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
    * The local name of the region where the cloud desktop resides.
    * 
    * @example
-   * China (Shanghai)
+   * 华东2（上海）
    */
   localName?: string;
   /**
@@ -153,7 +153,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The start time of the cloud desktop.
+   * The time when the cloud desktop was started.
    * 
    * @example
    * 2020-11-06T08:31Z

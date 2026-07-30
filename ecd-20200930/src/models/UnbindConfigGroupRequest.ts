@@ -77,7 +77,7 @@ export class UnbindConfigGroupRequest extends $dara.Model {
    * The ID of the region. Set the value to `cn-shanghai`.
    * 
    * @example
-   * cn-shanghai
+   * cn-hangzhou
    */
   regionId?: string;
   /**

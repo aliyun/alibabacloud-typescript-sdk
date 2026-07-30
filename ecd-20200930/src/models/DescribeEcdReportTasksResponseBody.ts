@@ -10,7 +10,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   downloadUrl?: string;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Success
@@ -26,7 +26,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   errorMsg?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-14T07:46:49.000+00:00
@@ -34,7 +34,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the task was last modified.
+   * The modification time.
    * 
    * @example
    * 2025-07-14T07:46:49.000+00:00
@@ -50,7 +50,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   progress?: number;
   /**
    * @remarks
-   * The name of the report file.
+   * The report file name.
    * 
    * @example
    * TestFileName
@@ -58,7 +58,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   reportFileName?: string;
   /**
    * @remarks
-   * The task status.
+   * The report task status.
    * 
    * @example
    * Running
@@ -66,11 +66,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The sub-type of the report export task.
-   * 
-   * Valid value:
-   * 
-   * - DESKTOP: cloud computer
+   * The subtype of the report task.
    * 
    * @example
    * DESKTOP
@@ -78,7 +74,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   subType?: string;
   /**
    * @remarks
-   * The ID of the report export task.
+   * The report task ID.
    * 
    * @example
    * ret-asdfkjg*****
@@ -86,11 +82,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
   taskId?: string;
   /**
    * @remarks
-   * The type of the report.
-   * 
-   * Valid value:
-   * 
-   * - RESOURCE_REPORT
+   * The report type.
    * 
    * @example
    * RESOURCE_REPORT
@@ -140,7 +132,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
 export class DescribeEcdReportTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The report export tasks.
+   * The list of report tasks.
    */
   exportTaskList?: DescribeEcdReportTasksResponseBodyExportTaskList[];
   /**

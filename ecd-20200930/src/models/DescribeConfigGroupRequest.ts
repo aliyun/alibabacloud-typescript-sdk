@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration group.
+   * The configuration group ID.
    * 
    * @example
    * cg-i1ruuudp92qpj****
@@ -13,12 +13,12 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The IDs of the configuration groups.
+   * The list of configuration group IDs.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The name of the configuration group.
+   * The configuration group name.
    * 
    * @example
    * Scheduled task configuration
@@ -26,7 +26,7 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -42,11 +42,7 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The service type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The product type used by the configuration group.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -54,7 +50,7 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai
@@ -62,16 +58,12 @@ export class DescribeConfigGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the configuration groups.
+   * The list of configuration group statuses.
    */
   statuses?: string[];
   /**
    * @remarks
-   * The type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   Timer: the scheduled task type.
+   * The configuration group type.
    * 
    * @example
    * Timer

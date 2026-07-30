@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDrivesResponseBodyDrivesDesktopGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The cloud computer pool ID.
    * 
    * @example
    * dg-aaaa****
@@ -13,7 +13,7 @@ export class DescribeDrivesResponseBodyDrivesDesktopGroups extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer pool.
+   * The cloud computer pool name.
    * 
    * @example
    * group01
@@ -45,7 +45,7 @@ export class DescribeDrivesResponseBodyDrivesDesktopGroups extends $dara.Model {
 export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1202****
@@ -53,7 +53,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The introduction to the storage resource.
+   * The storage resource description.
    * 
    * @example
    * test****
@@ -62,8 +62,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   /**
    * @remarks
    * The number of associated cloud computer pools.
-   * 
-   * >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
+   * > This parameter is returned only when the storage resource is NAS and the purpose is USER_PROFILE.
    * 
    * @example
    * 1
@@ -71,14 +70,13 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   desktopGroupCount?: number;
   /**
    * @remarks
-   * The details of the associated cloud computers.
-   * 
-   * >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
+   * The list of associated cloud computer pool details.
+   * > This parameter is returned only when the storage resource is NAS and the purpose is USER_PROFILE.
    */
   desktopGroups?: DescribeDrivesResponseBodyDrivesDesktopGroups[];
   /**
    * @remarks
-   * The ID of the storage resource.
+   * The storage resource ID.
    * 
    * @example
    * dom-aaaa****
@@ -86,7 +84,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The ID of the user-level storage resource.
+   * The user-level storage resource ID.
    * 
    * @example
    * dri-aaaa****
@@ -94,7 +92,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   driveId?: string;
   /**
    * @remarks
-   * Indicates whether the UPM feature is enabled.
+   * Indicates whether the User Profile Management (UPM) feature is enabled.
    * 
    * @example
    * true
@@ -102,10 +100,9 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   enableProfileManagement?: boolean;
   /**
    * @remarks
-   * The ID of the external storage resource.
-   * 
-   * *   If ResourceType is set to NAS, the NAS ID is returned for this parameter.
-   * *   If ResourceType is set to PDS, the PDS ID is returned for this parameter.
+   * The external storage resource ID.
+   * - If the storage resource is NAS, this parameter returns the NAS ID.
+   * - If the storage resource is PDS, this parameter returns the PDS ID.
    * 
    * @example
    * 0976****
@@ -113,9 +110,8 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
-   * The ID of the storage resource at the external user level.
-   * 
-   * >  This parameter is returned only if ResourceType is set to PDS.
+   * The external user-level storage resource ID.
+   * > This parameter is returned only when the storage resource is PDS.
    * 
    * @example
    * 1100****
@@ -123,9 +119,8 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   externalDriveId?: string;
   /**
    * @remarks
-   * The ID of the external user.
-   * 
-   * >  This parameter is returned only if ResourceType is set to PDS.
+   * The external user ID.
+   * > This parameter is returned only when the storage resource is PDS.
    * 
    * @example
    * user01@cn-hangzhou.120****
@@ -133,7 +128,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
-   * The time when the storage resource was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-02T08:42:26.000+00:00
@@ -141,7 +136,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the storage resource was modified.
+   * The modification time.
    * 
    * @example
    * 2025-07-07T02:46:04.000+00:00
@@ -149,9 +144,8 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The user ID.
-   * 
-   * >  You can ignore this parameter.
+   * The ID.
+   * > You can ignore this parameter.
    * 
    * @example
    * 1
@@ -159,7 +153,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the storage resource.
+   * The storage resource name.
    * 
    * @example
    * test****
@@ -167,7 +161,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * -
@@ -177,22 +171,13 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
    * @remarks
    * The status of the user-level storage resource.
    * 
-   * Valid values:
-   * 
-   * *   INIT: initializing
-   * *   MAINTAIN: maintaining
-   * *   DELETING: deleting
-   * *   INVALID: invalid
-   * *   NORMAL: normal
-   * *   FAIL: failed
-   * 
    * @example
    * NORMAL
    */
   status?: string;
   /**
    * @remarks
-   * The total amount of user-level storage capacity.
+   * The total capacity of the user-level storage resource.
    * 
    * @example
    * 536870912000
@@ -200,12 +185,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   totalSize?: number;
   /**
    * @remarks
-   * The usage of the storage resource.
-   * 
-   * Valid values:
-   * 
-   * *   DESKTOP: data disk space
-   * *   USER_PROFILE: personal data space
+   * The purpose of the storage resource.
    * 
    * @example
    * USER_PROFILE
@@ -213,7 +193,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The amount of user-level storage capacity used.
+   * The used capacity of the user-level storage resource.
    * 
    * @example
    * 243175936
@@ -292,7 +272,7 @@ export class DescribeDrivesResponseBodyDrives extends $dara.Model {
 export class DescribeDrivesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value 200 indicates that the request was successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -300,7 +280,7 @@ export class DescribeDrivesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The total number of storage resources.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -308,12 +288,12 @@ export class DescribeDrivesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The user-level storage resources.
+   * The list of user-level storage resources.
    */
   drives?: DescribeDrivesResponseBodyDrives[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * successful
@@ -321,7 +301,7 @@ export class DescribeDrivesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. An empty value indicates that there are no more results.
    * 
    * @example
    * AAAA****

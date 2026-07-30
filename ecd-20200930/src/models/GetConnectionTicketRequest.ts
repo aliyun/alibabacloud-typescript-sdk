@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectionTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The command that you want to run to configure a custom application in user mode. After you obtain the credential, the application is automatically started. Parameter description in the command:
+   * Specifies a custom user-mode application that is automatically launched after the credential is obtained.
    * 
-   * - appPath: the path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double slashes (\\) as the delimiter. Type of the parameter value: string.
-   * 
-   * - appParameter: the startup arguments of the application. Example: `"meetingid 000 meetingname aaa"`. Separate multiple arguments with spaces. Type of the parameter value: string.
+   * - appPath: String. The path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double backslashes (\\\\) as path separators.
+   * - appParameter: String. The application startup parameters. Example: `"meetingid 000 meetingname aaa"`. Separate parameters with spaces.
    * 
    * @example
    * {
@@ -31,7 +30,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   commandContent?: string;
   /**
    * @remarks
-   * The ID of the cloud computer for which you want to generate a connection credential. This parameter is required.
+   * The ID of the cloud computer for which you want to generate a connection credential. This parameter is required to generate the credential.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -39,7 +38,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The ID of the end user of the cloud computer. The end user must be the current end user of the cloud computer.
+   * The username of the authorized user of the cloud computer. You must specify an existing authorized user of the cloud computer to generate the credential.
    * 
    * @example
    * alice
@@ -48,7 +47,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the current end user of the cloud computer.
+   * The password of the authorized user of the cloud computer.
    * 
    * @example
    * Ab123456
@@ -56,7 +55,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -76,7 +75,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
+   * The unique identifier of the client. If you use the Apsara Uni-manager client, you can view this parameter in the **About** dialog box on the client logon page.
    * 
    * @example
    * 28c80e90-f71e-4c23-93d6-1225329cf949

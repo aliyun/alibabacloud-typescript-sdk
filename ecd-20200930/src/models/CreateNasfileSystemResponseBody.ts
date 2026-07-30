@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNASFileSystemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the NAS file system.
+   * The NAS file system ID.
    * 
    * @example
    * 04f314****
@@ -13,7 +13,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * Name of the NAS file system.
+   * The NAS file system name.
    * 
    * @example
    * testNAS
@@ -21,7 +21,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * Mount point domain.
+   * The mount target domain name.
    * 
    * @example
    * 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
@@ -29,7 +29,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -37,7 +37,7 @@ export class CreateNASFileSystemResponseBody extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 269BDB16-2CD8-4865-84BD-11C40BC21DB0

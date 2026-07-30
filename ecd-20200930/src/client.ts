@@ -1090,7 +1090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a configuration group to resources.
+   * Associates a configuration group with a cloud computer or resource group.
    * 
    * @param request - BindConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1129,7 +1129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a configuration group to resources.
+   * Associates a configuration group with a cloud computer or resource group.
    * 
    * @param request - BindConfigGroupRequest
    * @returns BindConfigGroupResponse
@@ -3278,7 +3278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
    * 
    * @param request - CreateConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,7 +3329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+   * Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
    * 
    * @param request - CreateConfigGroupRequest
    * @returns CreateConfigGroupResponse
@@ -4456,19 +4456,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a NAS file system.
+   * Creates a NAS file system.
    * 
    * @remarks
-   * <props="china">
-   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-   * <props="intl">
-   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+   * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+   * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+   * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
    * 
    * @param request - CreateNASFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4491,6 +4485,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -4519,19 +4517,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a NAS file system.
+   * Creates a NAS file system.
    * 
    * @remarks
-   * <props="china">
-   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-   * <props="intl">
-   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+   * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+   * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+   * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
    * 
    * @param request - CreateNASFileSystemRequest
    * @returns CreateNASFileSystemResponse
@@ -5596,12 +5588,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+   * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
    * 
    * @remarks
-   * When you call this operation, take note of the following item:
-   * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-   * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+   * When you call this operation, note the following items:
+   * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+   * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5721,12 +5713,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+   * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
    * 
    * @remarks
-   * When you call this operation, take note of the following item:
-   * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-   * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+   * When you call this operation, note the following items:
+   * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+   * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -5734,6 +5726,86 @@ export default class Client extends OpenApi {
   async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+   * 
+   * @param request - CreateVirtualBridgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirtualBridgeResponse
+   */
+  async createVirtualBridgeWithOptions(request: $_model.CreateVirtualBridgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirtualBridgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bridgeLevel)) {
+      query["BridgeLevel"] = request.bridgeLevel;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVirtualBridge",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVirtualBridgeResponse>(await this.callApi(params, req, runtime), new $_model.CreateVirtualBridgeResponse({}));
+  }
+
+  /**
+   * Creates a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+   * 
+   * @param request - CreateVirtualBridgeRequest
+   * @returns CreateVirtualBridgeResponse
+   */
+  async createVirtualBridge(request: $_model.CreateVirtualBridgeRequest): Promise<$_model.CreateVirtualBridgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVirtualBridgeWithOptions(request, runtime);
   }
 
   /**
@@ -6309,7 +6381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a drive.
+   * Deletes a cloud drive.
    * 
    * @param request - DeleteDriveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6344,7 +6416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a drive.
+   * Deletes a cloud drive.
    * 
    * @param request - DeleteDriveRequest
    * @returns DeleteDriveResponse
@@ -7109,10 +7181,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom cloud computer templates.
+   * Deletes a custom cloud computer template.
    * 
    * @remarks
-   * Deleting a template does not affect cloud computers created from it or the associated resources.
+   * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
    * 
    * @param request - DeleteTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7147,10 +7219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes custom cloud computer templates.
+   * Deletes a custom cloud computer template.
    * 
    * @remarks
-   * Deleting a template does not affect cloud computers created from it or the associated resources.
+   * After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
    * 
    * @param request - DeleteTemplatesRequest
    * @returns DeleteTemplatesResponse
@@ -7158,6 +7230,58 @@ export default class Client extends OpenApi {
   async deleteTemplates(request: $_model.DeleteTemplatesRequest): Promise<$_model.DeleteTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the status of a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+   * 
+   * @param request - DeleteVirtualBridgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirtualBridgeResponse
+   */
+  async deleteVirtualBridgeWithOptions(request: $_model.DeleteVirtualBridgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirtualBridgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVirtualBridge",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVirtualBridgeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVirtualBridgeResponse({}));
+  }
+
+  /**
+   * Modifies the status of a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+   * 
+   * @param request - DeleteVirtualBridgeRequest
+   * @returns DeleteVirtualBridgeResponse
+   */
+  async deleteVirtualBridge(request: $_model.DeleteVirtualBridgeRequest): Promise<$_model.DeleteVirtualBridgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVirtualBridgeWithOptions(request, runtime);
   }
 
   /**
@@ -7571,7 +7695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of region-free policies.
+   * Queries the details of regionless policies.
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7634,7 +7758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of region-free policies.
+   * Queries the details of regionless policies.
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @returns DescribeCenterPolicyListResponse
@@ -8069,7 +8193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the configuration group list information.
+   * Queries the list of configuration groups.
    * 
    * @param request - DescribeConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8132,7 +8256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the configuration group list information.
+   * Queries the list of configuration groups.
    * 
    * @param request - DescribeConfigGroupRequest
    * @returns DescribeConfigGroupResponse
@@ -8458,7 +8582,7 @@ export default class Client extends OpenApi {
    * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+   * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8548,7 +8672,7 @@ export default class Client extends OpenApi {
    * Queries the list and metadata of cloud desktops across all regions.
    * 
    * @remarks
-   * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+   * This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
    * 
    * @param request - DescribeDesktopMetadataRequest
    * @returns DescribeDesktopMetadataResponse
@@ -9429,7 +9553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data report export tasks.
+   * Queries the list of data report export tasks.
    * 
    * @param request - DescribeEcdReportTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9484,7 +9608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data report export tasks.
+   * Queries the list of data report export tasks.
    * 
    * @param request - DescribeEcdReportTasksRequest
    * @returns DescribeEcdReportTasksResponse
@@ -9755,7 +9879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of all recent cloud desktops and their usage duration records.
+   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
    * 
    * @remarks
    * - China site users should select Shanghai as the region. International site users should select Singapore.
@@ -9864,7 +9988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information of all recent cloud desktops and their usage duration records.
+   * Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
    * 
    * @remarks
    * - China site users should select Shanghai as the region. International site users should select Singapore.
@@ -9881,10 +10005,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+   * Queries the batch information of scheduled task execution history and returns aggregated execution results.
    * 
    * @remarks
-   * - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+   * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9939,10 +10063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+   * Queries the batch information of scheduled task execution history and returns aggregated execution results.
    * 
    * @remarks
-   * - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+   * - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
    * 
    * @param request - DescribeGlobalTimerBatchesRequest
    * @returns DescribeGlobalTimerBatchesResponse
@@ -9953,7 +10077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the scheduled task execution records for EDS across all regions.
+   * Queries the execution records of scheduled tasks for cloud computers across regions.
    * 
    * @param request - DescribeGlobalTimerRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10036,7 +10160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the scheduled task execution records for EDS across all regions.
+   * Queries the execution records of scheduled tasks for cloud computers across regions.
    * 
    * @param request - DescribeGlobalTimerRecordsRequest
    * @returns DescribeGlobalTimerRecordsResponse
@@ -10581,7 +10705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries NAS file systems.
+   * Queries NAS file system information.
    * 
    * @param request - DescribeNASFileSystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10632,7 +10756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries NAS file systems.
+   * Queries NAS file system information.
    * 
    * @param request - DescribeNASFileSystemsRequest
    * @returns DescribeNASFileSystemsResponse
@@ -10767,6 +10891,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries virtual bridge information.
+   * 
+   * @remarks
+   * Before deleting an office network, ensure that the following operations are completed:
+   * - All cloud computers in the office network are released.
+   * - Related data that needs to be retained is backed up.
+   * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+   * 
+   * @param request - DescribeOfficeSiteBridgeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOfficeSiteBridgeInfoResponse
+   */
+  async describeOfficeSiteBridgeInfoWithOptions(request: $_model.DescribeOfficeSiteBridgeInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOfficeSiteBridgeInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOfficeSiteBridgeInfo",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOfficeSiteBridgeInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOfficeSiteBridgeInfoResponse({}));
+  }
+
+  /**
+   * Queries virtual bridge information.
+   * 
+   * @remarks
+   * Before deleting an office network, ensure that the following operations are completed:
+   * - All cloud computers in the office network are released.
+   * - Related data that needs to be retained is backed up.
+   * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+   * 
+   * @param request - DescribeOfficeSiteBridgeInfoRequest
+   * @returns DescribeOfficeSiteBridgeInfoResponse
+   */
+  async describeOfficeSiteBridgeInfo(request: $_model.DescribeOfficeSiteBridgeInfoRequest): Promise<$_model.DescribeOfficeSiteBridgeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOfficeSiteBridgeInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Gets all properties of an office network, including its ID, name, status, and creation time.
    * 
    * @param request - DescribeOfficeSitesRequest
@@ -10841,10 +11027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries metrics such as the online user count and the assigned user count.
+   * Queries metrics such as the number of online users and the number of users with assigned desktops.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+   * Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
    * 
    * @param request - DescribeOnlineUserCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10887,10 +11073,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries metrics such as the online user count and the assigned user count.
+   * Queries metrics such as the number of online users and the number of users with assigned desktops.
    * 
    * @remarks
-   * Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+   * Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
    * 
    * @param request - DescribeOnlineUserCountRequest
    * @returns DescribeOnlineUserCountResponse
@@ -11863,11 +12049,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the session statistics of a region.
+   * Queries session statistics information across all regions.
    * 
    * @remarks
-   * - This is a central operation and can be called only by using services in the China (Shanghai) region.
-   * - You can query session statistics for the past hour.
+   * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+   * - You can query real-time statistics for up to 1 hour.
    * 
    * @param request - DescribeSessionStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11918,11 +12104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the session statistics of a region.
+   * Queries session statistics information across all regions.
    * 
    * @remarks
-   * - This is a central operation and can be called only by using services in the China (Shanghai) region.
-   * - You can query session statistics for the past hour.
+   * - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+   * - You can query real-time statistics for up to 1 hour.
    * 
    * @param request - DescribeSessionStatisticRequest
    * @returns DescribeSessionStatisticResponse
@@ -12233,7 +12419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified configuration group.
+   * Queries the details of a specified configuration group.
    * 
    * @param request - DescribeTimerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12268,7 +12454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified configuration group.
+   * Queries the details of a specified configuration group.
    * 
    * @param request - DescribeTimerGroupRequest
    * @returns DescribeTimerGroupResponse
@@ -13431,10 +13617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the credential that is used to connect to a cloud desktop.
+   * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13501,10 +13687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the credential that is used to connect to a cloud desktop.
+   * Retrieves the connection credential for a cloud computer.
    * 
    * @remarks
-   * The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+   * The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -14385,6 +14571,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of virtual bridges.
+   * 
+   * @remarks
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * 
+   * @param request - ListVirtualBridgesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVirtualBridgesResponse
+   */
+  async listVirtualBridgesWithOptions(request: $_model.ListVirtualBridgesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirtualBridgesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVirtualBridges",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVirtualBridgesResponse>(await this.callApi(params, req, runtime), new $_model.ListVirtualBridgesResponse({}));
+  }
+
+  /**
+   * Queries a list of virtual bridges.
+   * 
+   * @remarks
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * 
+   * @param request - ListVirtualBridgesRequest
+   * @returns ListVirtualBridgesResponse
+   */
+  async listVirtualBridges(request: $_model.ListVirtualBridgesRequest): Promise<$_model.ListVirtualBridgesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVirtualBridgesWithOptions(request, runtime);
+  }
+
+  /**
    * Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
    * 
    * @remarks
@@ -14927,7 +15177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a disk file or folder, such as the file name.
+   * Modifies the attributes of a cloud disk file or folder, such as the file name.
    * 
    * @param request - ModifyCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14982,7 +15232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a disk file or folder, such as the file name.
+   * Modifies the attributes of a cloud disk file or folder, such as the file name.
    * 
    * @param request - ModifyCdsFileRequest
    * @returns ModifyCdsFileResponse
@@ -15885,7 +16135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a configuration group.
+   * Modifies the basic information of a configuration group, including the name and description.
    * 
    * @param request - ModifyConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15928,7 +16178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a configuration group.
+   * Modifies the basic information of a configuration group, including the name and description.
    * 
    * @param request - ModifyConfigGroupRequest
    * @returns ModifyConfigGroupResponse
@@ -16757,11 +17007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the performance level of a cloud desktop\\"s system disk or data disk.
+   * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
    * 
    * @remarks
-   * When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-   * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
    * 
    * @param request - ModifyDiskSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16816,11 +17066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the performance level of a cloud desktop\\"s system disk or data disk.
+   * Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
    * 
    * @remarks
-   * When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-   * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+   * When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+   * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
    * 
    * @param request - ModifyDiskSpecRequest
    * @returns ModifyDiskSpecResponse
@@ -17035,10 +17285,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the mount target of a File Storage NAS (NAS) file system.
+   * Modifies the mount target of a NAS file system.
    * 
    * @remarks
-   * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+   * When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
    * 
    * @param request - ModifyNASDefaultMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17077,10 +17327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the mount target of a File Storage NAS (NAS) file system.
+   * Modifies the mount target of a NAS file system.
    * 
    * @remarks
-   * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+   * When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
    * 
    * @param request - ModifyNASDefaultMountTargetRequest
    * @returns ModifyNASDefaultMountTargetResponse
@@ -17346,6 +17596,78 @@ export default class Client extends OpenApi {
   async modifyOfficeSiteAttribute(request: $_model.ModifyOfficeSiteAttributeRequest): Promise<$_model.ModifyOfficeSiteAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyOfficeSiteAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the bridge information for behavior management.
+   * 
+   * @remarks
+   * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   * 
+   * @param request - ModifyOfficeSiteBridgeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOfficeSiteBridgeInfoResponse
+   */
+  async modifyOfficeSiteBridgeInfoWithOptions(request: $_model.ModifyOfficeSiteBridgeInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOfficeSiteBridgeInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.bridgeLevel)) {
+      query["BridgeLevel"] = request.bridgeLevel;
+    }
+
+    if (!$dara.isNull(request.bridgeType)) {
+      query["BridgeType"] = request.bridgeType;
+    }
+
+    if (!$dara.isNull(request.enableBridge)) {
+      query["EnableBridge"] = request.enableBridge;
+    }
+
+    if (!$dara.isNull(request.license)) {
+      query["License"] = request.license;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOfficeSiteBridgeInfo",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyOfficeSiteBridgeInfoResponse>(await this.callApi(params, req, runtime), new $_model.ModifyOfficeSiteBridgeInfoResponse({}));
+  }
+
+  /**
+   * Modifies the bridge information for behavior management.
+   * 
+   * @remarks
+   * Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+   * 
+   * @param request - ModifyOfficeSiteBridgeInfoRequest
+   * @returns ModifyOfficeSiteBridgeInfoResponse
+   */
+  async modifyOfficeSiteBridgeInfo(request: $_model.ModifyOfficeSiteBridgeInfoRequest): Promise<$_model.ModifyOfficeSiteBridgeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOfficeSiteBridgeInfoWithOptions(request, runtime);
   }
 
   /**
@@ -18021,11 +18343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies all parameters of a custom WUYING Workspace template.
+   * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: 
-   * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18141,11 +18462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies all parameters of a custom WUYING Workspace template.
+   * Modifies all parameters of a custom cloud computer template.
    * 
    * @remarks
-   * >Warning: 
-   * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+   * >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
    * 
    * @param request - ModifyTemplateRequest
    * @returns ModifyTemplateResponse
@@ -18156,10 +18476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+   * Modifies the basic information of a custom cloud computer template, including the template name and description.
    * 
    * @remarks
-   * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+   * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18198,10 +18518,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the basic information of a custom cloud computer template, including the template name and template description.
+   * Modifies the basic information of a custom cloud computer template, including the template name and description.
    * 
    * @remarks
-   * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+   * This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @returns ModifyTemplateBaseInfoResponse
@@ -18212,7 +18532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify configuration group settings, such as those for scheduled tasks.
+   * Modifies the settings of a configuration group, such as scheduled task configurations.
    * 
    * @param request - ModifyTimerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18259,7 +18579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify configuration group settings, such as those for scheduled tasks.
+   * Modifies the settings of a configuration group, such as scheduled task configurations.
    * 
    * @param request - ModifyTimerGroupRequest
    * @returns ModifyTimerGroupResponse
@@ -18384,6 +18704,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the specifications of a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+   * 
+   * @param request - ModifyVirtualBridgeLevelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyVirtualBridgeLevelResponse
+   */
+  async modifyVirtualBridgeLevelWithOptions(request: $_model.ModifyVirtualBridgeLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVirtualBridgeLevelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.bridgeLevel)) {
+      query["BridgeLevel"] = request.bridgeLevel;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyVirtualBridgeLevel",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyVirtualBridgeLevelResponse>(await this.callApi(params, req, runtime), new $_model.ModifyVirtualBridgeLevelResponse({}));
+  }
+
+  /**
+   * Changes the specifications of a virtual bridge.
+   * 
+   * @remarks
+   * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+   * 
+   * @param request - ModifyVirtualBridgeLevelRequest
+   * @returns ModifyVirtualBridgeLevelResponse
+   */
+  async modifyVirtualBridgeLevel(request: $_model.ModifyVirtualBridgeLevelRequest): Promise<$_model.ModifyVirtualBridgeLevelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyVirtualBridgeLevelWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the status of a virtual bridge.
+   * 
+   * @remarks
+   * Only custom images in the active (Available) state can be modified.
+   * 
+   * @param request - ModifyVirtualBridgeStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyVirtualBridgeStatusResponse
+   */
+  async modifyVirtualBridgeStatusWithOptions(request: $_model.ModifyVirtualBridgeStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVirtualBridgeStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyVirtualBridgeStatus",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyVirtualBridgeStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyVirtualBridgeStatusResponse({}));
+  }
+
+  /**
+   * Modifies the status of a virtual bridge.
+   * 
+   * @remarks
+   * Only custom images in the active (Available) state can be modified.
+   * 
+   * @param request - ModifyVirtualBridgeStatusRequest
+   * @returns ModifyVirtualBridgeStatusResponse
+   */
+  async modifyVirtualBridgeStatus(request: $_model.ModifyVirtualBridgeStatusRequest): Promise<$_model.ModifyVirtualBridgeStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyVirtualBridgeStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Moves a file or folder in a cloud disk to a new location.
    * 
    * @param request - MoveCdsFileRequest
@@ -18450,13 +18906,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical daily and monthly active user counts for a specified date.
+   * Queries the historical daily active user count and monthly active user count for a specified date.
    * 
    * @remarks
-   * ## Usage notes
-   * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-   * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-   * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+   * ## Request description
+   * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+   * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+   * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
    * 
    * @param request - QueryHistoryActiveUserCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18487,13 +18943,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical daily and monthly active user counts for a specified date.
+   * Queries the historical daily active user count and monthly active user count for a specified date.
    * 
    * @remarks
-   * ## Usage notes
-   * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-   * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-   * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+   * ## Request description
+   * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+   * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+   * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
    * 
    * @param request - QueryHistoryActiveUserCountRequest
    * @returns QueryHistoryActiveUserCountResponse
@@ -18598,15 +19054,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical distribution of a specific metric over a specified time period.
+   * Queries the historical distribution of a specific metric within a specified time range.
    * 
    * @remarks
-   * ## Request
-   * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-   * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-   * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-   * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-   * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+   * ## Operation description
+   * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+   * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+   * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+   * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+   * ## Settings
    * 
    * @param request - QueryHistoryMetricDistributionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18649,15 +19106,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical distribution of a specific metric over a specified time period.
+   * Queries the historical distribution of a specific metric within a specified time range.
    * 
    * @remarks
-   * ## Request
-   * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-   * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-   * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-   * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-   * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+   * ## Operation description
+   * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+   * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+   * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+   * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+   * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+   * ## Settings
    * 
    * @param request - QueryHistoryMetricDistributionRequest
    * @returns QueryHistoryMetricDistributionResponse
@@ -18668,16 +19126,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries and ranks historical usage duration by end user or desktop.
+   * Queries and sorts historical usage duration by user or desktop dimension.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Date range**: You can query data within the last 90 days.
-   * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-   * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-   * - **Authentication**: This operation uses an AccessKey for authentication.
-   * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-   * - **Billing**: This API operation is free of charge.
+   * ## Request description
+   * - **Date range**: Supports querying data within a maximum of 90 days.
+   * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+   * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+   * - **Authentication**: Uses AccessKey for identity verification.
+   * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+   * - **Billing**: This API call is free of charge.
    * 
    * @param request - QueryHistoryUsageDurationRankRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18724,16 +19182,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries and ranks historical usage duration by end user or desktop.
+   * Queries and sorts historical usage duration by user or desktop dimension.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Date range**: You can query data within the last 90 days.
-   * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-   * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-   * - **Authentication**: This operation uses an AccessKey for authentication.
-   * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-   * - **Billing**: This API operation is free of charge.
+   * ## Request description
+   * - **Date range**: Supports querying data within a maximum of 90 days.
+   * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+   * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+   * - **Authentication**: Uses AccessKey for identity verification.
+   * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+   * - **Billing**: This API call is free of charge.
    * 
    * @param request - QueryHistoryUsageDurationRankRequest
    * @returns QueryHistoryUsageDurationRankResponse
@@ -19384,6 +19842,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renews a virtual bridge.
+   * 
+   * @remarks
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * 
+   * @param request - RenewVirtualBridgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewVirtualBridgeResponse
+   */
+  async renewVirtualBridgeWithOptions(request: $_model.RenewVirtualBridgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewVirtualBridgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bridgeId)) {
+      query["BridgeId"] = request.bridgeId;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewVirtualBridge",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewVirtualBridgeResponse>(await this.callApi(params, req, runtime), new $_model.RenewVirtualBridgeResponse({}));
+  }
+
+  /**
+   * Renews a virtual bridge.
+   * 
+   * @remarks
+   * After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+   * 
+   * @param request - RenewVirtualBridgeRequest
+   * @returns RenewVirtualBridgeResponse
+   */
+  async renewVirtualBridge(request: $_model.RenewVirtualBridgeRequest): Promise<$_model.RenewVirtualBridgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewVirtualBridgeWithOptions(request, runtime);
+  }
+
+  /**
    * Resets cloud desktops in a shared cloud desktop group.
    * 
    * @remarks
@@ -19464,10 +19998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the mount target of a File Storage NAS (NAS) file system.
+   * Resets the mount point of a NAS file system.
    * 
    * @remarks
-   * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+   * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
    * 
    * @param request - ResetNASDefaultMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19502,10 +20036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the mount target of a File Storage NAS (NAS) file system.
+   * Resets the mount point of a NAS file system.
    * 
    * @remarks
-   * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+   * When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
    * 
    * @param request - ResetNASDefaultMountTargetRequest
    * @returns ResetNASDefaultMountTargetResponse
@@ -19762,7 +20296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+   * Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
    * 
    * @param request - SetDesktopGroupScaleTimerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19801,7 +20335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+   * Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
    * 
    * @param request - SetDesktopGroupScaleTimerRequest
    * @returns SetDesktopGroupScaleTimerResponse
@@ -20446,7 +20980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the transmission and approval result for a submitted file.
+   * Submits the approval result for a file transfer task.
    * 
    * @param request - TransferTaskApprovalCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20489,7 +21023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the transmission and approval result for a submitted file.
+   * Submits the approval result for a file transfer task.
    * 
    * @param request - TransferTaskApprovalCallbackRequest
    * @returns TransferTaskApprovalCallbackResponse

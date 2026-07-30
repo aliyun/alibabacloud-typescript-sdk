@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNASFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * Description of the NAS file system.
+   * The description of the NAS file system.
    * 
    * @example
    * testDescription
@@ -13,7 +13,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data.
+   * Specifies whether the file system uses a KMS-managed key to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
    * 
    * @example
    * 0
@@ -21,14 +21,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   encryptType?: string;
   /**
    * @remarks
-   * Name of the NAS file system.
-   * The file name must follow these rules:
-   * 
-   * - Length: 2 to 128 English or Chinese characters.
-   * 
-   * - Must start with an uppercase or lowercase letter or a Chinese character, cannot start with http\\:// or https\\://.
-   * 
-   * - Can include numbers, underscores (_), or hyphens (-).
+   * The NAS file system name. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
    * 
    * @example
    * testNAS
@@ -36,7 +29,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The office network ID.
    * 
    * This parameter is required.
    * 
@@ -44,9 +37,10 @@ export class CreateNASFileSystemRequest extends $dara.Model {
    * cn-hangzhou+dir-363353****
    */
   officeSiteId?: string;
+  protocolType?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -56,7 +50,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Storage specification type of the NAS file system.
+   * The storage type of the NAS file system.
    * 
    * @example
    * Capacity
@@ -68,6 +62,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
       encryptType: 'EncryptType',
       name: 'Name',
       officeSiteId: 'OfficeSiteId',
+      protocolType: 'ProtocolType',
       regionId: 'RegionId',
       storageType: 'StorageType',
     };
@@ -79,6 +74,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
       encryptType: 'string',
       name: 'string',
       officeSiteId: 'string',
+      protocolType: 'string',
       regionId: 'string',
       storageType: 'string',
     };

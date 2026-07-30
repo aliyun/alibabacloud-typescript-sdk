@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDriveResponseBodyDrive extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1202****
@@ -13,7 +13,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The description of the storage resource.
+   * The storage resource description.
    * 
    * @example
    * test****
@@ -21,7 +21,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the storage resource.
+   * The storage resource ID.
    * 
    * @example
    * dom-aaaa****
@@ -29,7 +29,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The ID of the user-level storage resource.
+   * The user-level storage resource ID.
    * 
    * @example
    * dri-aaaa****
@@ -37,9 +37,8 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   driveId?: string;
   /**
    * @remarks
-   * The ID of the external user-level storage resource.
-   * 
-   * > A value is returned for this parameter only if ResourceType is set to PDS.
+   * The external user-level storage resource ID.
+   * > This parameter is returned only when the storage resource type is PDS.
    * 
    * @example
    * 1100****
@@ -47,7 +46,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   externalDriveId?: string;
   /**
    * @remarks
-   * The ID of the external user.
+   * The external user ID.
    * 
    * @example
    * user01@cn-hangzhou.120****
@@ -55,7 +54,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
-   * The time when the storage resource was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-02T08:42:26.000+00:00
@@ -63,7 +62,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the storage resource was last modified.
+   * The modification time.
    * 
    * @example
    * 2025-07-07T02:46:04.000+00:00
@@ -71,7 +70,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID.
+   * ID。
    * 
    * @example
    * 1
@@ -79,7 +78,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the storage resource.
+   * The storage resource name.
    * 
    * @example
    * test****
@@ -97,28 +96,13 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * @remarks
    * The status of the user-level storage resource.
    * 
-   * Valid values:
-   * 
-   * - INIT: initializing
-   * 
-   * - MAINTAIN: maintaining
-   * 
-   * - DELETING
-   * 
-   * - INVALID
-   * 
-   * - NORMAL
-   * 
-   * - FAIL: failed
-   * 
    * @example
    * NORMAL
    */
   status?: string;
   /**
    * @remarks
-   * The total amount of the user-level storage resource capacity.
-   * 
+   * The total capacity of the user-level storage resource.
    * > Unit: bytes.
    * 
    * @example
@@ -127,13 +111,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   totalSize?: number;
   /**
    * @remarks
-   * The usage of the storage resource.
-   * 
-   * Valid values:
-   * 
-   * - DESKTOP: data disk space
-   * 
-   * - USER_PROFILE: space for personal data of the user
+   * The purpose of the storage resource.
    * 
    * @example
    * USER_PROFILE
@@ -141,8 +119,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The amount of user-level storage resource capacity used.
-   * 
+   * The used capacity of the user-level storage resource.
    * > Unit: bytes.
    * 
    * @example
@@ -211,7 +188,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
 export class CreateDriveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value 200 indicates that the request was successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -232,7 +209,7 @@ export class CreateDriveResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B7AA****

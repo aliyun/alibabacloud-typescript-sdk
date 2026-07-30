@@ -13,7 +13,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the configuration group.
+   * The configuration group ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the configuration group.
+   * The configuration group name.
    * 
    * @example
    * Scheduled task
@@ -31,7 +31,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai

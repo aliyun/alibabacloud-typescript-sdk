@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOnlineUserCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of AD users who have been assigned a cloud desktop.
+   * The number of AD users with assigned desktops.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeOnlineUserCountResponseBody extends $dara.Model {
   adAssignedUserCount?: number;
   /**
    * @remarks
-   * The number of users who have been assigned a cloud desktop.
+   * The number of users with assigned desktops.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeOnlineUserCountResponseBody extends $dara.Model {
   assignedUserCount?: number;
   /**
    * @remarks
-   * The number of online users. Online users include convenience users and AD users.
+   * The number of online users, including convenience users and AD users.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeOnlineUserCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of convenience users who have been assigned a cloud desktop.
+   * The number of convenience users with assigned desktops.
    * 
    * @example
    * 8

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTemplateBaseInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class ModifyTemplateBaseInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned when Code is `success`.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class ModifyTemplateBaseInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True

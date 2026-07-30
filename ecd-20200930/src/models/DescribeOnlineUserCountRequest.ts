@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOnlineUserCountRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is for internal use only.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeOnlineUserCountRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The office site ID.
+   * The workspace ID.
    * 
    * @example
    * cn-shanghai+dir-631324****
@@ -21,7 +21,7 @@ export class DescribeOnlineUserCountRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the service.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeOnlineUserCountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the region to search. This filters the results to show only resources from the specified region.
+   * The region ID used to filter cloud resource information for the specified region.
    * 
    * @example
    * cn-shanghai

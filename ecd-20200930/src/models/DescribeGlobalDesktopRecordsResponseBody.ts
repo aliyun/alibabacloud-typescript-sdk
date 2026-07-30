@@ -214,7 +214,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   osType?: string;
   /**
    * @remarks
-   * The specific operating system version.
+   * The specific operating system model.
    * 
    * @example
    * Windows 10
@@ -222,7 +222,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   platform?: string;
   /**
    * @remarks
-   * The protocol type. Valid values:
+   * The protocol type.
    * 
    * - HDX
    * - ASP

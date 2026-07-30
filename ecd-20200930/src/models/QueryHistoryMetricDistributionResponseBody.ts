@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryHistoryMetricDistributionResponseBodyDistributionList extends $dara.Model {
   /**
    * @remarks
-   * The number of data points in this value range.
+   * The count.
    * 
    * @example
    * 40
@@ -13,7 +13,7 @@ export class QueryHistoryMetricDistributionResponseBodyDistributionList extends 
   count?: number;
   /**
    * @remarks
-   * The range label that you defined in the request.
+   * The range label.
    * 
    * @example
    * 2F2BF549-CBD9-1FED-9ABB-086B62D7B293
@@ -21,7 +21,7 @@ export class QueryHistoryMetricDistributionResponseBodyDistributionList extends 
   label?: string;
   /**
    * @remarks
-   * The maximum value of the value range.
+   * The maximum value.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class QueryHistoryMetricDistributionResponseBodyDistributionList extends 
   max?: number;
   /**
    * @remarks
-   * The minimum value of the value range.
+   * The minimum value.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class QueryHistoryMetricDistributionResponseBodyDistributionList extends 
 export class QueryHistoryMetricDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of objects, each representing the distribution data for a specific value range.
+   * The distribution list corresponding to resource monitoring.
    */
   distributionList?: QueryHistoryMetricDistributionResponseBodyDistributionList[];
   /**
@@ -78,7 +78,7 @@ export class QueryHistoryMetricDistributionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of data points that match the query.
+   * The total number of query results.
    * 
    * @example
    * 94

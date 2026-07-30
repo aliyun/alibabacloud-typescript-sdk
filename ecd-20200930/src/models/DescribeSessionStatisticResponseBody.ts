@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSessionStatisticResponseBodyStatistic extends $dara.Model {
   /**
    * @remarks
-   * The total number of sessions in the time range.
+   * The total number of sessions within the interval.
    * 
    * @example
    * 4
@@ -53,12 +53,12 @@ export class DescribeSessionStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics.
+   * The statistics information.
    */
   statistic?: DescribeSessionStatisticResponseBodyStatistic[];
   /**
    * @remarks
-   * The total number of sessions returned.
+   * The total number of entries returned.
    * 
    * @example
    * 1

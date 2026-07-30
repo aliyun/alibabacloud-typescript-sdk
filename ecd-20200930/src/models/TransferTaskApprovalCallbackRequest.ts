@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TransferTaskApprovalCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket where the file resides.
+   * The name of the bucket where the file is stored.
    * 
    * @example
    * ed****-17337752804***
@@ -13,7 +13,7 @@ export class TransferTaskApprovalCallbackRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The region where the OSS bucket storing the file resides.
+   * The region of the bucket where the file is stored.
    * 
    * @example
    * cn-hangzhou
@@ -23,18 +23,13 @@ export class TransferTaskApprovalCallbackRequest extends $dara.Model {
    * @remarks
    * The approval result.
    * 
-   * Valid values:
-   * 
-   * *   Approved
-   * *   Rejected
-   * 
    * @example
    * Approved
    */
   result?: string;
   /**
    * @remarks
-   * The ID of the transmission task.
+   * The ID of the transfer task.
    * 
    * @example
    * trt-msndfksm18fs****

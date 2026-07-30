@@ -24,7 +24,6 @@ export class DescribeSessionStatisticRequest extends $dara.Model {
    * The query interval. Unit: seconds. Valid values:
    * 
    * - 60
-   * 
    * - 120
    * 
    * @example
@@ -41,7 +40,7 @@ export class DescribeSessionStatisticRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies to search for session information by region ID. This parameter is used to filter desktop information of a specific region.
+   * The region ID used to filter desktop information for a specified region.
    * 
    * @example
    * cn-hangzhou

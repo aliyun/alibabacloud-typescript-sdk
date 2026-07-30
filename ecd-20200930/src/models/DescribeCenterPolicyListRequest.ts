@@ -17,7 +17,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   modelLibrary?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query. Paging starts from page 1.    
+   * The page number of the current page in a paging query.    
    * Default value: 1.
    * 
    * @example
@@ -26,7 +26,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query. Paging is used to return results in batches.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20

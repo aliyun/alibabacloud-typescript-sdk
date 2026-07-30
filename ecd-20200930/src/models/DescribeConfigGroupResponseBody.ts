@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of resources that are bound to the configuration group.
+   * The number of resources bound to the configuration group.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   bindCount?: number;
   /**
    * @remarks
-   * The number of bound cloud computers.
+   * The quantity information of resources bound to the configuration group.
    */
   bindCountMap?: { [key: string]: number };
   /**
@@ -26,7 +26,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the configuration group.
+   * The configuration group ID.
    * 
    * @example
    * ccg-0cid8v30an12****
@@ -34,7 +34,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Used for frontend display. The system scheduled task description uses a code.
+   * Used for frontend display. The code for the system scheduled task description.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
@@ -42,7 +42,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   innerTimerDesc?: string;
   /**
    * @remarks
-   * Used for frontend display; maps the system scheduled task name to a code.
+   * Used for frontend display. The mapping code for the system scheduled task name.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
@@ -50,17 +50,17 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   innerTimerName?: string;
   /**
    * @remarks
-   * Used for system scheduled task checks. The current scheduled task does not support detach or attach operations.
+   * Used by system scheduled task check. The current scheduled task does not support unbinding or binding.
    */
   isBind?: boolean;
   /**
    * @remarks
-   * Used for system scheduled task checks. The current scheduled task does not support modification.
+   * Used by system scheduled task check. The current scheduled task does not support modification.
    */
   isUpdate?: boolean;
   /**
    * @remarks
-   * The name of the configuration group.
+   * The configuration group name.
    * 
    * @example
    * Scheduled task
@@ -68,11 +68,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service type of the configuration group.
-   * 
-   * Valid values:
-   * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The product type used by the configuration group.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -80,14 +76,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The state of the configuration group.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The configuration group is available.
-   * *   UNAVAILABLE: The configuration group is deleted.
-   * *   DELETING: The configuration group is being deleted.
-   * *   UPDATING: The configuration group is being modified.
+   * The configuration group status.
    * 
    * @example
    * AVAILABLE
@@ -95,11 +84,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the configuration group.
-   * 
-   * Valid values:
-   * 
-   * *   Timer: the scheduled task type.
+   * The configuration group type.
    * 
    * @example
    * Timer
@@ -154,12 +139,12 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
 export class DescribeConfigGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration groups.
+   * The configuration group information.
    */
   data?: DescribeConfigGroupResponseBodyData[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -175,7 +160,7 @@ export class DescribeConfigGroupResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -183,7 +168,7 @@ export class DescribeConfigGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 20

@@ -6,7 +6,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Maximum value: 200.
+   * The number of entries per page. Maximum value: 200.
    * 
    * @example
    * 20。
@@ -27,7 +27,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The sub-type of the report export task.
+   * The subtype of the report task.
    * 
    * @example
    * DESKTOP
@@ -35,7 +35,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   subType?: string;
   /**
    * @remarks
-   * The ID of the report export task.
+   * The report task ID.
    * 
    * @example
    * ret-sfkdsjfi*****
@@ -43,11 +43,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of the report.
-   * 
-   * Valid value:
-   * 
-   * - RESOURCE_REPORT
+   * The report type.
    * 
    * @example
    * RESOURCE_REPORT

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The template ID.
+   * The template ID returned after the template is created.
    * 
    * @example
    * b-0cc7rx533*****
@@ -21,7 +21,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * True

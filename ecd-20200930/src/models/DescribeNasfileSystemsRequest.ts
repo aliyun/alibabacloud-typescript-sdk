@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASFileSystemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the NAS file systems.
+   * The list of NAS file system IDs.
    * 
    * @example
    * 04f314****
@@ -13,7 +13,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   fileSystemId?: string[];
   /**
    * @remarks
-   * Specifies whether to return only NAS file systems that are compatible with User Profile Management (UPM).
+   * Specifies whether to include only NAS file systems that support UPM in the query results.
    * 
    * @example
    * false
@@ -21,10 +21,9 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   matchCompatibleProfile?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for a paged query.    
    * 
-   * - Maximum value: 100.
-   * 
+   * - Maximum value: 100.    
    * - Default value: 10.
    * 
    * @example
@@ -33,7 +32,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -41,7 +40,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -49,7 +48,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Elastic Desktop Service (EDS) is available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

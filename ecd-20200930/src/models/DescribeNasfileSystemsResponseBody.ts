@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application delivery group.
+   * The delivery group ID.
    * 
    * @example
    * aig-0bz55ibznu9p7****
@@ -13,7 +13,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups exte
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the application delivery group.
+   * The delivery group name.
    * 
    * @example
    * DemoDeliveryGroup
@@ -45,7 +45,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups exte
 export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The shared cloud computer ID.
    * 
    * @example
    * dg-9eeyf15b25nyl****
@@ -53,7 +53,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the desktop group.
+   * The shared cloud computer name.
    * 
    * @example
    * test_dg
@@ -85,7 +85,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
 export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $dara.Model {
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -93,7 +93,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The office network name.
    * 
    * @example
    * DemoOfficeNetwork
@@ -125,21 +125,20 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This field is not publicly available.
    */
   allowOperateUserDrive?: boolean;
   /**
    * @remarks
-   * The application delivery groups associated with the UPM-supported NAS file system.
+   * The list of cloud application delivery group objects bound to the UPM-supported NAS file system.
    */
   appInstanceGroups?: DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups[];
   /**
    * @remarks
-   * The storage capacity of the NAS file system, in GiB.
+   * The total capacity of the NAS file system. Unit: GiB.
    * 
-   * - If the storage type is capacity type, the capacity is 10 PiB (10,485,760 GiB).
-   * 
-   * - If the storage type is performance type, the capacity is 1 PiB (1,048,576 GiB).
+   * - If the storage type is Capacity, the capacity is fixed at 10 PiB (10485760 GiB).
+   * - If the storage type is Performance, the capacity is fixed at 1 PiB (1048576 GiB).
    * 
    * @example
    * 10485760
@@ -147,7 +146,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The creation time of the NAS file system.
+   * The time when the NAS file system was created.
    * 
    * @example
    * 2021-05-10T11:39Z
@@ -155,7 +154,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the NAS file system.
+   * The NAS file system description.
    * 
    * @example
    * testDescription
@@ -163,7 +162,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The desktop groups associated with the UPM-supported NAS file system.
+   * The list of shared cloud computer objects bound to the UPM-supported NAS file system.
    */
   desktopGroups?: DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups[];
   /**
@@ -176,7 +175,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   encryptionEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the NAS file system.
+   * The NAS file system ID.
    * 
    * @example
    * 04f314****
@@ -184,7 +183,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The name of the NAS file system.
+   * The NAS file system name.
    * 
    * @example
    * testNAS
@@ -192,7 +191,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The status of the NAS file system.
+   * The NAS file system status.
    * 
    * @example
    * Running
@@ -200,7 +199,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemStatus?: string;
   /**
    * @remarks
-   * The type of the NAS file system. Currently, only the standard type is supported. The value is always `standard`.
+   * The type of the NAS file system. Currently, only the general-purpose type is supported, which is `standard`.
    * 
    * @example
    * standard
@@ -208,7 +207,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The amount of storage used by the NAS file system, in bytes.
+   * The used capacity of the NAS file system. Unit: bytes.
    * 
    * @example
    * 0
@@ -216,7 +215,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   meteredSize?: number;
   /**
    * @remarks
-   * The domain name of the mount target.
+   * The mount target domain name.
    * 
    * @example
    * 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
@@ -224,7 +223,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The status of the mount target.
+   * The mount target status.
    * 
    * @example
    * Active
@@ -232,7 +231,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetStatus?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -240,7 +239,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The office network name.
    * 
    * @example
    * test
@@ -248,7 +247,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The office networks associated with the file system.
+   * The list of office networks.
    */
   officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
   productType?: string;
@@ -260,6 +259,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * false
    */
   profileCompatible?: boolean;
+  protocolType?: string;
   /**
    * @remarks
    * The region ID.
@@ -270,7 +270,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The use case of the NAS file system.
+   * The storage mode of the NAS file system.
    * 
    * @example
    * Upm
@@ -287,7 +287,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * Indicates whether the Server Message Block (SMB) access control list (ACL) feature is supported.
+   * Indicates whether the SMB ACL feature is supported.
    * 
    * @example
    * false
@@ -295,7 +295,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   supportAcl?: boolean;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone.
    * 
    * @example
    * cn-hangzhou-f
@@ -322,6 +322,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
       officeSites: 'OfficeSites',
       productType: 'ProductType',
       profileCompatible: 'ProfileCompatible',
+      protocolType: 'ProtocolType',
       regionId: 'RegionId',
       scene: 'Scene',
       sizeQuota: 'SizeQuota',
@@ -352,6 +353,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
       officeSites: { 'type': 'array', 'itemType': DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites },
       productType: 'string',
       profileCompatible: 'boolean',
+      protocolType: 'string',
       regionId: 'string',
       scene: 'string',
       sizeQuota: 'number',
@@ -382,12 +384,12 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeNASFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the NAS file systems.
+   * The NAS file system information.
    */
   fileSystems?: DescribeNASFileSystemsResponseBodyFileSystems[];
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is empty, no more results are available.
+   * The pagination token for the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

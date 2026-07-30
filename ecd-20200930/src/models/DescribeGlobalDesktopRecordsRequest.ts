@@ -6,7 +6,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The cloud desktop IDs. You can specify 1 to 100 IDs.
+   * The cloud desktop ID. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
   /**
@@ -20,7 +20,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported cloud desktop type IDs.
+   * The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -54,7 +54,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
+   * The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
    * 
    * - uptime: sorts by cloud desktop uptime.
    * 
@@ -64,7 +64,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number for a paged query.    
+   * The page number of the current page in a paged query. Paging starts from page 1.    
    * Default value: 1.
    * 
    * @example
@@ -81,7 +81,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. Valid values:
+   * The region ID.
    * - Shanghai
    * - Singapore
    * 

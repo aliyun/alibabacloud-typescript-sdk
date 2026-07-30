@@ -22,7 +22,7 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
    * - IncludeAssignedUser: specifies whether users are assigned.
    * - ResourceGroupId: the resource group ID.
    * - PolicyId: the policy ID.
-   * - Tag:{Tag Key}: the cloud computer tag. To query by multiple tags, pass in multiple Filter objects.
+   * - Tag:{Tag key}: the cloud computer tag. To query by multiple tags, pass in multiple Filter objects.
    * 
    * @example
    * Tag:TestKey

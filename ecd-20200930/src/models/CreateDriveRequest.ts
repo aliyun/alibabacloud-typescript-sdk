@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDriveRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of your Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 1202****
@@ -21,9 +21,8 @@ export class CreateDriveRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the storage resource.
-   * 
-   * > Call the DescribeDrives operation to retrieve the storage resource ID.
+   * The storage resource ID.
+   * > You can call the DescribeDrives operation to obtain this value.
    * 
    * @example
    * dom-aaaa****
@@ -39,9 +38,8 @@ export class CreateDriveRequest extends $dara.Model {
   driveName?: string;
   /**
    * @remarks
-   * The ID of the external storage resource.
-   * 
-   * > Call the DescribeDrives operation to retrieve the external storage resource ID.
+   * The external storage resource ID.
+   * > You can call the DescribeDrives operation to obtain this value.
    * 
    * @example
    * 1234****
@@ -65,13 +63,7 @@ export class CreateDriveRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the storage resource.
-   * 
-   * Valid values:
-   * 
-   * - NAS: File Storage NAS
-   * 
-   * - PDS: Drive and Photo Service
+   * The storage resource type.
    * 
    * @example
    * NAS
@@ -79,13 +71,7 @@ export class CreateDriveRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The usage of the storage resource.
-   * 
-   * Valid values:
-   * 
-   * - DESKTOP: data disk space
-   * 
-   * - USER_PROFILE: space for personal data of the user
+   * The purpose of the storage resource.
    * 
    * @example
    * USER_PROFILE
