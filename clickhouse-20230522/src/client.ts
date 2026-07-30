@@ -57,14 +57,18 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "clickhouse.aliyuncs.com",
       'us-east-1': "clickhouse.aliyuncs.com",
       'us-west-1': "clickhouse.aliyuncs.com",
+      'us-southeast-1': "clickhouse.us-southeast-1.aliyuncs.com",
+      'na-south-1': "clickhouse.na-south-1.aliyuncs.com",
       'me-central-1': "clickhouse.me-central-1.aliyuncs.com",
       'eu-west-1': "clickhouse.eu-west-1.aliyuncs.com",
       'eu-central-1': "clickhouse.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "clickhouse.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "clickhouse.cn-wulanchabu-gic-1.aliyuncs.com",
       'cn-wulanchabu': "clickhouse.cn-wulanchabu.aliyuncs.com",
       'cn-huhehaote': "clickhouse.cn-huhehaote.aliyuncs.com",
       'cn-guangzhou': "clickhouse.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "clickhouse.cn-chengdu.aliyuncs.com",
+      'ap-southeast-8': "clickhouse.ap-southeast-8.aliyuncs.com",
       'ap-southeast-6': "clickhouse.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "clickhouse.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "clickhouse.aliyuncs.com",
@@ -2040,7 +2044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Langfuse实例组织列表
+   * Queries the list of organizations for a Langfuse instance.
    * 
    * @param request - DescribeLangfuseOrgsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Langfuse实例组织列表
+   * Queries the list of organizations for a Langfuse instance.
    * 
    * @param request - DescribeLangfuseOrgsRequest
    * @returns DescribeLangfuseOrgsResponse

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Model {
   /**
+   * @remarks
+   * The time when the Langfuse organization was created.
+   * 
    * @example
    * 2026-06-11T10:27:23Z
    */
   createdAt?: string;
   /**
+   * @remarks
+   * The Langfuse organization name.
+   * 
    * @example
    * org_name
    */
   name?: string;
   /**
+   * @remarks
+   * The Langfuse organization ID.
+   * 
    * @example
    * cmrbhzx930005jw2q****
    */
   organizationId?: string;
   /**
+   * @remarks
+   * The time when the Langfuse organization was last updated.
+   * 
    * @example
    * 2026-06-09T10:27:55
    */
@@ -51,18 +63,31 @@ export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Mod
 }
 
 export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The Langfuse organization information.
+   */
   organizations?: DescribeLangfuseOrgsResponseBodyDataOrganizations[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 17
    */
@@ -98,8 +123,15 @@ export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
 }
 
 export class DescribeLangfuseOrgsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeLangfuseOrgsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
    */

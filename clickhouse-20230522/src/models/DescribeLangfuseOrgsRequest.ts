@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseOrgsRequest extends $dara.Model {
   /**
    * @remarks
+   * The Langfuse instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class DescribeLangfuseOrgsRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

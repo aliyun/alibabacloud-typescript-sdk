@@ -45,6 +45,8 @@ export class DeleteEndpointRequest extends $dara.Model {
    * @remarks
    * The ID of the region.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -57,6 +57,8 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * cn-hangzhou
    */
