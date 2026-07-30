@@ -4,27 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is returned when the job is in the Failed state.
+   * 
    * @example
    * 200
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is returned when the job is in the Failed state.
+   * 
    * @example
    * The specified product does not exist.
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The list of media asset IDs. If the input is a URL, the media asset ID registered after input is returned.
+   */
   mediaIds?: string[];
   /**
+   * @remarks
+   * The URL of the analysis result file. The file content is in JSON format.
+   * 
    * @example
-   * "{\\"source_video_url\\":\\"http://xxx.mp4\\",\\"narrative_overview\\":{******}}"
+   * http://xxxx.json
    */
   result?: string;
   /**
+   * @remarks
+   * The file status. Valid values:
+   * 
+   * - **Created**: Created.
+   * - **Executing**: Executing.
+   * - **Finished**: Finished.
+   * - **Failed**: Failed.
+   * - **Deleted**: Deleted.
+   * 
    * @example
    * Executing
    */
   status?: string;
   /**
+   * @remarks
+   * The user-defined parameter, which is a JSON-formatted string.
+   * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
    */
@@ -65,36 +90,63 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
 
 export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $dara.Model {
   /**
+   * @remarks
+   * The error code. This parameter is returned when the job is in the `Failed` state.
+   * 
    * @example
    * 200
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This parameter is returned when the job is in the Failed state.
+   * 
    * @example
    * The specified product does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ******afaa6f37457******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID.
+   * 
    * @example
    * ******307e9971f1******
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The analysis result, which is a JSON string.
+   * 
    * @example
    * "{\\"source_video_url\\":\\"http://xxx.mp4\\",\\"narrative_overview\\":{******}}"
    */
   result?: string;
   /**
+   * @remarks
+   * The file status. Valid values:
+   * 
+   * - **Created**: Created.
+   * - **Executing**: Executing.
+   * - **Finished**: Finished.
+   * - **Failed**: Failed.
+   * - **Deleted**: Deleted.
+   * 
    * @example
    * Executing
    */
   state?: string;
   /**
+   * @remarks
+   * The user-defined parameter, which is a JSON-formatted string.
+   * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
    */
@@ -133,9 +185,20 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
 }
 
 export class GetMediaComprehensionJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The media asset content understanding result object.
+   */
   job?: GetMediaComprehensionJobResponseBodyJob;
+  /**
+   * @remarks
+   * The media asset content understanding object. This parameter is deprecated.
+   */
   mediaComprehensionJob?: GetMediaComprehensionJobResponseBodyMediaComprehensionJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

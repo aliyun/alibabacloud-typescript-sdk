@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitVideoTranslationJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user-level idempotency key.
+   * 
    * @example
    * ****3e761e9d11edba640c42a1b7****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The job description.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
    * @remarks
+   * The input configuration JSON string:
+   * - Video
+   * - Audio
+   * - Subtitle
+   * 
+   * <notice>Currently, only OSS addresses under the calling account are supported as input.</notice>
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +36,8 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
+   * The job parameters JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +46,10 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobParameters?: string;
   /**
    * @remarks
+   * The job type. Valid values:
+   * - SubtitleTranslate
+   * - VoiceTranslate
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +58,8 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
+   * The output configuration JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,11 +67,17 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
    */
   output?: string;
   /**
+   * @remarks
+   * If not specified, the service generates a default title.
+   * 
    * @example
    * title
    */
   title?: string;
   /**
+   * @remarks
+   * The custom user data JSON string.
+   * 
    * @example
    * {}
    */

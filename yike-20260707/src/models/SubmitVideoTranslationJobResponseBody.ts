@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitVideoTranslationJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * `data.JobId`
+   * 
    * @example
    * vtj_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * `requestId`
+   * 
    * @example
    * request-id
    */

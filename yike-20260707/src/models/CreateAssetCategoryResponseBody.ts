@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAssetCategoryResponseBodyCategory extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created category.
+   * 
    * @example
    * 45
    */
   categoryId?: number;
   /**
+   * @remarks
+   * The media asset category information.
+   * 
    * @example
    * see below
    */
   categoryName?: string;
   /**
+   * @remarks
+   * The category level. The first-level category has a level of 0, the second-level category has a level of 1, and the third-level category has a level of 2.
+   * 
    * @example
    * 0
    */
   level?: number;
   /**
+   * @remarks
+   * The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
+   * 
    * @example
    * -1
    */
@@ -51,8 +63,15 @@ export class CreateAssetCategoryResponseBodyCategory extends $dara.Model {
 }
 
 export class CreateAssetCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The media asset category information.
+   */
   category?: CreateAssetCategoryResponseBodyCategory;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */

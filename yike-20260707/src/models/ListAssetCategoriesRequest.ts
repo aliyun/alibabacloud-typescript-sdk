@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAssetCategoriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The page size. Default value: 10.
+   * 
    * @example
    * 10
    */

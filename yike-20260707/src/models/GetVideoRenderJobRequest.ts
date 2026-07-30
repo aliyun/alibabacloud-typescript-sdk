@@ -2,15 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetYikeJobCreditRequest extends $dara.Model {
+export class GetVideoRenderJobRequest extends $dara.Model {
   /**
-   * @remarks
-   * The task ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * ag_12412424****
+   * 68ca759e798b40b4903b255*******
    */
   jobId?: string;
   static names(): { [key: string]: string } {

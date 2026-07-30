@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetImageGenerationJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ag_68ca759b4903b255*******
    */

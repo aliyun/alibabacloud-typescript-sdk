@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitImageGenerationJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ag_68ca759b4903b255*******
    */
   jobId?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

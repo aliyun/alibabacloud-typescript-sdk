@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAssetCategoryResponseBodyCategory extends $dara.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 50
    */
   categoryId?: number;
   /**
+   * @remarks
+   * The category name.
+   * 
    * @example
    * scenery
    */
   categoryName?: string;
   /**
+   * @remarks
+   * The category level. Valid values:
+   * - **0**: level-1 category.
+   * - **1**: level-2 category.
+   * - **2**: level-3 category.
+   * 
    * @example
    * 1
    */
   level?: number;
   /**
+   * @remarks
+   * The parent category ID.
+   * 
    * @example
    * 10
    */
@@ -52,26 +67,41 @@ export class GetAssetCategoryResponseBodyCategory extends $dara.Model {
 
 export class GetAssetCategoryResponseBodySubCategories extends $dara.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 55
    */
   categoryId?: number;
   /**
+   * @remarks
+   * The category name.
+   * 
    * @example
    * sea
    */
   categoryName?: string;
   /**
+   * @remarks
+   * The category level.
+   * 
    * @example
    * 2
    */
   level?: number;
   /**
+   * @remarks
+   * The parent category ID.
+   * 
    * @example
    * 50
    */
   parentId?: number;
   /**
+   * @remarks
+   * The total number of subcategories.
+   * 
    * @example
    * 0
    */
@@ -106,14 +136,28 @@ export class GetAssetCategoryResponseBodySubCategories extends $dara.Model {
 }
 
 export class GetAssetCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The category details.
+   */
   category?: GetAssetCategoryResponseBodyCategory;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of subcategories.
+   */
   subCategories?: GetAssetCategoryResponseBodySubCategories[];
   /**
+   * @remarks
+   * The number of subcategories.
+   * 
    * @example
    * 5
    */

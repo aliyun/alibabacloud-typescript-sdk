@@ -34,11 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取媒资信息
+   * Retrieves information about multiple media assets in a batch.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Request description.
    * 
    * @param request - BatchGetMediasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,11 +72,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取媒资信息
+   * Retrieves information about multiple media assets in a batch.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Request description.
    * 
    * @param request - BatchGetMediasRequest
    * @returns BatchGetMediasResponse
@@ -88,10 +86,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分类
+   * Creates a media asset category.
    * 
    * @remarks
-   * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+   * Categories support up to three levels, and each level supports up to 100 subcategories.
    * 
    * @param request - CreateAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -126,10 +124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建分类
+   * Creates a media asset category.
    * 
    * @remarks
-   * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+   * Categories support up to three levels, and each level supports up to 100 subcategories.
    * 
    * @param request - CreateAssetCategoryRequest
    * @returns CreateAssetCategoryResponse
@@ -140,10 +138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除分类
+   * Deletes a media asset category.
    * 
    * @remarks
-   * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+   * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
    * 
    * @param request - DeleteAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -174,10 +172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除分类
+   * Deletes a media asset category.
    * 
    * @remarks
-   * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+   * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
    * 
    * @param request - DeleteAssetCategoryRequest
    * @returns DeleteAssetCategoryResponse
@@ -188,7 +186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资信息
+   * Deletes media asset information.
    * 
    * @param request - DeleteMediasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -227,7 +225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒资信息
+   * Deletes media asset information.
    * 
    * @param request - DeleteMediasRequest
    * @returns DeleteMediasResponse
@@ -238,7 +236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分类
+   * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
    * 
    * @param request - GetAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -269,7 +267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询分类
+   * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
    * 
    * @param request - GetAssetCategoryRequest
    * @returns GetAssetCategoryResponse
@@ -280,7 +278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询图片生成任务
+   * Queries an image generation task.
    * 
    * @param request - GetImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -311,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询图片生成任务
+   * Queries an image generation task.
    * 
    * @param request - GetImageGenerationJobRequest
    * @returns GetImageGenerationJobResponse
@@ -380,11 +378,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资内容理解作业
+   * Queries a media asset content understanding job.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Description
+   * This API is used to query a media asset content understanding job.
    * 
    * @param request - GetMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -415,11 +413,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资内容理解作业
+   * Queries a media asset content understanding job.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Description
+   * This API is used to query a media asset content understanding job.
    * 
    * @param request - GetMediaComprehensionJobRequest
    * @returns GetMediaComprehensionJobResponse
@@ -430,7 +428,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频生成任务
+   * Queries a creative script generation task.
+   * 
+   * @param request - GetRemakeScriptJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRemakeScriptJobResponse
+   */
+  async getRemakeScriptJobWithOptions(request: $_model.GetRemakeScriptJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRemakeScriptJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRemakeScriptJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRemakeScriptJobResponse>(await this.callApi(params, req, runtime), new $_model.GetRemakeScriptJobResponse({}));
+  }
+
+  /**
+   * Queries a creative script generation task.
+   * 
+   * @param request - GetRemakeScriptJobRequest
+   * @returns GetRemakeScriptJobResponse
+   */
+  async getRemakeScriptJob(request: $_model.GetRemakeScriptJobRequest): Promise<$_model.GetRemakeScriptJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRemakeScriptJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -465,7 +505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频生成任务
+   * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -476,7 +516,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一刻主账户会员计划及积分情况
+   * 查询爆款新视频渲染任务
+   * 
+   * @param request - GetVideoRenderJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoRenderJobResponse
+   */
+  async getVideoRenderJobWithOptions(request: $_model.GetVideoRenderJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoRenderJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoRenderJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoRenderJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoRenderJobResponse({}));
+  }
+
+  /**
+   * 查询爆款新视频渲染任务
+   * 
+   * @param request - GetVideoRenderJobRequest
+   * @returns GetVideoRenderJobResponse
+   */
+  async getVideoRenderJob(request: $_model.GetVideoRenderJobRequest): Promise<$_model.GetVideoRenderJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoRenderJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the membership plan and credit information for a Yike primary account.
    * 
    * @param request - GetYikeAccountCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -500,7 +582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一刻主账户会员计划及积分情况
+   * Retrieves the membership plan and credit information for a Yike primary account.
    * 
    * @param request - GetYikeAccountCreditRequest
    * @returns GetYikeAccountCreditResponse
@@ -511,7 +593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻任务实际消耗积分
+   * Queries the actual credit consumption of a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -542,7 +624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻任务实际消耗积分
+   * Queries the actual credit consumption of a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @returns GetYikeJobCreditResponse
@@ -553,11 +635,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入媒资
+   * Imports a media asset.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Operation description
+   * This API is used to query media content understanding jobs.
    * 
    * @param request - ImportMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -636,11 +718,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入媒资
+   * Imports a media asset.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Operation description
+   * This API is used to query media content understanding jobs.
    * 
    * @param request - ImportMediaRequest
    * @returns ImportMediaResponse
@@ -651,7 +733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出分类
+   * Retrieves a paginated list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -686,7 +768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出分类
+   * Retrieves a paginated list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @returns ListAssetCategoriesResponse
@@ -697,7 +779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索媒资
+   * Returns media asset information that matches the specified filter conditions.
    * 
    * @param request - SearchMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -748,7 +830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索媒资
+   * Returns media asset information that matches the specified filter conditions.
    * 
    * @param request - SearchMediaRequest
    * @returns SearchMediaResponse
@@ -759,7 +841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交图像生成接口
+   * Submits an image generation task.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -826,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交图像生成接口
+   * Submits an image generation task.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -899,7 +981,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频生成接口
+   * 提交爆款复刻新脚本生成任务
+   * 
+   * @remarks
+   * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitRemakeScriptJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitRemakeScriptJobResponse
+   */
+  async submitRemakeScriptJobWithOptions(request: $_model.SubmitRemakeScriptJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitRemakeScriptJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.remakeParams)) {
+      query["RemakeParams"] = request.remakeParams;
+    }
+
+    if (!$dara.isNull(request.remakeType)) {
+      query["RemakeType"] = request.remakeType;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitRemakeScriptJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitRemakeScriptJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitRemakeScriptJobResponse({}));
+  }
+
+  /**
+   * 提交爆款复刻新脚本生成任务
+   * 
+   * @remarks
+   * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+   * 
+   * @param request - SubmitRemakeScriptJobRequest
+   * @returns SubmitRemakeScriptJobResponse
+   */
+  async submitRemakeScriptJob(request: $_model.SubmitRemakeScriptJobRequest): Promise<$_model.SubmitRemakeScriptJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitRemakeScriptJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a video generation task.
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -970,7 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频生成接口
+   * Submits a video generation task.
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @returns SubmitVideoGenerationJobResponse
@@ -981,17 +1119,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频翻译任务
+   * 提交爆款新视频渲染任务
+   * 
+   * @param request - SubmitVideoRenderJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoRenderJobResponse
+   */
+  async submitVideoRenderJobWithOptions(request: $_model.SubmitVideoRenderJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoRenderJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.script)) {
+      query["Script"] = request.script;
+    }
+
+    if (!$dara.isNull(request.settings)) {
+      query["Settings"] = request.settings;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoRenderJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoRenderJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoRenderJobResponse({}));
+  }
+
+  /**
+   * 提交爆款新视频渲染任务
+   * 
+   * @param request - SubmitVideoRenderJobRequest
+   * @returns SubmitVideoRenderJobResponse
+   */
+  async submitVideoRenderJob(request: $_model.SubmitVideoRenderJobRequest): Promise<$_model.SubmitVideoRenderJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoRenderJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
-   * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
-   * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
-   * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
-   * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
-   * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
-   * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+   * ## Request description
+   * - This API supports multiple video translation features, including subtitle translation and voice translation.
+   * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+   * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+   * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+   * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+   * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+   * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1050,17 +1238,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频翻译任务
+   * Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
-   * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
-   * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
-   * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
-   * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
-   * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
-   * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+   * ## Request description
+   * - This API supports multiple video translation features, including subtitle translation and voice translation.
+   * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+   * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+   * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+   * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+   * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+   * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @returns SubmitVideoTranslationJobResponse
@@ -1071,10 +1259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资分类
+   * Updates a media asset category.
    * 
    * @remarks
-   * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1109,10 +1297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒资分类
+   * Updates a media asset category.
    * 
    * @remarks
-   * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @returns UpdateAssetCategoryResponse
@@ -1123,11 +1311,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMedia
+   * Updates media asset information.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Request description
+   * This API is used to query media content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1194,11 +1382,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateMedia
+   * Updates media asset information.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Request description
+   * This API is used to query media content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @returns UpdateMediaResponse

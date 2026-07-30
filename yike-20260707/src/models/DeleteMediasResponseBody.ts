@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMediasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs or input URLs that are forbidden to delete.
+   */
   forbiddenList?: string[];
+  /**
+   * @remarks
+   * The ignored IDs or input URLs (invalid or items with retrieval errors).
+   */
   ignoredList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

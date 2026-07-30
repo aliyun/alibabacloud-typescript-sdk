@@ -3,44 +3,72 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMediaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to update the Tags field in append mode.
+   */
   appendTags?: boolean;
   categoryId?: number;
   /**
+   * @remarks
+   * The cover image URL. This parameter is valid only for video media assets.
+   * 
    * @example
    * https://bullet-time-20240910.oss-cn-shanghai.aliyuncs.com/ice-generated/a97255309a7c71f093d3e7f6d75a6302/snapshots/normal/2a4030b1950443048f3e3f81489d57eb-00001.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * OK
    */
   description?: string;
   /**
+   * @remarks
+   * The dynamic metadata.
+   * 
    * @example
    * {}
    */
   dynamicMetaData?: string;
   /**
+   * @remarks
+   * The media type of the media asset.
+   * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputURL?: string;
   /**
+   * @remarks
+   * The media asset ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The tags. Separate multiple tags with commas.
+   * 
    * @example
-   * 剪映动画
+   * CapCut animation.
    */
   mediaTags?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
    * title
    */
   title?: string;
   /**
+   * @remarks
+   * The user data. The maximum length is 1024 bytes.
+   * 
    * @example
    * {}
    */

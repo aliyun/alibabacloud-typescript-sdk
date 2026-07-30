@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAssetCategoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The category name.
+   * 
+   * Maximum length: 64 bytes.
+   * 
+   * UTF-8 encoding.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +18,9 @@ export class CreateAssetCategoryRequest extends $dara.Model {
    */
   categoryName?: string;
   /**
+   * @remarks
+   * The parent category ID.
+   * 
    * @example
    * 5
    */
