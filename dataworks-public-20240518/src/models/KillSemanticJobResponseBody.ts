@@ -2,25 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteMetaEntityDefResponseBody extends $dara.Model {
+export class KillSemanticJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * Indicates whether the stop request has been accepted by the executor. Even if true is returned, call GetSemanticJobDetail to query the final status.
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
-   * 3C1E755D-B606-57A4-9B9C-7B214E81354C
+   * 676271D6-53B4-57BE-89FA-72F7AE1418DF
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -28,6 +31,7 @@ export class DeleteMetaEntityDefResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      data: 'boolean',
       requestId: 'string',
       success: 'boolean',
     };

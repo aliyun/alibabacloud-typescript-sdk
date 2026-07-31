@@ -13,7 +13,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates ex
   createTime?: number;
   /**
    * @remarks
-   * The creator of the data quality rule template.
+   * The user who created the data quality rule template.
    * 
    * @example
    * 7892346529452
@@ -29,7 +29,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates ex
   id?: string;
   /**
    * @remarks
-   * The time when the data quality rule template was updated.
+   * The time when the data quality rule template was last updated.
    * 
    * @example
    * 1729816478147
@@ -37,7 +37,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates ex
   modifyTime?: number;
   /**
    * @remarks
-   * The last updater of the data quality rule template.
+   * The user who last updated the data quality rule template.
    * 
    * @example
    * 205250754596036836
@@ -61,7 +61,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates ex
   projectId?: number;
   /**
    * @remarks
-   * Specific configurations of the data quality rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+   * The specific configuration of the data quality rule template. For more information, see [Data quality Spec configuration](https://help.aliyun.com/document_detail/2963394.html).
    * 
    * @example
    * {
@@ -124,7 +124,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of pages.
+   * The page size.
    * 
    * @example
    * 20
@@ -132,7 +132,7 @@ export class ListDataQualityTemplatesResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -171,12 +171,12 @@ export class ListDataQualityTemplatesResponseBodyPageInfo extends $dara.Model {
 export class ListDataQualityTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Paged query results of data quality rule templates.
+   * The paging query result of data quality rule templates.
    */
   pageInfo?: ListDataQualityTemplatesResponseBodyPageInfo;
   /**
    * @remarks
-   * The API request ID, which is generated as a UUID.
+   * The request ID.
    * 
    * @example
    * 0bc14115***159376359

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file after it is created.
    * 
    * @example
    * 1000001
@@ -37,7 +37,7 @@ export class CreateFileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. Use this ID to troubleshoot issues.
+   * The unique ID of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG
@@ -45,10 +45,9 @@ export class CreateFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - true: The call succeeded.
-   * 
+   * - true: The call was successful.
    * - false: The call failed.
    * 
    * @example

@@ -2,26 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDataQualityTemplatesRequest extends $dara.Model {
+export class ListSemanticJobRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The catalog path to which the data quality template belongs.
+   * The job name. Use the Data.Name value from the CreateSemanticJob response or the Name value from a ListSemanticJobs list item.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * /timeliness/ods_layer
+   * semantic-job-demo
    */
-  catalog?: string;
+  jobName?: string;
   /**
    * @remarks
-   * The template rule name for fuzzy match.
-   * 
-   * @example
-   * table_rows
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The page number. Default value: 1.
+   * The page number, starting from 1. If this parameter is omitted or set to a value less than or equal to 0, page 1 is returned.
    * 
    * @example
    * 1
@@ -29,37 +23,25 @@ export class ListDataQualityTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of run records per page. If this parameter is omitted or set to a value less than or equal to 0, the default value 50 is used. Maximum value: 200.
    * 
    * @example
-   * 10
+   * 50
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The project ID.
-   * 
-   * @example
-   * 10000
-   */
-  projectId?: number;
   static names(): { [key: string]: string } {
     return {
-      catalog: 'Catalog',
-      name: 'Name',
+      jobName: 'JobName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      projectId: 'ProjectId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      catalog: 'string',
-      name: 'string',
+      jobName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      projectId: 'number',
     };
   }
 

@@ -14,7 +14,7 @@ export class RerunTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information of the batch operation. The structure is a map in which the key is the node instance ID and the value is the result information.
+   * The result of the batch operation. The structure is a map in which the key is the node instance ID and the value is the result information.
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

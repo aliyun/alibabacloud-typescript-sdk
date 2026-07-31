@@ -2,15 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAgentRequest extends $dara.Model {
+export class RunSemanticJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the Agent to delete.
+   * The name of the job to run. Use the Data.Name value returned by CreateSemanticJob or the Name field from the ListSemanticJobs response. The Source, ResourceGroupId, and reference files of the job are determined by the definition saved at creation time.
    * 
    * This parameter is required.
    * 
    * @example
-   * my-agent
+   * semantic-job-demo
    */
   name?: string;
   static names(): { [key: string]: string } {

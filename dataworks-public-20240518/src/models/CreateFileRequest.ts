@@ -7,9 +7,9 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * The advanced settings of the node.
    * 
-   * This parameter corresponds to the Advanced Settings section in the right-side navigation pane on the configuration tab of EMR Spark Streaming and EMR Streaming SQL nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Advanced Settings" in the right-side navigation bar on the editing page of EMR Spark Streaming and EMR Streaming SQL DataStudio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
-   * Only EMR Spark Streaming and EMR Streaming SQL nodes support this parameter. The value must be in the JSON format.
+   * Currently, only EMR Spark Streaming and EMR Streaming SQL nodes support this parameter. The parameter value is in JSON format.
    * 
    * @example
    * {"queue":"default","SPARK_CONF":"--conf spark.driver.memory=2g"}
@@ -17,7 +17,7 @@ export class CreateFileRequest extends $dara.Model {
   advancedSettings?: string;
   /**
    * @remarks
-   * Specifies whether to apply the scheduling configuration immediately after the file is published.
+   * Specifies whether the scheduling configuration takes effect immediately after publishing.
    * 
    * @example
    * true
@@ -26,12 +26,10 @@ export class CreateFileRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic parsing for the file. Valid values:
+   * - true: The file automatically parses code.
+   * - false: The file does not automatically parse code.
    * 
-   * - true
-   * 
-   * - false
-   * 
-   * This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the code parsing setting in the "Schedule Configuration > Scheduling Dependencies" section of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -39,9 +37,11 @@ export class CreateFileRequest extends $dara.Model {
   autoParsing?: boolean;
   /**
    * @remarks
-   * The interval at which the node is automatically rerun after a failure. Unit: milliseconds. Maximum value: 1800000 milliseconds (30 minutes).
+   * The interval between automatic reruns upon failure, in milliseconds. The maximum value is 1800000 milliseconds (30 minutes).
    * 
-   * This parameter corresponds to the Rerun interval parameter in Properties > Schedule > Auto Rerun upon Failure for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
+   * This parameter corresponds to the "Rerun Interval" setting in the "Schedule Configuration > Time Properties > Auto Rerun upon Error" section of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * 
+   * The "Rerun Interval" in the console uses minutes as the unit. Convert the time accordingly when calling this operation.
    * 
    * @example
    * 120000
@@ -49,7 +49,7 @@ export class CreateFileRequest extends $dara.Model {
   autoRerunIntervalMillis?: number;
   /**
    * @remarks
-   * The number of automatic reruns after an error occurs. Maximum value: 10.
+   * The number of automatic reruns after an error occurs. The maximum value is 10.
    * 
    * @example
    * 3
@@ -57,9 +57,9 @@ export class CreateFileRequest extends $dara.Model {
   autoRerunTimes?: number;
   /**
    * @remarks
-   * The data source used when the task published from the file is run.
+   * The data source that the node connects to when the file is published as a node and the node runs.
    * 
-   * You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to query the available data sources in the workspace.
+   * You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to obtain the list of available data sources in the workspace.
    * 
    * @example
    * odps_source
@@ -67,7 +67,9 @@ export class CreateFileRequest extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The file code content. Different code types (fileType) have different code formats. In Operation Center, you can find a task of the corresponding type, right-click it, and select View Code to view the specific code format.
+   * The code content of the file. Different code types (fileType) have different code formats.
+   * 
+   * You can find the node of the corresponding type in Operation Center, right-click the node, and then click View Code to view the specific code format.
    * 
    * @example
    * SHOW TABLES;
@@ -75,11 +77,10 @@ export class CreateFileRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Specifies whether to automatically create the directory specified by FileFolderPath if the directory does not exist. Valid values:
+   * Specifies whether to automatically create the directory if the specified directory (FileFolderPath) does not exist in the system. Valid values:
    * 
-   * - true: If the directory does not exist, automatically create it.
-   * 
-   * - false: If the directory does not exist, the call fails.
+   * - true: Automatically create the directory if it does not exist.
+   * - false: The invocation fails if the directory does not exist.
    * 
    * @example
    * false
@@ -87,25 +88,24 @@ export class CreateFileRequest extends $dara.Model {
   createFolderIfNotExists?: boolean;
   /**
    * @remarks
-   * The cron expression for scheduled execution. This parameter corresponds to the Cron Expression setting in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure Scheduling Cycle and Scheduled Time, DataWorks automatically generates a cron expression.
+   * The cron expression for timed scheduling on an epoch basis. This parameter corresponds to the "Schedule Configuration > Time Property > Cron Expression" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the scheduling epoch and timed scheduling time, DataWorks automatically generates the corresponding cron expression.
    * 
    * Examples:
+   * - Timed scheduling at 05:30 every day: `00 30 05 * * ?`
    * 
-   * - Scheduled at 05:30 every day: `00 30 05 * * ?`
+   * - Timed scheduling at the 15th minute of every hour: `00 15 00-23/1 * * ?`
    * 
-   * - Scheduled at the 15th minute of every hour: `00 15 00-23/1 * * ?`
+   * - Schedule every 10 minutes: `00 00/10 * * * ?`
    * 
-   * - Scheduled every 10 minutes: `00 00/10 * * * ?`
+   * - Schedule every 10 minutes from 08:00 to 17:00 every day: `00 00-59/10 8-17 * * * ?`
    * 
-   * - Scheduled every 10 minutes between 08:00 and 17:00 every day: `00 00-59/10 8-17 * * * ?`
+   * - Timed scheduling at 00:20 on the 1st of every month: `00 20 00 1 * ?`
    * 
-   * - Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
+   * - Schedule every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
    * 
-   * - Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
+   * - Timed scheduling at 00:05 every Tuesday and Friday: `00 05 00 * * 2,5`
    * 
-   * - Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
-   * 
-   * Due to the rules of the DataWorks scheduling system, cron expressions have the following restrictions:
+   * Due to the rules of the DataWorks scheduling system, cron expressions have the following limits:
    * 
    * - The minimum scheduling interval is 5 minutes.
    * 
@@ -117,9 +117,9 @@ export class CreateFileRequest extends $dara.Model {
   cronExpress?: string;
   /**
    * @remarks
-   * The type of scheduling cycle. Valid values: NOT_DAY (minute, hour) and DAY (day, week, month).
+   * The type of the scheduling cycle. Valid values: NOT_DAY (minute or hour) and DAY (day, week, or month).
    * 
-   * This parameter corresponds to the Scheduling Cycle setting in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Schedule Configuration > Time Properties > Scheduling Cycle" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * DAY
@@ -127,9 +127,9 @@ export class CreateFileRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The IDs of the nodes on which the current node depends. This parameter takes effect only when the DependentType parameter is set to USER_DEFINE. Separate multiple node IDs with commas (,).
+   * The IDs of the nodes that the current file depends on when DependentType is set to USER_DEFINE. Separate multiple node IDs with commas (,).
    * 
-   * This parameter corresponds to the Other Nodes option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the node IDs specified when you select "Other Nodes" as the dependency after the parameter settings of "Schedule Configuration > Scheduling Dependencies" are set to "Cross-Epoch Dependency (Previous Epoch)" for a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * abc
@@ -137,19 +137,14 @@ export class CreateFileRequest extends $dara.Model {
   dependentNodeIdList?: string;
   /**
    * @remarks
-   * The dependency mode on the previous cycle. Valid values:
+   * The type of cross-cycle dependency. Valid values:
    * 
-   * - SELF: Depends on the current node.
-   * 
-   * - CHILD: Depends on the child nodes.
-   * 
-   * - USER_DEFINE: Depends on other nodes.
-   * 
-   * - NONE: No dependencies. Does not depend on the previous cycle.
-   * 
-   * - USER_DEFINE_AND_SELF: Depends on both the current node and other nodes in the previous cycle.
-   * 
-   * - CHILD_AND_SELF: Depends on both the current node and its child nodes in the previous cycle.
+   * - SELF: The dependency is the current node.
+   * - CHILD: The dependency is the first-level child nodes.
+   * - USER_DEFINE: The dependency is other specified nodes.
+   * - NONE: No dependency is selected. The node does not depend on the previous cycle.   
+   * - USER_DEFINE_AND_SELF: The dependency is a combination of the current node and other specified nodes across cycles.
+   * - CHILD_AND_SELF: The dependency is a combination of the first-level child nodes and the current node across cycles.
    * 
    * @example
    * NONE
@@ -157,9 +152,9 @@ export class CreateFileRequest extends $dara.Model {
   dependentType?: string;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when automatic scheduling stops.
+   * The timestamp in milliseconds when automatic scheduling stops.
    * 
-   * This parameter corresponds to the end time of Effective Period in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the end time (in milliseconds) of the "Schedule Configuration > Time Properties > Effective Date" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 1671694850000
@@ -183,7 +178,7 @@ export class CreateFileRequest extends $dara.Model {
   fileFolderPath?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * This parameter is required.
    * 
@@ -193,7 +188,11 @@ export class CreateFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The code type of the file. Different file types have different code. For more information, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html). You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the code types of files.
+   * The code type of the file.
+   * 
+   * Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
+   * 
+   * You can call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) operation to query the code types of files.
    * 
    * This parameter is required.
    * 
@@ -203,11 +202,11 @@ export class CreateFileRequest extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * Specifies whether to inherit the dry-run status from the previous cycle. Valid values:
+   * Specifies whether to inherit the dry-run property from the previous cycle. Valid values:
    * 
-   * - true: Inherit the dry-run status from the previous cycle.
+   * - true: Inherit the dry-run property from the previous cycle.
    * 
-   * - false: Do not inherit the dry-run status from the previous cycle.
+   * - false: Do not inherit the dry-run property from the previous cycle.
    * 
    * @example
    * false
@@ -215,7 +214,7 @@ export class CreateFileRequest extends $dara.Model {
   ignoreParentSkipRunningProperty?: boolean;
   /**
    * @remarks
-   * The custom image ID.
+   * The ID of the custom image.
    * 
    * @example
    * m-bp1h4b5a8ogkbll2f3tr
@@ -223,9 +222,9 @@ export class CreateFileRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The output names of the ancestor nodes on which the current node depends. Separate multiple output names with commas (,).
+   * The output names of the upstream files on which the current file depends. Separate multiple output names with commas (,).
    * 
-   * This parameter corresponds to the Output Name of Ancestor Node setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Upstream Node Output Name" configured in the "Schedule Configuration > Scheduling Dependencies" section of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * project_root,project.file1,project.001_out
@@ -233,19 +232,20 @@ export class CreateFileRequest extends $dara.Model {
   inputList?: string;
   /**
    * @remarks
-   * The input context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the InputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+   * The context input parameters of the node. The parameter value is in JSON format. For the fields included, see the InputContextParameterList parameter structure in the response of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
    * 
-   * This parameter corresponds to the Input Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Schedule Configuration > Node Context Parameters > Input Parameters of This Node" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
    */
   inputParameters?: string;
+  outputList?: string;
   /**
    * @remarks
-   * The output context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the OutputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+   * The context output parameters of the node. The parameter value is in JSON format. For the fields included, see the OutputContextParameterList parameter structure in the response of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
    * 
-   * This parameter corresponds to the Output Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Schedule Configuration > Node Context Parameters > Output Parameters of This Node" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
@@ -253,7 +253,7 @@ export class CreateFileRequest extends $dara.Model {
   outputParameters?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the file owner. If this parameter is not specified, the Alibaba Cloud account ID of the caller is used by default.
+   * The Alibaba Cloud user ID of the file owner. If this parameter is left empty, the Alibaba Cloud user ID of the caller is used by default.
    * 
    * @example
    * 1000000000001
@@ -261,9 +261,9 @@ export class CreateFileRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The scheduling parameters of the node. Separate multiple parameters with spaces.
+   * The scheduling parameters. Separate multiple parameters with spaces.
    * 
-   * This parameter corresponds to the Scheduling Parameter setting in Properties for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+   * This parameter corresponds to the "Schedule Configuration > Scheduling Parameters" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
    * 
    * @example
    * a=x b=y
@@ -271,7 +271,9 @@ export class CreateFileRequest extends $dara.Model {
   paraValue?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. To obtain the workspace ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace ID.
+   * 
+   * You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace for this API call.
    * 
    * @example
    * 10000
@@ -279,9 +281,9 @@ export class CreateFileRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The DataWorks workspace name. To obtain the workspace name, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
+   * The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace name.
    * 
-   * You must specify either this parameter or ProjectId to identify the target DataWorks workspace for this API call.
+   * You must specify either this parameter or ProjectId to determine the DataWorks workspace for this API call.
    * 
    * @example
    * dw_project
@@ -289,15 +291,12 @@ export class CreateFileRequest extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * The rerun policy. Valid values:
+   * The rerun property. Valid values:
+   * - ALL_ALLOWED: The node can be rerun regardless of whether it runs successfully or fails.
+   * - FAILURE_ALLOWED: The node can be rerun only after it fails.
+   * - ALL_DENIED: The node cannot be rerun regardless of whether it runs successfully or fails.
    * 
-   * - ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
-   * 
-   * - FAILURE_ALLOWED: Reruns are allowed only when the task fails.
-   * 
-   * - ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
-   * 
-   * This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Schedule Configuration > Time Properties > Rerun Property" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * ALL_ALLOWED
@@ -305,7 +304,7 @@ export class CreateFileRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This field is deprecated. Do not use it.
    * 
    * @example
    * 375827434852437
@@ -313,7 +312,7 @@ export class CreateFileRequest extends $dara.Model {
   resourceGroupId?: number;
   /**
    * @remarks
-   * The resource group for the task published from the file. To obtain the ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console), navigate to the workspace configuration page, and click Resource Groups in the left-side navigation pane to view the IDs of resource groups bound to the current workspace.
+   * The schedule resource used when the file is published as a node and the node runs. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the Workspace Settings page, and click **Resource Groups** in the left-side navigation pane to obtain the ID of the resource group bound to the current workspace.
    * 
    * @example
    * S_res_group_559_1613715566828
@@ -323,13 +322,10 @@ export class CreateFileRequest extends $dara.Model {
    * @remarks
    * The scheduling type. Valid values:
    * 
-   * - NORMAL: Normal scheduled task.
-   * 
-   * - MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
-   * 
-   * - PAUSE: Paused task.
-   * 
-   * - SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
+   * - NORMAL: A normal scheduling node.
+   * - MANUAL: A manual node that is not scheduled on a daily basis. This corresponds to nodes in manual workflows.
+   * - PAUSE: A paused node.
+   * - SKIP: A dry-run node that is scheduled on a daily basis but is directly set to successful when scheduling starts.
    * 
    * @example
    * NORMAL
@@ -337,9 +333,9 @@ export class CreateFileRequest extends $dara.Model {
   schedulerType?: string;
   /**
    * @remarks
-   * The timestamp (in milliseconds) when automatic scheduling starts.
+   * The timestamp in milliseconds when automatic scheduling starts.
    * 
-   * This parameter corresponds to the start time of Effective Period in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the start time (in milliseconds) of the "Schedule Configuration > Time Properties > Effective Date" setting of a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * 1671608450000
@@ -347,9 +343,9 @@ export class CreateFileRequest extends $dara.Model {
   startEffectDate?: number;
   /**
    * @remarks
-   * Specifies whether to immediately run the node after the node is deployed.
+   * Specifies whether to start the node immediately after it is published.
    * 
-   * This parameter corresponds to the Start Method setting in Settings > Schedule in the right-side navigation pane on the configuration tab of EMR Spark Streaming and EMR Streaming SQL nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to the "Configuration > Time Properties > Startup Method" setting in the right-side navigation bar on the editing page of EMR Spark Streaming and EMR Streaming SQL DataStudio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * true
@@ -357,13 +353,11 @@ export class CreateFileRequest extends $dara.Model {
   startImmediately?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip execution. Valid values:
+   * Specifies whether to suspend scheduling. Valid values:
+   * - true: Suspend scheduling.
+   * - false: Do not suspend scheduling.
    * 
-   * - true
-   * 
-   * - false
-   * 
-   * This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+   * This parameter corresponds to setting the "Schedule Configuration > Time Properties > Scheduling Type" to "Suspend Scheduling" for a DataStudio node in the [DataWorks console](https://workbench.data.aliyun.com/console).
    * 
    * @example
    * false
@@ -371,7 +365,7 @@ export class CreateFileRequest extends $dara.Model {
   stop?: boolean;
   /**
    * @remarks
-   * The timeout settings for scheduling configuration.
+   * The timeout value defined in the scheduling configuration.
    * 
    * @example
    * 1
@@ -400,6 +394,7 @@ export class CreateFileRequest extends $dara.Model {
       imageId: 'ImageId',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
+      outputList: 'OutputList',
       outputParameters: 'OutputParameters',
       owner: 'Owner',
       paraValue: 'ParaValue',
@@ -439,6 +434,7 @@ export class CreateFileRequest extends $dara.Model {
       imageId: 'string',
       inputList: 'string',
       inputParameters: 'string',
+      outputList: 'string',
       outputParameters: 'string',
       owner: 'string',
       paraValue: 'string',

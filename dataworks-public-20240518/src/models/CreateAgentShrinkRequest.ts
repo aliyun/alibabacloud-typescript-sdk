@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of sub-Agents that can be called by this Agent.
+   * The list of child Agents that can be called by this Agent.
    * 
    * @example
    * -
@@ -16,7 +16,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The description of the Agent.
    * 
    * @example
-   * 数据分析助手
+   * Data analytics assistant
    */
   description?: string;
   /**
@@ -24,12 +24,12 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * 我的助手
+   * MyAssistant.
    */
   displayName?: string;
   /**
    * @remarks
-   * Extended metadata (key-value pairs).
+   * The extended metadata (key-value pairs).
    * 
    * @example
    * {}
@@ -47,7 +47,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   modelShrink?: string;
   /**
    * @remarks
-   * The name of the Agent. It must be unique under the current account.
+   * The Agent name, which must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * 你是一个数据分析助手。
+   * You are a data analytics assistant.
    */
   systemPrompt?: string;
   /**
@@ -92,7 +92,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is selected based on Visibility.
+   * The visibility scope. The corresponding field is determined by the Visibility parameter.
    */
   visibilityScopeShrink?: string;
   static names(): { [key: string]: string } {

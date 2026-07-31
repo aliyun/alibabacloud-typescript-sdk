@@ -16,6 +16,13 @@ export class RerunTaskInstancesShrinkRequest extends $dara.Model {
    * The list of node instance IDs.
    */
   idsShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to rerun instances with the latest configuration.
+   * 
+   * @example
+   * false
+   */
   useLatestConfig?: boolean;
   static names(): { [key: string]: string } {
     return {

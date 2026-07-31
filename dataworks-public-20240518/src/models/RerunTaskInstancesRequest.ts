@@ -16,6 +16,13 @@ export class RerunTaskInstancesRequest extends $dara.Model {
    * The list of node instance IDs.
    */
   ids?: number[];
+  /**
+   * @remarks
+   * Specifies whether to rerun instances with the latest configuration.
+   * 
+   * @example
+   * false
+   */
   useLatestConfig?: boolean;
   static names(): { [key: string]: string } {
     return {

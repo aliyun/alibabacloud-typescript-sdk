@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
+export class UpdateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   /**
    * @remarks
    * The list of visible project IDs.
@@ -10,7 +10,7 @@ export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+   * The list of visible user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -42,13 +42,13 @@ export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   }
 }
 
-export class CreateSkillResponseBodySkill extends $dara.Model {
+export class UpdateSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
    * The SKILL.md body content.
    * 
    * @example
-   * -
+   * 把大象放冰箱分为三步，把冰箱门打开，把大象放进去，把冰箱门关上。
    */
   body?: string;
   /**
@@ -69,7 +69,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time, in millisecond-level UNIX timestamp.
+   * The creation time (millisecond timestamp).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -79,17 +79,17 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, in millisecond-level UNIX timestamp.
+   * The last modification time (millisecond timestamp).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
-   * 12345678901
+   * 1780555634000
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The ID of the user who last modified the Skill.
+   * The last modifier ID.
    * 
    * @example
    * 123456
@@ -115,7 +115,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
    * @remarks
    * The visibility scope.
    */
-  visibilityScope?: CreateSkillResponseBodySkillVisibilityScope;
+  visibilityScope?: UpdateSkillResponseBodySkillVisibilityScope;
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
@@ -140,7 +140,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
       modifierId: 'string',
       name: 'string',
       visibility: 'string',
-      visibilityScope: CreateSkillResponseBodySkillVisibilityScope,
+      visibilityScope: UpdateSkillResponseBodySkillVisibilityScope,
     };
   }
 
@@ -156,7 +156,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   }
 }
 
-export class CreateSkillResponseBody extends $dara.Model {
+export class UpdateSkillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -169,7 +169,7 @@ export class CreateSkillResponseBody extends $dara.Model {
    * @remarks
    * -
    */
-  skill?: CreateSkillResponseBodySkill;
+  skill?: UpdateSkillResponseBodySkill;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -180,7 +180,7 @@ export class CreateSkillResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      skill: CreateSkillResponseBodySkill,
+      skill: UpdateSkillResponseBodySkill,
     };
   }
 

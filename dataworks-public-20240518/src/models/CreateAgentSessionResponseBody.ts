@@ -35,7 +35,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.M
 export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The request ID provided by the client. This ID is returned in the response without modification.
+   * The request ID passed by the caller. The value is returned as-is.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. The value is fixed at `2.0`.
+   * The JSON-RPC version. Fixed value: 2.0.
    * 
    * @example
    * 2.0
@@ -51,7 +51,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The business data. This field is `null` if an error occurs.
+   * The business data. The value is null if an error occurs.
    */
   result?: CreateAgentSessionResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
@@ -90,7 +90,7 @@ export class CreateAgentSessionResponseBody extends $dara.Model {
   jsonRpcResponse?: CreateAgentSessionResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 8A9D5E6C-5817-5837-9715-6E3967EC6123

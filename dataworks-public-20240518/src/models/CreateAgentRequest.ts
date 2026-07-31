@@ -2,15 +2,105 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateAgentRequestCallableAgents extends $dara.Model {
+  /**
+   * @remarks
+   * The Agent name.
+   * 
+   * @example
+   * agent-1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAgentRequestSkills extends $dara.Model {
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * skill-1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAgentRequestTools extends $dara.Model {
+  /**
+   * @remarks
+   * The McpServer name.
+   * 
+   * @example
+   * server-1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAgentRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. Takes effect when Visibility is `PROJECT`.
+   * The list of project IDs that have visibility. This parameter takes effect when Visibility is set to `PROJECT`.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. Takes effect when Visibility is `USER`.
+   * The list of user IDs that have visibility. This parameter takes effect when Visibility is set to `USER`.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,18 +135,18 @@ export class CreateAgentRequestVisibilityScope extends $dara.Model {
 export class CreateAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of sub-Agents that can be called by this Agent.
+   * The list of child Agents that can be called by this Agent.
    * 
    * @example
    * -
    */
-  callableAgents?: string[];
+  callableAgents?: CreateAgentRequestCallableAgents[];
   /**
    * @remarks
    * The description of the Agent.
    * 
    * @example
-   * 数据分析助手
+   * Data analytics assistant
    */
   description?: string;
   /**
@@ -64,12 +154,12 @@ export class CreateAgentRequest extends $dara.Model {
    * The display name of the Agent.
    * 
    * @example
-   * 我的助手
+   * MyAssistant.
    */
   displayName?: string;
   /**
    * @remarks
-   * Extended metadata (key-value pairs).
+   * The extended metadata (key-value pairs).
    * 
    * @example
    * {}
@@ -87,7 +177,7 @@ export class CreateAgentRequest extends $dara.Model {
   model?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the Agent. It must be unique under the current account.
+   * The Agent name, which must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -102,13 +192,13 @@ export class CreateAgentRequest extends $dara.Model {
    * @example
    * -
    */
-  skills?: string[];
+  skills?: CreateAgentRequestSkills[];
   /**
    * @remarks
    * The system prompt.
    * 
    * @example
-   * 你是一个数据分析助手。
+   * You are a data analytics assistant.
    */
   systemPrompt?: string;
   /**
@@ -118,7 +208,7 @@ export class CreateAgentRequest extends $dara.Model {
    * @example
    * -
    */
-  tools?: string[];
+  tools?: CreateAgentRequestTools[];
   /**
    * @remarks
    * The visibility level.<br>
@@ -132,7 +222,7 @@ export class CreateAgentRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is selected based on Visibility.
+   * The visibility scope. The corresponding field is determined by the Visibility parameter.
    */
   visibilityScope?: CreateAgentRequestVisibilityScope;
   static names(): { [key: string]: string } {
@@ -153,15 +243,15 @@ export class CreateAgentRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      callableAgents: { 'type': 'array', 'itemType': 'string' },
+      callableAgents: { 'type': 'array', 'itemType': CreateAgentRequestCallableAgents },
       description: 'string',
       displayName: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       model: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
-      skills: { 'type': 'array', 'itemType': 'string' },
+      skills: { 'type': 'array', 'itemType': CreateAgentRequestSkills },
       systemPrompt: 'string',
-      tools: { 'type': 'array', 'itemType': 'string' },
+      tools: { 'type': 'array', 'itemType': CreateAgentRequestTools },
       visibility: 'string',
       visibilityScope: CreateAgentRequestVisibilityScope,
     };

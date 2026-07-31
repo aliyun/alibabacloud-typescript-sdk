@@ -900,15 +900,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Agent
+   * Creates an Agent.
    * 
    * @remarks
-   * ## Request Description
-   * - **Agent Name**: Must be unique under the current account.
-   * - **Model Configuration**: An optional parameter used to specify the model used by the Agent and its related settings.
-   * - **Visibility Level**: Defines who can access the Agent. Supports visibility within the account, to specified projects, or to specific users.
-   * - **Visibility Scope**: When `PROJECT` or `USER` is selected as the visibility level, the specific project ID or user ID list must be further specified.
-   * - **Other Parameters**: Items such as display name and description are optional and can be filled in based on actual needs.
+   * ## Operation description
+   * - **Agent name**: Must be unique within the current account.
+   * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
+   * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+   * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
+   * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
    * 
    * @param tmpReq - CreateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1005,15 +1005,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Agent
+   * Creates an Agent.
    * 
    * @remarks
-   * ## Request Description
-   * - **Agent Name**: Must be unique under the current account.
-   * - **Model Configuration**: An optional parameter used to specify the model used by the Agent and its related settings.
-   * - **Visibility Level**: Defines who can access the Agent. Supports visibility within the account, to specified projects, or to specific users.
-   * - **Visibility Scope**: When `PROJECT` or `USER` is selected as the visibility level, the specific project ID or user ID list must be further specified.
-   * - **Other Parameters**: Items such as display name and description are optional and can be filled in based on actual needs.
+   * ## Operation description
+   * - **Agent name**: Must be unique within the current account.
+   * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
+   * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+   * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
+   * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
    * 
    * @param request - CreateAgentRequest
    * @returns CreateAgentResponse
@@ -1024,14 +1024,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new agent session and returns a session ID.
+   * Creates a new agent session and returns the session ID.
    * 
    * @remarks
-   * ## Description
-   * - This API creates a new agent session.
-   * - You must specify the agent name to bind to the session using the `_meta.agent.agentName` parameter.
-   * - You can specify a session source identifier in the `_meta.config.sessionSource` parameter. This allows you to search for sessions by source later.
-   * - You can add session tags using the `_meta.config.sessionTags[].sessionTagCode` parameter.
+   * ## Request description
+   * - This operation creates a new agent session.
+   * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
+   * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
    * @param tmpReq - CreateAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1076,14 +1079,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new agent session and returns a session ID.
+   * Creates a new agent session and returns the session ID.
    * 
    * @remarks
-   * ## Description
-   * - This API creates a new agent session.
-   * - You must specify the agent name to bind to the session using the `_meta.agent.agentName` parameter.
-   * - You can specify a session source identifier in the `_meta.config.sessionSource` parameter. This allows you to search for sessions by source later.
-   * - You can add session tags using the `_meta.config.sessionTags[].sessionTagCode` parameter.
+   * ## Request description
+   * - This operation creates a new agent session.
+   * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
+   *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
+   *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
+   *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+   * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
+   * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
    * 
    * @param request - CreateAgentSessionRequest
    * @returns CreateAgentSessionResponse
@@ -2634,7 +2640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+   * Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
    * 
    * @param request - CreateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2727,6 +2733,10 @@ export default class Client extends OpenApi {
       body["InputParameters"] = request.inputParameters;
     }
 
+    if (!$dara.isNull(request.outputList)) {
+      body["OutputList"] = request.outputList;
+    }
+
     if (!$dara.isNull(request.outputParameters)) {
       body["OutputParameters"] = request.outputParameters;
     }
@@ -2797,7 +2807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+   * Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
    * 
    * @param request - CreateFileRequest
    * @returns CreateFileResponse
@@ -4404,13 +4414,95 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Skill
+   * Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
    * 
    * @remarks
-   * ## 请求说明
-   * - `SkillMdOverride` 与 `BundleUrl` 参数二选一，必须提供其中之一。
-   * - `Visibility` 可设置为 `TENANT`、`PROJECT` 或 `USER`，分别表示账号内可见、指定项目可见或指定用户可见。
-   * - 当 `Visibility` 设置为 `PROJECT` 时，需要通过 `VisibilityScope.ProjectIds` 指定可见的项目 ID 列表；当设置为 `USER` 时，则需通过 `VisibilityScope.UserIds` 指定可见的用户 ID 列表。
+   * Creates a semantic task definition.
+   * 
+   * @param tmpReq - CreateSemanticJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSemanticJobResponse
+   */
+  async createSemanticJobWithOptions(tmpReq: $_model.CreateSemanticJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSemanticJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSemanticJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.referenceFileIds)) {
+      request.referenceFileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceFileIds, "ReferenceFileIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.referenceFileUris)) {
+      request.referenceFileUrisShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceFileUris, "ReferenceFileUris", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.source)) {
+      request.sourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.source, "Source", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.referenceFileIdsShrink)) {
+      body["ReferenceFileIds"] = request.referenceFileIdsShrink;
+    }
+
+    if (!$dara.isNull(request.referenceFileUrisShrink)) {
+      body["ReferenceFileUris"] = request.referenceFileUrisShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.sourceShrink)) {
+      body["Source"] = request.sourceShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSemanticJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSemanticJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateSemanticJobResponse({}));
+  }
+
+  /**
+   * Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+   * 
+   * @remarks
+   * Creates a semantic task definition.
+   * 
+   * @param request - CreateSemanticJobRequest
+   * @returns CreateSemanticJobResponse
+   */
+  async createSemanticJob(request: $_model.CreateSemanticJobRequest): Promise<$_model.CreateSemanticJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSemanticJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a new Skill in DataWorks.
+   * 
+   * @remarks
+   * ## Request description
+   * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
+   * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
+   * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
    * 
    * @param tmpReq - CreateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4479,13 +4571,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Skill
+   * Creates a new Skill in DataWorks.
    * 
    * @remarks
-   * ## 请求说明
-   * - `SkillMdOverride` 与 `BundleUrl` 参数二选一，必须提供其中之一。
-   * - `Visibility` 可设置为 `TENANT`、`PROJECT` 或 `USER`，分别表示账号内可见、指定项目可见或指定用户可见。
-   * - 当 `Visibility` 设置为 `PROJECT` 时，需要通过 `VisibilityScope.ProjectIds` 指定可见的项目 ID 列表；当设置为 `USER` 时，则需通过 `VisibilityScope.UserIds` 指定可见的用户 ID 列表。
+   * ## Request description
+   * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
+   * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
+   * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
    * 
    * @param request - CreateSkillRequest
    * @returns CreateSkillResponse
@@ -4750,11 +4842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Agent
+   * Deletes an Agent.
    * 
    * @remarks
-   * ## 请求说明
-   * 该 API 用于从 DataWorks 中删除指定名称的 Agent。调用此接口时，必须提供要删除的 Agent 的名称。
+   * ## Operation description
+   * This API operation deletes an Agent with the specified name from DataWorks. When calling this operation, you must provide the name of the Agent to delete.
    * 
    * @param request - DeleteAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4785,11 +4877,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Agent
+   * Deletes an Agent.
    * 
    * @remarks
-   * ## 请求说明
-   * 该 API 用于从 DataWorks 中删除指定名称的 Agent。调用此接口时，必须提供要删除的 Agent 的名称。
+   * ## Operation description
+   * This API operation deletes an Agent with the specified name from DataWorks. When calling this operation, you must provide the name of the Agent to delete.
    * 
    * @param request - DeleteAgentRequest
    * @returns DeleteAgentResponse
@@ -6044,10 +6136,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体定义
+   * Deletes a metadata entity definition, including custom entity types and extension table types.
    * 
    * @remarks
-   * 需要购买 DataWorks 专业版及以上版本才能使用。
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param request - DeleteMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6082,10 +6174,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体定义
+   * Deletes a metadata entity definition, including custom entity types and extension table types.
    * 
    * @remarks
-   * 需要购买 DataWorks 专业版及以上版本才能使用。
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param request - DeleteMetaEntityDefRequest
    * @returns DeleteMetaEntityDefResponse
@@ -6654,6 +6746,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+   * 
+   * @remarks
+   * Operation description for deleting a semantic task.
+   * 
+   * @param request - DeleteSemanticJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSemanticJobResponse
+   */
+  async deleteSemanticJobWithOptions(request: $_model.DeleteSemanticJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSemanticJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSemanticJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSemanticJobResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSemanticJobResponse({}));
+  }
+
+  /**
+   * Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+   * 
+   * @remarks
+   * Operation description for deleting a semantic task.
+   * 
+   * @param request - DeleteSemanticJobRequest
+   * @returns DeleteSemanticJobResponse
+   */
+  async deleteSemanticJob(request: $_model.DeleteSemanticJobRequest): Promise<$_model.DeleteSemanticJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSemanticJobWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Skill
    * 
    * @remarks
@@ -7164,6 +7304,58 @@ export default class Client extends OpenApi {
   async dissociateProjectFromResourceGroup(request: $_model.DissociateProjectFromResourceGroupRequest): Promise<$_model.DissociateProjectFromResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dissociateProjectFromResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+   * 
+   * @remarks
+   * Operation description for retrieving the download URL of semantic task results.
+   * 
+   * @param request - DownloadSemanticResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadSemanticResultsResponse
+   */
+  async downloadSemanticResultsWithOptions(request: $_model.DownloadSemanticResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadSemanticResultsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobName)) {
+      body["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.jobRunId)) {
+      body["JobRunId"] = request.jobRunId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadSemanticResults",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadSemanticResultsResponse>(await this.callApi(params, req, runtime), new $_model.DownloadSemanticResultsResponse({}));
+  }
+
+  /**
+   * Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+   * 
+   * @remarks
+   * Operation description for retrieving the download URL of semantic task results.
+   * 
+   * @param request - DownloadSemanticResultsRequest
+   * @returns DownloadSemanticResultsResponse
+   */
+  async downloadSemanticResults(request: $_model.DownloadSemanticResultsRequest): Promise<$_model.DownloadSemanticResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadSemanticResultsWithOptions(request, runtime);
   }
 
   /**
@@ -10189,6 +10381,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
+   * 
+   * @remarks
+   * Operation description for querying semantic job run details.
+   * 
+   * @param request - GetSemanticJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSemanticJobDetailResponse
+   */
+  async getSemanticJobDetailWithOptions(request: $_model.GetSemanticJobDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSemanticJobDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.executorJobId)) {
+      query["ExecutorJobId"] = request.executorJobId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSemanticJobDetail",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSemanticJobDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetSemanticJobDetailResponse({}));
+  }
+
+  /**
+   * Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
+   * 
+   * @remarks
+   * Operation description for querying semantic job run details.
+   * 
+   * @param request - GetSemanticJobDetailRequest
+   * @returns GetSemanticJobDetailResponse
+   */
+  async getSemanticJobDetail(request: $_model.GetSemanticJobDetailRequest): Promise<$_model.GetSemanticJobDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSemanticJobDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
+   * 
+   * @remarks
+   * Operation description for querying semantic job run logs.
+   * 
+   * @param request - GetSemanticJobLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSemanticJobLogResponse
+   */
+  async getSemanticJobLogWithOptions(request: $_model.GetSemanticJobLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSemanticJobLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.executorJobId)) {
+      query["ExecutorJobId"] = request.executorJobId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSemanticJobLog",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSemanticJobLogResponse>(await this.callApi(params, req, runtime), new $_model.GetSemanticJobLogResponse({}));
+  }
+
+  /**
+   * Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
+   * 
+   * @remarks
+   * Operation description for querying semantic job run logs.
+   * 
+   * @param request - GetSemanticJobLogRequest
+   * @returns GetSemanticJobLogResponse
+   */
+  async getSemanticJobLog(request: $_model.GetSemanticJobLogRequest): Promise<$_model.GetSemanticJobLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSemanticJobLogWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a specified Skill by name, including the body of the SKILL.md file and the bundle\\"s download link.
    * 
    * @remarks
@@ -10749,12 +11045,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
+   * Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
    * 
    * @remarks
    * >Notice: 
-   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
-   * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
+   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
+   * - This is an asynchronous operation. Calling this operation returns an asynchronous task object. To query the execution status of the task, call GetJobStatus.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10793,12 +11089,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
+   * Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
    * 
    * @remarks
    * >Notice: 
-   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
-   * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
+   * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
+   * - This is an asynchronous operation. Calling this operation returns an asynchronous task object. To query the execution status of the task, call GetJobStatus.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @returns ImportWorkflowDefinitionResponse
@@ -10806,6 +11102,62 @@ export default class Client extends OpenApi {
   async importWorkflowDefinition(request: $_model.ImportWorkflowDefinitionRequest): Promise<$_model.ImportWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+   * 
+   * @remarks
+   * Operation description for stopping a semantic job run.
+   * 
+   * @param request - KillSemanticJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns KillSemanticJobResponse
+   */
+  async killSemanticJobWithOptions(request: $_model.KillSemanticJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.KillSemanticJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.executorJobId)) {
+      body["ExecutorJobId"] = request.executorJobId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.retryTimes)) {
+      body["RetryTimes"] = request.retryTimes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "KillSemanticJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.KillSemanticJobResponse>(await this.callApi(params, req, runtime), new $_model.KillSemanticJobResponse({}));
+  }
+
+  /**
+   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+   * 
+   * @remarks
+   * Operation description for stopping a semantic job run.
+   * 
+   * @param request - KillSemanticJobRequest
+   * @returns KillSemanticJobResponse
+   */
+  async killSemanticJob(request: $_model.KillSemanticJobRequest): Promise<$_model.KillSemanticJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.killSemanticJobWithOptions(request, runtime);
   }
 
   /**
@@ -12393,10 +12745,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data quality rule templates in a project.
+   * Queries the list of data quality rule templates in a specified project.
    * 
    * @remarks
-   * DataWorks Basic Edition or a higher edition is required.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListDataQualityTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12443,10 +12795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data quality rule templates in a project.
+   * Queries the list of data quality rule templates in a specified project.
    * 
    * @remarks
-   * DataWorks Basic Edition or a higher edition is required.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListDataQualityTemplatesRequest
    * @returns ListDataQualityTemplatesResponse
@@ -15341,6 +15693,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+   * 
+   * @remarks
+   * Queries the run records of a semantic job.
+   * 
+   * @param request - ListSemanticJobRunsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSemanticJobRunsResponse
+   */
+  async listSemanticJobRunsWithOptions(request: $_model.ListSemanticJobRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSemanticJobRunsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobName)) {
+      body["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSemanticJobRuns",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSemanticJobRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListSemanticJobRunsResponse({}));
+  }
+
+  /**
+   * Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+   * 
+   * @remarks
+   * Queries the run records of a semantic job.
+   * 
+   * @param request - ListSemanticJobRunsRequest
+   * @returns ListSemanticJobRunsResponse
+   */
+  async listSemanticJobRuns(request: $_model.ListSemanticJobRunsRequest): Promise<$_model.ListSemanticJobRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSemanticJobRunsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+   * 
+   * @remarks
+   * Queries the list of semantic task definitions.
+   * 
+   * @param request - ListSemanticJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSemanticJobsResponse
+   */
+  async listSemanticJobsWithOptions(request: $_model.ListSemanticJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSemanticJobsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSemanticJobs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSemanticJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListSemanticJobsResponse({}));
+  }
+
+  /**
+   * Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+   * 
+   * @remarks
+   * Queries the list of semantic task definitions.
+   * 
+   * @param request - ListSemanticJobsRequest
+   * @returns ListSemanticJobsResponse
+   */
+  async listSemanticJobs(request: $_model.ListSemanticJobsRequest): Promise<$_model.ListSemanticJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSemanticJobsWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the Skills in your account.
    * 
    * @remarks
@@ -16510,18 +16970,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a prompt to an existing session and streams the agent response.
+   * Sends a user prompt to an existing session and returns the Agent response in streaming mode.
    * 
    * @remarks
-   * ## Request
-   * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
-   * - The response may include message chunks, thought process, and tool calling status updates.
-   * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
-   * - The `stopReason` field indicates why the agent ended the turn.
-   * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
-   * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
-   * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
-   * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+   * ## Operation description
+   * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+   * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+   * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+   * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+   * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+   * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+   * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16580,18 +17040,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a prompt to an existing session and streams the agent response.
+   * Sends a user prompt to an existing session and returns the Agent response in streaming mode.
    * 
    * @remarks
-   * ## Request
-   * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
-   * - The response may include message chunks, thought process, and tool calling status updates.
-   * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
-   * - The `stopReason` field indicates why the agent ended the turn.
-   * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
-   * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
-   * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
-   * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+   * ## Operation description
+   * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+   * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+   * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+   * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+   * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+   * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+   * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16636,18 +17096,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a prompt to an existing session and streams the agent response.
+   * Sends a user prompt to an existing session and returns the Agent response in streaming mode.
    * 
    * @remarks
-   * ## Request
-   * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
-   * - The response may include message chunks, thought process, and tool calling status updates.
-   * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
-   * - The `stopReason` field indicates why the agent ended the turn.
-   * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
-   * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
-   * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
-   * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+   * ## Operation description
+   * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+   * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+   * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+   * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+   * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+   * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+   * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
    * 
    * @param request - PromptAgentSessionRequest
    * @returns PromptAgentSessionResponse
@@ -17299,6 +17759,54 @@ export default class Client extends OpenApi {
   async rollbackParameter(request: $_model.RollbackParameterRequest): Promise<$_model.RollbackParameterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rollbackParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+   * 
+   * @remarks
+   * *Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+   * 
+   * @param request - RunSemanticJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSemanticJobResponse
+   */
+  async runSemanticJobWithOptions(request: $_model.RunSemanticJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunSemanticJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunSemanticJob",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunSemanticJobResponse>(await this.callApi(params, req, runtime), new $_model.RunSemanticJobResponse({}));
+  }
+
+  /**
+   * Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+   * 
+   * @remarks
+   * *Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+   * 
+   * @param request - RunSemanticJobRequest
+   * @returns RunSemanticJobResponse
+   */
+  async runSemanticJob(request: $_model.RunSemanticJobRequest): Promise<$_model.RunSemanticJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runSemanticJobWithOptions(request, runtime);
   }
 
   /**
@@ -20709,6 +21217,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a specified Skill and generates a new version.
+   * 
+   * @remarks
+   * ## Request description
+   * This API allows you to update an existing Skill and create a new version based on the current highest version or a specified version. Fields not provided in the request retain their original values. You can update the Skill content by providing either `SkillMdOverride` or `BundleUrl`. You can also set additional information such as the visibility scope.
+   * 
+   * @param tmpReq - UpdateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSkillResponse
+   */
+  async updateSkillWithOptions(tmpReq: $_model.UpdateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSkillResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "Extra", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bundleUrl)) {
+      body["BundleUrl"] = request.bundleUrl;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["ExpectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.extraShrink)) {
+      body["Extra"] = request.extraShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillMdOverride)) {
+      body["SkillMdOverride"] = request.skillMdOverride;
+    }
+
+    if (!$dara.isNull(request.versionNote)) {
+      body["VersionNote"] = request.versionNote;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSkill",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSkillResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSkillResponse({}));
+  }
+
+  /**
+   * Updates a specified Skill and generates a new version.
+   * 
+   * @remarks
+   * ## Request description
+   * This API allows you to update an existing Skill and create a new version based on the current highest version or a specified version. Fields not provided in the request retain their original values. You can update the Skill content by providing either `SkillMdOverride` or `BundleUrl`. You can also set additional information such as the visibility scope.
+   * 
+   * @param request - UpdateSkillRequest
+   * @returns UpdateSkillResponse
+   */
+  async updateSkill(request: $_model.UpdateSkillRequest): Promise<$_model.UpdateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSkillWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
    * 
    * @remarks
@@ -21236,6 +21832,62 @@ export default class Client extends OpenApi {
   async updateWorkflowDefinition(request: $_model.UpdateWorkflowDefinitionRequest): Promise<$_model.UpdateWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+   * 
+   * @remarks
+   * Requests an upload URL for semantic job attachments.
+   * 
+   * @param request - UploadSemanticFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadSemanticFileResponse
+   */
+  async uploadSemanticFileWithOptions(request: $_model.UploadSemanticFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadSemanticFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.sizeBytes)) {
+      body["SizeBytes"] = request.sizeBytes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadSemanticFile",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadSemanticFileResponse>(await this.callApi(params, req, runtime), new $_model.UploadSemanticFileResponse({}));
+  }
+
+  /**
+   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+   * 
+   * @remarks
+   * Requests an upload URL for semantic job attachments.
+   * 
+   * @param request - UploadSemanticFileRequest
+   * @returns UploadSemanticFileResponse
+   */
+  async uploadSemanticFile(request: $_model.UploadSemanticFileRequest): Promise<$_model.UploadSemanticFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadSemanticFileWithOptions(request, runtime);
   }
 
 }

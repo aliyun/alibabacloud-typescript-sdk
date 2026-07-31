@@ -21,7 +21,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The error message returned when the asynchronous task fails.
+   * The error message when the asynchronous task fails.
    * 
    * @example
    * target folder already exists: XXXX
@@ -47,7 +47,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * @remarks
    * The content that the asynchronous task is expected to return.
    * 
-   * > This field currently contains the ID of the workflow created by the asynchronous task.
+   * > This field currently stores the ID of the workflow created in the asynchronous task.
    * 
    * @example
    * 632647691239009XXXX
@@ -75,7 +75,7 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $dara.Model {
    * Valid values:
    * 
    * - Create: creates a resource. 
-   * - Cancel: cancels a creation job.
+   * - Cancel: cancels a creation task.
    * 
    * @example
    * Create

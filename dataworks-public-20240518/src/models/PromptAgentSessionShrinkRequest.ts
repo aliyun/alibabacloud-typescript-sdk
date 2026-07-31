@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromptAgentSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed in by the caller. The value is returned as-is in the response.
+   * The ID passed by the requester. The value is returned as-is.
    * 
    * @example
    * 1021418411

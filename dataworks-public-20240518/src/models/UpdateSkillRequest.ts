@@ -2,15 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSkillRequestVisibilityScope extends $dara.Model {
+export class UpdateSkillRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. This parameter takes effect only when Visibility is set to `PROJECT`.
+   * The list of visible project IDs.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+   * The list of visible user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -42,10 +42,10 @@ export class CreateSkillRequestVisibilityScope extends $dara.Model {
   }
 }
 
-export class CreateSkillRequest extends $dara.Model {
+export class UpdateSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The **downloadable URL (HTTP/HTTPS) of the bundle.zip file**. This parameter is mutually exclusive with SkillMdOverride.
+   * The downloadable URL (HTTP/HTTPS) of the bundle.zip file. Mutually exclusive with SkillMdOverride. If specified, the bundle is replaced.
    * 
    * @example
    * https://example.com/skill.zip
@@ -53,7 +53,7 @@ export class CreateSkillRequest extends $dara.Model {
   bundleUrl?: string;
   /**
    * @remarks
-   * The **Skill description**.
+   * The Skill description.
    * 
    * @example
    * 数据分析技能
@@ -61,15 +61,23 @@ export class CreateSkillRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extension metadata in key-value pairs.
+   * The expected version number for optimistic locking. If not specified, the update is based on the current highest version.
    * 
    * @example
-   * {"appId":"APP_CWJMV36CT9SAFW1QEHX7"}
+   * -
+   */
+  expectedVersion?: number;
+  /**
+   * @remarks
+   * The extended metadata (key-value pairs).
+   * 
+   * @example
+   * {\\"appId\\":\\"APP_Q2SDWKIGFWNZTR68K1GQ\\"}
    */
   extra?: { [key: string]: any };
   /**
    * @remarks
-   * The **Skill name**, which must be unique within the current account.
+   * The name of the Skill to update.
    * 
    * This parameter is required.
    * 
@@ -79,45 +87,34 @@ export class CreateSkillRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The SKILL.md body content. This parameter is mutually exclusive with BundleUrl. If no bundle is provided, use this field to create a lightweight Skill that contains only a SKILL.md file.
+   * The SKILL.md body content. Mutually exclusive with BundleUrl.
    * 
    * @example
-   * -
+   * 把大象放冰箱分为三步，把冰箱门打开，把大象放进去，把冰箱门关上。
    */
   skillMdOverride?: string;
   /**
    * @remarks
-   * The **version note**.
+   * The version note.
    * 
    * @example
-   * 初版
+   * 修订说明
    */
   versionNote?: string;
   /**
    * @remarks
-   * The **visibility level**. Valid values:
-   * - TENANT: Visible within the account.
-   * - PROJECT: Visible to specified projects.
-   * - USER: Visible to specified users.
-   * 
-   * @example
-   * TENANT
+   * The visibility scope. The corresponding field is used based on the visibility level.
    */
-  visibility?: string;
-  /**
-   * @remarks
-   * The visibility scope. The corresponding field is determined by the Visibility parameter.
-   */
-  visibilityScope?: CreateSkillRequestVisibilityScope;
+  visibilityScope?: UpdateSkillRequestVisibilityScope;
   static names(): { [key: string]: string } {
     return {
       bundleUrl: 'BundleUrl',
       description: 'Description',
+      expectedVersion: 'ExpectedVersion',
       extra: 'Extra',
       name: 'Name',
       skillMdOverride: 'SkillMdOverride',
       versionNote: 'VersionNote',
-      visibility: 'Visibility',
       visibilityScope: 'VisibilityScope',
     };
   }
@@ -126,12 +123,12 @@ export class CreateSkillRequest extends $dara.Model {
     return {
       bundleUrl: 'string',
       description: 'string',
+      expectedVersion: 'number',
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
       skillMdOverride: 'string',
       versionNote: 'string',
-      visibility: 'string',
-      visibilityScope: CreateSkillRequestVisibilityScope,
+      visibilityScope: UpdateSkillRequestVisibilityScope,
     };
   }
 

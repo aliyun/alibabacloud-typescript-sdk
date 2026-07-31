@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMetaEntityDefRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,12 @@ export class DeleteMetaEntityDefRequest extends $dara.Model {
    */
   entityType?: string;
   /**
+   * @remarks
+   * Specifies whether to force delete the entity definition. Default value: false. Valid values:
+   * 
+   * - true: Automatically deletes all entity objects created under this entity type.
+   * - false: Checks whether entity objects exist under this entity type. If objects exist, the deletion is failed.
+   * 
    * @example
    * true
    */
