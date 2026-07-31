@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMultiOrderShrinkRequestOrderItemsComponents extends $dara.Model {
   /**
    * @remarks
-   * The key of the component.
+   * The key of the module.
    * 
    * @example
    * RegionId
@@ -13,51 +13,31 @@ export class CreateMultiOrderShrinkRequestOrderItemsComponents extends $dara.Mod
   key?: string;
   /**
    * @remarks
-   * The value of the component.
+   * The value of the module.
    * 
-   * Example and valid values for the keys of a monthly duration package (Enterprise Edition):
+   * The following example values or valid values are available for each key of the Enterprise Edition monthly duration package:
    * 
    * - RegionId: cn-shanghai
-   * 
    * - InstanceType: eds.enterprise_office.4c8g
-   * 
-   * - DurationType (in hours): Valid values:
-   * 
-   *   - 120
-   * 
-   *   - 250
-   * 
-   * - OsType: Valid values:
-   * 
-   *   - Windows
-   * 
-   *   - Linux
-   * 
-   * - RootDiskSize (in GiB): 80
-   * 
-   * - RootDiskCategory: Valid values:
-   * 
-   *   - cloud_efficiency (Ultra Disk)
-   * 
-   *   - cloud_auto (ESSD AutoPL Disk)
-   * 
-   *   - `cloud_essd` (Enhanced SSD). This value is supported only by specific instance types.
-   * 
-   * - RootPerformanceLevel: Valid values:
-   * 
-   *   - PL0
-   * 
-   *   - PL1
-   * 
-   *   - PL2
-   * 
-   *   - PL3
-   * 
-   * - DataDiskSize (in GiB): Same as `RootDiskSize`.
-   * 
-   * - DataDiskCategory: Same as `RootDiskCategory`.
-   * 
-   * - DataPerformanceLevel: Same as `RootPerformanceLevel`.
+   * - DurationType (hours): [Valid values] 
+   *    - 120
+   *    - 250
+   * - OsType: [Valid values] 
+   *    - Windows
+   *    - Linux
+   * - RootDiskSize (GiB): 80
+   * - RootDiskCategory: [Valid values] 
+   *    - cloud_efficiency (ultra cloud disk)
+   *    - cloud_auto (ultra-fast cloud disk)
+   *    - cloud_essd (enhanced standard SSD. Only specific instance types support this value.)
+   * - RootPerformanceLevel: [Valid values] 
+   *    - PL0
+   *    - PL1
+   *    - PL2
+   *    - PL3
+   * - DataDiskSize (GiB): Valid values are the same as those of RootDiskSize.
+   * - DataDiskCategory: Valid values are the same as those of RootDiskCategory.
+   * - DataPerformanceLevel: Valid values are the same as those of RootPerformanceLevel.
    * 
    * @example
    * cn-shanghai
@@ -89,7 +69,7 @@ export class CreateMultiOrderShrinkRequestOrderItemsComponents extends $dara.Mod
 export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   /**
    * @remarks
-   * The number of resources to purchase.
+   * The quantity to purchase.
    * 
    * @example
    * 1
@@ -114,17 +94,18 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   buyChange?: boolean;
   /**
    * @remarks
-   * The components that define the resource.
+   * The product modules.
    */
   components?: CreateMultiOrderShrinkRequestOrderItemsComponents[];
   instanceIds?: string[];
+  paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription period. Valid values:
+   * The subscription duration. Valid values:
    * 
-   * - If `PeriodUnit` is set to `Year`, the valid values are 1, 2, 3, and 5.
+   * - If `PeriodUnit` is set to `Year`: 1, 2, 3, or 5.
    * 
-   * - If `PeriodUnit` is set to `Month`, the valid values are 1, 2, 3, and 6.
+   * - If `PeriodUnit` is set to `Month`: 1, 2, 3, or 6.
    * 
    * @example
    * 1
@@ -132,9 +113,9 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit of the subscription duration.
+   * The unit of the billing cycle for the subscription instance.
    * 
-   * > This parameter is required for prepaid instances and is case-sensitive.
+   * > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the spelling is correct.
    * 
    * @example
    * Year
@@ -150,16 +131,14 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * A list of resource IDs.
-   * 
-   * > For a monthly duration package, this parameter specifies the IDs of the cloud desktops. This parameter is required unless the `OrderType` is `create`.
+   * The list of resource IDs.
+   * > For monthly duration packages, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not `create`.
    */
   resourceIds?: string[];
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * > This parameter is case-sensitive.
+   * The resource type.
+   * > This parameter is case-sensitive. Make sure that the spelling is correct.
    * 
    * This parameter is required.
    * 
@@ -175,6 +154,7 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
       buyChange: 'BuyChange',
       components: 'Components',
       instanceIds: 'InstanceIds',
+      paidCallBackUrl: 'PaidCallBackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
@@ -191,6 +171,7 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
       buyChange: 'boolean',
       components: { 'type': 'array', 'itemType': CreateMultiOrderShrinkRequestOrderItemsComponents },
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      paidCallBackUrl: 'string',
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',
@@ -221,7 +202,7 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
   channelCookie?: string;
   /**
    * @remarks
-   * The items in the order.
+   * The product information.
    */
   orderItems?: CreateMultiOrderShrinkRequestOrderItems[];
   /**

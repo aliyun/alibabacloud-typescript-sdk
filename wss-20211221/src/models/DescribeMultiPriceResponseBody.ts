@@ -24,7 +24,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
    * The module name.
    * 
    * @example
-   * 企业办公型-8C32G
+   * Enterprise Office - 8C32G
    */
   moduleName?: string;
   /**
@@ -46,7 +46,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
   savingPlanDiscountPrice?: number;
   /**
    * @remarks
-   * The trade price, which is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount amount.
    * 
    * @example
    * 292.2
@@ -113,7 +113,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
   savingPlanRecommendPrice?: number;
   /**
    * @remarks
-   * The trade price, which is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount amount.
    * 
    * @example
    * 80.00
@@ -151,12 +151,12 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $dara.Model {
   /**
    * @remarks
-   * A list of pricing module details.
+   * The pricing module details.
    */
   moduleDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails[];
   /**
    * @remarks
-   * The sort order.
+   * The sort property.
    * 
    * @example
    * 1
@@ -164,7 +164,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
   orderItem?: number;
   /**
    * @remarks
-   * A breakdown of the price.
+   * The price details.
    */
   priceDetail?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail;
   static names(): { [key: string]: string } {
@@ -199,9 +199,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
 }
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
+  activityId?: string;
   /**
    * @remarks
-   * The option code.
+   * The description of the promotion rule.
    * 
    * @example
    * new
@@ -209,15 +210,15 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   optionCode?: string;
   /**
    * @remarks
-   * The promotion description.
+   * The description of the promotion.
    * 
    * @example
-   * 促销
+   * Promotion
    */
   promotionDesc?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -225,10 +226,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   promotionId?: string;
   /**
    * @remarks
-   * The promotion name.
+   * The name of the promotion.
    * 
    * @example
-   * 优惠活动名称
+   * Promotion name
    */
   promotionName?: string;
   /**
@@ -241,6 +242,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
+      activityId: 'ActivityId',
       optionCode: 'OptionCode',
       promotionDesc: 'PromotionDesc',
       promotionId: 'PromotionId',
@@ -251,6 +253,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      activityId: 'string',
       optionCode: 'string',
       promotionDesc: 'string',
       promotionId: 'string',
@@ -271,7 +274,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
 export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency.
+   * The currency unit.
    * 
    * China site: CNY.
    * 
@@ -299,22 +302,22 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * A list of price details.
+   * The price details.
    */
   priceDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails[];
   /**
    * @remarks
-   * A list of promotions.
+   * The promotion information.
    */
   promotions?: DescribeMultiPriceResponseBodyPriceInfoPricePromotions[];
   /**
    * @remarks
-   * A map of instance IDs to their corresponding refund amounts.
+   * The unsubscription instance and pricing details.
    */
   refundInstanceIdPriceMap?: { [key: string]: number };
   /**
    * @remarks
-   * The refund amount.
+   * The unsubscription price.
    * 
    * @example
    * 60.00
@@ -322,7 +325,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   refundPrice?: number;
   /**
    * @remarks
-   * The trade price, which is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount amount.
    * 
    * @example
    * 82.6
@@ -375,7 +378,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
 export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @remarks
-   * The promotion rule description.
+   * The description of the promotion rule.
    * 
    * @example
    * accounts_suspect_users
@@ -383,7 +386,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The promotion rule ID.
+   * The ID of the promotion rule.
    * 
    * @example
    * hrzdvc
@@ -420,7 +423,7 @@ export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
   price?: DescribeMultiPriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * A list of promotion rules.
+   * The promotion rule information.
    */
   rules?: DescribeMultiPriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {
@@ -455,7 +458,7 @@ export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribeMultiPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed price information.
+   * The price details.
    */
   priceInfo?: DescribeMultiPriceResponseBodyPriceInfo;
   /**
