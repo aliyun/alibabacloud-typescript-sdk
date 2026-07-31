@@ -47,7 +47,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the private gateway was created. The time is in Coordinated Universal Time (UTC).
+   * The time when the dedicated gateway was created. The time is in UTC.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -55,7 +55,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the self-managed cluster.
+   * The self-managed cluster ID.
    * 
    * @example
    * c935eadf284c14c2da57a2a13ad6******
@@ -63,7 +63,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   externalClusterId?: string;
   /**
    * @remarks
-   * The ID of the private gateway.
+   * The dedicated gateway ID.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -71,7 +71,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The alias of the private gateway.
+   * The alias of the dedicated gateway.
    * 
    * @example
    * mygateway1
@@ -79,7 +79,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The instance type of the private gateway.
+   * The instance type used by the dedicated gateway.
    * 
    * @example
    * 2c4g
@@ -87,7 +87,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public network access domain name.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -103,7 +103,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The status of public network access.
+   * The status of public network access enablement or disablement.
    * 
    * @example
    * Running
@@ -111,7 +111,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetStatus?: string;
   /**
    * @remarks
-   * The private endpoint.
+   * The internal access domain name.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -120,7 +120,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the gateway is the default private gateway.
+   * Indicates whether the dedicated gateway is the default one.
    * 
    * @example
    * true
@@ -129,7 +129,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   labels?: DescribeGatewayResponseBodyLabels[];
   /**
    * @remarks
-   * The number of private gateway nodes.
+   * The number of nodes in the dedicated gateway.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether HTTP to HTTPS redirection is enabled.
+   * Indicates whether HTTP-to-HTTPS redirection is enabled.
    * 
    * @example
    * true
@@ -153,7 +153,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   SSLRedirectionEnabled?: boolean;
   /**
    * @remarks
-   * The status of the private gateway.
+   * The status of the dedicated gateway.
    * 
    * @example
    * Running
@@ -161,7 +161,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the private gateway was last updated. The time is in UTC.
+   * The time when the dedicated gateway was last updated. The time is in UTC.
    * 
    * @example
    * 2021-02-24T11:52:17Z

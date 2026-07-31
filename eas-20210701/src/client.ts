@@ -2403,6 +2403,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a cloud native artifact.
+   * 
+   * @param request - DescribeArtifactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeArtifactResponse
+   */
+  async describeArtifactWithOptions(ClusterId: string, ArtifactName: string, request: $_model.DescribeArtifactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeArtifactResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeArtifact",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/artifacts/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ArtifactName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeArtifactResponse>(await this.callApi(params, req, runtime), new $_model.DescribeArtifactResponse({}));
+  }
+
+  /**
+   * Queries the details of a cloud native artifact.
+   * 
+   * @param request - DescribeArtifactRequest
+   * @returns DescribeArtifactResponse
+   */
+  async describeArtifact(ClusterId: string, ArtifactName: string, request: $_model.DescribeArtifactRequest): Promise<$_model.DescribeArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeArtifactWithOptions(ClusterId, ArtifactName, request, headers, runtime);
+  }
+
+  /**
    * Queries details about the configurations of a stress testing task.
    * 
    * @param request - DescribeBenchmarkTaskRequest
@@ -2487,7 +2526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a private gateway.
+   * Queries the details of a dedicated gateway.
    * 
    * @param request - DescribeGatewayRequest
    * @param headers - map
@@ -2514,7 +2553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a private gateway.
+   * Queries the details of a dedicated gateway.
    * 
    * @param request - DescribeGatewayRequest
    * @returns DescribeGatewayResponse

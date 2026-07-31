@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GroupLabels extends $dara.Model {
   labelKey?: string;
   labelValue?: string;

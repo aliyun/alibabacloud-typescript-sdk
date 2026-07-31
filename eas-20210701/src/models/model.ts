@@ -1,3 +1,4 @@
+export { ArtifactVersions } from './Artifact';
 export { GroupLabels } from './Group';
 export { GroupNetwork } from './Group';
 export { ResourceInstanceLabels } from './ResourceInstance';
@@ -69,6 +70,8 @@ export { UpdateServiceCronScalerRequestScaleJobs } from './UpdateServiceCronScal
 export { UpdateServiceRolloutRequestBatch } from './UpdateServiceRolloutRequest';
 export { UpdateServiceRolloutRequestPartition } from './UpdateServiceRolloutRequest';
 export { UpdateVirtualResourceRequestResources } from './UpdateVirtualResourceRequest';
+export { Artifact } from './Artifact';
+export { ArtifactRelease } from './ArtifactRelease';
 export { ContainerInfo } from './ContainerInfo';
 export { Group } from './Group';
 export { Instance } from './Instance';
@@ -218,6 +221,8 @@ export { DeleteServiceRolloutResponse } from './DeleteServiceRolloutResponse';
 export { DeleteVirtualResourceRequest } from './DeleteVirtualResourceRequest';
 export { DeleteVirtualResourceResponseBody } from './DeleteVirtualResourceResponseBody';
 export { DeleteVirtualResourceResponse } from './DeleteVirtualResourceResponse';
+export { DescribeArtifactRequest } from './DescribeArtifactRequest';
+export { DescribeArtifactResponse } from './DescribeArtifactResponse';
 export { DescribeBenchmarkTaskRequest } from './DescribeBenchmarkTaskRequest';
 export { DescribeBenchmarkTaskResponseBody } from './DescribeBenchmarkTaskResponseBody';
 export { DescribeBenchmarkTaskResponse } from './DescribeBenchmarkTaskResponse';
