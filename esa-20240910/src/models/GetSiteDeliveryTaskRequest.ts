@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to obtain the ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * @example
    * 123456***

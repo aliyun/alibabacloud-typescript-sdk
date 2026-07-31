@@ -12,7 +12,7 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   contentShrink?: string;
   /**
    * @remarks
-   * The effective period of the block, in seconds. This parameter is required when the type is set to block.
+   * The effective period of the block, in seconds. Specify this parameter when the type is block.
    * 
    * @example
    * 864000
@@ -32,8 +32,8 @@ export class BlockObjectShrinkRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - **block**: blocks the URLs.
-   * - **unblock**: unblocks the URLs.
+   * - **block**: blocks the URL.
+   * - **unblock**: unblocks the URL.
    * 
    * This parameter is required.
    * 

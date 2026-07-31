@@ -21,7 +21,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of prefetch domains.
+   * The list of domain names for prefetch.
    * 
    * @example
    * testurl.com
@@ -29,11 +29,11 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error information. Multiple errors are separated by commas:
+   * The error message. Multiple faults are separated by commas. Valid values:
    * - **InvalidUrl**: The URL format is invalid.
-   * - **InvalidDomain**: The domain ownership verification failed.
-   * - **QuotaExcess**: The quota limit has been exceeded.
-   * - **OtherErrors**: Other errors.
+   * - **InvalidDomain**: The domain name ownership verification failed.
+   * - **QuotaExcess**: The quota limit is exceeded.
+   * - **OtherErrors**: Other faults.
    * 
    * @example
    * InvalidDomain
@@ -49,7 +49,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The URL list file ID, used for downloading.
+   * The URL list file ID, which is used for download.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -97,7 +97,7 @@ export class CreateScheduledPreloadJobResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The number of URLs that have been submitted to the system for prefetch tasks.
+   * The number of URLs that have been submitted to the system for prefetch.
    * 
    * @example
    * 1

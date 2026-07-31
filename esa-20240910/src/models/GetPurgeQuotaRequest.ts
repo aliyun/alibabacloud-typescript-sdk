@@ -19,9 +19,9 @@ export class GetPurgeQuotaRequest extends $dara.Model {
    * - **file** (default): file refresh.
    * - **cachetag**: cache tag refresh.
    * - **directory**: directory refresh.
-   * - **ignoreParams**: ignore-parameters refresh.
+   * - **ignoreParams**: parameter-stripped refresh.
    * - **hostname**: hostname refresh.
-   * - **purgeall**: purge all cache under the site.
+   * - **purgeall**: refreshes all cached content under the site.
    * 
    * This parameter is required.
    * 

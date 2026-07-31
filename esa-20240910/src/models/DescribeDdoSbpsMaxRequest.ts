@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDDoSBpsMaxRequest extends $dara.Model {
   /**
+   * @remarks
+   * The protection region. If this parameter is not specified, the default value global is used. Valid values:
+   * 
+   * - domestic: the Chinese mainland.
+   * 
+   * - overseas: global (excluding the Chinese mainland).
+   * 
+   * - global: global.
+   * 
    * @example
    * global
    */
   coverage?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * 
+   * >The end time must be later than the start time.
+   * 
    * @example
    * 2023-04-07T02:34:00Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The site ID, which can be obtained by calling the [ListSites](url) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +39,8 @@ export class DescribeDDoSBpsMaxRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * 
    * This parameter is required.
    * 
    * @example

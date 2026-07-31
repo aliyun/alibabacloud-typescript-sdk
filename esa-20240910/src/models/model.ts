@@ -139,6 +139,7 @@ export { DescribeSiteWafTopDataResponseBodyData } from './DescribeSiteWafTopData
 export { DescribeTraceDiagnoseReportResponseBodyClientInfo } from './DescribeTraceDiagnoseReportResponseBody';
 export { DescribeTraceDiagnoseReportResponseBodyReport } from './DescribeTraceDiagnoseReportResponseBody';
 export { DescribeUrlObservationDataResponseBodyUrlDetailData } from './DescribeUrlObservationDataResponseBody';
+export { DescribeUserResourcePackageResponseBodyResourcePackageInfos } from './DescribeUserResourcePackageResponseBody';
 export { DescribeWafUsageDataResponseBodyUsageData } from './DescribeWafUsageDataResponseBody';
 export { GetApiSchemaUsageResponseBodyUsages } from './GetApiSchemaUsageResponseBody';
 export { GetCertificateResponseBodyResultDCV } from './GetCertificateResponseBody';
@@ -950,6 +951,9 @@ export { DescribeTraceDiagnoseReportResponse } from './DescribeTraceDiagnoseRepo
 export { DescribeUrlObservationDataRequest } from './DescribeUrlObservationDataRequest';
 export { DescribeUrlObservationDataResponseBody } from './DescribeUrlObservationDataResponseBody';
 export { DescribeUrlObservationDataResponse } from './DescribeUrlObservationDataResponse';
+export { DescribeUserResourcePackageRequest } from './DescribeUserResourcePackageRequest';
+export { DescribeUserResourcePackageResponseBody } from './DescribeUserResourcePackageResponseBody';
+export { DescribeUserResourcePackageResponse } from './DescribeUserResourcePackageResponse';
 export { DescribeWafUsageDataRequest } from './DescribeWafUsageDataRequest';
 export { DescribeWafUsageDataResponseBody } from './DescribeWafUsageDataResponseBody';
 export { DescribeWafUsageDataResponse } from './DescribeWafUsageDataResponse';
@@ -1165,6 +1169,9 @@ export { GetRecordResponse } from './GetRecordResponse';
 export { GetRedirectRuleRequest } from './GetRedirectRuleRequest';
 export { GetRedirectRuleResponseBody } from './GetRedirectRuleResponseBody';
 export { GetRedirectRuleResponse } from './GetRedirectRuleResponse';
+export { GetReleaseTimeRequest } from './GetReleaseTimeRequest';
+export { GetReleaseTimeResponseBody } from './GetReleaseTimeResponseBody';
+export { GetReleaseTimeResponse } from './GetReleaseTimeResponse';
 export { GetRewriteUrlRuleRequest } from './GetRewriteUrlRuleRequest';
 export { GetRewriteUrlRuleResponseBody } from './GetRewriteUrlRuleResponseBody';
 export { GetRewriteUrlRuleResponse } from './GetRewriteUrlRuleResponse';

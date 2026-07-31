@@ -13,7 +13,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
   endTime?: string;
   /**
    * @remarks
-   * The name of the log file.
+   * The log name.
    * 
    * @example
    * example.com_2022_11_07_000000_020000.gz.xxxxxx
@@ -23,7 +23,8 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
    * @remarks
    * The log path.
    * 
-   * > Take note of the Expires field (expiration timestamp) in this parameter. If the log download URL expires, you must reobtain the URL.
+   * 
+   * > Pay attention to the Expires field (expiration timestamp) in the LogPath response parameter. After the expiration time, the log download link becomes invalid and must be obtained again.
    * 
    * @example
    * example.aliyundoc.com /v1.l1cache/105252530/example.com/2022_11_07/example.com_2022_11_07_000000_020000.gz.xxxxxx?Expires=1636963354&OSSAccessKeyId=LTAIviCc6zy8****&Signature=u0V6foRfZniHE8i%2BHUdxGOhZsK****
@@ -31,7 +32,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
   logPath?: string;
   /**
    * @remarks
-   * The size of the log file. Unit: bytes.
+   * The log size, in bytes.
    * 
    * @example
    * 438304768
@@ -39,7 +40,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
   logSize?: number;
   /**
    * @remarks
-   * The create time.
+   * The start time.
    * 
    * @example
    * 2022-11-06T16:00:00Z
@@ -77,7 +78,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
 export class DescribeSiteLogsResponseBodySiteLogDetailsPageInfos extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -135,17 +136,17 @@ export class DescribeSiteLogsResponseBodySiteLogDetails extends $dara.Model {
   logCount?: number;
   /**
    * @remarks
-   * The details of the website log files.
+   * The site log package information.
    */
   logInfos?: DescribeSiteLogsResponseBodySiteLogDetailsLogInfos[];
   /**
    * @remarks
-   * Pagination information.
+   * The pagination information.
    */
   pageInfos?: DescribeSiteLogsResponseBodySiteLogDetailsPageInfos;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456***
@@ -153,7 +154,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetails extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com
@@ -205,7 +206,7 @@ export class DescribeSiteLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the website log files.
+   * The site log information.
    */
   siteLogDetails?: DescribeSiteLogsResponseBodySiteLogDetails[];
   static names(): { [key: string]: string } {

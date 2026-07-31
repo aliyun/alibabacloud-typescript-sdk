@@ -39,13 +39,13 @@ export class CreateKvNamespaceResponseBody extends $dara.Model {
    * @remarks
    * The status of the KV namespace. Valid values:
    * 
-   * - **online**: The namespace is available.
+   * - **online**: Normal.
    * 
-   * - **delete**: The namespace is pending deletion.
+   * - **delete**: Pending deletion.
    * 
-   * - **deleting**: The namespace is being deleted.
+   * - **deleting**: Being deleted.
    * 
-   * - **deleted**: The namespace is deleted.
+   * - **deleted**: Deleted.
    * 
    * @example
    * online

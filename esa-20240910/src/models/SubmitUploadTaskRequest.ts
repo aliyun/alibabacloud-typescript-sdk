@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitUploadTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to refresh resources in the corresponding directory if the requested content is different from that on the origin server. Default value: false. This parameter takes effect for a purge task.
+   * Specifies whether to purge resources in the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false. This parameter is valid only for purge tasks.
    * 
-   * *   **true**: purges all resources in the directory.
-   * *   **false**: refresh the changed resources in the directory.
+   * - **true**: Purges all resources in the corresponding directory.
+   * - **false**: Purges only the changed resources in the corresponding directory.
    */
   force?: boolean;
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](~~ListSites~~) operation to obtain the ID.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * @example
    * 123456789****
@@ -21,7 +21,7 @@ export class SubmitUploadTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the file upload task, which is generated when you call [UploadTask](~~UploadTask~~).
+   * The file upload task ID, which is generated when you call the [UploadTask](~~UploadTask~~) operation.
    * 
    * @example
    * 1593805857882113

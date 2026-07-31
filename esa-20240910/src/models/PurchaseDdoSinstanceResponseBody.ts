@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PurchaseDDoSInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * esa-ddos-9tuv*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2223332122***
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */

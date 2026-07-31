@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMainDomainNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The level of the domain name.
+   * The level of the input domain name.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetMainDomainNameResponseBody extends $dara.Model {
   domainLevel?: number;
   /**
    * @remarks
-   * The root domain name.
+   * The primary domain name.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class GetMainDomainNameResponseBody extends $dara.Model {
   mainDomainName?: string;
   /**
    * @remarks
-   * The host record.
+   * The host record information.
    * 
    * @example
    * sub

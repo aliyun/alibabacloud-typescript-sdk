@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available capacity of the namespace, in bytes.
+   * The available capacity of the KV namespace, in bytes.
    * 
    * @example
    * 1073741824
@@ -13,7 +13,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The available capacity of the namespace, formatted as a human-readable string.
+   * The available capacity of the KV namespace.
    * 
    * @example
    * 1 GB
@@ -21,7 +21,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacityString?: string;
   /**
    * @remarks
-   * The used capacity of the namespace, in bytes.
+   * The used capacity of the KV namespace, in bytes.
    * 
    * @example
    * 10048576
@@ -29,7 +29,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacityUsed?: number;
   /**
    * @remarks
-   * The used capacity of the namespace, formatted as a human-readable string.
+   * The used capacity of the KV namespace.
    * 
    * @example
    * 100 MB
@@ -37,7 +37,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   capacityUsedString?: string;
   /**
    * @remarks
-   * The description of the namespace.
+   * The description of the KV namespace.
    * 
    * @example
    * this is a test namespace.
@@ -45,7 +45,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the KV namespace.
    * 
    * @example
    * test_namespace
@@ -53,7 +53,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The ID of the KV namespace.
    * 
    * @example
    * 643355322374688768
@@ -61,7 +61,7 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -69,15 +69,15 @@ export class GetKvNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the namespace. Valid values:
+   * The status of the KV namespace. Valid values:
    * 
-   * - **online**: The namespace is active.
+   * - **online**: Normal.
    * 
-   * - **delete**: The namespace is marked for deletion.
+   * - **delete**: Pending deletion.
    * 
-   * - **deleting**: The namespace is being deleted.
+   * - **deleting**: Being deleted.
    * 
-   * - **deleted**: The namespace has been deleted.
+   * - **deleted**: Deleted.
    * 
    * @example
    * online

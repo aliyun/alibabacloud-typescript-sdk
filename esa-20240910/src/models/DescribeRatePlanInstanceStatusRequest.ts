@@ -5,12 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can obtain the ID by calling the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation.
+   * The instance ID. You can call the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation to obtain the instance ID.
    * 
    * @example
    * xcdn-91fknmb80f0g***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The resource owner account.
+   * 
+   * @example
+   * 1700594193617909
+   */
   resourceOwner?: number;
   static names(): { [key: string]: string } {
     return {

@@ -29,7 +29,7 @@ export class GetScheduledPreloadJobResponseBody extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if a fault occurs.
    * 
    * @example
    * invalid domain:test.com
@@ -61,7 +61,9 @@ export class GetScheduledPreloadJobResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The URL insertion method.
+   * The URL insertion method. Valid values:
+   * - oss: Import URLs in bulk from an OSS file.
+   * - testBox: Enter URLs one by one in a text box.
    * 
    * @example
    * oss
@@ -101,7 +103,10 @@ export class GetScheduledPreloadJobResponseBody extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type (refresh or prefetch).
+   * The task type (refresh or prefetch). Valid values:
+   * - path: Directory refresh.
+   * - refresh: URL refresh.
+   * - preload: URL prefetch.
    * 
    * @example
    * preload

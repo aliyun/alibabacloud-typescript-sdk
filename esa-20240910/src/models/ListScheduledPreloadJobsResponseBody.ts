@@ -13,7 +13,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The task creation time in ISO 8601 format (e.g., 2024-01-01T00:00:00+Z).
+   * The task creation time in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
    * 
    * @example
    * 2024-06-01T08:53:13Z
@@ -21,7 +21,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The list of prefetch domains.
+   * The list of domain names for prefetch.
    * 
    * @example
    * testurl.com
@@ -29,7 +29,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   domains?: string;
   /**
    * @remarks
-   * The error information.
+   * The fault error message.
    * 
    * @example
    * invalid domain:test.com
@@ -37,7 +37,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   errorInfo?: string;
   /**
    * @remarks
-   * The number of prefetch plans.
+   * The number of prefetch schedules.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   failedFileOss?: string;
   /**
    * @remarks
-   * The URL list file ID (used for downloading).
+   * The URL list file ID, which is used for download.
    * 
    * @example
    * 665d3b48621bccf3fe29e1a7
@@ -69,7 +69,9 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The URL insertion method.
+   * The URL insertion method. Valid values:
+   * - oss: URLs are imported in bulk from an OSS file.
+   * - testBox: URLs are entered one by one in a text box.
    * 
    * @example
    * oss
@@ -85,7 +87,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Site ID.
+   * The site ID.
    * 
    * @example
    * 190007158391808
@@ -101,7 +103,10 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
   taskSubmitted?: number;
   /**
    * @remarks
-   * The task type (refresh/prefetch).
+   * The task type (refresh or prefetch). Valid values:
+   * - path: Directory refresh.
+   * - refresh: URL refresh.
+   * - preload: URL prefetch.
    * 
    * @example
    * preload

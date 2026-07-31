@@ -59,9 +59,9 @@ export class DescribePurgeTasksRequest extends $dara.Model {
    * @remarks
    * The task execution status. Valid values:
    * 
-   * - **Complete**: Completed.
-   * - **Refreshing**: Refreshing.
-   * - **Failed**: Refresh failed.
+   * - **Complete**: completed.
+   * - **Refreshing**: refreshing.
+   * - **Failed**: refresh failed.
    * 
    * @example
    * Complete

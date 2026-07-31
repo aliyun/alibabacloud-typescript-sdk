@@ -52,7 +52,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBodyData extends $dara.Model {
   detailData?: DescribeSiteWafTimeSeriesDataResponseBodyDataDetailData[];
   /**
    * @remarks
-   * The query dimension.
+   * The query dimensions.
    * 
    * @example
    * ALL
@@ -71,7 +71,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBodyData extends $dara.Model {
    * The metric name.
    * 
    * @example
-   * Traffic
+   * Requests
    */
   fieldName?: string;
   static names(): { [key: string]: string } {
@@ -134,7 +134,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBodySummarizedData extends $da
    * The summarized metric name.
    * 
    * @example
-   * Traffic
+   * Requests
    */
   fieldName?: string;
   /**
@@ -182,7 +182,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   data?: DescribeSiteWafTimeSeriesDataResponseBodyData[];
   /**
    * @remarks
-   * The end time of the returned data.
+   * The end of the time range for the returned data.
    * 
    * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
    * 
@@ -216,7 +216,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   samplingRate?: number;
   /**
    * @remarks
-   * The start time for the data query.
+   * The beginning of the time range to query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
@@ -226,7 +226,7 @@ export class DescribeSiteWafTimeSeriesDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The summarized query data.
+   * The summarized data.
    */
   summarizedData?: DescribeSiteWafTimeSeriesDataResponseBodySummarizedData[];
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchDeleteKvResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of keys that failed to delete.
+   * The list of keys that failed to be deleted.
    */
   failKeys?: string[];
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -18,7 +18,7 @@ export class BatchDeleteKvResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of keys that deleted successfully.
+   * The list of keys that were successfully deleted.
    */
   successKeys?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScheduledPreloadExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The preload plan ID.
+   * The prefetch plan ID.
    * 
    * This parameter is required.
    * 

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class WafRuleMatch extends $dara.Model {
   /**
    * @remarks
-   * 值大小写不敏感。
+   * Specifies whether the value is case-insensitive.
    */
   convertToLower?: boolean;
   /**
    * @remarks
-   * 逻辑列表。
+   * The logic list.
    */
   criteria?: WafRuleMatch[];
   /**
    * @remarks
-   * 逻辑关系。
+   * The logic relationship.
    * 
    * @example
    * and
@@ -23,7 +23,7 @@ export class WafRuleMatch extends $dara.Model {
   logic?: string;
   /**
    * @remarks
-   * 匹配符。
+   * The match operator.
    * 
    * @example
    * eq
@@ -31,7 +31,7 @@ export class WafRuleMatch extends $dara.Model {
   matchOperator?: string;
   /**
    * @remarks
-   * 匹配域。
+   * The match field.
    * 
    * @example
    * ip.src
@@ -39,7 +39,7 @@ export class WafRuleMatch extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * 匹配值。
+   * The match value.
    * 
    * @example
    * 1.1.1.1
@@ -47,7 +47,7 @@ export class WafRuleMatch extends $dara.Model {
   matchValue?: any;
   /**
    * @remarks
-   * 匹配结果取反。
+   * Specifies whether to negate the match result.
    */
   negate?: boolean;
   static names(): { [key: string]: string } {

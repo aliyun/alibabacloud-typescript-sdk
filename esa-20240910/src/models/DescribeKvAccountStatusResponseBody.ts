@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKvAccountStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -13,10 +13,9 @@ export class DescribeKvAccountStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Account status.
+   * The account status.
    * 
    * - **online**: Enabled.
-   * 
    * - **offline**: Disabled.
    * 
    * @example

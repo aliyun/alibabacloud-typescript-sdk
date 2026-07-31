@@ -2,36 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateKvNamespaceRequest extends $dara.Model {
+export class GetReleaseTimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the KV namespace.
+   * The scheduled release time.
    * 
    * @example
-   * this is a test namespace.
+   * 2026-01-02T06:00:00Z
    */
-  description?: string;
+  releaseTime?: string;
   /**
    * @remarks
-   * The name of the KV namespace.
-   * 
-   * This parameter is required.
+   * The request ID.
    * 
    * @example
-   * test_namespace
+   * 6abd807e-ed2a-****-ac54-ac38a62472e6
    */
-  namespace?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      namespace: 'Namespace',
+      releaseTime: 'ReleaseTime',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      namespace: 'string',
+      releaseTime: 'string',
+      requestId: 'string',
     };
   }
 

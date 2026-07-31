@@ -498,7 +498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete key-value pairs in bulk from a specified namespace.
+   * Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names.
    * 
    * @param tmpReq - BatchDeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -541,7 +541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete key-value pairs in bulk from a specified namespace.
+   * Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names.
    * 
    * @param request - BatchDeleteKvRequest
    * @returns BatchDeleteKvResponse
@@ -552,15 +552,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
+   * Batch deletes key-value pairs from a specified KV namespace based on a list of key names. The maximum request body size is 100 MB.
    * 
    * @remarks
    * >Notice: 
-   * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
-   * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
+   * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file format must be the same as the BatchDeleteKv request body.
+   * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation directly to reduce server processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
    * ```
    * func TestBatchDeleteWithHighCapacity() error {
-   * 	// Initialize the configuration
+   * 	// Configuration initialization
    * 	cfg := new(openapi.Config)
    * 	cfg.SetAccessKeyId("xxxxxxxxx")
    * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -568,8 +568,8 @@ export default class Client extends OpenApi {
    * 	if err != nil {
    * 		return err
    * 	}
-   * 	runtime := &util.RuntimeOptions{}.
-   * 	// Construct the batch delete request for key-value pairs
+   * 	runtime := &util.RuntimeOptions{}
+   * 	// Construct the batch delete key-value pair request
    * 	namespace := "test_batch_put"
    * 	rawReq := BatchDeleteKvRequest{
    * 		Namespace: &namespace,
@@ -581,8 +581,8 @@ export default class Client extends OpenApi {
    * 	payload, err := json.Marshal(rawReq)
    * 	if err != nil {
    * 		return err
-   * 	}.
-   * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
+   * 	}
+   * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete
    * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
    * 		Namespace: &namespace,
    * 		UrlObject: bytes.NewReader(payload),
@@ -592,7 +592,7 @@ export default class Client extends OpenApi {
    * 		return err
    * 	}
    * 	return nil
-   * }.
+   * }
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -627,15 +627,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
+   * Batch deletes key-value pairs from a specified KV namespace based on a list of key names. The maximum request body size is 100 MB.
    * 
    * @remarks
    * >Notice: 
-   * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
-   * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
+   * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file format must be the same as the BatchDeleteKv request body.
+   * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation directly to reduce server processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
    * ```
    * func TestBatchDeleteWithHighCapacity() error {
-   * 	// Initialize the configuration
+   * 	// Configuration initialization
    * 	cfg := new(openapi.Config)
    * 	cfg.SetAccessKeyId("xxxxxxxxx")
    * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -643,8 +643,8 @@ export default class Client extends OpenApi {
    * 	if err != nil {
    * 		return err
    * 	}
-   * 	runtime := &util.RuntimeOptions{}.
-   * 	// Construct the batch delete request for key-value pairs
+   * 	runtime := &util.RuntimeOptions{}
+   * 	// Construct the batch delete key-value pair request
    * 	namespace := "test_batch_put"
    * 	rawReq := BatchDeleteKvRequest{
    * 		Namespace: &namespace,
@@ -656,8 +656,8 @@ export default class Client extends OpenApi {
    * 	payload, err := json.Marshal(rawReq)
    * 	if err != nil {
    * 		return err
-   * 	}.
-   * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
+   * 	}
+   * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete
    * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
    * 		Namespace: &namespace,
    * 		UrlObject: bytes.NewReader(payload),
@@ -667,7 +667,7 @@ export default class Client extends OpenApi {
    * 		return err
    * 	}
    * 	return nil
-   * }.
+   * }
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @returns BatchDeleteKvWithHighCapacityResponse
@@ -834,7 +834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets multiple key-value pairs in a specified namespace.
+   * Batch sets key-value pairs in a specified KV namespace based on a specified list of key names.
    * 
    * @param tmpReq - BatchPutKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -877,7 +877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets multiple key-value pairs in a specified namespace.
+   * Batch sets key-value pairs in a specified KV namespace based on a specified list of key names.
    * 
    * @param request - BatchPutKvRequest
    * @returns BatchPutKvResponse
@@ -891,10 +891,10 @@ export default class Client extends OpenApi {
    * Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
    * 
    * @remarks
-   * This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
+   * This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows you to upload a larger request body. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation directly to reduce server processing time. This operation must be called by using an SDK. Taking the Golang SDK as an example, call the BatchPutKvWithHighCapacityAdvance function.
    * ```
    * func TestBatchPutKvWithHighCapacity() error {
-   * 	// Initialize the configuration
+   * 	// Configuration initialization
    * 	cfg := new(openapi.Config)
    * 	cfg.SetAccessKeyId("xxxxxxxxx")
    * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -902,8 +902,8 @@ export default class Client extends OpenApi {
    * 	if err != nil {
    * 		return err
    * 	}
-   * 	runtime := &util.RuntimeOptions{}.
-   * 	// Construct the key-value pairs for batch upload
+   * 	runtime := &util.RuntimeOptions{}
+   * 	// Construct the key-value pairs request for batch upload
    * 	namespace := "test_batch_put"
    * 	numKv := 10000
    * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -919,12 +919,12 @@ export default class Client extends OpenApi {
    * 	rawReq := BatchPutKvRequest{
    * 		Namespace: &namespace,
    * 		KvList:    kvList,
-   * 	}.
+   * 	}
    * 	payload, err := json.Marshal(rawReq)
    * 	if err != nil {
    * 		return err
-   * 	}.
-   * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
+   * 	}
+   * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload
    * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
    * 		Namespace: &namespace,
    * 		UrlObject: bytes.NewReader(payload),
@@ -934,7 +934,7 @@ export default class Client extends OpenApi {
    * 		return err
    * 	}
    * 	return nil
-   * }.
+   * }
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -972,10 +972,10 @@ export default class Client extends OpenApi {
    * Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
    * 
    * @remarks
-   * This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
+   * This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows you to upload a larger request body. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation directly to reduce server processing time. This operation must be called by using an SDK. Taking the Golang SDK as an example, call the BatchPutKvWithHighCapacityAdvance function.
    * ```
    * func TestBatchPutKvWithHighCapacity() error {
-   * 	// Initialize the configuration
+   * 	// Configuration initialization
    * 	cfg := new(openapi.Config)
    * 	cfg.SetAccessKeyId("xxxxxxxxx")
    * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -983,8 +983,8 @@ export default class Client extends OpenApi {
    * 	if err != nil {
    * 		return err
    * 	}
-   * 	runtime := &util.RuntimeOptions{}.
-   * 	// Construct the key-value pairs for batch upload
+   * 	runtime := &util.RuntimeOptions{}
+   * 	// Construct the key-value pairs request for batch upload
    * 	namespace := "test_batch_put"
    * 	numKv := 10000
    * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -1000,12 +1000,12 @@ export default class Client extends OpenApi {
    * 	rawReq := BatchPutKvRequest{
    * 		Namespace: &namespace,
    * 		KvList:    kvList,
-   * 	}.
+   * 	}
    * 	payload, err := json.Marshal(rawReq)
    * 	if err != nil {
    * 		return err
-   * 	}.
-   * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
+   * 	}
+   * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload
    * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
    * 		Namespace: &namespace,
    * 		UrlObject: bytes.NewReader(payload),
@@ -1015,7 +1015,7 @@ export default class Client extends OpenApi {
    * 		return err
    * 	}
    * 	return nil
-   * }.
+   * }
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @returns BatchPutKvWithHighCapacityResponse
@@ -1186,7 +1186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks access to specified URLs.
+   * Blocks access to a specified URL.
    * 
    * @param tmpReq - BlockObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks access to specified URLs.
+   * Blocks access to a specified URL.
    * 
    * @param request - BlockObjectRequest
    * @returns BlockObjectResponse
@@ -2939,7 +2939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a KV namespace in the current account.
+   * Creates a key-value (KV) namespace under the current account.
    * 
    * @param request - CreateKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2974,7 +2974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a KV namespace in the current account.
+   * Creates a key-value (KV) namespace under the current account.
    * 
    * @param request - CreateKvNamespaceRequest
    * @returns CreateKvNamespaceResponse
@@ -4339,7 +4339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a scheduled prefetch task.
+   * Adds a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4386,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a scheduled prefetch task.
+   * Adds a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @returns CreateScheduledPreloadJobResponse
@@ -6606,7 +6606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a specific key-value pair from a namespace.
+   * Deletes a specific key-value pair from a KV namespace.
    * 
    * @param request - DeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6633,7 +6633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a specific key-value pair from a namespace.
+   * Deletes a specific key-value pair from a KV namespace.
    * 
    * @param request - DeleteKvRequest
    * @returns DeleteKvResponse
@@ -6644,7 +6644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from your account.
+   * Deletes a single KV namespace owned by the account.
    * 
    * @param request - DeleteKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6675,7 +6675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from your account.
+   * Deletes a single KV namespace owned by the account.
    * 
    * @param request - DeleteKvNamespaceRequest
    * @returns DeleteKvNamespaceResponse
@@ -7448,7 +7448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a single scheduled preload plan.
+   * Deletes a single scheduled prefetch plan by prefetch plan ID.
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7479,7 +7479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a single scheduled preload plan.
+   * Deletes a single scheduled prefetch plan by prefetch plan ID.
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @returns DeleteScheduledPreloadExecutionResponse
@@ -7490,7 +7490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified scheduled preload job.
+   * Deletes a specified scheduled prefetch task by task ID.
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7521,7 +7521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified scheduled preload job.
+   * Deletes a specified scheduled prefetch task by task ID.
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @returns DeleteScheduledPreloadJobResponse
@@ -8526,7 +8526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+   * Queries the peak BPS and PPS data of DDoS network-layer attacks.
    * 
    * @param request - DescribeDDoSBpsMaxRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8553,7 +8553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+   * Queries the peak BPS and PPS data of DDoS network-layer attacks.
    * 
    * @param request - DescribeDDoSBpsMaxRequest
    * @returns DescribeDDoSBpsMaxResponse
@@ -9078,7 +9078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an account in the KV service.
+   * Queries the status information of an account in the KV service.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeKvAccountStatusResponse
@@ -9100,7 +9100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an account in the KV service.
+   * Queries the status information of an account in the KV service.
    * @returns DescribeKvAccountStatusResponse
    */
   async describeKvAccountStatus(): Promise<$_model.DescribeKvAccountStatusResponse> {
@@ -9109,7 +9109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries prefetch tasks by time, task status, or prefetch URL.
+   * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9136,7 +9136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries prefetch tasks by time, task status, or prefetch URL.
+   * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @returns DescribePreloadTasksResponse
@@ -9185,10 +9185,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a plan instance.
+   * Invokes DescribeRatePlanInstanceStatus to query the instance status of a plan.
    * 
    * @remarks
-   * You can query the status of a plan instance only after you purchase and create the instance.
+   * You can query the instance status of a plan only after you purchase and create the plan instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9223,10 +9223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a plan instance.
+   * Invokes DescribeRatePlanInstanceStatus to query the instance status of a plan.
    * 
    * @remarks
-   * You can query the status of a plan instance only after you purchase and create the instance.
+   * You can query the instance status of a plan only after you purchase and create the plan instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @returns DescribeRatePlanInstanceStatusResponse
@@ -9391,12 +9391,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the URLs from which you can download the raw access logs of a website.
+   * Queries the download URLs of raw access logs for a specified site.
    * 
    * @remarks
-   * - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
-   * - The time granularity for data queries is one hour.
-   * - The maximum number of calls per user: 50 calls per second.
+   * - If you do not specify StartTime and EndTime, log data from the past 24 hours is returned by default. If you specify StartTime and EndTime, logs are queried based on the specified time range.
+   * - The time granularity for querying data is one hour.
+   * - The maximum number of times that each user can call this operation per second: 50.
    * - Only log records from the last month can be queried (the time span between the start time and the current time cannot exceed 31 days).
    * 
    * @param request - DescribeSiteLogsRequest
@@ -9444,12 +9444,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the URLs from which you can download the raw access logs of a website.
+   * Queries the download URLs of raw access logs for a specified site.
    * 
    * @remarks
-   * - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
-   * - The time granularity for data queries is one hour.
-   * - The maximum number of calls per user: 50 calls per second.
+   * - If you do not specify StartTime and EndTime, log data from the past 24 hours is returned by default. If you specify StartTime and EndTime, logs are queried based on the specified time range.
+   * - The time granularity for querying data is one hour.
+   * - The maximum number of times that each user can call this operation per second: 50.
    * - Only log records from the last month can be queried (the time span between the start time and the current time cannot exceed 31 days).
    * 
    * @param request - DescribeSiteLogsRequest
@@ -9621,17 +9621,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves time series data for WAF event analysis of a website.
+   * Retrieves time series data for WAF event analysis of a site.
    * 
    * @remarks
    * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-   * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
-   *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
-   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
-   *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
-   *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
-   *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
-   * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+   * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+   * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
    * 
    * @param tmpReq - DescribeSiteWafTimeSeriesDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9684,17 +9684,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves time series data for WAF event analysis of a website.
+   * Retrieves time series data for WAF event analysis of a site.
    * 
    * @remarks
    * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-   * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
-   *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
-   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
-   *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
-   *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
-   *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
-   * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+   * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+   *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+   *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+   *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+   *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+   *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+   * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
    * 
    * @param request - DescribeSiteWafTimeSeriesDataRequest
    * @returns DescribeSiteWafTimeSeriesDataResponse
@@ -9898,6 +9898,72 @@ export default class Client extends OpenApi {
   async describeUrlObservationData(request: $_model.DescribeUrlObservationDataRequest): Promise<$_model.DescribeUrlObservationDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUrlObservationDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+   * 
+   * @param request - DescribeUserResourcePackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserResourcePackageResponse
+   */
+  async describeUserResourcePackageWithOptions(request: $_model.DescribeUserResourcePackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserResourcePackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.sortField)) {
+      query["SortField"] = request.sortField;
+    }
+
+    if (!$dara.isNull(request.sortRule)) {
+      query["SortRule"] = request.sortRule;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserResourcePackage",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserResourcePackageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserResourcePackageResponse({}));
+  }
+
+  /**
+   * Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+   * 
+   * @param request - DescribeUserResourcePackageRequest
+   * @returns DescribeUserResourcePackageResponse
+   */
+  async describeUserResourcePackage(request: $_model.DescribeUserResourcePackageRequest): Promise<$_model.DescribeUserResourcePackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserResourcePackageWithOptions(request, runtime);
   }
 
   /**
@@ -11987,7 +12053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value and time to live (TTL) of a key.
+   * Queries the value and TTL information of a key-value pair.
    * 
    * @param request - GetKvDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12022,7 +12088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value and time to live (TTL) of a key.
+   * Queries the value and TTL information of a key-value pair.
    * 
    * @param request - GetKvDetailRequest
    * @returns GetKvDetailResponse
@@ -12033,7 +12099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific namespace.
+   * Queries the information of a KV namespace under an account.
    * 
    * @param request - GetKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12060,7 +12126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specific namespace.
+   * Queries the information of a KV namespace under an account.
    * 
    * @param request - GetKvNamespaceRequest
    * @returns GetKvNamespaceResponse
@@ -12157,7 +12223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the root domain name of a website.
+   * Retrieves the primary domain name based on the specified site name.
    * 
    * @param request - GetMainDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12184,7 +12250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the root domain name of a website.
+   * Retrieves the primary domain name based on the specified site name.
    * 
    * @param request - GetMainDomainNameRequest
    * @returns GetMainDomainNameResponse
@@ -12830,6 +12896,48 @@ export default class Client extends OpenApi {
   async getRedirectRule(request: $_model.GetRedirectRuleRequest): Promise<$_model.GetRedirectRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRedirectRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the scheduled automatic release time.
+   * 
+   * @param request - GetReleaseTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReleaseTimeResponse
+   */
+  async getReleaseTimeWithOptions(request: $_model.GetReleaseTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetReleaseTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetReleaseTime",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetReleaseTimeResponse>(await this.callApi(params, req, runtime), new $_model.GetReleaseTimeResponse({}));
+  }
+
+  /**
+   * Queries the scheduled automatic release time.
+   * 
+   * @param request - GetReleaseTimeRequest
+   * @returns GetReleaseTimeResponse
+   */
+  async getReleaseTime(request: $_model.GetReleaseTimeRequest): Promise<$_model.GetReleaseTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getReleaseTimeWithOptions(request, runtime);
   }
 
   /**
@@ -13501,7 +13609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a real-time log delivery task.
+   * Retrieves the configuration information of a real-time log delivery task.
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13528,7 +13636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a real-time log delivery task.
+   * Retrieves the configuration information of a real-time log delivery task.
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @returns GetSiteDeliveryTaskResponse
@@ -13915,11 +14023,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the delivery configuration and status of a task for a specific user.
+   * Queries the delivery configuration and status information of a specified task for a user.
    * 
    * @remarks
-   * - **Function**: This operation retrieves detailed delivery information for a specific task of an Alibaba Cloud user, including the task name, discard rate, region, business type, status, delivery type, delivery configuration, and filter rules.
-   * - **Use case**: Use this operation to review the log processing and delivery configuration for a specific task. This helps you analyze processing efficiency or troubleshoot issues.
+   * - **Features**: This operation retrieves the detailed delivery information of a specified task under an Alibaba Cloud account, including the task name, discard rate, region, business type, status, delivery type and configuration, and filter rules.
+   * - **Scenarios**: Use this operation when you need to understand or check the log processing and delivery configuration of a specific task for analyzing processing efficiency or troubleshooting issues.
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13946,11 +14054,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the delivery configuration and status of a task for a specific user.
+   * Queries the delivery configuration and status information of a specified task for a user.
    * 
    * @remarks
-   * - **Function**: This operation retrieves detailed delivery information for a specific task of an Alibaba Cloud user, including the task name, discard rate, region, business type, status, delivery type, delivery configuration, and filter rules.
-   * - **Use case**: Use this operation to review the log processing and delivery configuration for a specific task. This helps you analyze processing efficiency or troubleshoot issues.
+   * - **Features**: This operation retrieves the detailed delivery information of a specified task under an Alibaba Cloud account, including the task name, discard rate, region, business type, status, delivery type and configuration, and filter rules.
+   * - **Scenarios**: Use this operation when you need to understand or check the log processing and delivery configuration of a specific task for analyzing processing efficiency or troubleshooting issues.
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @returns GetUserDeliveryTaskResponse
@@ -14452,7 +14560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步任务列表
+   * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
    * 
    * @param request - ListAsyncTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14479,7 +14587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步任务列表
+   * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
    * 
    * @param request - ListAsyncTasksRequest
    * @returns ListAsyncTasksResponse
@@ -15959,7 +16067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all key-value pairs in a specified KV storage namespace under your account.
+   * Lists all key-value pairs in a specified KV namespace under the account.
    * 
    * @param request - ListKvsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15986,7 +16094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all key-value pairs in a specified KV storage namespace under your account.
+   * Lists all key-value pairs in a specified KV namespace under the account.
    * 
    * @param request - ListKvsRequest
    * @returns ListKvsResponse
@@ -17067,7 +17175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scheduled prefetch tasks for a site.
+   * Lists the scheduled prefetch tasks for a site.
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17094,7 +17202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scheduled prefetch tasks for a site.
+   * Lists the scheduled prefetch tasks for a site.
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @returns ListScheduledPreloadJobsResponse
@@ -18613,7 +18721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches resources.
+   * Prefetches URLs to warm the cache.
    * 
    * @param tmpReq - PreloadCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18662,7 +18770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches resources.
+   * Prefetches URLs to warm the cache.
    * 
    * @param request - PreloadCachesRequest
    * @returns PreloadCachesResponse
@@ -18919,7 +19027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新购DDoS实例
+   * Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @param request - PurchaseDDoSInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18962,7 +19070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新购DDoS实例
+   * Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
    * 
    * @param request - PurchaseDDoSInstanceRequest
    * @returns PurchaseDDoSInstanceResponse
@@ -20477,8 +20585,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a single scheduled preload execution plan based on the preload plan ID.
-   * Prerequisites: (1) This API only takes effect when the execution plan status is running. Execution plans in the waiting or failed status cannot be stopped. (2) Whether an execution plan can reach the running status depends on whether the site it belongs to has completed access verification (site Status=active).
+   * Stops a single scheduled prefetch plan by prefetch plan ID.
+   * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20509,8 +20617,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a single scheduled preload execution plan based on the preload plan ID.
-   * Prerequisites: (1) This API only takes effect when the execution plan status is running. Execution plans in the waiting or failed status cannot be stopped. (2) Whether an execution plan can reach the running status depends on whether the site it belongs to has completed access verification (site Status=active).
+   * Stops a single scheduled prefetch plan by prefetch plan ID.
+   * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @returns StopScheduledPreloadExecutionResponse
@@ -20563,7 +20671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
+   * Starts a cache purge or prefetch task after the file is uploaded successfully.
    * 
    * @param request - SubmitUploadTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20590,7 +20698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
+   * Starts a cache purge or prefetch task after the file is uploaded successfully.
    * 
    * @param request - SubmitUploadTaskRequest
    * @returns SubmitUploadTaskResponse
@@ -23645,7 +23753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scheduled prefetch plan by prefetch plan ID.
+   * Updates a scheduled prefetch plan based on the prefetch plan ID.
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23694,7 +23802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scheduled prefetch plan by prefetch plan ID.
+   * Updates a scheduled prefetch plan based on the prefetch plan ID.
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @returns UpdateScheduledPreloadExecutionResponse
@@ -23921,7 +24029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a site delivery task.
+   * Modifies the delivery settings of a real-time log task for a user.
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23972,7 +24080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a site delivery task.
+   * Modifies the delivery settings of a real-time log task for a user.
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @returns UpdateSiteDeliveryTaskResponse

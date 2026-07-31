@@ -6,8 +6,8 @@ export class CreateSiteDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * - **cn**: The Chinese mainland.
-   * - **oversea**: Outside the Chinese mainland.
+   * - **cn**: the Chinese mainland.
+   * - **oversea**: outside the Chinese mainland.
    * 
    * @example
    * cn
@@ -23,7 +23,7 @@ export class CreateSiteDeliveryTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 123456****
@@ -31,7 +31,7 @@ export class CreateSiteDeliveryTaskResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * er-oss

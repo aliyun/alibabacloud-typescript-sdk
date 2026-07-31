@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The prefetched content.
+   * The prefetch object.
    * 
    * @example
    * http://a.com/1.jpg?b=2
@@ -13,7 +13,7 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * @example
    * 2023-03-28 14:28:57
@@ -21,13 +21,11 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned upon a prefetch task failure. Valid values:
+   * The error description returned when the prefetch fails. Valid values:
    * 
-   * - **Internal Error**
-   * 
-   * - **Origin Timeout**
-   * 
-   * - **Origin Return StatusCode 5XX**
+   * - **Internal Error**: An internal error occurred.
+   * - **Origin Timeout**: The origin server response timed out.
+   * - **Origin Return StatusCode 5XX**: The origin server returned a 5xx error code.
    * 
    * @example
    * Internal Error
@@ -35,7 +33,7 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The progress of the task, in percentage.
+   * The task completion progress percentage.
    * 
    * @example
    * 100%
@@ -43,13 +41,10 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   process?: string;
   /**
    * @remarks
-   * The task status.
-   * 
-   * - **Complete**: The task is complete.
-   * 
-   * - **Refreshing**: The task is in progress.
-   * 
-   * - **Failed**: The task failed.
+   * The task status. Valid values:
+   * - **Complete**: Complete.
+   * - **Refreshing**: Prefetching.
+   * - **Failed**: Prefetch failed.
    * 
    * @example
    * Complete
@@ -57,7 +52,7 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the queried task.
+   * The task ID.
    * 
    * @example
    * 1597854579687428
@@ -105,7 +100,7 @@ export class DescribePreloadTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -121,12 +116,12 @@ export class DescribePreloadTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tasks.
+   * The task list.
    */
   tasks?: DescribePreloadTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 83

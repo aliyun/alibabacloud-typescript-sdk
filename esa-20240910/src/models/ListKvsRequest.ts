@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKvsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name specified when you called [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html).
+   * The name specified when calling [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListKvsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: **50**. Maximum value: **100**.
+   * The page size for the returned results. Default value: **50**. Maximum value: **100**.
    * 
    * @example
    * 50

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for the data query.
+   * The end of the time range to query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 
@@ -24,9 +24,9 @@ export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   fieldsShrink?: string;
   /**
    * @remarks
-   * The time granularity of the queried data, in seconds.
+   * The time granularity for querying data, in seconds.
    * 
-   * Based on the maximum time span of a single query, this parameter supports the following values: 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported query time granularity** section above.
+   * Based on the maximum time span of a single query, this parameter supports the values 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **Supported time granularity** section above.
    * 
    * @example
    * 300
@@ -44,7 +44,7 @@ export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The start time for the data query.
+   * The beginning of the time range to query.
    * 
    * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
    * 

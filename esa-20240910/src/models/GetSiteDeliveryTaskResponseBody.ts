@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of real-time log for Dynamic Route for CDN (DCDN). Valid values:
+   * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1** (default): access log.
-   * 
-   * - **dcdn_log_er**: edge function log.
-   * 
-   * - **dcdn_log_waf**: WAF log.
-   * 
-   * - **dcdn_log_ipa**: layer 4 acceleration log.
+   * - **dcdn_log_access_l1 (default)**: access log.
+   * - **dcdn_log_er**: Edge Routine function log.
+   * - **dcdn_log_waf**: security protection log.
+   * - **dcdn_log_ipa**: Layer 4 acceleration log.
    * 
    * @example
    * dcdn_log_access_l1
@@ -23,9 +20,8 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * - **cn**: Chinese mainland.
-   * 
-   * - **sg**: Global (excluding Chinese mainland). Note that the value for this region is "sg".
+   * - **cn**: the Chinese mainland.
+   * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
    * cn
@@ -35,16 +31,11 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The delivery type. Valid values:
    * 
-   * - **sls**: Log Service.
-   * 
+   * - **sls**: Alibaba Cloud Simple Log Service.
    * - **http**: HTTP service.
-   * 
-   * - **aws3**: Amazon S3.
-   * 
-   * - **oss**: Object Storage Service.
-   * 
+   * - **aws3**: Amazon S3 service.
+   * - **oss**: Alibaba Cloud Object Storage Service.
    * - **kafka**: Kafka service.
-   * 
    * - **aws3cmpt**: Amazon S3-compatible service.
    * 
    * @example
@@ -61,7 +52,7 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * A comma-separated list of log fields to deliver.
+   * The list of delivery fields.
    * 
    * @example
    * Client,UserAgent
@@ -75,7 +66,36 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
    * []
    */
   filterRules?: string;
+  /**
+   * @remarks
+   * The version of the filter rules.
+   * 
+   * > For backward compatibility with legacy filter rules, the default value is v1. Newly created tasks use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
+  /**
+   * @remarks
+   * The filter rules for the delivery task.
+   * 
+   * > The new version of delivery filter rules.
+   * 
+   * @example
+   * {
+   *   "where": {
+   *     "or": [
+   *       {
+   *         "and": [
+   *           { "key": "site", "operator": "eq", "value": "example.com" },
+   *           { "key": "status_code", "operator": "in", "value": ["200", "304"] }
+   *         ]
+   *       }
+   *     ]
+   *   }
+   * }
+   */
   rawRule?: string;
   /**
    * @remarks
@@ -111,11 +131,11 @@ export class GetSiteDeliveryTaskResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * - **online**: The task is delivering logs.
+   * - **online**: pushing.
    * 
-   * - **offline**: The task is paused.
+   * - **offline**: push paused.
    * 
    * @example
    * online

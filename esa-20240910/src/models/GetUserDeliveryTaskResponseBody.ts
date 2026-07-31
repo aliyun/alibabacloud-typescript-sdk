@@ -7,13 +7,10 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
    * @remarks
    * The business type. Valid values:
    * 
-   * - **dcdn_log_access_l1** (default): access log.
-   * 
-   * - **dcdn_log_er**: edge function log.
-   * 
-   * - **dcdn_log_waf**: WAF log.
-   * 
-   * - **dcdn_log_ipa**: Layer 4 acceleration log.
+   * - **dcdn_log_access_l1** (default): access logs.
+   * - **dcdn_log_er**: Edge Routine function logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_er
@@ -22,10 +19,8 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * 
-   * - **cn**: Chinese mainland
-   * 
-   * - **sg**: Global (excluding the Chinese mainland)
+   * - **cn**: the Chinese mainland.
+   * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
    * cn
@@ -34,23 +29,24 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The delivery type. Valid values:
-   * 
-   * - **sls**: Log Service
-   * 
-   * - **http**: HTTP service
-   * 
-   * - **aws3**: Amazon S3
-   * 
-   * - **oss**: OSS
-   * 
-   * - **kafka**: Kafka service
-   * 
-   * - **aws3cmpt**: Amazon S3-compatible service
+   * - **sls**: Alibaba Cloud Simple Log Service.
+   * - **http**: HTTP service.
+   * - **aws3**: Amazon S3 service.
+   * - **oss**: Alibaba Cloud Object Storage Service.
+   * - **kafka**: Kafka service.
+   * - **aws3cmpt**: Amazon S3-compatible service.
    * 
    * @example
    * oss
    */
   deliveryType?: string;
+  /**
+   * @remarks
+   * The list of Edge Routine PODs.
+   * 
+   * @example
+   * xxx,xxx
+   */
   details?: string;
   /**
    * @remarks
@@ -62,7 +58,7 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * A comma-separated list of fields.
+   * The field array.
    * 
    * @example
    * ClientRequestID,ClientRequestHost
@@ -76,7 +72,36 @@ export class GetUserDeliveryTaskResponseBody extends $dara.Model {
    * [{"ClientSSLProtocol": {"equals": ["TLSv1.3"]}}]
    */
   filterRules?: string;
+  /**
+   * @remarks
+   * The version of the filter rules.
+   * 
+   * > For backward compatibility with legacy filter rules, the default value is v1. Newly created rules use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
+  /**
+   * @remarks
+   * The filter rules for the delivery task.
+   * 
+   * > New version of delivery filter rules.
+   * 
+   * @example
+   * {
+   *   "where": {
+   *     "or": [
+   *       {
+   *         "and": [
+   *           { "key": "site", "operator": "eq", "value": "example.com" },
+   *           { "key": "status_code", "operator": "in", "value": ["200", "304"] }
+   *         ]
+   *       }
+   *     ]
+   *   }
+   * }
+   */
   rawRule?: string;
   /**
    * @remarks

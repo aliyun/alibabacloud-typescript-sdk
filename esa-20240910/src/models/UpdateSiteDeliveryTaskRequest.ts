@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The real-time log type. Valid values:
+   * The log type of real-time logs. Valid values:
    * 
-   * - **dcdn_log_access_l1** (default): access log.
-   * 
-   * - **dcdn_log_er**: Edge Routine log.
-   * 
-   * - **dcdn_log_waf**: WAF log.
-   * 
-   * - **dcdn_log_ipa**: Layer 4 acceleration log.
+   * - **dcdn_log_access_l1 (default)**: access logs.
+   * - **dcdn_log_er**: Edge Routine logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_er
@@ -29,7 +26,7 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * A comma-separated list of delivery fields.
+   * The list of delivery fields to modify, separated by commas.
    * 
    * This parameter is required.
    * 
@@ -37,10 +34,19 @@ export class UpdateSiteDeliveryTaskRequest extends $dara.Model {
    * ClientIP,UserAgent
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The version of the filter rule.
+   * 
+   * > Compatible with legacy filter rules. The default value is v1. Newly created rules use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
   /**
    * @remarks
-   * The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 123456****

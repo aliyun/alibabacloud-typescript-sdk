@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PurchaseDDoSInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The billing method.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class PurchaseDDoSInstanceRequest extends $dara.Model {
   DDoSBillingMode?: string;
   /**
    * @remarks
+   * The instance specifications for the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class PurchaseDDoSInstanceRequest extends $dara.Model {
   DDoSBurstableDomesticProtection?: string;
   /**
    * @remarks
+   * The instance specifications for outside China.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class PurchaseDDoSInstanceRequest extends $dara.Model {
   DDoSBurstableOverseasProtection?: string;
   /**
    * @remarks
+   * The site instance.
+   * 
    * This parameter is required.
    * 
    * @example

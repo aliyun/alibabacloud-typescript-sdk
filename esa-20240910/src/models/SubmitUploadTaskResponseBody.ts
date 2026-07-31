@@ -13,7 +13,7 @@ export class SubmitUploadTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the file upload task.
+   * The file upload task ID.
    * 
    * @example
    * 1593805857882113

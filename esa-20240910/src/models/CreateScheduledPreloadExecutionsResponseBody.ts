@@ -29,7 +29,7 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
   id?: string;
   /**
    * @remarks
-   * The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
+   * The interval between each batch execution of the scheduled prefetch plan, in seconds.
    * 
    * @example
    * 60
@@ -134,7 +134,7 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
   id?: string;
   /**
    * @remarks
-   * The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
+   * The interval between each batch execution of the scheduled prefetch plan, in seconds.
    * 
    * @example
    * 60

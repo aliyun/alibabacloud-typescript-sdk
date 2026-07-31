@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKvDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the key. Unit: seconds.
+   * The expiration time of the key (relative time, in seconds).
    * 
    * @example
    * 3600
@@ -13,7 +13,7 @@ export class GetKvDetailResponseBody extends $dara.Model {
   expirationTtl?: string;
   /**
    * @remarks
-   * The expiration time of the key. Unit: seconds.
+   * The expiration time of the key (relative time, in seconds).
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -21,7 +21,8 @@ export class GetKvDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The value of the key. The value of the root node.
+   * The value of the key.
+   * The value of the root node.
    * 
    * @example
    * test_value

@@ -18,7 +18,7 @@ export class BatchPutKvWithHighCapacityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of keys that were written.
+   * The list of keys that were written successfully.
    */
   successKeys?: string[];
   static names(): { [key: string]: string } {

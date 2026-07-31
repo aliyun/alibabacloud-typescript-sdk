@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchPutKvRequestKvList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time. This is a UNIX timestamp in seconds and cannot be earlier than the current time. If you set both Expiration and ExpirationTtl, ExpirationTtl takes precedence.
+   * The expiration time as a UNIX timestamp in seconds. The value cannot be earlier than the current time. If both Expiration and ExpirationTtl are specified, ExpirationTtl takes precedence.
    * 
    * @example
    * 1690081381
@@ -13,7 +13,7 @@ export class BatchPutKvRequestKvList extends $dara.Model {
   expiration?: number;
   /**
    * @remarks
-   * The time-to-live (TTL). This is a relative time in seconds. If you set both Expiration and ExpirationTtl, ExpirationTtl takes precedence.
+   * The expiration time as a relative time in seconds. If both Expiration and ExpirationTtl are specified, ExpirationTtl takes precedence.
    * 
    * @example
    * 3600
@@ -21,7 +21,7 @@ export class BatchPutKvRequestKvList extends $dara.Model {
   expirationTtl?: number;
   /**
    * @remarks
-   * The name of the key. The key can be up to 512 characters long and cannot contain spaces or backslashes (/).
+   * The key name to set. The key name can be up to 512 characters in length and cannot contain spaces or backslashes (/).
    * 
    * This parameter is required.
    * 
@@ -69,14 +69,14 @@ export class BatchPutKvRequestKvList extends $dara.Model {
 export class BatchPutKvRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of key-value pairs to set. The total size cannot exceed 2 MB (2 × 1,000 × 1,000).
+   * The list of key-value pairs to batch set. The total size cannot exceed 2 MB (2\\*1000\\*1000).
    * 
    * This parameter is required.
    */
   kvList?: BatchPutKvRequestKvList[];
   /**
    * @remarks
-   * The name specified when you call [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
+   * The name specified when you called [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
    * 
    * This parameter is required.
    * 

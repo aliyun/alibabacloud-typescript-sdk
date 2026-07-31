@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKvNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The name that you specified when you called [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
+   * The name specified when calling [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
    * 
    * This parameter is required.
    * 

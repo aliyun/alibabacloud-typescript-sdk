@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePreloadTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The content to prefetch. Exact match is supported.
+   * The query content. Exact match is used.
    * 
    * @example
    * http://a.com/1.jpg?b=2
@@ -13,8 +13,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
+   * The end time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
    * > The end time must be later than the start time.
    * 
    * @example
@@ -31,7 +30,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Valid values: 1 to 50.
+   * The page size. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
    * 
    * @example
    * 20
@@ -39,7 +38,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * @example
    * 123456789****
@@ -47,7 +46,7 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-03-22T17:00:00Z
@@ -55,13 +54,11 @@ export class DescribePreloadTasksRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The task execution status. Valid values:
    * 
-   * - **Complete**: The task is complete.
-   * 
-   * - **Refreshing**: The task is running.
-   * 
-   * - **Failed**: The task failed.
+   * - **Complte**: Complete.
+   * - **Refreshing**: Prefetching.
+   * - **Failed**: Prefetch failed.
    * 
    * @example
    * Complete

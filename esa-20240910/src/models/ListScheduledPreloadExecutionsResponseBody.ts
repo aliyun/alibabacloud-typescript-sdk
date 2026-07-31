@@ -29,7 +29,7 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.
   id?: string;
   /**
    * @remarks
-   * The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
+   * The interval between each batch execution of the scheduled prefetch plan, in seconds.
    * 
    * @example
    * 60

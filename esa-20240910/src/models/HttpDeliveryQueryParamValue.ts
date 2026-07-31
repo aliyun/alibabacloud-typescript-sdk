@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HttpDeliveryQueryParamValue extends $dara.Model {
+  /**
+   * @remarks
+   * The value of the custom HTTP delivery query string parameter.
+   * 
+   * > Key-map. The value can be a static value, dynamic function, or dynamic value.
+   * 
+   * @example
+   * auth_token: sk-***
+   */
   staticValue?: string;
   static names(): { [key: string]: string } {
     return {

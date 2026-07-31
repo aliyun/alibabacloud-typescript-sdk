@@ -9,8 +9,7 @@ export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends 
    * @remarks
    * The encryption timeout period.
    * 
-   * > 
-   * > Set this parameter to a value greater than 0. We recommend that you set it to at least 300.
+   * > The value must be greater than 0. A value of 300 or greater is recommended.
    * 
    * @example
    * 300
@@ -68,7 +67,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   compress?: string;
   /**
    * @remarks
-   * The delivery URL of the HTTP server.
+   * The HTTP server delivery address.
    * 
    * @example
    * http://xxx.aliyun.com/v1/log/upload
@@ -76,13 +75,20 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   destUrl?: string;
   /**
    * @remarks
-   * The custom header.
+   * The Custom Header.
    */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
+  /**
+   * @remarks
+   * The trailing separator.
+   * 
+   * @example
+   * \\n
+   */
   lastLogSplit?: boolean;
   /**
    * @remarks
-   * The prefix of the log delivery package.
+   * The log delivery packet prefix.
    * 
    * @example
    * cdnVersion:1.0
@@ -90,17 +96,31 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logBodyPrefix?: string;
   /**
    * @remarks
-   * The suffix of the log delivery package.
+   * The log delivery packet suffix.
    * 
    * @example
    * cdnVersion:1.0
    */
   logBodySuffix?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable log segmentation. Default value: true.
+   * 
+   * @example
+   * true
+   */
   logSplit?: boolean;
+  /**
+   * @remarks
+   * The log separator.
+   * 
+   * @example
+   * \\n
+   */
   logSplitWords?: string;
   /**
    * @remarks
-   * The maximum size per delivery batch, in MB.
+   * The maximum size per delivery, in MB.
    * 
    * @example
    * 5
@@ -108,7 +128,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxBatchMB?: number;
   /**
    * @remarks
-   * The maximum number of entries per delivery batch.
+   * The maximum number of log entries per delivery.
    * 
    * @example
    * 1000
@@ -124,12 +144,12 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxRetry?: number;
   /**
    * @remarks
-   * The custom request parameter.
+   * The custom request parameters.
    */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
   /**
    * @remarks
-   * Specifies whether standard authentication is enabled.
+   * Specifies whether to use standard authentication.
    * 
    * @example
    * true
@@ -252,10 +272,19 @@ export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
    * dqc_test2
    */
   topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable SASL encrypted transmission for Kafka delivery.
+   * 
+   * > The delivery address must be configured with a public certificate. Self-signed certificate verification will fail.
+   * 
+   * @example
+   * false
+   */
   useTLS?: boolean;
   /**
    * @remarks
-   * Specifies whether user authentication is enabled.
+   * Specifies whether to enable user authentication.
    * 
    * @example
    * true
@@ -328,7 +357,7 @@ export class CreateSiteDeliveryTaskRequestOssDelivery extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The prefix of the OSS storage path.
+   * The OSS storage path prefix.
    * 
    * @example
    * test/
@@ -388,9 +417,9 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   bucketPath?: string;
   /**
    * @remarks
-   * The endpoint of the server. This parameter is required when S3Cmpt is set to true.
+   * The server endpoint. This parameter is required when S3Cmpt is set to true.
    * 
-   * > For S3-compatible services, configure the domain name resolution by concatenating the bucket and endpoint. For example, if the endpoint is example.com and the bucket is demo, the actual delivery address is demo.example.com.
+   * > For S3-compatible services, configure DNS resolution by concatenating the Bucket and Endpoint addresses. For example, if Endpoint is example.com and Bucket is demo, the actual delivery address is demo.example.com.
    * 
    * @example
    * https://s3.oss-cn-hangzhou.aliyuncs.com
@@ -398,7 +427,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The prefix of the storage path.
+   * The storage path prefix.
    * 
    * @example
    * logriver-test/log
@@ -406,7 +435,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   prefixPath?: string;
   /**
    * @remarks
-   * The region where the service resides.
+   * The region where the service is located.
    * 
    * @example
    * cn-beijing
@@ -422,13 +451,31 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   s3Cmpt?: boolean;
   /**
    * @remarks
-   * The secret key used by the S3 account.
+   * The SecretKey ID used by the S3 account.
    * 
    * @example
    * LDSIKh***
    */
   secretKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable S3 server-side encryption.
+   * 
+   * To configure server-side encryption for the S3 bucket, refer to OSS [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+   * 
+   * @example
+   * false
+   */
   serverSideEncryption?: boolean;
+  /**
+   * @remarks
+   * The key verification method for S3 delivery.
+   * 
+   * > The key configuration comes from the console or SDK. Keys from the console are encrypted during transmission. Keys from the SDK do not require encryption.
+   * 
+   * @example
+   * console
+   */
   vertifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -470,7 +517,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
 export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The SLS real-time log Logstore name.
    * 
    * @example
    * accesslog-test
@@ -478,7 +525,7 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSLogStore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The SLS real-time log project name.
    * 
    * @example
    * dcdn-test20240417
@@ -486,7 +533,7 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSProject?: string;
   /**
    * @remarks
-   * The region of the Simple Log Service project.
+   * The region name of the SLS real-time log.
    * 
    * @example
    * cn-hangzhou
@@ -522,9 +569,9 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The business type. Valid values:
    * 
-   * - **dcdn_log_access_l1** (default): Access logs.
-   * - **dcdn_log_er**: Edge Routine logs.
-   * - **dcdn_log_waf**: Security protection logs.
+   * - **dcdn_log_access_l1** (default): access logs.
+   * - **dcdn_log_er**: Edge Routine function logs.
+   * - **dcdn_log_waf**: security protection logs.
    * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * This parameter is required.
@@ -536,8 +583,8 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * - **cn**: The Chinese mainland.
-   * - **oversea**: Outside the Chinese mainland.
+   * - **cn**: the Chinese mainland.
+   * - **oversea**: outside the Chinese mainland.
    * 
    * @example
    * cn
@@ -546,10 +593,10 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The delivery type. Valid values:
-   * - **sls**: Simple Log Service.
+   * - **sls**: Alibaba Cloud Simple Log Service.
    * - **http**: HTTP service.
-   * - **aws3**: Amazon S3.
-   * - **oss**: Object Storage Service (OSS).
+   * - **aws3**: Amazon S3 service.
+   * - **oss**: Alibaba Cloud Object Storage Service.
    * - **kafka**: Kafka service.
    * - **aws3cmpt**: Amazon S3-compatible service.
    * 
@@ -561,7 +608,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The discard rate. If you do not specify this parameter, the default value is 0.
+   * The discard rate. Default value: 0.
    * 
    * @example
    * 0.0
@@ -569,7 +616,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The log fields to be delivered, separated by commas (,).
+   * The selected log fields, separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -577,6 +624,15 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
    * user_agent,ip_adress,ip_port
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The filter rule version.
+   * 
+   * > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
   /**
    * @remarks
@@ -595,12 +651,12 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   ossDelivery?: CreateSiteDeliveryTaskRequestOssDelivery;
   /**
    * @remarks
-   * The configuration parameters for S3 or S3-compatible delivery.
+   * The S3/S3-compatible delivery configuration parameters.
    */
   s3Delivery?: CreateSiteDeliveryTaskRequestS3Delivery;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -610,12 +666,12 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The Simple Log Service delivery configuration.
+   * The SLS delivery configuration.
    */
   slsDelivery?: CreateSiteDeliveryTaskRequestSlsDelivery;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * This parameter is required.
    * 
