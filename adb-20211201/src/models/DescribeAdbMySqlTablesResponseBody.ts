@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Additional information about the call. Valid values:
-   * 
-   * - **Success** is returned if the request is successful.
-   * 
-   * - A specific error code is returned if the request fails.
+   * The additional information about the call result. Valid values:
+   * - If the request was successful, **Success** is returned. 
+   * - If the request failed, a specific error code is returned.
    * 
    * @example
    * Success
@@ -25,7 +23,7 @@ export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -34,9 +32,7 @@ export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * 
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example
@@ -45,7 +41,7 @@ export class DescribeAdbMySqlTablesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Information about the tables.
+   * The table information.
    */
   tables?: string[];
   static names(): { [key: string]: string } {

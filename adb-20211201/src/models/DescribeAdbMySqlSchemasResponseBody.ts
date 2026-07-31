@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlSchemasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   If the request was successful, a **success** message is returned.
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - If the request was successful, **Success** is returned. 
+   * - If the request failed, a specific error code is returned.
    * 
    * @example
    * Success
@@ -24,15 +23,14 @@ export class DescribeAdbMySqlSchemasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried databases.
+   * The list of databases.
    */
   schemas?: string[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

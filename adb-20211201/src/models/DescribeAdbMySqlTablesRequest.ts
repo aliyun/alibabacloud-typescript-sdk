@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAdbMySqlTablesRequest extends $dara.Model {
   /**
+   * **if can be null:**
+   * true
+   */
+  catalog?: string;
+  /**
    * @remarks
    * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
@@ -17,8 +22,7 @@ export class DescribeAdbMySqlTablesRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a cluster.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
    * 
    * This parameter is required.
    * 
@@ -28,7 +32,7 @@ export class DescribeAdbMySqlTablesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -39,6 +43,7 @@ export class DescribeAdbMySqlTablesRequest extends $dara.Model {
   schema?: string;
   static names(): { [key: string]: string } {
     return {
+      catalog: 'Catalog',
       DBClusterId: 'DBClusterId',
       regionId: 'RegionId',
       schema: 'Schema',
@@ -47,6 +52,7 @@ export class DescribeAdbMySqlTablesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      catalog: 'string',
       DBClusterId: 'string',
       regionId: 'string',
       schema: 'string',

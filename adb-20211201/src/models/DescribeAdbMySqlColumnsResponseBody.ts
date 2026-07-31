@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlColumnsResponseBodyColumns extends $dara.Model {
   /**
    * @remarks
-   * The comments of the column.
+   * The column comment.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeAdbMySqlColumnsResponseBodyColumns extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * id
@@ -63,15 +63,14 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   columnCount?: number;
   /**
    * @remarks
-   * Details of the columns.
+   * The column information.
    */
   columns?: DescribeAdbMySqlColumnsResponseBodyColumns[];
   /**
    * @remarks
-   * The message returned for the operation. Valid values:
-   * 
-   * *   **Success** is returned if the operation is successful.
-   * *   An error message is returned if the operation fails.
+   * The additional information about the call result. Valid values:
+   * - If the request was successful, **Success** is returned. 
+   * - If the request failed, a specific error code is returned.
    * 
    * @example
    * Success
@@ -79,7 +78,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A9F013CD-0222-595E-8157-445969B97F03
@@ -87,7 +86,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -95,10 +94,9 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
-   * 
-   * *   **true**: The operation is successful.
-   * *   **false**: The operation fails.
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true
@@ -106,7 +104,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test

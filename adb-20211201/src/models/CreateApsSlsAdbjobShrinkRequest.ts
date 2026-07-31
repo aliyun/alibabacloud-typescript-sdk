@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the cross-account role.
+   * The role name for cross-account access.
    * 
    * @example
    * test-role
@@ -13,7 +13,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The cross-account UID.
+   * The UID for cross-account access.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The advanced configurations.
+   * The advanced configuration.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   advancedConfig?: string;
   /**
    * @remarks
-   * The information about columns.
+   * The column information.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   dirtyDataProcessPattern?: string;
   /**
    * @remarks
-   * Specifies whether to enable the consistency check.
+   * Specifies whether to enable exactly-once semantics.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   exactlyOnce?: string;
   /**
    * @remarks
-   * The number of full AnalyticDB compute units (ACUs).
+   * The number of AnalyticDB compute units (ACUs) for full data synchronization.
    * 
    * @example
    * 16
@@ -101,7 +101,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   fullComputeUnit?: string;
   /**
    * @remarks
-   * The advanced configurations of Hudi.
+   * The Hudi advanced configuration.
    * 
    * @example
    * -
@@ -109,7 +109,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   hudiAdvancedConfig?: string;
   /**
    * @remarks
-   * The number of increment ACUs.
+   * The number of AnalyticDB compute units (ACUs) for incremental data synchronization.
    * 
    * @example
    * 168
@@ -117,7 +117,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * The lakehouse ID.
+   * lakehosue ID。
    * 
    * @example
    * 123
@@ -125,7 +125,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   lakehouseId?: number;
   /**
    * @remarks
-   * The latest offset.
+   * The maximum offset.
    * 
    * @example
    * -
@@ -133,7 +133,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   maxOffsetsPerTrigger?: number;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL.
+   * The OSS address.
    * 
    * @example
    * oss://test*
@@ -141,7 +141,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   ossLocation?: string;
   /**
    * @remarks
-   * The format of the output file.
+   * The output format.
    * 
    * @example
    * -
@@ -149,7 +149,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   outputFormat?: string;
   /**
    * @remarks
-   * The information about partition.
+   * The partition information.
    * 
    * @example
    * -
@@ -157,7 +157,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   partitionSpecsShrink?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password.
    * 
    * This parameter is required.
    * 
@@ -167,7 +167,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The definition of the primary key.
+   * The primary key definition.
    * 
    * @example
    * -
@@ -175,7 +175,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   primaryKeyDefinition?: string;
   /**
    * @remarks
-   * The name of the SLS project.
+   * The project name.
    * 
    * @example
    * test
@@ -193,7 +193,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
    * test
@@ -209,7 +209,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * The start offset.
+   * The starting offset for delivery.
    * 
    * This parameter is required.
    * 
@@ -219,7 +219,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   startingOffsets?: string;
   /**
    * @remarks
-   * The SLS Logstore.
+   * sls Store。
    * 
    * @example
    * test
@@ -227,7 +227,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   store?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * This parameter is required.
    * 
@@ -237,7 +237,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The rules for generating the destination database.
+   * The generation rule for the destination.
    * 
    * @example
    * -
@@ -253,7 +253,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The timestamp conversion.
+   * The UNIX timestamp conversion configuration.
    * 
    * @example
    * -
@@ -261,7 +261,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   unixTimestampConvertShrink?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * This parameter is required.
    * 
@@ -271,7 +271,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The name of the workload.
+   * The workload name.
    * 
    * This parameter is required.
    * 
