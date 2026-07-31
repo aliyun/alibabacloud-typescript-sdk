@@ -5,14 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class InitModelRequestModels extends $dara.Model {
   /**
    * @remarks
-   * Model category  
-   * - a. Text embedding: text_embedding  
-   * - b. Reranking: rerank  
-   * - c. Document segmentation: doc_split  
-   * - d. Large Language Model (LLM) service: completion  
-   * - e. Query analysis: query_analyze  
-   * - f. Document content parsing: doc_analyze  
-   * - g. Image content parsing: img_analyze
+   * The model type. Valid values:
+   * 
+   * - text_embedding: text embedding
+   * - rerank: reranking
+   * - doc_split: document splitting
+   * - completion: large language model service
+   * - query_analyze: query analysis
+   * - doc_analyze: document content parsing
+   * - img_analyze: image content parsing
    * 
    * @example
    * text_embedding
@@ -20,7 +21,7 @@ export class InitModelRequestModels extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Service ID of the Search Open Platform
+   * The service ID of the AISearch open platform.
    * 
    * @example
    * ops-text-embedding-**
@@ -52,7 +53,7 @@ export class InitModelRequestModels extends $dara.Model {
 export class InitModelRequest extends $dara.Model {
   /**
    * @remarks
-   * API key for the AI Search Open Platform
+   * The API key for the AISearch open platform.
    * 
    * This parameter is required.
    * 
@@ -62,7 +63,7 @@ export class InitModelRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * Service registration endpoint of the AI Search Open Platform
+   * The service registration address of the AISearch open platform.
    * 
    * This parameter is required.
    * 
@@ -72,7 +73,7 @@ export class InitModelRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * HTTP protocol type
+   * The HTTP protocol type.
    * 
    * This parameter is required.
    * 
@@ -82,12 +83,12 @@ export class InitModelRequest extends $dara.Model {
   httpSchema?: string;
   /**
    * @remarks
-   * Specify the models to initialize. If empty, all built-in models will be initialized.
+   * The models to initialize. If this parameter is left empty, all built-in models are initialized.
    */
   models?: InitModelRequestModels[];
   /**
    * @remarks
-   * Workspace.
+   * The workspace.
    * 
    * This parameter is required.
    * 

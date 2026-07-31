@@ -71,7 +71,7 @@ export class ListDiagnoseReportResponseBodyResultDiagnoseItemsDetail extends $da
    * 
    * - TEXT: text description
    * - CONSOLE_API: console-triggered
-   * - ES_API: API-triggered.
+   * - ES_API: API-triggered
    * 
    * @example
    * ES_API
@@ -251,7 +251,7 @@ export class ListDiagnoseReportResponseBodyResult extends $dara.Model {
    * 
    * - SYSTEM: automatically triggered by the system
    * - INNER: internally triggered
-   * - USER: manually triggered by the user.
+   * - USER: manually triggered by the user
    * 
    * @example
    * USER

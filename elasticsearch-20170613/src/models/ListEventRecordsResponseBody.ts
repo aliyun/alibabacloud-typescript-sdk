@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest extends $dara.Model {
   /**
    * @remarks
-   * Operation suggestion
+   * The suggested action.
    */
   suggestActions?: string[];
   /**
    * @remarks
-   * Operation suggestion text
+   * The text of the suggested action.
    * 
    * @example
    * “”
@@ -18,7 +18,7 @@ export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest ex
   suggestText?: string;
   /**
    * @remarks
-   * Operation suggestion type
+   * The type of the suggested action.
    * 
    * @example
    * promptText
@@ -55,12 +55,12 @@ export class ListEventRecordsResponseBodyResultResultShowContentActionSuggest ex
 export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.Model {
   /**
    * @remarks
-   * Operation suggestion
+   * The suggested action.
    */
   actionSuggest?: ListEventRecordsResponseBodyResultResultShowContentActionSuggest;
   /**
    * @remarks
-   * Description of the management event
+   * The event description.
    * 
    * @example
    * Instance.SpecModify
@@ -68,7 +68,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   desc?: string;
   /**
    * @remarks
-   * Management event status
+   * The event status.
    * 
    * @example
    * Executed
@@ -76,7 +76,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   eventStatus?: string;
   /**
    * @remarks
-   * Time of occurrence
+   * The time when the event occurred.
    * 
    * @example
    * 2025-05-08 18:31:01
@@ -84,7 +84,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   eventTime?: string;
   /**
    * @remarks
-   * End Time of O&M execution for the management event
+   * The end time of the O&M execution for the event.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -92,7 +92,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   executeFinishTime?: string;
   /**
    * @remarks
-   * Start Time of O&M execution for the management event
+   * The start time of the O&M execution for the event.
    * 
    * @example
    * 2025-05-08 18:31:00
@@ -100,7 +100,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   executeStartTime?: string;
   /**
    * @remarks
-   * Instance ID of the occurrence
+   * The instance ID of the instance on which the event occurred.
    * 
    * @example
    * es-cn-a5cb2dece****
@@ -108,7 +108,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Execution ID of the cluster Change
+   * The execution ID of the cluster change.
    * 
    * @example
    * f183728022a1c769e97b4*****
@@ -155,7 +155,7 @@ export class ListEventRecordsResponseBodyResultResultShowContent extends $dara.M
 export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   /**
    * @remarks
-   * Is auto-alarm enabled
+   * Indicates whether automatic alerting is enabled.
    * 
    * @example
    * false
@@ -163,7 +163,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   autoAlarm?: boolean;
   /**
    * @remarks
-   * Management event display name
+   * The display name of the event.
    * 
    * @example
    * Instance.SpecModify
@@ -171,7 +171,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * is Preview
+   * Indicates whether this is a dry run.
    * 
    * @example
    * false
@@ -179,7 +179,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * event level
+   * The event level.
    * 
    * @example
    * Info
@@ -187,7 +187,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * is O&M processing required
+   * Indicates whether O&M processing is required.
    * 
    * @example
    * false
@@ -195,7 +195,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   mustOps?: boolean;
   /**
    * @remarks
-   * product type of the management event
+   * The product type of the event.
    * 
    * @example
    * elasticsearch
@@ -203,7 +203,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * scheduled running time
+   * The scheduled execution time.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -211,7 +211,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   scheduleExecuteTime?: string;
   /**
    * @remarks
-   * scheduled end time
+   * The scheduled end time.
    * 
    * @example
    * 2025-05-08 18:41:01
@@ -219,12 +219,12 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   scheduleFinishTime?: string;
   /**
    * @remarks
-   * Management event content
+   * The event content.
    */
   showContent?: ListEventRecordsResponseBodyResultResultShowContent;
   /**
    * @remarks
-   * Event occurrence source
+   * The source of the event.
    * 
    * @example
    * webConsole
@@ -232,7 +232,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Event status
+   * The event status.
    * 
    * @example
    * Executed
@@ -240,7 +240,7 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * UserOperator
@@ -295,12 +295,12 @@ export class ListEventRecordsResponseBodyResultResult extends $dara.Model {
 export class ListEventRecordsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Content
+   * The returned content.
    */
   result?: ListEventRecordsResponseBodyResultResult[];
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 4
@@ -335,7 +335,7 @@ export class ListEventRecordsResponseBodyResult extends $dara.Model {
 export class ListEventRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 7F40EAA1-6F1D-4DD9-8DB8-C5F00C4E****
@@ -343,7 +343,7 @@ export class ListEventRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return Result
+   * The returned result.
    */
   result?: ListEventRecordsResponseBodyResult;
   static names(): { [key: string]: string } {

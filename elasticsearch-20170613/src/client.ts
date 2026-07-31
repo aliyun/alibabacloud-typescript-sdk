@@ -15,9 +15,11 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'us-west-1': "elasticsearch.us-west-1.aliyuncs.com",
       'us-east-1': "elasticsearch.us-east-1.aliyuncs.com",
+      'na-south-1': "elasticsearch.na-south-1.aliyuncs.com",
       'eu-west-1': "elasticsearch.eu-west-1.aliyuncs.com",
       'eu-central-1': "elasticsearch.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "elasticsearch.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "elasticsearch.cn-wulanchabu-gic-1.aliyuncs.com",
       'cn-wulanchabu': "elasticsearch.cn-wulanchabu.aliyuncs.com",
       'cn-shenzhen': "elasticsearch.cn-shenzhen.aliyuncs.com",
       'cn-shanghai-finance-1': "elasticsearch.cn-shanghai-finance-1.aliyuncs.com",
@@ -30,11 +32,11 @@ export default class Client extends OpenApi {
       'cn-guangzhou': "elasticsearch.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "elasticsearch.cn-chengdu.aliyuncs.com",
       'cn-beijing': "elasticsearch.cn-beijing.aliyuncs.com",
+      'ap-southeast-7': "elasticsearch.ap-southeast-7.aliyuncs.com",
       'ap-southeast-5': "elasticsearch.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "elasticsearch.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "elasticsearch.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "elasticsearch.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "elasticsearch.ap-south-1.aliyuncs.com",
+      'ap-northeast-2': "elasticsearch.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "elasticsearch.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
@@ -232,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a frozen Logstash instance that was frozen after release.
+   * Resumes a frozen Logstash instance that was released.
    * 
    * @param request - CancelLogstashDeletionRequest
    * @param headers - map
@@ -265,7 +267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a frozen Logstash instance that was frozen after release.
+   * Resumes a frozen Logstash instance that was released.
    * 
    * @param request - CancelLogstashDeletionRequest
    * @returns CancelLogstashDeletionResponse
@@ -326,7 +328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
+   * Recommends the optimal cluster capacity planning configuration based on business scenarios, QPS, and log generation volume.
    * 
    * @param request - CapacityPlanRequest
    * @param headers - map
@@ -371,7 +373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
+   * Recommends the optimal cluster capacity planning configuration based on business scenarios, QPS, and log generation volume.
    * 
    * @param request - CapacityPlanRequest
    * @returns CapacityPlanResponse
@@ -477,7 +479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
+   * Disables the cloud-managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
    * 
    * @param request - CloseManagedIndexRequest
    * @param headers - map
@@ -510,7 +512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
+   * Disables the cloud-managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
    * 
    * @param request - CloseManagedIndexRequest
    * @returns CloseManagedIndexResponse
@@ -604,7 +606,7 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch composable template.
    * 
    * @remarks
-   * For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - CreateComponentIndexRequest
    * @param headers - map
@@ -644,7 +646,7 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch composable template.
    * 
    * @remarks
-   * For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - CreateComponentIndexRequest
    * @returns CreateComponentIndexResponse
@@ -659,7 +661,7 @@ export default class Client extends OpenApi {
    * Creates a data stream to manage a set of indexes.
    * 
    * @remarks
-   * > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
+   * > The data stream name you create must correspond one-to-one with the index pattern in the index template, and the index template must have data stream enabled. For example, if the index pattern in the index template is ds-*, the corresponding data stream name should be ds-.
    * 
    * @param request - CreateDataStreamRequest
    * @param headers - map
@@ -696,7 +698,7 @@ export default class Client extends OpenApi {
    * Creates a data stream to manage a set of indexes.
    * 
    * @remarks
-   * > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
+   * > The data stream name you create must correspond one-to-one with the index pattern in the index template, and the index template must have data stream enabled. For example, if the index pattern in the index template is ds-*, the corresponding data stream name should be ds-.
    * 
    * @param request - CreateDataStreamRequest
    * @returns CreateDataStreamResponse
@@ -708,7 +710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
+   * Creates an index lifecycle policy. If a policy with the specified name already exists, replaces it and increments the version.
    * 
    * @param request - CreateILMPolicyRequest
    * @param headers - map
@@ -742,7 +744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
+   * Creates an index lifecycle policy. If a policy with the specified name already exists, replaces it and increments the version.
    * 
    * @param request - CreateILMPolicyRequest
    * @returns CreateILMPolicyResponse
@@ -825,12 +827,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstash instance by calling CreateLogstash.
+   * Creates a Logstash instance.
    * 
    * @remarks
    * Before calling this operation, note the following:
-   * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
-   * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
+   * - Make sure that you are familiar with the billing methods and pricing of Logstash. <props="china"><ph>For more information, see [Billing overview](https://help.aliyun.com/document_detail/260882.html).</ph>
+   * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
    * 
    * @param request - CreateLogstashRequest
    * @param headers - map
@@ -897,12 +899,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstash instance by calling CreateLogstash.
+   * Creates a Logstash instance.
    * 
    * @remarks
    * Before calling this operation, note the following:
-   * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
-   * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
+   * - Make sure that you are familiar with the billing methods and pricing of Logstash. <props="china"><ph>For more information, see [Billing overview](https://help.aliyun.com/document_detail/260882.html).</ph>
+   * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
    * 
    * @param request - CreateLogstashRequest
    * @returns CreateLogstashResponse
@@ -1013,7 +1015,7 @@ export default class Client extends OpenApi {
    * Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
    * 
    * @remarks
-   * For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
+   * For more information about this API, see [Configure private network connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
    * 
    * @param request - CreateVpcEndpointRequest
    * @param headers - map
@@ -1063,7 +1065,7 @@ export default class Client extends OpenApi {
    * Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
    * 
    * @remarks
-   * For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
+   * For more information about this API, see [Configure private network connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
    * 
    * @param request - CreateVpcEndpointRequest
    * @returns CreateVpcEndpointResponse
@@ -1075,7 +1077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
+   * Takes specified zones offline when multiple zones are available, and migrates nodes from the offline zones to other zones.
    * 
    * @param request - DeactivateZonesRequest
    * @param headers - map
@@ -1109,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
+   * Takes specified zones offline when multiple zones are available, and migrates nodes from the offline zones to other zones.
    * 
    * @param request - DeactivateZonesRequest
    * @returns DeactivateZonesResponse
@@ -1166,10 +1168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a component index template of Elasticsearch.
+   * Deletes a composite index template from an Elasticsearch instance.
    * 
    * @remarks
-   * For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Implement massive data storage through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1194,10 +1196,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a component index template of Elasticsearch.
+   * Deletes a composite index template from an Elasticsearch instance.
    * 
    * @remarks
-   * For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Implement massive data storage through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * @returns DeleteComponentIndexResponse
    */
   async deleteComponentIndex(InstanceId: string, name: string): Promise<$_model.DeleteComponentIndexResponse> {
@@ -1259,7 +1261,7 @@ export default class Client extends OpenApi {
    * Deletes a specified cluster data stream.
    * 
    * @remarks
-   * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
+   * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- To delete an index template that has associated data streams, delete the associated data streams first. On the data stream list page, view the data stream details to find the index template that the data stream matches.
    * 
    * @param request - DeleteDataStreamRequest
    * @param headers - map
@@ -1295,7 +1297,7 @@ export default class Client extends OpenApi {
    * Deletes a specified cluster data stream.
    * 
    * @remarks
-   * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
+   * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- To delete an index template that has associated data streams, delete the associated data streams first. On the data stream list page, view the data stream details to find the index template that the data stream matches.
    * 
    * @param request - DeleteDataStreamRequest
    * @returns DeleteDataStreamResponse
@@ -1479,7 +1481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+   * All physical resources used by the instance are reclaimed, all related data is permanently lost and unrecoverable, and the cloud disks attached to the instance nodes along with their corresponding snapshots are released.
    * 
    * @remarks
    * Before you invoke this operation, note the following:
@@ -1520,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+   * All physical resources used by the instance are reclaimed, all related data is permanently lost and unrecoverable, and the cloud disks attached to the instance nodes along with their corresponding snapshots are released.
    * 
    * @remarks
    * Before you invoke this operation, note the following:
@@ -1691,7 +1693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
+   * Calls DeleteVpcEndpoint to delete an endpoint in the service VPC.
    * 
    * @param request - DeleteVpcEndpointRequest
    * @param headers - map
@@ -1724,7 +1726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
+   * Calls DeleteVpcEndpoint to delete an endpoint in the service VPC.
    * 
    * @param request - DeleteVpcEndpointRequest
    * @returns DeleteVpcEndpointResponse
@@ -1739,7 +1741,7 @@ export default class Client extends OpenApi {
    * Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
-   * > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
+   * > Before installing a collector on an ACK cluster, call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1767,7 +1769,7 @@ export default class Client extends OpenApi {
    * Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
-   * > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
+   * > Before installing a collector on an ACK cluster, call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
    * @returns DescribeAckOperatorResponse
    */
   async describeAckOperator(ClusterId: string): Promise<$_model.DescribeAckOperatorResponse> {
@@ -1853,7 +1855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
+   * Retrieves the list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
    * 
    * @param request - DescribeConnectableClustersRequest
    * @param headers - map
@@ -1886,7 +1888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
+   * Retrieves the list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
    * 
    * @param request - DescribeConnectableClustersRequest
    * @returns DescribeConnectableClustersResponse
@@ -1933,7 +1935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
+   * Queries historical reports of intelligent O&M diagnostics.
    * 
    * @param request - DescribeDiagnoseReportRequest
    * @param headers - map
@@ -1966,7 +1968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
+   * Queries historical reports of intelligent O&M diagnostics.
    * 
    * @param request - DescribeDiagnoseReportRequest
    * @returns DescribeDiagnoseReportResponse
@@ -1978,7 +1980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
+   * Calls DescribeDiagnosisSettings to retrieve the scenario settings of intelligent diagnosis and optimization.
    * 
    * @param request - DescribeDiagnosisSettingsRequest
    * @param headers - map
@@ -2011,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
+   * Calls DescribeDiagnosisSettings to retrieve the scenario settings of intelligent diagnosis and optimization.
    * 
    * @param request - DescribeDiagnosisSettingsRequest
    * @returns DescribeDiagnosisSettingsResponse
@@ -2058,13 +2060,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of a cluster to check whether it is running properly.
+   * Queries the health status of a cluster to check whether it is running normally.
    * 
    * @remarks
    * The instance health status. The following three states are supported:
-   * - GREEN: Primary and replica shards are allocated properly.
-   * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
-   * - RED: Primary shards are not allocated properly.
+   * - GREEN: Primary and replica shards are allocated normally.
+   * - YELLOW: Primary shards are allocated normally, but replica shards are not allocated normally.
+   * - RED: Primary shards are not allocated normally.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2089,13 +2091,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of a cluster to check whether it is running properly.
+   * Queries the health status of a cluster to check whether it is running normally.
    * 
    * @remarks
    * The instance health status. The following three states are supported:
-   * - GREEN: Primary and replica shards are allocated properly.
-   * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
-   * - RED: Primary shards are not allocated properly.
+   * - GREEN: Primary and replica shards are allocated normally.
+   * - YELLOW: Primary shards are allocated normally, but replica shards are not allocated normally.
+   * - RED: Primary shards are not allocated normally.
    * @returns DescribeElasticsearchHealthResponse
    */
   async describeElasticsearchHealth(InstanceId: string): Promise<$_model.DescribeElasticsearchHealthResponse> {
@@ -2315,7 +2317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
+   * Retrieves the pipeline management configuration of a Logstash instance.
    * 
    * @param request - DescribePipelineManagementConfigRequest
    * @param headers - map
@@ -2348,7 +2350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
+   * Retrieves the pipeline management configuration of a Logstash instance.
    * 
    * @param request - DescribePipelineManagementConfigRequest
    * @returns DescribePipelineManagementConfigResponse
@@ -2430,7 +2432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the scenario-specific template configuration and cluster settings of an instance.
+   * Retrieves the scenario-specific template configuration and cluster settings configuration of an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2455,7 +2457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the scenario-specific template configuration and cluster settings of an instance.
+   * Retrieves the scenario-specific template configuration and cluster settings configuration of an instance.
    * @returns DescribeTemplatesResponse
    */
   async describeTemplates(InstanceId: string): Promise<$_model.DescribeTemplatesResponse> {
@@ -2500,7 +2502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DiagnoseInstance to immediately diagnose an instance.
+   * Diagnoses an instance immediately.
    * 
    * @param request - DiagnoseInstanceRequest
    * @param headers - map
@@ -2551,7 +2553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DiagnoseInstance to immediately diagnose an instance.
+   * Diagnoses an instance immediately.
    * 
    * @param request - DiagnoseInstanceRequest
    * @returns DiagnoseInstanceResponse
@@ -2566,7 +2568,7 @@ export default class Client extends OpenApi {
    * Disables Kibana private network access.
    * 
    * @remarks
-   * This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+   * This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2594,7 +2596,7 @@ export default class Client extends OpenApi {
    * Disables Kibana private network access.
    * 
    * @remarks
-   * This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+   * This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
    * @returns DisableKibanaPvlNetworkResponse
    */
   async disableKibanaPvlNetwork(InstanceId: string): Promise<$_model.DisableKibanaPvlNetworkResponse> {
@@ -2608,7 +2610,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
-   * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
+   * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
    * 
    * @param request - EnableKibanaPvlNetworkRequest
    * @param headers - map
@@ -2625,6 +2627,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.endpointName)) {
       body["endpointName"] = request.endpointName;
+    }
+
+    if (!$dara.isNull(request.managedSecurityGroup)) {
+      body["managedSecurityGroup"] = request.managedSecurityGroup;
     }
 
     if (!$dara.isNull(request.securityGroups)) {
@@ -2663,7 +2669,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
-   * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
+   * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
    * 
    * @param request - EnableKibanaPvlNetworkRequest
    * @returns EnableKibanaPvlNetworkResponse
@@ -2675,7 +2681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the estimated restart time of a Logstash instance.
+   * Retrieves the estimated restart time for a Logstash instance.
    * 
    * @param request - EstimatedLogstashRestartTimeRequest
    * @param headers - map
@@ -2709,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the estimated restart time of a Logstash instance.
+   * Retrieves the estimated restart time for a Logstash instance.
    * 
    * @param request - EstimatedLogstashRestartTimeRequest
    * @returns EstimatedLogstashRestartTimeResponse
@@ -2721,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the estimated restart time for an instance.
+   * Retrieves the estimated time for an instance restart.
    * 
    * @param request - EstimatedRestartTimeRequest
    * @param headers - map
@@ -2755,7 +2761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the estimated restart time for an instance.
+   * Retrieves the estimated time for an instance restart.
    * 
    * @param request - EstimatedRestartTimeRequest
    * @returns EstimatedRestartTimeResponse
@@ -2944,7 +2950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
+   * Retrieves the list of Grafana dashboards.
    * 
    * @param request - GetEmonGrafanaDashboardsRequest
    * @param headers - map
@@ -2977,7 +2983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
+   * Retrieves the list of Grafana dashboards.
    * 
    * @param request - GetEmonGrafanaDashboardsRequest
    * @returns GetEmonGrafanaDashboardsResponse
@@ -3034,7 +3040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve keystore information
+   * Retrieves keystore information.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3059,7 +3065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve keystore information
+   * Retrieves keystore information.
    * @returns GetKeystoresResponse
    */
   async getKeystores(InstanceId: string): Promise<$_model.GetKeystoresResponse> {
@@ -3237,7 +3243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the nodes available for data migration based on the specified node type and count.
+   * Retrieves the nodes that are available for data migration based on the specified node type and count.
    * 
    * @param request - GetTransferableNodesRequest
    * @param headers - map
@@ -3274,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the nodes available for data migration based on the specified node type and count.
+   * Retrieves the nodes that are available for data migration based on the specified node type and count.
    * 
    * @param request - GetTransferableNodesRequest
    * @returns GetTransferableNodesResponse
@@ -3286,7 +3292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
+   * Continues the canary release by restarting the remaining nodes of an Elasticsearch instance after the canary release is complete.
    * 
    * @param request - GrayPublishRequest
    * @param headers - map
@@ -3319,7 +3325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
+   * Continues the canary release by restarting the remaining nodes of an Elasticsearch instance after the canary release is complete.
    * 
    * @param request - GrayPublishRequest
    * @returns GrayPublishResponse
@@ -3331,7 +3337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initialize AI model
+   * Initializes AI models.
    * 
    * @param request - InitModelRequest
    * @param headers - map
@@ -3380,7 +3386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initialize AI model
+   * Initializes AI models.
    * 
    * @param request - InitModelRequest
    * @returns InitModelResponse
@@ -3392,10 +3398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the InitializeOperationRole operation to create a service-linked role.
+   * Creates a service-linked role.
    * 
    * @remarks
-   * > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
+   * > Before using a collector to collect logs from different data sources or performing cluster elastic scaling tasks (applicable to the China site), you must create a service-linked role.
    * 
    * @param request - InitializeOperationRoleRequest
    * @param headers - map
@@ -3429,10 +3435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the InitializeOperationRole operation to create a service-linked role.
+   * Creates a service-linked role.
    * 
    * @remarks
-   * > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
+   * > Before using a collector to collect logs from different data sources or performing cluster elastic scaling tasks (applicable to the China site), you must create a service-linked role.
    * 
    * @param request - InitializeOperationRoleRequest
    * @returns InitializeOperationRoleResponse
@@ -3444,10 +3450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs the ACK Operator on a specified Container Service cluster.
+   * Installs Ack Operator on a specified Container Service cluster.
    * 
    * @remarks
-   * > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
+   * > Before installing a collector on an ACK cluster, call this operation to install Elasticsearch Operator on the target cluster.
    * 
    * @param request - InstallAckOperatorRequest
    * @param headers - map
@@ -3481,10 +3487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs the ACK Operator on a specified Container Service cluster.
+   * Installs Ack Operator on a specified Container Service cluster.
    * 
    * @remarks
-   * > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
+   * > Before installing a collector on an ACK cluster, call this operation to install Elasticsearch Operator on the target cluster.
    * 
    * @param request - InstallAckOperatorRequest
    * @returns InstallAckOperatorResponse
@@ -3496,7 +3502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
+   * Installs preset Kibana plug-ins. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
    * 
    * @param request - InstallKibanaSystemPluginRequest
    * @param headers - map
@@ -3530,7 +3536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
+   * Installs preset Kibana plug-ins. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
    * 
    * @param request - InstallKibanaSystemPluginRequest
    * @returns InstallKibanaSystemPluginResponse
@@ -3645,7 +3651,7 @@ export default class Client extends OpenApi {
    * Installs custom plugins that have been uploaded to the Elasticsearch console.
    * 
    * @remarks
-   * > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
+   * > The custom plugin installation feature is undergoing an internal upgrade and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
    * 
    * @param request - InstallUserPluginsRequest
    * @param headers - map
@@ -3682,7 +3688,7 @@ export default class Client extends OpenApi {
    * Installs custom plugins that have been uploaded to the Elasticsearch console.
    * 
    * @remarks
-   * > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
+   * > The custom plugin installation feature is undergoing an internal upgrade and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
    * 
    * @param request - InstallUserPluginsRequest
    * @returns InstallUserPluginsResponse
@@ -3694,7 +3700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
+   * Interrupts an instance change task. This operation is valid only for instances in the active state. After the interruption, the instance enters the suspended state.
    * 
    * @param request - InterruptElasticsearchTaskRequest
    * @param headers - map
@@ -3727,7 +3733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
+   * Interrupts an instance change task. This operation is valid only for instances in the active state. After the interruption, the instance enters the suspended state.
    * 
    * @param request - InterruptElasticsearchTaskRequest
    * @returns InterruptElasticsearchTaskResponse
@@ -3837,10 +3843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   * Queries all namespaces of a specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
-   * This operation is deprecated and will be taken offline soon.
+   * This operation is not recommended and will be taken offline soon.
    * 
    * @param request - ListAckNamespacesRequest
    * @param headers - map
@@ -3877,10 +3883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
+   * Queries all namespaces of a specified Container Service for Kubernetes (ACK) cluster.
    * 
    * @remarks
-   * This operation is deprecated and will be taken offline soon.
+   * This operation is not recommended and will be taken offline soon.
    * 
    * @param request - ListAckNamespacesRequest
    * @returns ListAckNamespacesResponse
@@ -3892,7 +3898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release notes Release notes details.
+   * Release notes Change details.
    * 
    * @param request - ListActionRecordsRequest
    * @param headers - map
@@ -3953,7 +3959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release notes Release notes details.
+   * Release notes Change details.
    * 
    * @param request - ListActionRecordsRequest
    * @returns ListActionRecordsResponse
@@ -4055,7 +4061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
+   * Retrieves the list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4080,7 +4086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
+   * Retrieves the list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
    * @returns ListAvailableEsInstanceIdsResponse
    */
   async listAvailableEsInstanceIds(InstanceId: string): Promise<$_model.ListAvailableEsInstanceIdsResponse> {
@@ -4090,7 +4096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of collectors.
+   * Retrieves the list of collectors.
    * 
    * @param request - ListCollectorsRequest
    * @param headers - map
@@ -4143,7 +4149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of collectors.
+   * Retrieves the list of collectors.
    * 
    * @param request - ListCollectorsRequest
    * @returns ListCollectorsResponse
@@ -4214,7 +4220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of instances that have established private network peering with the current instance.
+   * Retrieves the list of instances that have established private network peering with the current instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4239,7 +4245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of instances that have established private network peering with the current instance.
+   * Retrieves the list of instances that have established private network peering with the current instance.
    * @returns ListConnectedClustersResponse
    */
   async listConnectedClusters(InstanceId: string): Promise<$_model.ListConnectedClustersResponse> {
@@ -4333,7 +4339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
+   * Invokes ListDefaultCollectorConfigurations to retrieve the default configuration file of a collector.
    * 
    * @param request - ListDefaultCollectorConfigurationsRequest
    * @param headers - map
@@ -4374,7 +4380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
+   * Invokes ListDefaultCollectorConfigurations to retrieve the default configuration file of a collector.
    * 
    * @param request - ListDefaultCollectorConfigurationsRequest
    * @returns ListDefaultCollectorConfigurationsResponse
@@ -4389,7 +4395,7 @@ export default class Client extends OpenApi {
    * Queries the list of historical index templates.
    * 
    * @remarks
-   * For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - ListDeprecatedTemplatesRequest
    * @param headers - map
@@ -4433,7 +4439,7 @@ export default class Client extends OpenApi {
    * Queries the list of historical index templates.
    * 
    * @remarks
-   * For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - ListDeprecatedTemplatesRequest
    * @returns ListDeprecatedTemplatesResponse
@@ -4490,7 +4496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
+   * Retrieves historical reports of intelligent O&M diagnostics.
    * 
    * @param request - ListDiagnoseReportRequest
    * @param headers - map
@@ -4547,7 +4553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
+   * Retrieves historical reports of intelligent O&M diagnostics.
    * 
    * @param request - ListDiagnoseReportRequest
    * @returns ListDiagnoseReportResponse
@@ -4559,7 +4565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all IDs of Intelligent O&M Center historical reports.
+   * Retrieves all IDs of intelligent O&M historical reports.
    * 
    * @param request - ListDiagnoseReportIdsRequest
    * @param headers - map
@@ -4612,7 +4618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all IDs of Intelligent O&M Center historical reports.
+   * Retrieves all IDs of intelligent O&M historical reports.
    * 
    * @param request - ListDiagnoseReportIdsRequest
    * @returns ListDiagnoseReportIdsResponse
@@ -4779,7 +4785,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
-   * .
    * 
    * @param request - ListEcsInstancesRequest
    * @param headers - map
@@ -4836,7 +4841,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
-   * .
    * 
    * @param request - ListEcsInstancesRequest
    * @returns ListEcsInstancesResponse
@@ -4848,7 +4852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain Event List
+   * Retrieves a list of events.
    * 
    * @param request - ListEventRecordsRequest
    * @param headers - map
@@ -4901,7 +4905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain Event List
+   * Retrieves a list of events.
    * 
    * @param request - ListEventRecordsRequest
    * @returns ListEventRecordsResponse
@@ -4993,7 +4997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of index templates.
+   * Queries the list of index templates.
    * 
    * @param request - ListIndexTemplatesRequest
    * @param headers - map
@@ -5034,7 +5038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of index templates.
+   * Queries the list of index templates.
    * 
    * @param request - ListIndexTemplatesRequest
    * @returns ListIndexTemplatesResponse
@@ -5046,7 +5050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Elasticsearch instances.
+   * Retrieves a list of Elasticsearch instances.
    * 
    * @param request - ListInstanceRequest
    * @param headers - map
@@ -5123,7 +5127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Elasticsearch instances.
+   * Retrieves a list of Elasticsearch instances.
    * 
    * @param request - ListInstanceRequest
    * @returns ListInstanceResponse
@@ -5246,8 +5250,7 @@ export default class Client extends OpenApi {
    * Filters system indexes from the index list of a cluster.
    * 
    * @remarks
-   * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
-   * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
+   * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have indexing service enabled. We recommend that you use the Elasticsearch API to query index information. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
    * 
    * @param request - ListInstanceIndicesRequest
    * @param headers - map
@@ -5303,8 +5306,7 @@ export default class Client extends OpenApi {
    * Filters system indexes from the index list of a cluster.
    * 
    * @remarks
-   * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
-   * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
+   * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have indexing service enabled. We recommend that you use the Elasticsearch API to query index information. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
    * 
    * @param request - ListInstanceIndicesRequest
    * @returns ListInstanceIndicesResponse
@@ -5597,7 +5599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Historical report list of intelligent O&M.
+   * Queries the machine status under a search collector.
    * 
    * @param request - ListNodesRequest
    * @param headers - map
@@ -5646,7 +5648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Historical report list of intelligent O&M.
+   * Queries the machine status under a search collector.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -5882,7 +5884,7 @@ export default class Client extends OpenApi {
    * Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
    * 
    * @remarks
-   * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
+   * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard is available for search.
    * 
    * @param request - ListShardRecoveriesRequest
    * @param headers - map
@@ -5918,7 +5920,7 @@ export default class Client extends OpenApi {
    * Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
    * 
    * @remarks
-   * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
+   * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard is available for search.
    * 
    * @param request - ListShardRecoveriesRequest
    * @returns ListShardRecoveriesResponse
@@ -5965,7 +5967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Statistics of management event records
+   * Queries statistics on event records.
    * 
    * @param request - ListStatsEventRecordsRequest
    * @param headers - map
@@ -5975,12 +5977,20 @@ export default class Client extends OpenApi {
   async listStatsEventRecordsWithOptions(request: $_model.ListStatsEventRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListStatsEventRecordsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.eventType)) {
       query["eventType"] = request.eventType;
     }
 
     if (!$dara.isNull(request.level)) {
       query["level"] = request.level;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -6006,7 +6016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Statistics of management event records
+   * Queries statistics on event records.
    * 
    * @param request - ListStatsEventRecordsRequest
    * @returns ListStatsEventRecordsResponse
@@ -6132,7 +6142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom plugin list
+   * Queries the list of user-defined plug-ins.
    * 
    * @param request - ListUserPluginRequest
    * @param headers - map
@@ -6173,7 +6183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Custom plugin list
+   * Queries the list of user-defined plug-ins.
    * 
    * @param request - ListUserPluginRequest
    * @returns ListUserPluginResponse
@@ -6185,7 +6195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of endpoints in the VPC of a service account.
+   * Queries the endpoint status in the VPC of the service account.
    * 
    * @param request - ListVpcEndpointsRequest
    * @param headers - map
@@ -6222,7 +6232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of endpoints in the VPC of a service account.
+   * Queries the endpoint status in the VPC of the service account.
    * 
    * @param request - ListVpcEndpointsRequest
    * @returns ListVpcEndpointsResponse
@@ -6234,12 +6244,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates nodes in a specified zone to a destination zone.
+   * Migrates nodes in a specified zone to a target zone.
    * 
    * @remarks
-   * When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+   * When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, ensure the following:
    * - Your account has a zone with sufficient resources.
-   *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+   *    After migrating nodes of the current specifications to another zone, you need to manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order (for example, between cn-hangzhou-e and cn-hangzhou-h, select cn-hangzhou-h).
    * - The cluster is in a healthy state.
    *    You can run the `GET _cat/health?v` command to check the cluster health status.
    * 
@@ -6275,12 +6285,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates nodes in a specified zone to a destination zone.
+   * Migrates nodes in a specified zone to a target zone.
    * 
    * @remarks
-   * When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+   * When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, ensure the following:
    * - Your account has a zone with sufficient resources.
-   *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+   *    After migrating nodes of the current specifications to another zone, you need to manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order (for example, between cn-hangzhou-e and cn-hangzhou-h, select cn-hangzhou-h).
    * - The cluster is in a healthy state.
    *    You can run the `GET _cat/health?v` command to check the cluster health status.
    * 
@@ -6340,7 +6350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the elastic scaling rules of a cluster.
+   * Updates the elastic scaling rules for a cluster.
    * 
    * @param request - ModifyElastictaskRequest
    * @param headers - map
@@ -6368,7 +6378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the elastic scaling rules of a cluster.
+   * Updates the elastic scaling rules for a cluster.
    * 
    * @param request - ModifyElastictaskRequest
    * @returns ModifyElastictaskResponse
@@ -6383,10 +6393,10 @@ export default class Client extends OpenApi {
    * Modifies and enables the maintenance window for an instance.
    * 
    * @remarks
-   * Before calling this operation, note the following:
-   * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
-   * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
-   * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
+   * Before calling this operation, note the following information:
+   * - Before formal maintenance begins, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+   * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters an active state before the maintenance window. When the instance is in this state, access to the cluster and query operations (such as performance monitoring) are not affected, but cluster change operations (such as cluster upgrades and restarts) are temporarily unavailable.
+   * - During the maintenance window, transient disconnections may occur on the instance. Ensure that your application has a reconnection mechanism.
    * 
    * @param request - ModifyInstanceMaintainTimeRequest
    * @param headers - map
@@ -6423,10 +6433,10 @@ export default class Client extends OpenApi {
    * Modifies and enables the maintenance window for an instance.
    * 
    * @remarks
-   * Before calling this operation, note the following:
-   * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
-   * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
-   * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
+   * Before calling this operation, note the following information:
+   * - Before formal maintenance begins, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+   * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters an active state before the maintenance window. When the instance is in this state, access to the cluster and query operations (such as performance monitoring) are not affected, but cluster change operations (such as cluster upgrades and restarts) are temporarily unavailable.
+   * - During the maintenance window, transient disconnections may occur on the instance. Ensure that your application has a reconnection mechanism.
    * 
    * @param request - ModifyInstanceMaintainTimeRequest
    * @returns ModifyInstanceMaintainTimeResponse
@@ -6438,7 +6448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
+   * For O&M events in the Event Center, you can specify a restart event, and the system restarts the specified node of the relevant instance at the scheduled time.
    * 
    * @param request - ModifyScheduleExecuteTimeRequest
    * @param headers - map
@@ -6475,7 +6485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
+   * For O&M events in the Event Center, you can specify a restart event, and the system restarts the specified node of the relevant instance at the scheduled time.
    * 
    * @param request - ModifyScheduleExecuteTimeRequest
    * @returns ModifyScheduleExecuteTimeResponse
@@ -6492,10 +6502,10 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
    *     - IP whitelist list: whiteIpList, nodeType, networkType
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
    * 
    * @param request - ModifyWhiteIpsRequest
    * @param headers - map
@@ -6555,10 +6565,10 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
    *     - IP whitelist list: whiteIpList, nodeType, networkType
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
    * 
    * @param request - ModifyWhiteIpsRequest
    * @returns ModifyWhiteIpsResponse
@@ -6665,11 +6675,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
+   * Enables the HTTPS protocol. Before enabling HTTPS, ensure that you have purchased client nodes.
    * 
    * @remarks
    * > - To ensure data security, enable the HTTPS protocol.
-   * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
+   * - Except for versions 8.5, 7.16, <props="china"><ph>and version 7.10 in some regions</ph>, ensure that you have purchased client nodes before enabling HTTPS.
    * 
    * @param request - OpenHttpsRequest
    * @param headers - map
@@ -6702,11 +6712,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
+   * Enables the HTTPS protocol. Before enabling HTTPS, ensure that you have purchased client nodes.
    * 
    * @remarks
    * > - To ensure data security, enable the HTTPS protocol.
-   * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
+   * - Except for versions 8.5, 7.16, <props="china"><ph>and version 7.10 in some regions</ph>, ensure that you have purchased client nodes before enabling HTTPS.
    * 
    * @param request - OpenHttpsRequest
    * @returns OpenHttpsResponse
@@ -6718,7 +6728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
+   * Uploads a custom plug-in to the plug-in library. After the upload, the plug-in is in the pending installation state.
    * 
    * @param request - PluginAnalysisRequest
    * @param headers - map
@@ -6752,7 +6762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
+   * Uploads a custom plug-in to the plug-in library. After the upload, the plug-in is in the pending installation state.
    * 
    * @param request - PluginAnalysisRequest
    * @returns PluginAnalysisResponse
@@ -6815,7 +6825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls RecommendTemplates to retrieve recommended cluster configurations.
+   * Retrieves recommended cluster configurations by calling RecommendTemplates.
    * 
    * @param request - RecommendTemplatesRequest
    * @param headers - map
@@ -6848,7 +6858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls RecommendTemplates to retrieve recommended cluster configurations.
+   * Retrieves recommended cluster configurations by calling RecommendTemplates.
    * 
    * @param request - RecommendTemplatesRequest
    * @returns RecommendTemplatesResponse
@@ -6906,7 +6916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can delete uploaded but uninstalled plugins from the plugin library.
+   * Removes an uploaded but uninstalled plugin from the plugin repository.
    * 
    * @param request - RemovePluginRequest
    * @param headers - map
@@ -6934,7 +6944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can delete uploaded but uninstalled plugins from the plugin library.
+   * Removes an uploaded but uninstalled plugin from the plugin repository.
    * 
    * @param request - RemovePluginRequest
    * @returns RemovePluginResponse
@@ -7086,7 +7096,7 @@ export default class Client extends OpenApi {
    * Restarts an Elasticsearch cluster.
    * 
    * @remarks
-   * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
+   * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restart. Node restart is classified into normal restart and blue-green restart.
    * 
    * @param request - RestartInstanceRequest
    * @param headers - map
@@ -7127,7 +7137,7 @@ export default class Client extends OpenApi {
    * Restarts an Elasticsearch cluster.
    * 
    * @remarks
-   * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
+   * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restart. Node restart is classified into normal restart and blue-green restart.
    * 
    * @param request - RestartInstanceRequest
    * @returns RestartInstanceResponse
@@ -7139,7 +7149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
+   * Restarts a specified instance. After the restart, the instance enters the activating state.
    * 
    * @param request - RestartLogstashRequest
    * @param headers - map
@@ -7198,7 +7208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
+   * Restarts a specified instance. After the restart, the instance enters the activating state.
    * 
    * @param request - RestartLogstashRequest
    * @returns RestartLogstashResponse
@@ -7210,7 +7220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes an interrupted change task for an instance.
+   * Resumes a change task that was interrupted between instances.
    * 
    * @param request - ResumeElasticsearchTaskRequest
    * @param headers - map
@@ -7243,7 +7253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes an interrupted change task for an instance.
+   * Resumes a change task that was interrupted between instances.
    * 
    * @param request - ResumeElasticsearchTaskRequest
    * @returns ResumeElasticsearchTaskResponse
@@ -7391,11 +7401,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales in nodes of a specified role in an Elasticsearch cluster.
+   * Shrinks nodes of a specified role from an Elasticsearch cluster.
    * 
    * @remarks
    * Note the following when you invoke this operation:
-   * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
+   * Before shrinking data nodes from a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the node shrinking operation.
    * 
    * @param request - ShrinkNodeRequest
    * @param headers - map
@@ -7441,11 +7451,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales in nodes of a specified role in an Elasticsearch cluster.
+   * Shrinks nodes of a specified role from an Elasticsearch cluster.
    * 
    * @remarks
    * Note the following when you invoke this operation:
-   * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
+   * Before shrinking data nodes from a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the node shrinking operation.
    * 
    * @param request - ShrinkNodeRequest
    * @returns ShrinkNodeResponse
@@ -7547,7 +7557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops Logstash pipelines by calling StopPipelines.
+   * Stops Logstash pipelines from running.
    * 
    * @param request - StopPipelinesRequest
    * @param headers - map
@@ -7581,7 +7591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops Logstash pipelines by calling StopPipelines.
+   * Stops Logstash pipelines from running.
    * 
    * @param request - StopPipelinesRequest
    * @returns StopPipelinesResponse
@@ -7755,10 +7765,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @remarks
-   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @param request - TurnOffZoneRequest
    * @param headers - map
@@ -7795,10 +7805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @remarks
-   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @param request - TurnOffZoneRequest
    * @returns TurnOffZoneResponse
@@ -7810,10 +7820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Reopens a zone that has been taken offline for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @remarks
-   * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Reopens a zone that has been taken offline for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @param request - TurnOnZoneRequest
    * @param headers - map
@@ -7850,10 +7860,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Reopens a zone that has been taken offline for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @remarks
-   * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+   * Reopens a zone that has been taken offline for a multi-zone instance. This operation is intended only for disaster recovery drills. Exercise caution when performing this operation.
    * 
    * @param request - TurnOnZoneRequest
    * @returns TurnOnZoneResponse
@@ -8007,14 +8017,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes user resource tag associations for a specified instance.
+   * Deletes the tag relationships of specified resources for a given instance.
    * 
    * @remarks
    * When calling this operation, note the following:
    * - Only user tags can be deleted.
    *   
    *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
-   * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
+   * - If a tag is not associated with any resource after the tag relationship is deleted, the tag is also deleted.
    * 
    * @param request - UntagResourcesRequest
    * @param headers - map
@@ -8063,14 +8073,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes user resource tag associations for a specified instance.
+   * Deletes the tag relationships of specified resources for a given instance.
    * 
    * @remarks
    * When calling this operation, note the following:
    * - Only user tags can be deleted.
    *   
    *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
-   * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
+   * - If a tag is not associated with any resource after the tag relationship is deleted, the tag is also deleted.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -8193,7 +8203,7 @@ export default class Client extends OpenApi {
    * When calling this operation, note the following:
    * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
    * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
-   * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
+   * - If a previously uploaded dictionary does not have the ORIGIN configuration, calling this operation will delete the dictionary file.
    * 
    * @param request - UpdateAliwsDictRequest
    * @param headers - map
@@ -8233,7 +8243,7 @@ export default class Client extends OpenApi {
    * When calling this operation, note the following:
    * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
    * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
-   * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
+   * - If a previously uploaded dictionary does not have the ORIGIN configuration, calling this operation will delete the dictionary file.
    * 
    * @param request - UpdateAliwsDictRequest
    * @returns UpdateAliwsDictResponse
@@ -8390,7 +8400,7 @@ export default class Client extends OpenApi {
    * Updates a composable index template for an Elasticsearch instance.
    * 
    * @remarks
-   * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - UpdateComponentIndexRequest
    * @param headers - map
@@ -8430,7 +8440,7 @@ export default class Client extends OpenApi {
    * Updates a composable index template for an Elasticsearch instance.
    * 
    * @remarks
-   * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
+   * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
    * 
    * @param request - UpdateComponentIndexRequest
    * @returns UpdateComponentIndexResponse
@@ -8547,8 +8557,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
-   * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+   * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateDictRequest
    * @param headers - map
@@ -8586,8 +8596,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
-   * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+   * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateDictRequest
    * @returns UpdateDictResponse
@@ -8599,7 +8609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Cluster Dynamic Configuration
+   * Modifies the dynamic configurations of a cluster.
    * 
    * @param request - UpdateDynamicSettingsRequest
    * @param headers - map
@@ -8641,7 +8651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Cluster Dynamic Configuration
+   * Modifies the dynamic configurations of a cluster.
    * 
    * @param request - UpdateDynamicSettingsRequest
    * @returns UpdateDynamicSettingsResponse
@@ -8751,7 +8761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
+   * Enables or disables the FalconSeek cloud-native kernel feature for instances running version 8.17.
    * 
    * @param request - UpdateFalconSeekRequest
    * @param headers - map
@@ -8784,7 +8794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
+   * Enables or disables the FalconSeek cloud-native kernel feature for instances running version 8.17.
    * 
    * @param request - UpdateFalconSeekRequest
    * @returns UpdateFalconSeekResponse
@@ -8796,11 +8806,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
+   * Updates the IK hot dictionary of an Alibaba Cloud Elasticsearch instance.
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
    * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateHotIkDictsRequest
@@ -8835,11 +8845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
+   * Updates the IK hot dictionary of an Alibaba Cloud Elasticsearch instance.
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
    * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateHotIkDictsRequest
@@ -8944,11 +8954,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
+   * Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
    * 
    * @remarks
-   * When you call this operation, note the following items:
-   * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
+   * When you call this operation, take note of the following items:
+   * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
+   * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+   * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
+   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
+   *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
+   *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+   * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
    * 
    * @param request - UpdateInstanceRequest
    * @param headers - map
@@ -9027,11 +9043,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
+   * Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
    * 
    * @remarks
-   * When you call this operation, note the following items:
-   * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
+   * When you call this operation, take note of the following items:
+   * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
+   * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+   * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
+   * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
+   *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
+   *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+   * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -9165,7 +9187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update keystore
+   * Updates the keystore.
    * 
    * @param request - UpdateKeystoresRequest
    * @param headers - map
@@ -9208,7 +9230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update keystore
+   * Updates the keystore.
    * 
    * @param request - UpdateKeystoresRequest
    * @returns UpdateKeystoresResponse
@@ -9220,10 +9242,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Kibana private network access
+   * Updates the private network access configuration for Kibana.
    * 
    * @remarks
-   * 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+   * 1. This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
    * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
    * 
    * @param request - UpdateKibanaPvlNetworkRequest
@@ -9271,10 +9293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Kibana private network access
+   * Updates the private network access configuration for Kibana.
    * 
    * @remarks
-   * 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+   * 1. This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
    * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
    * 
    * @param request - UpdateKibanaPvlNetworkRequest
@@ -9333,7 +9355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
+   * Enables or disables Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on to your Alibaba Cloud account before using Kibana features.
    * 
    * @param request - UpdateKibanaSsoRequest
    * @param headers - map
@@ -9370,7 +9392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
+   * Enables or disables Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on to your Alibaba Cloud account before using Kibana features.
    * 
    * @param request - UpdateKibanaSsoRequest
    * @returns UpdateKibanaSsoResponse
@@ -9386,11 +9408,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Before you begin
-   * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+   * - When you invoke this operation, you cannot update information when the instance status is activating, invalid, or freeze (inactive).
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used simultaneously, and apart from InstanceId and clientToken, the two methods support different parameters as follows: 
    *     - IP whitelist list: kibanaIPWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
    * 
    * @param request - UpdateKibanaWhiteIpsRequest
    * @param headers - map
@@ -9441,11 +9463,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Before you begin
-   * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows: 
+   * - When you invoke this operation, you cannot update information when the instance status is activating, invalid, or freeze (inactive).
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used simultaneously, and apart from InstanceId and clientToken, the two methods support different parameters as follows: 
    *     - IP whitelist list: kibanaIPWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
    * 
    * @param request - UpdateKibanaWhiteIpsRequest
    * @returns UpdateKibanaWhiteIpsResponse
@@ -9457,7 +9479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+   * Modifies partial information of a specified instance, such as the number of nodes, quota, name, and disk size.
    * 
    * @remarks
    * ### Before you begin
@@ -9504,7 +9526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+   * Modifies partial information of a specified instance, such as the number of nodes, quota, name, and disk size.
    * 
    * @remarks
    * ### Before you begin
@@ -9569,8 +9591,7 @@ export default class Client extends OpenApi {
    * Modifies the name of a specified Logstash instance.
    * 
    * @remarks
-   * When you call this operation, take note of the following items:
-   * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
+   * When you invoke this operation, note the following: The instance name cannot be modified when the instance status is activating, invalid, or freeze (inactive).
    * 
    * @param request - UpdateLogstashDescriptionRequest
    * @param headers - map
@@ -9612,8 +9633,7 @@ export default class Client extends OpenApi {
    * Modifies the name of a specified Logstash instance.
    * 
    * @remarks
-   * When you call this operation, take note of the following items:
-   * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
+   * When you invoke this operation, note the following: The instance name cannot be modified when the instance status is activating, invalid, or freeze (inactive).
    * 
    * @param request - UpdateLogstashDescriptionRequest
    * @returns UpdateLogstashDescriptionResponse
@@ -9677,7 +9697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the pipeline management method for a specified Logstash instance.
+   * Modifies the pipeline management method of a specified Logstash instance.
    * 
    * @remarks
    * > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
@@ -9739,7 +9759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the pipeline management method for a specified Logstash instance.
+   * Modifies the pipeline management method of a specified Logstash instance.
    * 
    * @remarks
    * > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
@@ -9809,7 +9829,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
-   * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
    *     - IP whitelist list: privateNetworkIpWhiteList
    *     - IP whitelist group: modifyMode, whiteIpGroup
    * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
@@ -9855,7 +9875,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ## Before you begin
    * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
-   * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
    *     - IP whitelist list: privateNetworkIpWhiteList
    *     - IP whitelist group: modifyMode, whiteIpGroup
    * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
@@ -9873,7 +9893,7 @@ export default class Client extends OpenApi {
    * Enables or disables the public network address for a specified Elasticsearch instance.
    * 
    * @remarks
-   * When you call this operation, note the following:
+   * When you invoke this operation, note the following:
    * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
    * 
    * @param request - UpdatePublicNetworkRequest
@@ -9911,7 +9931,7 @@ export default class Client extends OpenApi {
    * Enables or disables the public network address for a specified Elasticsearch instance.
    * 
    * @remarks
-   * When you call this operation, note the following:
+   * When you invoke this operation, note the following:
    * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
    * 
    * @param request - UpdatePublicNetworkRequest
@@ -9924,15 +9944,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the public endpoint access whitelist of a specified Elasticsearch instance.
+   * Updates the public network access whitelist of a specified Elasticsearch instance.
    * 
    * @remarks
    * ## Before you begin
-   * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+   * - You cannot update the public access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken). The details are as follows:   
    *     - IP whitelist list: publicIpWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
    * 
    * @param request - UpdatePublicWhiteIpsRequest
    * @param headers - map
@@ -9970,15 +9990,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the public endpoint access whitelist of a specified Elasticsearch instance.
+   * Updates the public network access whitelist of a specified Elasticsearch instance.
    * 
    * @remarks
    * ## Before you begin
-   * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:   
+   * - You cannot update the public access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken). The details are as follows:   
    *     - IP whitelist list: publicIpWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
    * 
    * @param request - UpdatePublicWhiteIpsRequest
    * @returns UpdatePublicWhiteIpsResponse
@@ -10080,7 +10100,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
    * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateSynonymsDictsRequest
@@ -10119,7 +10139,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * When calling this operation, note the following:
-   * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+   * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
    * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
    * 
    * @param request - UpdateSynonymsDictsRequest
@@ -10178,15 +10198,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
+   * Modifies the VPC private network access whitelist of an Elasticsearch instance.
    * 
    * @remarks
    * ## Before you begin
    * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used simultaneously, and they support different parameters (except for InstanceId and clientToken). The details are as follows: 
    *     - IP whitelist list: esIPWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
    * 
    * @param request - UpdateWhiteIpsRequest
    * @param headers - map
@@ -10233,15 +10253,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
+   * Modifies the VPC private network access whitelist of an Elasticsearch instance.
    * 
    * @remarks
    * ## Before you begin
    * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
-   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows: 
+   * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used simultaneously, and they support different parameters (except for InstanceId and clientToken). The details are as follows: 
    *     - IP whitelist list: esIPWhitelist
    *     - IP whitelist group: modifyMode, whiteIpGroup
-   * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
+   * - The public access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
    * 
    * @param request - UpdateWhiteIpsRequest
    * @returns UpdateWhiteIpsResponse
@@ -10316,10 +10336,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
+   * Upgrades the version of an Elasticsearch instance. This operation supports major version upgrades and kernel version upgrades.
    * 
    * @remarks
-   * > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
+   * > The instance version upgrade feature currently supports only upgrading from version 5.5.3 to 5.6.16, from version 5.6.16 to 6.3.2, and from version 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
    * 
    * @param request - UpgradeEngineVersionRequest
    * @param headers - map
@@ -10374,10 +10394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
+   * Upgrades the version of an Elasticsearch instance. This operation supports major version upgrades and kernel version upgrades.
    * 
    * @remarks
-   * > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
+   * > The instance version upgrade feature currently supports only upgrading from version 5.5.3 to 5.6.16, from version 5.6.16 to 6.3.2, and from version 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
    * 
    * @param request - UpgradeEngineVersionRequest
    * @returns UpgradeEngineVersionResponse
@@ -10389,7 +10409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query whether a minor version is available for upgrade.
+   * Queries whether a minor engine version upgrade is available.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10414,7 +10434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query whether a minor version is available for upgrade.
+   * Queries whether a minor engine version upgrade is available.
    * @returns UpgradeInfoResponse
    */
   async upgradeInfo(instanceId: string): Promise<$_model.UpgradeInfoResponse> {
@@ -10476,7 +10496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether specific nodes in a specified instance can be scaled in.
+   * Checks whether specific nodes in a specified instance can be removed during a scale-in operation.
    * 
    * @param request - ValidateShrinkNodesRequest
    * @param headers - map
@@ -10518,7 +10538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether specific nodes in a specified instance can be scaled in.
+   * Checks whether specific nodes in a specified instance can be removed during a scale-in operation.
    * 
    * @param request - ValidateShrinkNodesRequest
    * @returns ValidateShrinkNodesResponse
@@ -10530,10 +10550,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the service-linked role (SLR) permission of the current account.
+   * Validates the service-linked role (SLR) permissions for the current account.
    * 
    * @remarks
-   * > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
+   * > Before you use a collector to collect logs from different data sources, you must authorize the creation of a service-linked role. Call this operation to check whether the service-linked role has been created.
    * 
    * @param request - ValidateSlrPermissionRequest
    * @param headers - map
@@ -10570,10 +10590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the service-linked role (SLR) permission of the current account.
+   * Validates the service-linked role (SLR) permissions for the current account.
    * 
    * @remarks
-   * > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
+   * > Before you use a collector to collect logs from different data sources, you must authorize the creation of a service-linked role. Call this operation to check whether the service-linked role has been created.
    * 
    * @param request - ValidateSlrPermissionRequest
    * @returns ValidateSlrPermissionResponse
@@ -10585,7 +10605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates whether data on specific nodes in a specified instance can be migrated.
+   * Validates whether data on specified nodes in an instance can be migrated.
    * 
    * @param request - ValidateTransferableNodesRequest
    * @param headers - map
@@ -10619,7 +10639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates whether data on specific nodes in a specified instance can be migrated.
+   * Validates whether data on specified nodes in an instance can be migrated.
    * 
    * @param request - ValidateTransferableNodesRequest
    * @returns ValidateTransferableNodesResponse
@@ -10634,10 +10654,10 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch instance.
    * 
    * @remarks
-   * ### Precautions
-   * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
-   * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
-   * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
+   * ### Before you begin
+   * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+   * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+   * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -10743,10 +10763,10 @@ export default class Client extends OpenApi {
    * Creates an Elasticsearch instance.
    * 
    * @remarks
-   * ### Precautions
-   * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
-   * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
-   * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
+   * ### Before you begin
+   * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+   * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+   * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse

@@ -125,7 +125,7 @@ export class UpdateCollectorNameResponseBodyResultExtendConfigs extends $dara.Mo
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the instance associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
+   * The instance ID associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
    * 
    * @example
    * es-cn-n6w1o1****
@@ -257,10 +257,10 @@ export class UpdateCollectorNameResponseBodyResult extends $dara.Model {
   configs?: UpdateCollectorNameResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Indicates whether the collector is validated only without being created. Valid values:
+   * Indicates whether the collector is validated and created. Valid values:
    * 
-   * - true: Only validates without updating.
-   * - false: Validates and updates.
+   * - true: Only validated, not updated.
+   * - false: Validated and updated.
    * 
    * @example
    * false
@@ -324,7 +324,7 @@ export class UpdateCollectorNameResponseBodyResult extends $dara.Model {
    * The collector version. The supported versions depend on the type of machine on which the collector is deployed:
    * 
    * - ECS: 6.8.5_with_community
-   * - ACK: 6.8.13_with_community.
+   * - ACK: 6.8.13_with_community
    * 
    * @example
    * 6.8.5_with_community

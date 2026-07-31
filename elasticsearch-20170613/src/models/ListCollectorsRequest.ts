@@ -49,7 +49,7 @@ export class ListCollectorsRequest extends $dara.Model {
    * 
    * - ECS: ECS instance
    * 
-   * - ACK: Container Kubernetes cluster.
+   * - ACK: Container Kubernetes cluster
    * 
    * @example
    * ECS

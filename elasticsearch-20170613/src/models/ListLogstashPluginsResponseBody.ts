@@ -37,15 +37,15 @@ export class ListLogstashPluginsResponseBodyResult extends $dara.Model {
   specificationUrl?: string;
   /**
    * @remarks
-   * The plugin status. Valid values:
+   * Creation status of the plugin. Valid values:
    * 
-   * - INSTALLED: installed
-   * - UNINSTALLED: not installed
-   * - INSTALLING: being installed
-   * - UNINSTALLING: being uninstalled
-   * - UPGRADING: being upgraded
-   * - FAILED: installation failed
-   * - UNKNOWN: the cluster is disconnected and the creation status cannot be retrieved.
+   * - INSTALLED: Installed.
+   * - UNINSTALLED: Not installed.
+   * - INSTALLING: Being installed.
+   * - UNINSTALLING: Being uninstalled.
+   * - UPGRADING: Being upgraded.
+   * - FAILED: Installation failed.
+   * - UNKNOWN: The cluster is disconnected and creation status cannot be retrieved.
    * 
    * @example
    * INSTALLED

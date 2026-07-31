@@ -53,10 +53,6 @@ export class DescribeInstanceResponseBodyResultAliwsDicts extends $dara.Model {
    * @remarks
    * The source type of the dictionary file. Valid values:
    * 
-   * - OSS: Object Storage Service (OSS). Make sure that the OSS bucket has public read permissions.
-   * - ORIGIN: Open-source Elasticsearch.
-   * - UPLOAD: Uploaded file.
-   * 
    * @example
    * OSS
    */
@@ -64,11 +60,6 @@ export class DescribeInstanceResponseBodyResultAliwsDicts extends $dara.Model {
   /**
    * @remarks
    * The type of the dictionary file. Valid values:
-   * 
-   * - STOP: Stopword.
-   * - MAIN: Main dictionary.
-   * - SYNONYMS: Synonym dictionary.
-   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * ALI_WS
@@ -128,7 +119,7 @@ export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -136,7 +127,7 @@ export class DescribeInstanceResponseBodyResultClientNodeConfiguration extends $
   spec?: string;
   /**
    * @remarks
-   * The node specifications description.
+   * The description of the node specifications.
    * 
    * @example
    * 1C 2G
@@ -192,10 +183,6 @@ export class DescribeInstanceResponseBodyResultDictList extends $dara.Model {
    * @remarks
    * The source type of the dictionary file. Valid values:
    * 
-   * - OSS: Object Storage Service (OSS). Make sure that the OSS bucket has public read permissions.
-   * - ORIGIN: Open-source Elasticsearch.
-   * - UPLOAD: Uploaded file.
-   * 
    * @example
    * ORIGIN
    */
@@ -203,11 +190,6 @@ export class DescribeInstanceResponseBodyResultDictList extends $dara.Model {
   /**
    * @remarks
    * The type of the dictionary file. Valid values:
-   * 
-   * - STOP: Stopword.
-   * - MAIN: Main dictionary.
-   * - SYNONYMS: Synonym dictionary.
-   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * MAIN
@@ -261,10 +243,6 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
    * @remarks
    * Indicates whether cloud disk encryption is enabled for the node. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
    * @example
    * true
    */
@@ -273,17 +251,13 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
    * @remarks
    * The storage type of the node. Valid values:
    * 
-   * - cloud_ssd: standard SSD.
-   * - cloud_essd: ESSD.
-   * - cloud_efficiency: ultra disk.
-   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -291,7 +265,7 @@ export class DescribeInstanceResponseBodyResultElasticDataNodeConfiguration exte
   spec?: string;
   /**
    * @remarks
-   * The node specifications description.
+   * The description of the node specifications.
    * 
    * @example
    * 1C 2G
@@ -399,9 +373,6 @@ export class DescribeInstanceResponseBodyResultIkHotDicts extends $dara.Model {
    * @remarks
    * The source type of the dictionary file. Valid values:
    * 
-   * - OSS: Uses OSS.
-   * - ORIGIN: Retains the previously uploaded dictionary.
-   * 
    * @example
    * OSS
    */
@@ -409,9 +380,6 @@ export class DescribeInstanceResponseBodyResultIkHotDicts extends $dara.Model {
   /**
    * @remarks
    * The type of the dictionary to update. Valid values:
-   * 
-   * - MAIN: IK main dictionary
-   * - STOP: IK stopword dictionary.
    * 
    * @example
    * MAIN
@@ -455,7 +423,7 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $dara
   amount?: number;
   /**
    * @remarks
-   * The storage space of a single node. Unit: GB.
+   * The storage size of a single node. Unit: GB.
    * 
    * @example
    * 20
@@ -463,7 +431,7 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $dara
   disk?: number;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -471,7 +439,7 @@ export class DescribeInstanceResponseBodyResultKibanaConfiguration extends $dara
   spec?: string;
   /**
    * @remarks
-   * The node specifications description.
+   * The description of the node specifications.
    * 
    * @example
    * 1C 2G
@@ -531,7 +499,7 @@ export class DescribeInstanceResponseBodyResultMasterConfiguration extends $dara
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -539,7 +507,7 @@ export class DescribeInstanceResponseBodyResultMasterConfiguration extends $dara
   spec?: string;
   /**
    * @remarks
-   * The node specifications description.
+   * The description of the node specifications.
    * 
    * @example
    * 1C 2G
@@ -585,20 +553,12 @@ export class DescribeInstanceResponseBodyResultNetworkConfigWhiteIpGroupList ext
   groupName?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist group.
+   * The list of IP addresses in the whitelist group.
    */
   ips?: string[];
   /**
    * @remarks
    * The whitelist type. Valid values:
-   * 
-   * - PRIVATE_ES: Elasticsearch private network.
-   * 
-   * - PUBLIC_ES: Elasticsearch public network.
-   * 
-   * - PRIVATE_KIBANA: Kibana private network.
-   * 
-   * - PUBLIC_KIBANA: Kibana public network.
    * 
    * @example
    * PRIVATE_ES
@@ -651,7 +611,7 @@ export class DescribeInstanceResponseBodyResultNetworkConfig extends $dara.Model
   vpcId?: string;
   /**
    * @remarks
-   * The zone where the instance is deployed.
+   * The zone where the instance resides.
    * 
    * @example
    * cn-hangzhou-b
@@ -715,19 +675,18 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $dara.Model {
    * @remarks
    * Indicates whether cloud disk encryption is enabled. Valid values:
    * 
-   * - true: Enabled.
-   * - false: Not enabled.
-   * 
    * @example
    * true
    */
   diskEncryption?: boolean;
   /**
+   * @example
+   * high_availability
+   */
+  diskPreference?: string;
+  /**
    * @remarks
    * The disk type of the node. Valid values:
-   * 
-   * - cloud_ssd: standard SSD
-   * - cloud_efficiency: ultra disk.
    * 
    * @example
    * cloud_ssd
@@ -743,7 +702,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -761,6 +720,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $dara.Model {
     return {
       disk: 'disk',
       diskEncryption: 'diskEncryption',
+      diskPreference: 'diskPreference',
       diskType: 'diskType',
       performanceLevel: 'performanceLevel',
       spec: 'spec',
@@ -772,6 +732,7 @@ export class DescribeInstanceResponseBodyResultNodeSpec extends $dara.Model {
     return {
       disk: 'number',
       diskEncryption: 'boolean',
+      diskPreference: 'string',
       diskType: 'string',
       performanceLevel: 'string',
       spec: 'string',
@@ -816,14 +777,6 @@ export class DescribeInstanceResponseBodyResultSynonymsDicts extends $dara.Model
   /**
    * @remarks
    * The dictionary type. Valid values:
-   * 
-   * - STOP: Stopword.
-   * 
-   * - MAIN: Main dictionary.
-   * 
-   * - SYNONYMS: Synonym dictionary.
-   * 
-   * - ALI_WS: Alibaba dictionary.
    * 
    * @example
    * STOP
@@ -917,10 +870,6 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $da
    * @remarks
    * Indicates whether cloud disk encryption is enabled. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
    * @example
    * true
    */
@@ -935,7 +884,7 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $da
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information about specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -943,7 +892,7 @@ export class DescribeInstanceResponseBodyResultWarmNodeConfiguration extends $da
   spec?: string;
   /**
    * @remarks
-   * The node specifications description.
+   * The description of the node specifications.
    * 
    * @example
    * 1C 2G
@@ -985,9 +934,6 @@ export class DescribeInstanceResponseBodyResultZoneInfos extends $dara.Model {
    * @remarks
    * The zone status. Valid values:
    * 
-   * - ISOLATION: offline
-   * - NORMAL: normal.
-   * 
    * @example
    * NORMAL
    */
@@ -1026,11 +972,7 @@ export class DescribeInstanceResponseBodyResultZoneInfos extends $dara.Model {
 export class DescribeInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the instance contains a dedicated master node. Valid values:
-   * 
-   * - true: The instance contains a dedicated master node.
-   * 
-   * - false: The instance does not contain a dedicated master node.
+   * Indicates whether the instance contains dedicated master nodes. Valid values:
    * 
    * @example
    * true
@@ -1043,14 +985,12 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   advancedSetting?: DescribeInstanceResponseBodyResultAdvancedSetting;
   /**
    * @remarks
-   * The Alibaba tokenizer dictionary configuration.
+   * The Alibaba Cloud tokenizer dictionary configuration.
    */
   aliwsDicts?: DescribeInstanceResponseBodyResultAliwsDicts[];
   /**
    * @remarks
-   * The deployment mode and architecture type. Valid values:
-   * - exclusive: basic management and control.
-   * - public: cloud-native management and control.
+   * The deployment mode. Architecture type:
    * 
    * @example
    * public
@@ -1058,7 +998,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   archType?: string;
   /**
    * @remarks
-   * The configuration of client nodes.
+   * The configuration information of the client node.
    */
   clientNodeConfiguration?: DescribeInstanceResponseBodyResultClientNodeConfiguration;
   /**
@@ -1071,7 +1011,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The dedicated master node (deprecated).
+   * **[Deprecated]** The dedicated master node.
    * 
    * @example
    * false
@@ -1100,16 +1040,12 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The configuration of elastic data nodes.
+   * The configuration of the elastic data node.
    */
   elasticDataNodeConfiguration?: DescribeInstanceResponseBodyResultElasticDataNodeConfiguration;
   /**
    * @remarks
-   * Indicates whether internal-facing access to Kibana is enabled. Valid values:
-   * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
+   * Indicates whether private network access to Kibana is enabled. Valid values:
    * 
    * @example
    * false
@@ -1119,10 +1055,6 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether public network access to Kibana is enabled. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
    * @example
    * true
    */
@@ -1131,10 +1063,6 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the public endpoint of the instance is enabled. Valid values:
    * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
    * @example
    * true
    */
@@ -1142,7 +1070,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The private endpoints for each zone of an HP_ALILB multi-zone instance.
+   * The private domain names for each zone of an HP_ALILB multi-zone instance.
    */
   endpoints?: DescribeInstanceResponseBodyResultEndpoints[];
   /**
@@ -1155,12 +1083,12 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   esConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The internal-facing access blacklist (deprecated).
+   * **[Deprecated]** The private network access blacklist.
    */
   esIPBlacklist?: string[];
   /**
    * @remarks
-   * The internal-facing access whitelist (deprecated).
+   * **[Deprecated]** The private network access whitelist.
    */
   esIPWhitelist?: string[];
   /**
@@ -1180,21 +1108,13 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the instance contains client nodes. Valid values:
    * 
-   * - true: The instance contains client nodes.
-   * 
-   * - false: The instance does not contain client nodes.
-   * 
    * @example
    * true
    */
   haveClientNode?: boolean;
   /**
    * @remarks
-   * Indicates whether the instance contains a Kibana node. Valid values:
-   * 
-   * - true: The instance contains a Kibana node.
-   * 
-   * - false: The instance does not contain a Kibana node.
+   * Indicates whether the instance contains Kibana nodes. Valid values:
    * 
    * @example
    * true
@@ -1208,10 +1128,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   inited?: boolean;
   /**
    * @remarks
-   * The edition of the instance. Valid values:
-   * - x-pack: Commercial Edition.
-   * - advanced/IS: Advanced Edition.
-   * - community: Basic Edition.
+   * The edition type of the instance. Valid values:
    * 
    * @example
    * advanced
@@ -1235,7 +1152,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   isNewDeployment?: boolean;
   /**
    * @remarks
-   * The configuration of the Kibana node.
+   * The configuration information of the Kibana node.
    */
   kibanaConfiguration?: DescribeInstanceResponseBodyResultKibanaConfiguration;
   /**
@@ -1261,7 +1178,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   kibanaPort?: number;
   /**
    * @remarks
-   * The Kibana private endpoint.
+   * The private endpoint of Kibana for private network access.
    * 
    * @example
    * es-cn-x0r3*********.elasticsearch.aliyuncs.com
@@ -1274,7 +1191,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   kibanaPrivateIPWhitelist?: string[];
   /**
    * @remarks
-   * The Kibana private port.
+   * The private port of Kibana.
    * 
    * @example
    * 5601
@@ -1282,7 +1199,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   kibanaPrivatePort?: string;
   /**
    * @remarks
-   * The master node configuration.
+   * The configuration of the dedicated master node.
    */
   masterConfiguration?: DescribeInstanceResponseBodyResultMasterConfiguration;
   /**
@@ -1307,10 +1224,6 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: subscription.
-   * 
-   * - postpaid: pay-as-you-go.
-   * 
    * @example
    * postpaid
    */
@@ -1326,12 +1239,6 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The status of the pay-as-you-go service that is overlaid on the subscription instance. Valid values:
-   * 
-   * - active: Normal.
-   * 
-   * - closed: Closed.
-   * 
-   * - indebt: Frozen due to overdue payment.
    * 
    * @example
    * active
@@ -1391,16 +1298,6 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * - active: Normal.
-   * 
-   * - activating: Taking effect.
-   * 
-   * - inactive: Frozen.
-   * 
-   * - invalid: Invalid. The cluster does not exist or is inaccessible. In this case, some fields in the response may be missing, such as domain and kibanaDomain.
-   * 
-   * - unknown: Unknown. The cluster does not exist or is inaccessible. In this case, some fields in the response may be missing, such as domain and kibanaDomain.
-   * 
    * @example
    * active
    */
@@ -1433,11 +1330,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   vpcInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether warm data nodes are enabled. Valid values:
-   * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
+   * Indicates whether warm data nodes is enabled. Valid values:
    * 
    * @example
    * true
@@ -1445,7 +1338,7 @@ export class DescribeInstanceResponseBodyResult extends $dara.Model {
   warmNode?: boolean;
   /**
    * @remarks
-   * The configuration of warm data nodes.
+   * The configuration information of the warm data node.
    */
   warmNodeConfiguration?: DescribeInstanceResponseBodyResultWarmNodeConfiguration;
   /**

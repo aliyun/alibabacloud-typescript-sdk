@@ -35,7 +35,7 @@ export class ListDictsResponseBodyHeaders extends $dara.Model {
 export class ListDictsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The publicly accessible download URL. The URL is valid for 90 seconds.
+   * The public download URL. The URL is valid for 90 seconds.
    * 
    * @example
    * http://test_bucket.oss-cn-hangzhou.aliyuncs.com/AliyunEs/test.dic?Expires=162573****&OSSAccessKeyId=LTAI*****V9&Signature=PNPO********BBGsJDO4V3VfU4sE%3D
@@ -69,9 +69,9 @@ export class ListDictsResponseBodyResult extends $dara.Model {
    * @remarks
    * The type of the IK dictionary. Valid values:
    * 
-   * - MAIN: main tokenization dictionary.
+   * - MAIN: Main tokenizer dictionary.
    * 
-   * - STOP: stopword dictionary.
+   * - STOP: Stopword dictionary.
    * 
    * @example
    * MAIN
@@ -109,7 +109,7 @@ export class ListDictsResponseBodyResult extends $dara.Model {
 export class ListDictsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response headers.
+   * The response header information.
    */
   headers?: ListDictsResponseBodyHeaders;
   /**

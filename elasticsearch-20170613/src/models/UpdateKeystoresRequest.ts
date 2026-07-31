@@ -5,17 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKeystoresRequest extends $dara.Model {
   /**
    * @remarks
-   * Delete keystore configuration
+   * Removes keystore configurations.
    */
   remove?: string[];
   /**
    * @remarks
-   * Add or update keystore
+   * Adds or updates the keystore.
    */
   update?: { [key: string]: string };
   /**
    * @remarks
-   * Whether to force the change. false: non-forced, true: forced
+   * Specifies whether to forcibly apply the change. Valid values:
+   * 
+   * - false: The change is not forcibly applied.
+   * - true: The change is forcibly applied.
    * 
    * @example
    * false

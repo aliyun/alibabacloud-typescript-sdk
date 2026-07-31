@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnoseReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the intelligent diagnostic report. Default value: the browser language. Valid values:
+   * The language in which the intelligent diagnostic report is generated. Default value: browser language. Valid values:
    * 
    * - en: English
    * - zh: Simplified Chinese

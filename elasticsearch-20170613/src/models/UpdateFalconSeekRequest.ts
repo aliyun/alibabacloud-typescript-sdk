@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFalconSeekRequest extends $dara.Model {
   /**
    * @remarks
-   * true: Enabled, false: shutdown
+   * Specifies whether to enable the FalconSeek cloud-native kernel feature. Valid values:
+   * 
+   * - true: Enable the feature.
+   * - false: Disable the feature.
    * 
    * This parameter is required.
    */

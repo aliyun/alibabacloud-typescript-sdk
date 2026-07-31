@@ -13,9 +13,9 @@ export class ResumeElasticsearchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return result:
+   * The returned result. Valid values:
    * 
-   * - true: The interrupted change was resumed successfully.
+   * - true: The interrupted change is resumed.
    * - false: The interrupted change failed to be resumed.
    * 
    * @example

@@ -92,8 +92,8 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
    * @remarks
    * The configuration type. Valid values:
    * 
-   * - collectorTargetInstance: the collector Output
-   * - collectorDeployMachine: the deployment machine of the collector
+   * - collectorTargetInstance: the collector Output.
+   * - collectorDeployMachine: the deployment machine of the collector.
    * - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana Dashboard.
    * 
    * @example
@@ -131,7 +131,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the instance associated with the collector. When **configType** is set to **collectorTargetInstance**, this parameter indicates the instance ID of the collector Output. When **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this parameter indicates the ACK (Container Kubernetes) cluster ID.
+   * The ID of the instance associated with the collector. When **configType** is set to **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this is the ACK (Container Kubernetes) cluster ID.
    * 
    * @example
    * es-cn-n6w1o1****
@@ -168,7 +168,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   protocol?: string;
   /**
    * @remarks
-   * The number of pods in the ACK cluster from which data is successfully collected.
+   * The number of pods that are successfully collected in the ACK cluster.
    * 
    * @example
    * 8
@@ -176,7 +176,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   successPodsCount?: string;
   /**
    * @remarks
-   * The total number of pods in the ACK cluster from which data is collected.
+   * The total number of pods collected in the ACK cluster.
    * 
    * @example
    * 10
@@ -187,7 +187,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
    * The type of machine on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
    * 
    * - ECSInstanceId: ECS
-   * - ACKCluster: Container Kubernetes.
+   * - ACKCluster: Container Kubernetes
    * 
    * @example
    * ECSInstanceId
@@ -263,10 +263,10 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   configs?: DescribeCollectorResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without creating the collector. Valid values:
+   * Indicates whether the collector is only validated without being created. Valid values:
    * 
-   * - true: Only validates the request without creating the collector.
-   * - false: Validates the request and creates the collector.
+   * - true: Only validates without creating.
+   * - false: Validates and creates.
    * 
    * @example
    * false
@@ -337,7 +337,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
    * @remarks
    * The collector status. Valid values:
    * 
-   * - activing: being activated
+   * - activing: being activated.
    * - active: activated.
    * 
    * @example

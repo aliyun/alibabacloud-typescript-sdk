@@ -17,7 +17,7 @@ export class DescribeTemplatesResponseBodyResult extends $dara.Model {
    * - staticSettings: elasticsearch.yml configuration
    * - ilmPolicy: index lifecycle configuration
    * - indexTemplate: index template configuration
-   * - dynamicSettings: cluster dynamic configuration.
+   * - dynamicSettings: cluster dynamic configuration
    * 
    * @example
    * dynamicSettings

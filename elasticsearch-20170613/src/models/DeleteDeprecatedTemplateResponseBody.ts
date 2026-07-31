@@ -13,7 +13,7 @@ export class DeleteDeprecatedTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result. Valid values:
+   * The returned result. Valid values:
    * 
    * - true: succeeded.
    * - false: failed.

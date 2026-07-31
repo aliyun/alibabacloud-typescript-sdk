@@ -45,7 +45,7 @@ export class DescribeLogstashResponseBodyResultTags extends $dara.Model {
 export class DescribeLogstashResponseBodyResultZoneInfos extends $dara.Model {
   /**
    * @remarks
-   * The status of the zone. Valid values:
+   * The zone status. Valid values:
    * 
    * - ISOLATION: offline.
    * - NORMAL: Normal.
@@ -225,7 +225,7 @@ export class DescribeLogstashResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The specification of the node.
+   * The node specification.
    * 
    * @example
    * elasticsearch.sn1ne.large
@@ -270,7 +270,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance labels.
+   * The instance tags.
    */
   tags?: DescribeLogstashResponseBodyResultTags[];
   /**
@@ -280,7 +280,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   zoneInfos?: DescribeLogstashResponseBodyResultZoneInfos[];
   /**
    * @remarks
-   * The instance configuration.
+   * The instance configuration information.
    * 
    * @example
    * {"slowlog.threshold.warn": "2s","slowlog.threshold.info": "1s","slowlog.threshold.debug": "500ms","slowlog.threshold.trace": "100ms" }
@@ -296,7 +296,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * ls-cn-abc
@@ -331,7 +331,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The configuration of the node.
+   * The configuration information of the node.
    */
   nodeSpec?: DescribeLogstashResponseBodyResultNodeSpec;
   /**
@@ -339,7 +339,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
    * The billing method of the instance. Valid values:
    * 
    * - prepaid: subscription
-   * - postpaid: pay-as-you-go.
+   * - postpaid: pay-as-you-go
    * 
    * @example
    * prepaid
@@ -368,7 +368,7 @@ export class DescribeLogstashResponseBodyResult extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The version of the instance.
+   * The instance version.
    * 
    * @example
    * 7.4.0_with_X-Pack

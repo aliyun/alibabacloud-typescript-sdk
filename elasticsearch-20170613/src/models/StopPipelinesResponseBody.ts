@@ -15,7 +15,7 @@ export class StopPipelinesResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The pipelines are stopped.
+   * - true: The pipelines are stopped successfully.
    * - false: The pipelines failed to be stopped.
    * 
    * @example

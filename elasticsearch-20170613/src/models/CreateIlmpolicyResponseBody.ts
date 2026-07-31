@@ -13,7 +13,7 @@ export class CreateILMPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the lifecycle policy that is created.
+   * The name of the lifecycle policy created by the request.
    * 
    * @example
    * my-policy

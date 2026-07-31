@@ -18,7 +18,7 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
   securityGroups?: string[];
   /**
    * @remarks
-   * Used to ensure the idempotency of the request.
+   * A client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * xxxx

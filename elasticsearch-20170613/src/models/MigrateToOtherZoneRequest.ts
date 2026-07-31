@@ -6,9 +6,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run to check whether zone node migration is feasible. Valid values:
-   * - true: performs only a validation check without executing the migration task.
-   * - false: executes the migration task after the validation check succeeds.
+   * Specifies whether to perform a dry run of the zone node migration. A value of true indicates that only validation is performed without executing the migration task. A value of false indicates that the migration task is executed after validation passes.
    * 
    * This parameter is required.
    * 

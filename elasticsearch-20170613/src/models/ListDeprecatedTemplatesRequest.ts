@@ -13,7 +13,7 @@ export class ListDeprecatedTemplatesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number Settings for a paged query. Paging is used to retrieve results.
+   * The page number settings for a paged query. This parameter is used for paging.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class ListDeprecatedTemplatesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page Settings for a paged query. Paging is used to retrieve results.
+   * The number of entries per page settings for a paged query. This parameter is used for paging.
    * 
    * @example
    * 10

@@ -15,7 +15,7 @@ export class RolloverDataStreamResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The rollover succeeded.
+   * - true: The rollover was successful.
    * 
    * - false: The rollover failed.
    * 

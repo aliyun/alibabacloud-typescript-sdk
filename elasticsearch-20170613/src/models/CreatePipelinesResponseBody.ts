@@ -15,8 +15,8 @@ export class CreatePipelinesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the pipeline is created. Valid values:
    * 
-   * - true: The pipeline is created.
-   * - false: The pipeline failed to be created.
+   * - true: Created.
+   * - false: Failed to create.
    * 
    * @example
    * true

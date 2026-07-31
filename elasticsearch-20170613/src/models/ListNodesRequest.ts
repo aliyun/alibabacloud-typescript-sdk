@@ -37,7 +37,7 @@ export class ListNodesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The tag information of the ECS instance. The tag key (tagKey) and tag value (tagValue) must be included.
+   * The tag information of the ECS instance. Must include the tag key (tagKey) and tag value (tagValue).
    * 
    * @example
    * [{"tagKey":"abc","tagValue":"xyz"}]

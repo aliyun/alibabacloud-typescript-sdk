@@ -57,9 +57,9 @@ export class ListIndexTemplatesResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the data stream is enabled. Valid values:
    * 
-   * - true: enabled.
+   * - true: Enabled.
    * 
-   * - false (default): not enabled.
+   * - false (default): Not enabled.
    * 
    * @example
    * true

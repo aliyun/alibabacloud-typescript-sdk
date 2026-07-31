@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
   /**
    * @remarks
-   * Number of events
+   * The number of events.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
   cnt?: string;
   /**
    * @remarks
-   * Event level
+   * The event level.
    * 
    * @example
    * Info
@@ -21,7 +21,7 @@ export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Event status
+   * The event status.
    * 
    * @example
    * Executed
@@ -29,7 +29,7 @@ export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * UserOperator
@@ -65,12 +65,12 @@ export class ListStatsEventRecordsResponseBodyResultResult extends $dara.Model {
 export class ListStatsEventRecordsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Return Result
+   * The returned result.
    */
   result?: ListStatsEventRecordsResponseBodyResultResult[];
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 6
@@ -105,7 +105,7 @@ export class ListStatsEventRecordsResponseBodyResult extends $dara.Model {
 export class ListStatsEventRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * F99407AB-2FA9-489E-A259-40CF6DCC****
@@ -113,7 +113,7 @@ export class ListStatsEventRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return Result
+   * The returned result.
    */
   result?: ListStatsEventRecordsResponseBodyResult;
   static names(): { [key: string]: string } {

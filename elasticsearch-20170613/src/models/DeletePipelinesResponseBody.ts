@@ -13,10 +13,10 @@ export class DeletePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result:
+   * The result of the operation. Valid values:
    * 
-   * - true: The pipelines are deleted.
-   * - false: The pipelines failed to be deleted.
+   * - true: The deletion was successful.
+   * - false: The deletion failed.
    * 
    * @example
    * true

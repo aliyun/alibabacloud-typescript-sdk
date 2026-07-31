@@ -16,7 +16,7 @@ export class CancelDeletionResponseBody extends $dara.Model {
    * Indicates whether the instance is recovered. Valid values:
    * 
    * - true: The instance is recovered.
-   * - false: The instance failed to be recovered.
+   * - false: The instance is not recovered.
    * 
    * @example
    * true

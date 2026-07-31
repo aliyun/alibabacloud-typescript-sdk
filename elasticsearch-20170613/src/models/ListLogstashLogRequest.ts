@@ -39,7 +39,7 @@ export class ListLogstashLogRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of entries per page for the paged query. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20

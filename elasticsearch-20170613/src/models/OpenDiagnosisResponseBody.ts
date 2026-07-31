@@ -15,7 +15,7 @@ export class OpenDiagnosisResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the intelligent O&M feature is enabled. Valid values:
    * 
-   * - true: Enabled.
+   * - true: Succeeded.
    * - false: Failed.
    * 
    * @example

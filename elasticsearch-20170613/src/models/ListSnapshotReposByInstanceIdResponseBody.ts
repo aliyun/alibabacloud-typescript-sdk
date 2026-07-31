@@ -21,7 +21,7 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
   repoPath?: string;
   /**
    * @remarks
-   * The name of the referenced repository.
+   * The referenced repository name.
    * 
    * @example
    * aliyun_snapshot_from_es-cn-6ja1ro4jt000c****
@@ -30,6 +30,7 @@ export class ListSnapshotReposByInstanceIdResponseBodyResult extends $dara.Model
   /**
    * @remarks
    * The status of the referenced repository. Valid values:
+   * 
    * - available: The repository is active.
    * - unavailable: The repository is inactive.
    * 

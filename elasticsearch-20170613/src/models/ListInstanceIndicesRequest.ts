@@ -7,9 +7,9 @@ export class ListInstanceIndicesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to retrieve all indexes. Valid values:
    * 
-   * - true: Returns the index list that includes system indexes.
+   * - true: Returns the index list including system indexes.
    * 
-   * - false (default): Returns the index list that excludes system indexes.
+   * - false (default): Returns the index list excluding system indexes.
    * 
    * @example
    * false

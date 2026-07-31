@@ -13,7 +13,7 @@ export class CloseManagedIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cloud managed feature for the index is disabled. Valid values:
+   * Indicates whether the cloud-managed feature for the index is disabled. Valid values:
    * 
    * - true: The feature is disabled.
    * 

@@ -13,9 +13,9 @@ export class RunPipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The returned result:
    * 
-   * - true: The deployment succeeded.
+   * - true: The deployment was successful.
    * - false: The deployment failed.
    * 
    * @example

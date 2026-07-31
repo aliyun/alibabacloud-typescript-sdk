@@ -13,7 +13,7 @@ export class DescribeSnapshotSettingResponseBodyResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The automatic backup time configuration, specified as a Quartz Cron expression.
+   * The automatic backup time configuration, which uses a Quartz Cron expression.
    * 
    * @example
    * 0 0 01 ? * * *

@@ -77,10 +77,10 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigsMachines e
    * @remarks
    * The status of each collector on the ECS instance. Valid values:
    * 
-   * - heartOk: The heartbeat is normal.
-   * - heartLost: The heartbeat is abnormal.
-   * - uninstalled: Not installed.
-   * - failed: Installation failed.
+   * - heartOk: normal heartbeat.
+   * - heartLost: abnormal heartbeat.
+   * - uninstalled: not installed.
+   * - failed: installation failed.
    * 
    * @example
    * heartOk
@@ -152,7 +152,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   hosts?: string[];
   /**
    * @remarks
-   * The ID of the instance associated with the collector. When configType is set to collectorTargetInstance, this is the instance ID of the collector Output. When configType is set to collectorDeployMachines and type is set to ACKCluster, this is the ACK (Container Service for Kubernetes) cluster ID.
+   * The ID of the instance associated with the collector. When configType is set to collectorTargetInstance, this is the instance ID of the collector Output. When configType is set to collectorDeployMachines and type is set to ACKCluster, this is the ACK (Container Kubernetes) cluster ID.
    * 
    * @example
    * es-cn-nif1z89fz003i****
@@ -160,7 +160,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance specified by the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when configType is set to collectorTargetInstance.
+   * The instance type specified in the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when configType is set to collectorTargetInstance.
    * 
    * @example
    * elasticsearch
@@ -173,7 +173,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   machines?: ListEcsInstancesResponseBodyResultCollectorsExtendConfigsMachines[];
   /**
    * @remarks
-   * The transmission protocol, which must be consistent with the access protocol of the instance specified by the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when configType is set to collectorTargetInstance.
+   * The transport protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when configType is set to collectorTargetInstance.
    * 
    * @example
    * HTTP
@@ -183,8 +183,8 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
    * @remarks
    * The type of machine on which the collector is deployed. This parameter is displayed when configType is set to collectorDeployMachine. Valid values:
    * 
-   * - ECSInstanceId: ECS
-   * - ACKCluster: Container Service for Kubernetes.
+   * - ECSInstanceId: ECS.
+   * - ACKCluster: Container Kubernetes.
    * 
    * @example
    * ECSInstanceId
@@ -192,7 +192,7 @@ export class ListEcsInstancesResponseBodyResultCollectorsExtendConfigs extends $
   type?: string;
   /**
    * @remarks
-   * The username used to access the instance specified by the collector Output. Default value: elastic. This parameter is displayed when configType is set to collectorTargetInstance or collectorElasticsearchForKibana.
+   * The username used to access the instance specified in the collector Output. Default value: elastic. This parameter is displayed when configType is set to collectorTargetInstance or collectorElasticsearchForKibana.
    * 
    * @example
    * elastic
@@ -252,7 +252,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   configs?: ListEcsInstancesResponseBodyResultCollectorsConfigs[];
   /**
    * @remarks
-   * Indicates whether the collector is only validated without being created. Valid values:
+   * Indicates whether to only validate without creating the collector. Valid values:
    * 
    * - true: Only validates without creating.
    * - false: Validates and creates.
@@ -316,7 +316,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   resType?: string;
   /**
    * @remarks
-   * The collector version. When the machine type for collector deployment is ECS, only **6.8.5_with_community** is supported.
+   * The collector version. When the deployment machine type is ECS, only **6.8.5_with_community** is supported.
    * 
    * @example
    * 6.8.5_with_community
@@ -326,8 +326,8 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
    * @remarks
    * The collector status. Valid values:
    * 
-   * - activing: Taking effect.
-   * - active: Active.
+   * - activing: taking effect.
+   * - active: active.
    * 
    * @example
    * activing
@@ -335,7 +335,7 @@ export class ListEcsInstancesResponseBodyResultCollectors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC where the collector resides.
+   * The VPC ID of the collector.
    * 
    * @example
    * vpc-bp16k1dvzxtm******
@@ -441,7 +441,7 @@ export class ListEcsInstancesResponseBodyResultIpAddress extends $dara.Model {
 export class ListEcsInstancesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The installation status of Cloud Assistant. Valid values:
+   * The Cloud Assistant installation status. Valid values:
    * 
    * - true: Installed.
    * - false: Not installed.
@@ -465,7 +465,7 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The ECS instance name.
    * 
    * @example
    * ecsTestName
@@ -491,10 +491,10 @@ export class ListEcsInstancesResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the ECS instance. Valid values:
    * 
-   * - running: Running.
-   * - starting: Starting.
-   * - stopping: Stopping.
-   * - stopped: Stopped.
+   * - running: running.
+   * - starting: starting.
+   * - stopping: stopping.
+   * - stopped: stopped.
    * 
    * @example
    * running

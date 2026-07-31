@@ -12,7 +12,7 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
    * - dailyIncrement: daily data growth
    * - dailyIncrement: daily incremental documents
    * - retentionTime: data retention period
-   * - replica: replica settings.
+   * - replica: replica settings
    * 
    * @example
    * totalRawData
@@ -39,7 +39,7 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
    * The disk data type. Valid values:
    * 
    * - hot: hot data
-   * - warm: warm data.
+   * - warm: warm data
    * 
    * @example
    * hot
@@ -50,7 +50,7 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
    * The data unit or time unit. Valid values:
    * 
    * - Data units: MiB, GiB, TB, PB
-   * - Time units: DAYS, WEEKS, MONTHS, YEARS.
+   * - Time units: DAYS, WEEKS, MONTHS, YEARS
    * 
    * @example
    * MiB
@@ -99,7 +99,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
    * The search or write metric code. Valid values:
    * 
    * - write: write
-   * - search: search.
+   * - search: search
    * 
    * @example
    * write
@@ -142,7 +142,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
    * The search or write peak type. Valid values:
    * 
    * - common: normal
-   * - peak: peak.
+   * - peak: peak
    * 
    * @example
    * common
@@ -184,7 +184,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
 export class CapacityPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether complex aggregate query is required. Valid values:
+   * Specifies whether complex aggregation query is required. Valid values:
    * 
    * - true: Required.
    * - false (default): Not required.
@@ -200,7 +200,7 @@ export class CapacityPlanRequest extends $dara.Model {
   dataInfo?: CapacityPlanRequestDataInfo[];
   /**
    * @remarks
-   * The metric information, including disk usage, search and write operations, and aggregation requests.
+   * The metric information for disk usage, search and write operations, and aggregation requests.
    */
   metric?: CapacityPlanRequestMetric[];
   /**
@@ -211,7 +211,7 @@ export class CapacityPlanRequest extends $dara.Model {
    * - analysisVisualization: data analytics scenario
    * - dbAcceleration: database acceleration scenario
    * - search: search scenario
-   * - log: log scenario.
+   * - log: log scenario
    * 
    * @example
    * general

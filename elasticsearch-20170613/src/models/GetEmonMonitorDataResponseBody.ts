@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The real-time metric monitoring data, in the format of `{timestamp:data}`.
+   * The real-time metric monitoring data. Format: `{timestamp:data}`.
    * 
    * @example
    * { "1586249280": 465.1980465119913, "1586249300": 213.45243650423305 }
@@ -21,7 +21,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   integrity?: number;
   /**
    * @remarks
-   * The timestamp when the request reaches the server. This parameter is used for troubleshooting.
+   * The timestamp when the request reaches the server. This is used for troubleshooting.
    * 
    * @example
    * 1522127381471
@@ -37,7 +37,7 @@ export class GetEmonMonitorDataResponseBodyResult extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * If the queries contain wildcards, the result includes multiple matched time series datasets. The summary aggregates the values of these time series at each time point based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
+   * If the queries contain wildcards, the result includes multiple matching time series data sequences. The summary is the aggregation of the values across these time series at each time point, based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
    * 
    * @example
    * 10

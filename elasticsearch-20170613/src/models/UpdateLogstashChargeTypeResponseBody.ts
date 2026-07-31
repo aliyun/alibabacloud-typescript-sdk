@@ -13,7 +13,7 @@ export class UpdateLogstashChargeTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The returned result:
    * 
    * - true: The conversion succeeded.
    * - false: The conversion failed.

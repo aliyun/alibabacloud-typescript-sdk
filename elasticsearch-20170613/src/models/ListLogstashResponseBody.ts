@@ -259,7 +259,7 @@ export class ListLogstashResponseBodyResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values: active (Normal), activating (Taking Effect), inactive (Frozen), and invalid (Expired).
+   * The instance status. Valid values: active (Normal), activating (taking effect), inactive (frozen), and invalid (expired).
    * 
    * @example
    * active

@@ -13,7 +13,7 @@ export class UpdateSnapshotSettingResponseBodyResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The start time of automatic backup.
+   * The automatic backup start time.
    * 
    * @example
    * 0 0 01 ? * * *

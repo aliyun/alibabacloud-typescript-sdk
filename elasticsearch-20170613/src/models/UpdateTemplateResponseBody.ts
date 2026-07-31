@@ -13,7 +13,7 @@ export class UpdateTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the scenario-specific template configuration is modified. Valid values:
+   * Indicates whether the scenario-specific template configuration is modified.
    * 
    * - true: The modification is successful.
    * - false: The modification failed.

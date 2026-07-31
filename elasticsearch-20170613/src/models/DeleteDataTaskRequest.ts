@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * This parameter is required.
    * 

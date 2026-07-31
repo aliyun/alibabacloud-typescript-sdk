@@ -13,7 +13,7 @@ export class ValidateShrinkNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result. Valid values:
    * 
    * - true: The nodes can be scaled in.
    * - false: The nodes cannot be scaled in.

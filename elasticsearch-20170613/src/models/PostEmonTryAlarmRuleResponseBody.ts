@@ -29,7 +29,7 @@ export class PostEmonTryAlarmRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the alert message was sent. Valid values: true (sent) and false (failed to send).
+   * Indicates whether the alert message is sent. Valid values: true (sent) and false (failed to send).
    * 
    * @example
    * true

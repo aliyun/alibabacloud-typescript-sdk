@@ -21,7 +21,7 @@ export class ValidateTransferableNodesRequestBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The zone ID of the instance node. For example, the ID of Zone C in the China (Shanghai) region is cn-shanghai-c.
+   * The zone ID of the instance node. For example, the zone ID for Shanghai Zone C is cn-shanghai-c.
    * 
    * @example
    * cn-shanghai-c

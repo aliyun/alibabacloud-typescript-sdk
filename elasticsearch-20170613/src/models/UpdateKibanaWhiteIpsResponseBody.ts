@@ -130,7 +130,7 @@ export class UpdateKibanaWhiteIpsResponseBodyResult extends $dara.Model {
   kibanaIPWhitelist?: string[];
   /**
    * @remarks
-   * The Kibana internal-facing whitelist.
+   * The Kibana private network access whitelist.
    */
   kibanaPrivateIPWhitelist?: string[];
   /**

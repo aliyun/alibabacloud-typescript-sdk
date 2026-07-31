@@ -23,7 +23,7 @@ export class MoveResourceGroupResponseBodyResultDictList extends $dara.Model {
    * @remarks
    * The source type. Valid values:
    * 
-   * - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+   * - OSS: OSS open storage (the OSS bucket must be publicly readable).
    * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
@@ -81,7 +81,7 @@ export class MoveResourceGroupResponseBodyResultKibanaConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage size of the node. Unit: GB.
+   * The storage space size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -141,7 +141,7 @@ export class MoveResourceGroupResponseBodyResultMasterConfiguration extends $dar
   amount?: number;
   /**
    * @remarks
-   * The storage size of the node. Unit: GB.
+   * The storage space size of the node. Unit: GB.
    * 
    * @example
    * 20
@@ -201,7 +201,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****
@@ -253,7 +253,7 @@ export class MoveResourceGroupResponseBodyResultNetworkConfig extends $dara.Mode
 export class MoveResourceGroupResponseBodyResultNodeSpec extends $dara.Model {
   /**
    * @remarks
-   * The storage size of the node. Unit: GB.
+   * The storage space size of the node. Unit: GB.
    * 
    * @example
    * 50
@@ -321,7 +321,7 @@ export class MoveResourceGroupResponseBodyResultSynonymsDicts extends $dara.Mode
    * @remarks
    * The source type. Valid values:
    * 
-   * - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+   * - OSS: OSS open storage (the OSS bucket must be publicly readable).
    * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
@@ -392,7 +392,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   dictList?: MoveResourceGroupResponseBodyResultDictList[];
   /**
    * @remarks
-   * The internal endpoint of the instance.
+   * The internal network access address of the instance.
    * 
    * @example
    * es-cn-nif1q8auz0003****.elasticsearch.aliyuncs.com
@@ -416,12 +416,12 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configuration of Kibana nodes.
+   * The Kibana node configuration.
    */
   kibanaConfiguration?: MoveResourceGroupResponseBodyResultKibanaConfiguration;
   /**
    * @remarks
-   * The public network access address for Kibana.
+   * The Kibana public network access address.
    * 
    * @example
    * es-cn-nif1q8auz0003****.kibana.elasticsearch.aliyuncs.com
@@ -429,7 +429,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaDomain?: string;
   /**
    * @remarks
-   * The public port for Kibana.
+   * The Kibana public network port.
    * 
    * @example
    * 5601
@@ -437,7 +437,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   kibanaPort?: number;
   /**
    * @remarks
-   * The configuration of master nodes.
+   * The master node configuration.
    */
   masterConfiguration?: MoveResourceGroupResponseBodyResultMasterConfiguration;
   /**
@@ -447,7 +447,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   networkConfig?: MoveResourceGroupResponseBodyResultNetworkConfig;
   /**
    * @remarks
-   * The number of data nodes of the instance.
+   * The number of data nodes in the instance.
    * 
    * @example
    * 2
@@ -455,7 +455,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The configuration of data nodes.
+   * The data node configuration.
    */
   nodeSpec?: MoveResourceGroupResponseBodyResultNodeSpec;
   /**
@@ -479,7 +479,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
   publicDomain?: string;
   /**
    * @remarks
-   * The public port.
+   * The public network port.
    * 
    * @example
    * 9200
@@ -492,7 +492,7 @@ export class MoveResourceGroupResponseBodyResult extends $dara.Model {
    * - active: Normal.
    * - activating: Taking effect.
    * - inactive: Frozen.
-   * - invalid: Expired.
+   * - invalid: Invalid.
    * 
    * @example
    * active

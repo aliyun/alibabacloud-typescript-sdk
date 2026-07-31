@@ -53,7 +53,7 @@ export class ListDataTasksResponseBodyResultSinkCluster extends $dara.Model {
   vpcInstanceId?: string;
   /**
    * @remarks
-   * The port number used to access the cluster.
+   * The access port of the cluster.
    * 
    * @example
    * 9200

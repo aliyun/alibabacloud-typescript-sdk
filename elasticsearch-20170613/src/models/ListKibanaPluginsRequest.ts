@@ -13,7 +13,7 @@ export class ListKibanaPluginsRequest extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page Settings for paging in a paged query.
    * 
    * @example
    * 10

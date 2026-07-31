@@ -71,14 +71,14 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
    * @remarks
    * The endpoint status. Valid values:
    * 
-   * - Disconnected: not connected.
-   * 
-   * - Connected: connected.
+   * - Disconnected: disconnected
+   * - Connected: connected
    * 
    * @example
    * Connected
    */
   endpointStatus?: string;
+  managedSecurityGroup?: boolean;
   /**
    * @remarks
    * The Kibana private network connection ID.
@@ -111,6 +111,7 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
       endpointId: 'endpointId',
       endpointName: 'endpointName',
       endpointStatus: 'endpointStatus',
+      managedSecurityGroup: 'managedSecurityGroup',
       pvlId: 'pvlId',
       securityGroups: 'securityGroups',
       vSwitchIdsZone: 'vSwitchIdsZone',
@@ -124,6 +125,7 @@ export class ListKibanaPvlNetworkResponseBodyResult extends $dara.Model {
       endpointId: 'string',
       endpointName: 'string',
       endpointStatus: 'string',
+      managedSecurityGroup: 'boolean',
       pvlId: 'string',
       securityGroups: { 'type': 'array', 'itemType': 'string' },
       vSwitchIdsZone: { 'type': 'array', 'itemType': ListKibanaPvlNetworkResponseBodyResultVSwitchIdsZone },

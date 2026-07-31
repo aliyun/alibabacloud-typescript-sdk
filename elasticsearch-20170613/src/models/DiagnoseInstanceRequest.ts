@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A unique token used to ensure idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
@@ -40,7 +40,7 @@ export class DiagnoseInstanceRequest extends $dara.Model {
    * - zh: Simplified Chinese
    * - zt: Traditional Chinese
    * - es: Spanish
-   * - fr: French.
+   * - fr: French
    * 
    * @example
    * en

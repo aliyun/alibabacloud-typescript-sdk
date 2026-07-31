@@ -59,7 +59,7 @@ export class ListPluginsResponseBodyResult extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The URL of the plugin documentation.
+   * The URL of the plugin specification document.
    * 
    * @example
    * https://xxxx.html

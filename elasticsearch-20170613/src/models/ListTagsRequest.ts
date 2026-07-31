@@ -13,7 +13,7 @@ export class ListTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource type. Fixed value: INSTANCE.
+   * The resource type. Set to INSTANCE.
    * 
    * @example
    * INSTANCE

@@ -51,11 +51,10 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
    * es-cn-27a3mul6l000xxx-kibana-endpoint
    */
   endpointName?: string;
+  managedSecurityGroup?: boolean;
   /**
    * @remarks
    * The security groups.
-   * 
-   * This parameter is required.
    */
   securityGroups?: string[];
   /**
@@ -82,6 +81,7 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endpointName: 'endpointName',
+      managedSecurityGroup: 'managedSecurityGroup',
       securityGroups: 'securityGroups',
       vSwitchIdsZone: 'vSwitchIdsZone',
       vpcId: 'vpcId',
@@ -92,6 +92,7 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endpointName: 'string',
+      managedSecurityGroup: 'boolean',
       securityGroups: { 'type': 'array', 'itemType': 'string' },
       vSwitchIdsZone: { 'type': 'array', 'itemType': EnableKibanaPvlNetworkRequestVSwitchIdsZone },
       vpcId: 'string',

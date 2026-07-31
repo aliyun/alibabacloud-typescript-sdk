@@ -55,11 +55,11 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
    * @remarks
    * The index status. Valid values:
    * 
-   * - Green: healthy.
+   * - Green: Healthy.
    * 
-   * - Yellow: warning.
+   * - Yellow: Warning.
    * 
-   * - Red: abnormal.
+   * - Red: Abnormal.
    * 
    * @example
    * Green
@@ -75,12 +75,12 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   isManaged?: boolean;
   /**
    * @remarks
-   * The managed status of the index. Valid values:
-   * - following: managed.
+   * The index managed status. Valid values:
+   * - following: Managed.
    * 
-   * - closing: being unmanaged.
+   * - closing: Being unmanaged.
    * 
-   * - closed: not managed.
+   * - closed: Not managed.
    * 
    * @example
    * following
@@ -138,11 +138,11 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
    * @remarks
    * The data stream status. Valid values:
    * 
-   * - Green: healthy.
+   * - Green: Healthy.
    * 
-   * - Yellow: warning.
+   * - Yellow: Warning.
    * 
-   * - Red: abnormal.
+   * - Red: Abnormal.
    * 
    * @example
    * Green

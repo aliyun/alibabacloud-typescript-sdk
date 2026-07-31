@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSearchLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The start timestamp of the log, in milliseconds. The value must be within the last 7 days. If this parameter is not specified, all logs within the [current time - 7 days, endTime\\] range are queried.
+   * The start timestamp of the log, in milliseconds. The value must be within the last 7 days. If this parameter is not specified, all logs within the range of [current time - 7 days, endTime\\] are queried.
    * 
    * @example
    * 1531910852074
@@ -21,7 +21,7 @@ export class ListSearchLogRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The page number of the plug-in list. Minimum value: 1. Default value: 1.
+   * The page number of the plugin list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1

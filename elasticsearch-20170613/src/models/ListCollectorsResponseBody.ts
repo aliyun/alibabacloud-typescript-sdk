@@ -75,10 +75,10 @@ export class ListCollectorsResponseBodyResultConfigs extends $dara.Model {
 export class ListCollectorsResponseBodyResultExtendConfigsMachines extends $dara.Model {
   /**
    * @remarks
-   * The status of each collector on the ECS instance. Valid values:
+   * The status of the collector on the ECS instance. Valid values:
    * 
-   * - heartOk: The heartbeat is normal.
-   * - heartLost: The heartbeat is abnormal.
+   * - heartOk: Normal heartbeat.
+   * - heartLost: Abnormal heartbeat.
    * - uninstalled: Not installed.
    * - failed: Installation failed.
    * 
@@ -88,7 +88,7 @@ export class ListCollectorsResponseBodyResultExtendConfigsMachines extends $dara
   agentStatus?: string;
   /**
    * @remarks
-   * The list of ECS machine IDs.
+   * The ECS machine ID.
    * 
    * @example
    * i-bp13y63575oypr9d****
@@ -124,7 +124,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
    * 
    * - collectorTargetInstance: the collector Output
    * - collectorDeployMachine: the deployment machine of the collector
-   * - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana dashboards.
+   * - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana dashboards
    * 
    * @example
    * collectorDeployMachine
@@ -169,7 +169,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of instance specified in the collector Output. Valid values: elasticsearch, logstash. This parameter is displayed when **configType** is **collectorTargetInstance**.
+   * The type of instance specified in the collector Output. Supported values: elasticsearch, logstash. This parameter is displayed when **configType** is **collectorTargetInstance**.
    * 
    * @example
    * elasticsearch
@@ -190,7 +190,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
   machines?: ListCollectorsResponseBodyResultExtendConfigsMachines[];
   /**
    * @remarks
-   * The transmission protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Valid values: HTTP, HTTPS. This parameter is displayed when **configType** is **collectorTargetInstance**.
+   * The transmission protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Supported values: HTTP, HTTPS. This parameter is displayed when **configType** is **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -218,7 +218,7 @@ export class ListCollectorsResponseBodyResultExtendConfigs extends $dara.Model {
    * 
    * - ECSInstanceId: ECS
    * 
-   * - ACKCluster: Container Kubernetes.
+   * - ACKCluster: Container Kubernetes
    * 
    * @example
    * ECSInstanceId
@@ -294,10 +294,10 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   configs?: ListCollectorsResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Indicates whether the collector is validated only without being created. Valid values:
+   * Indicates whether the collector is validated and created. Valid values:
    * 
-   * - true: Only validates without creating.
-   * - false: Validates and creates.
+   * - true: Only validated, not created.
+   * - false: Validated and created.
    * 
    * @example
    * false
@@ -350,7 +350,7 @@ export class ListCollectorsResponseBodyResult extends $dara.Model {
   resId?: string;
   /**
    * @remarks
-   * The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
+   * The collector type. Supported values: fileBeat, metricBeat, heartBeat, and auditBeat.
    * 
    * @example
    * fileBeat

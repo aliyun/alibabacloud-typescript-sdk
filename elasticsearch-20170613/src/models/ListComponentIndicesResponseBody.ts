@@ -67,8 +67,8 @@ export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndex 
    * @remarks
    * The index compression method. Valid values:
    * 
-   * - LZ4: the default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
-   * - best_compression: uses the best_compression algorithm for compression, which provides a higher compression ratio.
+   * - LZ4: The default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
+   * - best_compression: Uses the best_compression algorithm for compression, which provides a higher compression ratio.
    * 
    * @example
    * best_compression
@@ -221,7 +221,7 @@ export class ListComponentIndicesResponseBodyResultContent extends $dara.Model {
 export class ListComponentIndicesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The information about the index templates that reference this composable template.
+   * The information about index templates that reference this composable template.
    */
   composed?: string[];
   /**

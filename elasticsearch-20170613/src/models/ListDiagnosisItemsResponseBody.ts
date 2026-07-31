@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnosisItemsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic item description.
+   * The description of the diagnostic item.
    * 
    * @example
    * 诊断集群写数据是否有堆积当集群的数据写入存在堆积时，会造成BulkReject异常，可能会导致数据丢失，且会造成系统资源消耗严重
@@ -14,7 +14,7 @@ export class ListDiagnosisItemsResponseBodyResult extends $dara.Model {
   esApiRequired?: boolean;
   /**
    * @remarks
-   * The diagnostic item identifier.
+   * The identifier of the diagnostic item.
    * 
    * @example
    * ClusterBulkRejectDiagnostic
@@ -22,7 +22,7 @@ export class ListDiagnosisItemsResponseBodyResult extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The diagnostic item name.
+   * The name of the diagnostic item.
    * 
    * @example
    * 索引写入BulkReject诊断
@@ -66,7 +66,7 @@ export class ListDiagnosisItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListDiagnosisItemsResponseBodyResult[];
   static names(): { [key: string]: string } {

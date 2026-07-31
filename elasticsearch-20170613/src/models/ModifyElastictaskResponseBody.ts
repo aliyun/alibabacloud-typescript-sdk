@@ -13,7 +13,7 @@ export class ModifyElastictaskResponseBodyResultElasticExpansionTask extends $da
   cronExpression?: string;
   /**
    * @remarks
-   * The target number of elastic data nodes during peak hours.
+   * The number of elastic data nodes during peak hours.
    * 
    * @example
    * 2
@@ -79,7 +79,7 @@ export class ModifyElastictaskResponseBodyResultElasticShrinkTask extends $dara.
   cronExpression?: string;
   /**
    * @remarks
-   * The target number of elastic data nodes during off-peak hours.
+   * The number of elastic data nodes during off-peak hours.
    * 
    * @example
    * 2

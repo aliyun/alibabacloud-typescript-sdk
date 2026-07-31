@@ -5,9 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class PluginAnalysisRequest extends $dara.Model {
   /**
    * @remarks
-   * Request body parameters  
+   * The request body parameters.
    * 
-   * ```json
+   * ```[
+   *   {
+   *     "name": "plugin_name.zip",// plugin name
+   *     "ossObject": {
+   *       "bucketName": "bucketName",// oss bucket name
+   *       "key": "my_plugin_dir/plugin_name.zip" // oss file name 
+   *     }
+   *   }
+   * ]
+   * `
    * 
    * @example
    * {
@@ -21,10 +30,10 @@ export class PluginAnalysisRequest extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * Whether to perform pre-upgrade validation:  
+   * Specifies whether to perform a pre-upload check. Valid values:
    * 
-   * - true: Validate only  
-   * - false: Upload directly
+   * - true: Only performs the check.
+   * - false: Directly uploads the plug-in.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   /**
    * @remarks
-   * Plugin Description.
+   * The plug-in description.
    * 
    * @example
    * The plugin***
@@ -13,7 +13,7 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Elasticsearch version of the plugin.
+   * The Elasticsearch version of the plug-in.
    * 
    * @example
    * 8.17.0
@@ -21,7 +21,7 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   elasticsearchVersion?: string;
   /**
    * @remarks
-   * Plugin UUID
+   * The unique identifier of the plug-in.
    * 
    * @example
    * CAEQaRiBgIDI2tie6hkiIGIwM2I3MjZmNjk3YzR***
@@ -29,7 +29,7 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   fileVersion?: string;
   /**
    * @remarks
-   * Plugin Name.
+   * The plug-in name.
    * 
    * @example
    * dynamic-name
@@ -37,10 +37,10 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Plugin Source. Valid values:
+   * The plug-in source. Valid values:
    * 
-   * - USER: Custom plugin  
-   * - SYSTEM: Preset system plugin
+   * - USER: custom plug-in.
+   * - SYSTEM: system preset plug-in.
    * 
    * @example
    * USER
@@ -48,16 +48,16 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Plugin Status
+   * The plug-in status. Valid values: 
    * 
-   * - INSTALLED,
-   * - UNINSTALLED,
-   * - INSTALLING,
-   * - UNINSTALLING,
-   * - UPGRADING,
-   * - FAILED,
-   * - UNKNOWN,
-   * - UPLOADING,
+   * - INSTALLED
+   * - UNINSTALLED
+   * - INSTALLING
+   * - UNINSTALLING
+   * - UPGRADING
+   * - FAILED
+   * - UNKNOWN
+   * - UPLOADING
    * 
    * @example
    * UNINSTALLED
@@ -65,7 +65,7 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Plugin Version.
+   * The plug-in version.
    * 
    * @example
    * 8.17.0
@@ -107,12 +107,12 @@ export class ListUserPluginResponseBodyResultBingoPlugins extends $dara.Model {
 export class ListUserPluginResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * List of plugins with the same name
+   * The list of plug-ins with the same name.
    */
   bingoPlugins?: ListUserPluginResponseBodyResultBingoPlugins[];
   /**
    * @remarks
-   * Plugin Name.
+   * The plug-in name.
    * 
    * @example
    * ct-test
@@ -120,7 +120,7 @@ export class ListUserPluginResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Plugin Source.
+   * The plug-in source.
    * 
    * @example
    * USER
@@ -128,7 +128,7 @@ export class ListUserPluginResponseBodyResult extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Plugin Status.
+   * The plug-in status.
    * 
    * @example
    * UNINSTALLED
@@ -136,7 +136,7 @@ export class ListUserPluginResponseBodyResult extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Plugin Version.
+   * The plug-in version.
    * 
    * @example
    * 8.17.0
@@ -177,7 +177,7 @@ export class ListUserPluginResponseBodyResult extends $dara.Model {
 export class ListUserPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response header information.
+   * The response headers.
    * 
    * @example
    * {\\"totalCount\\": 1, \\"X-Total-Count\\": 1}
@@ -185,7 +185,7 @@ export class ListUserPluginResponseBody extends $dara.Model {
   headers?: { [key: string]: any };
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5EEF8FAE-EEDD***
@@ -193,7 +193,7 @@ export class ListUserPluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return Result array
+   * The result array.
    */
   result?: ListUserPluginResponseBodyResult[];
   static names(): { [key: string]: string } {

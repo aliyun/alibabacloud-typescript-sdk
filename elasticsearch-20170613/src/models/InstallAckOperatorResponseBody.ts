@@ -15,7 +15,7 @@ export class InstallAckOperatorResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The installation was successful.
+   * - true: The installation succeeded.
    * - false: The installation failed.
    * 
    * @example

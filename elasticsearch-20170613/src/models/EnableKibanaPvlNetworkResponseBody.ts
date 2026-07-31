@@ -13,9 +13,10 @@ export class EnableKibanaPvlNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether private network access for Kibana is created. Valid values:
-   * - true: The operation is successful.
-   * - false: The operation failed.
+   * Indicates whether private network access for Kibana is created.
+   * 
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

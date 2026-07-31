@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The resource count of TagResource resources found.
+   * The resource count of TagResource entries found.
    * 
    * @example
    * 10

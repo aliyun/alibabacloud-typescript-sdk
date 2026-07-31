@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of instances.
+   * The total number of instance records.
    * 
    * @example
    * 10
@@ -59,7 +59,7 @@ export class ListInstanceResponseBodyResultClientNodeConfiguration extends $dara
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -67,7 +67,7 @@ export class ListInstanceResponseBodyResultClientNodeConfiguration extends $dara
   spec?: string;
   /**
    * @remarks
-   * The description of node specifications.
+   * The node specifications description.
    * 
    * @example
    * 1C 2G
@@ -121,11 +121,7 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
   disk?: number;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled for the node. Valid values:
-   * 
-   * - true: Disk encryption is enabled.
-   * 
-   * - false: Disk encryption is not enabled.
+   * Indicates whether cloud disk encryption is enabled for the node. Valid values:
    * 
    * @example
    * true
@@ -135,19 +131,13 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
    * @remarks
    * The storage type of the node. Valid values:
    * 
-   * - cloud_ssd: standard SSD
-   * 
-   * - cloud_essd: enhanced SSD (ESSD)
-   * 
-   * - cloud_efficiency: ultra disk
-   * 
    * @example
    * cloud_ssd
    */
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -155,7 +145,7 @@ export class ListInstanceResponseBodyResultElasticDataNodeConfiguration extends 
   spec?: string;
   /**
    * @remarks
-   * The description of node specifications.
+   * The node specifications description.
    * 
    * @example
    * 1C 2G
@@ -219,7 +209,7 @@ export class ListInstanceResponseBodyResultKibanaConfiguration extends $dara.Mod
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -227,7 +217,7 @@ export class ListInstanceResponseBodyResultKibanaConfiguration extends $dara.Mod
   spec?: string;
   /**
    * @remarks
-   * The description of node specifications.
+   * The node specifications description.
    * 
    * @example
    * 1C 2G
@@ -289,7 +279,7 @@ export class ListInstanceResponseBodyResultMasterConfiguration extends $dara.Mod
   diskType?: string;
   /**
    * @remarks
-   * The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -297,7 +287,7 @@ export class ListInstanceResponseBodyResultMasterConfiguration extends $dara.Mod
   spec?: string;
   /**
    * @remarks
-   * The description of node specifications.
+   * The node specifications description.
    * 
    * @example
    * 1C 2G
@@ -343,7 +333,7 @@ export class ListInstanceResponseBodyResultNetworkConfigWhiteIpGroupList extends
   groupName?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The network whitelist.
    */
   ips?: string[];
   /**
@@ -463,22 +453,20 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
   disk?: number;
   /**
    * @remarks
-   * Indicates whether disk encryption is used. Valid values:
-   * 
-   * - true: Disk encryption is used.
-   * - false: Disk encryption is not used.
+   * Indicates whether disk encryption is enabled. Valid values:
    * 
    * @example
    * false
    */
   diskEncryption?: boolean;
   /**
+   * @example
+   * high_availability
+   */
+  diskPreference?: string;
+  /**
    * @remarks
    * The storage type of the node. Valid values:
-   * 
-   * - cloud_ssd: standard SSD
-   * 
-   * - cloud_efficiency: ultra disk
    * 
    * @example
    * cloud_ssd
@@ -486,7 +474,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The performance level of the ESSD. This parameter is required when diskType is cloud_essd. Valid values: PL1, PL2, and PL3.
+   * The performance level (PL) of the ESSD cloud disk. This parameter is required when diskType is set to cloud_essd. Valid values: PL1, PL2, and PL3. When diskType is set to cloud_ssd (standard SSD), this parameter is not required.
    * 
    * @example
    * PL1
@@ -494,7 +482,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+   * The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
    * 
    * @example
    * elasticsearch.n4.small
@@ -502,7 +490,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The description of node specifications.
+   * The node specifications description.
    * 
    * @example
    * 1C 2G
@@ -512,6 +500,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
     return {
       disk: 'disk',
       diskEncryption: 'diskEncryption',
+      diskPreference: 'diskPreference',
       diskType: 'diskType',
       performanceLevel: 'performanceLevel',
       spec: 'spec',
@@ -523,6 +512,7 @@ export class ListInstanceResponseBodyResultNodeSpec extends $dara.Model {
     return {
       disk: 'number',
       diskEncryption: 'boolean',
+      diskPreference: 'string',
       diskType: 'string',
       performanceLevel: 'string',
       spec: 'string',
@@ -618,19 +608,13 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the instance contains dedicated master nodes. Valid values:
    * 
-   * - true: The instance contains dedicated master nodes.
-   * 
-   * - false: The instance does not contain dedicated master nodes.
-   * 
    * @example
    * false
    */
   advancedDedicateMaster?: boolean;
   /**
    * @remarks
-   * The deployment mode and architecture type:
-   * exclusive: basic management and control
-   * public: cloud-native management and control
+   * The deployment mode. Architecture type:
    * 
    * @example
    * public
@@ -651,11 +635,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Indicates whether the instance contains dedicated master nodes (deprecated). Valid values:
-   * 
-   * - true: The instance contains dedicated master nodes.
-   * 
-   * - false: The instance does not contain dedicated master nodes.
+   * **[Deprecated]** Indicates whether the instance contains dedicated master nodes. Valid values:
    * 
    * @example
    * false
@@ -663,7 +643,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   dedicateMaster?: boolean;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * es-cn-abc
@@ -684,7 +664,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   elasticDataNodeConfiguration?: ListInstanceResponseBodyResultElasticDataNodeConfiguration;
   /**
    * @remarks
-   * The expiration time of the instance.
+   * The time when the instance expires.
    * 
    * @example
    * 1715826092044
@@ -700,7 +680,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The extended configurations of the cluster.
+   * The extension parameter settings of the cluster.
    */
   extendConfigs?: { [key: string]: any }[];
   /**
@@ -726,12 +706,12 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   kibanaConfiguration?: ListInstanceResponseBodyResultKibanaConfiguration;
   /**
    * @remarks
-   * The public network access whitelist for Kibana nodes of the cluster.
+   * The public network access whitelist for the Kibana node of the cluster.
    */
   kibanaIPWhitelist?: string[];
   /**
    * @remarks
-   * The private network access whitelist for Kibana nodes of the cluster.
+   * The private network access whitelist for the Kibana node of the cluster.
    */
   kibanaPrivateIPWhitelist?: string[];
   /**
@@ -761,10 +741,6 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **prepaid**: subscription
-   * 
-   * - **postpaid**: pay-as-you-go
-   * 
    * @example
    * postpaid
    */
@@ -772,7 +748,6 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The access port of the instance.
-   * >Notice: When the instance is being created or the instance status is abnormal, this value may be empty or 0.
    * 
    * @example
    * 9200
@@ -780,13 +755,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The status of the pay-as-you-go service that is overlaid on a subscription instance. Valid values:
-   * 
-   * - **active**: normal
-   * 
-   * - **closed**: closed
-   * 
-   * - **indebt**: frozen due to overdue payment
+   * The status of the pay-as-you-go service that is overlaid on the subscription instance. Valid values:
    * 
    * @example
    * active
@@ -794,7 +763,7 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   postpaidServiceStatus?: string;
   /**
    * @remarks
-   * The private network access whitelist for the Elasticsearch cluster.
+   * The private network access IP whitelist for the Elasticsearch cluster.
    */
   privateNetworkIpWhiteList?: string[];
   /**
@@ -829,16 +798,6 @@ export class ListInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The status of the instance. Valid values:
-   * 
-   * - active: normal
-   * 
-   * - activating: taking effect
-   * 
-   * - inactive: frozen
-   * 
-   * - invalid: invalid. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
-   * 
-   * - unknown: unknown. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
    * 
    * @example
    * active

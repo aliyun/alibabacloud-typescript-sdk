@@ -39,7 +39,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
    * 
    * - Normal: Normal.
    * 
-   * - FinancialLocked: Locked due to overdue payment.
+   * - FinancialLocked: Financial lock.
    * 
    * @example
    * Normal
@@ -75,7 +75,7 @@ export class ListVpcEndpointsResponseBodyResult extends $dara.Model {
    * 
    * - Creating: Being created.
    * 
-   * - Active: Available.
+   * - Active: Active.
    * 
    * - Pending: Being modified.
    * 

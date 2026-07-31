@@ -13,7 +13,7 @@ export class AddSnapshotRepoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result. Valid values:
+   * The returned result:
    * 
    * - true: The reference repository is created.
    * - false: The reference repository failed to be created.

@@ -53,7 +53,7 @@ export class ListDefaultCollectorConfigurationsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListDefaultCollectorConfigurationsResponseBodyResult[];
   static names(): { [key: string]: string } {

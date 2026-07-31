@@ -13,7 +13,7 @@ export class UntagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned result:
    * 
    * - true: The deletion was successful.
    * - false: The deletion failed.

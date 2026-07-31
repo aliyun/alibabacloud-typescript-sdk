@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GrayPublishRequest extends $dara.Model {
   /**
    * @remarks
-   * Change ID
+   * The change ID.
    * 
    * @example
    * ea8d33aa4371c3499d0***

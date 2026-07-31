@@ -29,7 +29,7 @@ export class UpdateInstanceResponseBodyResultKibanaConfiguration extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * 节点规格。
+   * The node specifications.
    * 
    * @example
    * elasticsearch.n4.small
@@ -89,7 +89,7 @@ export class UpdateInstanceResponseBodyResultMasterConfiguration extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * 节点规格。
+   * The node specifications.
    * 
    * @example
    * elasticsearch.sn2ne.large
@@ -135,7 +135,7 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
    * @remarks
    * The storage type of the node. Valid values:
    * 
-   * - cloud_ssd: standard SSD
+   * - cloud_ssd: standard SSD.
    * - cloud_efficiency: ultra disk.
    * 
    * @example
@@ -144,7 +144,7 @@ export class UpdateInstanceResponseBodyResultNodeSpec extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * 节点规格。
+   * The node specifications.
    * 
    * @example
    * elasticsearch.sn2ne.xlarge
@@ -194,7 +194,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 实例的私网访问域名。
+   * The internal-facing access endpoint of the instance for private network access.
    * 
    * @example
    * es-cn-abc.elasticsearch.aliyuncs.com
@@ -243,7 +243,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - prepaid: subscription
+   * - prepaid: subscription.
    * - postpaid: pay-as-you-go.
    * 
    * @example
@@ -254,9 +254,9 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of the instance. Valid values:
    * 
-   * - active: Normal
-   * - activating: Taking effect
-   * - inactive: Frozen
+   * - active: Normal.
+   * - activating: Taking effect.
+   * - inactive: Frozen.
    * - invalid: Invalid.
    * 
    * @example

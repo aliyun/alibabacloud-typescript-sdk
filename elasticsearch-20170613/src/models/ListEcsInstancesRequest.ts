@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEcsInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of ECS instance IDs. The value can be a JSON array that consists of up to 100 instance IDs. Separate multiple IDs with commas (,).
+   * The list of ECS instance IDs. The value can be a JSON array that consists of up to 100 instance IDs separated by commas (,).
    * 
    * @example
    * ["i-bp13y63575oypr9d****","i-bp1gyhphjaj73jsr****"]
@@ -13,7 +13,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   ecsInstanceIds?: string;
   /**
    * @remarks
-   * The name of the ECS instance.
+   * The ECS instance name.
    * 
    * @example
    * test
@@ -37,10 +37,10 @@ export class ListEcsInstancesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Instance tags of the ECS instance. The following fields must be included:
+   * The ECS instance tags. The following fields must be included:
    * 
-   * - tagKey: instance tag key.
-   * - tagValue: instance tag value.
+   * - tagKey: the tag key.
+   * - tagValue: the tag value.
    * 
    * @example
    * [{ "tagKey":"a","tagValue":"b"}]
@@ -48,7 +48,7 @@ export class ListEcsInstancesRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the VPC where the ECS instance resides.
+   * The VPC ID of the ECS instance.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****

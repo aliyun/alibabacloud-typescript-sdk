@@ -13,7 +13,7 @@ export class ListDictInformationResponseBodyResultOssObject extends $dara.Model 
   bucketName?: string;
   /**
    * @remarks
-   * The MD5 checksum (ETag) of the OSS file, in uppercase.
+   * The MD5 checksum (ETag) of the OSS file in uppercase.
    * 
    * @example
    * 2ABAB5E70BBF631145647F6BE533****
@@ -70,9 +70,9 @@ export class ListDictInformationResponseBodyResult extends $dara.Model {
    * @remarks
    * The dictionary type. Valid values:
    * 
-   * - MAIN: primary tokenization dictionary
+   * - MAIN: primary token dictionary
    * 
-   * - STOP: stopword dictionary.
+   * - STOP: stopword dictionary
    * 
    * @example
    * STOP

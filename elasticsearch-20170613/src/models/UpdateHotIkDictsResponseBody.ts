@@ -24,7 +24,7 @@ export class UpdateHotIkDictsResponseBodyResult extends $dara.Model {
    * The source type of the dictionary file. Valid values:
    * 
    * - OSS: uses OSS open storage.
-   * - ORIGIN: retains a previously uploaded dictionary.
+   * - ORIGIN: retains the previously uploaded dictionary.
    * 
    * @example
    * OSS

@@ -55,10 +55,10 @@ export class DescribeDeprecatedTemplateResponseBodyResultTemplate extends $dara.
 export class DescribeDeprecatedTemplateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic creation of a data stream is enabled. Valid values:
+   * Indicates whether automatic creation of a data stream is enabled at the same time. Valid values:
    * 
-   * - true: Automatic creation of a data stream is enabled.
-   * - false: Automatic creation of a data stream is not enabled.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false

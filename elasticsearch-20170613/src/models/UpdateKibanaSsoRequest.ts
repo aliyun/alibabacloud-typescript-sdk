@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKibanaSsoRequest extends $dara.Model {
   /**
    * @remarks
-   * true: Enabled; false: shutdown
+   * Specifies whether to enable Alibaba Cloud account authentication for Kibana. Valid values:
+   * 
+   * - true: Enable.
+   * - false: Disable.
    * 
    * This parameter is required.
    * 

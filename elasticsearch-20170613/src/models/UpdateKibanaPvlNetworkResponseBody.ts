@@ -15,7 +15,7 @@ export class UpdateKibanaPvlNetworkResponseBody extends $dara.Model {
    * @remarks
    * The result. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * - false: The operation failed.
    * 
    * @example

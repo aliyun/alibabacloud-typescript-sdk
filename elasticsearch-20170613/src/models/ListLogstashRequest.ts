@@ -37,7 +37,7 @@ export class ListLogstashRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page for paging. Default value: 20.
+   * The number of entries per page in Settings for paging. Default value: 20.
    * 
    * @example
    * 10

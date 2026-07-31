@@ -23,7 +23,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The list of instance IDs to query. The value is in JSON array format and can contain up to 20 items.
+   * The list of instance IDs to query. The value is in JSON array format and supports up to 20 items.
    * 
    * @example
    * ["es-cn-aaa","es-cn-bbb"]
@@ -41,7 +41,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The number of entries per page in Settings for paged query and paging. This field is deprecated.
+   * The number of entries per page for paged query. This is a deprecated field. Settings for paging are no longer supported.
    * 
    * @example
    * 10
@@ -51,7 +51,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The list of tags to query. The value is in JSON string format and can contain up to 20 items.
+   * The list of tags to query. The value is in JSON string format and contains up to 20 items.
    * 
    * @example
    * [{"key":"env", "value":"dev"},{"key":"dev", "value":"IT"}]

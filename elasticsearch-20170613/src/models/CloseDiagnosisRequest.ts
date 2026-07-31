@@ -19,7 +19,7 @@ export class CloseDiagnosisRequest extends $dara.Model {
    * - zh: Simplified Chinese
    * - zt: Traditional Chinese
    * - es: Spanish
-   * - fr: French.
+   * - fr: French
    * 
    * @example
    * spanish

@@ -23,7 +23,7 @@ export class ListDictsRequest extends $dara.Model {
   analyzerType?: string;
   /**
    * @remarks
-   * The name of the file to filter.
+   * The file name used to filter results.
    * 
    * @example
    * SYSTEM_MAIN.dic

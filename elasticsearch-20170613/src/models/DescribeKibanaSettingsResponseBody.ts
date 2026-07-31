@@ -13,7 +13,7 @@ export class DescribeKibanaSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Some configurable Kibana settings. For more information, see [Kibana settings](https://www.elastic.co/guide/cn/kibana/current/settings.html).
+   * The configurable Kibana settings. For more information, see [Kibana settings](https://www.elastic.co/guide/cn/kibana/current/settings.html).
    * 
    * @example
    * {"map.includeElasticMapsService": "false", "server.ssl.cert": "/home/admin/packages/kibana/config/cert/client.crt", "server.ssl.enabled": "true", "server.ssl.key": "/home/admin/packages/kibana/config/cert/client.key", "xpack.reporting.capture.browser.chromium.disableSandbox": "true"}

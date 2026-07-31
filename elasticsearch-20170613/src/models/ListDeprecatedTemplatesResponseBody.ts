@@ -35,7 +35,7 @@ export class ListDeprecatedTemplatesResponseBodyHeaders extends $dara.Model {
 export class ListDeprecatedTemplatesResponseBodyResultTemplate extends $dara.Model {
   /**
    * @remarks
-   * The alias configuration of the template.
+   * The aliases configuration of the template.
    * 
    * @example
    * "{}"
@@ -87,7 +87,7 @@ export class ListDeprecatedTemplatesResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the template matches a data stream. Valid values:
    * 
-   * - true: matched
+   * - true: matched.
    * - false: not matched.
    * 
    * @example

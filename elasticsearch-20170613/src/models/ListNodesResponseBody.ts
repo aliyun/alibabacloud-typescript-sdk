@@ -43,7 +43,7 @@ export class ListNodesResponseBodyResultIpAddress extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The type of the IP address. Valid values:
+   * The IP address type. Valid values:
    * 
    * - public: public IP address.
    * - private: private IP address.
@@ -120,10 +120,10 @@ export class ListNodesResponseBodyResult extends $dara.Model {
    * @remarks
    * The status of each collector on the ECS instance. Valid values:
    * 
-   * - heartOk: normal heartbeat.
-   * - heartLost: abnormal heartbeat.
-   * - uninstalled: not installed.
-   * - failed: installation failed.
+   * - heartOk: Normal heartbeat.
+   * - heartLost: Abnormal heartbeat.
+   * - uninstalled: Not installed.
+   * - failed: Installation failed.
    * 
    * @example
    * heartOk
@@ -133,8 +133,8 @@ export class ListNodesResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether Cloud Assistant is enabled. Valid values:
    * 
-   * - true: enabled.
-   * - false: not enabled.
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The list of IP address information of the ECS instance.
+   * The list of IP address information for the ECS instance.
    */
   ipAddress?: ListNodesResponseBodyResultIpAddress[];
   /**
@@ -174,12 +174,12 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The status of the ECS instance. Valid values:
+   * The ECS instance status. Valid values:
    * 
-   * - running: running.
-   * - starting: starting.
-   * - stopping: stopping.
-   * - stopped: stopped.
+   * - running: Running.
+   * - starting: Starting.
+   * - stopping: Stopping.
+   * - stopped: Stopped.
    * 
    * @example
    * running

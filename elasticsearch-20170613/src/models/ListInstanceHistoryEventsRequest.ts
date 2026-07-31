@@ -7,8 +7,8 @@ export class ListInstanceHistoryEventsRequestBody extends $dara.Model {
    * @remarks
    * Specifies whether to sort in descending order. Valid values:
    * 
-   * - true (default): Yes.
-   * - false: No.
+   * - true (default): yes
+   * - false: no
    * 
    * @example
    * true
@@ -20,7 +20,7 @@ export class ListInstanceHistoryEventsRequestBody extends $dara.Model {
    * 
    * - event_time: event creation time
    * - event_execute_start_time: event execution time
-   * - event_execute_finish_time: event completion time.
+   * - event_execute_finish_time: event completion time
    * 
    * @example
    * event_time
@@ -73,7 +73,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   eventCreateStartTime?: string;
   /**
    * @remarks
-   * The lifecycle status of the event.
+   * The lifecycle status object of the event.
    */
   eventCycleStatus?: string[];
   /**
@@ -136,7 +136,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   nodeIP?: string;
   /**
    * @remarks
-   * The starting document offset. The value must be a non-negative integer. Default value: 0.
+   * The starting document offset. The value must be a non-negative number. Default value: 0.
    * 
    * @example
    * 0
@@ -144,7 +144,7 @@ export class ListInstanceHistoryEventsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of events to return. The value must be a non-negative integer. Default value: 10.
+   * The number of events to return. The value must be a non-negative number. Default value: 10.
    * 
    * @example
    * 10

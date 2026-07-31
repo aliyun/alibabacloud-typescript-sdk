@@ -15,7 +15,7 @@ export class UpdateInstanceChargeTypeResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The conversion was successful.
+   * - true: The conversion is successful.
    * - false: The conversion failed.
    * 
    * @example

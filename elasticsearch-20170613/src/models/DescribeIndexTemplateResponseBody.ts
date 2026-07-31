@@ -69,7 +69,7 @@ export class DescribeIndexTemplateResponseBodyResult extends $dara.Model {
   dataStream?: boolean;
   /**
    * @remarks
-   * The Policy Name of the lifecycle epoch.
+   * The lifecycle policy name.
    * 
    * @example
    * cube_default_ilm_policy
@@ -78,7 +78,7 @@ export class DescribeIndexTemplateResponseBodyResult extends $dara.Model {
   indexPatterns?: string[];
   /**
    * @remarks
-   * The name of the index template.
+   * The index template name.
    * 
    * @example
    * data-stream-default
@@ -145,7 +145,7 @@ export class DescribeIndexTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the index template.
+   * The index template details.
    */
   result?: DescribeIndexTemplateResponseBodyResult;
   static names(): { [key: string]: string } {

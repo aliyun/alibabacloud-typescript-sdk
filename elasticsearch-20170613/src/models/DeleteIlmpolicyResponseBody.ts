@@ -13,7 +13,7 @@ export class DeleteILMPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result. Valid values:
    * 
    * - true: The specified lifecycle policy definition is deleted.
    * 

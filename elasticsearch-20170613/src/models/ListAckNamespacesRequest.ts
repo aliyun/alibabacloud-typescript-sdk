@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAckNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. (Deprecated).
+   * The page number. (Deprecated)
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAckNamespacesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records per page. (Deprecated).
+   * The number of records per page. (Deprecated)
    * 
    * @example
    * 10

@@ -9,7 +9,7 @@ export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
   diagnosisMode?: string;
   /**
    * @remarks
-   * The scenario of intelligent O&M.
+   * The common scenarios of intelligent diagnosis and optimization.
    * 
    * @example
    * Business Search
@@ -18,7 +18,7 @@ export class DescribeDiagnosisSettingsResponseBodyResult extends $dara.Model {
   selectedItems?: string[];
   /**
    * @remarks
-   * The timestamp when the intelligent O&M scenario was last updated.
+   * The UNIX timestamp when the intelligent diagnosis and optimization common scenarios were last updated.
    * 
    * @example
    * 1588994035385

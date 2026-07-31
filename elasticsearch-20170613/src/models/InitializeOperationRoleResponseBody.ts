@@ -15,8 +15,8 @@ export class InitializeOperationRoleResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The service-linked role is created.
-   * - false: The service-linked role failed to be created.
+   * - true: Created.
+   * - false: Failed to create.
    * 
    * @example
    * true

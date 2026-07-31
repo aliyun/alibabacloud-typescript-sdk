@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****
@@ -13,7 +13,7 @@ export class RemovePluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return Result
+   * The returned result.
    * 
    * @example
    * true

@@ -13,9 +13,9 @@ export class MigrateToOtherZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The returned result:
    * 
-   * - true: The migration was successful.
+   * - true: The migration is successful.
    * - false: The migration failed.
    * 
    * @example

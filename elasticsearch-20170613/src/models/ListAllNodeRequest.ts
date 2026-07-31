@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return monitoring information for the nodes. Valid values:
+   * Specifies whether to return monitoring information for nodes. Valid values:
    * 
    * - true (default): Returns monitoring information.
    * 

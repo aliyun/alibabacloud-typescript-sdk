@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePluginRequest extends $dara.Model {
   /**
    * @remarks
-   * Request body.
+   * The request body.
    * 
    * @example
    * [

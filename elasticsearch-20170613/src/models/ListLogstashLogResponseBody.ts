@@ -26,7 +26,7 @@ export class ListLogstashLogResponseBodyResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The log level. Valid values: trace, debug, info, warn, and error. GC logs do not have a level.
+   * The log level. Valid values include trace, debug, info, warn, and error. GC logs do not have a level.
    * 
    * @example
    * info

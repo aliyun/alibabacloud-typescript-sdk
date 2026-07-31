@@ -56,7 +56,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceIds?: string[];
   /**
    * @remarks
-   * The resource type. Set this parameter to INSTANCE.
+   * The resource type. The value is fixed as INSTANCE.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class GetOpenStoreUsageResponseBodyResult extends $dara.Model {
   currentUsage?: number;
   /**
    * @remarks
-   * The OpenStore storage usage on the previous day. Unit: bytes.
+   * The OpenStore storage usage of the previous day. Unit: bytes.
    * 
    * @example
    * 184320

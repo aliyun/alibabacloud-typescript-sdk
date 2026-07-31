@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   /**
    * @remarks
-   * Current repo version.
+   * The current repo version.
    * 
    * @example
    * 1.7.3
@@ -13,7 +13,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   curRepoVersion?: string;
   /**
    * @remarks
-   * Upgradable repo version.
+   * The repo version available for upgrade.
    * 
    * @example
    * 1.7.3
@@ -21,7 +21,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   updateRepoVersion?: string;
   /**
    * @remarks
-   * Indicates whether an upgradable version exists.
+   * Indicates whether an upgradeable version is available.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   upgrade?: boolean;
   /**
    * @remarks
-   * Current Milvus version
+   * The current kernel version.
    * 
    * @example
    * 2.2.4
@@ -37,7 +37,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   curApackVersion?: string;
   /**
    * @remarks
-   * Current ES version
+   * The current Elasticsearch version.
    * 
    * @example
    * 8.17.0
@@ -45,7 +45,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   curEsVersion?: string;
   /**
    * @remarks
-   * Upgradable Milvus version.
+   * The kernel version available for upgrade.
    * 
    * @example
    * 2.2.4
@@ -53,7 +53,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
   upgradeApackVersion?: string;
   /**
    * @remarks
-   * Upgradable ES version
+   * The Elasticsearch version available for upgrade.
    * 
    * @example
    * 8.17.0
@@ -95,7 +95,7 @@ export class UpgradeInfoResponseBodyResultUpgradeInfo extends $dara.Model {
 export class UpgradeInfoResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Upgrade information.
+   * The upgrade information.
    */
   upgradeInfo?: UpgradeInfoResponseBodyResultUpgradeInfo;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class UpgradeInfoResponseBodyResult extends $dara.Model {
 export class UpgradeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D****
@@ -133,7 +133,7 @@ export class UpgradeInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result body
+   * The result body.
    */
   result?: UpgradeInfoResponseBodyResult;
   static names(): { [key: string]: string } {

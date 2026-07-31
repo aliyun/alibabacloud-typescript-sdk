@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListStatsEventRecordsRequest extends $dara.Model {
+  endTime?: number;
   /**
    * @remarks
-   * Event type
+   * The event type.
    * 
    * @example
    * UserOperator
@@ -13,15 +14,16 @@ export class ListStatsEventRecordsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * Event level
+   * The event level.
    * 
    * @example
    * Info
    */
   level?: string;
+  startTime?: number;
   /**
    * @remarks
-   * Status of the management event
+   * The event status.
    * 
    * @example
    * Executed
@@ -29,16 +31,20 @@ export class ListStatsEventRecordsRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'endTime',
       eventType: 'eventType',
       level: 'level',
+      startTime: 'startTime',
       status: 'status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'number',
       eventType: 'string',
       level: 'string',
+      startTime: 'number',
       status: 'string',
     };
   }

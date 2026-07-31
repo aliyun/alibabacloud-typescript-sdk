@@ -180,7 +180,7 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   diagnosisMode?: string;
   /**
    * @remarks
-   * The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
+   * The overall health of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
    * 
    * @example
    * YELLOW
@@ -188,7 +188,7 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The ID of the diagnosed instance.
+   * The instance ID of the diagnosed instance.
    * 
    * @example
    * es-cn-abc
@@ -213,7 +213,7 @@ export class DescribeDiagnoseReportResponseBodyResult extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The method used to trigger the health diagnosis. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
+   * The method used to trigger the health diagnostics. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
    * 
    * @example
    * SYSTEM

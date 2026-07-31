@@ -7,10 +7,10 @@ export class DescribeAckOperatorResponseBodyResult extends $dara.Model {
    * @remarks
    * The Operator installation status. Valid values:
    * 
-   * - deployed: installed
-   * - not-deploy: not installed
-   * - failed: installation failed
-   * - unknown: unknown status.
+   * - deployed: Installed.
+   * - not-deploy: Not installed.
+   * - failed: Installation failed.
+   * - unknown: Unknown status.
    * 
    * @example
    * deployed

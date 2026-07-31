@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConnectableClustersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of instances that can establish private network peering.
+   * The instance IDs that can establish private network peering.
    * 
    * @example
    * es-cn-xxx

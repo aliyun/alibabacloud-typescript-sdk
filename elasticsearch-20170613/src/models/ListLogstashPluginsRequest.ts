@@ -21,7 +21,7 @@ export class ListLogstashPluginsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page in paging settings. Minimum value: 1. Maximum value: 200.
+   * The number of entries per page for paging. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 3
@@ -32,7 +32,7 @@ export class ListLogstashPluginsRequest extends $dara.Model {
    * The plugin source. Valid values:
    * 
    * - USER: custom plugin
-   * - SYSTEM: system preset plugin.
+   * - SYSTEM: system preset plugin
    * 
    * @example
    * USER

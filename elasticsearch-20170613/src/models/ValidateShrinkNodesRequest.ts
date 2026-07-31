@@ -13,7 +13,7 @@ export class ValidateShrinkNodesRequestBody extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The node name of the cloud-native ACK-based cluster. You can call the [ListAllNode](https://help.aliyun.com/document_detail/183958.html) operation to obtain the node name.
+   * The node name of the cloud-native ACK cluster. You can call the [ListAllNode](https://help.aliyun.com/document_detail/183958.html) operation to obtain the node name.
    * 
    * @example
    * es-cn-pl32xxxxxxx-data-f-1
@@ -40,7 +40,7 @@ export class ValidateShrinkNodesRequestBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The zone ID of the node in the instance. For example, the zone ID of China (Shanghai) Zone C is cn-shanghai-c.
+   * The zone ID of the instance node. For example, the zone ID of Shanghai Zone C is cn-shanghai-c.
    * 
    * @example
    * cn-shanghai-c
@@ -91,10 +91,10 @@ export class ValidateShrinkNodesRequest extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Specifies whether to ignore the cluster health status.
+   * Specifies whether to ignore the cluster health status. Valid values:
    * 
-   * - true: ignores the cluster health status.
-   * - false (default): does not ignore the cluster health status.
+   * - true: Ignored.
+   * - false (default): Not ignored.
    * 
    * @example
    * false

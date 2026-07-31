@@ -73,7 +73,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned result details.
    */
   result?: CreateVpcEndpointResponseBodyResult;
   static names(): { [key: string]: string } {

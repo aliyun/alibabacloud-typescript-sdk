@@ -11,7 +11,7 @@ export class UpdatePipelineManagementConfigRequest extends $dara.Model {
   esInstanceId?: string;
   /**
    * @remarks
-   * The password used to log on to Kibana.
+   * The password for logging on to Kibana.
    * 
    * @example
    * ******
@@ -35,7 +35,7 @@ export class UpdatePipelineManagementConfigRequest extends $dara.Model {
   pipelineManagementType?: string;
   /**
    * @remarks
-   * The username used to log on to Kibana.
+   * The username for logging on to Kibana.
    * 
    * @example
    * elastic
@@ -43,7 +43,7 @@ export class UpdatePipelineManagementConfigRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * A unique token used to ensure idempotence of the request. The client generates this value. The value must be unique across different requests and can contain up to 64 ASCII characters.
+   * A unique token used to ensure idempotency of the request. The client generates this value. It must be unique across different requests and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InterruptElasticsearchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned only when an exception occurs.
+   * The error code. This parameter is displayed only when an exception occurs.
    * 
    * @example
    * InstanceStatusNotSupportCurrentAction
@@ -13,7 +13,7 @@ export class InterruptElasticsearchTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when an exception occurs.
+   * The error message. This parameter is displayed only when an exception occurs.
    * 
    * @example
    * The cluster is running tasks or in an error status. Try again later.

@@ -13,7 +13,7 @@ export class DeleteCollectorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result of the operation. Valid values:
    * - true: The deletion was successful.
    * - false: The deletion failed.
    * 

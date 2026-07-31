@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name. Fuzzy search is supported. For example, if you search for all instances matching **abc**, all instances named **abc**, **abcde**, **xyabc**, and **xabcy** may be returned.
+   * The instance name. Fuzzy match is supported. For example, if you search for **abc**, all instances whose names contain **abc** may be returned, such as **abc**, **abcde**, **xyabc**, and **xabcy**.
    * 
    * @example
    * aliyunes_test1
@@ -21,13 +21,7 @@ export class ListInstanceRequest extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The edition type of the instance. Valid values:
-   * 
-   * - x-pack: Commercial Edition
-   * 
-   * - advanced/IS: Enhanced Edition
-   * 
-   * - community: Basic Edition
+   * The edition of the instance. Valid values:
    * 
    * @example
    * advanced
@@ -44,7 +38,6 @@ export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The page number of the instance list.
-   * Start value: **1**, default value: **1**.
    * 
    * @example
    * 1
@@ -53,10 +46,6 @@ export class ListInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
-   * - postpaid: pay-as-you-go
-   * 
-   * - prepaid: subscription
    * 
    * @example
    * postpaid
@@ -72,7 +61,7 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of entries per page for paginated queries. Maximum value: **100**, default value: **10**.
+   * The number of entries per page in a paged query. Settings the number of entries per page for paging. Maximum value: **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -89,7 +78,7 @@ export class ListInstanceRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the instance is deployed.
+   * The ID of the virtual private cloud (VPC) in which the instance resides.
    * 
    * @example
    * vpc-bp16k1dvzxtmagcva****

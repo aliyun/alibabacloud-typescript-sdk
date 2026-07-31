@@ -15,8 +15,8 @@ export class ShrinkNodeResponseBody extends $dara.Model {
    * @remarks
    * The result of the operation. Valid values:
    * 
-   * - true: The scale-in operation succeeded.
-   * - false: The scale-in operation failed.
+   * - true: The node shrinking succeeded.
+   * - false: The node shrinking failed.
    * 
    * @example
    * true

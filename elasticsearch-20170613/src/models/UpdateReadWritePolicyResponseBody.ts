@@ -13,7 +13,7 @@ export class UpdateReadWritePolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The returned result.
    * 
    * - true: The write high availability feature is enabled or disabled.
    * - false: Failed to enable or disable the write high availability feature.

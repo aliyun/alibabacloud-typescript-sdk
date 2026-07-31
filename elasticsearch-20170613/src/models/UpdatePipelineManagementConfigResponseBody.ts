@@ -13,7 +13,7 @@ export class UpdatePipelineManagementConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. Valid values:
+   * The result. Valid values:
    * 
    * - true: The update was successful.
    * - false: The update failed.

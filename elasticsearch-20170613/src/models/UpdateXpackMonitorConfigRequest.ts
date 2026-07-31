@@ -15,8 +15,8 @@ export class UpdateXpackMonitorConfigRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable X-Pack monitoring. Valid values:
    * 
-   * - true: Enable X-Pack monitoring.
-   * - false: Disable X-Pack monitoring.
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true

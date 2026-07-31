@@ -85,13 +85,13 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
    * @remarks
    * The disk type. Valid values:
    * 
-   * - cloud_essd: ESSD
+   * - cloud_essd: ESSD.
    * 
-   * - cloud_ssd: standard SSD
+   * - cloud_ssd: standard SSD.
    * 
-   * - cloud_efficiency: ultra cloud disk
+   * - cloud_efficiency: ultra cloud disk.
    * 
-   * - local_ssd: local SSD
+   * - local_ssd: local SSD.
    * 
    * - local_efficiency: local ultra disk.
    * 
@@ -101,7 +101,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   diskType?: string;
   /**
    * @remarks
-   * The memory size of the specifications for the current node role.
+   * The memory size of the specification for the current node role.
    * 
    * @example
    * 2
@@ -111,15 +111,15 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
    * @remarks
    * The node type. Valid values:
    * 
-   * - WORKER: data node
+   * - WORKER: data node.
    * 
-   * - WORKER_WARM: warm node
+   * - WORKER_WARM: warm node.
    * 
-   * - MASTER: dedicated master node
+   * - MASTER: dedicated master node.
    * 
-   * - KIBANA: Kibana node
+   * - KIBANA: Kibana node.
    * 
-   * - COORDINATING: client node
+   * - COORDINATING: client node.
    * 
    * - ELASTIC_WORKER: elastic node.
    * 
@@ -168,9 +168,9 @@ export class CapacityPlanResponseBodyResult extends $dara.Model {
    * @remarks
    * The edition type. Valid values:
    * 
-   * - advanced: Advanced Edition
+   * - advanced: Advanced Edition.
    * 
-   * - x-pack: Commercial Edition
+   * - x-pack: Commercial Edition.
    * 
    * - community: Community Edition.
    * 

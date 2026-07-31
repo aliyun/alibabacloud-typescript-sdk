@@ -15,7 +15,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
    * @remarks
    * The end timestamp of the query. Unit: milliseconds.
    * - Minimum value: 1000000000000
-   * - Maximum value: 2000000000000.
+   * - Maximum value: 2000000000000
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
    * - zh: Simplified Chinese
    * - zt: Traditional Chinese
    * - es: Spanish
-   * - fr: French.
+   * - fr: French
    * 
    * @example
    * es
@@ -58,7 +58,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
    * The start timestamp of the query. Unit: milliseconds.
    * 
    * - Minimum value: 1000000000000
-   * - Maximum value: 2000000000000.
+   * - Maximum value: 2000000000000
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class ListDiagnoseReportRequest extends $dara.Model {
    * 
    * - SYSTEM (default): automatically triggered by the system
    * - INNER: internally triggered
-   * - USER: manually triggered by the user.
+   * - USER: manually triggered by the user
    * 
    * @example
    * SYSTEM

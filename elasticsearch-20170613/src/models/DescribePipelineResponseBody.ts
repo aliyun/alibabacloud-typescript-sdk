@@ -65,7 +65,7 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
    * 
    * - NOT_DEPLOYED: not deployed.
    * - RUNNING: running.
-   * - DELETED: deleted. This status is not displayed in the console.
+   * - DELETED: deleted (this status is not displayed in the console).
    * 
    * @example
    * RUNNING
@@ -81,7 +81,7 @@ export class DescribePipelineResponseBodyResult extends $dara.Model {
   queueCheckPointWrites?: number;
   /**
    * @remarks
-   * The total capacity of the queue, in bytes. Unit: MB.
+   * The total capacity of the queue in bytes. Unit: MB.
    * 
    * @example
    * 1024
@@ -160,7 +160,7 @@ export class DescribePipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
+   * The pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
    */
   result?: DescribePipelineResponseBodyResult;
   static names(): { [key: string]: string } {

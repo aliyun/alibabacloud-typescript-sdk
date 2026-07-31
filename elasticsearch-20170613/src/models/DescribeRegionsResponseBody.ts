@@ -13,7 +13,7 @@ export class DescribeRegionsResponseBodyResult extends $dara.Model {
   consoleEndpoint?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * China (Hangzhou)

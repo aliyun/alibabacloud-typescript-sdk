@@ -22,7 +22,7 @@ export class ListDiagnoseReportIdsRequest extends $dara.Model {
    * - zh: Simplified Chinese
    * - zt: Traditional Chinese
    * - es: Spanish
-   * - fr: French.
+   * - fr: French
    * 
    * @example
    * en

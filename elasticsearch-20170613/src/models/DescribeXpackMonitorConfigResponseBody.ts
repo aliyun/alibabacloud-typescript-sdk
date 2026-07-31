@@ -6,8 +6,9 @@ export class DescribeXpackMonitorConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether X-Pack monitoring is enabled. Valid values:
-   * - true: enabled.
-   * - false: not enabled.
+   * 
+   * - true: Enabled.
+   * - false: Not enabled.
    * 
    * @example
    * true

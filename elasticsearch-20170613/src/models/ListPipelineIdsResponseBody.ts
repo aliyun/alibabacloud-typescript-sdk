@@ -17,7 +17,7 @@ export class ListPipelineIdsResponseBodyResult extends $dara.Model {
   available?: boolean;
   /**
    * @remarks
-   * The error code returned when the pipeline is unavailable.
+   * The error code when the pipeline is unavailable.
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class ListPipelineIdsResponseBodyResult extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned when the pipeline is unavailable.
+   * The error message when the pipeline is unavailable.
    * 
    * @example
    * OK
@@ -33,7 +33,7 @@ export class ListPipelineIdsResponseBodyResult extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pipeline ID created in Kibana.
+   * The pipeline ID created on Kibana.
    * 
    * @example
    * testKibanaManagement

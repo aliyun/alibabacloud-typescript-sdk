@@ -18,7 +18,7 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList exten
   ips?: string[];
   /**
    * @remarks
-   * The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network internal-facing access whitelist.
+   * The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network access whitelist.
    * 
    * @example
    * PRIVATE_ES
@@ -85,7 +85,7 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfig extends $dara.Model {
 export class UpdateWhiteIpsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The private network internal-facing access whitelist (deprecated).
+   * The private network access whitelist (deprecated).
    */
   esIPWhitelist?: string[];
   /**
