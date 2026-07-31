@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterCreateModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * API Key
    * 
    * @example
    * sk-xxxx
@@ -13,7 +13,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The base URL.
+   * Base URL
    * 
    * @example
    * https://dashscope.aliyuncs.com
@@ -29,7 +29,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The model\\"s extended configuration parameters, provided as a JSON string.
+   * The extension configuration parameters of the model, stored as a JSON string.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   extensions?: string;
   /**
    * @remarks
-   * The supported input and output data types for the model.
+   * The input and output data types supported by the model.
    * 
    * @example
    * text
@@ -93,7 +93,7 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   symbol?: string;
   /**
    * @remarks
-   * Tags for the model. Separate multiple tags with commas.
+   * The tags, separated by commas.
    * 
    * @example
    * TXT_GEN,DEEP_THINK

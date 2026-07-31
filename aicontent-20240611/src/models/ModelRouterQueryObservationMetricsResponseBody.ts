@@ -6,7 +6,7 @@ import { ModelMetricsDTO } from "./ModelMetricsDto";
 export class ModelRouterQueryObservationMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An object that contains the results and pagination information.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterQueryObservationMetricsResponseBody extends $dara.Model 
   data?: ModelMetricsDTO;
   /**
    * @remarks
-   * The error code returned on failure.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -22,10 +22,10 @@ export class ModelRouterQueryObservationMetricsResponseBody extends $dara.Model 
   errCode?: string;
   /**
    * @remarks
-   * The error message returned on failure.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterQueryObservationMetricsResponseBody extends $dara.Model 
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx

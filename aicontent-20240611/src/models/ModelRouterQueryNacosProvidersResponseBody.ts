@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions extends $dara.Model {
+  /**
+   * @remarks
+   * The asynchronous call identifier.
+   */
   async?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +30,10 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions exte
 }
 
 export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
+  /**
+   * @remarks
+   * The extension configuration parameters of the model, stored as key-value pairs for additional model behavior configuration.
+   */
   extensions?: ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions;
   /**
    * @remarks
@@ -36,6 +44,9 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.
    */
   identifier?: string;
   /**
+   * @remarks
+   * The input type and output type.
+   * 
    * @example
    * text
    */
@@ -57,6 +68,9 @@ export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.
    */
   outputToken?: string;
   /**
+   * @remarks
+   * The feature type or capability category of the model.
+   * 
    * @example
    * Chat
    */
@@ -166,7 +180,7 @@ export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
   data?: ModelRouterQueryNacosProvidersResponseBodyData[];
   /**
    * @remarks
-   * The error message code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -177,7 +191,7 @@ export class ModelRouterQueryNacosProvidersResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**

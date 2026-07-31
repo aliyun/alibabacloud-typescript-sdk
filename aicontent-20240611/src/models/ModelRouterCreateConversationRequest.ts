@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterCreateConversationRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation data, provided as a JSON string containing the message history for each model. This parameter is required.
+   * The conversation data in JSON format, containing message records for each model. This parameter is required.
    * 
    * @example
    * {"stream":true,"messages":[{"role":"user","content":"1+1"}],"model":"qwen/qwen-max/r0","stream_options":{"include_usage":true}}
@@ -13,7 +13,7 @@ export class ModelRouterCreateConversationRequest extends $dara.Model {
   chatData?: string;
   /**
    * @remarks
-   * A list of model IDs, provided as a JSON array string.
+   * The list of model IDs, specified as a JSON array string.
    * 
    * @example
    * 15
@@ -21,7 +21,7 @@ export class ModelRouterCreateConversationRequest extends $dara.Model {
   modelIds?: string;
   /**
    * @remarks
-   * The conversation title. If omitted, a title is automatically generated from the first user message.
+   * The conversation title. If not specified, the title is automatically extracted from the first user message.
    * 
    * @example
    * test

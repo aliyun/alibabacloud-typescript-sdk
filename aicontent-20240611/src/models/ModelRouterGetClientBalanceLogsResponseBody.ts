@@ -6,7 +6,7 @@ import { ClientBalanceLogDTO } from "./ClientBalanceLogDto";
 export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of balance change log entries.
+   * The list of balance change logs.
    */
   list?: ClientBalanceLogDTO[];
   /**
@@ -19,7 +19,7 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
   page?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -66,12 +66,12 @@ export class ModelRouterGetClientBalanceLogsResponseBodyData extends $dara.Model
 export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ModelRouterGetClientBalanceLogsResponseBodyData;
   /**
    * @remarks
-   * The error code returned on failure.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -79,10 +79,10 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned on failure.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -95,7 +95,7 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of entries to return.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ModelRouterGetClientBalanceLogsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results. An empty value indicates that no more results are available.
+   * nextToken
    * 
    * @example
    * None

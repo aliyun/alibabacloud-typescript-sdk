@@ -14,7 +14,7 @@ export class ModelRouterCreateClientResponseBody extends $dara.Model {
   data?: ClientDTO;
   /**
    * @remarks
-   * The error code.
+   * The fault information code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterCreateClientResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**

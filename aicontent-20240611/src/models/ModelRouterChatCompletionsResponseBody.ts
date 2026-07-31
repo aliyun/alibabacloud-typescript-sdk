@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterChatCompletionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Contains the core response data.
+   * The data object.
    * 
    * @example
    * []
@@ -13,7 +13,7 @@ export class ModelRouterChatCompletionsResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The error code returned when a request fails.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -24,7 +24,7 @@ export class ModelRouterChatCompletionsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -37,7 +37,7 @@ export class ModelRouterChatCompletionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * A unique request identifier for troubleshooting.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -45,7 +45,7 @@ export class ModelRouterChatCompletionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

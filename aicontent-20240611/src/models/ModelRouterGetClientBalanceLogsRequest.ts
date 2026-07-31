@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterGetClientBalanceLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the logs by change type. Valid values: auto_deduct, deduct, and recharge.
+   * The change type filter. Valid values: auto_deduct, deduct, recharge.
    * 
    * @example
    * recharge
@@ -21,7 +21,7 @@ export class ModelRouterGetClientBalanceLogsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The pagination token for the next request.
    * 
    * @example
    * None
@@ -37,7 +37,7 @@ export class ModelRouterGetClientBalanceLogsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 20

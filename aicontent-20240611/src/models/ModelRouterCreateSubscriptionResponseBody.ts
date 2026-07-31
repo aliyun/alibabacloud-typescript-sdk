@@ -5,31 +5,49 @@ import { SubscriptionDTO } from "./SubscriptionDto";
 
 export class ModelRouterCreateSubscriptionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The subscription information.
+   * 
    * @example
    * []
    */
   data?: SubscriptionDTO;
   /**
+   * @remarks
+   * The fault encoding for the error message.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

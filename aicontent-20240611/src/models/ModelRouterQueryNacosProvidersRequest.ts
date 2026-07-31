@@ -21,7 +21,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to return the total count.
+   * Specifies whether the total count is required.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModelRouterQueryNacosProvidersRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The pagination token used for paginated queries. Specify this parameter to retrieve the next page.
    * 
    * @example
    * 1

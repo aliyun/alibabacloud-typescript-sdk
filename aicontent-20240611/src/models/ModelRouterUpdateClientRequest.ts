@@ -8,12 +8,20 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
    * The company address.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   address?: string;
   /**
    * @remarks
-   * A comma-separated list of model IDs that the client can use. If this parameter is left empty, the client can use all models.
+   * The allowed model group configuration.
+   * 
+   * @example
+   * {"model_ids":[101],"group_ids":["mg_xxx"]}
+   */
+  allowedModelGroupConfig?: string;
+  /**
+   * @remarks
+   * The list of allowed model IDs, separated by commas. An empty value indicates all models are allowed.
    * 
    * @example
    * 1,2,3
@@ -28,29 +36,32 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
    */
   contact?: string;
   /**
+   * @remarks
+   * The discount coefficient.
+   * 
    * @example
    * 1.0
    */
   discount?: number;
   /**
    * @remarks
-   * The client name.
+   * The customer name.
    * 
    * @example
-   * 我的客户
+   * MyCustomer
    */
   name?: string;
   /**
    * @remarks
-   * A remark about the client.
+   * The remarks.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   remark?: string;
   /**
    * @remarks
-   * The client\\"s status.
+   * The status.
    * 
    * @example
    * 1
@@ -59,6 +70,7 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       address: 'address',
+      allowedModelGroupConfig: 'allowedModelGroupConfig',
       allowedModels: 'allowedModels',
       contact: 'contact',
       discount: 'discount',
@@ -71,6 +83,7 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      allowedModelGroupConfig: 'string',
       allowedModels: 'string',
       contact: 'string',
       discount: 'number',

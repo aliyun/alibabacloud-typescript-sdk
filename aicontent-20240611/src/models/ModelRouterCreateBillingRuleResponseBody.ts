@@ -13,7 +13,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   billingType?: string;
   /**
    * @remarks
-   * The delete marker.
+   * The deletion tag.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   deleteTag?: number;
   /**
    * @remarks
-   * The effective time of the rule.
+   * The effective period.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -29,7 +29,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The expiration time of the rule.
+   * The expiration time.
    * 
    * @example
    * 2025-01-01T00:00:00Z
@@ -37,7 +37,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The creation time of the rule.
+   * The creation time.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -45,7 +45,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time of the rule.
+   * The modification time.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -101,7 +101,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   pricingConfig?: any;
   /**
    * @remarks
-   * The provider identifier.
+   * The vendor identifier.
    * 
    * @example
    * alibaba
@@ -109,7 +109,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
   symbol?: string;
   /**
    * @remarks
-   * The version of the rule.
+   * The version number.
    * 
    * @example
    * 1
@@ -165,12 +165,12 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
 export class ModelRouterCreateBillingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Contains the details of the billing rule.
+   * The response data.
    */
   data?: ModelRouterCreateBillingRuleResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -181,7 +181,7 @@ export class ModelRouterCreateBillingRuleResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**

@@ -6,7 +6,7 @@ import { ClientBalanceDTO } from "./ClientBalanceDto";
 export class ModelRouterConfigureClientBalanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The data object.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class ModelRouterConfigureClientBalanceResponseBody extends $dara.Model {
   data?: ClientBalanceDTO;
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterConfigureClientBalanceResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -46,7 +46,7 @@ export class ModelRouterConfigureClientBalanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

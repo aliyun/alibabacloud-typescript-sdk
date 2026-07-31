@@ -6,12 +6,12 @@ import { ClientTreeDTO } from "./ClientTreeDto";
 export class ModelRouterQueryClientTreeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of objects that form the customer tree.
+   * The response data. The customer tree structure list.
    */
   data?: ClientTreeDTO[];
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault information code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -19,10 +19,10 @@ export class ModelRouterQueryClientTreeResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -35,7 +35,7 @@ export class ModelRouterQueryClientTreeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of entries returned on the current page.
+   * maxResults
    * 
    * @example
    * 10
@@ -43,7 +43,7 @@ export class ModelRouterQueryClientTreeResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is not returned, it indicates that there are no more results.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx
@@ -51,7 +51,7 @@ export class ModelRouterQueryClientTreeResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx

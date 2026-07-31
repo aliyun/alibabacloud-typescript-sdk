@@ -6,7 +6,7 @@ import { ClientDTO } from "./ClientDto";
 export class ModelRouterUpdateClientResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterUpdateClientResponseBody extends $dara.Model {
   data?: ClientDTO;
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterUpdateClientResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**

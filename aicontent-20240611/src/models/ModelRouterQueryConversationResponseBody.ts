@@ -14,7 +14,7 @@ export class ModelRouterQueryConversationResponseBody extends $dara.Model {
   data?: ConversationDTO;
   /**
    * @remarks
-   * The error code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterQueryConversationResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**

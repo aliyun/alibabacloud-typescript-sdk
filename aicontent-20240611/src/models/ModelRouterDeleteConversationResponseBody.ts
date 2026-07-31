@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterDeleteConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A value of true indicates that the conversation was successfully deleted.
+   * Indicates whether the conversation was deleted.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModelRouterDeleteConversationResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -21,10 +21,10 @@ export class ModelRouterDeleteConversationResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -37,7 +37,7 @@ export class ModelRouterDeleteConversationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique request ID. Include this ID when contacting technical support.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx

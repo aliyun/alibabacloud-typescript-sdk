@@ -4,13 +4,23 @@ import { SubscriptionDTO } from "./SubscriptionDto";
 
 
 export class ModelRouterListSubscriptionsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of subscription information.
+   */
   list?: SubscriptionDTO[];
   /**
+   * @remarks
+   * The maximum number of results per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. Do not specify this parameter for the first query. For subsequent queries, specify the value returned from the previous query. Set to "" when no more data is available. Set to "5" when there is a next page.
+   * 
    * @example
    * 5" or ""
    */
@@ -44,28 +54,47 @@ export class ModelRouterListSubscriptionsResponseBodyData extends $dara.Model {
 }
 
 export class ModelRouterListSubscriptionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The subscription information.
+   */
   data?: ModelRouterListSubscriptionsResponseBodyData;
   /**
+   * @remarks
+   * The fault error message encoding.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 未知错误
+   * Unknown error.
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

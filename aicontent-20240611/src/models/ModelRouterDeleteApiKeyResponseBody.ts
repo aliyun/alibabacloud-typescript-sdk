@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterDeleteApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether the deletion was successful.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModelRouterDeleteApiKeyResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -21,10 +21,10 @@ export class ModelRouterDeleteApiKeyResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -45,7 +45,7 @@ export class ModelRouterDeleteApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

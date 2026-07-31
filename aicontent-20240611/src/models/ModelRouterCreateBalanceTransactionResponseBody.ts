@@ -25,7 +25,7 @@ export class ModelRouterCreateBalanceTransactionResponseBody extends $dara.Model
    * The error message.
    * 
    * @example
-   * Unknown error.
+   * Unknown error
    */
   errMessage?: string;
   /**

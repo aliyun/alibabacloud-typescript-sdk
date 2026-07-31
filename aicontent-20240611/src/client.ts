@@ -2450,7 +2450,62 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the tab configuration for usage monitoring.
+   * Binds model groups to departments in batches.
+   * 
+   * @remarks
+   * Binds model groups to departments in batches.
+   * 
+   * @param request - ModelRouterBatchBindModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchBindModelGroupResponse
+   */
+  async modelRouterBatchBindModelGroupWithOptions(request: $_model.ModelRouterBatchBindModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchBindModelGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedModelGroupConfig)) {
+      body["allowedModelGroupConfig"] = request.allowedModelGroupConfig;
+    }
+
+    if (!$dara.isNull(request.clientIdList)) {
+      body["clientIdList"] = request.clientIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchBindModelGroup",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/batch-bind-model-group`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchBindModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchBindModelGroupResponse({}));
+  }
+
+  /**
+   * Binds model groups to departments in batches.
+   * 
+   * @remarks
+   * Binds model groups to departments in batches.
+   * 
+   * @param request - ModelRouterBatchBindModelGroupRequest
+   * @returns ModelRouterBatchBindModelGroupResponse
+   */
+  async modelRouterBatchBindModelGroup(request: $_model.ModelRouterBatchBindModelGroupRequest): Promise<$_model.ModelRouterBatchBindModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchBindModelGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the usage monitoring tab configuration.
    * 
    * @param request - ModelRouterBillingCostTabsRequest
    * @param headers - map
@@ -2487,7 +2542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the tab configuration for usage monitoring.
+   * Retrieves the usage monitoring tab configuration.
    * 
    * @param request - ModelRouterBillingCostTabsRequest
    * @returns ModelRouterBillingCostTabsResponse
@@ -2499,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a chat completion.
+   * Initiates a chat conversation.
    * 
    * @param request - ModelRouterChatCompletionsRequest
    * @param headers - map
@@ -2541,7 +2596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a chat completion.
+   * Initiates a chat conversation.
    * 
    * @param request - ModelRouterChatCompletionsRequest
    * @param headers - map
@@ -2569,7 +2624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a chat completion.
+   * Initiates a chat conversation.
    * 
    * @param request - ModelRouterChatCompletionsRequest
    * @returns ModelRouterChatCompletionsResponse
@@ -2581,7 +2636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures balance throttling for a department.
+   * Enables balance-based throttling for a department.
    * 
    * @param request - ModelRouterConfigureClientBalanceRequest
    * @param headers - map
@@ -2622,7 +2677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures balance throttling for a department.
+   * Enables balance-based throttling for a department.
    * 
    * @param request - ModelRouterConfigureClientBalanceRequest
    * @returns ModelRouterConfigureClientBalanceResponse
@@ -2669,7 +2724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API key management / Create an API key
+   * Creates an API key.
    * 
    * @param request - ModelRouterCreateApiKeyRequest
    * @param headers - map
@@ -2702,7 +2757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API key management / Create an API key
+   * Creates an API key.
    * 
    * @param request - ModelRouterCreateApiKeyRequest
    * @returns ModelRouterCreateApiKeyResponse
@@ -2715,9 +2770,6 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a balance transaction for customer management.
-   * 
-   * @remarks
-   * This operation is deprecated. Do not use it.
    * 
    * @param request - ModelRouterCreateBalanceTransactionRequest
    * @param headers - map
@@ -2768,9 +2820,6 @@ export default class Client extends OpenApi {
   /**
    * Creates a balance transaction for customer management.
    * 
-   * @remarks
-   * This operation is deprecated. Do not use it.
-   * 
    * @param request - ModelRouterCreateBalanceTransactionRequest
    * @returns ModelRouterCreateBalanceTransactionResponse
    */
@@ -2781,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Billing Management/Create Billing Rule
+   * Creates a billing rule.
    * 
    * @param request - ModelRouterCreateBillingRuleRequest
    * @param headers - map
@@ -2834,7 +2883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Billing Management/Create Billing Rule
+   * Creates a billing rule.
    * 
    * @param request - ModelRouterCreateBillingRuleRequest
    * @returns ModelRouterCreateBillingRuleResponse
@@ -2846,7 +2895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Client management / Create client
+   * Creates a customer.
    * 
    * @param request - ModelRouterCreateClientRequest
    * @param headers - map
@@ -2858,6 +2907,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.address)) {
       body["address"] = request.address;
+    }
+
+    if (!$dara.isNull(request.allowedModelGroupConfig)) {
+      body["allowedModelGroupConfig"] = request.allowedModelGroupConfig;
     }
 
     if (!$dara.isNull(request.allowedModels)) {
@@ -2903,7 +2956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Client management / Create client
+   * Creates a customer.
    * 
    * @param request - ModelRouterCreateClientRequest
    * @returns ModelRouterCreateClientResponse
@@ -2915,7 +2968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conversation management / Create conversation
+   * Creates a conversation.
    * 
    * @param request - ModelRouterCreateConversationRequest
    * @param headers - map
@@ -2956,7 +3009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conversation management / Create conversation
+   * Creates a conversation.
    * 
    * @param request - ModelRouterCreateConversationRequest
    * @returns ModelRouterCreateConversationResponse
@@ -2968,7 +3021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model.
+   * Performs model creation.
    * 
    * @param request - ModelRouterCreateModelRequest
    * @param headers - map
@@ -3045,7 +3098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model.
+   * Performs model creation.
    * 
    * @param request - ModelRouterCreateModelRequest
    * @returns ModelRouterCreateModelResponse
@@ -3057,10 +3110,62 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/创建周期充值订阅
+   * Creates a manual model group.
    * 
    * @remarks
-   * 该接口已弃用，请勿使用
+   * Creates a manual model group.
+   * 
+   * @param request - ModelRouterCreateModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateModelGroupResponse
+   */
+  async modelRouterCreateModelGroupWithOptions(request: $_model.ModelRouterCreateModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateModelGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelList)) {
+      body["modelList"] = request.modelList;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateModelGroup",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateModelGroupResponse({}));
+  }
+
+  /**
+   * Creates a manual model group.
+   * 
+   * @remarks
+   * Creates a manual model group.
+   * 
+   * @param request - ModelRouterCreateModelGroupRequest
+   * @returns ModelRouterCreateModelGroupResponse
+   */
+  async modelRouterCreateModelGroup(request: $_model.ModelRouterCreateModelGroupRequest): Promise<$_model.ModelRouterCreateModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateModelGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a periodic recharge subscription for customer management.
    * 
    * @param request - ModelRouterCreateSubscriptionRequest
    * @param headers - map
@@ -3105,10 +3210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/创建周期充值订阅
-   * 
-   * @remarks
-   * 该接口已弃用，请勿使用
+   * Creates a periodic recharge subscription for customer management.
    * 
    * @param request - ModelRouterCreateSubscriptionRequest
    * @returns ModelRouterCreateSubscriptionResponse
@@ -3120,7 +3222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API Key Management / Delete API Key
+   * Deletes an API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3145,7 +3247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * API Key Management / Delete API Key
+   * Deletes an API key.
    * @returns ModelRouterDeleteApiKeyResponse
    */
   async modelRouterDeleteApiKey(id: string): Promise<$_model.ModelRouterDeleteApiKeyResponse> {
@@ -3155,7 +3257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client.
+   * Deletes a customer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3180,7 +3282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client.
+   * Deletes a customer.
    * @returns ModelRouterDeleteClientResponse
    */
   async modelRouterDeleteClient(id: string): Promise<$_model.ModelRouterDeleteClientResponse> {
@@ -3190,7 +3292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conversation management/Delete conversation
+   * Deletes a conversation.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3215,7 +3317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Conversation management/Delete conversation
+   * Deletes a conversation.
    * @returns ModelRouterDeleteConversationResponse
    */
   async modelRouterDeleteConversation(id: string): Promise<$_model.ModelRouterDeleteConversationResponse> {
@@ -3225,7 +3327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Management / Delete Model
+   * Deletes a model.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3250,13 +3352,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Management / Delete Model
+   * Deletes a model.
    * @returns ModelRouterDeleteModelResponse
    */
   async modelRouterDeleteModel(id: string): Promise<$_model.ModelRouterDeleteModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterDeleteModelWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * Deletes a manual group.
+   * 
+   * @remarks
+   * Deletes a manual group.
+   * 
+   * @param request - ModelRouterDeleteModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteModelGroupResponse
+   */
+  async modelRouterDeleteModelGroupWithOptions(groupId: string, request: $_model.ModelRouterDeleteModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteModelGroupResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteModelGroup",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteModelGroupResponse({}));
+  }
+
+  /**
+   * Deletes a manual group.
+   * 
+   * @remarks
+   * Deletes a manual group.
+   * 
+   * @param request - ModelRouterDeleteModelGroupRequest
+   * @returns ModelRouterDeleteModelGroupResponse
+   */
+  async modelRouterDeleteModelGroup(groupId: string, request: $_model.ModelRouterDeleteModelGroupRequest): Promise<$_model.ModelRouterDeleteModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteModelGroupWithOptions(groupId, request, headers, runtime);
   }
 
   /**
@@ -3299,7 +3446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the balance change log for a specified department.
+   * Retrieves the balance change logs of a department.
    * 
    * @param request - ModelRouterGetClientBalanceLogsRequest
    * @param headers - map
@@ -3348,7 +3495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the balance change log for a specified department.
+   * Retrieves the balance change logs of a department.
    * 
    * @param request - ModelRouterGetClientBalanceLogsRequest
    * @returns ModelRouterGetClientBalanceLogsResponse
@@ -3360,10 +3507,85 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/查询周期充值订阅列表
+   * Queries balance change records.
    * 
    * @remarks
-   * 该接口已弃用，请勿使用
+   * This API operation is deprecated. Do not use it.
+   * 
+   * @param request - ModelRouterListBalanceOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterListBalanceOrdersResponse
+   */
+  async modelRouterListBalanceOrdersWithOptions(id: string, request: $_model.ModelRouterListBalanceOrdersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterListBalanceOrdersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      query["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["orderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterListBalanceOrders",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance/orders`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterListBalanceOrdersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterListBalanceOrdersResponse({}));
+  }
+
+  /**
+   * Queries balance change records.
+   * 
+   * @remarks
+   * This API operation is deprecated. Do not use it.
+   * 
+   * @param request - ModelRouterListBalanceOrdersRequest
+   * @returns ModelRouterListBalanceOrdersResponse
+   */
+  async modelRouterListBalanceOrders(id: string, request: $_model.ModelRouterListBalanceOrdersRequest): Promise<$_model.ModelRouterListBalanceOrdersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterListBalanceOrdersWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of periodic recharge subscriptions.
+   * 
+   * @remarks
+   * This operation is deprecated. Do not use it.
    * 
    * @param request - ModelRouterListSubscriptionsRequest
    * @param headers - map
@@ -3408,10 +3630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/查询周期充值订阅列表
+   * Queries the list of periodic recharge subscriptions.
    * 
    * @remarks
-   * 该接口已弃用，请勿使用
+   * This operation is deprecated. Do not use it.
    * 
    * @param request - ModelRouterListSubscriptionsRequest
    * @returns ModelRouterListSubscriptionsResponse
@@ -3423,7 +3645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific API key.
+   * Retrieves the details of an API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3448,7 +3670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific API key.
+   * Retrieves the details of an API key.
    * @returns ModelRouterQueryApiKeyResponse
    */
   async modelRouterQueryApiKey(id: string): Promise<$_model.ModelRouterQueryApiKeyResponse> {
@@ -3835,7 +4057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a hierarchical tree of customers.
+   * Retrieves the customer tree structure.
    * 
    * @param request - ModelRouterQueryClientTreeRequest
    * @param headers - map
@@ -3872,7 +4094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a hierarchical tree of customers.
+   * Retrieves the customer tree structure.
    * 
    * @param request - ModelRouterQueryClientTreeRequest
    * @returns ModelRouterQueryClientTreeResponse
@@ -4339,6 +4561,297 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a model group.
+   * 
+   * @remarks
+   * Queries the details of a model group.
+   * 
+   * @param request - ModelRouterQueryModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupResponse
+   */
+  async modelRouterQueryModelGroupWithOptions(groupId: string, request: $_model.ModelRouterQueryModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroup",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupResponse({}));
+  }
+
+  /**
+   * Queries the details of a model group.
+   * 
+   * @remarks
+   * Queries the details of a model group.
+   * 
+   * @param request - ModelRouterQueryModelGroupRequest
+   * @returns ModelRouterQueryModelGroupResponse
+   */
+  async modelRouterQueryModelGroup(groupId: string, request: $_model.ModelRouterQueryModelGroupRequest): Promise<$_model.ModelRouterQueryModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupWithOptions(groupId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the departments bound to a model group by paging.
+   * 
+   * @remarks
+   * Queries the departments bound to a model group by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupClientsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupClientsResponse
+   */
+  async modelRouterQueryModelGroupClientsWithOptions(groupId: string, request: $_model.ModelRouterQueryModelGroupClientsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupClientsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroupClients",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}/clients`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupClientsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupClientsResponse({}));
+  }
+
+  /**
+   * Queries the departments bound to a model group by paging.
+   * 
+   * @remarks
+   * Queries the departments bound to a model group by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupClientsRequest
+   * @returns ModelRouterQueryModelGroupClientsResponse
+   */
+  async modelRouterQueryModelGroupClients(groupId: string, request: $_model.ModelRouterQueryModelGroupClientsRequest): Promise<$_model.ModelRouterQueryModelGroupClientsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupClientsWithOptions(groupId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of model groups by paging.
+   * 
+   * @remarks
+   * Queries the list of model groups by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupListResponse
+   */
+  async modelRouterQueryModelGroupListWithOptions(request: $_model.ModelRouterQueryModelGroupListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroupList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupListResponse({}));
+  }
+
+  /**
+   * Queries the list of model groups by paging.
+   * 
+   * @remarks
+   * Queries the list of model groups by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupListRequest
+   * @returns ModelRouterQueryModelGroupListResponse
+   */
+  async modelRouterQueryModelGroupList(request: $_model.ModelRouterQueryModelGroupListRequest): Promise<$_model.ModelRouterQueryModelGroupListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query for models within a model group.
+   * 
+   * @remarks
+   * Queries models within a group with pagination.
+   * 
+   * @param request - ModelRouterQueryModelGroupModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupModelsResponse
+   */
+  async modelRouterQueryModelGroupModelsWithOptions(groupId: string, request: $_model.ModelRouterQueryModelGroupModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupModelsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroupModels",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupModelsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupModelsResponse({}));
+  }
+
+  /**
+   * Performs a paging query for models within a model group.
+   * 
+   * @remarks
+   * Queries models within a group with pagination.
+   * 
+   * @param request - ModelRouterQueryModelGroupModelsRequest
+   * @returns ModelRouterQueryModelGroupModelsResponse
+   */
+  async modelRouterQueryModelGroupModels(groupId: string, request: $_model.ModelRouterQueryModelGroupModelsRequest): Promise<$_model.ModelRouterQueryModelGroupModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupModelsWithOptions(groupId, request, headers, runtime);
+  }
+
+  /**
+   * Lists the model groups and models bound to a specified API key.
+   * 
+   * @remarks
+   * Queries the groups and models bound to a specified API key.
+   * 
+   * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupsByApiKeyResponse
+   */
+  async modelRouterQueryModelGroupsByApiKeyWithOptions(id: string, request: $_model.ModelRouterQueryModelGroupsByApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupsByApiKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroupsByApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/apikeys/${$dara.URL.percentEncode(id)}/model-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupsByApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupsByApiKeyResponse({}));
+  }
+
+  /**
+   * Lists the model groups and models bound to a specified API key.
+   * 
+   * @remarks
+   * Queries the groups and models bound to a specified API key.
+   * 
+   * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
+   * @returns ModelRouterQueryModelGroupsByApiKeyResponse
+   */
+  async modelRouterQueryModelGroupsByApiKey(id: string, request: $_model.ModelRouterQueryModelGroupsByApiKeyRequest): Promise<$_model.ModelRouterQueryModelGroupsByApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupsByApiKeyWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * Model management/Get model list
    * 
    * @param request - ModelRouterQueryModelListRequest
@@ -4424,10 +4937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures Nacos or retrieves the list of Nacos service providers.
-   * 
-   * @remarks
-   * This operation is deprecated. Do not use it.
+   * Queries the list of Nacos service providers through Nacos configuration.
    * 
    * @param request - ModelRouterQueryNacosProvidersRequest
    * @param headers - map
@@ -4488,10 +4998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures Nacos or retrieves the list of Nacos service providers.
-   * 
-   * @remarks
-   * This operation is deprecated. Do not use it.
+   * Queries the list of Nacos service providers through Nacos configuration.
    * 
    * @param request - ModelRouterQueryNacosProvidersRequest
    * @returns ModelRouterQueryNacosProvidersResponse
@@ -4645,7 +5152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Observation / Observation Logs
+   * Retrieves a list of model observation logs.
    * 
    * @param request - ModelRouterQueryObservationLogsRequest
    * @param headers - map
@@ -4730,7 +5237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Observation / Observation Logs
+   * Retrieves a list of model observation logs.
    * 
    * @param request - ModelRouterQueryObservationLogsRequest
    * @returns ModelRouterQueryObservationLogsResponse
@@ -4742,7 +5249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Observation > Get Observation Metric Data
+   * Retrieves observability metric data for models.
    * 
    * @param request - ModelRouterQueryObservationMetricsRequest
    * @param headers - map
@@ -4827,7 +5334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Model Observation > Get Observation Metric Data
+   * Retrieves observability metric data for models.
    * 
    * @param request - ModelRouterQueryObservationMetricsRequest
    * @returns ModelRouterQueryObservationMetricsResponse
@@ -4973,7 +5480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/停止周期充值订阅
+   * Stops a periodic recharge subscription for customer management.
    * 
    * @param request - ModelRouterStopSubscriptionRequest
    * @param headers - map
@@ -5006,7 +5513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户管理/停止周期充值订阅
+   * Stops a periodic recharge subscription for customer management.
    * 
    * @param request - ModelRouterStopSubscriptionRequest
    * @returns ModelRouterStopSubscriptionResponse
@@ -5083,7 +5590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified client\\"s information.
+   * Updates customer information.
    * 
    * @param request - ModelRouterUpdateClientRequest
    * @param headers - map
@@ -5095,6 +5602,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.address)) {
       body["address"] = request.address;
+    }
+
+    if (!$dara.isNull(request.allowedModelGroupConfig)) {
+      body["allowedModelGroupConfig"] = request.allowedModelGroupConfig;
     }
 
     if (!$dara.isNull(request.allowedModels)) {
@@ -5140,7 +5651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified client\\"s information.
+   * Updates customer information.
    * 
    * @param request - ModelRouterUpdateClientRequest
    * @returns ModelRouterUpdateClientResponse
@@ -5291,6 +5802,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterUpdateModelWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Edits a manual model group.
+   * 
+   * @remarks
+   * Edits a manual group.
+   * 
+   * @param request - ModelRouterUpdateModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateModelGroupResponse
+   */
+  async modelRouterUpdateModelGroupWithOptions(groupId: string, request: $_model.ModelRouterUpdateModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateModelGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelList)) {
+      body["modelList"] = request.modelList;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateModelGroup",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateModelGroupResponse({}));
+  }
+
+  /**
+   * Edits a manual model group.
+   * 
+   * @remarks
+   * Edits a manual group.
+   * 
+   * @param request - ModelRouterUpdateModelGroupRequest
+   * @returns ModelRouterUpdateModelGroupResponse
+   */
+  async modelRouterUpdateModelGroup(groupId: string, request: $_model.ModelRouterUpdateModelGroupRequest): Promise<$_model.ModelRouterUpdateModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateModelGroupWithOptions(groupId, request, headers, runtime);
   }
 
   /**

@@ -8,12 +8,20 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
    * The company address.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   address?: string;
   /**
    * @remarks
-   * A comma-separated list of model IDs that the client can use. If this parameter is empty, the client can use all available models.
+   * The allowed model group configuration in JSON string format: {"model_ids":[101],"group_ids":["mg_xxx"]}. If both this field and allowedModels are specified, this field takes precedence.
+   * 
+   * @example
+   * {"model_ids":[101],"group_ids":["mg_xxx"]}
+   */
+  allowedModelGroupConfig?: string;
+  /**
+   * @remarks
+   * The list of allowed model IDs, separated by commas. An empty value indicates all models are allowed.
    * 
    * @example
    * 1,2,3
@@ -28,34 +36,41 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
    */
   contact?: string;
   /**
+   * @remarks
+   * The discount coefficient. A value of 1.0 indicates no discount, and 0.8 indicates a 20% discount. Default value: 1.0.
+   * 
    * @example
    * 1.0
    */
   discount?: number;
   /**
    * @remarks
-   * The client name.
+   * The customer name.
    * 
    * @example
-   * 我的客户
+   * MyCustomer
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent department. If not specified, a top-level department is created.
+   * 
    * @example
-   * 1
+   * 292090
    */
   parentId?: number;
   /**
    * @remarks
-   * Additional remarks.
+   * The remarks.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
+      allowedModelGroupConfig: 'allowedModelGroupConfig',
       allowedModels: 'allowedModels',
       contact: 'contact',
       discount: 'discount',
@@ -68,6 +83,7 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      allowedModelGroupConfig: 'string',
       allowedModels: 'string',
       contact: 'string',
       discount: 'number',

@@ -14,8 +14,9 @@ export class ModelRouterCreateBalanceTransactionRequest extends $dara.Model {
   /**
    * @remarks
    * The target balance pool type. Default value: permanent. Valid values:
-   * - permanent: permanent balance pool (the amount never expires).
-   * - monthly: monthly balance pool (automatically reset to zero at the beginning of each month).
+   * 
+   * - permanent: permanent balance pool. The balance never expires.
+   * - monthly: monthly balance pool. The balance is automatically reset to zero at the beginning of each month.
    * 
    * @example
    * amount
@@ -23,7 +24,7 @@ export class ModelRouterCreateBalanceTransactionRequest extends $dara.Model {
   balanceType?: string;
   /**
    * @remarks
-   * The idempotency key. UUID v4 format is recommended. Maximum length: 32 characters. Repeated submissions with the same key are not executed again.
+   * The idempotency key. UUID v4 format is recommended. Maximum length: 32 characters. Duplicate submissions with the same key are not executed repeatedly.
    * 
    * @example
    * 550e8400e29b41d4a716446655440000
@@ -34,7 +35,7 @@ export class ModelRouterCreateBalanceTransactionRequest extends $dara.Model {
    * The remark.
    * 
    * @example
-   * Top-up.
+   * Top-up
    */
   remark?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterDeleteModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates if the model was successfully deleted.
+   * Indicates whether the model was deleted.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModelRouterDeleteModelResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -24,7 +24,7 @@ export class ModelRouterDeleteModelResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -45,7 +45,7 @@ export class ModelRouterDeleteModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was processed successfully.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

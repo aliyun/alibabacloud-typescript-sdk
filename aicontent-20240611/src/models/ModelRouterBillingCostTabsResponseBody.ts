@@ -14,7 +14,7 @@ export class ModelRouterBillingCostTabsResponseBody extends $dara.Model {
   data?: CostTabDTO[];
   /**
    * @remarks
-   * The error code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterBillingCostTabsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterBillingCostTabsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results returned on a single page.
+   * The maximum number of results.
    * 
    * @example
    * 10
@@ -46,7 +46,7 @@ export class ModelRouterBillingCostTabsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx

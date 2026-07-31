@@ -6,7 +6,7 @@ import { ConversationDTO } from "./ConversationDto";
 export class ModelRouterCreateConversationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data object.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterCreateConversationResponseBody extends $dara.Model {
   data?: ConversationDTO;
   /**
    * @remarks
-   * Error code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -22,15 +22,15 @@ export class ModelRouterCreateConversationResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -38,7 +38,7 @@ export class ModelRouterCreateConversationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
