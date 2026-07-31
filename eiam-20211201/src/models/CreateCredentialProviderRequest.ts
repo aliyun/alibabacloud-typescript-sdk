@@ -7,7 +7,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
    * @remarks
    * The list of allowed JWT issuers.
    * 
-   * > The list can contain up to 200 entries.
+   * > The list length cannot exceed 200.
    */
   allowedTokenIssuers?: string[];
   /**
@@ -20,7 +20,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   derivedShortTokenEnabled?: boolean;
   /**
    * @remarks
-   * The validity period of the JWT. Unit: seconds.
+   * The validity duration of the JWT. Unit: seconds.
    * 
    * @example
    * 900
@@ -67,7 +67,17 @@ export class CreateCredentialProviderRequestCredentialProviderConfigJwtProviderC
 export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The client_id in the OAuth protocol, which is the client ID.
+   * The endpoint address used to guide users through authorization. Conditionally required: required when AuthorizationFlow=user_federation and ProviderVendor=custom. For preset vendors, this can be automatically populated through DiscoveryUrl.
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * The OAuth authorization flow type. Valid values: m2m: machine-to-machine (2LO, Client Credentials). user_federation: user federation (3LO, Authorization Code).
+   */
+  authorizationFlow?: string;
+  /**
+   * @remarks
+   * The client_id in the OAuth protocol.
    * 
    * > The length cannot exceed 128 characters.
    * 
@@ -79,7 +89,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientId?: string;
   /**
    * @remarks
-   * The client_secret in the OAuth protocol, which is the client secret.
+   * The client_secret in the OAuth protocol.
    * 
    * > The length cannot exceed 1024 characters.
    * 
@@ -91,13 +101,34 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientSecret?: string;
   /**
    * @remarks
-   * The scope in the OAuth protocol, which specifies the permission scope.
+   * The Discovery document URL used to automatically retrieve OAuth endpoint configurations. Conditionally optional: used when AuthorizationFlow=user_federation. If DiscoveryUrl is not provided, you must manually configure fields such as TokenEndpoint and AuthorizationEndpoint.
+   */
+  discoveryUrl?: string;
+  issuer?: string;
+  /**
+   * @remarks
+   * The PKCE code_challenge generation method. Default value: s256.
+   */
+  pkceChallengeMethod?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the PKCE extension to enhance security. We recommend that you always enable this feature.
+   */
+  pkceEnabled?: boolean;
+  /**
+   * @remarks
+   * The preset vendor or custom configuration. Optional. Default value: custom.
+   */
+  providerVendor?: string;
+  /**
+   * @remarks
+   * The scope in the OAuth protocol, which defines the permission range.
    * 
-   * > The Scope configuration on the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
+   * > The Scope configuration on the credential provider serves as the fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
    * 
    * >Notice: Separate multiple Scope values with spaces.
    * 
-   * The following restrictions apply to each individual Scope value:
+   * Restrictions for each individual Scope value:
    * 1. Allowed characters: lowercase letters, digits, and the special characters `|/:_-.`
    * 2. Must contain at least one lowercase letter or digit.
    * 3. Must start with the special character `.`, a lowercase letter, or a digit.
@@ -111,9 +142,7 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
    * @remarks
    * The token endpoint of the OAuth protocol.
    * 
-   * > The value must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
-   * 
-   * This parameter is required.
+   * > Must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
    * 
    * @example
    * https://example.com/token
@@ -121,8 +150,15 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   tokenEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      authorizationEndpoint: 'AuthorizationEndpoint',
+      authorizationFlow: 'AuthorizationFlow',
       clientId: 'ClientId',
       clientSecret: 'ClientSecret',
+      discoveryUrl: 'DiscoveryUrl',
+      issuer: 'Issuer',
+      pkceChallengeMethod: 'PkceChallengeMethod',
+      pkceEnabled: 'PkceEnabled',
+      providerVendor: 'ProviderVendor',
       scope: 'Scope',
       tokenEndpoint: 'TokenEndpoint',
     };
@@ -130,8 +166,15 @@ export class CreateCredentialProviderRequestCredentialProviderConfigOAuthProvide
 
   static types(): { [key: string]: any } {
     return {
+      authorizationEndpoint: 'string',
+      authorizationFlow: 'string',
       clientId: 'string',
       clientSecret: 'string',
+      discoveryUrl: 'string',
+      issuer: 'string',
+      pkceChallengeMethod: 'string',
+      pkceEnabled: 'boolean',
+      providerVendor: 'string',
       scope: 'string',
       tokenEndpoint: 'string',
     };
@@ -191,7 +234,7 @@ export class CreateCredentialProviderRequest extends $dara.Model {
    * @remarks
    * The idempotency token that ensures the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -206,7 +249,7 @@ export class CreateCredentialProviderRequest extends $dara.Model {
   credentialProviderConfig?: CreateCredentialProviderRequestCredentialProviderConfig;
   /**
    * @remarks
-   * The business identifier of the credential provider.
+   * The identifier of the credential provider.
    * 
    * > Allowed characters include uppercase and lowercase letters, digits, and the special characters `.-_`. The length cannot exceed 64 characters.
    * 
@@ -232,8 +275,8 @@ export class CreateCredentialProviderRequest extends $dara.Model {
    * @remarks
    * The type of the credential provider. Valid values:
    * 
-   * - oauth: OAuth credential provider
-   * - jwt: JWT credential provider
+   * - oauth: OAuth credential provider.
+   * - jwt: JWT credential provider.
    * 
    * This parameter is required.
    * 

@@ -7,9 +7,6 @@ export class ListCredentialProvidersRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition name. Valid values:
    * 
-   * - CredentialProviderName: the credential provider name.
-   * - CredentialProviderIdentifier: the credential provider identifier.
-   * 
    * @example
    * CredentialProviderName
    */
