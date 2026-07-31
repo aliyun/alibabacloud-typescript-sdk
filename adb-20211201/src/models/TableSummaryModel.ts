@@ -4,17 +4,80 @@ import { OpenStructMvDetailModel } from "./OpenStructMvDetailModel";
 
 
 export class TableSummaryModel extends $dara.Model {
+  /**
+   * @remarks
+   * Creation time.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   createTime?: string;
   createdBySource?: string;
   createdByUser?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * descrtiption
+   */
   description?: string;
   mvDetailModel?: OpenStructMvDetailModel;
+  /**
+   * @remarks
+   * Owner.
+   * 
+   * @example
+   * abc
+   */
   owner?: string;
+  /**
+   * @remarks
+   * SQL for creating the table or view.
+   * 
+   * @example
+   * create table(a varchar)
+   */
   SQL?: string;
+  /**
+   * @remarks
+   * Logical database name.
+   * 
+   * @example
+   * schemaName
+   */
   schemaName?: string;
+  /**
+   * @remarks
+   * Logical table name or logical view name.
+   * 
+   * @example
+   * tableName
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * Table size in bytes.
+   * 
+   * @example
+   * 1234
+   */
   tableSize?: number;
+  /**
+   * @remarks
+   * Table or view type.
+   * 
+   * @example
+   * PHYSICAL_SCHEMA_NAME
+   */
   tableType?: string;
+  /**
+   * @remarks
+   * Update time.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

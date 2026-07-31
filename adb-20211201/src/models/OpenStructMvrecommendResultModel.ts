@@ -4,11 +4,50 @@ import { OpenStructMvBaseTableDetailModel } from "./OpenStructMvBaseTableDetailM
 
 
 export class OpenStructMVRecommendResultModel extends $dara.Model {
+  /**
+   * @remarks
+   * The number of accelerated queries.
+   * 
+   * @example
+   * 32
+   */
   acceleratedQueriesCount?: number;
+  /**
+   * @remarks
+   * The base table associated with the subquery.
+   */
   baseTables?: OpenStructMvBaseTableDetailModel[];
+  /**
+   * @remarks
+   * Estimated bytes scanned reduction by current materialized view from correlated parent queries (posterior calculation).
+   * 
+   * @example
+   * 321321223
+   */
   savedScanbytes?: number;
+  /**
+   * @remarks
+   * The extracted public subquery.
+   * 
+   * @example
+   * SELECT * FROM demo.tbl
+   */
   subquery?: string;
+  /**
+   * @remarks
+   * The ID of the subquery.
+   * 
+   * @example
+   * 1
+   */
   subqueryId?: number;
+  /**
+   * @remarks
+   * Whether the current subquery supports incremental refresh.
+   * 
+   * @example
+   * true
+   */
   supportIncrementalRefresh?: boolean;
   static names(): { [key: string]: string } {
     return {

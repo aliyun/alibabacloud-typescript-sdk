@@ -21,7 +21,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg
   maxValue?: number;
   /**
    * @remarks
-   * The number of occurrences of the operator.
+   * The number of times the operator appears.
    * 
    * @example
    * 1234
@@ -29,7 +29,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg
   operatorCount?: number;
   /**
    * @remarks
-   * The name of the operator.
+   * The operator name.
    * 
    * @example
    * Aggregation
@@ -75,15 +75,15 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg extends $dara.Model {
   /**
    * @remarks
-   * The detection result items of operator metric aggregation.
+   * The name of the aggregated operator metric detection item.
    * 
    * @example
-   * Peak memory
+   * 峰值内存
    */
   metricName?: string;
   /**
    * @remarks
-   * The detection result items of operator metric aggregation.
+   * The collection of aggregated operator metric search results.
    */
   searchResults?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAggSearchResults[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDetailsSearchResults extends $dara.Model {
   /**
    * @remarks
-   * The number of rows input by the operator.
+   * The number of input rows of the operator.
    * 
    * @example
    * 123
@@ -123,7 +123,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   inputRows?: number;
   /**
    * @remarks
-   * The amount of data input by the operator. Unit: bytes.
+   * The input data size of the operator. Unit: bytes.
    * 
    * @example
    * 123
@@ -131,7 +131,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   inputSize?: number;
   /**
    * @remarks
-   * The total CPU time consumed by all operators in the stage, which is equivalent to the total CPU time of the stage. You can use this parameter to determine which parts of the stage consume a large amount of computing resources. Unit: milliseconds.
+   * The total operator duration within the stage, which is equivalent to the CPU time of the stage. You can use this value to determine which parts of the query consume more compute resources. Unit: ms.
    * 
    * @example
    * 23
@@ -139,15 +139,15 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   operatorCost?: number;
   /**
    * @remarks
-   * The property information about the operator.
+   * The operator property information.
    * 
    * @example
-   * GROUP BY field: id
+   * Group By field: id
    */
   operatorInfo?: string;
   /**
    * @remarks
-   * The name of the operator.
+   * The operator name.
    * 
    * @example
    * TableScan
@@ -155,7 +155,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   operatorName?: string;
   /**
    * @remarks
-   * The number of rows output by the operator.
+   * The number of output rows of the operator.
    * 
    * @example
    * 123
@@ -163,7 +163,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   outputRows?: number;
   /**
    * @remarks
-   * The amount of data output by the operator. Unit: bytes.
+   * The output data size of the operator. Unit: bytes.
    * 
    * @example
    * 123
@@ -171,7 +171,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   outputSize?: number;
   /**
    * @remarks
-   * The peak memory. Unit: bytes.
+   * The peak memory consumed by the operator. Unit: bytes.
    * 
    * @example
    * 23
@@ -179,7 +179,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   peakMemory?: number;
   /**
    * @remarks
-   * The query ID that can be used for diagnostics.
+   * The SQL query ID, which can be used for diagnostics.
    * 
    * @example
    * 2024041909301402103302422803151411141
@@ -235,7 +235,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the detection metric.
+   * The metric name.
    * 
    * @example
    * PeakMemory
@@ -243,7 +243,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   metricName?: string;
   /**
    * @remarks
-   * The detection result items of abnormal operators.
+   * The collection of search results.
    */
   searchResults?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDetailsSearchResults[];
   static names(): { [key: string]: string } {
@@ -275,7 +275,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitionedTables extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to create the table.
+   * The CREATE TABLE statement.
    * 
    * @example
    * create table test(id varchar)
@@ -291,7 +291,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitioned
   partitionCount?: string;
   /**
    * @remarks
-   * The ID of the improper partition.
+   * The IDs of unreasonable partitions.
    * 
    * @example
    * [2024,2025]
@@ -299,7 +299,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitioned
   partitionIds?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * nxg
@@ -307,7 +307,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitioned
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * zhw_place_order
@@ -355,7 +355,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitioned
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTables extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to create the table.
+   * The CREATE TABLE statement.
    * 
    * @example
    * create table test(id varchar)
@@ -371,7 +371,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   partitionCount?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * platfunc
@@ -387,7 +387,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   shardSkewedRows?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * sls_log_cheat_action
@@ -403,7 +403,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   totalDataSize?: number;
   /**
    * @remarks
-   * The size of hot data. Unit: bytes.
+   * The local data size. Unit: bytes.
    * 
    * @example
    * 2345
@@ -411,7 +411,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   totalLocalDataSize?: string;
   /**
    * @remarks
-   * The data size of the primary key. Unit: bytes.
+   * The total primary key data size of the table. Unit: bytes.
    * 
    * @example
    * 234
@@ -419,7 +419,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   totalPkSize?: number;
   /**
    * @remarks
-   * The size of cold data. Unit: bytes.
+   * The cold data size. Unit: bytes.
    * 
    * @example
    * 234
@@ -427,7 +427,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
   totalRemoteDataSize?: number;
   /**
    * @remarks
-   * The number of rows in the table.
+   * The total number of rows in the table.
    * 
    * @example
    * 34
@@ -475,7 +475,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTable
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTablesSearchResults extends $dara.Model {
   /**
    * @remarks
-   * The number of accesses to the table.
+   * The number of times the table was accessed.
    * 
    * @example
    * 1111
@@ -483,7 +483,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   accessCount?: number;
   /**
    * @remarks
-   * The average amount of time for scanning. Unit: milliseconds.
+   * The average scan duration. Unit: ms.
    * 
    * @example
    * 234
@@ -491,7 +491,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   avgScanCost?: number;
   /**
    * @remarks
-   * The average data size for scanning. Unit: bytes.
+   * The average table read size. Unit: bytes.
    * 
    * @example
    * 234
@@ -499,7 +499,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   avgScanSize?: number;
   /**
    * @remarks
-   * The maximum amount of time for scanning. Unit: milliseconds.
+   * The maximum scan duration. Unit: ms.
    * 
    * @example
    * 345
@@ -507,7 +507,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   maxScanCost?: number;
   /**
    * @remarks
-   * The maximum data size for scanning. Unit: bytes.
+   * The maximum data read size. Unit: bytes.
    * 
    * @example
    * 2345
@@ -515,7 +515,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   maxScanSize?: number;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * tiberias_2copt_origin_order_goods_info
@@ -563,7 +563,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   metricName?: string;
   /**
    * @remarks
-   * The detection result items of table access.
+   * The collection of table access search results.
    */
   searchResults?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTablesSearchResults[];
   static names(): { [key: string]: string } {
@@ -595,27 +595,27 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
 export class DescribeWorkerDetectionResponseBodyDetectionItemsResults extends $dara.Model {
   /**
    * @remarks
-   * The detection result items of operator metric aggregation.
+   * The aggregated operator metric detection results.
    */
   operatorAgg?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg[];
   /**
    * @remarks
-   * The detection result items of abnormal operators.
+   * The collection of operator detection results.
    */
   operatorDetails?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDetails[];
   /**
    * @remarks
-   * The detection result items of improper partitioned tables.
+   * The collection of tables with unreasonable partitions.
    */
   partitionedTables?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsPartitionedTables[];
   /**
    * @remarks
-   * The detection result items of skewed tables.
+   * The table skew detection results.
    */
   skewedTables?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsSkewedTables[];
   /**
    * @remarks
-   * The detection result items of table access.
+   * The collection of table access detection results.
    */
   topAccessTables?: DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTables[];
   static names(): { [key: string]: string } {
@@ -665,7 +665,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResults extends $d
 export class DescribeWorkerDetectionResponseBodyDetectionItems extends $dara.Model {
   /**
    * @remarks
-   * The information about the detection result.
+   * The detection result message.
    * 
    * @example
    * There are a total of 10 tables with an excessive number of primary keys.
@@ -676,21 +676,21 @@ export class DescribeWorkerDetectionResponseBodyDetectionItems extends $dara.Mod
    * The name of the detection item.
    * 
    * @example
-   * Metric detection
+   * 指标检测
    */
   name?: string;
   /**
    * @remarks
-   * The detection result items.
+   * The detection result.
    */
   results?: DescribeWorkerDetectionResponseBodyDetectionItemsResults;
   /**
    * @remarks
-   * The severity level of the detection result. Valid values:
+   * The detection result status. Valid values:
    * 
-   * *   NORMAL
-   * *   WARNING
-   * *   CRITICAL
+   * - NORMAL
+   * - WARNING
+   * - CRITICAL
    * 
    * @example
    * WARNING
@@ -737,7 +737,7 @@ export class DescribeWorkerDetectionResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried detection items and detection results.
+   * The list of detection items and detection results.
    */
   detectionItems?: DescribeWorkerDetectionResponseBodyDetectionItems[];
   /**
@@ -750,7 +750,7 @@ export class DescribeWorkerDetectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 20

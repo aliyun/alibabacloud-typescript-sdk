@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the SQL client that commits the SQL pattern.
+   * The client IP address used to submit the queries.
    * 
    * @example
    * 192.168.xx.xx
@@ -13,16 +13,23 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   accessIp?: string;
   /**
    * @remarks
-   * The average execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+   * The average execution time of queries matching this pattern. Unit: milliseconds.
    * 
    * @example
    * 234.78
    */
   averageExecutionTime?: number;
+  /**
+   * @remarks
+   * The average CPU cost for queries that match this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   averageOperatorCost?: number;
   /**
    * @remarks
-   * The average peak memory usage of the SQL pattern within the query time range. Unit: bytes.
+   * The average peak memory usage of queries matching this pattern. Unit: bytes.
    * 
    * @example
    * 234.22
@@ -30,16 +37,23 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   averagePeakMemory?: number;
   /**
    * @remarks
-   * The average total amount of time consumed by the SQL pattern within the query time range. Unit: milliseconds.
+   * The average duration of queries matching this pattern. Unit: milliseconds.
    * 
    * @example
    * 4
    */
   averageQueryTime?: number;
+  /**
+   * @remarks
+   * The average scan time for queries that match this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   averageScanCost?: number;
   /**
    * @remarks
-   * The average amount of data scanned based on the SQL pattern within the query time range. Unit: bytes.
+   * The average amount of data scanned by queries matching this pattern. Unit: bytes.
    * 
    * @example
    * 234149.23
@@ -47,12 +61,13 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   averageScanSize?: number;
   /**
    * @remarks
-   * Indicates whether the execution of the SQL pattern can be intercepted. Valid values:
+   * Indicates whether queries that match this pattern can be blocked. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The queries can be blocked.
    * 
-   * >  Only SELECT and INSERT statements can be intercepted.
+   * - **false**: The queries cannot be blocked.
+   * 
+   * > Currently, AnalyticDB for MySQL allows you to block only SELECT and INSERT statements.
    * 
    * @example
    * true
@@ -60,7 +75,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   blockable?: boolean;
   /**
    * @remarks
-   * The number of failed queries executed in association with the SQL pattern within the query time range.
+   * The number of failed queries that match this pattern.
    * 
    * @example
    * 18
@@ -68,16 +83,23 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The maximum execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+   * The maximum execution time of a query matching this pattern. Unit: milliseconds.
    * 
    * @example
    * 2142
    */
   maxExecutionTime?: number;
+  /**
+   * @remarks
+   * The maximum CPU cost for a query that matches this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   maxOperatorCost?: number;
   /**
    * @remarks
-   * The maximum peak memory usage of the SQL pattern within the query time range. Unit: bytes.
+   * The maximum peak memory usage of a query matching this pattern. Unit: bytes.
    * 
    * @example
    * 234149
@@ -85,26 +107,47 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   maxPeakMemory?: number;
   /**
    * @remarks
-   * The maximum total amount of time consumed by the SQL pattern within the query time range. Unit: milliseconds.
+   * The maximum duration of a query matching this pattern. Unit: milliseconds.
    * 
    * @example
    * 2341
    */
   maxQueryTime?: number;
+  /**
+   * @remarks
+   * The maximum scan time for a query that matches this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   maxScanCost?: number;
   /**
    * @remarks
-   * The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: bytes.
+   * The maximum amount of data scanned by a query matching this pattern. Unit: bytes.
    * 
    * @example
    * 32212254
    */
   maxScanSize?: number;
+  /**
+   * @remarks
+   * The total CPU cost of queries matching this pattern as a percentage of the total CPU cost for all queries. Unit: %.
+   * 
+   * @example
+   * 20
+   */
   operatorCostPercentage?: number;
+  /**
+   * @remarks
+   * The total CPU cost for all queries that match this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   operatorCostSum?: number;
   /**
    * @remarks
-   * The earliest commit time of the SQL pattern within the query time range.
+   * The submission time of the first query that matches this pattern within the specified time range.
    * 
    * @example
    * 2022-09-06 05:06:00
@@ -118,33 +161,89 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
    * 5575924945138******
    */
   patternId?: string;
+  /**
+   * @remarks
+   * The total peak memory usage of queries matching this pattern as a percentage of the total peak memory usage for all queries. Unit: %.
+   * 
+   * @example
+   * 10
+   */
   peakMemoryPercentage?: number;
+  /**
+   * @remarks
+   * The sum of the peak memory usage for all queries that match this pattern. Unit: bytes.
+   * 
+   * @example
+   * 5
+   */
   peakMemorySum?: number;
   /**
    * @remarks
-   * The number of queries executed in association with the SQL pattern within the query time range.
+   * The number of executed queries that match this pattern.
    * 
    * @example
    * 345
    */
   queryCount?: number;
+  /**
+   * @remarks
+   * The total query time of queries matching this pattern as a percentage of the total query time for all queries. Unit: %.
+   * 
+   * @example
+   * 10
+   */
   queryTimePercentage?: number;
+  /**
+   * @remarks
+   * The total query duration for all queries that match this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   queryTimeSum?: number;
   /**
    * @remarks
-   * The statement of the SQL pattern.
+   * The SQL pattern.
    * 
    * @example
    * SELECT * FROM KEPLER_META_NODE_STATIC_INFO WHERE elastic_node = ? OR (elastic_node = ? AND enable = ?)
    */
   SQLPattern?: string;
+  /**
+   * @remarks
+   * The total scan cost of queries matching this pattern as a percentage of the total scan cost for all queries. Unit: %.
+   * 
+   * @example
+   * 5
+   */
   scanCostPercentage?: number;
+  /**
+   * @remarks
+   * The total scan cost for all queries that match this pattern. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   scanCostSum?: number;
+  /**
+   * @remarks
+   * The total amount of data scanned by queries matching this pattern as a percentage of the total data scanned by all queries. Unit: %.
+   * 
+   * @example
+   * 80
+   */
   scanSizePercentage?: number;
+  /**
+   * @remarks
+   * The total amount of data scanned by all queries that match this pattern. Unit: bytes.
+   * 
+   * @example
+   * 5
+   */
   scanSizeSum?: number;
   /**
    * @remarks
-   * The tables scanned based on the SQL pattern.
+   * The tables scanned by the SQL pattern.
    * 
    * @example
    * tpch.orders
@@ -152,7 +251,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
   tables?: string;
   /**
    * @remarks
-   * The name of the database account that is used to commit the SQL pattern.
+   * The name of the database user who submitted the matching SQL statements.
    * 
    * @example
    * test
@@ -242,7 +341,7 @@ export class DescribeSQLPatternsResponseBodyPatternDetails extends $dara.Model {
 export class DescribeSQLPatternsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * Details about the access denial. This parameter is returned only if RAM authentication fails.
    * 
    * @example
    * {
@@ -274,7 +373,7 @@ export class DescribeSQLPatternsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The queried SQL patterns.
+   * A list of SQL patterns.
    */
   patternDetails?: DescribeSQLPatternsResponseBodyPatternDetails[];
   /**
@@ -282,12 +381,12 @@ export class DescribeSQLPatternsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * F3174013-5B7A-5A47-9FE0-6B5D397BD86B
+   * F3174013-5B7A-5A47-9FE0-6B5D397BD86A
    */
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM action that failed the authentication.
+   * The name of the RAM action for which authentication failed.
    * 
    * @example
    * ListSparkApps
@@ -13,10 +13,9 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   action?: string;
   /**
    * @remarks
-   * The type of the policy denial. Valid values:
-   * 
-   * *   ImplicitDeny: Resource owner has not configured relevant permission policies for the current user, default denial of unauthorized operations.
-   * *   ExplicitDeny: RAM policies configured by the resource owner explicitly deny the current user access to corresponding resources
+   * The type of access policy denial. Valid values:
+   * - ImplicitDeny: The resource owner has not configured a relevant access policy for the current user. Unauthorized operations are denied by default.
+   * - ExplicitDeny: The RAM policy configured by the resource owner explicitly denies the current user authorization to access the corresponding resource.
    * 
    * @example
    * ImplicitDeny
@@ -24,13 +23,12 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   noPermissionType?: string;
   /**
    * @remarks
-   * The type of the policy that causes the access denied error.
-   * 
-   * *   ControlPolicy: control policy
-   * *   SessionPolicy: Temporary Token additional permission policy
-   * *   AssumeRolePolicy: RAM role trust policy
-   * *   AccountLevelIdentityBasedPolicy: Principal policy within account authorization scope, including custom policies and system policies
-   * *   ResourceGroupLevelIdentityBasedPolicy: Principal policy within resource group authorization scope, including custom policies and system policies.
+   * The type of the policy that caused the permission denial. Valid values:
+   * - ControlPolicy: control policy.
+   * - SessionPolicy: an additional permission policy attached to a temporary token.
+   * - AssumeRolePolicy: the trust policy of a RAM role.
+   * - AccountLevelIdentityBasedPolicy: an identity-access policy at the account authorization scope, including custom policies and system policies.
+   * - ResourceGroupLevelIdentityBasedPolicy: an identity-access policy at the resource group authorization scope, including custom policies and system policies.
    * 
    * @example
    * ControlPolicy
@@ -39,9 +37,8 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   /**
    * @remarks
    * The identity type of the current user. Valid values:
-   * 
-   * *   SubUser: a RAM user
-   * *   AssumedRoleUser: a RAM role
+   * - SubUser: Resource Access Management (RAM) user.
+   * - AssumedRoleUser: RAM role.
    * 
    * @example
    * SubUser
@@ -49,7 +46,7 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   principalType?: string;
   /**
    * @remarks
-   * Authentication object information, can be the current user\\"s RAM account ID, or the role information corresponding to the current visitor.
+   * The information about the authentication target, which can be the Resource Access Management (RAM) users ID of the current user or the role information of the current accessor.
    * 
    * @example
    * 223345695632****
@@ -97,15 +94,15 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
 export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * When permission check fails, returns diagnostic information related to permission check failure.
+   * The diagnostic information returned when the permission check fails.
    */
   deniedDetail?: GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail;
   /**
    * @remarks
-   * Check whether the use has the basic permissions to use Analytic DB for Spark.
+   * Indicates whether the current user has the basic permissions to use ADB Spark. Valid values:
    * 
-   * *   true: The check is passed and the basic permissions are granted.
-   * *   false: The check fails and some permissions are missing.
+   * - true: The check is passed. The user has the basic permissions.
+   * - false: The check failed. The user is missing some permissions.
    * 
    * @example
    * true
@@ -113,7 +110,7 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Mo
   passed?: boolean;
   /**
    * @remarks
-   * Based on diagnostic information, recommends configurations for customers to perform in the RAM system.
+   * The recommended RAM configuration based on the diagnostic information.
    * 
    * @example
    * Grant the system RAM policy \\"AliyunADBDeveloperAccess\\" to current RAM user can quickly solve this issue.
@@ -150,12 +147,12 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Mo
 export class GetADBSparkNecessaryRAMPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: GetADBSparkNecessaryRAMPermissionsResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 642F3512-C628-5D0C-8815-F6670C****

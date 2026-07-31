@@ -15,7 +15,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about the Databricks data source.
+   * The Databricks data source information.
    * 
    * @example
    * -
@@ -23,7 +23,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   databricksInfoShrink?: string;
   /**
    * @remarks
-   * The description of the data source.
+   * The data source description.
    * 
    * @example
    * description
@@ -31,7 +31,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   datasourceDescription?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   datasourceType?: string;
   /**
    * @remarks
-   * The information about the Hive data source.
+   * The Hive data source information.
    * 
    * @example
    * -
@@ -59,7 +59,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   hiveInfoShrink?: string;
   /**
    * @remarks
-   * The information about the source Apache Kafka instance.
+   * The Kafka information.
    * 
    * @example
    * -
@@ -75,7 +75,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The information about the source PolarDB for MySQL cluster.
+   * The PolarDB for MySQL data source information.
    * 
    * @example
    * -
@@ -83,7 +83,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   polarDBMysqlInfoShrink?: string;
   /**
    * @remarks
-   * The information about the source PolarDB-X instance.
+   * The PolarDB-X data source information.
    * 
    * @example
    * -
@@ -91,7 +91,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   polarDBXInfoShrink?: string;
   /**
    * @remarks
-   * The information about the source ApsaraDB RDS for MySQL instance.
+   * The ApsaraDB RDS for MySQL data source information.
    * 
    * @example
    * -
@@ -109,7 +109,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information about the source Simple Log Service (SLS) instance or cluster.
+   * The Simple Log Service (SLS) information for the data source to be created.
    * 
    * @example
    * -

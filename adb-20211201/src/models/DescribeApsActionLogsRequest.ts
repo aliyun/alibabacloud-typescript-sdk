@@ -24,7 +24,7 @@ export class DescribeApsActionLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2023-02-11T09:30:00Z
+   * 2023-02-11T09:30Z
    */
   endTime?: string;
   /**
@@ -92,7 +92,7 @@ export class DescribeApsActionLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2023-02-11T08:30:00Z
+   * 2023-02-11T08:30Z
    */
   startTime?: string;
   /**

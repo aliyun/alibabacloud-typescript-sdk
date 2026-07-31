@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAdbMySqlTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -17,7 +18,7 @@ export class DescribeAdbMySqlTablesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a cluster.
    * 
    * This parameter is required.
    * 

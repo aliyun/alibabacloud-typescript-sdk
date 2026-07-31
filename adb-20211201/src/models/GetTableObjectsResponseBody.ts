@@ -6,7 +6,7 @@ import { TableSummaryModel } from "./TableSummaryModel";
 export class GetTableObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page. The value is an integer that is greater than 0. Default value: **1**.
+   * The page number. The value is a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -14,11 +14,10 @@ export class GetTableObjectsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 30. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * - **30** (default)
+   * - **50**
+   * - **100**.
    * 
    * @example
    * 30
@@ -26,12 +25,12 @@ export class GetTableObjectsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Details of the tables.
+   * The result array.
    */
   tableSummaryModels?: TableSummaryModel[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -70,12 +69,12 @@ export class GetTableObjectsResponseBodyData extends $dara.Model {
 export class GetTableObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetTableObjectsResponseBodyData;
   /**
    * @remarks
-   * The number of the returned page. The value is an integer that is greater than 0. Default value: **1**.
+   * The page number. The value is a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -83,11 +82,10 @@ export class GetTableObjectsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 30. Valid values:
-   * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * The number of entries per page. Valid values:
+   * - **30** (default)
+   * - **50**
+   * - **100**.
    * 
    * @example
    * 30
@@ -95,7 +93,7 @@ export class GetTableObjectsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 863D51B7-5321-41D8-A0B6-A088B0******
@@ -103,7 +101,7 @@ export class GetTableObjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

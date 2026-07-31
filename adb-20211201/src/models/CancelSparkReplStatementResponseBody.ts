@@ -61,7 +61,7 @@ export class CancelSparkReplStatementResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * StackOverflow Exception:
+   * StackOverflow Exception：
    */
   error?: string;
   /**

@@ -23,7 +23,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -32,10 +32,9 @@ export class GetTableColumnsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -43,7 +42,7 @@ export class GetTableColumnsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 

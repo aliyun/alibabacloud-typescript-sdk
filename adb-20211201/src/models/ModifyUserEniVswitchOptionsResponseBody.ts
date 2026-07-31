@@ -27,7 +27,7 @@ export class ModifyUserEniVswitchOptionsResponseBody extends $dara.Model {
    * *   If the request failed, an error message is returned.
    * 
    * @example
-   * SUCCESS
+   * Success
    */
   message?: string;
   /**

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static value. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   actionInner?: string;
   /**
@@ -18,20 +21,26 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static value. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   from?: string;
   /**
    * @remarks
-   * The sorting field. Valid values for Type:
+   * The sorting criteria.
+   * Valid values for \\`Type\\`:
    * 
-   * *   Asc.
-   * *   Desc.
+   * - Asc
    * 
-   * Valid values for Field:
+   * - Desc
    * 
-   * *   StartTime;
-   * *   EndTime;
+   * Valid values for \\`Field\\`:
+   * 
+   * - StartTime
+   * 
+   * - EndTime
    * 
    * @example
    * {\\"Type\\": \\"ASC\\", \\"Field\\": \\"StartTime\\"}
@@ -47,7 +56,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -71,7 +80,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   subtaskId?: number;
   /**
    * @remarks
-   * The name of the recommendation task.
+   * The name of the materialized view recommendation task.
    * 
    * @example
    * my_task_1

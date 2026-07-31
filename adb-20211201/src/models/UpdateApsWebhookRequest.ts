@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   /**
    * @remarks
-   * Signed key.
+   * The signing key.
    * 
    * @example
    * ABC**
@@ -13,7 +13,7 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the webhook.
+   * The webhook name.
    * 
    * @example
    * exampleWebhookName
@@ -21,7 +21,7 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The URL of the request.
+   * The request URL.
    * 
    * @example
    * https://example.com/webhook
@@ -29,7 +29,7 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The ID of the webhook.
+   * Webhook ID。
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,10 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   webhookId?: number;
   /**
    * @remarks
-   * The notification method. Valid values: dingtalk. lark.
+   * The notification method. Valid values:
+   * 
+   * - dingtalk: DingTalk.
+   * - lark: Lark.
    * 
    * @example
    * dingtalk
@@ -97,7 +100,7 @@ export class UpdateApsWebhookRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The array of webhooks.
+   * The webhook array.
    */
   webhook?: UpdateApsWebhookRequestWebhook[];
   static names(): { [key: string]: string } {

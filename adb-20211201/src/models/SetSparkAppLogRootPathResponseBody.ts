@@ -8,7 +8,7 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
    * The default log path.
    * 
    * @example
-   * oss://path/to/log
+   * oss://testBucketname/to/log
    */
   defaultLogPath?: string;
   /**
@@ -32,7 +32,7 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
    * The modifier ID.
    * 
    * @example
-   * 1111111
+   * 11111111
    */
   modifiedUid?: string;
   /**
@@ -40,7 +40,7 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
    * The recorded log path.
    * 
    * @example
-   * oss://path/to/log
+   * oss://testBucketname/to/log
    */
   recordedLogPath?: string;
   static names(): { [key: string]: string } {

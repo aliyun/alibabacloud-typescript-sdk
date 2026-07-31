@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMVRecommendResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static value. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   actionInner?: string;
   /**
@@ -18,7 +21,10 @@ export class DescribeMVRecommendResultsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static value. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   from?: string;
   /**
@@ -39,7 +45,7 @@ export class DescribeMVRecommendResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -54,6 +60,9 @@ export class DescribeMVRecommendResultsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The subquery ID.
+   * 
    * @example
    * 123
    */

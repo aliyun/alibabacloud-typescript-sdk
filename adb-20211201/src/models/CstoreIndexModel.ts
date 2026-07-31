@@ -4,14 +4,68 @@ import { FieldSchemaModel } from "./FieldSchemaModel";
 
 
 export class CstoreIndexModel extends $dara.Model {
+  /**
+   * @remarks
+   * The order of index columns.
+   */
   columnOrds?: string[];
+  /**
+   * @remarks
+   * The time when the index was created.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The logical name of the database.
+   * 
+   * @example
+   * exampleDatabase
+   */
   databaseName?: string;
+  /**
+   * @remarks
+   * The index columns.
+   */
   indexColumns?: FieldSchemaModel[];
+  /**
+   * @remarks
+   * The name of the index.
+   * 
+   * @example
+   * indexName
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The type of the index.
+   * 
+   * @example
+   * NORMAL
+   */
   indexType?: string;
+  /**
+   * @remarks
+   * The properties.
+   */
   options?: { [key: string]: string };
+  /**
+   * @remarks
+   * The physical name of the table.
+   * 
+   * @example
+   * physicalDatabase
+   */
   physicalTableName?: string;
+  /**
+   * @remarks
+   * The time when the index was updated.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

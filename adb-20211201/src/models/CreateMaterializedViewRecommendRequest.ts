@@ -23,7 +23,7 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Pattern匹配的最少慢查询个数
+   * The minimum number of slow queries matched by a pattern.
    * 
    * @example
    * 3
@@ -31,7 +31,7 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   minRewriteQueryCount?: number;
   /**
    * @remarks
-   * 最小可加速的Pattern数量
+   * The minimum number of patterns that can be accelerated.
    * 
    * @example
    * 5
@@ -51,7 +51,7 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The time range for scanning data. Unit: days. Default value: 3.
+   * The scan time range. Unit: days. Default value: 3.
    * 
    * @example
    * 3
@@ -59,17 +59,17 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   scanQueriesRange?: number;
   /**
    * @remarks
-   * This parameter is valid only when SchedulingPolicy is set to weekly. Valid values:
+   * Valid only when SchedulingPolicy is set to weekly. Valid values:
    * 
-   * *   Monday
-   * *   Tuesday
-   * *   Wednesday
-   * *   Thursday
-   * *   Friday
-   * *   Saturday
-   * *   Sunday
+   * - Monday
+   * - Tuesday
+   * - Wednesday
+   * - Thursday
+   * - Friday
+   * - Saturday
+   * - Sunday
    * 
-   * Separate multiple days with commas (,).
+   * Separate multiple days with commas.
    * 
    * @example
    * Monday;Wednesday
@@ -77,11 +77,11 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   schedulingDay?: string;
   /**
    * @remarks
-   * The scheduling policy of the recommendation task. Valid values:
+   * The recommendation policy. Valid values:
    * 
-   * daily
+   * daily: scheduled on a daily basis.
    * 
-   * weekly
+   * weekly: scheduled on a weekly basis.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   schedulingPolicy?: string;
   /**
    * @remarks
-   * 慢查询阈值
+   * The slow query threshold.
    * 
    * @example
    * 2
@@ -99,7 +99,7 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   slowQueryThreshold?: number;
   /**
    * @remarks
-   * The execution time of the recommendation task. Specify the time in the HH:MM:SS format.
+   * The execution time of the task. Format: HH:MM:SS.
    * 
    * This parameter is required.
    * 

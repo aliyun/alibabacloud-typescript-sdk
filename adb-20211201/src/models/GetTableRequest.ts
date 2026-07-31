@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetTableRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * dbName
@@ -23,7 +23,7 @@ export class GetTableRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the region in which the cluster resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class GetTableRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name to query.
    * 
    * @example
    * tableName

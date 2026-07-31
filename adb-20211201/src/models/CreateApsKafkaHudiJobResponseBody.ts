@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Same as HTTP status code.
+   * The same as the HTTP status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returns the ID of the created task.
+   * The ID of the created task.
    * 
    * @example
    * xxx
@@ -21,7 +21,7 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1A943417-5B0E-1DB9-A8**-A566****C3
@@ -45,7 +45,8 @@ export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. true: The request is successful. false: The message group failed to be unmuted.
+   * Indicates whether the request was successful.
+   * True: The request was successful. False: The request failed.
    * 
    * @example
    * true

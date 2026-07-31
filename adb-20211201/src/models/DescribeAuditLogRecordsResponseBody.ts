@@ -13,7 +13,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   connId?: string;
   /**
    * @remarks
-   * The name of the database on which the SQL statement was executed.
+   * The name of the database on which the SQL statement ran.
    * 
    * @example
    * adb_demo
@@ -21,21 +21,34 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The start time of the execution of the SQL statement. The time is displayed in the ISO 8601 standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+   * The execution start time of the SQL statement. The time is in the `yyyy-MM-dd HH:mm:ss` format and in the local time zone.
    * 
    * @example
    * 2022-08-12 10:10:00
    */
   executeTime?: string;
+  /**
+   * @remarks
+   * The execution start time of the SQL statement, as a millisecond timestamp.
+   * 
+   * @example
+   * 1774600396584
+   */
   executeTimestamp?: number;
   /**
+   * @remarks
+   * Specifies whether the response contains diagnostic information.
+   * 
+   * @example
+   * true
+   * 
    * **if can be null:**
    * true
    */
   hasDiagnosticInfo?: boolean;
   /**
    * @remarks
-   * The IP address and port number of the client that is used to execute the SQL statement.
+   * The IP address and port of the client that ran the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -43,7 +56,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The task ID.
+   * The process ID.
    * 
    * @example
    * 202106081752021720161662490345362390
@@ -59,7 +72,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The type of the SQL statement.
+   * The SQL type.
    * 
    * @example
    * SELECT
@@ -67,10 +80,11 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLType?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement was successfully executed. Valid values:
+   * Indicates whether the SQL statement succeeded. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The SQL statement succeeded.
+   * 
+   * - **false**: The SQL statement failed.
    * 
    * @example
    * true
@@ -78,7 +92,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   succeed?: string;
   /**
    * @remarks
-   * The amount of time that is consumed to execute the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement in milliseconds (ms).
    * 
    * @example
    * 216
@@ -86,7 +100,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   totalTime?: string;
   /**
    * @remarks
-   * The username that is used to execute the SQL statement.
+   * The username of the account that ran the SQL statement.
    * 
    * @example
    * test
@@ -138,7 +152,8 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * @example
    * amv-t4nj8619bz2w3****
@@ -146,7 +161,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried SQL audit logs.
+   * A list of audit log records.
    */
   items?: DescribeAuditLogRecordsResponseBodyItems[];
   /**
@@ -159,7 +174,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -175,7 +190,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 6974

@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Resource Access Management (RAM) role that is created for the trusted Alibaba Cloud account. For more information, see Create a RAM role for a trusted Alibaba Cloud account. The ARN of the RAM role that grants AnalyticDB for MySQL permission to access resources in the source account. Required for cross-account data ingestion.
+   * The RAM role of a trusted entity that is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account.
+   * The Alibaba Cloud account that owns the AnalyticDB for MySQL cluster must be added as a trusted account to the RAM role.
    * 
    * @example
    * aps
@@ -13,7 +14,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the source Kafka belongs.
+   * The ID of the Alibaba Cloud account to which the source Kafka instance belongs.
    * 
    * @example
    * 123************
@@ -21,7 +22,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The advanced configurations.
+   * The advanced configuration.
    * 
    * @example
    * -
@@ -38,7 +39,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all clusters in a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the cluster IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -46,10 +47,19 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The Kafka message type. Valid values: json, general_canal_json, mongo_canal_json, dataworks_json, and shareplex_json.
+   * 
+   * @example
+   * json
+   */
   dataFormatType?: string;
   /**
    * @remarks
-   * Enumeration value and description. Single: The source is a single-row JSON record. Multi: source is a JSON array. Output a single JSON record.
+   * The valid values and their descriptions are as follows:
+   * Single: The source is a single-line JSON record.
+   * Multi: The source is a JSON array. A single JSON record is returned as the output.
    * 
    * @example
    * Single
@@ -65,7 +75,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the user-defined database.
+   * The user-defined name of the database.
    * 
    * This parameter is required.
    * 
@@ -75,7 +85,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The full synchronization configuration.
+   * The configuration for full synchronization.
    * 
    * @example
    * 2ACU
@@ -83,7 +93,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   fullComputeUnit?: string;
   /**
    * @remarks
-   * The HUDI configuration of the destination.
+   * The Hudi configuration for the destination.
    * 
    * @example
    * hoodie.keep.min.commits=20
@@ -91,7 +101,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   hudiAdvancedConfig?: string;
   /**
    * @remarks
-   * The incremental synchronization configuration.
+   * The configuration for incremental synchronization.
    * 
    * This parameter is required.
    * 
@@ -101,7 +111,13 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * The number of layers that are parsed for nested JSON fields. Valid values: 0: Nested JSON fields are not parsed. 1: parses one layer. 2: Two layers are parsed. 3: Three layers are parsed. 4: Four layers are parsed. By default, one layer is parsed. For more information about how nested JSON fields are parsed, see the Examples of schema fields parsed with different numbers of layers section of this topic.
+   * The number of nested JSON layers to parse. Valid values:
+   * 0: No parsing is performed.
+   * 1: One layer is parsed.
+   * 2: Two layers are parsed.
+   * 3: Three layers are parsed.
+   * 4: Four layers are parsed.
+   * By default, one layer is parsed. For more information about the JSON parsing policy for nested data, see JSON parsing levels and schema field inference examples.
    * 
    * @example
    * 0
@@ -109,7 +125,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   jsonParseLevel?: number;
   /**
    * @remarks
-   * The ID of the Apache Kafka instance. You can get it in the Kafka console.
+   * The ID of the Kafka instance. Obtain the ID from the Kafka console.
    * 
    * @example
    * xxx
@@ -117,7 +133,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   kafkaClusterId?: string;
   /**
    * @remarks
-   * Kafka Topic ID. You can get it in the Kafka console.
+   * The ID of the Kafka topic. Obtain the ID from the Kafka console.
    * 
    * @example
    * test
@@ -133,7 +149,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   lakehouseId?: number;
   /**
    * @remarks
-   * The maximum number of records to fetch in a single batch.
+   * The number of entries to consume in a single batch.
    * 
    * @example
    * 50000
@@ -141,7 +157,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   maxOffsetsPerTrigger?: number;
   /**
    * @remarks
-   * The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
+   * The destination lakehouse address. This must be a complete OSS path.
    * 
    * @example
    * oss://test-xx-zzz/yyy/
@@ -149,7 +165,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   ossLocation?: string;
   /**
    * @remarks
-   * The format of the output data.
+   * The output data format.
    * 
    * @example
    * HUDI
@@ -165,7 +181,16 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   partitionSpecsShrink?: string;
   /**
    * @remarks
-   * The primary key settings. Contains the uuid policy and mapping policy. The explanation is as follows. Uuid policy: "Strategy": "uuid". Mapping policy: "Strategy": "mapping", "Values":[ "f1", "f2" ], "RecordVersionField","xxx" The meaning of the RecordVersionField is the HUDI record version.
+   * The primary key settings. This parameter supports the UUID policy and the mapping policy. The policies are described as follows.
+   * UUID policy: "Strategy": "uuid".
+   * Mapping policy:
+   * "Strategy": "mapping",
+   * "Values":[
+   * "f1",
+   * "f2"
+   * ],
+   * "RecordVersionField","xxx"
+   * \\`RecordVersionField\\` specifies the Hudi record version.
    * 
    * @example
    * "Strategy": "mapping"
@@ -173,7 +198,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   primaryKeyDefinition?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -183,7 +208,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * This parameter is required.
    * 
@@ -193,7 +218,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * 地域ID。
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -201,7 +226,10 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * Specifies the position from which to start consuming messages. Valid values: begin_cursor/end_cursor/timestamp Each corresponds to the earliest /latest /specified time respectively.
+   * The initial consumer offset for Kafka.
+   * Valid values:
+   * begin_cursor, end_cursor, and timestamp.
+   * These values correspond to the earliest offset, the latest offset, and a specified time.
    * 
    * This parameter is required.
    * 
@@ -211,7 +239,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   startingOffsets?: string;
   /**
    * @remarks
-   * The name of the user-defined table.
+   * The user-defined name of the table.
    * 
    * This parameter is required.
    * 
@@ -221,7 +249,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The rules for generating the destination database.
+   * The generation rule for the destination.
    * 
    * @example
    * xxx
@@ -229,7 +257,7 @@ export class CreateApsKafkaHudiJobShrinkRequest extends $dara.Model {
   targetGenerateRule?: string;
   /**
    * @remarks
-   * The destination type.
+   * The type of the destination.
    * 
    * @example
    * OSS

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The download job ID.
+   * The ID of the download task.
    * 
    * @example
    * 636890
@@ -13,7 +13,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   downloadId?: number;
   /**
    * @remarks
-   * The error message returned if the download job failed.
+   * The exception message returned if the download task fails.
    * 
    * @example
    * The query result is empty.
@@ -29,11 +29,13 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The status of the download job. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
+   * - **running**: The task is in progress.
+   * 
+   * - **finished**: The task is complete.
+   * 
+   * - **failed**: The task failed.
    * 
    * @example
    * finished
@@ -41,7 +43,7 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The download URL of the file.
+   * The download URL of the result file.
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -74,10 +76,17 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $dara.Model {
 }
 
 export class DescribeDownloadRecordsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication failure message.
+   * 
+   * @example
+   * Authentication failed.
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The queried download tasks.
+   * A list of download tasks.
    */
   records?: DescribeDownloadRecordsResponseBodyRecords[];
   /**

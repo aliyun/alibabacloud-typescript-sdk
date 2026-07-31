@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The standard account of the cluster.
+   * A standard database account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * ID of the cluster. Applies to Enterprise Edition, Basic Edition, or Data Lakehouse Edition clusters.
    * 
    * This parameter is required.
    * 
@@ -25,19 +25,23 @@ export class BindAccountRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
-   * 
-   * This parameter is required.
+   * ID of the Alibaba Cloud RAM user to bind.
    * 
    * @example
    * 1444832459****
    */
   ramUser?: string;
+  /**
+   * @remarks
+   * List of Alibaba Cloud RAM user IDs to bind. You can bind only one RAM user at a time. If you specify this parameter, the RamUser parameter is ignored.
+   */
+  ramUserList?: string[];
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
       ramUser: 'RamUser',
+      ramUserList: 'RamUserList',
     };
   }
 
@@ -46,10 +50,14 @@ export class BindAccountRequest extends $dara.Model {
       accountName: 'string',
       DBClusterId: 'string',
       ramUser: 'string',
+      ramUserList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.ramUserList)) {
+      $dara.Model.validateArray(this.ramUserList);
+    }
     super.validate();
   }
 

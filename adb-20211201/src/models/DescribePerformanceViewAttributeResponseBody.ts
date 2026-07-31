@@ -250,7 +250,7 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
    * The name of the view.
    * 
    * @example
-   * Basic
+   * Custom-All metrics-2 columns-Linked
    */
   viewName?: string;
   static names(): { [key: string]: string } {

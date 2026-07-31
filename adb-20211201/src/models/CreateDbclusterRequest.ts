@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The value of N for each tag pair must be unique and must be a consecutive integer that starts from 1. The value of `Tag.N.Key` corresponds to the value of `Tag.N.Value`.
    * 
-   * >  The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * testkey1
@@ -15,9 +15,9 @@ export class CreateDBClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * The tag value. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The value of N for each tag pair must be unique and must be a consecutive integer that starts from 1. The value of `Tag.N.Key` corresponds to the value of `Tag.N.Value`.
    * 
-   * >  The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * > The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * test1
@@ -48,10 +48,20 @@ export class CreateDBClusterRequestTag extends $dara.Model {
 
 export class CreateDBClusterRequest extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  AINodeNumber?: number;
+  /**
+   * @example
+   * ADB.MLPlus.4
+   */
+  AINodeSpec?: string;
+  /**
    * @remarks
-   * The ID of the backup set that you want to use to restore data.
+   * The ID of the backup set used for restoration from a backup set.
    * 
-   * >  You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup sets of the cluster.
+   * > You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup list of the cluster.
    * 
    * @example
    * 1880808684
@@ -59,9 +69,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   backupSetId?: string;
   /**
    * @remarks
-   * The region ID of the source cluster.
-   * 
-   * >  This parameter must be specified for cloning clusters across regions.
+   * The region of the source cluster.
+   * > This parameter is required for cross-region cloning.
    * 
    * @example
    * cn-beijing
@@ -69,9 +78,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   cloneSourceRegionId?: string;
   /**
    * @remarks
-   * The amount of reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
-   * 
-   * >  This parameter must be specified with a unit.
+   * The compute reserved resources. Valid values: 0 ACU to 4096 ACU, in increments of 16. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+   * > Include the unit when specifying this parameter.
    * 
    * @example
    * 16ACU
@@ -80,9 +88,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the cluster.
-   * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description must be 2 to 256 characters in length
+   * - The description cannot start with `http://` or `https://`.
+   * - The description must be 2 to 256 characters in length.
    * 
    * @example
    * test
@@ -90,7 +97,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The network type of the cluster. Set the value to **VPC**.
+   * The network type of the cluster. Only **VPC** (Virtual Private Cloud) is supported.
    * 
    * @example
    * VPC
@@ -98,7 +105,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The version of the cluster. Set the value to **5.0**.
+   * The version of the Data Lakehouse Edition cluster. Valid values: **5.0**.
    * 
    * This parameter is required.
    * 
@@ -108,7 +115,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether to enable cloud disk encryption.
    * 
    * @example
    * false
@@ -116,21 +123,29 @@ export class CreateDBClusterRequest extends $dara.Model {
   diskEncryption?: boolean;
   /**
    * @remarks
-   * Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
-   * 
-   * *   **true** (default)
-   * *   **false**
+   * Specifies whether to allocate all compute reserved resources to the default resource group (user_default). Valid values:
+   * - **true** (default): All compute reserved resources are allocated to the default resource group.
+   * - **false**: Not all compute reserved resources are allocated to the default resource group.
    * 
    * @example
    * true
    */
   enableDefaultResourcePool?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable SSL encryption. Valid values:
+   * 
+   * - **true**: SSL encryption is enabled.
+   * - **false**: SSL encryption is disabled.
+   * 
+   * @example
+   * false
+   */
   enableSSL?: boolean;
   /**
    * @remarks
-   * The ID of the key that is used to encrypt disk data.
-   * 
-   * >  This parameter must be specified only when disk encryption is enabled.
+   * The ID of the key used to encrypt cloud disk data.
+   * > This parameter is used only when cloud disk encryption is enabled for the AnalyticDB for MySQL cluster.
    * 
    * @example
    * e1935511-cf88-1123-a0f8-1be8d251****
@@ -138,10 +153,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   kmsId?: string;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription.
    * 
    * This parameter is required.
    * 
@@ -152,11 +167,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription type of the subscription cluster. Valid values:
+   * - **Year**: subscription on a yearly basis.
+   * - **Month**: subscription on a monthly basis.
    * 
-   * *   **Year**: subscription on a yearly basis.
-   * *   **Month**: subscription on a monthly basis.
-   * 
-   * >  This parameter must be specified when PayType is set to Prepaid.
+   * > This parameter is required when PayType is set to Prepaid.
    * 
    * @example
    * Month
@@ -164,10 +178,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The product form of the cluster. Valid values:
-   * 
-   * *   **IntegrationForm**: integrated.
-   * *   **LegacyForm**: Data Lakehouse Edition.
+   * The product form. Valid values:
+   * - **IntegrationForm**: integrated form.
+   * - **LegacyForm**: Data Lakehouse Edition.
    * 
    * @example
    * LegacyForm
@@ -175,12 +188,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   productForm?: string;
   /**
    * @remarks
-   * The edition of the cluster. Valid values:
-   * 
-   * *   **BasicVersion**: Basic Edition.
-   * *   **EnterpriseVersion**: Enterprise Edition.
-   * 
-   * >  This parameter must be specified only when ProductForm is set to IntegrationForm.
+   * The product version. Valid values:
+   * - **BasicVersion**: Basic Edition.
+   * - **EnterpriseVersion**: Enterprise Edition.
+   * > This parameter is required only when ProductForm is set to IntegrationForm.
    * 
    * @example
    * BasicVersion
@@ -188,9 +199,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specific Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -200,12 +210,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of reserved resource nodes.
-   * 
-   * *   For Enterprise Edition, the default value is 3 and the step size is 3.
-   * *   For Basic Edition, the default value is 1.
-   * 
-   * >  This parameter must be specified only when ProductForm is set to IntegrationForm.
+   * The number of reserved nodes. 
+   * - Enterprise Edition uses 3 nodes by default, in increments of 3.
+   * - Basic Edition uses 1 node by default.
+   * > This parameter is required only when ProductForm is set to IntegrationForm.
    * 
    * @example
    * 3
@@ -213,7 +221,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   reservedNodeCount?: number;
   /**
    * @remarks
-   * The specifications of reserved resource nodes. Unit: ACUs.
+   * The node specifications of reserved nodes, in ACUs.
    * 
    * @example
    * 8ACU
@@ -237,10 +245,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   restoreToTime?: string;
   /**
    * @remarks
-   * The method that you want to use to restore data. Valid values:
-   * 
-   * *   **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
-   * *   **timepoint**: restores data to a point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
+   * The restoration method. Valid values:
+   * * **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
+   * * **timepoint**: restores data to a specific point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
    * 
    * @example
    * backup
@@ -248,9 +255,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The ID of the secondary vSwitch.
-   * 
-   * >  You cannot set this parameter to a value that is the same as that of the VSwitchId parameter.
+   * The secondary vSwitch ID.
+   * > The value of this parameter must be different from the value of the VSwitchId parameter.
    * 
    * @example
    * vsw-bp1aadw9k19x451gx****
@@ -258,9 +264,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   secondaryVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the secondary zone.
-   * 
-   * >  You cannot set this parameter to a value that is the same as that of the ZoneId parameter.
+   * The secondary zone ID.
+   * > The value of this parameter must be different from the value of the ZoneId parameter.
    * 
    * @example
    * cn-beijing-h
@@ -268,7 +273,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The ID of the source AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * The instance ID of the source AnalyticDB for MySQL Data Warehouse Edition cluster. If this parameter is specified, the Data Lakehouse Edition cluster is used to recover from the Data Warehouse Edition cluster.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -276,9 +281,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   sourceDbClusterId?: string;
   /**
    * @remarks
-   * The amount of reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
-   * 
-   * >  This parameter must be specified with a unit.
+   * The storage reserved resources. Valid values: 0 ACU to 2064 ACU, in increments of 24. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+   * > Include the unit when specifying this parameter.
    * 
    * @example
    * 24ACU
@@ -286,26 +290,24 @@ export class CreateDBClusterRequest extends $dara.Model {
   storageResource?: string;
   /**
    * @remarks
-   * The tags to add to the cluster.
+   * The list of tags.
    */
   tag?: CreateDBClusterRequestTag[];
   /**
    * @remarks
-   * The subscription period of the subscription cluster.
+   * The subscription duration of the subscription cluster. Valid values:
+   * - When **Period** is set to Year, the value of UsedTime ranges from 1 to 3 (integer).
+   * - When **Period** is set to Month, the value of UsedTime ranges from 1 to 9 (integer).
    * 
-   * *   Valid values when Period is set to Year: 1, 2, and 3 (integer)
-   * *   Valid values when Period is set to Month: 1 to 9 (integer)
-   * 
-   * > * This parameter is required if the PayType parameter is set to Prepaid.
-   * > * Longer subscription periods offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
+   * > This parameter is required when PayType is set to **Prepaid**.
    * 
    * @example
-   * 1
+   * 3
    */
   usedTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the cluster.
+   * The virtual private cloud (VPC) ID.
    * 
    * This parameter is required.
    * 
@@ -315,7 +317,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the cluster.
+   * The vSwitch ID.
    * 
    * This parameter is required.
    * 
@@ -325,9 +327,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
+   * The zone ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the zone ID of a specific Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -337,6 +338,8 @@ export class CreateDBClusterRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AINodeNumber: 'AINodeNumber',
+      AINodeSpec: 'AINodeSpec',
       backupSetId: 'BackupSetId',
       cloneSourceRegionId: 'CloneSourceRegionId',
       computeResource: 'ComputeResource',
@@ -371,6 +374,8 @@ export class CreateDBClusterRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AINodeNumber: 'number',
+      AINodeSpec: 'string',
       backupSetId: 'string',
       cloneSourceRegionId: 'string',
       computeResource: 'string',

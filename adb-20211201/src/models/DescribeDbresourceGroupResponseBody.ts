@@ -2,8 +2,119 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  authNodeNum?: string;
+  /**
+   * @example
+   * 8ACU
+   */
+  authNodeSpec?: string;
+  /**
+   * @example
+   * 1
+   */
+  insertNodeNum?: string;
+  /**
+   * @example
+   * 8ACU
+   */
+  insertNodeSpec?: string;
+  /**
+   * @example
+   * 10
+   */
+  selectNodeCacheSize?: string;
+  /**
+   * @example
+   * 1
+   */
+  selectNodeNum?: string;
+  /**
+   * @example
+   * 8ACU
+   */
+  selectNodeSpec?: string;
+  /**
+   * @example
+   * 100
+   */
+  storageNodeDiskSize?: string;
+  /**
+   * @example
+   * essd_pl1
+   */
+  storageNodeDiskType?: string;
+  /**
+   * @example
+   * 2
+   */
+  storageNodeNum?: string;
+  /**
+   * @example
+   * 8ACU
+   */
+  storageNodeSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authNodeNum: 'AuthNodeNum',
+      authNodeSpec: 'AuthNodeSpec',
+      insertNodeNum: 'InsertNodeNum',
+      insertNodeSpec: 'InsertNodeSpec',
+      selectNodeCacheSize: 'SelectNodeCacheSize',
+      selectNodeNum: 'SelectNodeNum',
+      selectNodeSpec: 'SelectNodeSpec',
+      storageNodeDiskSize: 'StorageNodeDiskSize',
+      storageNodeDiskType: 'StorageNodeDiskType',
+      storageNodeNum: 'StorageNodeNum',
+      storageNodeSpec: 'StorageNodeSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authNodeNum: 'string',
+      authNodeSpec: 'string',
+      insertNodeNum: 'string',
+      insertNodeSpec: 'string',
+      selectNodeCacheSize: 'string',
+      selectNodeNum: 'string',
+      selectNodeSpec: 'string',
+      storageNodeDiskSize: 'string',
+      storageNodeDiskType: 'string',
+      storageNodeNum: 'string',
+      storageNodeSpec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules extends $dara.Model {
+  /**
+   * @remarks
+   * The end time, specified as a cron expression. The interval must be at least 1 hour.
+   * 
+   * @example
+   * 0 0 3 * * ?
+   */
   endCronExpression?: string;
+  /**
+   * @remarks
+   * The start time, specified as a cron expression. The interval must be at least 1 hour.
+   * 
+   * @example
+   * 0 0 2 * * ?
+   */
   startCronExpression?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +140,18 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules ex
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the plan is enabled.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The list of rules.
+   */
   rules?: DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules[];
   static names(): { [key: string]: string } {
     return {
@@ -59,16 +181,25 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan extends
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector extends $dara.Model {
   /**
+   * @remarks
+   * The image.
+   * 
    * @example
    * lab2.10.0-ray2.43.0
    */
   image?: string;
   /**
+   * @remarks
+   * The inference engine.
+   * 
    * @example
    * vLLM
    */
   inferenceEngine?: string;
   /**
+   * @remarks
+   * The LLM model.
+   * 
    * @example
    * Deepseek-R1
    */
@@ -100,16 +231,25 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImag
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Ray application name.
+   * 
    * @example
    * app01
    */
   appName?: string;
   /**
+   * @remarks
+   * The Ray application type.
+   * 
    * @example
    * IsaacLab
    */
   appType?: string;
   /**
+   * @remarks
+   * The image configuration.
+   * 
    * **if can be null:**
    * true
    */
@@ -144,11 +284,17 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig ext
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts extends $dara.Model {
   /**
+   * @remarks
+   * The mount path.
+   * 
    * @example
    * /mnt/data01
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The storage ID.
+   * 
    * @example
    * 1
    */
@@ -178,36 +324,57 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups extends $dara.Model {
   /**
+   * @remarks
+   * The allocation unit.
+   * 
    * @example
    * 1
    */
   allocateUnit?: string;
   /**
+   * @remarks
+   * The name of the Ray worker group.
+   * 
    * @example
    * g01
    */
   groupName?: string;
   /**
+   * @remarks
+   * The maximum number of workers.
+   * 
    * @example
    * 1
    */
   maxWorkerQuantity?: number;
   /**
+   * @remarks
+   * The minimum number of workers.
+   * 
    * @example
    * 1
    */
   minWorkerQuantity?: number;
   /**
+   * @remarks
+   * The disk size per worker.
+   * 
    * @example
    * 100G
    */
   workerDiskCapacity?: string;
   /**
+   * @remarks
+   * The worker specification name.
+   * 
    * @example
    * large
    */
   workerSpecName?: string;
   /**
+   * @remarks
+   * The Ray worker resource type.
+   * 
    * @example
    * CPU
    */
@@ -247,36 +414,104 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dara.Model {
   /**
+   * @remarks
+   * The Ray application configuration.
+   * 
    * **if can be null:**
    * true
    */
   appConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig;
+  /**
+   * @remarks
+   * The Ray cluster type. Valid values:
+   * 
+   * - BASIC: basic type, non-high-availability
+   * 
+   * - HIGH_AVAILABILITY: high-availability type
+   * 
+   * @example
+   * BASIC
+   */
   category?: string;
   /**
+   * @remarks
+   * Indicates whether ENI is enabled.
+   * 
    * **if can be null:**
    * false
    */
   enableUserEni?: boolean;
+  /**
+   * @remarks
+   * The allocation unit of the head node.
+   * 
+   * @example
+   * 1
+   */
   headAllocateUnit?: string;
+  /**
+   * @remarks
+   * The disk size of the head node.
+   * 
+   * @example
+   * 100Gi
+   */
   headDiskCapacity?: string;
+  /**
+   * @remarks
+   * The node specifications of the head node.
+   * 
+   * @example
+   * ADB.MLLarge.2
+   */
   headSpec?: string;
+  /**
+   * @remarks
+   * The resource type of the head node.
+   * 
+   * @example
+   * cpu
+   */
   headSpecType?: string;
   /**
+   * @remarks
+   * The Ray cluster address.
+   * 
    * @example
    * http://ray-cluster-address.example.com
    */
   rayClusterAddress?: string;
   /**
+   * @remarks
+   * The Ray Dashboard address.
+   * 
    * @example
    * http://ray-dashboard-address.example.com
    */
   rayDashboardAddress?: string;
   /**
+   * @remarks
+   * The Ray Grafana address.
+   * 
    * @example
    * http://ray-grafana-address.example.com
    */
   rayGrafanaAddress?: string;
+  /**
+   * @example
+   * 1.2.3.4:8100
+   */
+  rayServePublicAddress?: string;
+  /**
+   * @remarks
+   * The list of storage mounts.
+   */
   storageMounts?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts[];
+  userDefinedRequirements?: string;
+  /**
+   * @remarks
+   * The list of Ray worker groups.
+   */
   workerGroups?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -290,7 +525,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
       rayClusterAddress: 'RayClusterAddress',
       rayDashboardAddress: 'RayDashboardAddress',
       rayGrafanaAddress: 'RayGrafanaAddress',
+      rayServePublicAddress: 'RayServePublicAddress',
       storageMounts: 'StorageMounts',
+      userDefinedRequirements: 'UserDefinedRequirements',
       workerGroups: 'WorkerGroups',
     };
   }
@@ -307,7 +544,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
       rayClusterAddress: 'string',
       rayDashboardAddress: 'string',
       rayGrafanaAddress: 'string',
+      rayServePublicAddress: 'string',
       storageMounts: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts },
+      userDefinedRequirements: 'string',
       workerGroups: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups },
     };
   }
@@ -333,7 +572,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
    * user_default
@@ -341,7 +580,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
   groupName?: string;
   /**
    * @remarks
-   * The execution duration of the query. Unit: milliseconds.
+   * The query execution time threshold. Unit: milliseconds (ms).
    * 
    * @example
    * 180000
@@ -349,7 +588,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
   queryTime?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * job
@@ -381,26 +620,47 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Mo
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
+  atmConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig;
+  /**
+   * @remarks
+   * The automatic stop interval, in the format of a number followed by m (minutes). The value ranges from 0m or 5m to 10080m. A value of 0m indicates that automatic stop is disabled.
+   * 
+   * @example
+   * 0m
+   */
   autoStopInterval?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The classification of the resource group. Valid values:
+   * 
+   * - SQL
+   * - SparkSQL
+   * - MultiCluster
+   * - AI
    * 
    * @example
-   * N/A
+   * SQL
+   */
+  classification?: string;
+  /**
+   * @remarks
+   * A reserved parameter. Not applicable.
+   * 
+   * @example
+   * Reserved parameter
    */
   clusterMode?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. Not applicable.
    * 
    * @example
-   * N/A
+   * Reserved parameter
    */
   clusterSizeResource?: string;
   /**
    * @remarks
-   * The time when the resource group was created. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+   * The time when the resource group was created. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
    * 
    * @example
    * 2022-08-29T03:34:30Z
@@ -408,7 +668,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The minimum amount of elastic computing resources.
+   * The minimum elastic computing resources. Unit: ACUs.
    * 
    * @example
    * 16ACU
@@ -416,23 +676,37 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   elasticMinComputeResource?: string;
   /**
    * @remarks
-   * Indicates whether the preemptible instance feature is enabled for the resource group. After the preemptible instance feature is enabled, you are charged for resources at a lower unit price but the resources are probably released. Valid values:
+   * Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
+   * - **True**: The spot instance feature is enabled.
+   * - **False**: The spot instance feature is disabled.
    * 
-   * *   **True**
-   * *   **False**
-   * 
-   * The True value is returned only for job resource groups.
+   * Only Job-type resource groups can be set to True.
    * 
    * @example
    * True
    */
   enableSpot?: string;
+  /**
+   * @remarks
+   * The engine type.
+   * 
+   * @example
+   * AnalyticDB
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The engine parameters.
+   */
   engineParams?: { [key: string]: any };
+  /**
+   * @remarks
+   * The GPU time-sharing elastic plan.
+   */
   gpuElasticPlan?: DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan;
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
    * test1
@@ -440,12 +714,10 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the resource group. Valid values:
-   * 
-   * *   **Interactive**
-   * *   **Job**
-   * 
-   * >  For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+   * The resource group type. Valid values:
+   * - **Interactive**
+   * - **Job**
+   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job
@@ -453,7 +725,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The Resource Access Management (RAM) user that is associated with the resource group.
+   * The Resource Access Management (RAM) users attached to the resource group.
    * 
    * @example
    * testb,testc
@@ -461,74 +733,122 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   groupUsers?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. Not applicable.
    * 
    * @example
-   * N/A
+   * Reserved parameter
    */
   maxClusterCount?: number;
   /**
    * @remarks
-   * The maximum amount of reserved computing resources.
+   * The maximum reserved computing resources. Unit: ACUs.
    * 
    * @example
    * 512ACU
    */
   maxComputeResource?: string;
+  /**
+   * @remarks
+   * The maximum number of GPUs.
+   * 
+   * @example
+   * 2
+   */
   maxGpuQuantity?: number;
   /**
    * @remarks
+   * The job routing rule message.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SUCCESS
    */
   message?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. Not applicable.
    * 
    * @example
-   * N/A
+   * Reserved parameter
    */
   minClusterCount?: number;
   /**
    * @remarks
-   * The minimum amount of reserved computing resources.
+   * The minimum reserved computing resources. Unit: ACUs.
    * 
    * @example
    * 0ACU
    */
   minComputeResource?: string;
+  /**
+   * @remarks
+   * The minimum number of GPUs.
+   * 
+   * @example
+   * 1
+   */
   minGpuQuantity?: number;
+  /**
+   * @remarks
+   * The Ray configuration information.
+   */
   rayConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig;
   /**
    * @remarks
-   * The job resubmission rules.
+   * The job routing rules.
    */
   rules?: DescribeDBResourceGroupResponseBodyGroupsInfoRules[];
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved parameter. Not applicable.
    * 
    * @example
-   * N/A
+   * Reserved parameter
    */
   runningClusterCount?: number;
+  /**
+   * @remarks
+   * The scale-out policy of the resource group. Valid values:
+   * 
+   * - AutoScaling: enables the AutoScaling automatic scaling policy.
+   * - Disable: disables automatic scaling.
+   * - MultiCluster: enables the MultiCluster automatic scaling policy.
+   * 
+   * @example
+   * AutoScaling
+   */
+  scalePolicy?: string;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * ADB.MLLarge.2
+   */
   specName?: string;
   /**
    * @remarks
    * The status of the resource group. Valid values:
-   * 
-   * *   **creating**: The resource group is being created.
-   * *   **ok**: The resource group is created.
-   * *   **pendingdelete**: The resource group is pending to be deleted.
+   * - **creating**: being created
+   * - **ok**: created
+   * - **pendingdelete**: pending deletion
    * 
    * @example
    * ok
    */
   status?: string;
+  /**
+   * @remarks
+   * The name of the target resource group.
+   * 
+   * @example
+   * test
+   */
   targetResourceGroupName?: string;
   /**
    * @remarks
-   * The time when the resource group was updated. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+   * The time when the resource group was last updated. The time is in UTC and in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i>.
    * 
    * @example
    * 2022-08-31T03:34:30Z
@@ -536,7 +856,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      atmConfig: 'AtmConfig',
       autoStopInterval: 'AutoStopInterval',
+      classification: 'Classification',
       clusterMode: 'ClusterMode',
       clusterSizeResource: 'ClusterSizeResource',
       createTime: 'CreateTime',
@@ -558,6 +880,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       rayConfig: 'RayConfig',
       rules: 'Rules',
       runningClusterCount: 'RunningClusterCount',
+      scalePolicy: 'ScalePolicy',
       specName: 'SpecName',
       status: 'Status',
       targetResourceGroupName: 'TargetResourceGroupName',
@@ -567,7 +890,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      atmConfig: DescribeDBResourceGroupResponseBodyGroupsInfoAtmConfig,
       autoStopInterval: 'string',
+      classification: 'string',
       clusterMode: 'string',
       clusterSizeResource: 'string',
       createTime: 'string',
@@ -589,6 +914,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       rayConfig: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig,
       rules: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRules },
       runningClusterCount: 'number',
+      scalePolicy: 'string',
       specName: 'string',
       status: 'string',
       targetResourceGroupName: 'string',
@@ -597,6 +923,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   }
 
   validate() {
+    if(this.atmConfig && typeof (this.atmConfig as any).validate === 'function') {
+      (this.atmConfig as any).validate();
+    }
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
     }
@@ -620,7 +949,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
 export class DescribeDBResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried resource groups.
+   * The list of resource group information.
    */
   groupsInfo?: DescribeDBResourceGroupResponseBodyGroupsInfo[];
   /**

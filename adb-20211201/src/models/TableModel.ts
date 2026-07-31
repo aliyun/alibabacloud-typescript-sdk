@@ -6,55 +6,367 @@ import { StorageDescriptorModel } from "./StorageDescriptorModel";
 
 
 export class TableModel extends $dara.Model {
+  /**
+   * @remarks
+   * The archive type.
+   * 
+   * @example
+   * ArchiveType
+   */
   archiveType?: string;
+  /**
+   * @remarks
+   * The block size.
+   * 
+   * @example
+   * 64
+   */
   blockSize?: number;
+  /**
+   * @remarks
+   * The bucket ID.
+   * 
+   * @example
+   * 16
+   */
   bucket?: number;
+  /**
+   * @remarks
+   * The number of buckets.
+   * 
+   * @example
+   * 16
+   */
   bucketCount?: number;
+  /**
+   * @remarks
+   * The column information.
+   */
   cols?: FieldSchemaModel[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * description
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The compression method.
+   * 
+   * @example
+   * Compression
+   */
   compression?: string;
+  /**
+   * @remarks
+   * The time when the table was created.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   createTime?: string;
   createdBySource?: string;
   createdByUser?: string;
+  /**
+   * @remarks
+   * The current version.
+   * 
+   * @example
+   * 2
+   */
   currentVersion?: number;
+  /**
+   * @remarks
+   * The name of the logical database.
+   * 
+   * @example
+   * example
+   */
   dbName?: string;
+  /**
+   * @remarks
+   * Indicates whether the dictionary is encrypted.
+   * 
+   * @example
+   * false
+   */
   dictEncode?: boolean;
+  /**
+   * @remarks
+   * The distribution columns.
+   */
   distributeColumns?: FieldSchemaModel[];
+  /**
+   * @remarks
+   * The distribution type.
+   * 
+   * @example
+   * DistributeType
+   */
   distributeType?: string;
+  /**
+   * @remarks
+   * Indicates whether DFS is allowed.
+   * 
+   * @example
+   * false
+   */
   enableDfs?: boolean;
+  /**
+   * @remarks
+   * The number of hot partitions.
+   * 
+   * @example
+   * 32
+   */
   hotPartitionCount?: number;
+  /**
+   * @remarks
+   * The indexes.
+   */
   indexes?: CstoreIndexModel[];
+  /**
+   * @remarks
+   * Indicates whether the index is a full index.
+   * 
+   * @example
+   * true
+   */
   isAllIndex?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the table is a full-text index dictionary.
+   * 
+   * @example
+   * false
+   */
   isFulltextDict?: boolean;
+  /**
+   * @remarks
+   * The maximum column ID.
+   * 
+   * @example
+   * MaxColumnId
+   */
   maxColumnId?: number;
+  /**
+   * @remarks
+   * The parameters.
+   */
   parameters?: { [key: string]: string };
+  /**
+   * @remarks
+   * The information about the partition key column.
+   * 
+   * @example
+   * colName
+   */
   partitionColumn?: string;
+  /**
+   * @remarks
+   * The number of partitions.
+   * 
+   * @example
+   * 16
+   */
   partitionCount?: number;
+  /**
+   * @remarks
+   * The partition keys.
+   */
   partitionKeys?: FieldSchemaModel[];
+  /**
+   * @remarks
+   * The partition type.
+   * 
+   * @example
+   * PartitionType
+   */
   partitionType?: string;
+  /**
+   * @remarks
+   * The name of the physical database.
+   * 
+   * @example
+   * physicalDatabaseName
+   */
   physicalDatabaseName?: string;
+  /**
+   * @remarks
+   * The name of the physical table.
+   * 
+   * @example
+   * physicalTableName
+   */
   physicalTableName?: string;
+  /**
+   * @remarks
+   * The previous version.
+   * 
+   * @example
+   * 1
+   */
   previousVersion?: number;
+  /**
+   * @remarks
+   * The raw table name.
+   * 
+   * @example
+   * RawTableName
+   */
   rawTableName?: string;
+  /**
+   * @remarks
+   * The routing columns.
+   */
   routeColumns?: FieldSchemaModel[];
+  /**
+   * @remarks
+   * The effective routing column.
+   */
   routeEffectiveColumn?: FieldSchemaModel;
+  /**
+   * @remarks
+   * The routing type.
+   * 
+   * @example
+   * routeType
+   */
   routeType?: string;
+  /**
+   * @remarks
+   * The routing engine type.
+   * 
+   * @example
+   * RtEngineType
+   */
   rtEngineType?: string;
+  /**
+   * @remarks
+   * Indicates whether to route all indexes.
+   * 
+   * @example
+   * false
+   */
   rtIndexAll?: boolean;
+  /**
+   * @remarks
+   * The routing mode type.
+   * 
+   * @example
+   * RtModeType
+   */
   rtModeType?: string;
+  /**
+   * @remarks
+   * The description of the storage.
+   */
   sd?: StorageDescriptorModel;
+  /**
+   * @remarks
+   * The storage policy.
+   * 
+   * @example
+   * StoragePolicy
+   */
   storagePolicy?: string;
+  /**
+   * @remarks
+   * The information about the subpartition column.
+   * 
+   * @example
+   * SubpartitionColumn
+   */
   subpartitionColumn?: string;
+  /**
+   * @remarks
+   * The number of subpartitions.
+   * 
+   * @example
+   * 64
+   */
   subpartitionCount?: number;
+  /**
+   * @remarks
+   * The subpartition type.
+   * 
+   * @example
+   * SubpartitionColumn
+   */
   subpartitionType?: string;
+  /**
+   * @remarks
+   * The name of the table engine.
+   * 
+   * @example
+   * hive
+   */
   tableEngineName?: string;
+  /**
+   * @remarks
+   * The name of the logical table.
+   * 
+   * @example
+   * tableName
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * The table type.
+   * 
+   * @example
+   * external_table
+   */
   tableType?: string;
+  /**
+   * @remarks
+   * The table ID.
+   * 
+   * @example
+   * 123
+   */
   tblId?: number;
+  /**
+   * @remarks
+   * Indicates whether the table is a temporary table.
+   * 
+   * @example
+   * false
+   */
   temporary?: boolean;
+  /**
+   * @remarks
+   * The time when the table was last updated.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The normalized SQL statement that is used to create the view.
+   * 
+   * @example
+   * ViewExpandedText
+   */
   viewExpandedText?: string;
+  /**
+   * @remarks
+   * The SQL statement used to create the view.
+   * 
+   * @example
+   * ViewOriginalText
+   */
   viewOriginalText?: string;
+  /**
+   * @remarks
+   * The security mode of the view.
+   * 
+   * @example
+   * ViewSecurityMode
+   */
   viewSecurityMode?: string;
   static names(): { [key: string]: string } {
     return {

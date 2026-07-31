@@ -6,8 +6,7 @@ export class DescribeDBClusterStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 

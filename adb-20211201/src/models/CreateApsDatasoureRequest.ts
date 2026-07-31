@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to access Databricks.
+   * The access token.
    * 
    * @example
    * ******
@@ -13,7 +13,7 @@ export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The URL of the workspace.
+   * The workspace URL.
    * 
    * @example
    * xxxxx
@@ -45,7 +45,7 @@ export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
 export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * @example
    * ******
@@ -53,7 +53,7 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The configuration of the host.
+   * The host configuration.
    * 
    * @example
    * ******
@@ -61,7 +61,7 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   hostConfig?: string;
   /**
    * @remarks
-   * The URL of the Hive Metastore.
+   * The MetaStore endpoint.
    * 
    * @example
    * ******
@@ -69,7 +69,7 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   metaStoreUri?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The security group.
    * 
    * @example
    * sg-uf*******h
@@ -115,7 +115,7 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
 export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Apache Kafka instance.
+   * The Kafka instance ID.
    * 
    * @example
    * ******
@@ -123,7 +123,7 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The topic of the Apache Kafka instance.
+   * The assigned Kafka topic name.
    * 
    * @example
    * test
@@ -155,10 +155,10 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
 export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the data source is a cross-account resource. Valid values:
+   * Specifies whether cross-account access is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The current network instance is a cross-account resource.
+   * - **false**: The current network instance is a resource within the current account.
    * 
    * @example
    * false
@@ -166,7 +166,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   across?: boolean;
   /**
    * @remarks
-   * The name of the cross-account role.
+   * The cross-account role.
    * 
    * @example
    * test-role
@@ -174,7 +174,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The cross-account UID.
+   * The UID of the cross-account.
    * 
    * @example
    * 123456789*
@@ -182,7 +182,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The URL used to connect to the custom ApsaraDB RDS for MySQL instance.
+   * The custom RDS endpoint.
    * 
    * @example
    * ****
@@ -214,7 +214,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The security group.
    * 
    * @example
    * sg-******
@@ -222,7 +222,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   securityGroup?: string;
   /**
    * @remarks
-   * The username used to access the instance.
+   * The username.
    * 
    * @example
    * test-user-name
@@ -268,7 +268,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
 export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The OceanBase cluster ID.
    * 
    * @example
    * -
@@ -298,7 +298,7 @@ export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
 export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The URL used to connect to the read-only instance.
+   * The read-only instance endpoint.
    * 
    * @example
    * ******
@@ -314,7 +314,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The password of the database account of the instance.
+   * The password.
    * 
    * @example
    * ******
@@ -330,7 +330,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The security group.
    * 
    * @example
    * sg-******
@@ -338,10 +338,10 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   securityGroup?: string;
   /**
    * @remarks
-   * The name of the database account of the instance.
+   * The username.
    * 
    * @example
-   * user
+   * Username.
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -378,7 +378,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
 export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the data source is a cross-account resource.
+   * Specifies whether cross-account access is enabled.
    * 
    * @example
    * false
@@ -386,7 +386,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   across?: boolean;
   /**
    * @remarks
-   * The name of the cross-account role.
+   * The role name for cross-account access.
    * 
    * @example
    * yyy
@@ -394,7 +394,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The cross-account UID.
+   * The UID of the cross-account.
    * 
    * @example
    * xxxx
@@ -402,7 +402,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The SLS project.
+   * The Simple Log Service (SLS) project.
    * 
    * @example
    * test-project
@@ -410,7 +410,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the source cluster.
    * 
    * @example
    * cn-beijing
@@ -418,7 +418,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * sls logstore。
    * 
    * @example
    * test-store
@@ -468,7 +468,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about the Databricks data source.
+   * The Databricks data source information.
    * 
    * @example
    * -
@@ -476,7 +476,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   databricksInfo?: CreateApsDatasoureRequestDatabricksInfo;
   /**
    * @remarks
-   * The description of the data source.
+   * The data source description.
    * 
    * @example
    * description
@@ -484,7 +484,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   datasourceDescription?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * This parameter is required.
    * 
@@ -494,7 +494,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * This parameter is required.
    * 
@@ -504,7 +504,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   datasourceType?: string;
   /**
    * @remarks
-   * The information about the Hive data source.
+   * The Hive data source information.
    * 
    * @example
    * -
@@ -512,7 +512,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   hiveInfo?: CreateApsDatasoureRequestHiveInfo;
   /**
    * @remarks
-   * The information about the source Apache Kafka instance.
+   * The Kafka information.
    * 
    * @example
    * -
@@ -528,7 +528,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The information about the source PolarDB for MySQL cluster.
+   * The PolarDB for MySQL data source information.
    * 
    * @example
    * -
@@ -536,7 +536,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   polarDBMysqlInfo?: CreateApsDatasoureRequestPolarDBMysqlInfo;
   /**
    * @remarks
-   * The information about the source PolarDB-X instance.
+   * The PolarDB-X data source information.
    * 
    * @example
    * -
@@ -544,7 +544,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   polarDBXInfo?: CreateApsDatasoureRequestPolarDBXInfo;
   /**
    * @remarks
-   * The information about the source ApsaraDB RDS for MySQL instance.
+   * The ApsaraDB RDS for MySQL data source information.
    * 
    * @example
    * -
@@ -562,7 +562,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information about the source Simple Log Service (SLS) instance or cluster.
+   * The Simple Log Service (SLS) information for the data source to be created.
    * 
    * @example
    * -

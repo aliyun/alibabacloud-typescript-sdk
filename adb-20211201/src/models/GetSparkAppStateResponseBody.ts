@@ -24,7 +24,7 @@ export class GetSparkAppStateResponseBodyData extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * amv-clusterxxx
+   * amv-bp1h405854m****
    */
   DBClusterId?: string;
   /**

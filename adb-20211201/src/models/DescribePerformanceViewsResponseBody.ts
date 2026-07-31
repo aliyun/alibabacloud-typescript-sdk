@@ -24,7 +24,7 @@ export class DescribePerformanceViewsResponseBodyViews extends $dara.Model {
    * The name of the view.
    * 
    * @example
-   * Basic
+   * Custom-1
    */
   viewName?: string;
   static names(): { [key: string]: string } {

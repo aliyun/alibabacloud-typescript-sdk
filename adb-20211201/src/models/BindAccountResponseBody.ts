@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * ID of the request.
    * 
    * @example
    * DFF27323-3868-5F8A-917D-5D1D06B6BC0D

@@ -6,23 +6,21 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of AnalyticDB for MySQL clusters in a specific region.
    * 
    * This parameter is required.
    * 
    * @example
-   * amv-bp1r053byu48p
+   * amv-bp1r053by****
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * The language of file titles and error messages. Valid values:
-   * 
-   * *   **zh**: simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * The language of the file title and error messages in the downloaded file. Valid values:
+   * - **zh**: simplified Chinese.
+   * - **en**: English.
+   * - **ja**: Japanese.
+   * - **zh-tw**: traditional Chinese.
    * 
    * @example
    * zh
@@ -31,18 +29,16 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The query ID.
-   * 
-   * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the query ID.
+   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the SQL summary information of a specific AnalyticDB for MySQL cluster, including the query ID.
    * 
    * @example
-   * 2021070216432217201616806503453
+   * 20210702164322172016168****
    */
   processId?: string;
   /**
    * @remarks
-   * The IP address and port number of the AnalyticDB for MySQL frontend node on which the SQL statement is executed.
-   * 
-   * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster, including the IP address and port number of the frontend node.
+   * The IP address and port number of the AnalyticDB for MySQL frontend node that executes the SQL statement.
+   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the SQL summary information of a specific AnalyticDB for MySQL cluster, including the IP address and port number of the frontend node.
    * 
    * @example
    * 192.45.***.***:3145
@@ -50,9 +46,8 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   processRcHost?: string;
   /**
    * @remarks
-   * The execution start time of the SQL statement. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the execution start time of the SQL statement.
+   * The start time of the SQL statement execution. Specify the value as a UNIX timestamp in milliseconds.
+   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the SQL summary information of a specific AnalyticDB for MySQL cluster, including the start time of the SQL statement execution.
    * 
    * @example
    * 1625215402000
@@ -61,12 +56,10 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the SQL statement. Valid values:
-   * 
-   * *   **running**
-   * *   **finished**
-   * *   **failed**
-   * 
-   * >  You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the diagnostic information about SQL statements for an AnalyticDB for MySQL cluster, including the status of the SQL statement.
+   * - **running**: The SQL statement is being executed.
+   * - **finished**: The SQL statement has been executed.
+   * - **failed**: The SQL statement failed to be executed.
+   * > You can call the [DescribeDiagnosisRecords](https://help.aliyun.com/document_detail/308207.html) operation to query the SQL summary information of a specific AnalyticDB for MySQL cluster, including the status of the SQL statement.
    * 
    * @example
    * running
@@ -74,9 +67,8 @@ export class DescribeDiagnosisSQLInfoRequest extends $dara.Model {
   processState?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region IDs supported by AnalyticDB for MySQL.
    * 
    * This parameter is required.
    * 

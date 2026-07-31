@@ -8,7 +8,7 @@ export class GetSparkConfigLogPathResponseBodyData extends $dara.Model {
    * The default log path.
    * 
    * @example
-   * oss://aliyun-oa-adb-spark-1111-oss-cn-hanghzou/spark-logs
+   * oss://aliyun-oa-adb-spark-****-oss-cn-hanghzou/spark-logs
    */
   defaultLogPath?: string;
   /**

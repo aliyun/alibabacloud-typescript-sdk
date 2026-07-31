@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsHiveJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The advanced configurations.
+   * The advanced configuration.
    * 
    * @example
    * -
@@ -13,17 +13,17 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   advancedConfig?: string;
   /**
    * @remarks
-   * The policy to handle tables with the same name in the destination cluster.
+   * The policy for handling databases and tables with the same name at the destination.
    * 
    * @example
    * Intercept: reports error and aborts.
-   * Ignore: ignores and continues migrating the relevant tables.
-   * Skip: skips related tables and only migrates other tables.
+   * Ignore: ignores and continues.
+   * Skip: skips relevant tables.
    */
   conflictStrategy?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The AnalyticDB for MySQL cluster ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The number of AnalyticDB compute units (ACUs) required for data migration.
+   * The number of AnalyticDB compute units (ACUs) required for the migration.
    * 
    * This parameter is required.
    * 
@@ -51,14 +51,14 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   fullComputeUnit?: string;
   /**
    * @remarks
-   * The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
+   * The destination lakehouse address, which is a full OSS path.
    * 
    * This parameter is required.
    */
   ossLocation?: string;
   /**
    * @remarks
-   * The number of tasks that are allowed in parallel.
+   * The number of parallel tasks.
    * 
    * @example
    * 8
@@ -66,9 +66,8 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   parallelism?: number;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID of the O&M event.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the regions and zones supported by AnalyticDB for MySQL, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -88,7 +87,7 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The expression that allows objects to be synchronized.
+   * The expression that specifies the objects allowed for synchronization.
    * 
    * @example
    * *
@@ -96,7 +95,7 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   syncAllowExpression?: string;
   /**
    * @remarks
-   * The expression that denies objects to be synchronized.
+   * The expression that specifies the objects allowed for synchronization.
    * 
    * @example
    * abc
@@ -112,7 +111,7 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The name of the workload.
+   * The workload name.
    * 
    * This parameter is required.
    * 

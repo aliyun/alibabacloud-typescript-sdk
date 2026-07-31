@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $dara.Model {
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * column1
@@ -13,7 +13,7 @@ export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $d
   column?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * db1
@@ -21,7 +21,7 @@ export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $d
   database?: string;
   /**
    * @remarks
-   * The description of the permission object.
+   * The description.
    * 
    * @example
    * a test column
@@ -29,7 +29,7 @@ export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $d
   description?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * tabl1
@@ -65,12 +65,12 @@ export class DescribeAccountPrivilegesResponseBodyDataPrivilegeObject extends $d
 export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The objects on which the permission takes effect, including databases, tables, columns, and additional descriptions.
+   * The privilege object, which specifies the database, table, column, and description.
    */
   privilegeObject?: DescribeAccountPrivilegesResponseBodyDataPrivilegeObject;
   /**
    * @remarks
-   * The permission level of the permission. Valid values: `Global`, `Database`, `Table`, and `Column`. You can call the `DescribeEnabledPrivileges` parameter to query the permission level of a specific permission.
+   * The privilege level. Valid values: `Global`, `Database`, `Table`, and `Column`. The `DescribeEnabledPrivileges` API returns this value.
    * 
    * @example
    * Column
@@ -78,7 +78,7 @@ export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
   privilegeType?: string;
   /**
    * @remarks
-   * The name of the permission. You can call the `DescribeEnabledPrivileges` operation to query the name of the permission.
+   * A list of privileges.
    */
   privileges?: string[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class DescribeAccountPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the permissions.
+   * A list of privilege details.
    */
   data?: DescribeAccountPrivilegesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number. This value matches the `PageNumber` input parameter.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. This value matches the `PageSize` input parameter.
    * 
    * @example
    * 20
@@ -136,7 +136,7 @@ export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DA32480A-E3E5-1BE7-BA98-724551DC04C8
@@ -144,7 +144,7 @@ export class DescribeAccountPrivilegesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count of privileges at the specified privilege level.
    * 
    * @example
    * 100

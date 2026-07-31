@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLWebSocketDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+   * The status code. A value of 200 indicates that the request succeeded.
    * 
    * @example
    * 200
@@ -21,10 +21,11 @@ export class DescribeSQLWebSocketDomainResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The response message.
    * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * - Returns **Success** if the request succeeds.
+   * 
+   * - Returns a specific error code if the request fails.
    * 
    * @example
    * Success
@@ -32,7 +33,7 @@ export class DescribeSQLWebSocketDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier for the request.
    * 
    * @example
    * E03F0806-A67B-5B24-8562-9589F20DEEB5
@@ -40,10 +41,11 @@ export class DescribeSQLWebSocketDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the API call succeeded. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The call succeeded.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

@@ -4,18 +4,78 @@ import { ColDetailModel } from "./ColDetailModel";
 
 
 export class TableDetailModel extends $dara.Model {
+  /**
+   * @remarks
+   * External data source.
+   * 
+   * @example
+   * oss
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * Column information.
+   */
   columns?: ColDetailModel[];
+  /**
+   * @remarks
+   * Creation time.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   createTime?: string;
   createdBySource?: string;
   createdByUser?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * Description
+   */
   description?: string;
   location?: string;
+  /**
+   * @remarks
+   * Owner.
+   * 
+   * @example
+   * abc
+   */
   owner?: string;
   parameters?: { [key: string]: string };
+  /**
+   * @remarks
+   * Logical database name.
+   * 
+   * @example
+   * schemaName
+   */
   schemaName?: string;
+  /**
+   * @remarks
+   * Logical table name.
+   * 
+   * @example
+   * tableName
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * Table type.
+   * 
+   * @example
+   * PHYSICAL_SCHEMA_NAME
+   */
   tableType?: string;
+  /**
+   * @remarks
+   * Update time.
+   * 
+   * @example
+   * 2023-01-05 13:17:55
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsDatasoureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code.
+   * The API status or POP error code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateApsDatasoureResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about the cluster resource usage.
+   * The detailed resource usage of the cluster.
    * 
    * @example
    * 69
@@ -29,7 +29,7 @@ export class CreateApsDatasoureResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code returned. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -37,10 +37,9 @@ export class CreateApsDatasoureResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The additional information of the call result. Valid values:
+   * - If the request was successful, **Success** is returned. 
+   * - If the request failed, a specific error code is returned.
    * 
    * @example
    * OK
@@ -56,10 +55,10 @@ export class CreateApsDatasoureResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the dry run succeeds. Valid values:
+   * The precheck result. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **success**: The check passed.
+   * - **false**: The check failed.
    * 
    * @example
    * True

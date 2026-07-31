@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnabledPrivilegesResponseBodyDataPrivileges extends $dara.Model {
   /**
    * @remarks
-   * The description of the permission.
+   * The permission description.
+   * 
+   * @example
+   * 查询数据
    */
   description?: string;
   /**
    * @remarks
-   * The name of the permission.
+   * The permission name.
    * 
    * @example
    * select
@@ -45,11 +48,14 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $dara.Model {
    * The description of the permission level.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 全局权限
    */
   description?: string;
   /**
    * @remarks
-   * The queried permissions.
+   * The list of supported permissions.
    * 
    * This parameter is required.
    */
@@ -95,7 +101,7 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeEnabledPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried permission level and permissions.
+   * The supported permission levels and the list of permissions.
    */
   data?: DescribeEnabledPrivilegesResponseBodyData[];
   /**

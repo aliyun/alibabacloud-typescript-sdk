@@ -7,7 +7,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key. You can specify N tag keys. The tag key cannot be an empty string. Valid values of N: 1 to 20.
    * 
-   * >  You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
+   * > You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
    * 
    * @example
    * testkey1
@@ -69,7 +69,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The cluster ID. You can specify N cluster IDs. Valid values of N: 1 to 50.
    * 
-   * >  You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
+   * > You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;

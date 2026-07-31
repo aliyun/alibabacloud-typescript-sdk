@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLPatternsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL (Data Lakehouse Edition) cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) API to find the cluster IDs of all AnalyticDB for MySQL (Data Lakehouse Edition) clusters in a specific region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The end of the time range to query. The time must be in UTC and formatted as *yyyy-MM-ddTHH:mm:ssZ*.
    * 
    * > The end time must be later than the start time.
    * 
@@ -27,7 +27,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The keyword that is used for the query.
+   * The keyword for filtering the query results.
    * 
    * @example
    * SELECT
@@ -35,12 +35,15 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language. Valid values:
+   * The response language. Valid values:
    * 
-   * *   **zh** (default): simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * - **zh**: Simplified Chinese (default)
+   * 
+   * - **en**: English
+   * 
+   * - **ja**: Japanese
+   * 
+   * - **zh-tw**: Traditional Chinese
    * 
    * @example
    * zh
@@ -48,26 +51,37 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"AverageQueryTime","Type":"Asc"}]`.
+   * The sort order for the results. Specify this parameter as a JSON string, for example, `[{"Field":"AverageQueryTime","Type":"Asc"}]`. The string consists of the following fields:
    * 
-   * *   `Field` specifies the field by which to sort the query results. Valid values:
+   * - `Field`: the sort field. Valid values:
    * 
-   *     *   `PatternCreationTime`: the earliest commit time of the SQL pattern within the time range to query.
-   *     *   `AverageQueryTime`: the average total amount of time consumed by the SQL pattern within the time range to query.
-   *     *   `MaxQueryTime`: the maximum total amount of time consumed by the SQL pattern within the time range to query.
-   *     *   `AverageExecutionTime`: the average execution duration of the SQL pattern within the time range to query.
-   *     *   `MaxExecutionTime`: the maximum execution duration of the SQL pattern within the time range to query.
-   *     *   `AveragePeakMemory`: the average peak memory usage of the SQL pattern within the time range to query.
-   *     *   `MaxPeakMemory`: the maximum peak memory usage of the SQL pattern within the time range to query.
-   *     *   `AverageScanSize`: the average amount of data scanned based on the SQL pattern within the time range to query.
-   *     *   `MaxScanSize`: the maximum amount of data scanned based on the SQL pattern within the time range to query.
-   *     *   `QueryCount`: the number of queries performed in association with the SQL pattern within the time range to query.
-   *     *   `FailedCount`: the number of failed queries performed in association with the SQL pattern within the time range to query.
+   *   - `PatternCreationTime`: The earliest submission time of the pattern.
    * 
-   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
+   *   - `AverageQueryTime`: The average query time of the pattern.
    * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
+   *   - `MaxQueryTime`: The maximum query time of the pattern.
+   * 
+   *   - `AverageExecutionTime`: The average execution time of the pattern.
+   * 
+   *   - `MaxExecutionTime`: The maximum execution time of the pattern.
+   * 
+   *   - `AveragePeakMemory`: The average peak memory of the pattern.
+   * 
+   *   - `MaxPeakMemory`: The maximum peak memory of the pattern.
+   * 
+   *   - `AverageScanSize`: The average scanned data size of the pattern.
+   * 
+   *   - `MaxScanSize`: The maximum scanned data size of the pattern.
+   * 
+   *   - `QueryCount`: The query count of the pattern.
+   * 
+   *   - `FailedCount`: The failure count of the pattern.
+   * 
+   * - `Type`: the sort order. Valid values (case-insensitive):
+   * 
+   *   - `Asc`: ascending order.
+   * 
+   *   - `Desc`: descending order.
    * 
    * @example
    * [{"Field":"AverageQueryTime","Type":"Asc"}]
@@ -75,7 +89,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Must be an integer greater than 0. Default: 1.
    * 
    * @example
    * 2
@@ -85,10 +99,13 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **10** (default)
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **10** (default)
+   * 
+   * - **30**
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 10
@@ -96,7 +113,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The ID of the region.
    * 
    * This parameter is required.
    * 
@@ -104,17 +121,26 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sqlPatternHash?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The start of the time range to query. The time must be in UTC and formatted as *yyyy-MM-ddTHH:mm:ssZ*.
    * 
-   * > *   Only data within the last 14 days can be queried.
-   * > * The maximum time range that can be specified is 24 hours.
+   * > - Data is available for the last 14 days only.
+   * 
+   * - The time range cannot exceed 24 hours.
    * 
    * @example
    * 2022-09-06T03:06:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The username of the database account used to execute the SQL statements.
+   * 
+   * @example
+   * test_user
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,6 +152,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      sqlPatternHash: 'SqlPatternHash',
       startTime: 'StartTime',
       userName: 'UserName',
     };
@@ -141,6 +168,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      sqlPatternHash: 'number',
       startTime: 'string',
       userName: 'string',
     };

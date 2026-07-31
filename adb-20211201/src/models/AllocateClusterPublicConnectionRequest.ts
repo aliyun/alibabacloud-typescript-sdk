@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the public endpoint.
+   * The prefix of the public connection address.
    * 
-   * *   The prefix can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
-   * *   The prefix can be up to 30 characters in length.
+   * - It must begin with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-).
+   * 
+   * - It must be no more than 30 characters long.
    * 
    * @example
    * test12
@@ -16,7 +17,8 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The cluster ID of an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The cluster ID of a Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -26,20 +28,23 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database engine of the cluster. Valid values:
+   * The database engine. Valid values:
    * 
-   * *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * *   **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+   * 
+   * - **Clickhouse**: the wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       connectionStringPrefix: 'ConnectionStringPrefix',
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -48,6 +53,7 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
       connectionStringPrefix: 'string',
       DBClusterId: 'string',
       engine: 'string',
+      resourceGroupName: 'string',
     };
   }
 

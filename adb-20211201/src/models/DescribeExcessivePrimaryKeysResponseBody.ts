@@ -8,7 +8,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $dar
    * The detection result.
    * 
    * @example
-   * OK
+   * Multiple tables are detected with excessive primary keys.
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $dar
    * The name of the detection item.
    * 
    * @example
-   * test
+   * Excessive primary keys detection
    */
   name?: string;
   /**
@@ -68,7 +68,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $dara.Model 
    * The queried primary key fields.
    * 
    * @example
-   * 2
+   * id,date
    */
   primaryKeyColumns?: string;
   /**
@@ -76,7 +76,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $dara.Model 
    * The number of primary key fields.
    * 
    * @example
-   * 3
+   * 2
    */
   primaryKeyCount?: number;
   /**

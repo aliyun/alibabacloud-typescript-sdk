@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeViewJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * @example
    * am-bp1ub9grke1****
@@ -13,7 +13,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The owner of the view.
+   * The owner.
    * 
    * @example
    * admin
@@ -21,7 +21,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterOwner?: string;
   /**
    * @remarks
-   * The name of the view.
+   * The view name.
    * 
    * @example
    * test_mv
@@ -29,15 +29,14 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterViewName?: string;
   /**
    * @remarks
-   * The type of the view.
+   * The view type.
    * 
    * Valid values:
    * 
-   * \\-VIRTUAL_VIEW
+   * - VIRTUAL_VIEW
+   * - MATERIALIZED_VIEW
    * 
-   * \\-MATERIALIZED_VIEW
-   * 
-   * This parameter is empty by default.
+   * Default value: empty.
    * 
    * @example
    * MATERIALIZED_VIEW
@@ -45,16 +44,16 @@ export class DescribeViewJobsRequest extends $dara.Model {
   filterViewType?: string;
   /**
    * @remarks
-   * The field used for sorting. Valid values for Type:
+   * The sort field.
    * 
-   * *   Asc.
-   * *   Desc.
+   * Valid values for the sort order:
+   * - Asc
+   * - Desc
    * 
-   * Valid values for Field:
-   * 
-   * *   StartTime.
-   * *   EndTime;
-   * *   ScheduledStartTime;
+   * Valid values for the sort field:
+   * - StartTime
+   * - EndTime
+   * - ScheduledStartTime
    * 
    * @example
    * {\\"Field\\":\\"StartTime\\",\\"Type\\":\\"Desc\\"}
@@ -70,7 +69,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * @example
    * 30

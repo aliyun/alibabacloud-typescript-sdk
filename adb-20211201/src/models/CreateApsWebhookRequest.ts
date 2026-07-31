@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsWebhookRequestWebhook extends $dara.Model {
   /**
    * @remarks
-   * Signed key.
+   * The signing key.
    * 
    * @example
    * ***
@@ -13,7 +13,7 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the webhook.
+   * The webhook name.
    * 
    * @example
    * MyWebhookName
@@ -21,7 +21,7 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request path.
+   * The request URL.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,10 @@ export class CreateApsWebhookRequestWebhook extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The notification method. Valid values: dingtalk. lark.
+   * The notification method. Valid values:
+   * 
+   * - dingtalk: DingTalk.
+   * - lark: Lark.
    * 
    * This parameter is required.
    * 
@@ -79,7 +82,9 @@ export class CreateApsWebhookRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The type of the task. Valid value: Task type. SLS or OSS Export Task: ResultExport.
+   * The task type. Valid values:
+   * 
+   * ResultExport: SLS/OSS export task.
    * 
    * This parameter is required.
    * 
@@ -89,7 +94,7 @@ export class CreateApsWebhookRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The ID of the region in which to create the dedicated block storage cluster.
+   * The region ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -99,7 +104,7 @@ export class CreateApsWebhookRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The array of webhooks.
+   * The webhook array.
    */
   webhook?: CreateApsWebhookRequestWebhook[];
   static names(): { [key: string]: string } {

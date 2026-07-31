@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance metric value. For more information about the performance metrics, see [Metric overview](https://help.aliyun.com/document_detail/2863211.html).
+   * The name of the performance metric. This parameter is the Value Name of the monitoring metric. For more information, see [Overview of Monitoring Items](https://help.aliyun.com/document_detail/2863211.html).
    * 
    * @example
    * AnalyticDB_Storage_CPU_Avg_Usage_Percentage
@@ -13,16 +13,23 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
   name?: string;
   /**
    * @remarks
-   * The tags that are added to the cluster.
+   * A JSON string that contains the tags for the metric series.
    * 
    * @example
    * {instance_name: "am-***"}
    */
   tags?: string;
+  /**
+   * @remarks
+   * A key for internal internationalization (i18n). You can safely ignore this parameter.
+   * 
+   * @example
+   * AnalyticDB_RP_WaitTime
+   */
   translateKey?: string;
   /**
    * @remarks
-   * The values of the performance metric at different points in time.
+   * An array of data points for the time series.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -66,12 +73,12 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
   key?: string;
   /**
    * @remarks
-   * The queried performance metric data.
+   * The time series data for the metric.
    */
   series?: DescribeDBClusterPerformanceResponseBodyPerformancesSeries[];
   /**
    * @remarks
-   * The unit of the performance metric.
+   * The unit of the monitoring metric.
    * 
    * @example
    * %
@@ -108,9 +115,9 @@ export class DescribeDBClusterPerformanceResponseBodyPerformances extends $dara.
 export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The cluster ID.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a specific region.
    * 
    * @example
    * amv-bp1hx5n1o8f61****
@@ -118,7 +125,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+   * The end time of the query. The time is in UTC and uses the *yyyy-MM-ddTHH:mmZ* format.
    * 
    * @example
    * 2022-03-11T15:01Z
@@ -126,7 +133,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The queried performance metrics.
+   * The cluster performance metrics.
    */
   performances?: DescribeDBClusterPerformanceResponseBodyPerformances[];
   /**
@@ -139,7 +146,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+   * The start time of the query. The time is in UTC and uses the *yyyy-MM-ddTHH:mmZ* format.
    * 
    * @example
    * 2022-03-10T23:56Z

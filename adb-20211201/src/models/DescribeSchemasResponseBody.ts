@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSchemasResponseBodyItemsSchema extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * @example
-   * amv-bp11q28kvl688****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * adb_demo
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeSchemasResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeSchemasResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried databases.
-   */
   items?: DescribeSchemasResponseBodyItems;
   /**
    * @remarks

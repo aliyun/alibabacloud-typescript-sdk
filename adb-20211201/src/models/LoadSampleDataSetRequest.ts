@@ -12,7 +12,7 @@ export class LoadSampleDataSetRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * amv-2ze0z517o1mgp66a
+   * amv-2ze0z517o1mg****
    */
   DBClusterId?: string;
   static names(): { [key: string]: string } {

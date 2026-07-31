@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountPrivilegesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The name of the database account whose privileges you want to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The columns that you want to query. You can use this parameter to query the permissions of the database account on specific columns. This parameter is available only if the PrivilegeType parameter is set to Column.
+   * Filters the results by column name. This parameter is used only when `PrivilegeType` is set to `Column`.
    * 
    * @example
    * col1
@@ -23,7 +23,8 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   columnPrivilegeObject?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Lakehouse Edition cluster.
+   * <props="intl">The ID of the Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -33,7 +34,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The databases that you want to query. You can use this parameter to query the permissions of the database account on specific databases. This parameter is available only if the PrivilegeType parameter is set to Database, Table, or Column.
+   * Filters the results by database name. This parameter is used only when `PrivilegeType` is set to `Database`, `Table`, or `Column`.
    * 
    * @example
    * db1
@@ -41,7 +42,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   databasePrivilegeObject?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number. Pages start at 1. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +50,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 10
@@ -57,7 +58,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The permission level that you want to query. You can call the `DescribeEnabledPrivileges` operation to query the permission level of the database account.
+   * The privilege level to query. To obtain the valid values for this parameter, call the `DescribeEnabledPrivileges` operation.
    * 
    * @example
    * Global
@@ -65,7 +66,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   privilegeType?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -75,7 +76,7 @@ export class DescribeAccountPrivilegesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tables that you want to query. You can use this parameter to query the permissions of the database account on specific tables. This parameter can be used together with the DatabasePrivilegeObject parameter. This parameter is available only if the PrivilegeType parameter is set to Table or Column.
+   * Filters the results by table name. You can use this parameter with `DatabasePrivilegeObject` to refine the search. This parameter is used only when `PrivilegeType` is set to `Table` or `Column`.
    * 
    * @example
    * table1

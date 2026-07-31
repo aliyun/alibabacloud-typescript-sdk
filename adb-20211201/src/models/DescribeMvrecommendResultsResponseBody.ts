@@ -4,10 +4,14 @@ import { OpenStructMVRecommendResultModel } from "./OpenStructMvrecommendResultM
 
 
 export class DescribeMVRecommendResultsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of materialized view recommendation results.
+   */
   mvRecommendResultModels?: OpenStructMVRecommendResultModel[];
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -15,11 +19,13 @@ export class DescribeMVRecommendResultsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * *   **30** (default).
-   * *   **50**.
-   * *   **100**.
+   * - **30** (Default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 20
@@ -87,7 +93,7 @@ export class DescribeMVRecommendResultsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -95,7 +101,7 @@ export class DescribeMVRecommendResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 20

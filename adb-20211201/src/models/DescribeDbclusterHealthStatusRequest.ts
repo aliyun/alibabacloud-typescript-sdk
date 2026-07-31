@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterHealthStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of clusters.
    * 
    * This parameter is required.
    * 
@@ -19,7 +20,7 @@ export class DescribeDBClusterHealthStatusRequest extends $dara.Model {
    * @remarks
    * The region ID of the cluster.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

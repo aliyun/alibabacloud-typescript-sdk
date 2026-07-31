@@ -8,7 +8,7 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    * The name of the client.
    * 
    * @example
-   * DataWorks
+   * Dataworks。
    */
   agency?: string;
   /**

@@ -6,7 +6,7 @@ import { TableModel } from "./TableModel";
 export class GetTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 0
@@ -14,7 +14,7 @@ export class GetTableResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * ""
@@ -22,7 +22,7 @@ export class GetTableResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -30,7 +30,7 @@ export class GetTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the query succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class GetTableResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The information about the table.
+   * The table details.
    */
   table?: TableModel;
   static names(): { [key: string]: string } {

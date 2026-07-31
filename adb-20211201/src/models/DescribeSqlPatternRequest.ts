@@ -99,7 +99,7 @@ export class DescribeSqlPatternRequest extends $dara.Model {
    * > Only data within the last 30 days can be queried.
    * 
    * @example
-   * 2022-08-30T12:10:00Z
+   * 2022-08-30
    */
   startTime?: string;
   /**

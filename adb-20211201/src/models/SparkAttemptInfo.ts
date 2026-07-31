@@ -5,24 +5,52 @@ import { Detail } from "./Detail";
 
 export class SparkAttemptInfo extends $dara.Model {
   /**
+   * @remarks
+   * The attempt ID of the Spark application.
+   * 
    * @example
-   * s202207151211hz0cb4200*****-0001
+   * s202207151211hz****-0001
    */
   attemptId?: string;
+  /**
+   * @remarks
+   * The information about the Spark application.
+   */
   detail?: Detail;
   /**
+   * @remarks
+   * The alert message returned, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
+   * 
    * @example
    * WARN: Disk is full
    */
   message?: string;
   /**
+   * @remarks
+   * The attempt priority of the Spark application.
+   * 
    * @example
    * NORMAL
    */
   priority?: string;
   /**
+   * @remarks
+   * The state of the Spark application. Valid values:
+   * 
+   * *   **SUBMITTED**
+   * *   **STARTING**
+   * *   **RUNNING**
+   * *   **FAILING**
+   * *   **FAILED**
+   * *   **KILLING**
+   * *   **KILLED**
+   * *   **SUCCEEDING**
+   * *   **COMPLETED**
+   * *   **FATAL**
+   * *   **UNKNOWN**
+   * 
    * @example
-   * RUNNING
+   * SUBMITTED
    */
   state?: string;
   static names(): { [key: string]: string } {

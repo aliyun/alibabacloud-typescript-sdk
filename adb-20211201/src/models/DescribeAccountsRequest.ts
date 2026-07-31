@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
-   * > If you do not specify this parameter, the information about all database accounts in the cluster is returned.
+   * > If you do not specify this parameter, information about all database accounts is returned.
    * 
    * @example
    * test_accout
@@ -15,7 +15,8 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -25,10 +26,11 @@ export class DescribeAccountsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database engine of the cluster. Valid values:
+   * The database engine. Valid values:
    * 
-   * *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * *   **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine
+   * 
+   * - **Clickhouse**: the LindormTable engine
    * 
    * @example
    * Clickhouse

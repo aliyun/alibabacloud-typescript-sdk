@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
   /**
    * @remarks
-   * Signing key
+   * The signing key.
    * 
    * @example
    * your_secret_key
@@ -13,7 +13,7 @@ export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The name of the webhook.
+   * The webhook name.
    * 
    * @example
    * webhook_name
@@ -29,7 +29,7 @@ export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The ID of the webhook that you want to delete.
+   * The webhook ID.
    * 
    * @example
    * **35***
@@ -37,7 +37,7 @@ export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
   webhookId?: string;
   /**
    * @remarks
-   * Webhook type.
+   * The webhook type.
    * 
    * @example
    * dingtalk
@@ -75,7 +75,7 @@ export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
 export class ListApsWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status or POP error code.
+   * The API status code or POP error code.
    * 
    * @example
    * 200
@@ -91,7 +91,7 @@ export class ListApsWebhookResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -99,7 +99,7 @@ export class ListApsWebhookResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * exampleRequestId
@@ -115,7 +115,7 @@ export class ListApsWebhookResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The array of webhooks.
+   * The webhook array.
    */
   webhook?: ListApsWebhookResponseBodyWebhook[];
   static names(): { [key: string]: string } {

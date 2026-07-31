@@ -57,6 +57,21 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "adb.ap-northeast-1.aliyuncs.com",
       'me-east-1': "adb.ap-northeast-1.aliyuncs.com",
       'rus-west-1-pop': "adb.ap-northeast-1.aliyuncs.com",
+      'na-south-1': "adb.na-south-1.aliyuncs.com",
+      'me-central-1': "adb.me-central-1.aliyuncs.com",
+      'eu-west-1': "adb.eu-west-1.aliyuncs.com",
+      'eu-central-1': "adb.eu-central-1.aliyuncs.com",
+      'cn-zhangjiakou': "adb.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "adb.cn-wulanchabu.aliyuncs.com",
+      'cn-huhehaote': "adb.cn-huhehaote.aliyuncs.com",
+      'cn-guangzhou': "adb.cn-guangzhou.aliyuncs.com",
+      'cn-chengdu': "adb.cn-chengdu.aliyuncs.com",
+      'ap-southeast-7': "adb.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-6': "adb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-5': "adb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-3': "adb.ap-southeast-3.aliyuncs.com",
+      'ap-northeast-2': "adb.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "adb.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -76,10 +91,72 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a public endpoint for an AnalyticDB for MySQL cluster.
+   * Adds a knowledge base document.
+   * 
+   * @param request - AddKnowledgeFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddKnowledgeFileResponse
+   */
+  async addKnowledgeFileWithOptions(request: $_model.AddKnowledgeFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKnowledgeFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.isDir)) {
+      query["IsDir"] = request.isDir;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.uploadUser)) {
+      query["UploadUser"] = request.uploadUser;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddKnowledgeFile",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddKnowledgeFileResponse>(await this.callApi(params, req, runtime), new $_model.AddKnowledgeFileResponse({}));
+  }
+
+  /**
+   * Adds a knowledge base document.
+   * 
+   * @param request - AddKnowledgeFileRequest
+   * @returns AddKnowledgeFileResponse
+   */
+  async addKnowledgeFile(request: $_model.AddKnowledgeFileRequest): Promise<$_model.AddKnowledgeFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addKnowledgeFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Allocates a public connection address for a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a list of service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100,6 +177,10 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -118,10 +199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a public endpoint for an AnalyticDB for MySQL cluster.
+   * Allocates a public connection address for a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a list of service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @returns AllocateClusterPublicConnectionResponse
@@ -132,10 +213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an optimization suggestion.
+   * Applies a single optimization suggestion.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ApplyAdviceByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -186,10 +267,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an optimization suggestion.
+   * Applies a single optimization suggestion.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ApplyAdviceByIdRequest
    * @returns ApplyAdviceByIdResponse
@@ -248,7 +329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies optimization suggestions.
+   * Applies optimization suggestions in batches.
+   * 
+   * @remarks
+   * For the endpoint of this service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -299,7 +383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies optimization suggestions.
+   * Applies optimization suggestions in batches.
+   * 
+   * @remarks
+   * For the endpoint of this service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @returns BatchApplyAdviceByIdListResponse
@@ -310,17 +397,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a standard account of an AnalyticDB for MySQL cluster with a Resource Access Management (RAM) user.
+   * Bind a Resource Access Management (RAM) user to a standard database account in a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the current service endpoint, see [service endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
-   * @param request - BindAccountRequest
+   * @param tmpReq - BindAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAccountResponse
    */
-  async bindAccountWithOptions(request: $_model.BindAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindAccountResponse> {
-    request.validate();
+  async bindAccountWithOptions(tmpReq: $_model.BindAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindAccountResponse> {
+    tmpReq.validate();
+    let request = new $_model.BindAccountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ramUserList)) {
+      request.ramUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ramUserList, "RamUserList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
@@ -332,6 +425,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ramUser)) {
       query["RamUser"] = request.ramUser;
+    }
+
+    if (!$dara.isNull(request.ramUserListShrink)) {
+      query["RamUserList"] = request.ramUserListShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -352,10 +449,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a standard account of an AnalyticDB for MySQL cluster with a Resource Access Management (RAM) user.
+   * Bind a Resource Access Management (RAM) user to a standard database account in a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the current service endpoint, see [service endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - BindAccountRequest
    * @returns BindAccountResponse
@@ -472,7 +569,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the execution of a Spark SQL statement.
+   * Cancels a Spark SQL execution.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 error when initiating requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
    * 
    * @param request - CancelSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -511,7 +613,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the execution of a Spark SQL statement.
+   * Cancels a Spark SQL execution.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 error when initiating requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
    * 
    * @param request - CancelSparkWarehouseBatchSQLRequest
    * @returns CancelSparkWarehouseBatchSQLResponse
@@ -574,8 +681,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether a metadata discovery schema exists.
+   * 
+   * @param request - CheckFormationSchemaExistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckFormationSchemaExistsResponse
+   */
+  async checkFormationSchemaExistsWithOptions(request: $_model.CheckFormationSchemaExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckFormationSchemaExistsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.prefixMode)) {
+      body["PrefixMode"] = request.prefixMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      body["Schema"] = request.schema;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckFormationSchemaExists",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckFormationSchemaExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckFormationSchemaExistsResponse({}));
+  }
+
+  /**
+   * Checks whether a metadata discovery schema exists.
+   * 
+   * @param request - CheckFormationSchemaExistsRequest
+   * @returns CheckFormationSchemaExistsResponse
+   */
+  async checkFormationSchemaExists(request: $_model.CheckFormationSchemaExistsRequest): Promise<$_model.CheckFormationSchemaExistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkFormationSchemaExistsWithOptions(request, runtime);
+  }
+
+  /**
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CheckSampleDataSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +768,7 @@ export default class Client extends OpenApi {
 
   /**
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CheckSampleDataSetRequest
    * @returns CheckSampleDataSetResponse
@@ -778,17 +939,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for an AnalyticDB for MySQL cluster.
+   * Creates a database account for a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
-   * @param request - CreateAccountRequest
+   * @param tmpReq - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccountResponse
    */
-  async createAccountWithOptions(request: $_model.CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountResponse> {
-    request.validate();
+  async createAccountWithOptions(tmpReq: $_model.CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAccountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ramUserList)) {
+      request.ramUserListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ramUserList, "RamUserList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.accountDescription)) {
       query["AccountDescription"] = request.accountDescription;
@@ -814,6 +981,10 @@ export default class Client extends OpenApi {
       query["Engine"] = request.engine;
     }
 
+    if (!$dara.isNull(request.ramUserListShrink)) {
+      query["RamUserList"] = request.ramUserListShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -832,10 +1003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for an AnalyticDB for MySQL cluster.
+   * Creates a database account for a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -846,7 +1017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) replication job.
+   * Creates an APS replication task.
    * 
    * @param request - CreateApsCopyWorkloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -901,7 +1072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) replication job.
+   * Creates an APS replication task.
    * 
    * @param request - CreateApsCopyWorkloadRequest
    * @returns CreateApsCopyWorkloadResponse
@@ -912,10 +1083,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) data source.
+   * Creates an APS data source.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - CreateApsDatasoureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1024,10 +1195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) data source.
+   * Creates an APS data source.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsDatasoureRequest
    * @returns CreateApsDatasoureResponse
@@ -1038,10 +1209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+   * Creates an APS Hive task.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsHiveJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,10 +1291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+   * Creates an APS Hive task.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsHiveJobRequest
    * @returns CreateApsHiveJobResponse
@@ -1134,7 +1305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Creates an APS Kafka to data lakehouse job.
    * 
    * @param tmpReq - CreateApsKafkaHudiJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,7 +1458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Creates an APS Kafka to data lakehouse job.
    * 
    * @param request - CreateApsKafkaHudiJobRequest
    * @returns CreateApsKafkaHudiJobResponse
@@ -1478,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new webhook for the specified cluster or task type.
+   * Creates a webhook for a specified database cluster and task type.
    * 
    * @param tmpReq - CreateApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,7 +1698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new webhook for the specified cluster or task type.
+   * Creates a webhook for a specified database cluster and task type.
    * 
    * @param request - CreateApsWebhookRequest
    * @returns CreateApsWebhookResponse
@@ -1538,10 +1709,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data backup for an AnalyticDB for MySQL instance.
+   * Creates a backup set immediately.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
+   * *Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1592,10 +1763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data backup for an AnalyticDB for MySQL instance.
+   * Creates a backup set immediately.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
+   * *Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -1606,10 +1777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * Creates a Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * CreateDBCluster
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1618,6 +1789,14 @@ export default class Client extends OpenApi {
   async createDBClusterWithOptions(request: $_model.CreateDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBClusterResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.AINodeNumber)) {
+      query["AINodeNumber"] = request.AINodeNumber;
+    }
+
+    if (!$dara.isNull(request.AINodeSpec)) {
+      query["AINodeSpec"] = request.AINodeSpec;
+    }
+
     if (!$dara.isNull(request.backupSetId)) {
       query["BackupSetId"] = request.backupSetId;
     }
@@ -1752,10 +1931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * Creates a Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * CreateDBCluster
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -1766,10 +1945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - CreateDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1779,6 +1958,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateDBResourceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.atmConfig)) {
+      request.atmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.atmConfig, "AtmConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.engineParams)) {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
     }
@@ -1796,8 +1979,16 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.atmConfigShrink)) {
+      query["AtmConfig"] = request.atmConfigShrink;
+    }
+
     if (!$dara.isNull(request.autoStopInterval)) {
       query["AutoStopInterval"] = request.autoStopInterval;
+    }
+
+    if (!$dara.isNull(request.classification)) {
+      query["Classification"] = request.classification;
     }
 
     if (!$dara.isNull(request.clusterMode)) {
@@ -1872,6 +2063,10 @@ export default class Client extends OpenApi {
       query["Rules"] = request.rulesShrink;
     }
 
+    if (!$dara.isNull(request.scalePolicy)) {
+      query["ScalePolicy"] = request.scalePolicy;
+    }
+
     if (!$dara.isNull(request.specName)) {
       query["SpecName"] = request.specName;
     }
@@ -1898,10 +2093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateDBResourceGroupRequest
    * @returns CreateDBResourceGroupResponse
@@ -1996,6 +2191,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
+   * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
+   * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
+   * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+   * - The database name specified in `dbName` is automatically converted to lowercase by the server.
+   * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+   * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
+   * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
+   * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+   * 
+   * @param request - CreateFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFormationCrawlerResponse
+   */
+  async createFormationCrawlerWithOptions(request: $_model.CreateFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerInfo)) {
+      body["CrawlerInfo"] = request.crawlerInfo;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.CreateFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
+   * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
+   * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
+   * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+   * - The database name specified in `dbName` is automatically converted to lowercase by the server.
+   * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+   * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
+   * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
+   * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+   * 
+   * @param request - CreateFormationCrawlerRequest
+   * @returns CreateFormationCrawlerResponse
+   */
+  async createFormationCrawler(request: $_model.CreateFormationCrawlerRequest): Promise<$_model.CreateFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFormationCrawlerWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a lake storage.
    * 
    * @param tmpReq - CreateLakeStorageRequest
@@ -2062,7 +2331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a materialized view recommendation task.
+   * Creates an automatic materialized view recommendation task.
    * 
    * @param request - CreateMaterializedViewRecommendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2149,7 +2418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a materialized view recommendation task.
+   * Creates an automatic materialized view recommendation task.
    * 
    * @param request - CreateMaterializedViewRecommendRequest
    * @returns CreateMaterializedViewRecommendResponse
@@ -2160,12 +2429,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Object Storage Service (OSS) subdirectory.
+   * Creates a subdirectory in Object Storage Service (OSS).
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - CreateOssSubDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2200,12 +2469,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Object Storage Service (OSS) subdirectory.
+   * Creates a subdirectory in Object Storage Service (OSS).
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - CreateOssSubDirectoryRequest
    * @returns CreateOssSubDirectoryResponse
@@ -2216,7 +2485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom monitoring view.
+   * Creates a custom monitoring dashboard.
    * 
    * @param tmpReq - CreatePerformanceViewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2289,7 +2558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom monitoring view.
+   * Creates a custom monitoring dashboard.
    * 
    * @param request - CreatePerformanceViewRequest
    * @returns CreatePerformanceViewResponse
@@ -2300,12 +2569,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a semantic view.
+   * 
+   * @param request - CreateSemanticViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSemanticViewResponse
+   */
+  async createSemanticViewWithOptions(request: $_model.CreateSemanticViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSemanticViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.definition)) {
+      query["Definition"] = request.definition;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSemanticView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSemanticViewResponse>(await this.callApi(params, req, runtime), new $_model.CreateSemanticViewResponse({}));
+  }
+
+  /**
+   * Creates a semantic view.
+   * 
+   * @param request - CreateSemanticViewRequest
+   * @returns CreateSemanticViewResponse
+   */
+  async createSemanticView(request: $_model.CreateSemanticViewRequest): Promise<$_model.CreateSemanticViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSemanticViewWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a Spark application template.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when sending requests from Hong Kong (China), contact technical support.
    * 
    * @param request - CreateSparkTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2355,9 +2678,9 @@ export default class Client extends OpenApi {
    * Creates a Spark application template.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when sending requests from Hong Kong (China), contact technical support.
    * 
    * @param request - CreateSparkTemplateRequest
    * @returns CreateSparkTemplateResponse
@@ -2824,6 +3147,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a metadata discovery task.
+   * 
+   * @param request - DeleteFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFormationCrawlerResponse
+   */
+  async deleteFormationCrawlerWithOptions(request: $_model.DeleteFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskName)) {
+      body["CrawlerTaskName"] = request.crawlerTaskName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Deletes a metadata discovery task.
+   * 
+   * @param request - DeleteFormationCrawlerRequest
+   * @returns DeleteFormationCrawlerResponse
+   */
+  async deleteFormationCrawler(request: $_model.DeleteFormationCrawlerRequest): Promise<$_model.DeleteFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFormationCrawlerWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a lake storage.
    * 
    * @remarks
@@ -3011,6 +3388,56 @@ export default class Client extends OpenApi {
   async deletePerformanceView(request: $_model.DeletePerformanceViewRequest): Promise<$_model.DeletePerformanceViewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the specified semantic view.
+   * 
+   * @param request - DeleteSemanticViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSemanticViewResponse
+   */
+  async deleteSemanticViewWithOptions(request: $_model.DeleteSemanticViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSemanticViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSemanticView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSemanticViewResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSemanticViewResponse({}));
+  }
+
+  /**
+   * Deletes the specified semantic view.
+   * 
+   * @param request - DeleteSemanticViewRequest
+   * @returns DeleteSemanticViewResponse
+   */
+  async deleteSemanticView(request: $_model.DeleteSemanticViewRequest): Promise<$_model.DeleteSemanticViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSemanticViewWithOptions(request, runtime);
   }
 
   /**
@@ -3244,10 +3671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a database account on all permission levels.
+   * Retrieves all permissions granted to a specified account, including permissions at the global, database, table, and column levels.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountAllPrivilegesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3290,10 +3717,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permissions of a database account on all permission levels.
+   * Retrieves all permissions granted to a specified account, including permissions at the global, database, table, and column levels.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountAllPrivilegesRequest
    * @returns DescribeAccountAllPrivilegesResponse
@@ -3384,7 +3811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某一ADB账户的权限
+   * Retrieves the permissions of a specified database account at a specific level.
+   * 
+   * @remarks
+   * See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountPrivilegesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3447,7 +3877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某一ADB账户的权限
+   * Retrieves the permissions of a specified database account at a specific level.
+   * 
+   * @remarks
+   * See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountPrivilegesRequest
    * @returns DescribeAccountPrivilegesResponse
@@ -3458,10 +3891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database accounts of an AnalyticDB for MySQL cluster.
+   * Queries the database accounts of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3504,10 +3937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the database accounts of an AnalyticDB for MySQL cluster.
+   * Queries the database accounts of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -3742,11 +4175,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables for an AnalyticDB for MySQL cluster.
+   * Lists information about all tables in a specified database of a cluster.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeAdbMySqlTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3785,11 +4218,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tables for an AnalyticDB for MySQL cluster.
+   * Lists information about all tables in a specified database of a cluster.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeAdbMySqlTablesRequest
    * @returns DescribeAdbMySqlTablesResponse
@@ -3914,7 +4347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Shows applied recommendations.
    * 
    * @param request - DescribeAppliedAdvicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,7 +4418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Shows applied recommendations.
    * 
    * @param request - DescribeAppliedAdvicesRequest
    * @returns DescribeAppliedAdvicesResponse
@@ -4494,11 +4927,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Retrieves details about the resource groups used for data synchronization.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeApsResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,11 +4970,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Retrieves details about the resource groups used for data synchronization.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeApsResourceGroupsRequest
    * @returns DescribeApsResourceGroupsResponse
@@ -4552,11 +4985,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+   * Query SQL audit logs for the cluster.
    * 
    * @remarks
-   *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+   * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAuditLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4659,11 +5092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+   * Query SQL audit logs for the cluster.
    * 
    * @remarks
-   *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
-   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+   * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeAuditLogRecordsRequest
    * @returns DescribeAuditLogRecordsResponse
@@ -4754,7 +5187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Use DescribeAvailableAdvices to list available optimization recommendations.
    * 
    * @param request - DescribeAvailableAdvicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4821,7 +5254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Use DescribeAvailableAdvices to list available optimization recommendations.
    * 
    * @param request - DescribeAvailableAdvicesRequest
    * @returns DescribeAvailableAdvicesResponse
@@ -4832,10 +5265,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看集群备份设置
+   * Queries the backup settings of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For more information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4882,10 +5315,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看集群备份设置
+   * Queries the backup settings of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For more information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -4896,10 +5329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例备份集
+   * Queries the backup sets for an instance.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4970,10 +5403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例备份集
+   * Queries the backup sets for an instance.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -5058,10 +5491,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelists of an AnalyticDB for MySQL cluster.
+   * Queries the IP whitelist for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeClusterAccessWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5100,10 +5533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address whitelists of an AnalyticDB for MySQL cluster.
+   * Queries the IP whitelist for a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeClusterAccessWhiteListRequest
    * @returns DescribeClusterAccessWhiteListResponse
@@ -5114,10 +5547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an AnalyticDB for MySQL cluster.
+   * Queries the network information of a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeClusterNetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5132,6 +5565,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engine)) {
       query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5152,10 +5589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an AnalyticDB for MySQL cluster.
+   * Queries the network information of a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeClusterNetInfoRequest
    * @returns DescribeClusterNetInfoResponse
@@ -5496,10 +5933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for MySQL cluster.
+   * Returns the details of a specific cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5530,10 +5967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for MySQL cluster.
+   * Returns the details of a specific cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @returns DescribeDBClusterAttributeResponse
@@ -5544,10 +5981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an AnalyticDB for MySQL cluster.
+   * View a cluster\\"s health status.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5582,10 +6019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the health status of an AnalyticDB for MySQL cluster.
+   * View a cluster\\"s health status.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @returns DescribeDBClusterHealthStatusResponse
@@ -5596,10 +6033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the performance data of an AnalyticDB for MySQL cluster.
+   * View target cluster performance data.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5650,10 +6087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the performance data of an AnalyticDB for MySQL cluster.
+   * View target cluster performance data.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterPerformanceRequest
    * @returns DescribeDBClusterPerformanceResponse
@@ -5665,6 +6102,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the SSL configurations of a cluster.
+   * 
+   * @remarks
+   * >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
    * 
    * @param request - DescribeDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5700,6 +6140,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the SSL configurations of a cluster.
+   * 
+   * @remarks
+   * >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
    * 
    * @param request - DescribeDBClusterSSLRequest
    * @returns DescribeDBClusterSSLResponse
@@ -5778,10 +6221,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statuses of AnalyticDB for MySQL clusters within a region.
+   * Queries the status list of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5812,10 +6255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statuses of AnalyticDB for MySQL clusters within a region.
+   * Queries the status list of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClusterStatusRequest
    * @returns DescribeDBClusterStatusResponse
@@ -5826,10 +6269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+   * View the Data Lakehouse Edition clusters in the destination region.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a current list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5896,10 +6339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+   * View the Data Lakehouse Edition clusters in the destination region.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a current list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBClustersRequest
    * @returns DescribeDBClustersResponse
@@ -5910,10 +6353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about resource groups of an AnalyticDB for MySQL cluster.
+   * Queries the resource group information of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5960,10 +6403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about resource groups of an AnalyticDB for MySQL cluster.
+   * Queries the resource group information of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDBResourceGroupRequest
    * @returns DescribeDBResourceGroupResponse
@@ -6042,10 +6485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnostic information about SQL statements that meet a query condition for an AnalyticDB for MySQL cluster.
+   * Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDiagnosisRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6148,10 +6591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnostic information about SQL statements that meet a query condition for an AnalyticDB for MySQL cluster.
+   * Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+   * For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDiagnosisRecordsRequest
    * @returns DescribeDiagnosisRecordsResponse
@@ -6162,10 +6605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+   * Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDiagnosisSQLInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6220,10 +6663,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+   * Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDiagnosisSQLInfoRequest
    * @returns DescribeDiagnosisSQLInfoResponse
@@ -6234,10 +6677,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the five most recent download tasks for SQL query results in a specified AnalyticDB for MySQL Lakehouse Edition (3.0) cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDownloadRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6276,10 +6719,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the five most recent download tasks for SQL query results in a specified AnalyticDB for MySQL Lakehouse Edition (3.0) cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For a list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeDownloadRecordsRequest
    * @returns DescribeDownloadRecordsResponse
@@ -6542,7 +6985,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permission level and permissions supported for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Retrieves the supported permission levels and the list of permissions.
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - DescribeEnabledPrivilegesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6569,7 +7017,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the permission level and permissions supported for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Retrieves the supported permission levels and the list of permissions.
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - DescribeEnabledPrivilegesRequest
    * @returns DescribeEnabledPrivilegesResponse
@@ -6810,10 +7263,6 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -6828,10 +7277,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -6907,24 +7352,12 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!$dara.isNull(request.securityToken)) {
@@ -7118,10 +7551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业资源使用统计
+   * Retrieves resource usage statistics for jobs.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeJobResourceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7146,6 +7579,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.sparkAppName)) {
+      query["SparkAppName"] = request.sparkAppName;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -7168,10 +7605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业资源使用统计
+   * Retrieves resource usage statistics for jobs.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration information of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeJobResourceUsageRequest
    * @returns DescribeJobResourceUsageResponse
@@ -7244,206 +7681,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
-   * 
-   * @param request - DescribeLLMAnswerRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeLLMAnswerResponse
-   */
-  async *describeLLMAnswerWithSSE(request: $_model.DescribeLLMAnswerRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.DescribeLLMAnswerResponse, any, unknown> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.query)) {
-      query["Query"] = request.query;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeLLMAnswer",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let sseResp = await this.callSSEApi(params, req, runtime);
-
-    for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.DescribeLLMAnswerResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.DescribeLLMAnswerResponse({}));
-    }
-  }
-
-  /**
-   * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
-   * 
-   * @param request - DescribeLLMAnswerRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeLLMAnswerResponse
-   */
-  async describeLLMAnswerWithOptions(request: $_model.DescribeLLMAnswerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLLMAnswerResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.query)) {
-      query["Query"] = request.query;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeLLMAnswer",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeLLMAnswerResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLLMAnswerResponse({}));
-  }
-
-  /**
-   * Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
-   * 
-   * @param request - DescribeLLMAnswerRequest
-   * @returns DescribeLLMAnswerResponse
-   */
-  async describeLLMAnswer(request: $_model.DescribeLLMAnswerRequest): Promise<$_model.DescribeLLMAnswerResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeLLMAnswerWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of questions similar to a user question.
-   * 
-   * @param request - DescribeLLMSimilarQuestionsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeLLMSimilarQuestionsResponse
-   */
-  async describeLLMSimilarQuestionsWithOptions(request: $_model.DescribeLLMSimilarQuestionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLLMSimilarQuestionsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.query)) {
-      query["Query"] = request.query;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeLLMSimilarQuestions",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeLLMSimilarQuestionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLLMSimilarQuestionsResponse({}));
-  }
-
-  /**
-   * Queries a list of questions similar to a user question.
-   * 
-   * @param request - DescribeLLMSimilarQuestionsRequest
-   * @returns DescribeLLMSimilarQuestionsResponse
-   */
-  async describeLLMSimilarQuestions(request: $_model.DescribeLLMSimilarQuestionsRequest): Promise<$_model.DescribeLLMSimilarQuestionsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeLLMSimilarQuestionsWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the lake cache size of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeLakeCacheSizeRequest
@@ -7486,10 +7723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the result of a recommendation task for a materialized view.
+   * Queries the results of a materialized view recommendation task.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeMVRecommendResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7556,10 +7793,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the result of a recommendation task for a materialized view.
+   * Queries the results of a materialized view recommendation task.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For information about the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeMVRecommendResultsRequest
    * @returns DescribeMVRecommendResultsResponse
@@ -7570,7 +7807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看物化视图子任务
+   * View subtasks of a materialized view
    * 
    * @param request - DescribeMvRecommendSubTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7633,7 +7870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看物化视图子任务
+   * View subtasks of a materialized view
    * 
    * @param request - DescribeMvRecommendSubTasksRequest
    * @returns DescribeMvRecommendSubTasksResponse
@@ -7644,7 +7881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看物化视图推荐任务
+   * Views recommendation tasks for materialized views.
    * 
    * @param request - DescribeMvRecommendTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7699,7 +7936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看物化视图推荐任务
+   * Views recommendation tasks for materialized views.
    * 
    * @param request - DescribeMvRecommendTasksRequest
    * @returns DescribeMvRecommendTasksResponse
@@ -7854,12 +8091,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
+   * View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribePatternPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7906,12 +8141,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
+   * View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribePatternPerformanceRequest
    * @returns DescribePatternPerformanceResponse
@@ -8050,10 +8283,96 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of regions and zones in which AnalyticDB for MySQL Data Lakehouse Edition (V3.0) is available.
+   * Call the DescribeProcessList operation to view the running queries of an instance.
+   * 
+   * @param request - DescribeProcessListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProcessListResponse
+   */
+  async describeProcessListWithOptions(request: $_model.DescribeProcessListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProcessListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.runningTime)) {
+      query["RunningTime"] = request.runningTime;
+    }
+
+    if (!$dara.isNull(request.showFull)) {
+      query["ShowFull"] = request.showFull;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeProcessList",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeProcessListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProcessListResponse({}));
+  }
+
+  /**
+   * Call the DescribeProcessList operation to view the running queries of an instance.
+   * 
+   * @param request - DescribeProcessListRequest
+   * @returns DescribeProcessListResponse
+   */
+  async describeProcessList(request: $_model.DescribeProcessListRequest): Promise<$_model.DescribeProcessListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeProcessListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8104,10 +8423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of regions and zones in which AnalyticDB for MySQL Data Lakehouse Edition (V3.0) is available.
+   * Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -8226,12 +8545,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+   * View the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster for a specified date range.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Global public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com` (e.g., `adb.cn-hangzhou.aliyuncs.com`).
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com` (e.g., `adb-vpc.cn-hangzhou.aliyuncs.com`).
    * 
    * @param request - DescribeSQLPatternsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8272,6 +8591,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.sqlPatternHash)) {
+      query["SqlPatternHash"] = request.sqlPatternHash;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
@@ -8298,12 +8621,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+   * View the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster for a specified date range.
    * 
    * @remarks
-   *   General endpoint: `adb.aliyuncs.com`.
-   * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Global public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com` (e.g., `adb.cn-hangzhou.aliyuncs.com`).
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com` (e.g., `adb-vpc.cn-hangzhou.aliyuncs.com`).
    * 
    * @param request - DescribeSQLPatternsRequest
    * @returns DescribeSQLPatternsResponse
@@ -8314,7 +8637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebSocket domain name of an AnalyticDB for MySQL cluster.
+   * Queries the registered WebSocket domain.
    * 
    * @param request - DescribeSQLWebSocketDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8353,7 +8676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebSocket domain name of an AnalyticDB for MySQL cluster.
+   * Queries the registered WebSocket domain.
    * 
    * @param request - DescribeSQLWebSocketDomainRequest
    * @returns DescribeSQLWebSocketDomainResponse
@@ -9086,10 +9409,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of accesses to a table or all tables in an AnalyticDB for MySQL cluster on a date.
+   * Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeTableAccessCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9144,10 +9467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of accesses to a table or all tables in an AnalyticDB for MySQL cluster on a date.
+   * Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DescribeTableAccessCountRequest
    * @returns DescribeTableAccessCountResponse
@@ -9442,7 +9765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves materialized view refresh tasks.
+   * Retrieves view tasks.
    * 
    * @param request - DescribeViewJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9505,7 +9828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves materialized view refresh tasks.
+   * Retrieves view tasks.
    * 
    * @param request - DescribeViewJobsRequest
    * @returns DescribeViewJobsResponse
@@ -9516,7 +9839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnostic results of the storage layer.
+   * Queries the diagnostics results of the storage layer.
    * 
    * @param request - DescribeWorkerDetectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9579,7 +9902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the diagnostic results of the storage layer.
+   * Queries the diagnostics results of the storage layer.
    * 
    * @param request - DescribeWorkerDetectionRequest
    * @returns DescribeWorkerDetectionResponse
@@ -9590,10 +9913,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑用户弹性网卡
+   * Detaches an Elastic Network Interface (ENI).
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DetachUserENIRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9624,10 +9947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑用户弹性网卡
+   * Detaches an Elastic Network Interface (ENI).
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the service endpoint, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - DetachUserENIRequest
    * @returns DetachUserENIResponse
@@ -9840,7 +10163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Object Storage Service (OSS) URL of the downloaded certificate authority (CA) certificate that is used to connect to the wide table engine.
+   * Retrieves the OSS download path of a CA certificate for connecting to the wide table engine.
    * 
    * @param request - DownloadInstanceCACertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9883,7 +10206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Object Storage Service (OSS) URL of the downloaded certificate authority (CA) certificate that is used to connect to the wide table engine.
+   * Retrieves the OSS download path of a CA certificate for connecting to the wide table engine.
    * 
    * @param request - DownloadInstanceCACertificateRequest
    * @returns DownloadInstanceCACertificateResponse
@@ -10048,6 +10371,11 @@ export default class Client extends OpenApi {
   /**
    * Executes Spark SQL statements in batches.
    * 
+   * @remarks
+   * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+   * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+   * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+   * 
    * @param request - ExecuteSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteSparkWarehouseBatchSQLResponse
@@ -10106,6 +10434,11 @@ export default class Client extends OpenApi {
 
   /**
    * Executes Spark SQL statements in batches.
+   * 
+   * @remarks
+   * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+   * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+   * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
    * 
    * @param request - ExecuteSparkWarehouseBatchSQLRequest
    * @returns ExecuteSparkWarehouseBatchSQLResponse
@@ -10177,10 +10510,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the Spark basic permission diagnosis report of the current user.
+   * Generates an executable SQL statement from a semantic SQL statement.
+   * 
+   * @param request - GenerateSqlBySemanticSqlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateSqlBySemanticSqlResponse
+   */
+  async generateSqlBySemanticSqlWithOptions(request: $_model.GenerateSqlBySemanticSqlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateSqlBySemanticSqlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateSqlBySemanticSql",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateSqlBySemanticSqlResponse>(await this.callApi(params, req, runtime), new $_model.GenerateSqlBySemanticSqlResponse({}));
+  }
+
+  /**
+   * Generates an executable SQL statement from a semantic SQL statement.
+   * 
+   * @param request - GenerateSqlBySemanticSqlRequest
+   * @returns GenerateSqlBySemanticSqlResponse
+   */
+  async generateSqlBySemanticSql(request: $_model.GenerateSqlBySemanticSqlRequest): Promise<$_model.GenerateSqlBySemanticSqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateSqlBySemanticSqlWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the basic permission diagnostic report of the current user for Spark.
    * 
    * @remarks
-   * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
+   * The API diagnostic report contains all the permissions required by the current user for ADB Spark-related features. The scope of the permission check may exceed the minimum requirements of your business. This API is used for quick initialization of the ADB Spark environment. To configure fine-grained permissions, [refer to the ADB Spark fine-grained permission configuration documentation.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
    * 
    * @param request - GetADBSparkNecessaryRAMPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10211,10 +10594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the Spark basic permission diagnosis report of the current user.
+   * Queries the basic permission diagnostic report of the current user for Spark.
    * 
    * @remarks
-   * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
+   * The API diagnostic report contains all the permissions required by the current user for ADB Spark-related features. The scope of the permission check may exceed the minimum requirements of your business. This API is used for quick initialization of the ADB Spark environment. To configure fine-grained permissions, [refer to the ADB Spark fine-grained permission configuration documentation.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
    * 
    * @param request - GetADBSparkNecessaryRAMPermissionsRequest
    * @returns GetADBSparkNecessaryRAMPermissionsResponse
@@ -10222,52 +10605,6 @@ export default class Client extends OpenApi {
   async getADBSparkNecessaryRAMPermissions(request: $_model.GetADBSparkNecessaryRAMPermissionsRequest): Promise<$_model.GetADBSparkNecessaryRAMPermissionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getADBSparkNecessaryRAMPermissionsWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of databases.
-   * 
-   * @param request - GetApsManagedDatabasesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetApsManagedDatabasesResponse
-   */
-  async getApsManagedDatabasesWithOptions(request: $_model.GetApsManagedDatabasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApsManagedDatabasesResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      body["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      body["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetApsManagedDatabases",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetApsManagedDatabasesResponse>(await this.callApi(params, req, runtime), new $_model.GetApsManagedDatabasesResponse({}));
-  }
-
-  /**
-   * Queries a list of databases.
-   * 
-   * @param request - GetApsManagedDatabasesRequest
-   * @returns GetApsManagedDatabasesResponse
-   */
-  async getApsManagedDatabases(request: $_model.GetApsManagedDatabasesRequest): Promise<$_model.GetApsManagedDatabasesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getApsManagedDatabasesWithOptions(request, runtime);
   }
 
   /**
@@ -10415,6 +10752,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a metadata discovery task.
+   * 
+   * @param request - GetFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFormationCrawlerResponse
+   */
+  async getFormationCrawlerWithOptions(request: $_model.GetFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskName)) {
+      body["CrawlerTaskName"] = request.crawlerTaskName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.GetFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Queries the details of a metadata discovery task.
+   * 
+   * @param request - GetFormationCrawlerRequest
+   * @returns GetFormationCrawlerResponse
+   */
+  async getFormationCrawler(request: $_model.GetFormationCrawlerRequest): Promise<$_model.GetFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFormationCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds a knowledge base document.
+   * 
+   * @param request - GetKnowledgeRecallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeRecallResponse
+   */
+  async getKnowledgeRecallWithOptions(request: $_model.GetKnowledgeRecallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeRecallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      query["Question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.topk)) {
+      query["Topk"] = request.topk;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeRecall",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeRecallResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeRecallResponse({}));
+  }
+
+  /**
+   * Adds a knowledge base document.
+   * 
+   * @param request - GetKnowledgeRecallRequest
+   * @returns GetKnowledgeRecallResponse
+   */
+  async getKnowledgeRecall(request: $_model.GetKnowledgeRecallRequest): Promise<$_model.GetKnowledgeRecallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeRecallWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a lake storage.
    * 
    * @param request - GetLakeStorageRequest
@@ -10464,6 +10905,56 @@ export default class Client extends OpenApi {
   async getLakeStorage(request: $_model.GetLakeStorageRequest): Promise<$_model.GetLakeStorageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLakeStorageWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a semantic view.
+   * 
+   * @param request - GetSemanticViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSemanticViewResponse
+   */
+  async getSemanticViewWithOptions(request: $_model.GetSemanticViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSemanticViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSemanticView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSemanticViewResponse>(await this.callApi(params, req, runtime), new $_model.GetSemanticViewResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a semantic view.
+   * 
+   * @param request - GetSemanticViewRequest
+   * @returns GetSemanticViewResponse
+   */
+  async getSemanticView(request: $_model.GetSemanticViewRequest): Promise<$_model.GetSemanticViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSemanticViewWithOptions(request, runtime);
   }
 
   /**
@@ -11258,7 +11749,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution result of a Spark SQL statement.
+   * Retrieves the execution results of a Spark SQL statement.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
    * 
    * @param request - GetSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11297,7 +11793,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution result of a Spark SQL statement.
+   * Retrieves the execution results of a Spark SQL statement.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
    * 
    * @param request - GetSparkWarehouseBatchSQLRequest
    * @returns GetSparkWarehouseBatchSQLResponse
@@ -11308,7 +11809,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表
+   * Retrieves table information.
+   * 
+   * @remarks
+   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11351,7 +11856,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表
+   * Retrieves table information.
+   * 
+   * @remarks
+   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -11362,11 +11871,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about columns.
+   * Queries column information.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11421,11 +11930,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about columns.
+   * Queries column information.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableColumnsRequest
    * @returns GetTableColumnsResponse
@@ -11498,7 +12007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取table概要信息
+   * Queries table information.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11565,7 +12078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取table概要信息
+   * Queries table information.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetTableObjectsRequest
    * @returns GetTableObjectsResponse
@@ -11638,11 +12155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about views.
+   * Queries view information.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetViewObjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11709,11 +12226,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about views.
+   * Queries view information.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
    * 
    * @param request - GetViewObjectsRequest
    * @returns GetViewObjectsResponse
@@ -11999,191 +12516,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of lifecycle management policies of an AnalyticDB for MySQL cluster.
-   * 
-   * @param request - ListApsLifecycleStrategyRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListApsLifecycleStrategyResponse
-   */
-  async listApsLifecycleStrategyWithOptions(request: $_model.ListApsLifecycleStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApsLifecycleStrategyResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      body["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      body["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      body["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      body["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ListApsLifecycleStrategy",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ListApsLifecycleStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ListApsLifecycleStrategyResponse({}));
-  }
-
-  /**
-   * Queries a list of lifecycle management policies of an AnalyticDB for MySQL cluster.
-   * 
-   * @param request - ListApsLifecycleStrategyRequest
-   * @returns ListApsLifecycleStrategyResponse
-   */
-  async listApsLifecycleStrategy(request: $_model.ListApsLifecycleStrategyRequest): Promise<$_model.ListApsLifecycleStrategyResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.listApsLifecycleStrategyWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
+   * Queries the webhook configurations for a specified database cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
-   * 
-   * @param request - ListApsOptimizationStrategyRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListApsOptimizationStrategyResponse
-   */
-  async listApsOptimizationStrategyWithOptions(request: $_model.ListApsOptimizationStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApsOptimizationStrategyResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      body["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      body["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ListApsOptimizationStrategy",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ListApsOptimizationStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ListApsOptimizationStrategyResponse({}));
-  }
-
-  /**
-   * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
-   * 
-   * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
-   * 
-   * @param request - ListApsOptimizationStrategyRequest
-   * @returns ListApsOptimizationStrategyResponse
-   */
-  async listApsOptimizationStrategy(request: $_model.ListApsOptimizationStrategyRequest): Promise<$_model.ListApsOptimizationStrategyResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.listApsOptimizationStrategyWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of optimization jobs executed based on a lifecycle management policy. The system runs optimization jobs on a regular basis based on lifecycle management policies.
-   * 
-   * @param request - ListApsOptimizationTasksRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListApsOptimizationTasksResponse
-   */
-  async listApsOptimizationTasksWithOptions(request: $_model.ListApsOptimizationTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApsOptimizationTasksResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      body["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      body["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      body["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      body["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.strategyType)) {
-      body["StrategyType"] = request.strategyType;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ListApsOptimizationTasks",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ListApsOptimizationTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListApsOptimizationTasksResponse({}));
-  }
-
-  /**
-   * Queries a list of optimization jobs executed based on a lifecycle management policy. The system runs optimization jobs on a regular basis based on lifecycle management policies.
-   * 
-   * @param request - ListApsOptimizationTasksRequest
-   * @returns ListApsOptimizationTasksResponse
-   */
-  async listApsOptimizationTasks(request: $_model.ListApsOptimizationTasksRequest): Promise<$_model.ListApsOptimizationTasksResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.listApsOptimizationTasksWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries the Webhook configurations of a specified database cluster.
-   * 
-   * @remarks
-   * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
-   * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
+   * Queries the list of configured webhooks for a specified database cluster based on RegionId, DBClusterId, and the optional JobType parameter. The JobType parameter specifies the task type, such as SLS or OSS export tasks. If JobType is specified, only webhooks associated with the specified task type are returned. If JobType is not specified, webhooks of all types are returned.
+   * Note: Ensure that the RegionId and DBClusterId values you provide are correct. Otherwise, the webhook information may not be retrieved.
    * 
    * @param request - ListApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12222,11 +12559,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Webhook configurations of a specified database cluster.
+   * Queries the webhook configurations for a specified database cluster.
    * 
    * @remarks
-   * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
-   * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
+   * Queries the list of configured webhooks for a specified database cluster based on RegionId, DBClusterId, and the optional JobType parameter. The JobType parameter specifies the task type, such as SLS or OSS export tasks. If JobType is specified, only webhooks associated with the specified task type are returned. If JobType is not specified, webhooks of all types are returned.
+   * Note: Ensure that the RegionId and DBClusterId values you provide are correct. Otherwise, the webhook information may not be retrieved.
    * 
    * @param request - ListApsWebhookRequest
    * @returns ListApsWebhookResponse
@@ -12363,12 +12700,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about retry attempts of a Spark application.
+   * Query the list of semantic views
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+   * For the endpoints of the service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * 
+   * @param request - ListSemanticViewNamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSemanticViewNamesResponse
+   */
+  async listSemanticViewNamesWithOptions(request: $_model.ListSemanticViewNamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSemanticViewNamesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSemanticViewNames",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSemanticViewNamesResponse>(await this.callApi(params, req, runtime), new $_model.ListSemanticViewNamesResponse({}));
+  }
+
+  /**
+   * Query the list of semantic views
+   * 
+   * @remarks
+   * For the endpoints of the service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * 
+   * @param request - ListSemanticViewNamesRequest
+   * @returns ListSemanticViewNamesResponse
+   */
+  async listSemanticViewNames(request: $_model.ListSemanticViewNamesRequest): Promise<$_model.ListSemanticViewNamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSemanticViewNamesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the retry information of a specified Spark application.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
    * 
    * @param request - ListSparkAppAttemptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12411,12 +12800,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about retry attempts of a Spark application.
+   * Queries the retry information of a specified Spark application.
    * 
    * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
    * 
    * @param request - ListSparkAppAttemptsRequest
    * @returns ListSparkAppAttemptsResponse
@@ -12427,7 +12816,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Spark applications that run on an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the list of Spark applications.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
    * 
    * @param request - ListSparkAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12474,7 +12868,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Spark applications that run on an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the list of Spark applications.
+   * 
+   * @remarks
+   * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+   * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+   * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
    * 
    * @param request - ListSparkAppsRequest
    * @returns ListSparkAppsResponse
@@ -12599,6 +12998,11 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of Spark SQL statements.
    * 
+   * @remarks
+   * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+   * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+   * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+   * 
    * @param request - ListSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSparkWarehouseBatchSQLResponse
@@ -12641,6 +13045,11 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of Spark SQL statements.
+   * 
+   * @remarks
+   * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+   * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+   * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
    * 
    * @param request - ListSparkWarehouseBatchSQLRequest
    * @returns ListSparkWarehouseBatchSQLResponse
@@ -13577,66 +13986,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the public endpoint of an AnalyticDB for MySQL cluster.
-   * 
-   * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
-   * 
-   * @param request - ModifyClusterConnectionStringRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ModifyClusterConnectionStringResponse
-   */
-  async modifyClusterConnectionStringWithOptions(request: $_model.ModifyClusterConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyClusterConnectionStringResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.connectionStringPrefix)) {
-      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
-    }
-
-    if (!$dara.isNull(request.currentConnectionString)) {
-      query["CurrentConnectionString"] = request.currentConnectionString;
-    }
-
-    if (!$dara.isNull(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.port)) {
-      query["Port"] = request.port;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ModifyClusterConnectionString",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ModifyClusterConnectionStringResponse>(await this.callApi(params, req, runtime), new $_model.ModifyClusterConnectionStringResponse({}));
-  }
-
-  /**
-   * Modifies the public endpoint of an AnalyticDB for MySQL cluster.
-   * 
-   * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
-   * 
-   * @param request - ModifyClusterConnectionStringRequest
-   * @returns ModifyClusterConnectionStringResponse
-   */
-  async modifyClusterConnectionString(request: $_model.ModifyClusterConnectionStringRequest): Promise<$_model.ModifyClusterConnectionStringResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.modifyClusterConnectionStringWithOptions(request, runtime);
-  }
-
-  /**
    * Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - ModifyCompactionServiceSwitchRequest
@@ -13683,16 +14032,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * Scales up or scales down a Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * ### [](#)
-   * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
-   * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
-   * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
-   * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
-   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
-   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * ### Before you begin
+   * - During scaling, `submit job` for submitting asynchronous tasks is disabled. If your business depends on this feature, schedule the scaling operation during an appropriate time window.
+   * - Scaling operations redistribute and migrate data. The migration duration is proportional to the data volume, and the service is not interrupted during scaling. When you scale down a cluster from a large specification to a small specification, data migration typically takes several hours or even tens of hours. Exercise caution when you scale down a cluster with a large data volume.
+   * - If the cluster has loaded a built-in dataset, make sure that the cluster has at least 24 ACUs of storage reserved resources during scale-down. Otherwise, the built-in dataset cannot be used.
+   * - Transient connections may occur near the end of scaling. Scale during off-peak hours, or make sure that your application has an automatic reconnection mechanism.
+   * - You cannot perform an Upgrade/Downgrade from Data Lakehouse Edition to Data Warehouse Edition. You can perform an Upgrade/Downgrade from Data Warehouse Edition to Data Lakehouse Edition. For details, refer to the documentation about changing Data Warehouse Edition to Data Lakehouse Edition.
+   * - For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13701,6 +14050,14 @@ export default class Client extends OpenApi {
   async modifyDBClusterWithOptions(request: $_model.ModifyDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.AINodeNumber)) {
+      query["AINodeNumber"] = request.AINodeNumber;
+    }
+
+    if (!$dara.isNull(request.AINodeSpec)) {
+      query["AINodeSpec"] = request.AINodeSpec;
+    }
+
     if (!$dara.isNull(request.computeResource)) {
       query["ComputeResource"] = request.computeResource;
     }
@@ -13751,16 +14108,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * Scales up or scales down a Data Lakehouse Edition cluster.
    * 
    * @remarks
-   * ### [](#)
-   * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
-   * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
-   * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
-   * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
-   * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
-   * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * ### Before you begin
+   * - During scaling, `submit job` for submitting asynchronous tasks is disabled. If your business depends on this feature, schedule the scaling operation during an appropriate time window.
+   * - Scaling operations redistribute and migrate data. The migration duration is proportional to the data volume, and the service is not interrupted during scaling. When you scale down a cluster from a large specification to a small specification, data migration typically takes several hours or even tens of hours. Exercise caution when you scale down a cluster with a large data volume.
+   * - If the cluster has loaded a built-in dataset, make sure that the cluster has at least 24 ACUs of storage reserved resources during scale-down. Otherwise, the built-in dataset cannot be used.
+   * - Transient connections may occur near the end of scaling. Scale during off-peak hours, or make sure that your application has an automatic reconnection mechanism.
+   * - You cannot perform an Upgrade/Downgrade from Data Lakehouse Edition to Data Warehouse Edition. You can perform an Upgrade/Downgrade from Data Warehouse Edition to Data Lakehouse Edition. For details, refer to the documentation about changing Data Warehouse Edition to Data Lakehouse Edition.
+   * - For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBClusterRequest
    * @returns ModifyDBClusterResponse
@@ -14045,10 +14402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Changes the resource group of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - ModifyDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14058,6 +14415,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ModifyDBResourceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.atmConfig)) {
+      request.atmConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.atmConfig, "AtmConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.engineParams)) {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
     }
@@ -14075,6 +14436,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.atmConfigShrink)) {
+      query["AtmConfig"] = request.atmConfigShrink;
+    }
+
     if (!$dara.isNull(request.autoStopInterval)) {
       query["AutoStopInterval"] = request.autoStopInterval;
     }
@@ -14177,10 +14542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Changes the resource group of a cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyDBResourceGroupRequest
    * @returns ModifyDBResourceGroupResponse
@@ -14449,7 +14814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a materialized view recommendation task.
+   * Modifies an automatic materialized view recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14536,7 +14901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a materialized view recommendation task.
+   * Modifies an automatic materialized view recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @returns ModifyMaterializedViewRecommendResponse
@@ -14809,10 +15174,164 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Queries the list of metadata discovery task instances.
+   * 
+   * @param request - QueryFormationInstsByTaskIDRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFormationInstsByTaskIDResponse
+   */
+  async queryFormationInstsByTaskIDWithOptions(request: $_model.QueryFormationInstsByTaskIDRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFormationInstsByTaskIDResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryFormationInstsByTaskID",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryFormationInstsByTaskIDResponse>(await this.callApi(params, req, runtime), new $_model.QueryFormationInstsByTaskIDResponse({}));
+  }
+
+  /**
+   * Queries the list of metadata discovery task instances.
+   * 
+   * @param request - QueryFormationInstsByTaskIDRequest
+   * @returns QueryFormationInstsByTaskIDResponse
+   */
+  async queryFormationInstsByTaskID(request: $_model.QueryFormationInstsByTaskIDRequest): Promise<$_model.QueryFormationInstsByTaskIDResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryFormationInstsByTaskIDWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a metadata discovery task by ID.
+   * 
+   * @param request - QueryFormationTaskByIDRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFormationTaskByIDResponse
+   */
+  async queryFormationTaskByIDWithOptions(request: $_model.QueryFormationTaskByIDRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFormationTaskByIDResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryFormationTaskByID",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryFormationTaskByIDResponse>(await this.callApi(params, req, runtime), new $_model.QueryFormationTaskByIDResponse({}));
+  }
+
+  /**
+   * Queries a metadata discovery task by ID.
+   * 
+   * @param request - QueryFormationTaskByIDRequest
+   * @returns QueryFormationTaskByIDResponse
+   */
+  async queryFormationTaskByID(request: $_model.QueryFormationTaskByIDRequest): Promise<$_model.QueryFormationTaskByIDResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryFormationTaskByIDWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries metadata discovery tasks by task type.
+   * 
+   * @param request - QueryFormationTasksByTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFormationTasksByTypeResponse
+   */
+  async queryFormationTasksByTypeWithOptions(request: $_model.QueryFormationTasksByTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFormationTasksByTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryFormationTasksByType",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryFormationTasksByTypeResponse>(await this.callApi(params, req, runtime), new $_model.QueryFormationTasksByTypeResponse({}));
+  }
+
+  /**
+   * Queries metadata discovery tasks by task type.
+   * 
+   * @param request - QueryFormationTasksByTypeRequest
+   * @returns QueryFormationTasksByTypeResponse
+   */
+  async queryFormationTasksByType(request: $_model.QueryFormationTasksByTypeRequest): Promise<$_model.QueryFormationTasksByTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryFormationTasksByTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases the public endpoint of a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ReleaseClusterPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14827,6 +15346,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engine)) {
       query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -14847,10 +15370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * Releases the public endpoint of a specified cluster.
    * 
    * @remarks
-   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * For the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ReleaseClusterPublicConnectionRequest
    * @returns ReleaseClusterPublicConnectionResponse
@@ -14858,6 +15381,118 @@ export default class Client extends OpenApi {
   async releaseClusterPublicConnection(request: $_model.ReleaseClusterPublicConnectionRequest): Promise<$_model.ReleaseClusterPublicConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseClusterPublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name of a semantic view.
+   * 
+   * @param request - RenameSemanticViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenameSemanticViewResponse
+   */
+  async renameSemanticViewWithOptions(request: $_model.RenameSemanticViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenameSemanticViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.newSchemaName)) {
+      query["NewSchemaName"] = request.newSchemaName;
+    }
+
+    if (!$dara.isNull(request.newViewName)) {
+      query["NewViewName"] = request.newViewName;
+    }
+
+    if (!$dara.isNull(request.oldSchemaName)) {
+      query["OldSchemaName"] = request.oldSchemaName;
+    }
+
+    if (!$dara.isNull(request.oldViewName)) {
+      query["OldViewName"] = request.oldViewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenameSemanticView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenameSemanticViewResponse>(await this.callApi(params, req, runtime), new $_model.RenameSemanticViewResponse({}));
+  }
+
+  /**
+   * Modifies the name of a semantic view.
+   * 
+   * @param request - RenameSemanticViewRequest
+   * @returns RenameSemanticViewResponse
+   */
+  async renameSemanticView(request: $_model.RenameSemanticViewRequest): Promise<$_model.RenameSemanticViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renameSemanticViewWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the definition of a semantic view.
+   * 
+   * @param request - ReplaceSemanticViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceSemanticViewResponse
+   */
+  async replaceSemanticViewWithOptions(request: $_model.ReplaceSemanticViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReplaceSemanticViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.definition)) {
+      query["Definition"] = request.definition;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReplaceSemanticView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReplaceSemanticViewResponse>(await this.callApi(params, req, runtime), new $_model.ReplaceSemanticViewResponse({}));
+  }
+
+  /**
+   * Updates the definition of a semantic view.
+   * 
+   * @param request - ReplaceSemanticViewRequest
+   * @returns ReplaceSemanticViewResponse
+   */
+  async replaceSemanticView(request: $_model.ReplaceSemanticViewRequest): Promise<$_model.ReplaceSemanticViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.replaceSemanticViewWithOptions(request, runtime);
   }
 
   /**
@@ -14983,6 +15618,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Runs an automated recommendation task for Materialized Views.
+   * 
+   * @param request - RunMaterializedViewRecommendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunMaterializedViewRecommendResponse
+   */
+  async runMaterializedViewRecommendWithOptions(request: $_model.RunMaterializedViewRecommendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunMaterializedViewRecommendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunMaterializedViewRecommend",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunMaterializedViewRecommendResponse>(await this.callApi(params, req, runtime), new $_model.RunMaterializedViewRecommendResponse({}));
+  }
+
+  /**
+   * Runs an automated recommendation task for Materialized Views.
+   * 
+   * @param request - RunMaterializedViewRecommendRequest
+   * @returns RunMaterializedViewRecommendResponse
+   */
+  async runMaterializedViewRecommend(request: $_model.RunMaterializedViewRecommendRequest): Promise<$_model.RunMaterializedViewRecommendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runMaterializedViewRecommendWithOptions(request, runtime);
+  }
+
+  /**
+   * Searches for semantic views.
+   * 
+   * @param request - SearchSemanticViewsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchSemanticViewsResponse
+   */
+  async searchSemanticViewsWithOptions(request: $_model.SearchSemanticViewsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchSemanticViewsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.queryText)) {
+      query["QueryText"] = request.queryText;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchSemanticViews",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchSemanticViewsResponse>(await this.callApi(params, req, runtime), new $_model.SearchSemanticViewsResponse({}));
+  }
+
+  /**
+   * Searches for semantic views.
+   * 
+   * @param request - SearchSemanticViewsRequest
+   * @returns SearchSemanticViewsResponse
+   */
+  async searchSemanticViews(request: $_model.SearchSemanticViewsRequest): Promise<$_model.SearchSemanticViewsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchSemanticViewsWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the Spark log configuration.
    * 
    * @remarks
@@ -15086,6 +15837,68 @@ export default class Client extends OpenApi {
   async startApsJob(request: $_model.StartApsJobRequest): Promise<$_model.StartApsJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startApsJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Manually triggers a metadata discovery task.
+   * 
+   * @remarks
+   * ### Operation description
+   * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+   * 
+   * @param request - StartFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartFormationCrawlerResponse
+   */
+  async startFormationCrawlerWithOptions(request: $_model.StartFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskName)) {
+      body["CrawlerTaskName"] = request.crawlerTaskName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.StartFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Manually triggers a metadata discovery task.
+   * 
+   * @remarks
+   * ### Operation description
+   * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+   * 
+   * @param request - StartFormationCrawlerRequest
+   * @returns StartFormationCrawlerResponse
+   */
+  async startFormationCrawler(request: $_model.StartFormationCrawlerRequest): Promise<$_model.StartFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startFormationCrawlerWithOptions(request, runtime);
   }
 
   /**
@@ -15217,6 +16030,66 @@ export default class Client extends OpenApi {
   async startSparkSQLEngine(request: $_model.StartSparkSQLEngineRequest): Promise<$_model.StartSparkSQLEngineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startSparkSQLEngineWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a metadata discovery task that is currently running.
+   * 
+   * @remarks
+   * Stops only the currently running task without canceling subsequent cron-scheduled executions.
+   * 
+   * @param request - StopFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopFormationCrawlerResponse
+   */
+  async stopFormationCrawlerWithOptions(request: $_model.StopFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskName)) {
+      body["CrawlerTaskName"] = request.crawlerTaskName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.StopFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Stops a metadata discovery task that is currently running.
+   * 
+   * @remarks
+   * Stops only the currently running task without canceling subsequent cron-scheduled executions.
+   * 
+   * @param request - StopFormationCrawlerRequest
+   * @returns StopFormationCrawlerResponse
+   */
+  async stopFormationCrawler(request: $_model.StopFormationCrawlerRequest): Promise<$_model.StopFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopFormationCrawlerWithOptions(request, runtime);
   }
 
   /**
@@ -15516,7 +16389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates resource groups from database accounts for an AnalyticDB for MySQL cluster.
+   * Disassociates a database account from a resource group of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -15558,7 +16431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates resource groups from database accounts for an AnalyticDB for MySQL cluster.
+   * Disassociates a database account from a resource group of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -15572,7 +16445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webhook configuration of a specified cluster.
+   * Updates the webhook configuration of a specified database cluster.
    * 
    * @param tmpReq - UpdateApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15617,7 +16490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webhook configuration of a specified cluster.
+   * Updates the webhook configuration of a specified database cluster.
    * 
    * @param request - UpdateApsWebhookRequest
    * @returns UpdateApsWebhookResponse
@@ -15625,6 +16498,118 @@ export default class Client extends OpenApi {
   async updateApsWebhook(request: $_model.UpdateApsWebhookRequest): Promise<$_model.UpdateApsWebhookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApsWebhookWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the information of a metadata discovery task.
+   * 
+   * @param request - UpdateFormationCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFormationCrawlerResponse
+   */
+  async updateFormationCrawlerWithOptions(request: $_model.UpdateFormationCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFormationCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerInfo)) {
+      body["CrawlerInfo"] = request.crawlerInfo;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFormationCrawler",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFormationCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFormationCrawlerResponse({}));
+  }
+
+  /**
+   * Updates the information of a metadata discovery task.
+   * 
+   * @param request - UpdateFormationCrawlerRequest
+   * @returns UpdateFormationCrawlerResponse
+   */
+  async updateFormationCrawler(request: $_model.UpdateFormationCrawlerRequest): Promise<$_model.UpdateFormationCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFormationCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * Pauses or resumes the periodic scheduling of metadata discovery.
+   * 
+   * @param request - UpdateFormationCrawlerScheduleStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFormationCrawlerScheduleStateResponse
+   */
+  async updateFormationCrawlerScheduleStateWithOptions(request: $_model.UpdateFormationCrawlerScheduleStateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFormationCrawlerScheduleStateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crawlerTaskId)) {
+      body["CrawlerTaskId"] = request.crawlerTaskId;
+    }
+
+    if (!$dara.isNull(request.crawlerTaskName)) {
+      body["CrawlerTaskName"] = request.crawlerTaskName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scheduleState)) {
+      body["ScheduleState"] = request.scheduleState;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFormationCrawlerScheduleState",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFormationCrawlerScheduleStateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFormationCrawlerScheduleStateResponse({}));
+  }
+
+  /**
+   * Pauses or resumes the periodic scheduling of metadata discovery.
+   * 
+   * @param request - UpdateFormationCrawlerScheduleStateRequest
+   * @returns UpdateFormationCrawlerScheduleStateResponse
+   */
+  async updateFormationCrawlerScheduleState(request: $_model.UpdateFormationCrawlerScheduleStateRequest): Promise<$_model.UpdateFormationCrawlerScheduleStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFormationCrawlerScheduleStateWithOptions(request, runtime);
   }
 
   /**

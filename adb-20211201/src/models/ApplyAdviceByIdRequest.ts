@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyAdviceByIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The date on which you want to apply the suggestion. Format: yyyyMMdd.
+   * The date when the suggestion was generated. Format: yyyyMMdd.
    * 
    * @example
    * 20221101
@@ -19,7 +19,21 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
    * 0baf1f52-53df-487f-8292-99a03716****
    */
   adviceId?: string;
+  /**
+   * @remarks
+   * The adoption type.
+   * 
+   * @example
+   * DROP_INDEX
+   */
   applyType?: string;
+  /**
+   * @remarks
+   * Specifies whether to immediately start the build task.
+   * 
+   * @example
+   * true
+   */
   buildImmediately?: boolean;
   /**
    * @remarks

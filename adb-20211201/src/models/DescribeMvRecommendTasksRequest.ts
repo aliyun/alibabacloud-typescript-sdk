@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static field. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   actionInner?: string;
   /**
@@ -18,7 +21,10 @@ export class DescribeMvRecommendTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Fixed system value (non-modifiable).
+   * A static field. This parameter cannot be modified.
+   * 
+   * @example
+   * Modification is not supported.
    */
   from?: string;
   /**
@@ -31,7 +37,7 @@ export class DescribeMvRecommendTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -47,7 +53,7 @@ export class DescribeMvRecommendTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the recommendation task.
+   * The name of the materialized view recommendation task.
    * 
    * @example
    * my_task_1

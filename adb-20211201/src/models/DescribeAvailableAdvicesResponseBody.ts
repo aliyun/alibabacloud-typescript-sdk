@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated. The date is in the yyyyMMdd format.
+   * The date when the advice was generated. The date is displayed in the yyyyMMdd format.
    * 
    * @example
    * 20221124
@@ -13,7 +13,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   adviceDate?: string;
   /**
    * @remarks
-   * The suggestion ID.
+   * The advice ID.
    * 
    * @example
    * dcd04135-0925-4aed-a5a7-e7d92cb1****
@@ -21,10 +21,11 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   adviceId?: string;
   /**
    * @remarks
-   * The type of the suggestion. Valid values:
+   * The type of the advice. Valid values:
    * 
-   * *   **INDEX**: index optimization.
-   * *   **TIERING**: hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * 
+   * - **TIERING**: hot and cold data optimization.
    * 
    * @example
    * INDEX
@@ -32,16 +33,23 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   adviceType?: string;
   /**
    * @remarks
-   * The benefit of the suggestion.
+   * The benefits of the advice.
    * 
    * @example
-   * 0.4 GB of storage saved
+   * 节省0.4 GB的存储空间。
    */
   benefit?: string;
+  /**
+   * @remarks
+   * The index fields.
+   * 
+   * @example
+   * message
+   */
   indexFields?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -49,11 +57,13 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -61,15 +71,15 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The reason why the suggestion was generated.
+   * The reason why the optimization advice is generated.
    * 
    * @example
-   * Unused for 15 days, historical usage less than 1%
+   * 15天未使用，历史使用统计概率小于1%
    */
   reason?: string;
   /**
    * @remarks
-   * The SQL statement that is used to apply the suggestion.
+   * The SQL statement that is used to apply the advice.
    * 
    * @example
    * alter table `schema1`.`table1` drop key col1_1_idx
@@ -77,7 +87,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   SQL?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -85,7 +95,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test_table
@@ -93,7 +103,7 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
    * 
    * @example
    * 10192
@@ -145,12 +155,12 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
 export class DescribeAvailableAdvicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried suggestions.
+   * The optimization advice items.
    */
   items?: DescribeAvailableAdvicesResponseBodyItems[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -158,11 +168,13 @@ export class DescribeAvailableAdvicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -178,12 +190,12 @@ export class DescribeAvailableAdvicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the table in the DatabaseName.TableName format.
+   * The names of databases and tables.
    */
   schemaTableNames?: string[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
    * 
    * @example
    * 10192

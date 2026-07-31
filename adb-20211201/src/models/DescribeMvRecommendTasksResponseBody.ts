@@ -6,7 +6,7 @@ import { OpenStructMvRecommendTaskModel } from "./OpenStructMvRecommendTaskModel
 export class DescribeMvRecommendTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of recommended tasks for materialized views.
+   * The list of materialized view recommendation tasks.
    */
   mvRecommendTaskModels?: OpenStructMvRecommendTaskModel[];
   /**
@@ -19,7 +19,7 @@ export class DescribeMvRecommendTasksResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -27,7 +27,7 @@ export class DescribeMvRecommendTasksResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 4
@@ -66,7 +66,7 @@ export class DescribeMvRecommendTasksResponseBodyData extends $dara.Model {
 export class DescribeMvRecommendTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DescribeMvRecommendTasksResponseBodyData;
   /**
@@ -79,7 +79,7 @@ export class DescribeMvRecommendTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -87,7 +87,7 @@ export class DescribeMvRecommendTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -95,7 +95,7 @@ export class DescribeMvRecommendTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of entries.
    * 
    * @example
    * 4

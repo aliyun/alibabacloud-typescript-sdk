@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of days for which data backup files are retained.
+   * The number of days to retain data backups.
    * 
    * @example
    * 7
@@ -13,10 +13,11 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * Indicates whether log backup is enabled. Valid values:
+   * Indicates whether real-time log backup is enabled. Valid values:
    * 
-   * *   **Enable**
-   * *   **Disable**
+   * - **Enable**: enabled.
+   * 
+   * - **Disable**: disabled.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   enableBackupLog?: string;
   /**
    * @remarks
-   * The number of days for which the log backup files are retained.
+   * The number of days to retain log backups.
    * 
    * @example
    * 7
@@ -32,15 +33,21 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   logBackupRetentionPeriod?: number;
   /**
    * @remarks
-   * The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid value:
+   * The data backup cycle. Separate multiple values with commas (,). Valid values:
    * 
-   * *   Monday
-   * *   Tuesday
-   * *   Wednesday
-   * *   Thursday
-   * *   Friday
-   * *   Saturday
-   * *   Sunday
+   * - Monday
+   * 
+   * - Tuesday
+   * 
+   * - Wednesday
+   * 
+   * - Thursday
+   * 
+   * - Friday
+   * 
+   * - Saturday
+   * 
+   * - Sunday
    * 
    * @example
    * Wednesday,Saturday
@@ -48,7 +55,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The data backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+   * The data backup time. The time is in the HH:mmZ-HH:mmZ format.
    * 
    * @example
    * 15:00Z-16:00Z

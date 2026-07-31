@@ -16,7 +16,7 @@ export class DescribeOversizeNonPartitionTableInfosResponseBodyDetectionItems ex
    * The name of the detection item.
    * 
    * @example
-   * Oversized non-partitioned tables
+   * Oversized non-partitioned table
    */
   name?: string;
   /**

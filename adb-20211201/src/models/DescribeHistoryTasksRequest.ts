@@ -37,7 +37,6 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * Instance
    */
   instanceType?: string;
-  ownerId?: number;
   /**
    * @remarks
    * The number of the page to return. Valid range: positive integers. Default value: 1
@@ -70,7 +69,6 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * rg-ae****
    */
   resourceGroupId?: string;
-  resourceOwnerId?: number;
   /**
    * @remarks
    * The state of the task. Valid values:
@@ -129,12 +127,10 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
       fromStartTime: 'FromStartTime',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
-      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
       taskId: 'TaskId',
       taskType: 'TaskType',
@@ -149,12 +145,10 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
       fromStartTime: 'string',
       instanceId: 'string',
       instanceType: 'string',
-      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerId: 'number',
       status: 'string',
       taskId: 'string',
       taskType: 'string',

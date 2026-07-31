@@ -10,7 +10,7 @@ export class DescribeUserQuotaRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * amv-bp1qjt3o18d86987
+   * amv-bp1qjt3o18d8****
    */
   DBClusterId?: string;
   /**

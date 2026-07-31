@@ -29,7 +29,6 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
    * amv-********
    */
   instanceId?: string;
-  ownerId?: number;
   /**
    * @remarks
    * The ID of the region where the instance resides.
@@ -48,8 +47,10 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
    * rg-acfmy*****
    */
   resourceGroupId?: string;
-  resourceOwnerAccount?: number;
-  resourceOwnerId?: number;
+  /**
+   * @example
+   * abc
+   */
   securityToken?: string;
   /**
    * @remarks
@@ -108,11 +109,8 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
       fromExecTime: 'FromExecTime',
       fromStartTime: 'FromStartTime',
       instanceId: 'InstanceId',
-      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
       status: 'Status',
       taskId: 'TaskId',
@@ -127,11 +125,8 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
       fromExecTime: 'number',
       fromStartTime: 'string',
       instanceId: 'string',
-      ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
-      resourceOwnerAccount: 'number',
-      resourceOwnerId: 'number',
       securityToken: 'string',
       status: 'string',
       taskId: 'string',

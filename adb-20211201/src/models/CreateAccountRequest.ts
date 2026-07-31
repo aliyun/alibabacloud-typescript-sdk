@@ -6,22 +6,18 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the account.
-   * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description can be up to 256 characters in length.
+   * - Cannot start with `http://` or `https://`.
+   * - Cannot exceed 256 characters in length.
    * 
    * @example
-   * test
+   * 数据库连接测试账号
    */
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the database account.
-   * 
-   * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must be 2 to 16 characters in length.
-   * *   Reserved account names such as root, admin, and opsadmin cannot be used.
+   * The name of the database account. The name must meet the following requirements:
+   * - Starts with a lowercase letter and ends with a lowercase letter or digit.
+   * - Contains only lowercase letters, digits, or underscores (_).
    * 
    * This parameter is required.
    * 
@@ -32,10 +28,9 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the database account.
-   * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-   * *   The password must be 8 to 32 characters in length.
+   * - Must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Special characters include: `!@#$%^&*()_+-=`
+   * - Must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -45,10 +40,9 @@ export class CreateAccountRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The type of the database account. Valid values:
-   * 
-   * *   **Normal**: standard account.
-   * *   **Super**: privileged account.
+   * The type of the account. Valid values:
+   * - **Normal**: standard account.
+   * - **Super**: privileged account.
    * 
    * This parameter is required.
    * 
@@ -58,7 +52,8 @@ export class CreateAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -68,15 +63,20 @@ export class CreateAccountRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database engine of the cluster. Valid values:
+   * The database engine. Valid values:
    * 
-   * *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * *   **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+   * - **Clickhouse**: wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  /**
+   * @remarks
+   * The list of Alibaba Cloud Resource Access Management (RAM) user IDs to attach. Currently, only one RAM user can be attached.
+   */
+  ramUserList?: string[];
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -85,6 +85,7 @@ export class CreateAccountRequest extends $dara.Model {
       accountType: 'AccountType',
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
+      ramUserList: 'RamUserList',
     };
   }
 
@@ -96,10 +97,14 @@ export class CreateAccountRequest extends $dara.Model {
       accountType: 'string',
       DBClusterId: 'string',
       engine: 'string',
+      ramUserList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.ramUserList)) {
+      $dara.Model.validateArray(this.ramUserList);
+    }
     super.validate();
   }
 

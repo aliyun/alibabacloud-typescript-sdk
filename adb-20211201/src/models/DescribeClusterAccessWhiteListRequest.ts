@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAccessWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -13,6 +14,13 @@ export class DescribeClusterAccessWhiteListRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   resourceOwnerAccount?: string;
   static names(): { [key: string]: string } {

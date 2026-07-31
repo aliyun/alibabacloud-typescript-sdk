@@ -6,8 +6,7 @@ export class DeletePerformanceViewResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
-   * 
-   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * > This field is returned only when RAM authentication fails.
    * 
    * @example
    * {
@@ -23,7 +22,10 @@ export class DeletePerformanceViewResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The delete status.
+   * The deletion result. Valid values:
+   * 
+   * - **SUCCESS**: Succeeded.
+   * - **FAILED**: Failed.
    * 
    * @example
    * SUCCESS

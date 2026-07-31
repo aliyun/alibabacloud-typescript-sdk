@@ -3,67 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
-  /**
-   * @remarks
-   * The end time of the backup.
-   * 
-   * @example
-   * 2022-06-02T16:00Z
-   */
   backupEndTime?: string;
   backupExpiredTime?: string;
-  /**
-   * @remarks
-   * The backup set ID.
-   * 
-   * @example
-   * 32732****
-   */
   backupId?: string;
-  /**
-   * @remarks
-   * The backup method. Snapshot is returned.
-   * 
-   * @example
-   * Snapshot
-   */
   backupMethod?: string;
   backupRegion?: string;
-  /**
-   * @remarks
-   * The size of the backup set. Unit: bytes.
-   * 
-   * @example
-   * 2167808
-   */
   backupSize?: number;
-  /**
-   * @remarks
-   * The start time of the backup.
-   * 
-   * @example
-   * 2022-06-01T16:00Z
-   */
   backupStartTime?: string;
   backupStatus?: string;
-  /**
-   * @remarks
-   * The backup type. Valid values:
-   * 
-   * *   **FullBackup**
-   * *   **IncrementalBackup**
-   * 
-   * @example
-   * FullBackup
-   */
   backupType?: string;
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * @example
-   * am-bp11q28kvl688****
-   */
   DBClusterId?: string;
   parentBackupId?: string;
   static names(): { [key: string]: string } {
@@ -134,11 +82,14 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeBackupsResponseBody extends $dara.Model {
-  freeBackupSize?: number;
   /**
    * @remarks
-   * The queried backup sets.
+   * The free backup space. Unit: bytes.
+   * 
+   * @example
+   * 0
    */
+  freeBackupSize?: number;
   items?: DescribeBackupsResponseBodyItems;
   /**
    * @remarks
@@ -150,7 +101,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of backup sets on the current page.
    * 
    * @example
    * 30
@@ -164,10 +115,17 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * CE17270B-F8F8-5A31-9DB4-DADDFDAD7940
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total size of the backup sets. Unit: bytes.
+   * 
+   * @example
+   * 64953700
+   */
   totalBackupSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 300

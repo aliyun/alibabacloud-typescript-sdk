@@ -13,7 +13,7 @@ export class DescribeDBClusterStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried cluster states.
+   * The cluster status list.
    */
   status?: string[];
   static names(): { [key: string]: string } {

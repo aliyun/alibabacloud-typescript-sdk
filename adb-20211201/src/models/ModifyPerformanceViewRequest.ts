@@ -186,7 +186,7 @@ export class ModifyPerformanceViewRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Basic
+   * Custom-All metrics-2 columns-Linked
    */
   viewName?: string;
   static names(): { [key: string]: string } {

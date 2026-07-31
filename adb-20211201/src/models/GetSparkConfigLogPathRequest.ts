@@ -10,7 +10,7 @@ export class GetSparkConfigLogPathRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * am-adsdxxxx
+   * amv-bp19lm077co*****
    */
   DBClusterId?: string;
   static names(): { [key: string]: string } {

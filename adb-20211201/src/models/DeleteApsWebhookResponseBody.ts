@@ -38,6 +38,9 @@ export class DeleteApsWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * Operation succeeded
    */
   message?: string;
   /**

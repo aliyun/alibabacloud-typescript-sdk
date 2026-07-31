@@ -8,7 +8,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
    * The detection result.
    * 
    * @example
-   * Multiple oversized non-partitioned tables are detected.
+   * 检测到表存在分区不合理的情况
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
    * The name of the detection item.
    * 
    * @example
-   * Improper partition field diagnostics
+   * 表分区合理性检测
    */
   name?: string;
   /**

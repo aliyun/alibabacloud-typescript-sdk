@@ -39,7 +39,10 @@ export class GetDatabaseObjectsRequest extends $dara.Model {
    * Default value: {"Type": "Desc","Field": "DatabaseName"}.
    * 
    * @example
-   * {"Type": "Desc","Field": "DbName"}
+   * {
+   *       "Type": "Desc",
+   *       "Field": "DatabaseName"
+   * }
    */
   orderBy?: string;
   /**

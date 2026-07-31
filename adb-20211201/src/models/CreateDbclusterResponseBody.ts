@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -29,7 +29,7 @@ export class CreateDBClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The default resource group ID.
+   * The ID of the default resource group.
    * 
    * @example
    * rg-4690g37929****

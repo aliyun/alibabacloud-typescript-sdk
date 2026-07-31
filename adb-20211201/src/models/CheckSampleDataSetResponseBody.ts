@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSampleDataSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0CE655C3-C211-513D-A42F-D4AE2D1A867C
@@ -13,12 +13,15 @@ export class CheckSampleDataSetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the built-in dataset. Valid values:
+   * The status of the built-in dataset. Valid values:
    * 
-   * *   **SUCCEED**: The dataset is loaded.
-   * *   **INIT**: The dataset is being loaded.
-   * *   **FAILED**: The dataset failed to be loaded.
-   * *   **UNINITIALIZED**: The dataset is not loaded.
+   * - **SUCCEED**: The dataset loaded successfully.
+   * 
+   * - **INIT**: Loading in progress.
+   * 
+   * - **FAILED**: Failed to load the dataset.
+   * 
+   * - **UNINITIALIZED**: Not loaded.
    * 
    * @example
    * UNINITIALIZED

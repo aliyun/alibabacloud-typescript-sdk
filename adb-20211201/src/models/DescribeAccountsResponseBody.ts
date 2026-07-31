@@ -2,64 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAccountsResponseBodyAccountListDBAccountRamUserList extends $dara.Model {
+  ramUserList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ramUserList: 'RamUserList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ramUserList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ramUserList)) {
+      $dara.Model.validateArray(this.ramUserList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccountsResponseBodyAccountListDBAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the database account.
-   * 
-   * @example
-   * test_accout_des
-   */
   accountDescription?: string;
-  /**
-   * @remarks
-   * The name of the database account.
-   * 
-   * @example
-   * test_accout
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The status of the database account. Valid values:
-   * 
-   * *   **Creating**
-   * *   **Available**
-   * *   **Deleting**
-   * 
-   * @example
-   * Available
-   */
   accountStatus?: string;
-  /**
-   * @remarks
-   * The type of the database account. Valid values:
-   * 
-   * *   **Normal**: standard account.
-   * *   **Super**: privileged account.
-   * 
-   * @example
-   * Normal
-   */
   accountType?: string;
-  /**
-   * @remarks
-   * The database engine of the cluster. Valid values:
-   * 
-   * *   **AnalyticDB**: the AnalyticDB for MySQL engine.
-   * *   **Clickhouse**: the wide table engine.
-   * 
-   * @example
-   * Clickhouse
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The ID of the Resource Access Management (RAM) user.
-   * 
-   * @example
-   * 1958134230****
-   */
+  ramUserList?: DescribeAccountsResponseBodyAccountListDBAccountRamUserList;
   ramUsers?: string;
   static names(): { [key: string]: string } {
     return {
@@ -68,6 +43,7 @@ export class DescribeAccountsResponseBodyAccountListDBAccount extends $dara.Mode
       accountStatus: 'AccountStatus',
       accountType: 'AccountType',
       engine: 'Engine',
+      ramUserList: 'RamUserList',
       ramUsers: 'RamUsers',
     };
   }
@@ -79,11 +55,15 @@ export class DescribeAccountsResponseBodyAccountListDBAccount extends $dara.Mode
       accountStatus: 'string',
       accountType: 'string',
       engine: 'string',
+      ramUserList: DescribeAccountsResponseBodyAccountListDBAccountRamUserList,
       ramUsers: 'string',
     };
   }
 
   validate() {
+    if(this.ramUserList && typeof (this.ramUserList as any).validate === 'function') {
+      (this.ramUserList as any).validate();
+    }
     super.validate();
   }
 
@@ -119,10 +99,6 @@ export class DescribeAccountsResponseBodyAccountList extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried database accounts.
-   */
   accountList?: DescribeAccountsResponseBodyAccountList;
   /**
    * @remarks

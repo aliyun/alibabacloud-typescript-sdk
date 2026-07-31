@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseClusterPublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -15,19 +16,22 @@ export class ReleaseClusterPublicConnectionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database engine of the cluster. Valid values:
+   * The database engine. Valid values:
    * 
-   * *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * *   **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (Default): AnalyticDB for MySQL.
+   * 
+   * - **ClickHouse**: a wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       engine: 'Engine',
+      resourceGroupName: 'ResourceGroupName',
     };
   }
 
@@ -35,6 +39,7 @@ export class ReleaseClusterPublicConnectionRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       engine: 'string',
+      resourceGroupName: 'string',
     };
   }
 

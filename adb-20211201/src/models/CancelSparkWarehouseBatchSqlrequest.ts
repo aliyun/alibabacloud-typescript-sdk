@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the client, which can be up to 16 characters in length. Specify a descriptive name that makes it easy to identify.
+   * The client name for auxiliary recording. The value is a meaningful string of up to 16 characters.
    * 
    * @example
    * DMS
@@ -21,7 +21,7 @@ export class CancelSparkWarehouseBatchSQLRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The query ID of the Spark SQL statement.
+   * The execution ID of the Spark SQL.
    * 
    * This parameter is required.
    * 

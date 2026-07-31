@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -15,9 +16,8 @@ export class DescribeDBResourceGroupRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the resource group.
-   * 
-   * > If you do not specify this parameter, the information about all resource groups in the cluster is returned.
+   * The resource group name.
+   * > If this parameter is not specified, information about all resource groups in the specified cluster is returned by default.
    * 
    * @example
    * test_group
@@ -25,12 +25,10 @@ export class DescribeDBResourceGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the resource group. Valid values:
-   * 
-   * *   **Interactive**
-   * *   **Job**
-   * 
-   * >  For more information about resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
+   * The resource group type. Valid values:
+   * - **Interactive**
+   * - **Job**
+   * > For more information about resource groups in Data Lakehouse Edition, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
    * 
    * @example
    * Job
@@ -38,9 +36,8 @@ export class DescribeDBResourceGroupRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID of the cluster.
    * 
    * @example
    * cn-hangzhou

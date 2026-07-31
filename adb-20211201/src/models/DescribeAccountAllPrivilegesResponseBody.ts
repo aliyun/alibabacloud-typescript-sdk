@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject extends $dara.Model {
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * id
@@ -13,7 +13,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   column?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * tdb1
@@ -21,7 +21,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   database?: string;
   /**
    * @remarks
-   * The description of the permission object.
+   * Description of the permission object.
    * 
    * @example
    * id of table
@@ -29,7 +29,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   description?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * table1
@@ -65,12 +65,12 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
 export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The objects on which the permission takes effect, including databases, tables, and columns. If Global is returned for the PrivilegeType parameter, an empty string is returned for this parameter.
+   * The permission object, represented as a trituple of database, table, and column. All fields are empty for Global-level permissions.
    */
   privilegeObject?: DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject;
   /**
    * @remarks
-   * The permission level of the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level of the database account.
+   * The permission level, returned by the `DescribeEnabledPrivileges` operation.
    * 
    * @example
    * Global
@@ -78,7 +78,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Mo
   privilegeType?: string;
   /**
    * @remarks
-   * The name of the permission, which is the same as the permission name returned by the `DescribeEnabledPrivileges` operation.
+   * List of permissions.
    */
   privileges?: string[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Mo
 export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates the position where the results are truncated. When a value of `true` is returned for the `Truncated` parameter, this parameter is present and contains the value to use for the Marker parameter in a subsequent call.
+   * If the `Truncated` field in the response is `true`, pass this value in subsequent calls to retrieve the next set of results.
    * 
    * @example
    * 0573e74fd1ccb01739993a691e876074db6e1b6ad79f54115f0e98528432ba6a523cfec5780ade5189299cc3396f6ff7
@@ -123,12 +123,12 @@ export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The permissions.
+   * List of permissions.
    */
   result?: DescribeAccountAllPrivilegesResponseBodyDataResult[];
   /**
    * @remarks
-   * Indicates whether the results are truncated. If the results are truncated, a value of `true` is returned. In this case, you must call this operation again to obtain all the results until a value of `false` is returned for this parameter.
+   * If the response is truncated, this field is `true`. Continue calling this operation until this field becomes `false`.
    * 
    * @example
    * true
@@ -165,12 +165,12 @@ export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeAccountAllPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the permissions.
+   * Permission details.
    */
   data?: DescribeAccountAllPrivilegesResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3BB185E9-BB54-1727-B876-13243E4C0EB5

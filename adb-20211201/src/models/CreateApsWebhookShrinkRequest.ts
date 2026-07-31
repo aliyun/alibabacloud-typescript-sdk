@@ -15,7 +15,9 @@ export class CreateApsWebhookShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The type of the task. Valid value: Task type. SLS or OSS Export Task: ResultExport.
+   * The task type. Valid values:
+   * 
+   * ResultExport: SLS/OSS export task.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class CreateApsWebhookShrinkRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The ID of the region in which to create the dedicated block storage cluster.
+   * The region ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -35,7 +37,7 @@ export class CreateApsWebhookShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The array of webhooks.
+   * The webhook array.
    */
   webhookShrink?: string;
   static names(): { [key: string]: string } {

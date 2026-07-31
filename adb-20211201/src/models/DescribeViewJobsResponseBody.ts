@@ -6,7 +6,7 @@ import { OpenStructRefreshJobModel } from "./OpenStructRefreshJobModel";
 export class DescribeViewJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The refresh tasks.
+   * The list of refresh tasks.
    */
   mvRefreshJobModels?: OpenStructRefreshJobModel[];
   /**
@@ -19,7 +19,7 @@ export class DescribeViewJobsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -27,7 +27,7 @@ export class DescribeViewJobsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of records.
    * 
    * @example
    * 44
@@ -79,7 +79,7 @@ export class DescribeViewJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of records per page.
    * 
    * @example
    * 30
@@ -95,7 +95,7 @@ export class DescribeViewJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that are returned.
+   * The total number of records.
    * 
    * @example
    * 44

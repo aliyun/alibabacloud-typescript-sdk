@@ -15,8 +15,8 @@ export class ListApsWebhookRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * **JobType**\\
-   * Job type. SLS or OSS Export Task: ResultExport.
+   * **JobType**  
+   * The task type. Set this parameter to ResultExport for SLS or OSS export tasks.
    * 
    * @example
    * ResultExport

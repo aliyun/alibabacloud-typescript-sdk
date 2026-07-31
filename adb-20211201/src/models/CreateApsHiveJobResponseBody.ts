@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsHiveJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The API status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -13,7 +13,7 @@ export class CreateApsHiveJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned for the workload.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class CreateApsHiveJobResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -29,10 +29,9 @@ export class CreateApsHiveJobResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.
-   * *   If the request failed, an error message is returned.
+   * The additional information about the result. Valid values:
+   * - If the request was successful, **Success** is returned.
+   * - If the request failed, the specific error code is returned.
    * 
    * @example
    * Success
@@ -49,9 +48,8 @@ export class CreateApsHiveJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * - **True**: The request was successful.
+   * - **False**: The request failed.
    * 
    * @example
    * true

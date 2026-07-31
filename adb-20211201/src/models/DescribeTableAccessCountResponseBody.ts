@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of accesses to the table.
+   * The number of times the table was accessed.
    * 
    * @example
    * 6
@@ -13,7 +13,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   accessCount?: string;
   /**
    * @remarks
-   * The ID of the cluster to which the table belongs.
+   * The cluster ID of the cluster to which the table belongs.
    * 
    * @example
    * amv-2ze627uzpkh8a8****
@@ -21,7 +21,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The date when the table was accessed.
+   * The date on which the table was used.
    * 
    * @example
    * 2022-09-26
@@ -29,7 +29,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   reportDate?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * CUSTOMER
@@ -75,7 +75,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
 export class DescribeTableAccessCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried tables.
+   * The table usage details.
    */
   items?: DescribeTableAccessCountResponseBodyItems[];
   /**

@@ -16,7 +16,7 @@ export class GetSparkAppAttemptLogResponseBodyData extends $dara.Model {
    * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @example
-   * amv-clusterxxx
+   * amv-bp1bg858bo8c****
    */
   DBClusterId?: string;
   /**

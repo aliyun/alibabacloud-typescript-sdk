@@ -15,7 +15,7 @@ export class GetViewObjectsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The owner of the view.
+   * The owner.
    * 
    * @example
    * admin
@@ -23,7 +23,7 @@ export class GetViewObjectsRequest extends $dara.Model {
   filterOwner?: string;
   /**
    * @remarks
-   * The name of the view.
+   * The view name.
    * 
    * @example
    * test_filter
@@ -31,13 +31,12 @@ export class GetViewObjectsRequest extends $dara.Model {
   filterViewName?: string;
   /**
    * @remarks
-   * The type of the view.
+   * The view type.
    * 
    * Valid values:
    * 
-   * \\-VIRTUAL_VIEW
-   * 
-   * \\-MATERIALIZED_VIEW
+   * - VIRTUAL_VIEW
+   * - MATERIALIZED_VIEW
    * 
    * Default value: null.
    * 
@@ -47,16 +46,16 @@ export class GetViewObjectsRequest extends $dara.Model {
   filterViewType?: string;
   /**
    * @remarks
-   * The order in which you want to sort the query results. Valid values for Type:
+   * The sorting field.
    * 
-   * *   Asc
-   * *   Desc
+   * Valid values for Type:
+   * - Asc
+   * - Desc
    * 
-   * Valid values for Field: -ViewName
-   * 
-   * \\-CreateTime
-   * 
-   * \\-UpdateTime
+   * Valid values for Field:
+   * - ViewName
+   * - CreateTime
+   * - UpdateTime
    * 
    * Default value: {"Type": "Desc","Field": "ViewName"}.
    * 
@@ -75,10 +74,9 @@ export class GetViewObjectsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * * **30** (default).
+   * * **50**.
+   * * **100**.
    * 
    * @example
    * 30
@@ -86,7 +84,7 @@ export class GetViewObjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -96,13 +94,16 @@ export class GetViewObjectsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
    */
   schemaName?: string;
   /**
+   * @remarks
+   * Specifies whether to display the base table information of materialized views.
+   * 
    * @example
    * true
    */

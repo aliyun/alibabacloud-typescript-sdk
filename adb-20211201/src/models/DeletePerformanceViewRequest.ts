@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePerformanceViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -20,8 +21,7 @@ export class DeletePerformanceViewRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the supported regions and zones, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,12 @@ export class DeletePerformanceViewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the view.
+   * The name of the monitoring view.
    * 
    * This parameter is required.
    * 
    * @example
-   * view_dwd_plan_double_term
+   * Custom-All metrics-2 columns-Linked
    */
   viewName?: string;
   static names(): { [key: string]: string } {

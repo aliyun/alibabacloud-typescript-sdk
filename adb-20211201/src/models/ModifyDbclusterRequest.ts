@@ -3,11 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBClusterRequest extends $dara.Model {
+  AINodeNumber?: number;
+  /**
+   * @example
+   * ADB.MLPlus.4
+   */
+  AINodeSpec?: string;
   /**
    * @remarks
-   * The reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
-   * 
-   * >  This parameter must be specified with a unit.
+   * The compute reserved resources. Valid values: 0 ACU to 4096 ACU, in increments of 16. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+   * > Include the unit when you specify this parameter.
    * 
    * @example
    * 16ACU
@@ -15,9 +20,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   computeResource?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+   * The ID of the Data Lakehouse Edition cluster.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID of a Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -27,41 +31,57 @@ export class ModifyDBClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
-   * 
-   * *   true (default)
-   * *   false
+   * Specifies whether to allocate all compute reserved resources to the default resource group (user_default). Valid values:
+   * - true (default): All compute reserved resources are allocated to the default resource group.
+   * - false: Not all compute reserved resources are allocated to the default resource group.
    * 
    * @example
    * true
    */
   enableDefaultResourcePool?: boolean;
   /**
+   * @remarks
+   * The product form. Valid values:
+   * - **IntegrationForm**: integrated form.
+   * - **LegacyForm**: Data Lakehouse Edition.
+   * 
    * @example
    * LegacyForm
    */
   productForm?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified Data Lakehouse Edition cluster.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of reserved nodes. 
+   * - Enterprise Edition: The default value is 3. The value increases in increments of 3.
+   * - Basic Edition: The default value is 1.
+   * > This parameter is required only when ProductForm is set to IntegrationForm.
+   * 
+   * @example
+   * 3
+   */
   reservedNodeCount?: number;
   /**
+   * @remarks
+   * The node specifications of storage reserved resources. Valid values: 8ACU, 12ACU, and 16ACU.
+   * > Include the unit when you specify this parameter. This parameter is required only when ProductForm is set to IntegrationForm.
+   * 
    * @example
-   * LegacyForm
+   * 8ACU
    */
   reservedNodeSize?: string;
   /**
    * @remarks
-   * The reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
-   * 
-   * >  This parameter must be specified with a unit.
+   * The storage reserved resources. Valid values: 0 ACU to 2064 ACU, in increments of 24. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+   * > Include the unit when you specify this parameter.
    * 
    * @example
    * 24ACU
@@ -69,6 +89,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
   storageResource?: string;
   static names(): { [key: string]: string } {
     return {
+      AINodeNumber: 'AINodeNumber',
+      AINodeSpec: 'AINodeSpec',
       computeResource: 'ComputeResource',
       DBClusterId: 'DBClusterId',
       enableDefaultResourcePool: 'EnableDefaultResourcePool',
@@ -82,6 +104,8 @@ export class ModifyDBClusterRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AINodeNumber: 'number',
+      AINodeSpec: 'string',
       computeResource: 'string',
       DBClusterId: 'string',
       enableDefaultResourcePool: 'boolean',

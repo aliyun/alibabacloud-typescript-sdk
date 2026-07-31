@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail extends $dara.Model {
   /**
    * @remarks
-   * The number of ACUs for the elastic resources.
+   * The number of elastic ACU resources.
    * 
    * @example
    * 16ACU
@@ -13,7 +13,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   elasticAcuNumber?: number;
   /**
    * @remarks
-   * The number of ACUs for the reserved resources.
+   * The number of reserved ACU resources.
    * 
    * @example
    * 16ACU
@@ -21,7 +21,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   reservedAcuNumber?: number;
   /**
    * @remarks
-   * The number of spot ACUs.
+   * The number of spot instance ACU resources.
    * 
    * @example
    * 16ACU
@@ -29,7 +29,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   spotAcuNumber?: number;
   /**
    * @remarks
-   * The percent of spot ACUs.
+   * The percentage of spot instance resources in the total elastic resources.
    * 
    * @example
    * 0.9
@@ -37,7 +37,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   spotAcuPercentage?: number;
   /**
    * @remarks
-   * The total number of ACUs.
+   * The total number of ACU resources.
    * 
    * @example
    * 32ACU
@@ -75,12 +75,12 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.Model {
   /**
    * @remarks
-   * The ACU usage.
+   * The ACU resource usage details.
    */
   acuUsageDetail?: DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail;
   /**
    * @remarks
-   * The end time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2023-05-23T16:00:00Z
@@ -96,7 +96,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The start time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -110,6 +110,14 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
    * job_default
    */
   resourceGroupName?: string;
+  sparkAppName?: string;
+  /**
+   * @remarks
+   * Indicates whether the hot pool is used.
+   * 
+   * @example
+   * false
+   */
   useCachePool?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -118,6 +126,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
       jobId: 'JobId',
       jobStartTime: 'JobStartTime',
       resourceGroupName: 'ResourceGroupName',
+      sparkAppName: 'SparkAppName',
       useCachePool: 'UseCachePool',
     };
   }
@@ -129,6 +138,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
       jobId: 'string',
       jobStartTime: 'string',
       resourceGroupName: 'string',
+      sparkAppName: 'string',
       useCachePool: 'boolean',
     };
   }
@@ -148,7 +158,8 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
 export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * @example
    * amv-clusterxxx
@@ -156,7 +167,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end time. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2023-05-23T16:00:00Z
@@ -164,19 +175,40 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The AnalyticDB compute unit (ACU) usage of the job resource group.
+   * The ACU usage of the job resource group.
    */
   jobAcuUsage?: DescribeJobResourceUsageResponseBodyDataJobAcuUsage[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2023-05-22T16:00:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -217,7 +249,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
 export class DescribeJobResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The API status or POP error code.
    * 
    * @example
    * 200
@@ -225,7 +257,7 @@ export class DescribeJobResourceUsageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The queried resource usage.
+   * The returned data.
    */
   data?: DescribeJobResourceUsageResponseBodyData;
   /**

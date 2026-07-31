@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePerformanceViewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
-   * 
-   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * {
@@ -25,8 +23,8 @@ export class CreatePerformanceViewResponseBody extends $dara.Model {
    * @remarks
    * The creation result. Valid values:
    * 
-   * *   **SUCCESS**
-   * *   **FAILED**
+   * - **SUCCESS**: succeeded.
+   * - **FAILED**: failed.
    * 
    * @example
    * SUCCESS

@@ -56,7 +56,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
    * The progress.
    * 
    * @example
-   * 30: The progress is 30%.
+   * 30: progress 30%
    */
   projress?: string;
   /**

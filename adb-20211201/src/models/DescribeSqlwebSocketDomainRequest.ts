@@ -7,18 +7,29 @@ export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) API to query the details of all clusters in your account, including cluster IDs.
    * 
    * @example
    * amv-bp1lw6g669zpi660
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The application module name.
+   * 
+   * - `SQLWebSocket`: The module for SQL development.
+   * 
+   * - `Assistant`: The module for the intelligent assistant.
+   * 
+   * @example
+   * Assistant
+   */
   module?: string;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) API to query the region IDs supported by AnalyticDB for MySQL.
    * 
    * This parameter is required.
    * 

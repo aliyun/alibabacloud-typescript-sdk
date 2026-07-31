@@ -6,7 +6,7 @@ import { TableDetailModel } from "./TableDetailModel";
 export class GetTableColumnsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -15,10 +15,9 @@ export class GetTableColumnsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -26,12 +25,12 @@ export class GetTableColumnsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The information about the table.
+   * The details of the table.
    */
   table?: TableDetailModel;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the result.
    * 
    * @example
    * 15
@@ -75,7 +74,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   data?: GetTableColumnsResponseBodyData;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -84,10 +83,9 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -103,7 +101,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the result.
    * 
    * @example
    * 15

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApsWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code of the returned result.
+   * The response code.
    * 
    * @example
    * 200
@@ -38,11 +38,14 @@ export class UpdateApsWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * Operation succeeded
    */
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * exampleRequestId

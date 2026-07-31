@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   /**
    * @remarks
-   * The date on which you want to apply the suggestion. Format: yyyyMMdd.
+   * The date when the suggestions were generated. Format: yyyyMMdd.
    * 
    * @example
    * 20221115
@@ -13,19 +13,31 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   adviceDate?: number;
   /**
    * @remarks
-   * The IDs of the suggestions that you want to apply. Separate multiple IDs with commas (,).
+   * The list of suggestion IDs to apply in batches. Separate multiple suggestion IDs with commas (,).
    * 
    * @example
    * c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
    */
   adviceIdList?: string;
+  /**
+   * @remarks
+   * The adoption type.
+   * 
+   * @example
+   * DROP_INDEX
+   */
   applyType?: string;
+  /**
+   * @remarks
+   * Specifies whether to immediately start a build task.
+   * 
+   * @example
+   * true
+   */
   buildImmediately?: boolean;
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
    * 
    * This parameter is required.
    * 

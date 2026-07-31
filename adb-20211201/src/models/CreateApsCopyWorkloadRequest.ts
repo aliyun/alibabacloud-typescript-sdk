@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsCopyWorkloadRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * dbName
@@ -39,7 +39,7 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test
@@ -47,7 +47,7 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The job ID.
+   * The data link task ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
   workloadId?: string;
   /**
    * @remarks
-   * The type of the job.
+   * The task type.
    * 
    * This parameter is required.
    * 

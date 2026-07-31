@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadInstanceCACertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The OSS URL of the downloaded certificate.
+   * The certificate download path.
    */
   downloadUrl?: string;
   /**

@@ -10,7 +10,7 @@ export class SetSparkAppLogRootPathRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * am-dbclusterid
+   * amv-bp169ea59k****
    */
   DBClusterId?: string;
   /**
@@ -18,7 +18,7 @@ export class SetSparkAppLogRootPathRequest extends $dara.Model {
    * The path of Object Storage Service (OSS) logs.
    * 
    * @example
-   * oss://path/to/log
+   * oss://testBucketname/to/log
    */
   ossLogPath?: string;
   /**

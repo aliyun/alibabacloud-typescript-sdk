@@ -6,7 +6,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   executionType?: string;
   /**
    * @remarks
-   * The total amount of input data in the stage. Unit: bytes.
+   * The total input data size of the stage, in bytes.
    * 
    * @example
    * 2341
@@ -22,7 +22,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   inputRows?: number;
   /**
    * @remarks
-   * The total amount of time consumed by all operators in the stage. Unit: milliseconds.
+   * The cumulative operator duration of the stage, in milliseconds.
    * 
    * @example
    * 2341
@@ -30,7 +30,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   operatorCost?: number;
   /**
    * @remarks
-   * The total amount of output data in the stage. Unit: bytes.
+   * The total output data size of the stage, in bytes.
    * 
    * @example
    * 2341
@@ -46,7 +46,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   outputRows?: number;
   /**
    * @remarks
-   * The total peak memory of the stage. Unit: bytes.
+   * The total peak memory of the stage, in bytes.
    * 
    * @example
    * 2341
@@ -62,7 +62,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   progress?: number;
   /**
    * @remarks
-   * The stage ID.
+   * StageID。
    * 
    * @example
    * Stage[26]
@@ -70,7 +70,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   stageId?: string;
   /**
    * @remarks
-   * The state of the stage.
+   * The status of the stage.
    * 
    * @example
    * RUNNING
@@ -118,7 +118,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
 export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried execution information, including the SQL statement, statistics, execution plan, and operator information.
+   * The execution details of the SQL statement, including the detailed SQL statement, statistics information, execution plan, and operator information.
    */
   diagnosisSQLInfo?: string;
   /**
@@ -131,7 +131,7 @@ export class DescribeDiagnosisSQLInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried execution information by stage.
+   * The stage-level execution information of the query.
    */
   stageInfos?: DescribeDiagnosisSQLInfoResponseBodyStageInfos[];
   static names(): { [key: string]: string } {

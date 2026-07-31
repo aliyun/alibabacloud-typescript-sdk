@@ -3,67 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeColumnsResponseBodyItemsColumn extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the column is an auto-increment column. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   autoIncrementColumn?: boolean;
-  /**
-   * @remarks
-   * The name of the column.
-   * 
-   * @example
-   * id
-   */
   columnName?: string;
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * @example
-   * amv-bp111m2cfrdl1****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   primaryKey?: boolean;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * adb_demo
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * test
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The data type of the column.
-   * 
-   * @example
-   * bigint
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +70,6 @@ export class DescribeColumnsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeColumnsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried columns.
-   */
   items?: DescribeColumnsResponseBodyItems;
   /**
    * @remarks

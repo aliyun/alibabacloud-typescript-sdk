@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableAdvicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated. Specify the date in the yyyyMMdd format.
+   * The date when the advice was generated, in the `yyyyMMdd` format.
    * 
-   * >  Suggestions are generated after analysis after midnight every day. You must specify a date that is at least one day earlier than the current date. For example, if the current date is 20240627, you must specify 20240626 or an earlier date.
+   * > Advice is generated daily. To query for advice, specify a date at least one day before the current date. For example, if you query on June 27, 2024, set this parameter to `20240626` or an earlier date.
    * 
    * @example
    * 20221124
@@ -15,10 +15,11 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   adviceDate?: number;
   /**
    * @remarks
-   * The type of the suggestion. Valid values:
+   * The type of advice. Valid values:
    * 
-   * *   **INDEX**: index optimization.
-   * *   **TIERING**: hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * 
+   * - **TIERING**: hot and cold data tiering.
    * 
    * @example
    * INDEX
@@ -36,7 +37,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The keyword that is used to query information by table name.
+   * The keyword for a fuzzy search on table names.
    * 
    * @example
    * you_table_name
@@ -44,12 +45,15 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The display language of suggestions. Valid values:
+   * The display language for the advice. Valid values:
    * 
-   * *   **zh** (default): simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * - **zh**: Simplified Chinese (default).
+   * 
+   * - **en**: English.
+   * 
+   * - **ja**: Japanese.
+   * 
+   * - **zh-tw**: Traditional Chinese.
    * 
    * @example
    * zh
@@ -57,20 +61,23 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"SchemaName","Type":"Asc"}]`.
+   * Specifies the sort order for the results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. The JSON string contains the following key-value pairs:
    * 
-   * *   `Field` specifies the field by which to sort the query results. Valid values:
+   * - `Field`: the field to sort by. Valid values:
    * 
-   *     *   `SchemaName`: the name of the database.
-   *     *   `TableName`: the name of the table.
-   *     *   `Benefit`: the expected benefits of the applied optimization suggestion.
+   *   - `SchemaName`: the database name.
    * 
-   * *   `Type` specifies the sorting order. Valid values:
+   *   - `TableName`: the table name.
    * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
+   *   - `Benefit`: the expected benefit.
    * 
-   * >  If you do not specify this parameter, the query results are sorted in descending order based on the Benefit field.
+   * - `Type`: the sort order. Valid values:
+   * 
+   *   - `Asc`: ascending order.
+   * 
+   *   - `Desc`: descending order.
+   * 
+   * > By default, results are sorted by expected benefit in descending order.
    * 
    * @example
    * [{\\"Field\\":\\"AdviceType\\",\\"Type\\":\\"Desc\\"}]
@@ -78,7 +85,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be an integer that is greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -88,9 +95,11 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -108,7 +117,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the table in the DatabaseName.TableName format.
+   * A concatenation of the database name and the table name.
    * 
    * @example
    * tpch.lineitem

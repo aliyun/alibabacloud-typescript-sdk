@@ -45,10 +45,11 @@ export class DescribeDBClustersRequestTag extends $dara.Model {
 export class DescribeDBClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description must be 2 to 256 characters in length
+   * - Cannot start with `http://` or `https://`.
+   * 
+   * - The description must be 2 to 256 characters long.
    * 
    * @example
    * test
@@ -56,9 +57,9 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * The cluster ID.
    * 
-   * If you do not specify this parameter, the information about all clusters that reside in the region is returned.
+   * If you omit this parameter, the operation returns information about all clusters in the specified region.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -66,17 +67,25 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterIds?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   **Preparing**
-   * *   **Creating**
-   * *   **Running**
-   * *   **Deleting**
-   * *   **Restoring**
-   * *   **ClassChanging**
-   * *   **NetAddressCreating**
-   * *   **NetAddressDeleting**
-   * *   **NetAddressModifying**
+   * - **Preparing**: The cluster is preparing.
+   * 
+   * - **Creating**: The cluster is being created.
+   * 
+   * - **Running**: The cluster is running.
+   * 
+   * - **Deleting**: The cluster is being deleted.
+   * 
+   * - **Restoring**: The cluster is being restored from a backup.
+   * 
+   * - **ClassChanging**: The cluster specifications are changing.
+   * 
+   * - **NetAddressCreating**: A network connection is being created for the cluster.
+   * 
+   * - **NetAddressDeleting**: The network connection of the cluster is being deleted.
+   * 
+   * - **NetAddressModifying**: The network connection of the cluster is being modified.
    * 
    * @example
    * Running
@@ -84,11 +93,13 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterStatus?: string;
   /**
    * @remarks
-   * The version number corresponding to the edition of the cluster. Valid values:
+   * The cluster version. Valid values:
    * 
-   * *   **3.0**: Data Warehouse Edition.
-   * *   **5.0** (default): includes Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
-   * *   **All**: all editions, including Data Warehouse Edition, Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
+   * - **3.0**: Data Warehouse edition.
+   * 
+   * - **5.0** (default): Includes the Lakehouse, Enterprise, and Basic editions.
+   * 
+   * - **All**: All editions, including the Data Warehouse, Lakehouse, Enterprise, and Basic editions.
    * 
    * @example
    * 5.0
@@ -96,7 +107,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   DBClusterVersion?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -104,11 +115,13 @@ export class DescribeDBClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -116,12 +129,13 @@ export class DescribeDBClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The edition of the cluster. Valid values:
+   * The product version. Valid values:
    * 
-   * *   **EnterpriseVersion**: Enterprise Edition.
-   * *   **BasicVersion**: Basic Edition.
+   * - **EnterpriseVersion**: Enterprise edition.
    * 
-   * >  If you leave this parameter empty, the information about clusters of all editions is returned.
+   * - **BasicVersion**: Basic edition.
+   * 
+   * > If you omit this parameter, the operation returns clusters of all product versions.
    * 
    * @example
    * BasicVersion
@@ -129,9 +143,9 @@ export class DescribeDBClustersRequest extends $dara.Model {
   productVersion?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the IDs of available regions.
    * 
    * This parameter is required.
    * 
@@ -141,7 +155,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. If you do not specify this parameter, the information about all resource groups in the cluster is returned.
+   * The ID of the resource group. If you omit this parameter, the operation returns information about clusters in all resource groups.
    * 
    * @example
    * rg-4690g37929****
@@ -149,7 +163,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags that are added to the cluster.
+   * The tags to filter clusters by.
    */
   tag?: DescribeDBClustersRequestTag[];
   static names(): { [key: string]: string } {

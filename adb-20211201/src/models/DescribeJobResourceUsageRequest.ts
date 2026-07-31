@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobResourceUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +16,7 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
    * 
    * This parameter is required.
    * 
@@ -23,11 +24,31 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
    * 2023-03-17T16:00:00Z
    */
   endTime?: string;
-  pageNumber?: number;
-  pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The page number. The value must be a positive integer. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * - 30
+   * - 50
+   * - 100
+   * 
+   * Default value: 30.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  sparkAppName?: string;
+  /**
+   * @remarks
+   * The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
    * 
    * This parameter is required.
    * 
@@ -41,6 +62,7 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sparkAppName: 'SparkAppName',
       startTime: 'StartTime',
     };
   }
@@ -51,6 +73,7 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
       endTime: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sparkAppName: 'string',
       startTime: 'string',
     };
   }

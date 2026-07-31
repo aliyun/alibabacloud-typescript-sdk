@@ -25,7 +25,7 @@ export class UpdateApsWebhookShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The array of webhooks.
+   * The webhook array.
    */
   webhookShrink?: string;
   static names(): { [key: string]: string } {

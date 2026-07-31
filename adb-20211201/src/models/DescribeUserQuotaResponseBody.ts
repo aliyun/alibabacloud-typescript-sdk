@@ -8,7 +8,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
    * The available elastic AnalyticDB compute units (ACUs).
    * 
    * @example
-   * 512ACU
+   * 512 ACU
    */
   elasticACU?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
    * The available reserved computing resources.
    * 
    * @example
-   * 48ACU
+   * 48 ACU
    */
   reserverdCompteACU?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
    * The available reserved storage resources.
    * 
    * @example
-   * 24ACU
+   * 24 ACU
    */
   reserverdStorageACU?: string;
   /**

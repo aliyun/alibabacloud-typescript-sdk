@@ -6,7 +6,7 @@ import { SparkBatchSQL } from "./SparkBatchSql";
 export class CancelSparkWarehouseBatchSQLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    * 
    * @example
    * 123

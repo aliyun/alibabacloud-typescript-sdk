@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSparkTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application template is created. Valid values:
-   * 
-   * *   **True**
-   * *   **False**
+   * Indicates whether the creation is successful. Valid values:
+   * - **True**: Successful.
+   * - **False**: Failed.
    * 
    * @example
    * True
@@ -38,7 +37,7 @@ export class CreateSparkTemplateResponseBodyData extends $dara.Model {
 export class CreateSparkTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation result.
+   * The result of creating the application template.
    */
   data?: CreateSparkTemplateResponseBodyData;
   /**

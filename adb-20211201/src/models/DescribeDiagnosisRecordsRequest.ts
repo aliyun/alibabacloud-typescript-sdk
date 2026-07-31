@@ -7,7 +7,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
    * @remarks
    * The source IP address.
    * 
-   * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+   * > Call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to view the resource groups, database names, usernames, and source IP addresses for the SQL statements that meet the specified query conditions.
    * 
    * @example
    * 59.82.XX.XX
@@ -15,9 +15,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster ID.
+   * The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to view the details of all clusters in your account, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database on which the SQL statements are executed.
+   * The database where the SQL statement is executed.
    * 
-   * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+   * > Call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to view the resource groups, database names, usernames, and source IP addresses for the SQL statements that meet the specified query conditions.
    * 
    * @example
    * adb_demo
@@ -37,13 +37,11 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The end of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end of the time range to query. Specify the time in the UNIX timestamp format. The time must be in milliseconds.
    * 
-   * > 
-   * 
-   * *   The end time must be later than the start time.
-   * 
-   * *   The maximum time range that can be specified is 24 hours.
+   * > - The end time must be later than the start time.
+   * >
+   * > - The interval between the start time and the end time cannot exceed 24 hours.
    * 
    * @example
    * 1633017540000
@@ -51,7 +49,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The query keyword of the SQL statements.
+   * Filters the queries by the keywords contained in the SQL statements.
    * 
    * @example
    * select
@@ -59,12 +57,15 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The language of file titles and error messages. Valid values:
+   * The language of the file title and some error messages in the downloaded file. Valid values:
    * 
-   * *   **zh** (default): simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * - **zh**: Simplified Chinese (default).
+   * 
+   * - **en**: English.
+   * 
+   * - **ja**: Japanese.
+   * 
+   * - **zh-tw**: Traditional Chinese.
    * 
    * @example
    * zh
@@ -72,7 +73,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum peak memory of the SQL statements. Unit: bytes.
+   * The maximum peak memory of the SQL statement. Unit: bytes.
    * 
    * @example
    * 89000000
@@ -80,7 +81,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   maxPeakMemory?: number;
   /**
    * @remarks
-   * The maximum scan size of the SQL statements. Unit: bytes.
+   * The maximum scan size of the target SQL statement. Unit: bytes.
    * 
    * @example
    * 1024000000
@@ -88,7 +89,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   maxScanSize?: number;
   /**
    * @remarks
-   * The minimum peak memory of the SQL statements. Unit: bytes.
+   * The minimum peak memory of the SQL statement. Unit: bytes.
    * 
    * @example
    * 0
@@ -96,7 +97,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   minPeakMemory?: number;
   /**
    * @remarks
-   * The minimum scan size of the SQL statements. Unit: bytes.
+   * The minimum scan size of the SQL statement. Unit: bytes.
    * 
    * @example
    * 0
@@ -104,28 +105,41 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   minScanSize?: number;
   /**
    * @remarks
-   * The order in which to sort the SQL statements by field, which contains the `Field` and `Type` fields. Specify the order in the JSON format. Example: `[{"Field":"StartTime", "Type": "desc"}]`. Fields:
+   * The sorting order of the SQL statements. This parameter is a JSON array that is ordered by the sequence of the input array. It contains the `Field` and `Type` fields. Example: `[{"Field":"StartTime", "Type": "desc" }]`. The fields are described as follows:
    * 
-   * *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+   * - `Field` specifies the field by which to sort the SQL statements. Valid values:
    * 
-   *     *   `StartTime`: the execution start time.
-   *     *   `Status`: the execution status.
-   *     *   `UserName`: the username.
-   *     *   `Cost`: the execution duration.
-   *     *   `PeakMemory`: the peak memory.
-   *     *   `ScanSize`: the amount of data that is scanned.
-   *     *   `Database`: the name of the database.
-   *     *   `ClientIp`: the source IP address.
-   *     *   `ResourceGroup`: the name of the resource group.
-   *     *   `QueueTime`: the amount of time that is consumed for queuing.
-   *     *   `OutputRows`: the number of output rows.
-   *     *   `OutputDataSize`: the amount of output data.
-   *     *   `ResourceCostRank`: the execution duration rank of operators that are used in the SQL statements. This value takes effect only when `QueryCondition` is set to `{"Type":"status","Value":"running"}`.
+   *   - `StartTime`: the start time of the execution.
    * 
-   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
+   *   - `Status`: the execution state.
    * 
-   *     *   `Desc`: descending order.
-   *     *   `Asc`: ascending order.
+   *   - `UserName`: the username.
+   * 
+   *   - `Cost`: the execution duration.
+   * 
+   *   - `PeakMemory`: the peak memory.
+   * 
+   *   - `ScanSize`: the amount of scanned data.
+   * 
+   *   - `Database`: the database name.
+   * 
+   *   - `ClientIp`: the source IP address.
+   * 
+   *   - `ResourceGroup`: the resource group.
+   * 
+   *   - `QueueTime`: the amount of time that the query waited in a queue.
+   * 
+   *   - `OutputRows`: the number of output rows.
+   * 
+   *   - `OutputDataSize`: the amount of output data.
+   * 
+   *   - `ResourceCostRank`: the ranking of the execution duration of an operator in the SQL statement. This field is returned only when `QueryCondition` is set to `{"Type":"status","Value":"running"}`.
+   * 
+   * - `Type` specifies the sorting type. Valid values (case-insensitive):
+   * 
+   *   - `Desc`: descending order.
+   * 
+   *   - `Asc`: ascending order.
    * 
    * @example
    * [{"Field":"StartTime", "Type": "desc" }]
@@ -133,7 +147,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be an integer that is greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -143,9 +157,11 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -153,7 +169,7 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The SQL pattern ID.
+   * The ID of the SQL pattern.
    * 
    * @example
    * 5575924945138******
@@ -161,11 +177,13 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   patternId?: string;
   /**
    * @remarks
-   * The query condition for SQL statements, which can contain the `Type`, `Value`, `Min`, and `Max` fields. Specify the condition in the JSON format. `Type` specifies the query dimension. Valid values for Type: `maxCost`, `status`, and `cost`. `Value`, `Min`, or `Max` specifies the query range for the dimension. Valid values:
+   * The conditions for the SQL query. This parameter is a JSON string that contains fields such as Type, `Value`, `Min`, and `Max`. The `Type` field indicates the query dimension. Valid values for `Type`: `maxCost`, `status`, and `cost`. The `Value`, `Min`, and `Max` fields specify the query range for the dimension. Valid values:
    * 
-   * *   `{"Type":"maxCost","Value":"100"}`: queries the top 100 most time-consuming SQL statements. Set `Value` to 100.
-   * *   `{"Type":"status","Value":"finished"}`: queries the executed SQL statements. You can set `Value` to `running` to query the SQL statements that are being executed. You can also set Value to `failed` to query the SQL statements that failed to be executed.
-   * *   `{"Type":"cost","Min":"10","Max":"200"}`: queries the SQL statements whose execution duration is in the range of 10 to 200 milliseconds. You can also specify custom values for the Min and Max fields.
+   * - `{"Type":"maxCost","Value":"100"}`: queries the details of the top 100 SQL statements that have the longest execution durations. The `Value` field can only be set to 100.
+   * 
+   * - `{"Type":"status","Value":"finished"}`: queries the details of completed SQL statements. You can also set `Value` to `running` or `failed` to query SQL statements that are running or have failed.
+   * 
+   * - `{"Type":"cost","Min":"10","Max":"200"}`: queries the details of SQL statements whose execution durations are between 10 ms and 200 ms. You can customize the minimum and maximum execution durations. Unit: milliseconds.
    * 
    * @example
    * {"Type":"status","Value":"finished"}
@@ -173,9 +191,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   queryCondition?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to view the regions and zones supported by AnalyticDB for MySQL, including region IDs.
    * 
    * This parameter is required.
    * 
@@ -185,9 +203,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group to which the SQL statements belong.
+   * The resource group to which the SQL statement belongs.
    * 
-   * >  You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+   * > Call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to view the resource groups, database names, usernames, and source IP addresses for the SQL statements that meet the specified query conditions.
    * 
    * @example
    * user_default
@@ -195,9 +213,9 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start of the time range to query. Specify the time in the UNIX timestamp format. The time must be in milliseconds.
    * 
-   * >  You can query data only within the last 14 days.
+   * > Only data from the last 14 days can be queried.
    * 
    * @example
    * 1632931200000
@@ -205,7 +223,8 @@ export class DescribeDiagnosisRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The username that is used to execute the SQL statements. You can call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to query the resource groups, database names, usernames, and source IP addresses of the SQL statements that meet a query condition.
+   * The username used to execute the SQL statement.
+   * Call the [DescribeDiagnosisDimensions](https://help.aliyun.com/document_detail/308210.html) operation to view the resource groups, database names, usernames, and source IP addresses for the SQL statements that meet the specified query conditions.
    * 
    * @example
    * test_user
