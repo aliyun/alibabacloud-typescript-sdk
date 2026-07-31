@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllowOperationTaskApprovalRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the O&M task approval.
+   * The approval ID of the O&M task.
    * > You can call the ListTodoOpsTaskApprovals operation to query this parameter.
    * 
    * This parameter is required.
@@ -16,8 +16,8 @@ export class AllowOperationTaskApprovalRequest extends $dara.Model {
   approveId?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 

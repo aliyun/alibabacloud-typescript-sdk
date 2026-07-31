@@ -6,8 +6,7 @@ export class EnableInstancePublicAccessRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the Bastionhost instance ID.
    * 
    * This parameter is required.
    * 

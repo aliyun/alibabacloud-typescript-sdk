@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RejectOperationTaskApprovalResponseBodyResults extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   /**
    * @remarks

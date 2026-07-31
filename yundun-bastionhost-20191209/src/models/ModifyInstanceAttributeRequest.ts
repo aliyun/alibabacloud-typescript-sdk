@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the Bastionhost instance.
+   * The description of the bastion host instance.
    * 
-   * > The description can contain letters, Chinese characters, digits, underscores (_), and hyphens (-). Maximum 30 characters.
+   * > The description can contain only letters, Chinese characters, digits, underscores (_), or hyphens (-), and cannot exceed 30 characters in length.
    * 
    * @example
    * Bastionhost demo
@@ -15,9 +15,8 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,9 +26,8 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
-   * 
-   * > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host instance.
+   * > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

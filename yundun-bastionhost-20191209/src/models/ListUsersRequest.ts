@@ -13,9 +13,8 @@ export class ListUsersRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the bastion host whose users you want to query.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host for which you want to query the user list.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -33,7 +32,7 @@ export class ListUsersRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the current page in a paging query. Default value: **1**.
    * 
    * @example
    * 1
@@ -41,10 +40,9 @@ export class ListUsersRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.<br>
-   * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-   * 
-   * > We recommend that you do not leave this parameter empty.
+   * The maximum number of entries per page in a paging query.  
+   * The maximum value of the PageSize parameter is 100. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
+   * > Do not leave PageSize empty.
    * 
    * @example
    * 20
@@ -52,9 +50,8 @@ export class ListUsersRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region ID of the bastion host whose users you want to query.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host for which you want to query the user list.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -62,15 +59,11 @@ export class ListUsersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the user that you want to query. Valid values:
-   * 
-   * - **Local**: a local user.
-   * 
-   * - **Ram**: a Resource Access Management (RAM) user.
-   * 
-   * - **AD**: an Active Directory (AD)-authenticated user.
-   * 
-   * - **LDAP**: a Lightweight Directory Access Protocol (LDAP)-authenticated user.
+   * The source of the user that you want to query. Valid values:
+   * - **Local**: local user
+   * - **Ram**: Resource Access Management (RAM) user
+   * - **AD**: AD user
+   * - **LDAP**: LDAP user
    * 
    * @example
    * Local
@@ -78,9 +71,8 @@ export class ListUsersRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The unique ID of the user that you want to query. Only exact match is supported.
-   * 
-   * > This parameter uniquely identifies a RAM user of the bastion host. This parameter is valid if **Source** is set to **Ram**. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the **UserId** response parameter.
+   * The unique identity of the user that you want to query. Only exact match is supported.
+   * > This parameter is the unique identity of the Resource Access Management (RAM) user that corresponds to the bastion host user. This parameter takes effect when the source of the newly created user is a RAM user (that is, **Source** is set to **Ram**). You can invoke the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation of access control and obtain this parameter from the **UserId** field in the response.
    * 
    * @example
    * 122748924538****
@@ -88,9 +80,8 @@ export class ListUsersRequest extends $dara.Model {
   sourceUserId?: string;
   /**
    * @remarks
-   * The ID of the user group to which the user you want to query belongs.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+   * The ID of the user group that you want to query.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to obtain this parameter.
    * 
    * @example
    * 1
@@ -106,13 +97,15 @@ export class ListUsersRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The state of the user that you want to query. Valid values:
-   * 
-   * - **Normal**: The user is in normal state.
-   * 
-   * - **Frozen**: The user is locked.
-   * 
-   * - **Expired**: The user has expired.
+   * The status of the user that you want to query. Valid values:
+   * - **Normal**: normal
+   * - **Frozen**: locked
+   * - **Expired**: expired
+   * - **RemoteDeleted**: user source deleted
+   * - **Inactive**: inactive due to prolonged absence of logon
+   * - **PasswordExpired**: password expired
+   * - **RemoteDNChanged**: user DN updated
+   * - **RemoteFrozen**: frozen on the RAM side
    * 
    * @example
    * Normal

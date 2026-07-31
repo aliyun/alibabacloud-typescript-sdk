@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
-   * The description of the user.
+   * The remarks of the user.
    * 
    * @example
    * commet
@@ -21,7 +21,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The end of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the validity period of the user, in seconds (UNIX timestamp format).
    * 
    * @example
    * 1672502400
@@ -29,7 +29,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   effectiveEndTime?: number;
   /**
    * @remarks
-   * The beginning of the validity period of the user. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the validity period of the user, in seconds (UNIX timestamp format).
    * 
    * @example
    * 1669630029
@@ -45,10 +45,9 @@ export class GetUserResponseBodyUser extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * This parameter is required if LanguageStatus is set to Custom.
+   * The notification language. This parameter is required when LanguageStatus is set to Custom. Valid values:
    * 
-   * - **zh-cn**: simplified Chinese.
-   * 
+   * - **zh-cn**: Simplified Chinese.
    * - **en**: English.
    * 
    * @example
@@ -57,11 +56,10 @@ export class GetUserResponseBodyUser extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether notifications are sent in the language specified in the global settings or a custom language.
+   * The notification language setting. Valid values:
    * 
-   * - **Global**: Global
-   * 
-   * - **Custom**: Custom
+   * - **Global**: follows the global settings.
+   * - **Custom**: custom settings.
    * 
    * @example
    * Custom
@@ -77,45 +75,26 @@ export class GetUserResponseBodyUser extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The location in which the mobile number of the user is registered. Valid values:
-   * 
-   * - **CN**: the Chinese mainland, whose country calling code is +86
-   * 
-   * - **HK**: Hong Kong (China), whose country calling code is +852
-   * 
-   * - **MO**: Macao (China), whose country calling code is +853
-   * 
-   * - **TW**: Taiwan (China), whose country calling code is +886
-   * 
-   * - **RU**: Russia, whose country calling code is +7
-   * 
-   * - **SG**: Singapore, whose country calling code is +65
-   * 
-   * - **MY**: Malaysia, whose country calling code is +60
-   * 
-   * - **ID**: Indonesia, whose country calling code is +62
-   * 
-   * - **DE**: Germany, whose country calling code is +49
-   * 
-   * - **AU**: Australia, whose country calling code is +61
-   * 
-   * - **US**: US, whose country calling code is +1
-   * 
-   * - **AE**: United Arab Emirates, whose country calling code is +971
-   * 
-   * - **JP:** Japan, whose country calling code is +81
-   * 
-   * - **GB**: UK, whose country calling code is +44
-   * 
-   * - **IN**: India, whose country calling code is +91
-   * 
-   * - **KR**: Republic of Korea, whose country calling code is +82
-   * 
-   * - **PH**: Philippines, whose country calling code is +63
-   * 
-   * - **CH**: Switzerland, whose country calling code is +41
-   * 
-   * - **SE**: Sweden, whose country calling code is +46
+   * The country code of the mobile phone number of the user. Valid values:
+   * - **CN**: the Chinese mainland (+86)
+   * - **HK**: Hong Kong (China) (+852)
+   * - **MO**: Macao (China) (+853)
+   * - **TW**: Taiwan (China) (+886)
+   * - **RU**: Russia (+7)
+   * - **SG**: Singapore (+65)
+   * - **MY**: Malaysia (+60)
+   * - **ID**: Indonesia (+62)
+   * - **DE**: Germany (+49)
+   * - **AU**: Australia (+61)
+   * - **US**: United States (+1)
+   * - **AE**: Dubai (+971)
+   * - **JP**: Japan (+81)
+   * - **GB**: United Kingdom (+44)
+   * - **IN**: India (+91)
+   * - **KR**: South Korea (+82)
+   * - **PH**: Philippines (+63)
+   * - **CH**: Switzerland (+41)
+   * - **SE**: Sweden (+46)
    * 
    * @example
    * CN
@@ -123,11 +102,9 @@ export class GetUserResponseBodyUser extends $dara.Model {
   mobileCountryCode?: string;
   /**
    * @remarks
-   * Specifies whether password reset is required upon the next logon. Valid values:
-   * 
-   * - **true**: yes
-   * 
-   * - **false**: no
+   * Indicates whether the password must be reset upon the next logon. Valid values:
+   * - **true**: The password must be reset.
+   * - **false**: The password does not need to be reset.
    * 
    * @example
    * true
@@ -136,10 +113,8 @@ export class GetUserResponseBodyUser extends $dara.Model {
   /**
    * @remarks
    * The source of the user. Valid values:
-   * 
-   * - **Local**: a local user
-   * 
-   * - **Ram**: a RAM user
+   * - **Local**: a local user.
+   * - **Ram**: a Resource Access Management (RAM) user.
    * 
    * @example
    * Local
@@ -147,9 +122,8 @@ export class GetUserResponseBodyUser extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The unique ID of the user.
-   * 
-   * > This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if the **Source** parameter is set to **Ram**. No value is returned for this parameter if the **Source** parameter is set to **Local**.
+   * The unique identity of the user.
+   * > This parameter is the unique identity of the Resource Access Management (RAM) user that corresponds to the Bastionhost user. This parameter is returned when the user source is a RAM user (the value of **Source** is **Ram**). If the user source is a local user (the value of **Source** is **Local**), this parameter is empty.
    * 
    * @example
    * 122748924538****
@@ -157,18 +131,16 @@ export class GetUserResponseBodyUser extends $dara.Model {
   sourceUserId?: string;
   /**
    * @remarks
-   * An array that consists of the details of the two-factor authentication method.
+   * The array of enabled two-factor authentication methods.
    */
   twoFactorMethods?: string[];
   /**
    * @remarks
    * The two-factor authentication status of the user. Valid values:
    * 
-   * - **Global**: The global settings are used.
-   * 
-   * - **Disable**: The two-factor authentication is disabled.
-   * 
-   * - **Enable**: The two-factor authentication is enabled and the user-specific setting is used.
+   * - **Global**: follows the global settings.
+   * - **Disable**: two-factor authentication is disabled.
+   * - **Enable**: two-factor authentication is enabled and follows the individual user settings.
    * 
    * @example
    * Enable
@@ -192,7 +164,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * An array that consists of the details of the user status.
+   * The user status array.
    */
   userState?: string[];
   static names(): { [key: string]: string } {
@@ -257,7 +229,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
 export class GetUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID generated by Alibaba Cloud for this request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -265,7 +237,7 @@ export class GetUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The detailed information about the queried user.
+   * The details of the queried user.
    */
   user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {

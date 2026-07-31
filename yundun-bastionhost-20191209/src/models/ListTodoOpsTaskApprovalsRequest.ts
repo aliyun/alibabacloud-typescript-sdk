@@ -24,7 +24,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paging query. Default value: **1**.
+   * The page number of the current page in a paging query. Default value: **1**.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
    * The task scheduling type used to filter results. Valid values:
    * - **FixTime**: scheduled execution.
    * - **CycleInterval**: periodic execution.
-   * - **Manual**: manually triggered by a user.
+   * - **Manual**: manually triggered by the user.
    * 
    * @example
    * Manual

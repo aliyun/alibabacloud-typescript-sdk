@@ -56,7 +56,7 @@ export class ListTodoOpsTaskApprovalsResponseBodyApproves extends $dara.Model {
    * The scheduling type of the task.
    * - **FixTime**: scheduled execution.
    * - **CycleInterval**: periodic execution.
-   * - **Manual**: manually triggered by a user.
+   * - **Manual**: manually triggered by the user.
    * 
    * @example
    * Manual

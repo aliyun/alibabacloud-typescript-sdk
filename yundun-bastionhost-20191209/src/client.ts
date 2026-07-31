@@ -72,7 +72,9 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "yundun-bastionhost.aliyuncs.com",
       'eu-west-1-oxs': "yundun-bastionhost.aliyuncs.com",
       'rus-west-1-pop': "yundun-bastionhost.aliyuncs.com",
+      'na-south-1': "bastionhost.na-south-1.aliyuncs.com",
       'cn-zhengzhou-jva': "yundun-bastionhost.aliyuncs.com",
+      'ap-southeast-7': "bastionhost.ap-southeast-7.aliyuncs.com",
       'ap-southeast-6': "bastionhost.ap-southeast-6.aliyuncs.com",
       'ap-northeast-2': "bastionhost.ap-northeast-2.aliyuncs.com",
     };
@@ -460,7 +462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approves an O&M task request.
+   * Approves an O&M task execution request.
    * 
    * @param request - AllowOperationTaskApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -499,7 +501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Approves an O&M task request.
+   * Approves an O&M task execution request.
    * 
    * @param request - AllowOperationTaskApprovalRequest
    * @returns AllowOperationTaskApprovalResponse
@@ -2658,7 +2660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns all instance attributes, such as its instance ID and description.
+   * Queries all attribute information of an instance, such as the instance ID and instance description.
    * 
    * @param request - DescribeInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2693,7 +2695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns all instance attributes, such as its instance ID and description.
+   * Queries all attribute information of an instance, such as the instance ID and instance description.
    * 
    * @param request - DescribeInstanceAttributeRequest
    * @returns DescribeInstanceAttributeResponse
@@ -3294,7 +3296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables public network access for a specified Bastionhost instance.
+   * Enables the public access switch for a specified Bastionhost instance.
    * 
    * @param request - EnableInstancePublicAccessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,7 +3331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables public network access for a specified Bastionhost instance.
+   * Enables the public access switch for a specified Bastionhost instance.
    * 
    * @param request - EnableInstancePublicAccessRequest
    * @returns EnableInstancePublicAccessResponse
@@ -3480,7 +3482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified O&M task for an administrator.
+   * Queries the details of a specified O&M task.
    * 
    * @param request - GetAutoOpsTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3521,7 +3523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified O&M task for an administrator.
+   * Queries the details of a specified O&M task.
    * 
    * @param request - GetAutoOpsTaskRequest
    * @returns GetAutoOpsTaskResponse
@@ -4342,7 +4344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a user of a bastion host.
+   * Retrieves the details of a specified Bastionhost user.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4381,7 +4383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a user of a bastion host.
+   * Retrieves the details of a specified Bastionhost user.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -6276,11 +6278,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the O&M requests that require approval.
+   * Retrieves the list of O&M applications that require approval.
    * 
    * @remarks
-   * Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-   * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+   * Retrieves the list of O&M applications that require approval for an administrator.
+   * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
    * 
    * @param request - ListOperationTicketsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6327,11 +6329,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the O&M requests that require approval.
+   * Retrieves the list of O&M applications that require approval.
    * 
    * @remarks
-   * Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-   * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+   * Retrieves the list of O&M applications that require approval for an administrator.
+   * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
    * 
    * @param request - ListOperationTicketsRequest
    * @returns ListOperationTicketsResponse
@@ -6582,7 +6584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pending automated O&M approval requests.
+   * Retrieves the list of pending automated O&M approval requests.
    * 
    * @param request - ListTodoOpsTaskApprovalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6633,7 +6635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves pending automated O&M approval requests.
+   * Retrieves the list of pending automated O&M approval requests.
    * 
    * @param request - ListTodoOpsTaskApprovalsRequest
    * @returns ListTodoOpsTaskApprovalsResponse
@@ -6760,7 +6762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of users of a bastion host.
+   * Retrieves the list of users for a specified bastion host.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6831,7 +6833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of users of a bastion host.
+   * Retrieves the list of users for a specified bastion host.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -7552,7 +7554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a specified Bastionhost instance.
+   * Modifies the information of a specified bastion host instance.
    * 
    * @param request - ModifyInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7591,7 +7593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a specified Bastionhost instance.
+   * Modifies the information of a specified bastion host instance.
    * 
    * @param request - ModifyInstanceAttributeRequest
    * @returns ModifyInstanceAttributeResponse
@@ -8410,7 +8412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rejects an O&M task approval.
+   * Rejects an O&M task execution request.
    * 
    * @param request - RejectOperationTaskApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8449,7 +8451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rejects an O&M task approval.
+   * Rejects an O&M task execution request.
    * 
    * @param request - RejectOperationTaskApprovalRequest
    * @returns RejectOperationTaskApprovalResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user who submitted the O\\&M request.
+   * The ID of the O&M applicant.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   applyUserId?: string;
   /**
    * @remarks
-   * The username of the user who submitted the O\\&M request.
+   * The username of the O&M applicant.
    * 
    * @example
    * test
@@ -21,15 +21,15 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   applyUsername?: string;
   /**
    * @remarks
-   * The comments provided by the O\\&M engineer when submitting the request.
+   * The remarks entered by the O&M engineer when submitting the O&M application.
    * 
    * @example
-   * Request O&M
+   * Comment
    */
   approveComment?: string;
   /**
    * @remarks
-   * The ID of the asset account for which the O\\&M request was submitted.
+   * The ID of the asset account requested for O&M.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAccountId?: string;
   /**
    * @remarks
-   * The logon name of the asset account for which the O\\&M request was submitted.
+   * The logon name of the asset account requested for O&M.
    * 
    * @example
    * root
@@ -45,7 +45,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAccountName?: string;
   /**
    * @remarks
-   * The address of the asset for which the O\\&M request was submitted.
+   * The address of the asset requested for O&M.
    * 
    * @example
    * 10.167.XX.XX
@@ -53,7 +53,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAddress?: string;
   /**
    * @remarks
-   * The ID of the asset for which the O\\&M request was submitted.
+   * The ID of the asset requested for O&M.
    * 
    * @example
    * 2
@@ -61,7 +61,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetId?: string;
   /**
    * @remarks
-   * The name of the asset for which the O\\&M request was submitted.
+   * The name of the asset requested for O&M.
    * 
    * @example
    * poros-test
@@ -69,7 +69,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetName?: string;
   /**
    * @remarks
-   * The ID of the network domain to which the asset belongs.
+   * The network domain ID of the asset requested for O&M.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetNetworkDomainId?: string;
   /**
    * @remarks
-   * The operating system of the asset.
+   * The operating system type of the asset requested for O&M.
    * 
    * @example
    * Linux
@@ -85,15 +85,11 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetOs?: string;
   /**
    * @remarks
-   * The source of the asset. Valid values:
-   * 
-   * - **Local**: a local host
-   * 
-   * - **Ecs**: an ECS instance
-   * 
-   * - **Rds**: an RDS instance
-   * 
-   * - The name of a third-party asset source
+   * The name of the asset source to which the requested O&M asset belongs. Valid values:
+   * - **Local**: local host
+   * - **Ecs**: ECS instance
+   * - **Rds**: ApsaraDB RDS instance
+   * - Name of a third-party asset source.
    * 
    * @example
    * Local
@@ -101,7 +97,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetSource?: string;
   /**
    * @remarks
-   * The ID of the source of the asset.
+   * The ID of the asset source to which the requested O&M asset belongs.
    * 
    * @example
    * 1
@@ -109,7 +105,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetSourceInstanceId?: string;
   /**
    * @remarks
-   * The time when the request was submitted. This is a UNIX timestamp. Unit: seconds.
+   * The time when the application was submitted, in seconds (UNIX timestamp format).
    * 
    * @example
    * 1669965908
@@ -117,11 +113,10 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   createdTime?: number;
   /**
    * @remarks
-   * The number of permitted logons specified in the request. Valid values:
+   * The logon count limit requested by the O&M engineer. Valid values:
    * 
-   * - **0**: unlimited logons. The O\\&M engineer can log on an unlimited number of times within the validity period.
-   * 
-   * - **1**: one-time logon. The O\\&M engineer can log on only once within the validity period.
+   * - **0**: No logon count limit. The O&M engineer can log on an unlimited number of times within the validity period.
+   * - **1**: The O&M engineer can log on only once within the validity period.
    * 
    * @example
    * 0
@@ -129,9 +124,8 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   effectCount?: number;
   /**
    * @remarks
-   * The end time of the O\\&M period specified by the O\\&M engineer. This is a UNIX timestamp. Unit: seconds.
-   * 
-   * > A value of 0 indicates that the O\\&M engineer did not specify an end time.
+   * The end time of the O&M period specified by the O&M engineer, in seconds (UNIX timestamp format).
+   * > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
    * 
    * @example
    * 1679393152
@@ -139,9 +133,8 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   effectEndTime?: number;
   /**
    * @remarks
-   * The start time of the O\\&M period specified by the O\\&M engineer. This is a UNIX timestamp. Unit: seconds.
-   * 
-   * > A value of 0 indicates that the O\\&M engineer did not specify a start time.
+   * The start time of the O&M period specified by the O&M engineer, in seconds (UNIX timestamp format).
+   * > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
    * 
    * @example
    * 1685600242
@@ -149,7 +142,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   effectStartTime?: number;
   /**
    * @remarks
-   * The ID of the O\\&M request that requires approval.
+   * The ID of the O&M application that requires approval.
    * 
    * @example
    * 1
@@ -157,7 +150,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   operationTicketId?: string;
   /**
    * @remarks
-   * The name of the protocol used for the O\\&M request.
+   * The protocol name requested for O&M.
    * 
    * @example
    * SSH
@@ -167,7 +160,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
    * @remarks
    * The approval status. Valid values:
    * 
-   * - Normal: pending approval
+   * - Normal: pending approval.
    * 
    * @example
    * Normal
@@ -233,12 +226,12 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
 export class ListOperationTicketsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of O\\&M requests that are pending approval.
+   * The list of O&M applications pending approval.
    */
   operationTickets?: ListOperationTicketsResponseBodyOperationTickets[];
   /**
    * @remarks
-   * The unique ID generated by Alibaba Cloud for the request.
+   * The unique request ID generated by Alibaba Cloud for this request.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE
@@ -246,7 +239,7 @@ export class ListOperationTicketsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of O\\&M requests that are pending approval.
+   * The total number of O&M applications pending approval.
    * 
    * @example
    * 20
