@@ -5,52 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBaseSystemRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of attack that the system protection rule detects. Valid values:
-   * 
+   * The detection module. Valid values:
    * - **sqli**: SQL injection.
-   * 
    * - **xss**: cross-site scripting (XSS).
-   * 
    * - **cmdi**: OS command injection.
-   * 
    * - **expression_injection**: expression injection.
-   * 
    * - **java_deserialization**: Java deserialization.
-   * 
    * - **dot_net_deserialization**: .NET deserialization.
-   * 
    * - **php_deserialization**: PHP deserialization.
-   * 
    * - **code_exec**: code execution.
-   * 
    * - **ssrf**: server-side request forgery (SSRF).
-   * 
    * - **path_traversal**: path traversal.
-   * 
    * - **arbitrary_file_uploading**: arbitrary file upload.
-   * 
    * - **webshell**: webshell.
-   * 
    * - **rfilei**: remote file inclusion (RFI).
-   * 
    * - **lfilei**: local file inclusion (LFI).
-   * 
    * - **protocol_violation**: protocol violation.
-   * 
    * - **scanner_behavior**: scanner behavior.
-   * 
-   * - **logic_flaw**: logic flaw.
-   * 
-   * - **arbitrary_file_reading**: arbitrary file read.
-   * 
+   * - **logic_flaw**: business logic bug.
+   * - **arbitrary_file_reading**: arbitrary file reading.
    * - **arbitrary_file_download**: arbitrary file download.
-   * 
-   * - **xxe**: external entity injection.
-   * 
-   * - **csrf**: cross-site request forgery (CSRF).
-   * 
-   * - **crlf**: CRLF injection.
-   * 
+   * - **xxe**: XML external entity injection.
+   * - **csrf**: cross-site request forgery.
+   * - **crlf**: CRLF.
    * - **other**: other.
    * 
    * @example
@@ -61,7 +38,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -71,10 +48,9 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned rule content. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -83,7 +59,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number to return in a paged query. Default value: **1**, which indicates the first page. For more information about paging, see the PageSize parameter.
    * 
    * @example
    * 1
@@ -91,7 +67,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 100.
+   * The number of entries per page in a paged query. Default value: 100, which indicates 100 entries per page. For more information about paging, see the PageNumber parameter.
    * 
    * @example
    * 100
@@ -99,7 +75,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -119,9 +95,9 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The risk level of the system protection rule. Valid values:
+   * The risk level. Valid values:
    * 
-   * - **super_strict**: Very Strict.
+   * - **super_strict**: Super strict.
    * 
    * - **strict**: Strict.
    * 
@@ -135,7 +111,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The action of the system protection rule. Valid values:
+   * The rule action. Valid values:
    * 
    * - **block**: Block.
    * 
@@ -153,6 +129,10 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
    * 113089
    */
   ruleId?: number;
+  /**
+   * @remarks
+   * The list of system protection rule IDs to query.
+   */
   ruleIds?: number[];
   /**
    * @remarks
@@ -164,11 +144,9 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the system protection rule. Valid values:
-   * 
-   * - **1**: disabled.
-   * 
-   * - **0**: enabled.
+   * The rule status. Valid values:
+   * - **1**: Disabled.
+   * - **0**: Enabled.
    * 
    * @example
    * 1
@@ -178,9 +156,9 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
    * @remarks
    * The ID of the protection template.
    * 
-   * > - Specify this parameter to query the system protection rules in a specific WAF protection template.
-   * >
-   * > - If you leave this parameter empty, the default configurations of the system protection rules are queried.
+   * > 
+   * > - You can specify this parameter to query the system protection rules in a specific Web core protection rule template.
+   * > - If this parameter is left empty, the default settings of system protection rules are queried.
    * 
    * @example
    * 24354

@@ -6,8 +6,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +24,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,7 +32,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The port of the cloud service that is added to WAF.
+   * The port of the cloud service that is connected to WAF.
    * 
    * @example
    * 443
@@ -41,11 +40,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * - **http**: HTTP.
-   * 
-   * - **https**: HTTPS.
+   * The protocol type.
    * 
    * @example
    * https
@@ -65,7 +60,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource instance.
+   * The instance ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -75,7 +70,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -83,15 +78,14 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the cloud service. Valid values:
+   * The cloud service type. Valid values:
    * 
-   * - **clb4**: Layer 4 Classic Load Balancer (CLB).
+   * - **clb4**: Layer 4 CLB.
    * 
    * - **clb7**: Layer 7 CLB.
    * 
-   * - **ecs**: Elastic Compute Service (ECS).
-   * 
-   * - **nlb**: Network Load Balancer (NLB).
+   * - **ecs**: ECS.
+   * - **nlb**: NLB.
    * 
    * @example
    * clb7

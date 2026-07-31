@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The Web Application Firewall (WAF) instance ID.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the instance belongs.
+   * The UID of the resource ownership user.
    * 
    * @example
    * 1704********9107
@@ -25,7 +25,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page when paging. Default value: **10**.
    * 
    * @example
    * 10
@@ -41,7 +41,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -51,18 +51,18 @@ export class DescribeProductInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The domain name that is added to WAF.
+   * > This parameter is supported only when the cloud service type is ddos.
+   * 
+   * @example
+   * www.c**sw.net
+   */
   resourceDomain?: string;
   /**
    * @remarks
-   * The protection status of WAF. Valid values:
-   * 
-   * - **all**: All protected.
-   * 
-   * - **any**: Protected.
-   * 
-   * - **part**: Partially protected.
-   * 
-   * - **non**: Not protected.
+   * The WAF protection status.
    * 
    * @example
    * all
@@ -78,7 +78,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The IP address of the instance added to WAF.
+   * The IP address of the instance that is added to WAF.
    * 
    * @example
    * 1.X.X.1
@@ -86,7 +86,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceInstanceIp?: string;
   /**
    * @remarks
-   * The name of the instance added to WAF.
+   * The name of the instance that is added to WAF.
    * 
    * @example
    * demoInstanceName
@@ -94,7 +94,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The public IP address of the instance.
+   * The public IP address of the cloud service.
    * 
    * @example
    * 1.X.X.1
@@ -104,7 +104,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceIp?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-aekz6ql****5uzi
@@ -112,7 +112,7 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name of the cloud service.
    * 
    * @example
    * exampleResourceName
@@ -128,9 +128,9 @@ export class DescribeProductInstancesRequest extends $dara.Model {
    * 
    * - **clb7**: Layer 7 CLB.
    * 
-   * - **ecs**: Elastic Compute Service (ECS).
-   * 
-   * - **nlb**: Network Load Balancer (NLB).
+   * - **ecs**: ECS.
+   * - **nlb**: NLB.
+   * - **ddos**: Anti-DDoS.
    * 
    * @example
    * clb7
@@ -138,23 +138,22 @@ export class DescribeProductInstancesRequest extends $dara.Model {
   resourceProduct?: string;
   /**
    * @remarks
-   * The region ID of the instance. Valid values:
+   * The region ID of the cloud service. Valid values:
+   * - **cn-chengdu**: China Southwest 1 (Chengdu).
    * 
-   * - **cn-chengdu**: China (Chengdu).
+   * - **cn-beijing**: China North 2 (Beijing).
    * 
-   * - **cn-beijing**: China (Beijing).
+   * - **cn-zhangjiakou**: China North 3 (Zhangjiakou).
    * 
-   * - **cn-zhangjiakou**: China (Zhangjiakou).
+   * - **cn-hangzhou**: China East 1 (Hangzhou).
    * 
-   * - **cn-hangzhou**: China (Hangzhou).
+   * - **cn-shanghai**: China East 2 (Shanghai).
    * 
-   * - **cn-shanghai**: China (Shanghai).
+   * - **cn-shenzhen**: China South 1 (Shenzhen).
    * 
-   * - **cn-shenzhen**: China (Shenzhen).
+   * - **cn-qingdao**: China North 1 (Qingdao).
    * 
-   * - **cn-qingdao**: China (Qingdao).
-   * 
-   * - **cn-hongkong**: China (Hong Kong).
+   * - **cn-hongkong**: Hong Kong (China).
    * 
    * - **ap-southeast-3**: Malaysia (Kuala Lumpur).
    * 

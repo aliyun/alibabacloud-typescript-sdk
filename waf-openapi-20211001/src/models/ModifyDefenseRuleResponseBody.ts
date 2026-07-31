@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1EEA9C98-F166-54FE-ADE3-08D8****BDFA

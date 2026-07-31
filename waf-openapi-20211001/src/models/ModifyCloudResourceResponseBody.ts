@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connected resource.
+   * The connected resource ID.
    * 
    * @example
    * lb-xxx-80-clb7

@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the protection rule. Valid values:
-   * 
-   * - **template** (default): a protection rule template.
-   * 
-   * - **resource**: a rule for a protected object.
-   * 
-   * - **global**: a global rule.
+   * The type of the protection rule.
    * 
    * @example
    * template
@@ -21,7 +15,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -43,9 +37,8 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object of the rule that you want to delete.
-   * 
-   * > This parameter is required only when you set **DefenseType** to **resource**.
+   * The protection object associated with the rule to delete.
+   * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example
    * rencs***-waf
@@ -53,7 +46,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -61,7 +54,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the protection rules that you want to delete. Separate multiple IDs with commas (,).
+   * The IDs of the protection rules to delete. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -71,9 +64,8 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   ruleIds?: string;
   /**
    * @remarks
-   * The ID of the protection rule template that you want to delete.
-   * 
-   * > This parameter is required only when you set **DefenseType** to **template**.
+   * The ID of the protection template to delete.
+   * > This parameter is required only when **DefenseType** is set to **template**.
    * 
    * @example
    * 2221

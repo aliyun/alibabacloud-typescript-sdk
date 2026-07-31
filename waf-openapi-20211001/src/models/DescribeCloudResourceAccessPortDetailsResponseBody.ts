@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of the certificate for the HTTPS protocol. Valid values:
+   * The certificate type for the HTTPS protocol. Valid values:
    * 
-   * - **default**: the default certificate.
+   * - **default**: default certificate.
    * 
-   * - **extension**: the additional certificate.
+   * - **extension**: extension certificate.
    * 
    * @example
    * default
@@ -25,7 +25,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   certificateId?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * cert-name1
@@ -59,7 +59,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders extends $dara.Model {
   /**
    * @remarks
-   * The custom request header field.
+   * The specified custom request header field.
    * 
    * @example
    * key1
@@ -67,7 +67,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   key?: string;
   /**
    * @remarks
-   * The value of the custom request header field.
+   * The value of the specified custom request header field.
    * 
    * @example
    * value1
@@ -99,11 +99,11 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails extends $dara.Model {
   /**
    * @remarks
-   * The type of the certificate for the HTTPS protocol. Valid values:
+   * The certificate type for the HTTPS protocol. Valid values:
    * 
-   * - **default**: the default certificate.
+   * - **default**: default certificate.
    * 
-   * - **extension**: the additional certificate.
+   * - **extension**: extension certificate.
    * 
    * @example
    * default
@@ -111,7 +111,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   appliedType?: string;
   /**
    * @remarks
-   * The ID of the certificate in Certificates Management Service.
+   * The certificate ID in SSL Certificates Service.
    * 
    * @example
    * 123-cn-hangzhou
@@ -119,7 +119,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   certId?: string;
   /**
    * @remarks
-   * The name of the certificate in Certificates Management Service.
+   * The certificate name in SSL Certificates Service.
    * 
    * @example
    * test-name
@@ -135,7 +135,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   commonName?: string;
   /**
    * @remarks
-   * The domain name that is bound to the certificate.
+   * The domain name bound to the certificate.
    * 
    * @example
    * test.aliyun.com
@@ -143,7 +143,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   domain?: string;
   /**
    * @remarks
-   * The expiration time of the certificate. The value is a UNIX timestamp. Unit: seconds.
+   * The expiration time of the certificate, in UNIX timestamp format. Unit: seconds.
    * 
    * @example
    * 1746328456000
@@ -151,7 +151,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the certificate that is saved for the cloud service.
+   * The certificate ID stored in the cloud service.
    * 
    * @example
    * 123
@@ -159,7 +159,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   productCertId?: string;
   /**
    * @remarks
-   * The name of the certificate that is saved for the cloud service.
+   * The certificate name stored in the cloud service.
    * 
    * @example
    * test-name
@@ -167,14 +167,12 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   productCertName?: string;
   /**
    * @remarks
-   * The reason for the abnormal protection status. Valid values:
+   * The specific reason for the protection exception status. Valid values:
    * 
    * - **UserUploadCert**: The certificate is manually uploaded.
    * 
-   * - **CertNotExistInCertCenter**: The certificate does not exist in Certificates Management Service.
-   * 
-   * - **CertExpired**: The certificate has expired.
-   * 
+   * - **CertNotExistInCertCenter**: The certificate does not exist in SSL Certificates Service.
+   * - **CertExpired**: The cloud certificate has expired.
    * - **EmptyCertCN**: The CN of the certificate is empty.
    * 
    * @example
@@ -221,18 +219,18 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails extends $dara.Model {
   /**
    * @remarks
-   * The list of certificates for the port of the cloud service instance.
+   * The list of certificates for the cloud service ports connected to WAF.
    */
   certificates?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates[];
   /**
    * @remarks
-   * The type of the cipher suite. Valid values:
+   * The cipher suite type. Valid values:
    * 
-   * - **1**: all cipher suites.
+   * - **1**: all cipher suites are added.
    * 
-   * - **2**: strong cipher suites.
+   * - **2**: strong cipher suites are added. This value is available only when TLSVersion is set to tlsv1.2.
    * 
-   * - **99**: custom cipher suites.
+   * - **99**: custom cipher suites are added. This value is available only when TLSVersion is not set to tlsv1.3.
    * 
    * @example
    * 1
@@ -240,7 +238,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   cipherSuite?: number;
   /**
    * @remarks
-   * The ID of the resource that is added to WAF. The ID is automatically generated by WAF.
+   * The ID of the connected resource, automatically generated by WAF.
    * 
    * @example
    * i-bp1**************7ey-80-ecs
@@ -248,7 +246,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   cloudResourceId?: string;
   /**
    * @remarks
-   * The custom cipher suites. This parameter is returned only when **CipherSuite** is set to **99**.
+   * The specific custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
@@ -258,6 +256,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * - **true**: TLS 1.3 is supported.
    * 
    * - **false**: TLS 1.3 is not supported.
+   * 
+   * > This parameter is used only when HttpsPorts is not empty (the domain name uses the HTTPS protocol). When TLSVersion is set to tlsv1.3, this value must be true.
    * 
    * @example
    * true
@@ -269,7 +269,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * 
    * - **true**: HTTP/2 is enabled.
    * 
-   * - **false**: HTTP/2 is not enabled.
+   * - **false**: HTTP/2 is disabled.
    * 
    * @example
    * True
@@ -277,11 +277,11 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   http2Enabled?: boolean;
   /**
    * @remarks
-   * Indicates whether to enable persistent connections. Valid values:
+   * Indicates whether keep-alive connections are enabled. Valid values:
    * 
-   * - **true**: Enables persistent connections. This is the default value.
+   * - **true** (default): Keep-alive connections are enabled.
    * 
-   * - **false**: Disables persistent connections.
+   * - **false**: Keep-alive connections are disabled.
    * 
    * @example
    * true
@@ -289,9 +289,9 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that can be reused in a persistent connection. Valid values: 60 to 1000.
+   * The number of requests that can reuse a keep-alive connection. Valid values: 60 to 1000.
    * 
-   * > This parameter specifies the number of requests that can be reused after a persistent connection is established.
+   * > Specifies how many requests can reuse a keep-alive connection after keep-alive is enabled.
    * 
    * @example
    * 1000
@@ -299,9 +299,9 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for an idle persistent connection. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
+   * The idle timeout period for keep-alive connections. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
    * 
-   * > This parameter specifies the period of time after which an idle persistent connection is released.
+   * > Specifies how long an idle keep-alive connection is retained before it is released.
    * 
    * @example
    * 10
@@ -309,14 +309,14 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The key-value pair that is used to tag the traffic that is processed by WAF.
+   * The traffic tag fields and values of the domain name, used to mark traffic processed by WAF.
    * 
-   * > This parameter is returned only when the traffic tagging feature is enabled for the domain name.
+   * > This parameter is returned only when the traffic tag feature is enabled for the domain name.
    */
   logHeaders?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders[];
   /**
    * @remarks
-   * The maximum size of a request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
    * 
    * @example
    * 2
@@ -324,7 +324,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   maxBodySize?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the cloud service belongs.
+   * The UID that indicates the resource ownership of the cloud service.
    * 
    * @example
    * 123
@@ -332,7 +332,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   ownerUserId?: string;
   /**
    * @remarks
-   * The port of the cloud service that is added to WAF.
+   * The port of the cloud service that is connected to WAF.
    * 
    * @example
    * 443
@@ -340,11 +340,9 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * - **http**: HTTP.
-   * 
-   * - **https**: HTTPS.
+   * The protocol type. Valid values:
+   * - **http**: HTTP protocol.
+   * - **https**: HTTPS protocol.
    * 
    * @example
    * https
@@ -352,7 +350,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   protocol?: string;
   /**
    * @remarks
-   * The read timeout period. Unit: seconds. Valid values: 1 to 3600.
+   * The read timeout period. Unit: seconds.
+   * Valid values: 1 to 3600.
    * 
    * @example
    * 5
@@ -360,9 +359,9 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   readTimeout?: number;
   /**
    * @remarks
-   * The status of the domain name. Valid values:
+   * The domain name status. Valid values:
    * 
-   * - **1**: The port is in the Normal state.
+   * - **1**: The port is in a normal state.
    * 
    * - **2**: The port is being created.
    * 
@@ -376,13 +375,12 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   status?: number;
   /**
    * @remarks
-   * The abnormal protection status. Valid values:
+   * The protection exception status. Valid values:
    * 
-   * - **InvalidCert**: The certificate is invalid.
+   * - **InvalidCert**: invalid certificate.
    * 
-   * - **ClientCertOpend**: Mutual authentication is enabled.
-   * 
-   * - **NetworkConfigLost**: The network configuration of the cloud service is abnormal.
+   * - **ClientCertOpend**: mutual authentication is enabled.
+   * - **NetworkConfigLost**: the cloud service network configuration is abnormal.
    * 
    * @example
    * InvalidCert
@@ -390,18 +388,20 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   subStatus?: string;
   /**
    * @remarks
-   * The details of the abnormal protection status. This parameter is returned only when **SubStatus** is set to InvalidCert.
+   * The specific reasons for the protection exception status. This parameter has a value only when SubStatus is set to InvalidCert.
    */
   subStatusDetails?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsSubStatusDetails[];
   /**
    * @remarks
-   * The version of the Transport Layer Security (TLS) protocol. Valid values:
+   * The TLS version. Valid values:
    * 
-   * - **tlsv1**
+   * - **tlsv1**: Supports TLS 1.0 and later. Highest compatibility, lower security.
    * 
-   * - **tlsv1.1**
+   * - **tlsv1.1**: Supports TLS 1.1 and later. Good compatibility, good security.
    * 
-   * - **tlsv1.2**
+   * - **tlsv1.2**: Supports TLS 1.2 and later. Good compatibility, highest security.
+   * 
+   * - **tlsv1.3**: Supports only TLS 1.3. Highest security, lower compatibility.
    * 
    * @example
    * tlsv1
@@ -409,7 +409,8 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   TLSVersion?: string;
   /**
    * @remarks
-   * The write timeout period. Unit: seconds. Valid values: 1 to 3600.
+   * The write timeout period. Unit: seconds.
+   * Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -417,13 +418,13 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   writeTimeout?: number;
   /**
    * @remarks
-   * The mode that WAF uses to obtain the real IP address of a client. Valid values:
+   * The method that WAF uses to obtain the originating IP address of the client. Valid values:
    * 
-   * - **0**: WAF is the first Layer 7 proxy before client traffic is forwarded to the origin server.
+   * - **0**: The client traffic does not pass through any Layer 7 proxy before reaching WAF.
    * 
-   * - **1**: WAF reads the first IP address from the X-Forwarded-For (XFF) header as the client IP address.
+   * - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header as the client IP address.
    * 
-   * - **2**: WAF reads the value of a custom header as the client IP address.
+   * - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
    * 
    * @example
    * 0
@@ -431,18 +432,18 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The custom header fields that are used to obtain the client IP address. The value is a string in the `["header1","header2",...]` format.
+   * The list of custom header fields used to obtain the client IP address, in the format **["header1","header2",...]**.
    * 
-   * > This parameter is returned only when **XffHeaderMode** is set to 2.
+   * > This parameter is required only when **XffHeaderMode** is set to 2 (WAF reads the value of a custom header field that you specify as the client IP address).
    */
   xffHeaders?: string[];
   /**
    * @remarks
-   * Indicates whether to use the X-Forwarded-For-Proto header to identify the protocol used by WAF. Valid values:
+   * Specifies whether the X-Forward-For-Proto header is used to pass the WAF protocol. Valid values:
    * 
-   * - **true**: Identifies the protocol used by WAF. This is the default value.
+   * - **true** (default): The WAF protocol is passed.
    * 
-   * - **false**: Does not identify the protocol used by WAF.
+   * - **false**: The WAF protocol is not passed.
    * 
    * @example
    * true
@@ -531,7 +532,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 export class DescribeCloudResourceAccessPortDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the ports for the cloud service instance that is added to WAF.
+   * The port details of cloud service instances connected to WAF.
    */
   accessPortDetails?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails[];
   /**

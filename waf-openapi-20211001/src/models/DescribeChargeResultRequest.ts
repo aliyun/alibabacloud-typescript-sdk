@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the billing module.
+   * The pricing module identifier.
    * 
    * @example
    * domainCount
@@ -13,7 +13,7 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   moduleCode?: string;
   /**
    * @remarks
-   * The usage amount of the billing module.
+   * The usage of the pricing module.
    * 
    * @example
    * 10
@@ -45,13 +45,10 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
 export class DescribeChargeResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing cycle for the WAF instance. Valid values:
-   * 
-   * - **Year**: yearly billing cycle.
-   * 
-   * - **Month**: monthly billing cycle.
-   * 
-   * - **Day**: daily billing cycle.
+   * The billing cycle for the calculation. Valid values:
+   * - **Year**: Calculates the billing result for one year.
+   * - **Month**: Calculates the billing result for one month.
+   * - **Day**: Calculates the billing result for one day.
    * 
    * @example
    * Day
@@ -59,16 +56,23 @@ export class DescribeChargeResultRequest extends $dara.Model {
   chargeCycle?: string;
   /**
    * @remarks
-   * The billing modules to calculate.
+   * The list of billing modules to calculate.
    * 
    * This parameter is required.
    */
   chargeModules?: DescribeChargeResultRequestChargeModules[];
   /**
    * @remarks
-   * The billing method of the WAF instance. Valid value:
+   * The metering unit.
    * 
-   * - **POSTPAY**: pay-as-you-go.
+   * @example
+   * SeCU
+   */
+  chargeUnit?: string;
+  /**
+   * @remarks
+   * The billing type of the instance. Valid values:
+   * - **POSTPAY**: pay-as-you-go WAF instance.
    * 
    * This parameter is required.
    * 
@@ -90,7 +94,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -100,6 +104,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
     return {
       chargeCycle: 'ChargeCycle',
       chargeModules: 'ChargeModules',
+      chargeUnit: 'ChargeUnit',
       payType: 'PayType',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -110,6 +115,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
     return {
       chargeCycle: 'string',
       chargeModules: { 'type': 'array', 'itemType': DescribeChargeResultRequestChargeModules },
+      chargeUnit: 'string',
       payType: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

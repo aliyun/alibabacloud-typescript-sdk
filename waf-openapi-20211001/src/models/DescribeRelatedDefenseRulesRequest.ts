@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRelatedDefenseRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF protection scenario. Only the following value is supported:
-   * 
-   * - **address_book**: address book.
+   * The WAF protection scenario.
    * 
    * This parameter is required.
    * 
@@ -40,7 +38,7 @@ export class DescribeRelatedDefenseRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page when using paging. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page in a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -50,7 +48,7 @@ export class DescribeRelatedDefenseRulesRequest extends $dara.Model {
    * @remarks
    * The pagination token (**Token**) for the next page. If a next page exists, this field has a return value.
    * 
-   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -58,7 +56,7 @@ export class DescribeRelatedDefenseRulesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -70,7 +68,7 @@ export class DescribeRelatedDefenseRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

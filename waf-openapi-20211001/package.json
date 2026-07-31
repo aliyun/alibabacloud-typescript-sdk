@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/waf-openapi20211001",
-  "version": "6.8.2",
+  "version": "6.8.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",

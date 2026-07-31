@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of attacks in the security event.
+   * The number of attacks.
    * 
    * @example
    * 345
@@ -13,12 +13,12 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   attackCnt?: string;
   /**
    * @remarks
-   * The list of attackers associated with the security event.
+   * The attacker list.
    */
   attackerList?: string[];
   /**
    * @remarks
-   * The details of the security event.
+   * The detailed information about the security event. The value is a string converted from a JSON object constructed by a series of parameters.
    * 
    * @example
    * {\\"location\\":[\\"FR\\",\\"CN\\"],\\"location_type\\":\\"country\\"}
@@ -26,7 +26,7 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   detailValue?: string;
   /**
    * @remarks
-   * The end of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -42,13 +42,10 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The severity level of the security event. Valid values:
-   * 
-   * - **high**: high severity.
-   * 
-   * - **medium**: medium severity.
-   * 
-   * - **low**: low severity.
+   * The event level. Valid values:
+   * - **high**: high risk.
+   * - **medium**: medium risk.
+   * - **low**: low risk.
    * 
    * @example
    * low
@@ -57,7 +54,6 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dimension of the security event. Valid values:
-   * 
    * - **ip** (default): IP security event.
    * 
    * - **account**: account security event.
@@ -68,8 +64,7 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   eventScope?: string;
   /**
    * @remarks
-   * The type of the security event.
-   * 
+   * The event type.
    * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
    * 
    * @example
@@ -78,7 +73,7 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   eventTag?: string;
   /**
    * @remarks
-   * The remarks added to the security event.
+   * The remarks.
    * 
    * @example
    * already confirmed.
@@ -86,11 +81,9 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The source of the event type rule. Valid values:
-   * 
-   * - **custom**: a user-defined rule.
-   * 
-   * - **default**: a built-in rule.
+   * The origin of the event type. Valid values:
+   * - **custom**: custom.
+   * - **default**: built-in.
    * 
    * @example
    * custom
@@ -98,7 +91,7 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0
@@ -106,7 +99,7 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1683648000
@@ -115,13 +108,9 @@ export class DescribeApisecEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * 
    * - **toBeConfirmed**: to be confirmed.
-   * 
    * - **confirmed**: confirmed.
-   * 
    * - **actioned**: handled.
-   * 
    * - **ignored**: ignored.
    * 
    * @example

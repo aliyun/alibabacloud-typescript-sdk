@@ -47,7 +47,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -57,14 +57,14 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener configuration.
+   * The listening configuration.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The UID that indicates the resource ownership.
+   * The UID of the current resource ownership.
    * 
    * @example
    * 123
@@ -77,7 +77,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   redirectShrink?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -91,7 +91,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

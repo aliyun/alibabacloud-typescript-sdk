@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudResourceRequestListenCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of certificate for HTTPS. Valid values:
+   * The certificate type for the HTTPS protocol. Valid values:
    * 
    * - **default**: default certificate.
    * 
@@ -54,13 +54,13 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   certificates?: ModifyCloudResourceRequestListenCertificates[];
   /**
    * @remarks
-   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
    * - **1**: all cipher suites.
    * 
-   * - **2**: strong cipher suites. This value is available only when **TLSVersion** is set to **tlsv1.2**.
+   * - **2**: strong cipher suites. This value can be selected only when **TLSVersion** is set to **tlsv1.2**.
    * 
-   * - **99**: custom cipher suites.
+   * - **99**: custom cipher suites. This value can be selected only when TLSVersion is not set to tlsv1.3.
    * 
    * @example
    * 1
@@ -73,11 +73,13 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   customCiphers?: string[];
   /**
    * @remarks
-   * Specifies whether TLS 1.3 is supported. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether TLS 1.3 is supported. Valid values:
    * 
    * - **true**: TLS 1.3 is supported.
    * 
    * - **false**: TLS 1.3 is not supported.
+   * 
+   * > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be true.
    * 
    * @example
    * true
@@ -88,7 +90,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
    * - **true**: HTTP/2 is enabled.
    * 
@@ -110,9 +112,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol type. Valid values:
-   * - **http**: HTTP.
-   * - **https**: HTTPS.
+   * The protocol type.
    * 
    * This parameter is required.
    * 
@@ -132,14 +132,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The type of cloud service. Valid values:
-   * 
-   * - **clb4**: Layer 4 Classic Load Balancer (CLB).
-   * 
-   * - **clb7**: Layer 7 CLB.
-   * 
-   * - **ecs**: Elastic Compute Service (ECS).
-   * - **nlb**: Network Load Balancer (NLB).
+   * The cloud service type.
    * 
    * @example
    * clb7
@@ -149,13 +142,15 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   resourceProduct?: string;
   /**
    * @remarks
-   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
    * 
-   * - **tlsv1**
+   * - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
    * 
-   * - **tlsv1.1**
+   * - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
    * 
-   * - **tlsv1.2**
+   * - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
+   * 
+   * - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
    * 
    * @example
    * tlsv1.2
@@ -209,7 +204,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
 export class ModifyCloudResourceRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The custom request header field.
+   * The specified custom request header field.
    * 
    * @example
    * key1
@@ -217,7 +212,7 @@ export class ModifyCloudResourceRequestRedirectRequestHeaders extends $dara.Mode
   key?: string;
   /**
    * @remarks
-   * The value of the custom request header field.
+   * The value set for the custom request header field.
    * 
    * @example
    * value1
@@ -271,7 +266,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The idle timeout period of a persistent connection. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * The idle timeout period for persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
    * 
    * > Specifies how long an idle persistent connection can remain open before it is released.
    * 
@@ -314,9 +309,9 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
    * @remarks
    * The method that WAF uses to obtain the originating IP address of the client. Valid values:
    * 
-   * - **0**: No Layer 7 proxy is deployed in front of WAF.
+   * - **0**: The client access traffic is not forwarded by any other Layer 7 proxy before reaching WAF.
    * 
-   * - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the client IP address.
+   * - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header as the client IP address.
    * 
    * - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
    * 
@@ -326,9 +321,9 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields used to obtain the client IP address, in the format of **["header1","header2",...]**.
+   * The list of custom fields used to obtain the client IP address, in the format of **["header1","header2",……]**.
    * 
-   * > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field as the client IP address.
+   * > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field that you specify as the client IP address.
    */
   xffHeaders?: string[];
   /**
@@ -391,9 +386,9 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
 export class ModifyCloudResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connected resource, which is automatically generated by WAF when the resource is connected in cloud native mode.
+   * The ID of the connected resource, which is automatically generated by WAF during cloud native mode connection.
    * 
-   * > You can call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to connect a resource and view the resource ID in the response.
+   * > You can call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to connect a resource and then view the resource ID in the response.
    * 
    * @example
    * lb-***-80-clb7
@@ -403,7 +398,7 @@ export class ModifyCloudResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 

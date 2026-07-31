@@ -13,7 +13,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   elasticQpsSetValue?: number;
   /**
    * @remarks
-   * The end time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The end time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1687591200
@@ -23,14 +23,30 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
    * @remarks
    * The overuse status of the current period. Valid values:
    * - **0**: Normal.
-   * - **1**: Overused.
-   * - **2**: Sandboxed.
+   * - **1**: overused.
+   * - **2**: sandboxed.
    * 
    * @example
    * 0
    */
   exceedStatus?: number;
+  /**
+   * @remarks
+   * Indicates whether the extension plug-in is enabled. Valid values:
+   * - **true**: The extension plug-in is enabled.
+   * - **false**: The extension plug-in is not enabled.
+   * 
+   * @example
+   * true
+   */
   extensionPlugin?: boolean;
+  /**
+   * @remarks
+   * The number of requests processed by the plug-in.
+   * 
+   * @example
+   * 100
+   */
   extensionPluginRequest?: number;
   /**
    * @remarks
@@ -42,7 +58,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   maxQps?: number;
   /**
    * @remarks
-   * The unit price for elastic billing. Unit: CNY for the China site and USD for the international site.
+   * The unit price for burstable billing. Unit: CNY for the China site and USD for the international site.
    * 
    * @example
    * 0.25
@@ -84,7 +100,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   riskTraffic?: number;
   /**
    * @remarks
-   * The start time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The start time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
    * @example
    * 1687822980
@@ -100,7 +116,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The elastic billing type.
+   * The burstable billing type.
    */
   type?: string[];
   static names(): { [key: string]: string } {
@@ -156,7 +172,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
 export class DescribePrepayDailyBillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of WAF elastic billing records.
+   * The list of WAF burstable billing records.
    */
   bills?: DescribePrepayDailyBillsResponseBodyBills[];
   /**

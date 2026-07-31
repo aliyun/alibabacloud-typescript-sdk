@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecEventDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Hybrid Cloud WAF cluster.
-   * 
-   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud WAF clusters.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
    * 
    * @example
    * 428
@@ -15,21 +14,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the detailed information about the security event. Valid values:
-   * 
-   * - **event_info** (default): attack details.
-   * 
-   * - **api_info**: API information.
-   * 
-   * - **cnt_info**: attack trend.
-   * 
-   * - **ip_info**: attacker IP information.
-   * 
-   * - **sensitive_info**: information about access to sensitive data.
-   * 
-   * - **request_data**: request information.
-   * 
-   * - **response_data**: response information.
+   * The type of detailed information about the security event.
    * 
    * @example
    * event_info
@@ -47,11 +32,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The dimension of the security event. Valid values:
-   * 
-   * - **ip** (default): IP security event.
-   * 
-   * - **account**: account security event.
+   * The dimension of the security event.
    * 
    * @example
    * ip
@@ -59,9 +40,9 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   eventScope?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -71,7 +52,7 @@ export class DescribeApisecEventDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

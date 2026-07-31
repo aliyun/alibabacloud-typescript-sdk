@@ -13,7 +13,7 @@ export class CreateDomainResponseBodyDomainInfo extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * The added domain name.
+   * The name of the added domain name.
    * 
    * @example
    * www.aliyundoc.com

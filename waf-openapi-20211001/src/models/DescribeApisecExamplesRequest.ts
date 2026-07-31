@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecExamplesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of API security threat.
+   * The risk type.
    * 
    * @example
    * LackOfSpeedLimit
@@ -23,9 +23,8 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The ID of the Hybrid Cloud WAF cluster.
-   * 
-   * > This parameter is available only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about Hybrid Cloud WAF clusters.
+   * The ID of the hybrid cloud cluster.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
    * 
    * @example
    * 176
@@ -33,11 +32,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the example. Valid values:
-   * 
-   * - **sensitive**: sensitive data.
-   * 
-   * - **risk**: threat.
+   * The type of the sample.
    * 
    * @example
    * sensitive
@@ -45,9 +40,9 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   exampleType?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -57,7 +52,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 5. Default value: 5.
+   * The number of entries per page in a paged query. Valid values: 1 to 5. Default value: 5. This parameter is used for paging.
    * 
    * @example
    * 5
@@ -65,7 +60,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -73,7 +68,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -85,7 +80,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of sensitive data types in requests.
+   * The list of request sensitive information types.
    */
   requestSensitiveTypeList?: string[];
   /**
@@ -98,7 +93,7 @@ export class DescribeApisecExamplesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The list of sensitive data types in responses.
+   * The list of response sensitive information types.
    */
   responseSensitiveTypeList?: string[];
   static names(): { [key: string]: string } {

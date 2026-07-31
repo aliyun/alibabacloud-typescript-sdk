@@ -14,9 +14,7 @@ export class DescribeUserEventTrendRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The dimension of security events. Valid values:
-   * - **ip** (default): IP security events.
-   * - **account**: account security events.
+   * The dimension of security events.
    * 
    * @example
    * ip

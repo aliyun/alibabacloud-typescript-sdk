@@ -21,11 +21,7 @@ export class DeleteApisecEventsRequest extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The dimension of the security event. Valid values:
-   * 
-   * - **ip**: IP-dimension security events.
-   * 
-   * - **account**: account-dimension security events.
+   * The dimension of the security event.
    * 
    * @example
    * ip

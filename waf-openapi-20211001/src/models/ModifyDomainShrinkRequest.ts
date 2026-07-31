@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The access mode of the WAF instance. Valid values:
-   * 
-   * - **share** (default): onboarding by using a CNAME record.
-   * 
-   * - **hybrid_cloud_cname**: onboarding by using a hybrid cloud CNAME record.
+   * The access type of the WAF instance. Valid values:
    * 
    * @example
    * share
@@ -17,7 +13,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name whose configurations you want to modify.
+   * The domain name to operate on.
    * 
    * @example
    * www.aliyundoc.com
@@ -25,7 +21,7 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain name ID.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -35,8 +31,6 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -45,14 +39,14 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listening settings.
+   * The listening configuration.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The forwarding settings.
+   * The forwarding configuration.
    * 
    * This parameter is required.
    */
@@ -60,10 +54,6 @@ export class ModifyDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the WAF instance resides. Valid values:
-   * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 

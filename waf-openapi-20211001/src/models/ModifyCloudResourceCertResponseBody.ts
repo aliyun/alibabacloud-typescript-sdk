@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudResourceCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * A47D2DC0-7151-51EF-BFB7-***

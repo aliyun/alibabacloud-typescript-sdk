@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the protection rule. Valid values:
-   * 
-   * - **template** (default): a protection rule template.
-   * 
-   * - **resource**: a rule for a protected object.
-   * 
-   * - **global**: a global rule.
+   * The type of the protection rule.
    * 
    * @example
    * template
@@ -19,9 +13,9 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -31,7 +25,7 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -43,8 +37,7 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object to which the protection rule applies.
-   * 
+   * The protected object associated with the rule to query.
    * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example
@@ -61,7 +54,7 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection rule.
+   * The ID of the protection rule to query.
    * 
    * This parameter is required.
    * 
@@ -71,8 +64,7 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the protection rule template.
-   * 
+   * The ID of the protection template to query.
    * > This parameter is required only when **DefenseType** is set to **template**.
    * 
    * @example

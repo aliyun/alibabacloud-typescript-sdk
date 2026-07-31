@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The CVE ID of the vulnerability that is associated with the system protection rule.
+   * The CVE ID of the vulnerability associated with the system rule.
    * 
    * @example
    * CVE-2021-34538
@@ -13,7 +13,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   cveId?: string;
   /**
    * @remarks
-   * The description of the system protection rule.
+   * The description of the rule.
    * 
    * @example
    * rule description
@@ -21,52 +21,29 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of attack that the system protection rule detects. Valid values:
-   * 
+   * The detection module. Valid values:
    * - **sqli**: SQL injection.
-   * 
    * - **xss**: cross-site scripting (XSS).
-   * 
    * - **cmdi**: OS command injection.
-   * 
    * - **expression_injection**: expression injection.
-   * 
    * - **java_deserialization**: Java deserialization.
-   * 
    * - **dot_net_deserialization**: .NET deserialization.
-   * 
    * - **php_deserialization**: PHP deserialization.
-   * 
    * - **code_exec**: code execution.
-   * 
    * - **ssrf**: server-side request forgery (SSRF).
-   * 
    * - **path_traversal**: path traversal.
-   * 
    * - **arbitrary_file_uploading**: arbitrary file upload.
-   * 
    * - **webshell**: webshell.
-   * 
    * - **rfilei**: remote file inclusion (RFI).
-   * 
    * - **lfilei**: local file inclusion (LFI).
-   * 
    * - **protocol_violation**: protocol violation.
-   * 
    * - **scanner_behavior**: scanner behavior.
-   * 
-   * - **logic_flaw**: logic flaw.
-   * 
-   * - **arbitrary_file_reading**: arbitrary file read.
-   * 
+   * - **logic_flaw**: business logic bug.
+   * - **arbitrary_file_reading**: arbitrary file reading.
    * - **arbitrary_file_download**: arbitrary file download.
-   * 
-   * - **xxe**: external entity injection.
-   * 
-   * - **csrf**: cross-site request forgery (CSRF).
-   * 
-   * - **crlf**: CRLF injection.
-   * 
+   * - **xxe**: XML external entity injection.
+   * - **csrf**: cross-site request forgery.
+   * - **crlf**: CRLF.
    * - **other**: other.
    * 
    * @example
@@ -75,9 +52,9 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   detectType?: string;
   /**
    * @remarks
-   * The risk level of the system protection rule. Valid values:
+   * The risk level. Valid values:
    * 
-   * - **super_strict**: Very Strict.
+   * - **super_strict**: Super strict.
    * 
    * - **strict**: Strict.
    * 
@@ -91,7 +68,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The action of the system protection rule. Valid values:
+   * The rule action. Valid values:
    * 
    * - **block**: Block.
    * 
@@ -103,7 +80,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The ID of the system protection rule.
+   * The rule ID.
    * 
    * @example
    * 113089
@@ -111,7 +88,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the system protection rule.
+   * The name of the protection rule.
    * 
    * @example
    * systemRuleTest
@@ -119,11 +96,9 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the system protection rule. Valid values:
-   * 
-   * - **1**: disabled.
-   * 
-   * - **0**: enabled.
+   * The rule status. Valid values:
+   * - **1**: Disabled.
+   * - **0**: Enabled.
    * 
    * @example
    * 1
@@ -131,7 +106,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleStatus?: number;
   /**
    * @remarks
-   * The time when the system protection rule was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the rule was last updated.
    * 
    * @example
    * 1665460629000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDefenseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 26E46541-7AAB-5565-801D-F14DBDC5****
@@ -13,7 +13,7 @@ export class CreateDefenseRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The comma-separated IDs of the created protection rules.
+   * The IDs of the created protection rules. Multiple IDs are separated by commas (,).
    * 
    * @example
    * 22215,23354,462165

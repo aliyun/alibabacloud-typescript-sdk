@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols extends $dara.Model {
   /**
    * @remarks
-   * The certificates.
+   * The list of certificate IDs.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The port of the cloud service added to WAF.
+   * The port of the cloud service that is added to WAF.
    * 
    * @example
    * 443
@@ -19,10 +19,8 @@ export class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndPr
   /**
    * @remarks
    * The protocol type. Valid values:
-   * 
-   * - **http**: HTTP protocol.
-   * 
-   * - **https**: HTTPS protocol.
+   * - **http**: HTTP.
+   * - **https**: HTTPS.
    * 
    * @example
    * http
@@ -59,7 +57,7 @@ export class DescribeProductInstancesResponseBodyProductInstancesAccessPortAndPr
 export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of the HTTPS certificate. Valid values:
+   * The certificate type for the HTTPS protocol. Valid values:
    * 
    * - **default**: Default certificate.
    * 
@@ -79,7 +77,7 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCe
   certificateId?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The SSL certificate name.
    * 
    * @example
    * demoCertName
@@ -123,7 +121,7 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePortsCe
 export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts extends $dara.Model {
   /**
    * @remarks
-   * The information about the certificates.
+   * The list of certificate information.
    */
   certificates?: DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates[];
   /**
@@ -136,11 +134,9 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
   port?: number;
   /**
    * @remarks
-   * The protocol type. Valid values:
-   * 
-   * - **http**: HTTP protocol.
-   * 
-   * - **https**: HTTPS protocol.
+   * The network protocol type. Valid values:
+   * - **http**: HTTP.
+   * - **https**: HTTPS.
    * 
    * @example
    * https
@@ -177,7 +173,7 @@ export class DescribeProductInstancesResponseBodyProductInstancesResourcePorts e
 export class DescribeProductInstancesResponseBodyProductInstances extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance added to WAF.
+   * The instance ID of the instance that is added to WAF.
    * 
    * @example
    * i-2ze1tm4pvghp****cluv
@@ -185,32 +181,37 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   accessInstanceId?: string;
   /**
    * @remarks
-   * The port and protocol information of the cloud service added to WAF.
+   * The port and protocol information of the cloud service that is added to WAF.
    */
   accessPortAndProtocols?: DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols[];
   /**
    * @remarks
-   * The list of ports added to WAF.
+   * The list of ports that are added to WAF.
    */
   accessPorts?: number[];
   /**
    * @remarks
-   * The user ID (UID) of the Alibaba Cloud account to which the instance belongs.
+   * The UID of the resource ownership user.
    * 
    * @example
    * 1704********9107
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The domain name that is added to WAF.
+   * 
+   * @example
+   * www.c**sw.net
+   */
   resourceDomain?: string;
   /**
    * @remarks
-   * The protection status of WAF. Valid values:
+   * The WAF protection status. Valid values:
    * 
-   * - **all**: All protected.
-   * 
+   * - **all**: Full protection.
    * - **any**: Protected.
-   * 
-   * - **part**: Partially protected.
+   * - **part**: Partial protection.
    * 
    * - **non**: Not protected.
    * 
@@ -220,7 +221,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceAccessStatus?: string;
   /**
    * @remarks
-   * The edition of the instance.
+   * The edition of the cloud service instance.
    * 
    * @example
    * ecs.e-c1m1.large
@@ -228,7 +229,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceEdition?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID of the cloud service.
    * 
    * @example
    * i-2ze1tm4pvghp****cluv
@@ -236,7 +237,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The IP address of the instance.
+   * The IP address of the cloud service instance.
    * 
    * @example
    * 1.X.X.1
@@ -244,7 +245,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceIp?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name of the cloud service.
    * 
    * @example
    * demoInstanceName
@@ -252,7 +253,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The public IP address of the instance.
+   * The public IP address of the cloud service.
    * 
    * @example
    * 1.X.X.1
@@ -262,7 +263,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceIp?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name of the cloud service.
    * 
    * @example
    * ecs-test
@@ -272,7 +273,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceName?: string;
   /**
    * @remarks
-   * The information about the ports.
+   * The list of port information.
    */
   resourcePorts?: DescribeProductInstancesResponseBodyProductInstancesResourcePorts[];
   /**
@@ -284,7 +285,6 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
    * - **clb7**: Layer 7 CLB.
    * 
    * - **ecs**: ECS.
-   * 
    * - **nlb**: NLB.
    * 
    * @example
@@ -293,23 +293,22 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
   resourceProduct?: string;
   /**
    * @remarks
-   * The region ID of the instance. Valid values:
+   * The region ID of the cloud service. Valid values:
+   * - **cn-chengdu**: China Southwest 1 (Chengdu).
    * 
-   * - **cn-chengdu**: China (Chengdu).
+   * - **cn-beijing**: China North 2 (Beijing).
    * 
-   * - **cn-beijing**: China (Beijing).
+   * - **cn-zhangjiakou**: China North 3 (Zhangjiakou).
    * 
-   * - **cn-zhangjiakou**: China (Zhangjiakou).
+   * - **cn-hangzhou**: China East 1 (Hangzhou).
    * 
-   * - **cn-hangzhou**: China (Hangzhou).
+   * - **cn-shanghai**: China East 2 (Shanghai).
    * 
-   * - **cn-shanghai**: China (Shanghai).
+   * - **cn-shenzhen**: China South 1 (Shenzhen).
    * 
-   * - **cn-shenzhen**: China (Shenzhen).
+   * - **cn-qingdao**: China North 1 (Qingdao).
    * 
-   * - **cn-qingdao**: China (Qingdao).
-   * 
-   * - **cn-hongkong**: China (Hong Kong).
+   * - **cn-hongkong**: Hong Kong (China).
    * 
    * - **ap-southeast-3**: Malaysia (Kuala Lumpur).
    * 
@@ -380,12 +379,12 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
 export class DescribeProductInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the instances.
+   * The list of cloud service information.
    */
   productInstances?: DescribeProductInstancesResponseBodyProductInstances[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FDCBAE1E-2B3F-5C13-AD20-844B9473****

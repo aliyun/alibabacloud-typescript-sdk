@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values: 1 to 500. Default value: 500.
+   * The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 500.
    * 
    * @example
    * 20
@@ -13,9 +13,8 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. This parameter is returned if a next page exists.
-   * 
-   * > If a value is returned for this parameter, a next page exists. You can use the returned **NextToken** value as a request parameter to retrieve the data on the next page. When no value is returned, all data has been retrieved.
+   * The pagination token (Token) for the next page. If a next page exists, this field contains a value.
+   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAABLQv******37sHZaHk4=
@@ -31,7 +30,7 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of the names of the attached protected objects or protected object groups, or the IDs of the protected assets.
+   * The list of bound protected object names, protected object group names, or protected asset IDs.
    */
   resources?: string[];
   /**
@@ -44,7 +43,7 @@ export class DescribeTemplateResourcesResponseBody extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 25

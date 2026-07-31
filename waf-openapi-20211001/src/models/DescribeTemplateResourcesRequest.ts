@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplateResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The API of the protected asset for the fuzzy query.
+   * The API of the protected asset to fuzzy match.
    * 
    * @example
    * abc.com
@@ -13,9 +13,9 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   assetApi?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. Valid values: 1 to 500. Default value: 500.
+   * The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 500.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. This is the value of the **NextToken** parameter returned from the last API call. You do not need to specify this parameter for the first query.
+   * The pagination token (Token) for the next page. Set this parameter to the value of **NextToken** returned in the previous API call. Leave this parameter empty for the first page.
    * 
    * @example
    * AAAAAJ7ob7*******MhJJ1ELRE=
@@ -41,7 +41,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -53,7 +53,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object or protected object group for the fuzzy query.
+   * The name of the protected object or protected object group to fuzzy match.
    * 
    * @example
    * abc.test.com-waf
@@ -70,12 +70,9 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the protected resource. Valid values:
-   * 
-   * - **single**: a protected object.
-   * 
-   * - **group**: a protected object group.
-   * 
-   * - **asset**: a protected asset.
+   * - **single**: protected object.
+   * - **asset**: protected asset.
+   * - **group**: protected object group.
    * 
    * This parameter is required.
    * 

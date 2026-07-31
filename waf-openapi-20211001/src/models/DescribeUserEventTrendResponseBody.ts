@@ -29,7 +29,7 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   eventMedium?: number;
   /**
    * @remarks
-   * The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
+   * The statistics time in UNIX timestamp format (UTC). Unit: seconds.
    * >Notice: This parameter is deprecated. Use the Timestamp parameter instead.
    * 
    * @example
@@ -40,7 +40,7 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   timeStamp?: number;
   /**
    * @remarks
-   * The statistics time, in UNIX timestamp format (UTC). Unit: seconds.
+   * The statistics time in UNIX timestamp format (UTC). Unit: seconds.
    * 
    * @example
    * 1723435200

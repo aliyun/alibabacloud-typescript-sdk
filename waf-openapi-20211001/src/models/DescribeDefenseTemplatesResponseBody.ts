@@ -5,29 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. Valid values:
+   * The WAF protection scenario. Valid values:
    * 
-   * - **waf_group**: Basic Protection.
+   * - **waf_group**: basic protection.
    * 
-   * - **antiscan**: Scan Protection.
+   * - **antiscan**: scan protection.
    * 
-   * - **ip_blacklist**: IP Blocklist.
+   * - **ip_blacklist**: IP blacklist.
    * 
-   * - **custom_acl**: Custom Rule.
+   * - **custom_acl**: custom rule.
    * 
-   * - **whitelist**: Allowlist.
+   * - **whitelist**: whitelist.
    * 
-   * - **region_block**: Geographic Blocking.
+   * - **region_block**: Location Blacklist.
    * 
-   * - **custom_response**: Custom Response.
+   * - **custom_response**: custom response.
    * 
-   * - **cc**: HTTP Flood Protection.
+   * - **cc**: HTTP flood protection.
    * 
-   * - **tamperproof**: Webpage Tamper Protection.
+   * - **tamperproof**: web tamper proofing.
    * 
-   * - **dlp**: Data Loss Prevention.
+   * - **dlp**: data leak prevention.
    * 
-   * - **bot_manager**: Bot Management.
+   * - **bot_manager**: new BOT management.
    * 
    * @example
    * whitelist
@@ -35,15 +35,11 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   defenseScene?: string;
   /**
    * @remarks
-   * The sub-scenario for the Bot Management template. This parameter is returned only when `DefenseScene` is set to `bot_manager`. Valid values:
-   * 
-   * - **web**: web protection
-   * 
-   * - **app**: app protection
-   * 
-   * - **basic**: basic protection
-   * 
-   * - **bot_custom_acl**: The protection template for advanced Custom Rules in Bot Management.
+   * The sub-scenario of the protection template. Valid values:
+   * - **web**: BOT management web protection scenario template.
+   * - **app**: BOT management app protection scenario template.
+   * - **basic**: BOT management basic protection template.
+   * - **bot_custom_acl**: BOT management advanced custom rule protection template.
    * 
    * @example
    * basic
@@ -59,7 +55,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The last modification time of the protection template. This value is a UNIX timestamp in milliseconds.
+   * The creation time of the protection template. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1683776070000
@@ -83,7 +79,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The origin of the protection template to be created. The value is custom, which indicates a user-defined template.
+   * The source of the protection template. The value is custom, which indicates user-defined.
    * 
    * @example
    * custom
@@ -92,10 +88,8 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
    * The status of the protection template. Valid values:
-   * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled.
+   * - **0**: disabled.
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -103,11 +97,9 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
   templateStatus?: number;
   /**
    * @remarks
-   * The type of the protection template. Valid values:
-   * 
-   * - **user_default**: The user\\"s default protection template.
-   * 
-   * - **user_custom**: A custom protection template defined by the user.
+   * The templatetype of the protection template. Valid values:
+   * - **user_default**: user default protection.
+   * - **user_custom**: user custom protection.
    * 
    * @example
    * user_custom
@@ -153,7 +145,7 @@ export class DescribeDefenseTemplatesResponseBodyTemplates extends $dara.Model {
 export class DescribeDefenseTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4F26D2F1-E288-5104-8518-05E240E337A4
@@ -161,12 +153,12 @@ export class DescribeDefenseTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of protection templates.
+   * The list of protection templates.
    */
   templates?: DescribeDefenseTemplatesResponseBodyTemplates[];
   /**
    * @remarks
-   * The total number of protection templates returned.
+   * The total number of entries returned.
    * 
    * @example
    * 100

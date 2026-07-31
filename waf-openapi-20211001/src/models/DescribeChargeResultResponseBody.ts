@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The ID of the billing module.
+   * The number of Credits for the pricing module.
+   * 
+   * @example
+   * 0
+   */
+  credit?: number;
+  /**
+   * @remarks
+   * The pricing module identifier.
    * 
    * @example
    * domainCount
@@ -13,7 +21,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   moduleCode?: string;
   /**
    * @remarks
-   * The number of SeCUs for the billing module.
+   * The number of SeCUs for the pricing module.
    * 
    * @example
    * 1080
@@ -21,6 +29,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   seCu?: number;
   static names(): { [key: string]: string } {
     return {
+      credit: 'Credit',
       moduleCode: 'ModuleCode',
       seCu: 'SeCu',
     };
@@ -28,6 +37,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      credit: 'number',
       moduleCode: 'string',
       seCu: 'number',
     };
@@ -45,7 +55,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
 export class DescribeChargeResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing calculation results for each module.
+   * The calculation results.
    */
   moduleDetails?: DescribeChargeResultResponseBodyModuleDetails[];
   /**
@@ -58,7 +68,15 @@ export class DescribeChargeResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of calculated Security Capacity Units (SeCUs).
+   * The total number of calculated Credits.
+   * 
+   * @example
+   * 0
+   */
+  totalCredit?: number;
+  /**
+   * @remarks
+   * The total number of calculated SeCUs.
    * 
    * @example
    * 1080
@@ -68,6 +86,7 @@ export class DescribeChargeResultResponseBody extends $dara.Model {
     return {
       moduleDetails: 'ModuleDetails',
       requestId: 'RequestId',
+      totalCredit: 'TotalCredit',
       totalSeCu: 'TotalSeCu',
     };
   }
@@ -76,6 +95,7 @@ export class DescribeChargeResultResponseBody extends $dara.Model {
     return {
       moduleDetails: { 'type': 'array', 'itemType': DescribeChargeResultResponseBodyModuleDetails },
       requestId: 'string',
+      totalCredit: 'number',
       totalSeCu: 'number',
     };
   }

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticBillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The WAF instance ID.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeElasticBillsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number when using paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeElasticBillsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page when using paging. Default value: **10**, which indicates that each page contains 10 entries.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class DescribeElasticBillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -45,7 +45,7 @@ export class DescribeElasticBillsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

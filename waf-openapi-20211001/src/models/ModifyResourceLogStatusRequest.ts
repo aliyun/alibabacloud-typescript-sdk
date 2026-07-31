@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyResourceLogStatusRequestTraceConfig extends $dara.Model {
   /**
+   * @remarks
+   * The per-mille sampling rate for Tracing Analysis.
+   * 
    * @example
-   * 0
+   * 90
    */
   ratePerMille?: number;
   /**
+   * @remarks
+   * The Hybrid Cloud Monitoring 2.0 workspace.
+   * 
    * @example
    * cms-test
    */
@@ -39,9 +45,9 @@ export class ModifyResourceLogStatusRequestTraceConfig extends $dara.Model {
 export class ModifyResourceLogStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -51,11 +57,11 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +69,7 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object on which you want to manage the log collection feature.
+   * The protected object to modify.
    * 
    * This parameter is required.
    * 
@@ -81,11 +87,11 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the log collection feature for the protected object. Valid values:
+   * The log enabling status of the protected object. Valid values:
    * 
-   * - **true**: Enables the feature.
+   * - **true**: Enabled.
    * 
-   * - **false**: Disables the feature.
+   * - **false**: Not enabled.
    * 
    * This parameter is required.
    * 
@@ -93,7 +99,27 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
    * true
    */
   status?: boolean;
+  /**
+   * @remarks
+   * The Tracing Analysis configuration.
+   * 
+   * @example
+   * {"Workspace":"cms-test","RatePerMille":90}
+   */
   traceConfig?: ModifyResourceLogStatusRequestTraceConfig;
+  /**
+   * @remarks
+   * The Tracing Analysis status. Valid values:
+   * 
+   * - **true**: Enabled.
+   * 
+   * - **false**: Disabled.
+   * 
+   * > To enable Tracing Analysis, you must first enable the log status **Status** for the protected object.
+   * 
+   * @example
+   * true
+   */
   traceStatus?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * >  You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,11 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,13 +47,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of protected resource. Valid values:
-   * 
-   * - **single** (default): A protected object.
-   * 
-   * - **group**: A protected object group.
-   * 
-   * - **asset**: A protected asset.
+   * The type of the protected resource.
    * 
    * @example
    * single
@@ -77,11 +71,9 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of protection rule. Valid values:
-   * 
-   * - **defense** (default): A protection rule.
-   * 
-   * - **whitelist**: A whitelist rule.
+   * The type of the protection rule. Valid values:
+   * - **defense** (default): protection rule.
+   * - **whitelist**: whitelist rule.
    * 
    * @example
    * whitelist

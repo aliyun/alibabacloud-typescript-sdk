@@ -17,9 +17,9 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
    * 
    * - **1**: All cipher suites are added.
    * 
-   * - **2**: Strong cipher suites are added.
+   * - **2**: Strong cipher suites are added. This value is available only when TLSVersion is set to tlsv1.2.
    * 
-   * - **99**: Custom cipher suites are added.
+   * - **99**: Custom cipher suites are added. This value is available only when TLSVersion is not set to tlsv1.3.
    * 
    * @example
    * 1
@@ -41,6 +41,8 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
    * 
    * - **false**: TLS 1.3 is not supported.
    * 
+   * > This parameter takes effect only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be true.
+   * 
    * @example
    * true
    */
@@ -49,11 +51,13 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
    * @remarks
    * The TLS version. Valid values:
    * 
-   * - **tlsv1**
+   * - **tlsv1**: TLS 1.0 and later are supported. This value provides the highest compatibility and the lowest security.
    * 
-   * - **tlsv1.1**
+   * - **tlsv1.1**: TLS 1.1 and later are supported. This value provides good compatibility and security.
    * 
-   * - **tlsv1.2**
+   * - **tlsv1.2**: TLS 1.2 and later are supported. This value provides good compatibility and the highest security.
+   * 
+   * - **tlsv1.3**: Only TLS 1.3 is supported. This value provides the highest security and the lowest compatibility.
    * 
    * @example
    * tlsv1

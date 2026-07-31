@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRelatedDefenseRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario of the protection rule. For more information, see the **DefenseScene** parameter in [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html).
+   * The protection scenario of the protection rule. For more information, refer to the **DefenseScene** parameter in [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html).
    * 
    * @example
    * custom_acl
@@ -81,7 +81,7 @@ export class DescribeRelatedDefenseRulesResponseBodyRules extends $dara.Model {
 export class DescribeRelatedDefenseRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page when using paging. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page in a paged query. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -91,7 +91,7 @@ export class DescribeRelatedDefenseRulesResponseBody extends $dara.Model {
    * @remarks
    * The pagination token (**Token**) for the next page. If a next page exists, this field has a return value.
    * 
-   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS

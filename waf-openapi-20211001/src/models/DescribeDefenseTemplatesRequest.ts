@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) topic.
+   * The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * region_block
@@ -14,14 +14,10 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The sub-scenario of the protection template. Valid values:
-   * 
-   * - **web**: the web protection template for bot management.
-   * 
-   * - **app**: the app protection template for bot management.
-   * 
-   * - **basic**: the basic protection template for bot management.
-   * 
-   * - **bot_custom_acl**: the advanced custom protection rule template for bot management.
+   * - **web**: BOT management web protection scenario template.
+   * - **app**: BOT management app protection scenario template.
+   * - **basic**: BOT management basic protection template.
+   * - **bot_custom_acl**: BOT management advanced custom rule protection template.
    * 
    * @example
    * basic
@@ -31,7 +27,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -41,7 +37,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number to return in a paging query request. Default value: **1**.
    * 
    * @example
    * 1
@@ -49,7 +45,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **20**.
+   * The number of entries per page in a paging query. Default value: **20**.
    * 
    * @example
    * 10
@@ -57,7 +53,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -69,9 +65,9 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object or protected object group, or the ID of the protected asset.
+   * The name of the protected object, protection group, or the ID of the protected asset.
    * 
-   * > You must specify the Resource and ResourceType parameters to filter query results.
+   * > This parameter is used together with the ResourceType parameter. Both parameters must have values for filtering to take effect.
    * 
    * @example
    * ruiqiu.cc-ecs
@@ -79,7 +75,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfmvyknl****fa
@@ -87,15 +83,8 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the protected resource. Valid values:
-   * 
-   * - **single** (default): a protected object.
-   * 
-   * - **group**: a protected object group.
-   * 
-   * - **asset**: a protected asset.
-   * 
-   * > You must specify the Resource and ResourceType parameters to filter query results.
+   * The type of the protected resource.
+   * > This parameter is used together with the Resource parameter. Both parameters must have values for filtering to take effect.
    * 
    * @example
    * single
@@ -111,7 +100,7 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The IDs of the protection templates that you want to query. You can specify this parameter to query the protected objects for which multiple protection templates take effect. Separate multiple template IDs with commas (,).
+   * The IDs of the protection templates to query. You can specify this parameter to query the protected resources associated with multiple protection templates. Separate multiple template IDs with commas (,).
    * 
    * @example
    * 189731,189539,189538,189531,189540,189542,189541
@@ -127,11 +116,9 @@ export class DescribeDefenseTemplatesRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the protection template that you want to create. Valid values:
-   * 
-   * - **user_default**: default protection template.
-   * 
-   * - **user_custom**: custom protection template.
+   * The templatetype of the protection template. Valid values:
+   * - **user_default**: user default protection.
+   * - **user_custom**: user custom protection.
    * 
    * @example
    * user_default

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+   * The protection scenario. For more information, refer to the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * whitelist
@@ -13,13 +13,10 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   defenseScene?: string;
   /**
    * @remarks
-   * The sub-scenario of the template. Valid values:
-   * 
-   * - **web**: The bot management template for web protection.
-   * 
-   * - **app**: The bot management template for app protection.
-   * 
-   * - **basic**: The basic bot management template.
+   * The sub-scenario of the protection template. Valid values:
+   * - **web**: the bot management web protection scenario template.
+   * - **app**: the bot management app protection scenario template.
+   * - **basic**: the bot management basic protection template.
    * 
    * @example
    * basic
@@ -35,7 +32,7 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   description?: string;
   /**
    * @remarks
-   * The time when the protection template was created, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the protection template was created. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1692930539000
@@ -59,7 +56,7 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   templateName?: string;
   /**
    * @remarks
-   * The origin of the protection template. The value custom indicates a user-created template.
+   * The source of the protection template. The value custom indicates that the template is user-defined.
    * 
    * @example
    * custom
@@ -68,10 +65,8 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   /**
    * @remarks
    * The status of the protection template. Valid values:
-   * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled.
+   * - **0**: disabled.
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -79,11 +74,9 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   templateStatus?: number;
   /**
    * @remarks
-   * The type of the template. Valid values:
-   * 
-   * - **user_default**: The default template for the user.
-   * 
-   * - **user_custom**: A custom template created by the user.
+   * The templatetype of the protection template. Valid values:
+   * - **user_default**: user default protection.
+   * - **user_custom**: user custom protection.
    * 
    * @example
    * user_custom
@@ -137,7 +130,7 @@ export class DescribeDefenseResourceTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The protection templates.
+   * The list of protection templates.
    */
   templates?: DescribeDefenseResourceTemplatesResponseBodyTemplates[];
   static names(): { [key: string]: string } {

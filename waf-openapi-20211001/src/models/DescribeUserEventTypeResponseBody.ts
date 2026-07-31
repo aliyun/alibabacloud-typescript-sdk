@@ -21,7 +21,7 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
   eventCount?: number;
   /**
    * @remarks
-   * The parent type of the event.
+   * The parent event type.
    * 
    * @example
    * EventType_Account
@@ -29,9 +29,9 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
   eventParentType?: string;
   /**
    * @remarks
-   * The type of the event.
+   * The event type.
    * 
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
+   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
    * 
    * @example
    * Event_LoginCollision
@@ -67,12 +67,12 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
 export class DescribeUserEventTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of security event types and their statistics.
+   * The list of security event types and statistics.
    */
   event?: DescribeUserEventTypeResponseBodyEvent[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 177BA739-6512-5470-98C6-E***0BAA3D

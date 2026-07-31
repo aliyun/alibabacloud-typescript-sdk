@@ -7,7 +7,7 @@ export class DescribeResourceLogStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeResourceLogStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -29,7 +29,7 @@ export class DescribeResourceLogStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -37,7 +37,7 @@ export class DescribeResourceLogStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The protected objects whose log collection status you want to query. Separate multiple protected objects with commas (,).
+   * The protected objects to query. Separate multiple protected objects with commas (,).
    * 
    * This parameter is required.
    * 

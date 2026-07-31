@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudServerRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The code of the region.
+   * The region code.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeHybridCloudServerRegionsResponseBodyRegions extends $dara.M
   code?: number;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * aliyun
@@ -45,12 +45,12 @@ export class DescribeHybridCloudServerRegionsResponseBodyRegions extends $dara.M
 export class DescribeHybridCloudServerRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * The list of region information.
    */
   regions?: DescribeHybridCloudServerRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0FBBDE11-C35F-531B-96BA-64CA****C875

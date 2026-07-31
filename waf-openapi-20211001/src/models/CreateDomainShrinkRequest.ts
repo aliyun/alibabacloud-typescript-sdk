@@ -47,10 +47,6 @@ export class CreateDomainShrinkRequest extends $dara.Model {
    * @remarks
    * The access type of the WAF instance. Valid values:
    * 
-   * - **share** (default): CNAME access.
-   * 
-   * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
-   * 
    * @example
    * share
    */
@@ -68,7 +64,6 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -92,11 +87,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   redirectShrink?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
-   * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * The region where the WAF instance resides. Valid values:
    * 
    * This parameter is required.
    * 
@@ -114,7 +105,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tag list, which contains a maximum of 20 items.
+   * The tag list, which contains up to 20 items.
    */
   tag?: CreateDomainShrinkRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   /**
    * @remarks
-   * The bot behavior that corresponds to the rule label. Valid values:
+   * The crawler behavior corresponding to the rule tag.
    * 
-   * - **malicious**: malicious bot.
-   * 
-   * - **suspicious**: suspected bot.
-   * 
-   * - **normal**: normal bot.
+   * - **malicious**: malicious crawler.
+   * - **suspicious**: suspected crawler.
+   * - **normal**: normal crawler.
    * 
    * @example
    * malicious
@@ -19,7 +17,41 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   botBehavior?: string;
   /**
    * @remarks
-   * The key of the bot management rule label.
+   * The default action. Valid values:
+   * 
+   * - **block**: Block.
+   * - **monitor**: Monitor.
+   * - **js**: JavaScript verification.
+   * - **captcha**: Slider CAPTCHA.
+   * - **captcha_strict**: Strict slider CAPTCHA.
+   * - **bypass**: Allow.
+   * 
+   * @example
+   * block
+   */
+  defaultAction?: string;
+  /**
+   * @remarks
+   * The default configurations corresponding to the label.
+   * 
+   * @example
+   * {"crawlerStatusMap":{"360":1,"bytedance":1}}
+   */
+  defaultConfig?: string;
+  /**
+   * @remarks
+   * The default status of the tag rule.
+   * 
+   * - **1**: The rule is enabled.
+   * - **0**: The rule is disabled.
+   * 
+   * @example
+   * 1
+   */
+  defaultStatus?: number;
+  /**
+   * @remarks
+   * The bot management rule tag.
    * 
    * @example
    * malicious_crawler_python
@@ -27,7 +59,18 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The type of the bot rule label.
+   * The tag status.
+   * 
+   * - **online**: Online.
+   * - **wait_offline**: Pending offline.
+   * 
+   * @example
+   * online
+   */
+  labelStatus?: string;
+  /**
+   * @remarks
+   * The type of the bot rule tag.
    * 
    * @example
    * human_machine_challenge
@@ -35,11 +78,10 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   labelType?: string;
   /**
    * @remarks
-   * The bot management scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
+   * The set of bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
    * 
-   * - **web**: web protection.
-   * 
-   * - **app**: app protection.
+   * - **web**: Web protection scenario.
+   * - **app**: App protection scenario.
    * 
    * @example
    * Web,app
@@ -48,7 +90,11 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       botBehavior: 'BotBehavior',
+      defaultAction: 'DefaultAction',
+      defaultConfig: 'DefaultConfig',
+      defaultStatus: 'DefaultStatus',
       labelKey: 'LabelKey',
+      labelStatus: 'LabelStatus',
       labelType: 'LabelType',
       subScene: 'SubScene',
     };
@@ -57,7 +103,11 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       botBehavior: 'string',
+      defaultAction: 'string',
+      defaultConfig: 'string',
+      defaultStatus: 'number',
       labelKey: 'string',
+      labelStatus: 'string',
       labelType: 'string',
       subScene: 'string',
     };
@@ -75,7 +125,7 @@ export class DescribeBotRuleLabelsResponseBodyRuleLabels extends $dara.Model {
 export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page. Valid values: 1 to 200. Default value: 20.
+   * The number of entries per page for paging. Valid values: 1 to 200. Default value: 20.
    * 
    * @example
    * 20
@@ -83,9 +133,9 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. This parameter is returned if a next page exists.
+   * The pagination token for the next page. If a next page exists, this field has a return value.
    * 
-   * > If a value is returned for this parameter, it indicates that more results are available. Use the returned **NextToken** value in the next request to retrieve the next page of results. Repeat this process until no value is returned for this parameter. This indicates that all results have been retrieved.
+   * > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -93,7 +143,7 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0
@@ -101,7 +151,7 @@ export class DescribeBotRuleLabelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of bot management rule labels.
+   * The list of bot management rule tags.
    */
   ruleLabels?: DescribeBotRuleLabelsResponseBodyRuleLabels[];
   /**

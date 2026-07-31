@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeResourceLogStatusResponseBodyResultTraceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The per-mille sampling ratio for Tracing Analysis.
+   * 
+   * @example
+   * 90
+   */
   ratePerMille?: number;
+  /**
+   * @remarks
+   * The Hybrid Cloud Monitoring 2.0 workspace.
+   * 
+   * @example
+   * cms-test
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class DescribeResourceLogStatusResponseBodyResultTraceConfig extends $dar
 export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The name of the protected object.
+   * The queried protected object.
    * 
    * @example
    * alb-wewbb23dfsetetcic****
@@ -39,17 +53,32 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * Indicates whether log collection is enabled for the protected object. Valid values:
+   * The log enabling status of the protected object. Valid values:
+   *  
+   * - **true**: Logging is enabled.
    * 
-   * - **true**: Log collection is enabled.
-   * 
-   * - **false**: Log collection is disabled.
+   * - **false**: Logging is disabled.
    * 
    * @example
    * true
    */
   status?: boolean;
+  /**
+   * @remarks
+   * The Tracing Analysis configuration.
+   */
   traceConfig?: DescribeResourceLogStatusResponseBodyResultTraceConfig;
+  /**
+   * @remarks
+   * The Tracing Analysis status. Valid values:
+   *  
+   * - **true**: Tracing Analysis is enabled.
+   * 
+   * - **false**: Tracing Analysis is shutdown.
+   * 
+   * @example
+   * true
+   */
   traceStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -84,7 +113,7 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
 export class DescribeResourceLogStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0DABF8AB-2321-5F8D-A8D7-922D757FBFFE
@@ -92,7 +121,7 @@ export class DescribeResourceLogStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The log status information of protected objects.
+   * The returned result.
    */
   result?: DescribeResourceLogStatusResponseBodyResult[];
   static names(): { [key: string]: string } {
