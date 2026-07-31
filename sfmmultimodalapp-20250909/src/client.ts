@@ -1046,6 +1046,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询音色列表
+   * 
+   * @param request - ListVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoiceResponse
+   */
+  async listVoiceWithOptions(request: $_model.ListVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVoiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVoice",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVoiceResponse>(await this.callApi(params, req, runtime), new $_model.ListVoiceResponse({}));
+  }
+
+  /**
+   * 查询音色列表
+   * 
+   * @param request - ListVoiceRequest
+   * @returns ListVoiceResponse
+   */
+  async listVoice(request: $_model.ListVoiceRequest): Promise<$_model.ListVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVoiceWithOptions(request, runtime);
+  }
+
+  /**
    * 多模态应用绑定MCP
    * 
    * @param tmpReq - MmAppBindingMcpRequest
@@ -1486,6 +1532,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询选项
+   * 
+   * @param request - QuerySelectOptionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySelectOptionsResponse
+   */
+  async querySelectOptionsWithOptions(request: $_model.QuerySelectOptionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySelectOptionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySelectOptions",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySelectOptionsResponse>(await this.callApi(params, req, runtime), new $_model.QuerySelectOptionsResponse({}));
+  }
+
+  /**
+   * 查询选项
+   * 
+   * @param request - QuerySelectOptionsRequest
+   * @returns QuerySelectOptionsResponse
+   */
+  async querySelectOptions(request: $_model.QuerySelectOptionsRequest): Promise<$_model.QuerySelectOptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySelectOptionsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询用户画像
    * 
    * @param request - QueryUserProfileRequest
@@ -1773,6 +1861,94 @@ export default class Client extends OpenApi {
   async updateMmApp(request: $_model.UpdateMmAppRequest): Promise<$_model.UpdateMmAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMmAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用和绑定信息
+   * 
+   * @param tmpReq - UpdateMmAppAndBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppAndBindingResponse
+   */
+  async updateMmAppAndBindingWithOptions(tmpReq: $_model.UpdateMmAppAndBindingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppAndBindingResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMmAppAndBindingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bindingConfig)) {
+      request.bindingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bindingConfig, "BindingConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.conversationConfig)) {
+      request.conversationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.conversationConfig, "ConversationConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.memoryConfig)) {
+      request.memoryConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memoryConfig, "MemoryConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modelConfig)) {
+      request.modelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelConfig, "ModelConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bindingConfigShrink)) {
+      query["BindingConfig"] = request.bindingConfigShrink;
+    }
+
+    if (!$dara.isNull(request.conversationConfigShrink)) {
+      query["ConversationConfig"] = request.conversationConfigShrink;
+    }
+
+    if (!$dara.isNull(request.memoryConfigShrink)) {
+      query["MemoryConfig"] = request.memoryConfigShrink;
+    }
+
+    if (!$dara.isNull(request.modelConfigShrink)) {
+      query["ModelConfig"] = request.modelConfigShrink;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppAndBinding",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppAndBindingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppAndBindingResponse({}));
+  }
+
+  /**
+   * 更新应用和绑定信息
+   * 
+   * @param request - UpdateMmAppAndBindingRequest
+   * @returns UpdateMmAppAndBindingResponse
+   */
+  async updateMmAppAndBinding(request: $_model.UpdateMmAppAndBindingRequest): Promise<$_model.UpdateMmAppAndBindingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppAndBindingWithOptions(request, runtime);
   }
 
   /**
