@@ -63,7 +63,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances to which the key pair failed to be bound.
+   * The number of instances to which the key pair failed to be attached.
    * 
    * @example
    * 0
@@ -88,7 +88,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   results?: AttachKeyPairResponseBodyResults;
   /**
    * @remarks
-   * The total number of instances to which the key pair is bound.
+   * The total number of instances to which the key pair is attached.
    * 
    * @example
    * 2

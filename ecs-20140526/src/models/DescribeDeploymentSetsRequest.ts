@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeploymentSetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the deployment sets. The value can be a JSON array that consists of up to 100 deployment set IDs. Sample format: `["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"]`.
+   * The IDs of deployment sets. The value can be a JSON array that consists of multiple deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", … "ds-zzzzzzzzz"]`. A maximum of 100 IDs are supported. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["ds-bp67acfmxazb4ph****", "ds-bp67acfmxazb4pi****", … "ds-bp67acfmxazb4pj****"]
@@ -13,7 +13,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   deploymentSetIds?: string;
   /**
    * @remarks
-   * The name of the deployment set. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the deployment set. The name must be 2 to 128 characters in length and can contain characters that are categorized as letter in Unicode, including English letters, Chinese characters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * testDeploymentSetName
@@ -47,9 +47,9 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the deployment set list.
    * 
-   * Starts at 1.
+   * Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -59,7 +59,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * Maximum value: 50.
    * 
@@ -71,7 +71,7 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the deployment set is located. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the deployment set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -85,11 +85,9 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
    * @remarks
    * The deployment strategy. Valid values:
    * 
-   * - Availability: high availability strategy.
-   * 
-   * - AvailabilityGroup: high availability group strategy.
-   * 
-   * - LowLatency: low-latency strategy.
+   * - Availability: high availability.
+   * - AvailabilityGroup: high availability for deployment set groups.
+   * - LowLatency: low network latency.
    * 
    * @example
    * Availability
@@ -98,12 +96,9 @@ export class DescribeDeploymentSetsRequest extends $dara.Model {
   /**
    * @remarks
    * The deployment type. Valid values:
-   * 
-   * - host: Ensures that the instances in the deployment set are deployed on different hosts.
-   * 
-   * - sw: Ensures that the instances in the deployment set are deployed on different switches.
-   * 
-   * - rack: Ensures that the instances in the deployment set are deployed on different racks.
+   * - host: physical server
+   * - sw: vSwitch
+   * - rack: rack
    * 
    * Default value: host.
    * 

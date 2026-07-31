@@ -150,7 +150,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The hourly price of a reserved instance with the no upfront or partial upfront payment option.
+   * The hourly price of a reserved instance with no upfront or partial upfront payment.
    * 
    * @example
    * 1

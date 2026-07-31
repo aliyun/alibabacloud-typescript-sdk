@@ -66,7 +66,7 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic: pay-by-traffic.
    * 
-   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance metrics. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -74,7 +74,7 @@ export class DescribeInstanceAttributeResponseBodyEipAddress extends $dara.Model
   internetChargeType?: string;
   /**
    * @remarks
-   * The EIP.
+   * The EIP address.
    * 
    * @example
    * ``30.21.**.**``
@@ -138,7 +138,7 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
    * @remarks
    * The bandwidth weight.
    * 
-   * Different instance types support different values. Call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
+   * Different instance types support different values. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
    * 
    * @example
    * Vpc-L1
@@ -146,7 +146,7 @@ export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.M
   bandwidthWeighting?: string;
   /**
    * @remarks
-   * Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+   * Indicates whether the Jumbo frame feature is enabled for the instance. Valid values:
    * 
    * - true: enabled.
    * 
@@ -297,6 +297,29 @@ export class DescribeInstanceAttributeResponseBodySecurityGroupIds extends $dara
   }
 }
 
+export class DescribeInstanceAttributeResponseBodySecurityOptions extends $dara.Model {
+  enableSecureBoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableSecureBoot: 'EnableSecureBoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSecureBoot: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress extends $dara.Model {
   ipAddress?: string[];
   static names(): { [key: string]: string } {
@@ -436,7 +459,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   eipAddress?: DescribeInstanceAttributeResponseBodyEipAddress;
   /**
    * @remarks
-   * Indicates whether the Jumbo Frame feature is enabled for the ECS instance. Valid values:
+   * Indicates whether the Jumbo frame feature is enabled for the ECS instance. Valid values:
    * 
    * - true: enabled.
    * 
@@ -515,7 +538,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values: 
    *          
-   * - vpc: virtual private cloud (VPC).
+   * - vpc: Virtual Private Cloud (VPC).
    * - classic: classic network. The classic network is deprecated. For more information, see [Deprecation notice](https://help.aliyun.com/document_detail/2833134.html).
    * 
    * @example
@@ -537,7 +560,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * - PayByBandwidth: pay-by-bandwidth.
    * - PayByTraffic: pay-by-traffic.
    * 
-   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+   * > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance metrics. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
    * 
    * @example
    * PayByTraffic
@@ -604,6 +627,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    */
   requestId?: string;
   securityGroupIds?: DescribeInstanceAttributeResponseBodySecurityGroupIds;
+  securityOptions?: DescribeInstanceAttributeResponseBodySecurityOptions;
   /**
    * @remarks
    * The serial number of the instance.
@@ -630,9 +654,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the instance continues to be billed after it is stopped. Valid values:
    * 
-   * - KeepCharging: The instance continues to be billed after it is stopped. Inventory resources are reserved for the instance.
-   * - StopCharging: The instance is not billed after it is stopped. After the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on resource availability in the current region.
-   * - Not-applicable: The instance does not support the No Fees for Stopped Instances feature.
+   * - KeepCharging: The instance continues to be billed after it is stopped. Resources such as vCPUs, memory, and public IP addresses are retained.
+   * - StopCharging: The instance is not billed after it is stopped. Resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on resource availability in the current region.
+   * - Not-applicable: The instance does not support the economical mode.
    * 
    * @example
    * KeepCharging
@@ -691,6 +715,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
       regionId: 'RegionId',
       requestId: 'RequestId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       serialNumber: 'SerialNumber',
       status: 'Status',
       stoppedMode: 'StoppedMode',
@@ -731,6 +756,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
       regionId: 'string',
       requestId: 'string',
       securityGroupIds: DescribeInstanceAttributeResponseBodySecurityGroupIds,
+      securityOptions: DescribeInstanceAttributeResponseBodySecurityOptions,
       serialNumber: 'string',
       status: 'string',
       stoppedMode: 'string',
@@ -761,6 +787,9 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
     }
     if(this.securityGroupIds && typeof (this.securityGroupIds as any).validate === 'function') {
       (this.securityGroupIds as any).validate();
+    }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
     }
     if(this.vpcAttributes && typeof (this.vpcAttributes as any).validate === 'function') {
       (this.vpcAttributes as any).validate();

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The natural language that is used to filter response results. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
+   * The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
    *          
-   * - zh-CN: simplified Chinese.
-   * - zh-TW: traditional Chinese.
+   * - zh-CN: Simplified Chinese.
+   * - zh-TW: Traditional Chinese.
    * - en-US: English.
    * - ja: Japanese.
    * - fr: French.
@@ -23,7 +23,7 @@ export class DescribeZonesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The billing method supported by resources in the active zone. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
+   * The billing method supported by resources in the zone. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
    * 
    * - PrePaid: subscription.
    * - PostPaid: pay-as-you-go.

@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVpcResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The ID of the route table automatically created for the VPC.
-   */
   routeTableId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual router automatically created for the VPC.
-   */
   VRouterId?: string;
-  /**
-   * @remarks
-   * The ID of the VPC.
-   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The dedicated host type. For more information, see [Dedicated host types](https://help.aliyun.com/document_detail/68564.html).
+   * The dedicated host type. For more information, see [Host specifications](https://help.aliyun.com/document_detail/68564.html).
    * 
    * @example
    * ddh.sn1ne
@@ -15,7 +15,7 @@ export class DescribeDedicatedHostTypesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the dedicated host. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

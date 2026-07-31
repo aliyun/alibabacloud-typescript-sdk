@@ -7,7 +7,7 @@ export class JoinResourceGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
+   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class JoinResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource. For example, when ResourceType is set to instance, ResourceId can be interpreted as the InstanceId.
+   * The ID of the resource. For example, when ResourceType is set to instance, ResourceId is the instance ID.
    * 
    * @example
    * sg-bp67acfmxazb4p****
@@ -42,14 +42,14 @@ export class JoinResourceGroupRequest extends $dara.Model {
    * - securitygroup: security group.
    * - ddh: dedicated host.
    * - ddhcluster: dedicated host cluster.
-   * - eni: elastic network interface.
-   * - keypair: SSH key pair.
+   * - eni: network interface controller (NIC).
+   * - keypair: key pair.
    * - launchtemplate: launch template.
    * - command: Cloud Assistant command.
    * - activation: Cloud Assistant managed instance activation code.
    * - managedinstance: Cloud Assistant managed instance.
    * 
-   * The preceding values are case-sensitive.
+   * The preceding parameter values are case-sensitive.
    * 
    * @example
    * securitygroup

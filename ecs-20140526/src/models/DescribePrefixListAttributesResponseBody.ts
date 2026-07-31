@@ -57,10 +57,9 @@ export class DescribePrefixListAttributesResponseBodyEntries extends $dara.Model
 export class DescribePrefixListAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP address family of the prefix list. Valid values:
+   * The address family of the prefix list. Valid values:
    * 
    * - IPv4
-   * 
    * - IPv6
    * 
    * @example
@@ -86,7 +85,7 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
   entries?: DescribePrefixListAttributesResponseBodyEntries;
   /**
    * @remarks
-   * The maximum number of entries in the prefix list.
+   * The maximum number of entries that the prefix list supports.
    * 
    * @example
    * 10
@@ -94,7 +93,7 @@ export class DescribePrefixListAttributesResponseBody extends $dara.Model {
   maxEntries?: number;
   /**
    * @remarks
-   * The ID of the prefix list.
+   * The prefix list ID.
    * 
    * @example
    * pl-x1j1k5ykzqlixdcy****

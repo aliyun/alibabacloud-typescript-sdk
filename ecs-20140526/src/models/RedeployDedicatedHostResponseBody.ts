@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RedeployDedicatedHostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FCED4B7A-53D5-4C04-ABE3-26D4F3890D57

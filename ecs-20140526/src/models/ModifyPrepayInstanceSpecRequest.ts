@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The new system disk category. Valid values:
-   * 
-   * - cloud_efficiency: ultra disk.
-   * - cloud_ssd: standard SSD.
-   * > This parameter is valid only when you perform an Increase Quota from a [retired instance type](https://help.aliyun.com/document_detail/55263.html) to a [Normal instance family](https://help.aliyun.com/document_detail/25378.html) and change a non-I/O optimization instance to an I/O optimization instance.
+   * The new category of the system disk. Valid values:
    * 
    * @example
    * cloud_efficiency
@@ -39,7 +35,7 @@ export class ModifyPrepayInstanceSpecRequestSystemDisk extends $dara.Model {
 export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -47,7 +43,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -55,7 +51,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -90,15 +86,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   systemDisk?: ModifyPrepayInstanceSpecRequestSystemDisk;
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment when you upgrade the instance type. Valid values:
-   * 
-   * - true: The payment is automatically completed.
-   * - false: Only an order is created. No payment is made.
-   * 
-   * Default value: true.
-   * > - If automatic payment is enabled, make sure that your payment method has a sufficient balance. Otherwise, an abnormal order is generated, and you can only cancel the order.
-   * > - If your payment method balance is insufficient, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can logon to the ECS console to pay for the order.
-   * > - When `OperatorType` is set to `downgrade`, the `AutoPay` parameter is ignored.
+   * Specifies whether automatic payment is enabled when you upgrade the instance type. Valid values:
    * 
    * @example
    * true
@@ -114,12 +102,12 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    */
   disk?: ModifyPrepayInstanceSpecRequestDisk[];
   /**
    * @remarks
-   * The end time of the temporary instance type change. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The end time of the temporary specification change. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * @example
    * 2018-01-01T12:05Z
@@ -147,15 +135,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Specifies whether to support cross-cluster instance type changes. Valid values:
-   * - true: supported.
-   * - false: not supported.
-   * 
-   * Default value: false.
-   * 
-   * When the `MigrateAcrossZone` parameter is set to `true`, take note of the following items after you perform the optimization on the Elastic Compute Service instance based on the response:
-   * 
-   * VPC-type instances: For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is changed to an I/O optimized instance, the disk device names and software authorization codes of the server change. For Linux instances, basic disks (cloud) are identified as xvda or xvdb. Ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vda or vdb.
+   * Specifies whether cross-cluster instance type upgrades are supported. Valid values:
    * 
    * @example
    * false
@@ -163,7 +143,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   migrateAcrossZone?: boolean;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * >This parameter is not publicly available.
    * 
    * @example
    * null
@@ -172,13 +152,6 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the operation. Valid values:
-   * > This parameter is optional. The system can automatically determine whether the operation is an upgrade or a downgrade. If you upload this parameter, follow the rules below.
-   * 
-   * - upgrade: upgrades the instance type. Make sure that your account payment method has a sufficient balance.
-   * 
-   * - downgrade: decrease the quota of the instance type. When the instance type specified by `InstanceType` is lower than the current instance type, set `OperatorType` to `downgrade`.
-   * 
-   * > For precautions about upgrading or downgrading instance types, see the operation description section above.
    * 
    * @example
    * upgrade
@@ -196,14 +169,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   rebootTime?: string;
   /**
    * @remarks
-   * Specifies whether to immediately restart the instance after the instance type change is complete. Valid values:
-   * 
-   * - true: The instance is immediately restarted.
-   * - false: The instance is not restarted.
-   * 
-   * Default value: false.
-   * 
-   * > If the instance is in the **Stopped** state, the instance remains stopped even if you set `RebootWhenFinished` to `true`. No operation is performed.
+   * Specifies whether to immediately restart the instance after the specification change is complete. Valid values:
    * 
    * @example
    * false

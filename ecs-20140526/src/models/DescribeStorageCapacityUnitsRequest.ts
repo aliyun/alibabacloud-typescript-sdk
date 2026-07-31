@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStorageCapacityUnitsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to be added to the SCU.
+   * The tag key of the SCU.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeStorageCapacityUnitsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to be added to the SCU.
+   * The tag value of the SCU.
    * 
    * @example
    * TestValue
@@ -45,11 +45,10 @@ export class DescribeStorageCapacityUnitsRequestTag extends $dara.Model {
 export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   /**
    * @remarks
-   * The allocation type. Valid values:
+   * The allocate type. Valid values:
    * 
    * - Normal: queries SCUs that belong to the current Alibaba Cloud account.
-   * 
-   * - Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
+   * - Shared: queries SCUs that are shared between the Alibaba Cloud account and a Resource Access Management (RAM) user.
    * 
    * Default value: Normal.
    * 
@@ -59,7 +58,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   allocationType?: string;
   /**
    * @remarks
-   * The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, and 51200.
+   * The capacity of the SCU. Unit: GiB. Valid values: {20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, 51200}.
    * 
    * @example
    * 20
@@ -67,7 +66,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the SCU. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
    * 
    * @example
    * testScuName
@@ -77,9 +76,9 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the SCU list.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -89,9 +88,9 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -101,7 +100,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -113,7 +112,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The states of SCUs. The array is 1 to 4 in length.
+   * The statuses of SCUs. Array length: 1 to 4.
    * 
    * @example
    * Active
@@ -121,7 +120,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The IDs of the SCUs. You can specify 1 to 100 SCU IDs.
+   * The IDs of SCUs. Array length: 1 to 100.
    * 
    * @example
    * scu-bp67acfmxazb4p****
@@ -129,7 +128,7 @@ export class DescribeStorageCapacityUnitsRequest extends $dara.Model {
   storageCapacityUnitId?: string[];
   /**
    * @remarks
-   * The tags to add to the SCU. You can add up to 20 tags.
+   * The tags. Array length: 0 to 20.
    */
   tag?: DescribeStorageCapacityUnitsRequestTag[];
   static names(): { [key: string]: string } {

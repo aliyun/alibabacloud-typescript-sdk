@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiagnosticMetricSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the diagnostic metric set, which is the unique identifier of the set.
+   * The unique ID of the diagnostic metric set.
    * 
    * @example
    * dms-o7ymuutup5l*****

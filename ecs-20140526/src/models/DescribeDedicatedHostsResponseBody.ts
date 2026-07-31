@@ -662,7 +662,7 @@ export class DescribeDedicatedHostsResponseBody extends $dara.Model {
   dedicatedHosts?: DescribeDedicatedHostsResponseBodyDedicatedHosts;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. An empty value indicates that no more results are available.
+   * The paging token returned in this call. When you use MaxResults and NextToken for paging query, an empty value indicates that no more data is available.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -670,7 +670,7 @@ export class DescribeDedicatedHostsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number of the dedicated host list.
    * 
    * @example
    * 5
@@ -678,7 +678,7 @@ export class DescribeDedicatedHostsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 1

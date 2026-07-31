@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image copy.
+   * The ID of the copied image.
    * 
    * @example
    * m-bp1h46wfpjsjastd****

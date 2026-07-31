@@ -13,7 +13,7 @@ export class DescribeSnapshotsUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of snapshots stored in the current region.
+   * The total number of snapshots in the current region.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class DescribeSnapshotsUsageResponseBody extends $dara.Model {
   snapshotCount?: number;
   /**
    * @remarks
-   * The total size of snapshots stored in the current region. Unit: bytes.
+   * The total snapshot size in the current region. Unit: bytes.
    * 
    * @example
    * 122

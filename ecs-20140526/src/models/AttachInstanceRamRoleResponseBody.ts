@@ -88,7 +88,7 @@ export class AttachInstanceRamRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances to which you attempted to attach the instance RAM role.
+   * The total number of instances to which the instance RAM role is attached.
    * 
    * @example
    * 1

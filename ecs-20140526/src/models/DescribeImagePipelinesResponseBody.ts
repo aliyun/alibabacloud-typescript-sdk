@@ -374,6 +374,32 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
   }
 }
 
+export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetRepairItems extends $dara.Model {
+  repairItem?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      repairItem: 'RepairItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      repairItem: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.repairItem)) {
+      $dara.Model.validateArray(this.repairItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetTagsTag extends $dara.Model {
   tagKey?: string;
   tagValue?: string;
@@ -479,6 +505,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
    * @deprecated
    */
   nvmeSupport?: string;
+  repairItems?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetRepairItems;
   repairMode?: string;
   resourceGroupId?: string;
   systemDiskSize?: number;
@@ -505,6 +532,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
       internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       name: 'Name',
       nvmeSupport: 'NvmeSupport',
+      repairItems: 'RepairItems',
       repairMode: 'RepairMode',
       resourceGroupId: 'ResourceGroupId',
       systemDiskSize: 'SystemDiskSize',
@@ -534,6 +562,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
       internetMaxBandwidthOut: 'number',
       name: 'string',
       nvmeSupport: 'string',
+      repairItems: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetRepairItems,
       repairMode: 'string',
       resourceGroupId: 'string',
       systemDiskSize: 'number',
@@ -556,6 +585,9 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSet ext
     }
     if(this.importImageOptions && typeof (this.importImageOptions as any).validate === 'function') {
       (this.importImageOptions as any).validate();
+    }
+    if(this.repairItems && typeof (this.repairItems as any).validate === 'function') {
+      (this.repairItems as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
@@ -601,7 +633,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   imagePipeline?: DescribeImagePipelinesResponseBodyImagePipeline;
   /**
    * @remarks
-   * The number of entries per page for a paginated query.
+   * The maximum number of entries per page for paging queries.
    * 
    * @example
    * 50
@@ -609,7 +641,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. This value is returned if the results are paginated.
+   * The pagination token returned in this call. For more information about how to use it, refer to the operation description.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -625,7 +657,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of image pipelines that match the query criteria.
+   * The total number of image templates returned.
    * 
    * @example
    * 1

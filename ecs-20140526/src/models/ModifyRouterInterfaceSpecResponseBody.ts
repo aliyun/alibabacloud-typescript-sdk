@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRouterInterfaceSpecResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The new specification of the router interface.
-   */
   spec?: string;
   static names(): { [key: string]: string } {
     return {

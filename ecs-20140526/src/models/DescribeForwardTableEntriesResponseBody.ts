@@ -73,30 +73,10 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
 }
 
 export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The collection of DNAT entries.
-   */
   forwardTableEntries?: DescribeForwardTableEntriesResponseBodyForwardTableEntries;
-  /**
-   * @remarks
-   * The page number.
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries.
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

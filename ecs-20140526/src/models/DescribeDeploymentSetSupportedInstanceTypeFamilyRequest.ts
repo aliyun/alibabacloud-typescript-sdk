@@ -7,7 +7,7 @@ export class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends $da
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the deployment set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -21,11 +21,11 @@ export class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends $da
    * @remarks
    * The deployment strategy. Valid values:
    * 
-   * - Availability: high availability strategy
+   * - Availability: high availability strategy.
    * 
-   * - AvailabilityGroup: high availability group strategy
+   * - AvailabilityGroup: high availability strategy for deployment set groups.
    * 
-   * - LowLatency: low latency strategy
+   * - LowLatency: low network latency strategy.
    * 
    * Default value: Availability.
    * 

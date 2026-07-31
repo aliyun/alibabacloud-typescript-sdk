@@ -142,7 +142,7 @@ export class DescribeLaunchTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page set for the paged query. This is the paging settings value.
    * 
    * @example
    * 10

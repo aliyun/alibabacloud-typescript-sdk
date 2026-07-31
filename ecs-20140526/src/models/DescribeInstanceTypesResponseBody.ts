@@ -335,6 +335,29 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkIn
   }
 }
 
+export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSecurityOptions extends $dara.Model {
+  secureBootSupport?: string;
+  static names(): { [key: string]: string } {
+    return {
+      secureBootSupport: 'SecureBootSupport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secureBootSupport: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes extends $dara.Model {
   supportedBootMode?: string[];
   static names(): { [key: string]: string } {
@@ -405,6 +428,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
   primaryEniQueueNumber?: number;
   queuePairNumber?: number;
   secondaryEniQueueNumber?: number;
+  securityOptions?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSecurityOptions;
   supportedBootModes?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes;
   totalEniQueueQuantity?: number;
   static names(): { [key: string]: string } {
@@ -452,6 +476,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       primaryEniQueueNumber: 'PrimaryEniQueueNumber',
       queuePairNumber: 'QueuePairNumber',
       secondaryEniQueueNumber: 'SecondaryEniQueueNumber',
+      securityOptions: 'SecurityOptions',
       supportedBootModes: 'SupportedBootModes',
       totalEniQueueQuantity: 'TotalEniQueueQuantity',
     };
@@ -502,6 +527,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
       primaryEniQueueNumber: 'number',
       queuePairNumber: 'number',
       secondaryEniQueueNumber: 'number',
+      securityOptions: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSecurityOptions,
       supportedBootModes: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes,
       totalEniQueueQuantity: 'number',
     };
@@ -525,6 +551,9 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends 
     }
     if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
       (this.networkInfo as any).validate();
+    }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
     }
     if(this.supportedBootModes && typeof (this.supportedBootModes as any).validate === 'function') {
       (this.supportedBootModes as any).validate();
@@ -567,7 +596,7 @@ export class DescribeInstanceTypesResponseBody extends $dara.Model {
   instanceTypes?: DescribeInstanceTypesResponseBodyInstanceTypes;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The query token returned by this call.
    * 
    * @example
    * e71d8a535bd9cc11

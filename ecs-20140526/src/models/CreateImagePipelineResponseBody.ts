@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImagePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image pipeline.
+   * The image template ID.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****
@@ -13,7 +13,7 @@ export class CreateImagePipelineResponseBody extends $dara.Model {
   imagePipelineId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

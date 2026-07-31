@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance families that support the deployment strategy.
+   * The instance families that support the specified deployment set strategy.
    * 
    * @example
    * ecs.i2g,ecs.i1,ecs.i2ne,ecs.i2gne

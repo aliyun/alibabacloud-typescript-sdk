@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   /**
    * @remarks
-   * The maximum inbound internal bandwidth.
+   * The maximum inbound internal bandwidth limit.
    * 
-   * Unit: kbit/s, step size: 1000 (1Mbps), value range: [50000, +♾️)
+   * Unit: kbit/s. Increment: 1000 (1 Mbit/s). Value range: [50000, +∞).
    * 
    * @example
    * 50000
@@ -15,9 +15,9 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   bandwidthRx?: number;
   /**
    * @remarks
-   * The maximum outbound internal bandwidth.
+   * The maximum outbound internal bandwidth limit.
    * 
-   * Unit: kbit/s, step size: 1000 (1Mbps), value range: [50000, +♾️)
+   * Unit: kbit/s. Increment: 1000 (1 Mbit/s). Value range: [50000, +∞).
    * 
    * @example
    * 50000
@@ -25,9 +25,9 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   bandwidthTx?: number;
   /**
    * @remarks
-   * Maximum Number of Sessions
+   * The maximum number of sessions.
    * 
-   * Step size: 10000, value range: [10000, +♾️)
+   * Increment: 10000. Value range: [10000, +∞).
    * 
    * @example
    * 50000
@@ -35,9 +35,9 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   concurrentConnections?: number;
   /**
    * @remarks
-   * The inbound packet forwarding rate over the internal network.
+   * The inbound internal packet forwarding rate.
    * 
-   * Unit: pps, step size: 10000, value range: [10000, +♾️)
+   * Unit: pps. Increment: 10000. Value range: [10000, +∞).
    * 
    * @example
    * 50000
@@ -45,9 +45,9 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
   ppsRx?: number;
   /**
    * @remarks
-   * The outbound packet forwarding rate over the internal network.
+   * The outbound internal packet forwarding rate.
    * 
-   * Unit: pps, step size: 10000, value range: [10000, +♾️)
+   * Unit: pps. Increment: 10000. Value range: [10000, +∞).
    * 
    * @example
    * 50000
@@ -85,7 +85,7 @@ export class EnableNetworkInterfaceQoSRequestQoS extends $dara.Model {
 export class EnableNetworkInterfaceQoSRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Elastic Network Interface (ENI).
+   * The ID of the network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -97,12 +97,12 @@ export class EnableNetworkInterfaceQoSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * QoS Speed Limit Settings
+   * The QoS rate limiting settings.
    */
   qoS?: EnableNetworkInterfaceQoSRequestQoS;
   /**
    * @remarks
-   * The Region ID. You can invoke DescribeRegions to view the latest Alibaba Cloud Region list.
+   * The region ID. You can call DescribeRegions to query the most recent region list.
    * 
    * This parameter is required.
    * 

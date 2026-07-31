@@ -15,7 +15,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   autoProvisioningGroupId?: string;
   /**
    * @remarks
-   * The end of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The end of the time range to query scheduling history. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2019-06-20T15:10:20Z
@@ -25,7 +25,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The current page number in a paging query. Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -35,7 +35,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries per page. Settings for paging query. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -45,7 +45,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the Auto Provisioning Group is located.
+   * The ID of the region where the auto provisioning group resides.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The beginning of the time range to query scheduling history. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2019-04-01T15:10:20Z

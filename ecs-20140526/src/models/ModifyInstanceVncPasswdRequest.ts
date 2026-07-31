@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceVncPasswdRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ModifyInstanceVncPasswdRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the ECS instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyInstanceVncPasswdRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The new VNC password of the ECS instance.
+   * The new VNC logon password.
    * 
    * This parameter is required.
    * 

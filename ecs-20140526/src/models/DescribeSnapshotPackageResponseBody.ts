@@ -63,7 +63,7 @@ export class DescribeSnapshotPackageResponseBodySnapshotPackages extends $dara.M
 export class DescribeSnapshotPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the OSS storage plan list.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeSnapshotPackageResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -88,7 +88,7 @@ export class DescribeSnapshotPackageResponseBody extends $dara.Model {
   snapshotPackages?: DescribeSnapshotPackageResponseBodySnapshotPackages;
   /**
    * @remarks
-   * The total number of OSS storage plans.
+   * The total number of OSS storage plans returned.
    * 
    * @example
    * 1

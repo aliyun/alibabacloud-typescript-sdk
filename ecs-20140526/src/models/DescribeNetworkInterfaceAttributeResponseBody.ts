@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic IP address.
+   * The ID of the EIP.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp ext
   allocationId?: string;
   /**
    * @remarks
-   * The public IP address.
+   * The EIP address.
    * 
    * @example
    * ``116.62.**.**``
@@ -88,11 +88,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyAttachment extends $da
   memberNetworkInterfaceIds?: DescribeNetworkInterfaceAttributeResponseBodyAttachmentMemberNetworkInterfaceIds;
   /**
    * @remarks
-   * The index of the physical network card to which the elastic network interface is attached.
-   * 
-   * - This parameter is not returned if the elastic network interface is `Available`, or if no index was specified during attachment.
-   * 
-   * - If the elastic network interface is `InUse` and an index was specified during attachment, this parameter returns the index of the physical network card.
+   * The index of the network card to which the ENI is attached.
    * 
    * @example
    * 0
@@ -232,9 +228,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
 export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for TCP connections in the `TIME_WAIT` and `FIN-WAIT-2` states. Unit: seconds. Valid values: an integer from 3 to 15.
-   * 
-   * > For ECS instances used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default timeout for connections in the `TIME_WAIT` state is 15 seconds.
+   * The timeout period for a TCP connection in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
    * 
    * @example
    * 3
@@ -242,7 +236,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * The timeout period for established TCP connections. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
+   * The timeout period for an established TCP connection. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
    * 
    * @example
    * 910
@@ -250,9 +244,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * The timeout period for UDP streams. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
-   * 
-   * > For ECS instances used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default UDP timeout is 100 seconds.
+   * The timeout period for a UDP flow. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
    * 
    * @example
    * 30
@@ -286,7 +278,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
 export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * true
@@ -429,15 +421,18 @@ export class DescribeNetworkInterfaceAttributeResponseBodyIpv6PrefixSets extends
 
 export class DescribeNetworkInterfaceAttributeResponseBodyIpv6SetsIpv6Set extends $dara.Model {
   ipv6Address?: string;
+  primary?: boolean;
   static names(): { [key: string]: string } {
     return {
       ipv6Address: 'Ipv6Address',
+      primary: 'Primary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ipv6Address: 'string',
+      primary: 'boolean',
     };
   }
 
@@ -479,7 +474,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets extends $dara
 export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig extends $dara.Model {
   /**
    * @remarks
-   * The communication mode of the elastic network interface.
+   * The communication mode of the network interface controller (NIC).
    * 
    * @example
    * HighPerformance
@@ -487,7 +482,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTraffi
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The number of queues for the elastic network interface.
+   * The number of queues supported by the network interface controller (NIC).
    * 
    * @example
    * 8
@@ -495,7 +490,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTraffi
   queueNumber?: number;
   /**
    * @remarks
-   * The number of queue pairs for the RDMA-enabled elastic network interface.
+   * The number of queues supported by the RDMA ENI.
    * 
    * @example
    * 8
@@ -613,7 +608,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets extends 
 export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $dara.Model {
   /**
    * @remarks
-   * The maximum inbound bandwidth on the internal network.
+   * The maximum inbound internal bandwidth limit.
    * 
    * @example
    * 50000
@@ -621,7 +616,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
   bandwidthRx?: number;
   /**
    * @remarks
-   * The maximum outbound bandwidth on the internal network.
+   * The maximum outbound internal bandwidth limit.
    * 
    * @example
    * 50000
@@ -629,7 +624,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
   bandwidthTx?: number;
   /**
    * @remarks
-   * The maximum number of connections.
+   * The maximum number of sessions.
    * 
    * @example
    * 50000
@@ -637,7 +632,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
   concurrentConnections?: number;
   /**
    * @remarks
-   * The inbound packet transmission rate on the internal network. Unit: packets per second (pps).
+   * The inbound internal network packet forwarding rate.
    * 
    * @example
    * 50000
@@ -645,7 +640,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
   ppsRx?: number;
   /**
    * @remarks
-   * The outbound packet transmission rate on the internal network. Unit: packets per second (pps).
+   * The outbound internal network packet forwarding rate.
    * 
    * @example
    * 50000
@@ -683,12 +678,12 @@ export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $
 export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether QoS is enabled.
+   * Indicates whether QoS rate limiting is enabled.
    */
   enableQoS?: boolean;
   /**
    * @remarks
-   * The QoS settings.
+   * The QoS rate limiting settings.
    */
   qoS?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS;
   static names(): { [key: string]: string } {
@@ -848,7 +843,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyTags extends $dara.Mod
 export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The elastic IP address that is associated with the primary private IP address of the elastic network interface.
+   * The Elastic IP Address (EIP) associated with the secondary private IP address of the network interface controller (NIC).
    */
   associatedPublicIp?: DescribeNetworkInterfaceAttributeResponseBodyAssociatedPublicIp;
   /**
@@ -863,16 +858,12 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   bondInterfaceSpecification?: DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecification;
   /**
    * @remarks
-   * The connection tracking configuration.
-   * 
-   * For more information, see [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
-   * 
-   * > This parameter is returned only if the `Attribute` parameter is set to `connectionTrackingConfiguration` in the request.
+   * The collection of network connectivity tracking configuration information.
    */
   connectionTrackingConfiguration?: DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration;
   /**
    * @remarks
-   * The time when the elastic network interface was created.
+   * The time when the network interface controller (NIC) was created.
    * 
    * @example
    * 2019-12-25T12:31:31Z
@@ -880,11 +871,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether to release the elastic network interface when the associated instance is released.
-   * 
-   * - `true`: The interface is released.
-   * 
-   * - `false`: The interface is retained.
+   * Indicates whether the ENI is retained when the associated instance is released. Valid values:
    * 
    * @example
    * true
@@ -892,7 +879,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   deleteOnRelease?: boolean;
   /**
    * @remarks
-   * The description of the elastic network interface.
+   * The description of the network interface controller (NIC).
    * 
    * @example
    * testDescription
@@ -905,9 +892,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   enhancedNetwork?: DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork;
   /**
    * @remarks
-   * The ID of the instance to which the elastic network interface is attached.
-   * 
-   * > This parameter is not returned if the elastic network interface is managed by another Alibaba Cloud service.
+   * The ID of the instance to which the network interface controller (NIC) is attached.
    * 
    * @example
    * i-bp1e2l6djkndyuli****
@@ -918,7 +903,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   ipv6Sets?: DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets;
   /**
    * @remarks
-   * The MAC address of the elastic network interface.
+   * The MAC address of the network interface controller (NIC).
    * 
    * @example
    * 00:16:3e:12:**:**
@@ -926,7 +911,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   macAddress?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-bp125p95hhdhn3ot****
@@ -934,7 +919,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the elastic network interface.
+   * The name of the network interface controller (NIC).
    * 
    * @example
    * my-eni-name
@@ -942,18 +927,12 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The communication parameters of the elastic network interface.
+   * The traffic parameters of the network interface controller (NIC).
    */
   networkInterfaceTrafficConfig?: DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig;
   /**
    * @remarks
-   * The communication mode of the elastic network interface. Valid values:
-   * 
-   * - `Standard`: Uses TCP communication.
-   * 
-   * - `HighPerformance`: Uses the Elastic RDMA Interface (ERI) for RDMA communication.
-   * 
-   * > The `HighPerformance` value is supported only by RDMA-enhanced instances, such as the c7re family.
+   * The communication mode of the network interface controller (NIC). Valid values:
    * 
    * @example
    * Standard
@@ -961,7 +940,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   networkInterfaceTrafficMode?: string;
   /**
    * @remarks
-   * The ID of the account to which the elastic network interface belongs.
+   * The ID of the account that owns the network interface controller (NIC).
    * 
    * @example
    * 123456****
@@ -969,7 +948,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The primary private IP address of the elastic network interface.
+   * The private network IP address of the network interface controller (NIC).
    * 
    * @example
    * ``10.1.**.**``
@@ -978,28 +957,12 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   privateIpSets?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets;
   /**
    * @remarks
-   * The QoS settings.
+   * The QoS rate limiting settings.
    */
   qoSConfig?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfig;
   /**
    * @remarks
-   * The number of queues supported by the elastic network interface.
-   * 
-   * - For a primary network interface, this parameter returns the default number of queues for the instance type.
-   * 
-   * - For a secondary network interface:
-   * 
-   *   - If the interface is in the `InUse` state:
-   * 
-   *     - If the queue number was not modified, the default value for the instance type is returned.
-   * 
-   *     - If the queue number was modified, the new value is returned.
-   * 
-   *   - If the secondary network interface is in the `Available` state:
-   * 
-   *     - If the queue number was not modified, this parameter is not returned.
-   * 
-   *     - If the queue number was modified, the new value is returned.
+   * The number of queues supported by the network interface controller (NIC).
    * 
    * @example
    * 8
@@ -1023,9 +986,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the enterprise resource group to which the elastic network interface belongs. If you use this parameter to filter resources, the number of resources cannot exceed 1,000.
-   * 
-   * > Resources in the default resource group cannot be filtered.
+   * The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -1034,7 +995,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   securityGroupIds?: DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The ID of the virtual service provider (VSP) for the elastic network interface.
+   * The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) belongs.
    * 
    * @example
    * 12345678910
@@ -1042,7 +1003,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   serviceID?: number;
   /**
    * @remarks
-   * Indicates whether the elastic network interface is managed by an Alibaba Cloud service or a VSP.
+   * Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
    * 
    * @example
    * true
@@ -1063,17 +1024,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The status of the elastic network interface. Valid values:
-   * 
-   * - `Available`: The elastic network interface is available.
-   * 
-   * - `Attaching`: The elastic network interface is being attached.
-   * 
-   * - `InUse`: The elastic network interface is attached.
-   * 
-   * - `Detaching`: The elastic network interface is being detached.
-   * 
-   * - `Deleting`: The elastic network interface is being deleted.
+   * The status of the network interface controller (NIC). Valid values:
    * 
    * @example
    * Available
@@ -1090,11 +1041,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   tcpOptionAddressEnabled?: string;
   /**
    * @remarks
-   * The type of the elastic network interface. Valid values:
-   * 
-   * - `Primary`: The primary network interface.
-   * 
-   * - `Secondary`: The secondary network interface.
+   * The type of the network interface controller (NIC). Valid values:
    * 
    * @example
    * Secondary
@@ -1102,7 +1049,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the elastic network interface is connected.
+   * The ID of the vSwitch to which the network interface controller (NIC) belongs.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****
@@ -1110,7 +1057,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the elastic network interface belongs.
+   * The ID of the VPC to which the network interface controller (NIC) belongs.
    * 
    * @example
    * vpc-bp67acfmxazb4p****
@@ -1118,7 +1065,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-g

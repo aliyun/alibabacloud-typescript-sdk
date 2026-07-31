@@ -121,11 +121,11 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailIn
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency. Valid values:
+   * The currency unit. Valid values:
    * 
-   * - `CNY`: For the China site.
+   * - China site: CNY.
    * 
-   * - `USD`: For the international site.
+   * - International site: USD.
    * 
    * @example
    * CNY
@@ -134,7 +134,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   detailInfos?: DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * The discount amount.
+   * The discount.
    * 
    * @example
    * 61.320
@@ -150,7 +150,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   originalPrice?: number;
   /**
    * @remarks
-   * The final price (original price - discount).
+   * The transaction price, which is equal to the original price minus the discount.
    * 
    * @example
    * 113.880
@@ -317,7 +317,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRules extends
 export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price details.
+   * The price.
    */
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
   relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
@@ -359,7 +359,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Price information, including price details and promotional rules.
+   * The price information, including the price and discount rule information.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

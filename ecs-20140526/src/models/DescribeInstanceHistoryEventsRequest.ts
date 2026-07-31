@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the system event is published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-12-01T06:32:31Z
@@ -13,7 +13,7 @@ export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.
   end?: string;
   /**
    * @remarks
-   * The start of the time range during which the system event is published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start of the time range to query the publish time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-11-30T06:32:31Z
@@ -45,7 +45,7 @@ export class DescribeInstanceHistoryEventsRequestEventPublishTime extends $dara.
 export class DescribeInstanceHistoryEventsRequestNotBefore extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the system event is scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-12-01T06:32:31Z
@@ -53,7 +53,7 @@ export class DescribeInstanceHistoryEventsRequestNotBefore extends $dara.Model {
   end?: string;
   /**
    * @remarks
-   * The start of the time range during which the system event is scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start of the time range to query the scheduled execution time of system events. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-11-30T06:32:31Z
@@ -134,7 +134,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
    * - Executing: The event is being executed.
    * - Executed: The event has been executed.
    * - Canceled: The event has been canceled.
-   * - Failed: The event execution failed.
+   * - Failed: The event failed to be executed.
    * - Inquiring: The event is being inquired.
    * 
    * @example
@@ -164,7 +164,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
    * - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
    * - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
    * 
-   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter must be an instance system event, not a disk system event.
+   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
    * 
    * @example
    * SystemMaintenance.Reboot
@@ -172,7 +172,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * > This parameter is not yet available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * null
@@ -180,14 +180,14 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   impactLevel?: string;
   /**
    * @remarks
-   * One or more lifecycle statuses of the system event. Valid values of N: 1 to 7. Specify multiple values in a repeated list format. Valid values:
+   * One or more lifecycle statuses of system events. Valid values of N: 1 to 7. Specify multiple values in a repeated list format. Valid values:
    * 
    * - Scheduled: The event is waiting to be executed.
    * - Avoided: The event has been avoided.
    * - Executing: The event is being executed.
    * - Executed: The event has been executed.
    * - Canceled: The event has been canceled.
-   * - Failed: The event execution failed.
+   * - Failed: The event failed to be executed.
    * - Inquiring: The event is being inquired.
    * 
    * @example
@@ -196,7 +196,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   instanceEventCycleStatus?: string[];
   /**
    * @remarks
-   * One or more types of the system event. Valid values of N: 1 to 30. Specify multiple values in a repeated list format. Valid values:
+   * One or more types of system events. Valid values of N: 1 to 30. Specify multiple values in a repeated list format. Valid values:
    * 
    * - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
    * - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
@@ -209,7 +209,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
    * - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
    * - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
    * 
-   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter must be an instance system event, not a disk system event.
+   * > For more information about event types, see [System event overview](https://help.aliyun.com/document_detail/66574.html). The value of this parameter can only be an instance system event, not a disk system event.
    * 
    * @example
    * SystemMaintenance.Reboot
@@ -238,7 +238,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * f1c9fa9de5752***
@@ -248,7 +248,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated. Use MaxResults or NextToken for paginated queries instead.
+   * > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
    * 
    * @example
    * 1
@@ -256,7 +256,7 @@ export class DescribeInstanceHistoryEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated. Use MaxResults or NextToken for paginated queries instead.
+   * > This parameter will be deprecated. Use MaxResults and NextToken for pagination queries.
    * 
    * @example
    * 10

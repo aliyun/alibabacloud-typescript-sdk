@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * The key of the tag for file sending. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all the tags added can be displayed in the response. To query more than 1,000 resources that have specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all the specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query the resources.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -17,7 +17,7 @@ export class SendFileRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the file sending task. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The value of the tag for file sending. Valid values of N: 1 to 20. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class SendFileRequestTag extends $dara.Model {
 export class SendFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures request idempotence. Generate a parameter value from your client and ensure that this parameter value is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -59,11 +59,10 @@ export class SendFileRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The content of the file. The file must not exceed 32 KB in size after it is encoded in Base64.
+   * The content of the file. The file content cannot exceed 32 KB after Base64 encoding.
    * 
-   * - If `ContentType` is set to `PlainText`, the value of Content is in plaintext.
-   * 
-   * - If `ContentType` is set to `Base64`, the value of Content is Base64-encoded.
+   * - If `ContentType` is set to `PlainText`, this parameter specifies the plain text content.
+   * - If `ContentType` is set to `Base64`, this parameter specifies the Base64-encoded content.
    * 
    * This parameter is required.
    * 
@@ -74,10 +73,8 @@ export class SendFileRequest extends $dara.Model {
   /**
    * @remarks
    * The content type of the file. Valid values:
-   * 
-   * - PlainText: The file content is not encoded.
-   * 
-   * - Base64: The file content is encoded in Base64.
+   * - PlainText: plain text.
+   * - Base64: Base64-encoded.
    * 
    * Default value: PlainText.
    * 
@@ -87,7 +84,7 @@ export class SendFileRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The description of the file. The description can be up to 512 characters in length and can contain any characters.
+   * The description of the file. The full character set is supported. The description cannot exceed 512 characters in length.
    * 
    * @example
    * This is a test file.
@@ -95,9 +92,9 @@ export class SendFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The group of the file. This parameter takes effect only on Linux instances. Default value: root. The value can be up to 64 characters in length.
+   * The group of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
    * 
-   * > If you want to use a non-root user group, make sure that the user group exists in the instances.
+   * > If you specify a different user group, make sure that the user group exists on the instance.
    * 
    * @example
    * test
@@ -105,9 +102,9 @@ export class SendFileRequest extends $dara.Model {
   fileGroup?: string;
   /**
    * @remarks
-   * The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you configure the chmod command.
+   * The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you run the chmod command.
    * 
-   * Default value: 0644, which indicates that the owner of the file has the read and write permissions on the file and that the user group of the file and other users have the read-only permissions on the file.
+   * Default value: 0644, which indicates that the owner has read and write permissions, and the group and other users have read-only permissions.
    * 
    * @example
    * 0644
@@ -115,9 +112,9 @@ export class SendFileRequest extends $dara.Model {
   fileMode?: string;
   /**
    * @remarks
-   * The owner of the file. This parameter takes effect only on Linux instances. Default value: root. The value can be up to 64 characters in length.
+   * The owner of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
    * 
-   * > If you want to use a non-root user, make sure that the user exists in the instances.
+   * > If you specify a different user, make sure that the user exists on the instance.
    * 
    * @example
    * test
@@ -125,7 +122,7 @@ export class SendFileRequest extends $dara.Model {
   fileOwner?: string;
   /**
    * @remarks
-   * The IDs of instances to which to send the file. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+   * The IDs of the ECS instances to which you want to send the file. You can specify up to 50 instance IDs. Valid values of N: 1 to 50.
    * 
    * This parameter is required.
    * 
@@ -135,7 +132,7 @@ export class SendFileRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The name of the file. The name can be up to 255 characters in length and can contain any characters.
+   * The name of the file. The full character set is supported. The name cannot exceed 255 characters in length.
    * 
    * This parameter is required.
    * 
@@ -145,11 +142,9 @@ export class SendFileRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite a file in the destination directory if the file has the same name as the sent file.
-   * 
-   * - true
-   * 
-   * - false
+   * Specifies whether to overwrite a file with the same name in the destination directory. Valid values:
+   * - true: Overwrite the file.
+   * - false: Do not overwrite the file.
    * 
    * Default value: false.
    * 
@@ -161,7 +156,7 @@ export class SendFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance to which to send the file. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the target ECS instances. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -171,11 +166,11 @@ export class SendFileRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. When you specify this parameter, take note of the following items:
+   * The ID of the resource group for file sending. If you specify this parameter:
    * 
-   * - The instance specified by the InstanceId parameter must belong to the specified resource group.
+   * - The ECS instances specified by InstanceId must belong to this resource group.
    * 
-   * - If you specify this parameter, you can call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation to query file sending results in the specified resource group.
+   * - You can filter file sending results by specifying this parameter when you call [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html).
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -185,12 +180,12 @@ export class SendFileRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags to add to the file sending task.
+   * The tags.
    */
   tag?: SendFileRequestTag[];
   /**
    * @remarks
-   * The destination directory on the instance to which to send the file. If the specified directory does not exist, the system creates the directory on the instance. The value cannot exceed 255 characters in length.
+   * The destination directory on the target ECS instances where the file is sent. If the directory does not exist, it is automatically created. The directory path cannot exceed 255 characters in length.
    * 
    * This parameter is required.
    * 
@@ -200,11 +195,10 @@ export class SendFileRequest extends $dara.Model {
   targetDir?: string;
   /**
    * @remarks
-   * The timeout period for the file sending task. Unit: seconds.
+   * The timeout period for sending the file. Unit: seconds.
    * 
-   * - A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or Cloud Assistant Agent does not exist.
-   * 
-   * - If the specified timeout period is less than 10 seconds, the system sets the timeout period to 10 seconds to ensure that the file can be sent to the instances.
+   * - A timeout may occur when the file cannot be sent due to a process issue, a missing module, or a missing Cloud Assistant Agent.
+   * - If the specified timeout period is less than 10 seconds, the system automatically sets the timeout period to 10 seconds to ensure successful delivery.
    * 
    * Default value: 60.
    * 

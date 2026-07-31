@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSpotAdviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The number of vCPUs of the instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The number of GPUs that a GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](https://help.aliyun.com/document_detail/108496.html).
+   * The number of GPUs of the GPU-accelerated instance. For more information, see [Overview of GPU-accelerated instances](https://help.aliyun.com/document_detail/108496.html).
    * 
    * @example
    * 2
@@ -24,14 +24,11 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
    * The GPU type. Valid values:
    * 
    * - NVIDIA P4
-   * 
    * - NVIDIA T4
-   * 
-   * - NVIDIA P100
-   * 
+   * - NVIDIA P100 
    * - NVIDIA V100
    * 
-   * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute-optimized and vGPU-accelerated instance families](https://help.aliyun.com/document_detail/108496.html).
+   * Default value: null, which indicates that all types are queried. For more information, see [Overview of GPU-accelerated instances](https://help.aliyun.com/document_detail/108496.html).
    * 
    * @example
    * NVIDIA T4
@@ -41,13 +38,11 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
    * @remarks
    * The level of the instance family. Valid values:
    * 
-   * - EntryLevel.
+   * - EntryLevel: entry level.
+   * - EnterpriseLevel: enterprise level.
+   * - CreditEntryLevel: credit-based entry level. For more information, see [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
    * 
-   * - EnterpriseLevel.
-   * 
-   * - CreditEntryLevel. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-   * 
-   * This parameter is left empty by default, which indicates that instance families at all levels are queried.
+   * Default value: null, which indicates that all levels are queried.
    * 
    * @example
    * EntryLevel
@@ -55,7 +50,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance family. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.c5
@@ -63,7 +58,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * The instance types. You can specify up to 10 instance types.
+   * The list of instance types. You can specify up to 10 instance types.
    * 
    * @example
    * ecs.c5.large
@@ -71,7 +66,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * The memory size of the instance type. Unit: GiB. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The memory size of the instance type. Unit: GiB. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * 8.0
@@ -79,7 +74,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The minimum number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The minimum number of vCPUs of the instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * 2
@@ -87,7 +82,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   minCores?: number;
   /**
    * @remarks
-   * The minimum memory size of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The minimum memory size of the instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * 8.0
@@ -97,7 +92,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -111,7 +106,7 @@ export class DescribeSpotAdviceRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * This parameter is left empty by default, which indicates that all zones in the specified region are queried.
+   * Default value: null, which indicates that all zones in the specified region are queried.
    * 
    * @example
    * cn-hangzhou-i

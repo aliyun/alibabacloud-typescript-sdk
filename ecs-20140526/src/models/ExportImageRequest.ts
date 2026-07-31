@@ -3,29 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportImageRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to perform a dry run to check the request\\"s validity without actually exporting the image. Valid values:
-   * 
-   * - `true`: Performs a dry run. If the check succeeds, the `DryRunOperation` error code is returned. If the check fails, an error is returned.
-   * - `false`: Sends a normal request. If the check succeeds, the image is exported.
-   * 
-   * Default value: false.
-   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The format of the exported image file. Valid values:
-   * 
-   * - raw.
-   * 
-   * - vhd.
-   * 
-   * - qcow2.
-   * 
-   * - vmdk.
-   * 
-   * - vdi.
+   * The format in which to export the image. Valid values:
+   * - raw
+   * - vhd
+   * - qcow2
+   * - vmdk
+   * - vdi
    * 
    * Default value: raw.
    * 
@@ -45,7 +31,7 @@ export class ExportImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The destination OSS bucket for the exported image.
+   * The OSS bucket in which to store the exported image.
    * 
    * This parameter is required.
    * 
@@ -55,7 +41,7 @@ export class ExportImageRequest extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The prefix for the OSS object. The prefix must be 1 to 30 characters in length and can consist of letters and digits.
+   * The prefix for the OSS object. The prefix can contain digits and letters and must be 1 to 30 characters in length.
    * 
    * @example
    * EcsExport
@@ -64,7 +50,7 @@ export class ExportImageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

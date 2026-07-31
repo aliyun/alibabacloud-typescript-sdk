@@ -13,7 +13,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The IDs of the diagnostic metrics.
+   * The list of diagnostic metrics.
    */
   metricIds?: string[];
   /**
@@ -34,7 +34,7 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
   metricSetName?: string;
   /**
    * @remarks
-   * The resource type supported by the diagnostic metric set.
+   * The supported resource type.
    * 
    * @example
    * instance
@@ -44,9 +44,8 @@ export class DescribeDiagnosticMetricSetsResponseBodyMetricSets extends $dara.Mo
    * @remarks
    * The type of the diagnostic metric set. Valid values:
    * 
-   * - User: user-defined diagnostic metric set
-   * 
-   * - Common: common diagnostic metric set
+   * - User: user.
+   * - Common: common.
    * 
    * @example
    * User
@@ -94,7 +93,7 @@ export class DescribeDiagnosticMetricSetsResponseBody extends $dara.Model {
   metricSets?: DescribeDiagnosticMetricSetsResponseBodyMetricSets[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

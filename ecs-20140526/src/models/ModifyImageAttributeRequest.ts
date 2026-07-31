@@ -6,14 +6,13 @@ export class ModifyImageAttributeRequestFeatures extends $dara.Model {
   /**
    * @remarks
    * The metadata access mode of the image. Valid values:
+   * - v1: when you create an ECS instance from this image, you cannot set the metadata access mode to IMDSv2 only (hardened mode).
+   * - v2: when you create an ECS instance from this image, you can set the metadata access mode to IMDSv2 only (hardened mode).
+   * <notice>
    * 
-   * - `v1`: When you create an ECS instance from this image, you cannot set the metadata access mode to `enforced mode`.
+   *   ImdsSupport cannot be changed from v2 to v1. If you need to change it, create a new image from the snapshot associated with this image and set the value to v1.
    * 
-   * - `v2`: When you create an ECS instance from this image, you can set the metadata access mode to `enforced mode`.
-   * 
-   *   >Notice: 
-   * 
-   *   You cannot change the value of `ImdsSupport` from `v2` to `v1`. To use the `v1` mode, create a new image from a snapshot that is associated with the image and set `ImdsSupport` to `v1`.
+   * </notice>
    * 
    * @example
    * v2
@@ -21,11 +20,8 @@ export class ModifyImageAttributeRequestFeatures extends $dara.Model {
   imdsSupport?: string;
   /**
    * @remarks
-   * Specifies whether the image supports NVMe. Valid values:
-   * 
-   * - `supported`: The image supports NVMe. Instances that you create from this image support the NVMe protocol.
-   * 
-   * - `unsupported`: The image does not support NVMe. Instances that you create from this image do not support the NVMe protocol.
+   * Modifies the NVMe support attribute of the image. If this parameter is not specified, the current value is retained.
+   * >Notice: Before enabling this feature, make sure that the NVMe driver is pre-installed in the operating system. Recommended procedure: install the driver on an instance, create a custom image, and then call this operation. Forcibly enabling this feature without the driver will cause instance startup failures.
    * 
    * @example
    * supported
@@ -61,16 +57,16 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The boot mode of the image. Valid values:
+   * - BIOS: Basic Input/Output System (BIOS) boot mode.
+   * - UEFI: Unified Extensible Firmware Interface (UEFI) boot mode.
+   * - UEFI-Preferred: dual boot mode.
    * 
-   * - `BIOS`: BIOS boot mode.
    * 
-   * - `UEFI`: UEFI boot mode.
+   * <notice>
    * 
-   * - `UEFI-Preferred`: UEFI-preferred boot mode.
+   *    To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the image before you modify this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
    * 
-   * >Notice: 
-   * 
-   * To prevent startup failures, verify the boot modes that the image supports before you change its boot mode. For more information, see [Boot modes](~~2244655#b9caa9b8bb1wf~~).
+   * </notice>
    * 
    * @example
    * BIOS
@@ -78,25 +74,18 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   bootMode?: string;
   /**
    * @remarks
-   * The new description of the custom image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the custom image. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
-   * If you do not specify this parameter, the original description is retained.
+   * Default value: null, which indicates that the original description is retained.
    * 
    * @example
    * testDescription
    */
   description?: string;
-  /**
-   * @remarks
-   * Specifies whether to perform a dry run to check whether the request is valid. Valid values:
-   * 
-   * - `true`: performs a dry run to check the request for validity, syntax, and required permissions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - `false` (default): sends the request. If the request passes the validation checks, the operation is performed.
-   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The features of the image.
+   * The image feature attributes.
    * 
    * **if can be null:**
    * true
@@ -104,9 +93,9 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   features?: ModifyImageAttributeRequestFeatures;
   /**
    * @remarks
-   * The name of the image family. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character. The name cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
+   * The name of the image family. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), or hyphens (-).
    * 
-   * By default, this parameter is empty.
+   * Default value: null.
    * 
    * @example
    * hangzhou-daily-update
@@ -124,9 +113,9 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the custom image. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character. The name cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
+   * The name of the custom image. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), or hyphens (-).
    * 
-   * If you do not specify this parameter, the original name is retained.
+   * Default value: null, which indicates that the original name is retained.
    * 
    * @example
    * testImageName
@@ -134,9 +123,9 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The license type for activating the operating system after you import the image. The only valid value is `BYOL`.
+   * The license type used to activate the operating system after the image is imported. Currently, only BYOL is supported.
    * 
-   * `BYOL`: Bring Your Own License. If you use the BYOL license type, you must ensure that your license key is supported for use on Alibaba Cloud.
+   * BYOL: the license that comes with the source operating system. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
    * 
    * @example
    * BYOL
@@ -146,7 +135,7 @@ export class ModifyImageAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the custom image is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to view the latest list of Alibaba Cloud regions.
+   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -160,11 +149,10 @@ export class ModifyImageAttributeRequest extends $dara.Model {
    * @remarks
    * The image status. Valid values:
    * 
-   * - `Deprecated`: Deprecates the image. If a custom image that you want to deprecate is shared, you must unshare it first. You cannot share or copy a deprecated image. However, you can use the image to create an instance or replace a system disk.
+   * - Deprecated: sets the image to the deprecated state. If you have shared the custom image, you must unshare it before you can set it to the deprecated state. You cannot share or copy a deprecated image. However, you can use the image to create instances or replace system disks.
+   * - Available: sets the image to the available state. You can restore a deprecated image to the available state.
    * 
-   * - `Available`: Makes the image available. You can change the status of a deprecated image to `Available`.
-   * 
-   * > However, if this is the only available custom image in the image family, deprecating it prevents the creation of instances from any image in that family. Use this option with caution.
+   * > To roll back a custom image in an image family to the previous version, you can set the latest available custom image to the deprecated state. However, if the image is the only available custom image in the image family, the image family will have no available custom image for creating instances after the image is deprecated. Proceed with caution.
    * 
    * @example
    * Deprecated

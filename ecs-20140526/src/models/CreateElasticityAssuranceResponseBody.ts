@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateElasticityAssuranceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 1234567890
@@ -13,7 +13,7 @@ export class CreateElasticityAssuranceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The elasticity assurance ID.
+   * The ID of the elasticity assurance service.
    * 
    * @example
    * eap-bp67acfmxazb4****

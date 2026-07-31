@@ -137,14 +137,10 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution e
 }
 
 export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the image pipeline executions.
-   */
   imagePipelineExecution?: DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 50
@@ -152,7 +148,7 @@ export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned in this call. Use this token to retrieve the next page of results. For more information, see the operation description.
+   * The pagination token returned in this call. For more information about how to use this token, see the operation description.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -168,7 +164,7 @@ export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of image pipeline executions.
+   * The total number of image components returned.
    * 
    * @example
    * 1

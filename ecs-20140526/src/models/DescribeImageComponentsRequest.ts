@@ -49,7 +49,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * 
    * Valid values:
    * - Build
-   * - Test.
+   * - Test
    * 
    * @example
    * Build
@@ -92,7 +92,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken returned by the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -123,7 +123,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+   * The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1000.
    * 
    * >Filtering by the default resource group is not supported.
    * 
@@ -139,7 +139,7 @@ export class DescribeImageComponentsRequest extends $dara.Model {
    * 
    * Valid values:
    * - Linux
-   * - Windows.
+   * - Windows
    * 
    * @example
    * Linux

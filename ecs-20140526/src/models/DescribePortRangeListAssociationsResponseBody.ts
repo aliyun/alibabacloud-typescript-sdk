@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePortRangeListAssociationsResponseBodyPortRangeListAssociations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * sg-2zefu72****
@@ -13,7 +13,7 @@ export class DescribePortRangeListAssociationsResponseBodyPortRangeListAssociati
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Valid value: SecurityGroup.
+   * The resource type. Valid value: SecurityGroup.
    * 
    * @example
    * SecurityGroup
@@ -45,7 +45,7 @@ export class DescribePortRangeListAssociationsResponseBodyPortRangeListAssociati
 export class DescribePortRangeListAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If the return value is empty, no more data is returned.
+   * The pagination token returned in this call. If the return value is empty, no more data is available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -53,7 +53,7 @@ export class DescribePortRangeListAssociationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resources that are associated with the port list.
+   * The resources associated with the port range list.
    */
   portRangeListAssociations?: DescribePortRangeListAssociationsResponseBodyPortRangeListAssociations[];
   /**

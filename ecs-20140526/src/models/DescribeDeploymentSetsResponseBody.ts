@@ -181,10 +181,6 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSets extends $dara.Mode
 }
 
 export class DescribeDeploymentSetsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of deployment sets.
-   */
   deploymentSets?: DescribeDeploymentSetsResponseBodyDeploymentSets;
   /**
    * @remarks
@@ -196,7 +192,7 @@ export class DescribeDeploymentSetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -204,7 +200,7 @@ export class DescribeDeploymentSetsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID of the deployment set.
    * 
    * @example
    * cn-hangzhou
@@ -220,7 +216,7 @@ export class DescribeDeploymentSetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of deployment sets.
+   * The total number of queried deployment sets.
    * 
    * @example
    * 5

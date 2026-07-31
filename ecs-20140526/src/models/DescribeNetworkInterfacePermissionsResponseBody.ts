@@ -78,7 +78,7 @@ export class DescribeNetworkInterfacePermissionsResponseBody extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10

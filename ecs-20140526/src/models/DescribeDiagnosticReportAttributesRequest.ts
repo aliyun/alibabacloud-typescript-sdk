@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosticReportAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region. Call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to get the latest list of Alibaba Cloud regions.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDiagnosticReportAttributesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the diagnostic report.
+   * The diagnostic report ID.
    * 
    * This parameter is required.
    * 

@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiagnosticMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries per page in a paging query. Maximum value: 100.
    * 
    * Default value:
    * 
-   * - If this parameter is left empty, the default value is 10.
-   * 
-   * - If you set this parameter to a value that is greater than 100, the default value is 100.
+   * - If this parameter is not set, the default value is 10.
+   * - If the value is set to a number greater than 100, the default value is 100.
    * 
    * @example
    * 10
@@ -19,12 +18,12 @@ export class DescribeDiagnosticMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of diagnostic metrics.
+   * The list of diagnostic metrics.
    */
   metricIds?: string[];
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The pagination token. Set this parameter to the `NextToken` value returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -32,7 +31,7 @@ export class DescribeDiagnosticMetricsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID pf the diagnostic metric. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -42,7 +41,7 @@ export class DescribeDiagnosticMetricsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type supported by the diagnostic metric.
+   * The supported resource type.
    * 
    * @example
    * instance

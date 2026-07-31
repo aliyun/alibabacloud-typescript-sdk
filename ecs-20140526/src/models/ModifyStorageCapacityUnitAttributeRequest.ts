@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description of the SCU. The description must be 2 to 256 characters in length and cannot start with [http:// or https://.](http://https://%E3%80%82)
+   * The new description of the SCU. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * testNewScuDescription
@@ -13,7 +13,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://%E3%80%82%E3%80%81%EF%BC%88:%EF%BC%89%E3%80%81%EF%BC%88_%EF%BC%89%EF%BC%88-%EF%BC%89%E3%80%82)
+   * The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * testNewScuName
@@ -23,7 +23,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyStorageCapacityUnitAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SCU.
+   * SCU ID。
    * 
    * This parameter is required.
    * 

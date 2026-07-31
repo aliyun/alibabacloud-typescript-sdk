@@ -55,7 +55,7 @@ export class DescribeCapacityReservationInstancesResponseBody extends $dara.Mode
   capacityReservationItem?: DescribeCapacityReservationInstancesResponseBodyCapacityReservationItem;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries per page for a paged query.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class DescribeCapacityReservationInstancesResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token for the next query of the capacity reservation.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -71,7 +71,7 @@ export class DescribeCapacityReservationInstancesResponseBody extends $dara.Mode
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -79,7 +79,7 @@ export class DescribeCapacityReservationInstancesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 10

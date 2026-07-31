@@ -6,7 +6,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   additionalOptions?: { [key: string]: string };
   /**
    * @remarks
-   * The end time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
+   * The end time. Takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be run in the guest OS.
    * 
    * @example
    * 2022-07-11T14:00Z
@@ -14,7 +14,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The diagnostic metric set ID. If this parameter is omitted, the default diagnostic metric set for ECS instances, `dms-instancedefault`, is used.
+   * The diagnostic metric set ID. If left empty, the default diagnostic metric set dms-instancedefault for ECS instances is used.
    * 
    * @example
    * dms-uf6i0tv2refv8wz*****
@@ -22,7 +22,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   metricSetId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to get the latest list of Alibaba Cloud regions.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The start time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
+   * The start time. Takes effect only for diagnostic metrics that do not require Cloud Assistant commands to be run in the guest OS.
    * 
    * @example
    * 2022-07-11T12:00Z

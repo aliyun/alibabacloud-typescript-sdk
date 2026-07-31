@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command task.
+   * The execution ID.
    * 
    * @example
    * f-7d2a745b412b46****

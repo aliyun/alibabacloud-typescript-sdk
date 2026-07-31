@@ -133,7 +133,7 @@ export class DescribePrefixListsResponseBodyPrefixLists extends $dara.Model {
 export class DescribePrefixListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token that is returned in this call. If the return value is empty, no more data is returned.
+   * The pagination token returned in this call. If the return value is empty, no more data is available.
    * 
    * @example
    * AAAAAdDWBF2****

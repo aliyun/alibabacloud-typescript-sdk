@@ -126,7 +126,7 @@ export class RenewElasticityAssurancesRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID of the elasticity assurance service.
+   * The ID of the region in which the elasticity assurance service resides.
    * 
    * You can call [DescribeRegions](https://help.aliyun.com/document_detail/2680071.html) to query the most recent region list.
    * 

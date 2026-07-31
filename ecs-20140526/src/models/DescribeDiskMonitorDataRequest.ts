@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskMonitorDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disk to query.
+   * The ID of the cloud disk that you want to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDiskMonitorDataRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The end time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the end time is automatically set to the beginning of the next minute.
+   * The end time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the end time is automatically rounded up to the next minute.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class DescribeDiskMonitorDataRequest extends $dara.Model {
    * The granularity of the data. Unit: seconds. Valid values:
    * 
    * - 60.
-   * - 600.
+   * - 600. 
    * - 3600.
    * 
    * Default value: 60.
@@ -45,9 +45,9 @@ export class DescribeDiskMonitorDataRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the start time is automatically set to the beginning of the next minute.
+   * The start time of the data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the start time is automatically rounded up to the next minute.
    * 
-   * > You can query the monitoring information of up to the last 30 days. The `StartTime` parameter cannot be more than 30 days earlier than the current time.
+   * > You can query monitoring information only for the last 30 days. The `StartTime` parameter cannot be more than 30 days earlier than the current time.
    * 
    * This parameter is required.
    * 

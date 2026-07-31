@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDedicatedHostClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host group.
+   * The ID of the dedicated host cluster.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteDedicatedHostClusterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the host group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The ID of the region where the dedicated host cluster resides. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

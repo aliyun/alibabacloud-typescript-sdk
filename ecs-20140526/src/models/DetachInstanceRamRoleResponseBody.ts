@@ -122,7 +122,7 @@ export class DetachInstanceRamRoleResponseBody extends $dara.Model {
   detachInstanceRamRoleResults?: DetachInstanceRamRoleResponseBodyDetachInstanceRamRoleResults;
   /**
    * @remarks
-   * The number of ECS instances from which instance RAM roles failed to be detached.
+   * The number of instances from which the RAM role failed to be detached.
    * 
    * @example
    * 0
@@ -130,7 +130,7 @@ export class DetachInstanceRamRoleResponseBody extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The name of the instance RAM role.
+   * The name of the detached instance RAM role.
    * 
    * @example
    * RamRoleTest
@@ -146,7 +146,7 @@ export class DetachInstanceRamRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of ECS instances from which you attempted to detach instance RAM roles.
+   * The total number of instances from which the RAM role was detached.
    * 
    * @example
    * 1

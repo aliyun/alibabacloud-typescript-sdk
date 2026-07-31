@@ -32,9 +32,9 @@ export class AllocateDedicatedHostsResponseBody extends $dara.Model {
   dedicatedHostIdSets?: AllocateDedicatedHostsResponseBodyDedicatedHostIdSets;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
-   * > This parameter has a return value only when the dedicated host is a subscription one (request parameter **ChargeType set to PrePaid**).
+   * > This parameter is returned only when you create subscription dedicated hosts (the request parameter **ChargeType=PrePaid**).
    * 
    * @example
    * 23841229****
@@ -42,7 +42,7 @@ export class AllocateDedicatedHostsResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E2A664A6-2933-4C64-88AE-5033D003****

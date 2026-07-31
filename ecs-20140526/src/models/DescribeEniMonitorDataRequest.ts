@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEniMonitorDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+   * The end of the time range to query. Specify the time in [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is automatically rounded up to the next minute.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The secondary ENI ID. By default, all secondary ENIs that are bound to the specified instance are queried.
+   * The ID of the secondary ENI. By default, all secondary ENIs that are attached to the specified instance are queried.
    * 
    * @example
    * eni-bp19da36d6xdwey****
@@ -23,7 +23,7 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
   eniId?: string;
   /**
    * @remarks
-   * The ID of the instance to which the secondary ENI is bound.
+   * The ID of the instance to which the secondary ENI is attached.
    * 
    * This parameter is required.
    * 
@@ -35,15 +35,12 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The interval at which to retrieve the monitoring data. Unit: seconds. Default value: Month. Valid values:
+   * The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
+   * - 60.
+   * - 600.
+   * - 3600.
    * 
-   * - 60
-   * 
-   * - 600
-   * 
-   * - 3600
-   * 
-   * Default: 60.
+   * Default value: 60.
    * 
    * @example
    * 60
@@ -51,7 +48,7 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -63,7 +60,7 @@ export class DescribeEniMonitorDataRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+   * The beginning of the time range to query. Specify the time in [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is automatically rounded up to the next minute.
    * 
    * This parameter is required.
    * 

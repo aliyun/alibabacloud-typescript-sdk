@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachInstanceRamRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of ECS instances. You can specify 1 to 100 instance IDs.
+   * The instance IDs of the instances from which to detach the RAM role. Array length: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DetachInstanceRamRoleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation of RAM to query the names of available instance RAM roles.
+   * The name of the instance RAM role to detach. You can call the RAM API [ListRoles](https://help.aliyun.com/document_detail/28713.html) to query the names of instance RAM roles that you have created.
    * 
    * @example
    * RamRoleTest
@@ -24,7 +24,7 @@ export class DetachInstanceRamRoleRequest extends $dara.Model {
   ramRoleName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

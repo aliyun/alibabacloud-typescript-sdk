@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeploymentSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The affinity level of the deployment set. This level determines how instances are distributed within the set. The value must be an integer from 1 to 10. Default value: 1.
+   * The affinity level of the deployment set. Instances in the deployment set are distributed based on this affinity level. Valid values: 1 to 10. Default value: 1.
    * 
    * @example
    * 3
@@ -13,9 +13,9 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   affinity?: number;
   /**
    * @remarks
-   * A client-generated token that you can use to ensure request idempotence. The token must be unique across requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
    * 
-   * The **ClientToken** value must be an ASCII string of up to 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -23,7 +23,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the deployment set. The name must be 2 to 128 characters long and start with a letter. It can contain digits, colons (:), underscores (_), and hyphens (-). The name cannot start with `http://` or `https://`.
+   * The name of the deployment set. The name must be 2 to 128 characters in length and must start with a letter. It cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testDeploymentSetName
@@ -31,7 +31,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   deploymentSetName?: string;
   /**
    * @remarks
-   * The description of the deployment set. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
+   * The description of the deployment set. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * testDescription
@@ -55,11 +55,11 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The number of partitions in the deployment set group. Valid values: 1 to 7.
+   * The number of groups for the high availability group strategy. Valid values: 1 to 7.
    * 
    * Default value: 3.
    * 
-   * > This parameter is valid only when `Strategy` is set to `AvailabilityGroup`.
+   * > This parameter takes effect only when `Strategy=AvailabilityGroup`.
    * 
    * @example
    * 1
@@ -67,11 +67,10 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   groupCount?: number;
   /**
    * @remarks
-   * The policy for an instance that fails to be redeployed after a failover due to insufficient resources. Valid values:
-   * 
-   * - CancelMembershipAndStart: Removes the instance from the deployment set and starts the instance immediately after failover.
-   * 
-   * - KeepStopped: Keeps the instance in the deployment set and in the Stopped state.
+   * The emergency solution to use when an instance in the deployment set cannot be evenly distributed to available inventory after a failover. Valid values: 
+   *          
+   * - CancelMembershipAndStart: Removes the instance from the deployment set and starts the instance immediately after the failover.
+   * - KeepStopped: Keeps the deployment set attributes of the instance and leaves the instance in the Stopped state.
    * 
    * Default value: CancelMembershipAndStart.
    * 
@@ -83,7 +82,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region for the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to view the latest list of Alibaba Cloud regions.
+   * The region ID of the deployment set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -96,12 +95,9 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   /**
    * @remarks
    * The deployment strategy. Valid values:
-   * 
    * - Availability: High availability strategy.
-   * 
-   * - AvailabilityGroup: High availability strategy for deployment set groups.
-   * 
-   * - LowLatency: Low-latency strategy.
+   * - AvailabilityGroup: High availability group strategy.
+   * - LowLatency: Low network latency strategy.
    * 
    * Default value: Availability.
    * 
@@ -111,13 +107,10 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   strategy?: string;
   /**
    * @remarks
-   * The deployment granularity. Valid values:
-   * 
-   * - host: Spreads instances across different hosts.
-   * 
-   * - sw: Spreads instances across different switches.
-   * 
-   * - rack: Spreads instances across different racks.
+   * The deployment type. Valid values:
+   * - host: physical server
+   * - sw: vSwitch
+   * - rack: rack
    * 
    * Default value: host.
    * 

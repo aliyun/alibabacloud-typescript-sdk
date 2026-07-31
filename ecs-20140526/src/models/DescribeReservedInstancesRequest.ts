@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeReservedInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the reserved instance. The tag key cannot be empty and can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
+   * The tag key of the reserved instance. The tag key cannot be an empty string and can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
    * 
-   * > If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * > If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * @example
    * TestKey
@@ -15,7 +15,7 @@ export class DescribeReservedInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the reserved instance. The tag value cannot be empty and can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value of the reserved instance. The tag value cannot be an empty string and can be up to 128 characters in length. It cannot start with acs: and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -47,11 +47,10 @@ export class DescribeReservedInstancesRequestTag extends $dara.Model {
 export class DescribeReservedInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The allocation type of the reserved instances. Valid values:
+   * The allocation type. Valid values:
    * 
-   * - Normal: queries all reserved instances that belong to the current account.
-   * 
-   * - Shared: queries the reserved instances that are shared between the current main account and linked accounts.
+   * - Normal: queries reserved instances under the current account.
+   * - Shared: queries reserved instances that have been shared between the current account and linked accounts.
    * 
    * Default value: Normal.
    * 
@@ -61,9 +60,9 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   allocationType?: string;
   /**
    * @remarks
-   * The instance type of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance type that the reserved instance can be applied to. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html). 
    * 
-   * > Specify the instance type that you selected when you purchased the reserved instance. If the reserved instance is a regional reserved instance, it can be used to offset the bills of instance types that belong to the same instance family as the specified instance type, regardless of instance specifications.
+   * > This is the instance type selected when you purchased the reserved instance. During actual deduction, region-level reserved instances support size-flexible deduction within the same instance family.
    * 
    * @example
    * ecs.g5.large
@@ -71,7 +70,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The instance family of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance family that the reserved instance can be applied to. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.g5
@@ -79,11 +78,10 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * The reason why the reserved instance is locked. Valid values:
+   * The lock type. Valid values:
    * 
-   * - financial: The reserved instance is locked because the account has overdue payments or the service expires.
-   * 
-   * - security: The reserved instance is locked due to security reasons.
+   * - financial: The account has an overdue payment or the service has expired.
+   * - security: Locked for security reasons.
    * 
    * @example
    * security
@@ -91,13 +89,11 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   lockReason?: string;
   /**
    * @remarks
-   * The payment option of the reserved instance. Valid values:
+   * The payment type of the reserved instance. Valid values:
    * 
-   * - No Upfront
-   * 
-   * - Partial Upfront
-   * 
-   * - All Upfront
+   * - No Upfront: no upfront.
+   * - Partial Upfront: partial upfront.
+   * - All Upfront: all upfront.
    * 
    * @example
    * All Upfront
@@ -107,7 +103,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the reserved instance list. Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -117,7 +113,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries per page for a paged query. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -127,7 +123,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the reserved instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the reserved instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -137,7 +133,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of reserved instances. You can specify up to 100 IDs of reserved instances.
+   * The IDs of reserved instances. Array length: 1 to 100.
    * 
    * @example
    * ri-bpzhex2ulpzf53****
@@ -147,7 +143,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
    * @remarks
    * The name of the reserved instance.
    * 
-   * > Only exact search is supported.
+   * > Only exact match is supported. Fuzzy match is not supported.
    * 
    * @example
    * testReservedInstanceName
@@ -157,11 +153,10 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scope level of the reserved instance. Valid values:
-   * 
-   * - Region: regional
-   * 
-   * - Zone: zonal
+   * The scope of the reserved instance. Valid values:
+   *          
+   * - Region: regional.
+   * - Zone: zonal.
    * 
    * @example
    * Region
@@ -169,7 +164,7 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The status of the reserved instances.
+   * The statuses of reserved instances.
    * 
    * @example
    * Active
@@ -177,12 +172,12 @@ export class DescribeReservedInstancesRequest extends $dara.Model {
   status?: string[];
   /**
    * @remarks
-   * The tags of the reserved instance. You can specify up to 20 tags.
+   * The tags. Array length: 1 to 20.
    */
   tag?: DescribeReservedInstancesRequestTag[];
   /**
    * @remarks
-   * The zone ID of the reserved instance. This parameter is valid and required if you set Scope to Zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+   * The zone ID of the instance. This parameter is required and takes effect only when Scope is set to Zone. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the zone list.
    * 
    * @example
    * cn-hangzhou-z

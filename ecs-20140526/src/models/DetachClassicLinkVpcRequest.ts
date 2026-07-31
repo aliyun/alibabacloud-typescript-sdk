@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachClassicLinkVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that resides in the classic network.
+   * The instance ID of the classic network type instance.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DetachClassicLinkVpcRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class ModifyDiskDeploymentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The disk migration task ID.
+   * The task ID of the disk migration.
    * 
    * @example
    * t-bp67acfmxazb4p****

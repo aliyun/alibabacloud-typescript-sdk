@@ -17,7 +17,7 @@ export class DescribeImageSharePermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the returned results.
+   * The page number of the query results to return.
    * 
    * Minimum value: 1.
    * 
@@ -29,7 +29,7 @@ export class DescribeImageSharePermissionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the returned results.
+   * The number of entries per page in the query results.
    * 
    * Maximum value: 100.
    * 

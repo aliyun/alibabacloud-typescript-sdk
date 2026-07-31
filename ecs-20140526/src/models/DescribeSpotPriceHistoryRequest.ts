@@ -65,7 +65,7 @@ export class DescribeSpotPriceHistoryRequest extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The row from which the query starts.
+   * The row number to start the query from.
    * 
    * Default value: 0.
    * 
@@ -90,10 +90,10 @@ export class DescribeSpotPriceHistoryRequest extends $dara.Model {
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
-   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After 1 hour, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
+   * - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released for 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain automatic release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Specify an appropriate protection period based on the expected task execution duration.
+   * Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Specify a protection period based on the expected task execution duration.
    * 
    * > This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
    * 

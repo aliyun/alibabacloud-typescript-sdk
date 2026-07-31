@@ -7,7 +7,7 @@ export class DescribePrefixListAttributesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the prefix list.
+   * The prefix list ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribePrefixListAttributesRequest extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -13,12 +13,12 @@ export class ModifyDiagnosticMetricSetRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IDs of diagnostic metrics.
+   * The list of diagnostic metrics.
    */
   metricIds?: string[];
   /**
    * @remarks
-   * The IDs of the diagnostic metric sets.
+   * The ID of the diagnostic metric set.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ModifyDiagnosticMetricSetRequest extends $dara.Model {
   metricSetName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

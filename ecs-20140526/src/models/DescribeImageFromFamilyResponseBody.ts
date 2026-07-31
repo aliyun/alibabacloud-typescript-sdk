@@ -124,10 +124,8 @@ export class DescribeImageFromFamilyResponseBodyImageTags extends $dara.Model {
 export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   /**
    * @remarks
-   * The architecture of the image. Valid values:
-   * 
+   * The system architecture type of the image. Valid values:
    * - i386
-   * 
    * - x86_64
    * 
    * @example
@@ -144,7 +142,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the volume.
+   * The description of the image.
    * 
    * @example
    * testDescription
@@ -153,7 +151,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   diskDeviceMappings?: DescribeImageFromFamilyResponseBodyImageDiskDeviceMappings;
   /**
    * @remarks
-   * The name of the image family.
+   * The image family.
    * 
    * @example
    * testImageFamily
@@ -178,14 +176,10 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   /**
    * @remarks
    * The alias of the image owner. Valid values:
-   * 
-   * - system: public images provided by Alibaba Cloud
-   * 
-   * - self: your custom images
-   * 
-   * - others: shared images from other Alibaba Cloud accounts
-   * 
-   * - marketplace: Alibaba Cloud Marketplace images
+   * - system: public image.
+   * - self: your custom image.
+   * - others: shared image from other users.
+   * - marketplace: Alibaba Cloud Marketplace image.
    * 
    * @example
    * self
@@ -209,7 +203,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   isCopied?: boolean;
   /**
    * @remarks
-   * Indicates whether the custom image was shared to other Alibaba Cloud accounts.
+   * Indicates whether the custom image has been shared with other users.
    * 
    * @example
    * true
@@ -217,7 +211,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   isSelfShared?: string;
   /**
    * @remarks
-   * Indicates whether you have subscribed to the service terms of the image product corresponding to the image product code.
+   * Indicates whether you have subscribed to the Terms of Service for the image product that corresponds to the product code.
    * 
    * @example
    * false
@@ -233,7 +227,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   isSupportCloudinit?: boolean;
   /**
    * @remarks
-   * Indicates whether the image can be used on I/O optimized instances.
+   * Indicates whether the image can run on an I/O optimized instance.
    * 
    * @example
    * true
@@ -241,7 +235,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   isSupportIoOptimized?: boolean;
   /**
    * @remarks
-   * The display name of the operating system in Chinese.
+   * The China-locale display name of the operating system.
    * 
    * @example
    * Alibaba Cloud Linux 2.1903
@@ -250,9 +244,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   /**
    * @remarks
    * The type of the operating system. Valid values:
-   * 
    * - windows
-   * 
    * - linux
    * 
    * @example
@@ -261,7 +253,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
-   * The operating system.
+   * The operating system platform.
    * 
    * @example
    * Aliyun
@@ -277,7 +269,7 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The image creation progress in percentage.
+   * The image creation progress, in percent.
    * 
    * @example
    * 100
@@ -293,15 +285,11 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The state of the image. Valid values:
-   * 
-   * - UnAvailable
-   * 
-   * - Available
-   * 
-   * - Creating
-   * 
-   * - CreateFailed
+   * The status of the image. Valid values:
+   * - UnAvailable: unavailable
+   * - Available: available
+   * - Creating: being created
+   * - CreateFailed: failed to be created
    * 
    * @example
    * Available
@@ -310,11 +298,9 @@ export class DescribeImageFromFamilyResponseBodyImage extends $dara.Model {
   tags?: DescribeImageFromFamilyResponseBodyImageTags;
   /**
    * @remarks
-   * Indicates whether the image has been used to create ECS instances. Valid values:
-   * 
-   * - instance: The image was used to create one or more ECS instances.
-   * 
-   * - none: The image was not used to create ECS instances.
+   * The type of resource that references the image. Valid values:
+   * - instance: One or more ECS instances have been created from the image.
+   * - none: No ECS instances have been created from the image.
    * 
    * @example
    * none
@@ -399,7 +385,7 @@ export class DescribeImageFromFamilyResponseBody extends $dara.Model {
   image?: DescribeImageFromFamilyResponseBodyImage;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

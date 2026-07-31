@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceSystemDiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new system disk.
+   * The disk ID of the new system disk.
    * 
    * @example
    * d-bp67acfmxazb4ph****

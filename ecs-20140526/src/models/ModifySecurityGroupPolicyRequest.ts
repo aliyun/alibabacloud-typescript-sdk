@@ -18,7 +18,7 @@ export class ModifySecurityGroupPolicyRequest extends $dara.Model {
    * - Accept: intra-group connectivity
    * - Drop: internal isolation
    * 
-   * >The value is case-insensitive.
+   * > The value is case-insensitive.
    * 
    * This parameter is required.
    * 

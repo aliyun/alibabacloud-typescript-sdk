@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrefixListsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the prefix list. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http:// or https://`.
+   * The tag key of the prefix list. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,9 +13,9 @@ export class DescribePrefixListsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the prefix list. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the prefix list. Valid values of N: 1 to 20. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot contain `http:// or https://`.
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -47,13 +47,12 @@ export class DescribePrefixListsRequestTag extends $dara.Model {
 export class DescribePrefixListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address family. Valid values:
+   * The address family of the prefix list. Valid values:
    * 
    * - IPv4
-   * 
    * - IPv6
    * 
-   * This parameter is empty by default, which indicates that all prefix lists are queried.
+   * Default value: empty, which indicates that information about all prefix lists is queried.
    * 
    * @example
    * IPv4
@@ -61,9 +60,9 @@ export class DescribePrefixListsRequest extends $dara.Model {
   addressFamily?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -73,7 +72,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. Set the value to the `NextToken` value returned in the last call to this operation. Leave this parameter empty the first time you call this operation.
+   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -83,7 +82,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of prefix lists. Valid values of N: 0 to 100.
+   * The prefix list ID. Valid values of N: 0 to 100.
    * 
    * @example
    * pl-x1j1k5ykzqlixdcy****
@@ -99,7 +98,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   prefixListName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -119,7 +118,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the prefix list.
+   * The tags.
    */
   tag?: DescribePrefixListsRequestTag[];
   static names(): { [key: string]: string } {

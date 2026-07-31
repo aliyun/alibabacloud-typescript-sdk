@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyReservedInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The description of the reserved instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * Default value: empty.
    * 
    * @example
    * ri-example
@@ -15,7 +17,7 @@ export class ModifyReservedInstanceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the reserved instance.
+   * The region ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class ModifyReservedInstanceAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The new name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The ID of the reserved instance.
    * 
    * This parameter is required.
    * 
@@ -35,9 +37,7 @@ export class ModifyReservedInstanceAttributeRequest extends $dara.Model {
   reservedInstanceId?: string;
   /**
    * @remarks
-   * The new description of the reserved instance. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-   * 
-   * This parameter is empty by default.
+   * The name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * testReservedInstanceName

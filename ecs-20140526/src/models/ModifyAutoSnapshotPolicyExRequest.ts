@@ -62,8 +62,8 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
    * @remarks
    * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
    * 
-   * - true: enabled. 
-   * - false: disabled. 
+   * - true: Enabled. 
+   * - false: Disabled. 
    * 
    * Default value: false.
    * 
@@ -112,8 +112,8 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * @remarks
    * The retention period of cross-region snapshot replicas. Unit: days. Valid values:
    * 
-   * - -1: permanently retained.
-   * - 1 to 65535: the specified number of days for which snapshot replicas are retained.
+   * - -1: Snapshot replicas are permanently retained.
+   * - 1 to 65535: the number of days for which snapshot replicas are retained.
    * 
    * Default value: -1.
    * 
@@ -128,10 +128,10 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   copyEncryptionConfiguration?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to allow automatic cross-region replication.
+   * Specifies whether to allow automatic cross-region replication. Valid values:
    * 
-   * - true: allowed.
-   * - false: not allowed.
+   * - true: Allowed.
+   * - false: Not allowed.
    * 
    * @example
    * false
@@ -160,7 +160,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. If this parameter is left empty, the name is not modified.
+   * The name of the automatic snapshot policy. If this parameter is empty, the name is not modified.
    * 
    * @example
    * SPTestName
@@ -193,8 +193,8 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * @remarks
    * The retention period of automatic snapshots. Unit: days. Valid values:
    * 
-   * - -1: permanently retained.
-   * - 1 to 65536: the specified number of days for which snapshots are retained.
+   * - -1: Automatic snapshots are permanently retained.
+   * - 1 to 65536: the number of days for which automatic snapshots are retained.
    * 
    * Default value: -1.
    * 

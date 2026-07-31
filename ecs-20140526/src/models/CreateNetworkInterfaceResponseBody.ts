@@ -102,15 +102,18 @@ export class CreateNetworkInterfaceResponseBodyIpv6PrefixSets extends $dara.Mode
 
 export class CreateNetworkInterfaceResponseBodyIpv6SetsIpv6Set extends $dara.Model {
   ipv6Address?: string;
+  primary?: boolean;
   static names(): { [key: string]: string } {
     return {
       ipv6Address: 'Ipv6Address',
+      primary: 'Primary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ipv6Address: 'string',
+      primary: 'boolean',
     };
   }
 
@@ -282,30 +285,18 @@ export class CreateNetworkInterfaceResponseBodyTags extends $dara.Model {
 export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the elastic network interface.
+   * The description of the network interface controller (NIC).
    * 
    * @example
    * testDescription
    */
   description?: string;
-  /**
-   * @remarks
-   * The IPv4 prefixes that are assigned to the elastic network interface.
-   */
   ipv4PrefixSets?: CreateNetworkInterfaceResponseBodyIpv4PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 prefixes that are assigned to the elastic network interface.
-   */
   ipv6PrefixSets?: CreateNetworkInterfaceResponseBodyIpv6PrefixSets;
-  /**
-   * @remarks
-   * The IPv6 addresses that are assigned to the elastic network interface.
-   */
   ipv6Sets?: CreateNetworkInterfaceResponseBodyIpv6Sets;
   /**
    * @remarks
-   * The MAC address of the elastic network interface.
+   * The MAC address of the network interface controller (NIC).
    * 
    * @example
    * 00:16:3e:12:**:**
@@ -313,7 +304,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   macAddress?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -321,7 +312,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the elastic network interface.
+   * The name of the network interface controller (NIC).
    * 
    * @example
    * my-eni-name
@@ -329,7 +320,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The ID of the account that owns the elastic network interface.
+   * The ID of the account that owns the network interface controller (NIC).
    * 
    * @example
    * 123456****
@@ -337,16 +328,12 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The primary private IP address of the elastic network interface.
+   * The private IP address of the network interface controller (NIC).
    * 
    * @example
    * ``172.17.**.**``
    */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses that are assigned to the elastic network interface.
-   */
   privateIpSets?: CreateNetworkInterfaceResponseBodyPrivateIpSets;
   /**
    * @remarks
@@ -364,14 +351,10 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
    * rg-2ze88m67qx5z****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of the security groups to which the elastic network interface belongs.
-   */
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The ID of the distributor for the elastic network interface.
+   * The Virtual Network Operator (VNO) ID associated with the network interface controller (NIC).
    * 
    * @example
    * 12345678910
@@ -379,7 +362,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   serviceID?: number;
   /**
    * @remarks
-   * Specifies whether the elastic network interface is managed by a cloud service or a distributor.
+   * Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
    * 
    * @example
    * true
@@ -395,20 +378,16 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   sourceDestCheck?: boolean;
   /**
    * @remarks
-   * The status of the elastic network interface.
+   * The status of the network interface controller (NIC).
    * 
    * @example
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The tags of the elastic network interface.
-   */
   tags?: CreateNetworkInterfaceResponseBodyTags;
   /**
    * @remarks
-   * The type of the elastic network interface.
+   * The type of the network interface controller (NIC).
    * 
    * @example
    * Secondary
@@ -416,7 +395,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The ID of the vSwitch in the VPC.
    * 
    * @example
    * vsw-bp16usj2p27htro3****
@@ -424,7 +403,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the elastic network interface belongs.
+   * The ID of the VPC to which the ENI belongs.
    * 
    * @example
    * vpc-bp1j7w3gc1cexjqd****
@@ -432,7 +411,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-e

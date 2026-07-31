@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedHostClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host group.
+   * The ID of the dedicated host cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyDedicatedHostClusterAttributeRequest extends $dara.Model {
   dedicatedHostClusterId?: string;
   /**
    * @remarks
-   * The name of the host group. It must be 2 to 128 characters in length and start with a letter. It can contain letters, digits, periods (.), underscores (_), and hyphens (-), and cannot contain `http://` or `https://`.
+   * The name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
    * 
    * @example
    * newClusterName
@@ -23,7 +23,7 @@ export class ModifyDedicatedHostClusterAttributeRequest extends $dara.Model {
   dedicatedHostClusterName?: string;
   /**
    * @remarks
-   * The description of the host group. It must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description of the dedicated host cluster. The description must be 2 to 256 characters in length. The description cannot start with `http://` or `https://`.
    * 
    * @example
    * newClusterDescription
@@ -33,7 +33,7 @@ export class ModifyDedicatedHostClusterAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the host group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the dedicated host cluster. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

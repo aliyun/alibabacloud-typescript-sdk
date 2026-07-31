@@ -75,7 +75,7 @@ export class DescribeAutoSnapshotPolicyExRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when automatic snapshot policies are displayed in paging mode.
+   * The number of entries per page when automatic snapshot policies are returned with pagination.
    * 
    * Maximum value: 100.
    * 

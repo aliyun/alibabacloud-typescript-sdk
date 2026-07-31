@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySystemEventAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The event ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifySystemEventAttributeRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifySystemEventAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The new planned execution time of the system event. Specify the time in the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifySystemEventAttributeRequest extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

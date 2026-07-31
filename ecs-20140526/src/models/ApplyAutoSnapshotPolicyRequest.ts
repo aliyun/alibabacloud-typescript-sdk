@@ -18,7 +18,7 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * A JSON array of one or more disk IDs.
+   * The IDs of one or more cloud disks. The value is a JSON array. Separate multiple cloud disk IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The ID of the region where the automatic snapshot policy and target disks are located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of Alibaba Cloud regions.
+   * The region ID of the automatic snapshot policy and cloud disks. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

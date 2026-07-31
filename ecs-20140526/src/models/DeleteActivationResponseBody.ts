@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteActivationResponseBodyActivation extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F1234****
@@ -13,7 +13,7 @@ export class DeleteActivationResponseBodyActivation extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The time when the activation code was created.
+   * The creation time.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -21,7 +21,7 @@ export class DeleteActivationResponseBodyActivation extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The number of instances that were deregistered.
+   * The number of deregistered instances.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DeleteActivationResponseBodyActivation extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The IP addresses of the hosts that are allowed to use the activation code.
+   * The IP addresses of hosts that are allowed to use the activation code.
    * 
    * @example
    * 0.0.0.0/0
@@ -61,7 +61,7 @@ export class DeleteActivationResponseBodyActivation extends $dara.Model {
   ipAddressRange?: string;
   /**
    * @remarks
-   * The number of instances that were registered.
+   * The number of registered instances.
    * 
    * @example
    * 0
@@ -115,7 +115,7 @@ export class DeleteActivationResponseBodyActivation extends $dara.Model {
 export class DeleteActivationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the activation code and its usage information.
+   * The information about the activation code and its usage.
    */
   activation?: DeleteActivationResponseBodyActivation;
   /**

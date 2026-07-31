@@ -180,7 +180,7 @@ export class DescribeInstanceMaintenanceAttributesResponseBody extends $dara.Mod
   maintenanceAttributes?: DescribeInstanceMaintenanceAttributesResponseBodyMaintenanceAttributes;
   /**
    * @remarks
-   * The page number.
+   * The page number of the maintenance attribute list.
    * 
    * @example
    * 1

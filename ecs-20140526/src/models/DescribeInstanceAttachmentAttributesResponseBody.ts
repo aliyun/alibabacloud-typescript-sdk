@@ -61,7 +61,7 @@ export class DescribeInstanceAttachmentAttributesResponseBody extends $dara.Mode
   instances?: DescribeInstanceAttachmentAttributesResponseBodyInstances;
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance status list.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class DescribeInstanceAttachmentAttributesResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for the paged query.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeInstanceAttachmentAttributesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query conditions.
    * 
    * @example
    * 1

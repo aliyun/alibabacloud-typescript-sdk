@@ -7,7 +7,7 @@ export class CreateActivationRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the managed instance activation code. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count with the tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all the specified tags attached cannot exceed 1000. If the resource count exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
    * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class CreateActivationRequestTag extends $dara.Model {
 export class CreateActivationRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -59,7 +59,7 @@ export class CreateActivationRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the activation code. The value can be 1 to 100 characters in length.
+   * The description of the activation code. The description must be 1 to 100 characters in length.
    * 
    * @example
    * This is description.
@@ -77,11 +77,11 @@ export class CreateActivationRequest extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The default instance name prefix. The value must be 2 to 50 characters in length and must start with a letter. It cannot start with a special character or digit. It can contain only periods (.), underscores (_), hyphens (-), and colons (:). It cannot start with `http://` or `https://`.
+   * The default instance name prefix. The prefix must be 2 to 50 characters in length and must start with a letter. It cannot start with a special character or digit. It can contain only periods (.), underscores (_), hyphens (-), and colons (:). It cannot start with `http://` or `https://`.
    * 
-   * Instances registered with the activation code created by this operation use this value as the prefix to generate sequential instance names. You can also specify a new instance name when you register a managed instance to override this default value.
+   * Instances registered with the activation code created by this operation use this name as a prefix to generate sequential instance names. You can also specify a new instance name when registering a managed instance to override this default value.
    * 
-   * When you register a managed instance, if you specify a value for InstanceName, a name in the format of `<InstanceName>-001` is generated. The number of digits in `001` depends on the number of digits in the `InstanceCount` value. If you do not specify a value for InstanceName, the hostname of the host is used as the instance name.
+   * When registering a managed instance, if you specify the InstanceName value, the name `<InstanceName>-001` is generated, where the number of digits in `001` depends on the number of digits in the `InstanceCount` value. If you do not specify the InstanceName value, the hostname of the host is used as the instance name.
    * 
    * @example
    * test-InstanceName
@@ -99,8 +99,8 @@ export class CreateActivationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. Currently supported regions include China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query region IDs and other information.
+   * The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the region IDs and other information.
    * 
    * This parameter is required.
    * 

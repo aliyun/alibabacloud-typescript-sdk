@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceMaintenanceAttributesRequestMaintenanceWindow extends $dara.Model {
   /**
    * @remarks
-   * The end time of the maintenance window. The time must be on the hour. You must configure both StartTime and EndTime. The value of EndTime must be 1 to 23 hours later than the value of StartTime. Specify the time in the `HH:mm:ss` format. The time must be in UTC+8. Set the value of N to 1.
+   * The end time of the time window. The time must be on the hour. Minutes and seconds cannot be specified. The start time and end time must be specified together, and the interval between them must be 1 to 23 hours. The time is in the UTC+8 time zone and in the `HH:mm:ss` format. Valid values of N: 1. Only one time window can be specified.
    * 
    * @example
    * 18:00:00
@@ -13,7 +13,7 @@ export class ModifyInstanceMaintenanceAttributesRequestMaintenanceWindow extends
   endTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window. The time must be on the hour. You must configure both StartTime and EndTime. The value of EndTime must be 1 to 23 hours later than the value of StartTime. Specify the time in the `HH:mm:ss` format. The time must be in UTC+8. Set the value of N to 1.
+   * The start time of the time window. The time must be on the hour. Minutes and seconds cannot be specified. The start time and end time must be specified together, and the interval between them must be 1 to 23 hours. The time is in the UTC+8 time zone and in the `HH:mm:ss` format. Valid values of N: 1. Only one time window can be specified.
    * 
    * @example
    * 02:00:00
@@ -47,11 +47,9 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
    * @remarks
    * The maintenance action. Valid values:
    * 
-   * - Stop: stops the instance.
-   * 
-   * - AutoRecover: automatically recovers the instance.
-   * 
-   * - AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
+   * - Stop: The instance is stopped (that is, the instance goes down).
+   * - AutoRecover: The instance is automatically recovered.
+   * - AutoRedeploy: The instance is redeployed upon downtime, with possible data disk loss.
    * 
    * @example
    * AutoRecover
@@ -59,7 +57,7 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
   actionOnMaintenance?: string;
   /**
    * @remarks
-   * The ID of instance N. Valid values of N: 1 to 100.
+   * The instance ID. Valid values of N: 1 to 100.
    * 
    * @example
    * i-bp67acfmxazb4ph****
@@ -67,16 +65,15 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The maintenance windows.
+   * The list of maintenance time windows.
    */
   maintenanceWindow?: ModifyInstanceMaintenanceAttributesRequestMaintenanceWindow[];
   /**
    * @remarks
-   * Specifies whether to send an event notification before maintenance. Valid values:
+   * Specifies whether to send an event notification before instance downtime maintenance. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: An event notification is sent.
+   * - false: No event notification is sent.
    * 
    * Default value: false.
    * 
@@ -88,7 +85,7 @@ export class ModifyInstanceMaintenanceAttributesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

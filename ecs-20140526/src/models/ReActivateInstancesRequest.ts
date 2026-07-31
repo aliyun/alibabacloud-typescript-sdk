@@ -17,7 +17,7 @@ export class ReActivateInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
+   * The region ID of the instance. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
    * 
    * @example
    * cn-hangzhou

@@ -290,7 +290,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the query results.
+   * The page number of the query result.
    * 
    * @example
    * 1

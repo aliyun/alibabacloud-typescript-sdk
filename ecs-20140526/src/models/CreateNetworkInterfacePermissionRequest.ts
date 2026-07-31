@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud partner (certified ISV) account or individual user.
+   * The ID of the Alibaba Cloud partner (certified ISV) account or individual user account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ENI permission. Only InstanceAttach is currently supported.
+   * The network interface controller (NIC) permission action. Only InstanceAttach is supported.
    * 
-   * InstanceAttach: allows the authorized user to attach your ENI to their ECS instance. The ECS instance must be in the same zone as the ENI.
+   * InstanceAttach: allows the authorized user to attach your NIC to their ECS instance. The ECS instance must be in the same zone as the NIC.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateNetworkInterfacePermissionRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The region of the ENI permission. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list of Alibaba Cloud.
+   * The region of the network interface controller (NIC) permission. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

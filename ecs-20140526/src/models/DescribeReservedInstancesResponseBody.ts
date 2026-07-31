@@ -212,7 +212,7 @@ export class DescribeReservedInstancesResponseBodyReservedInstances extends $dar
 export class DescribeReservedInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the reserved instance list.
    * 
    * @example
    * 1

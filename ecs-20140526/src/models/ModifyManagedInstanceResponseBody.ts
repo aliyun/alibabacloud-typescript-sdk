@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyManagedInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The managed instance ID.
+   * The ID of the managed instance.
    * 
    * @example
    * mi-hz01nmcf****
@@ -13,7 +13,7 @@ export class ModifyManagedInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the managed instance.
+   * The name of the managed instance.
    * 
    * @example
    * testInstanceName
@@ -45,12 +45,12 @@ export class ModifyManagedInstanceResponseBodyInstance extends $dara.Model {
 export class ModifyManagedInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the managed instance.
+   * The information about the managed instance.
    */
   instance?: ModifyManagedInstanceResponseBodyInstance;
   /**
    * @remarks
-   * Details of the managed instance.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

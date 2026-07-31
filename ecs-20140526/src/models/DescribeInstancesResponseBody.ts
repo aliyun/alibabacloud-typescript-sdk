@@ -422,15 +422,18 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaceIpv6SetsIpv6Set extends $dara.Model {
   ipv6Address?: string;
+  primary?: boolean;
   static names(): { [key: string]: string } {
     return {
       ipv6Address: 'Ipv6Address',
+      primary: 'Primary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ipv6Address: 'string',
+      primary: 'boolean',
     };
   }
 
@@ -771,6 +774,29 @@ export class DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds exte
   }
 }
 
+export class DescribeInstancesResponseBodyInstancesInstanceSecurityOptions extends $dara.Model {
+  enableSecureBoot?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableSecureBoot: 'EnableSecureBoot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSecureBoot: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesResponseBodyInstancesInstanceTagsTag extends $dara.Model {
   tagKey?: string;
   tagValue?: string;
@@ -945,6 +971,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model 
   resourceGroupId?: string;
   saleCycle?: string;
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
+  securityOptions?: DescribeInstancesResponseBodyInstancesInstanceSecurityOptions;
   serialNumber?: string;
   spotDuration?: number;
   spotInterruptionBehavior?: string;
@@ -1015,6 +1042,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model 
       resourceGroupId: 'ResourceGroupId',
       saleCycle: 'SaleCycle',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       serialNumber: 'SerialNumber',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
@@ -1088,6 +1116,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model 
       resourceGroupId: 'string',
       saleCycle: 'string',
       securityGroupIds: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds,
+      securityOptions: DescribeInstancesResponseBodyInstancesInstanceSecurityOptions,
       serialNumber: 'string',
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
@@ -1155,6 +1184,9 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model 
     if(this.securityGroupIds && typeof (this.securityGroupIds as any).validate === 'function') {
       (this.securityGroupIds as any).validate();
     }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
+    }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
     }
@@ -1215,7 +1247,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page as specified in the request.
    * 
    * @example
    * 10
@@ -1232,8 +1264,6 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of queried instances.
-   * 
-   * > When you use `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is meaningless.
    * 
    * @example
    * 1

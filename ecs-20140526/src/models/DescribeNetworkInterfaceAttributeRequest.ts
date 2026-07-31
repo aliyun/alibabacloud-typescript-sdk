@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not yet available for use.
    * 
    * @example
    * TestValue
@@ -45,11 +45,7 @@ export class DescribeNetworkInterfaceAttributeRequestTag extends $dara.Model {
 export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The attribute to query. Valid values:
-   * 
-   * `attachment`: The attachment details for member network interfaces associated with a trunk network interface. This is an invitation-only parameter.
-   * 
-   * `connectionTrackingConfiguration`: The connection tracking configuration.
+   * The network interface controller (NIC) attribute. Valid values:
    * 
    * @example
    * attachment
@@ -57,7 +53,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   attribute?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface.
+   * The network interface controller (NIC) ID.
    * 
    * This parameter is required.
    * 
@@ -69,7 +65,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the elastic network interface resides. Call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of Alibaba Cloud regions.
+   * The region ID of the network interface controller (NIC). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -81,7 +77,7 @@ export class DescribeNetworkInterfaceAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not yet available for use.
    */
   tag?: DescribeNetworkInterfaceAttributeRequestTag[];
   static names(): { [key: string]: string } {

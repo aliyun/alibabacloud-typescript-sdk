@@ -5,24 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyImageSharePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the Alibaba Cloud accounts with which to share the image. You can specify up to 10 account IDs. If you specify more than 10 account IDs in a request, only the first 10 are processed.
+   * The Alibaba Cloud account ID to which you want to grant authorization to share the image. Valid values of N: 1 to 10. If you commit more than 10 Alibaba Cloud accounts at a time, the system processes only the first 10 accounts and ignores the rest.
    * 
    * @example
    * 1234567890
    */
   addAccount?: string[];
-  /**
-   * @remarks
-   * Specifies whether to perform a dry run. A dry run checks for request parameter validity and permissions. If the request is valid, the `DryRunOperation` error code is returned. Otherwise, an error is returned. If the request is valid, no fee is incurred and no resource is created. Set the value to `true` to perform a dry run. Default value: `false`.
-   */
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the custom image.
+   * The ID of the custom image to be shared.
    * 
-   * >Notice: 
-   * 
-   * You can no longer share images that are encrypted by using a service key. You can share only images that are encrypted by using a customer managed key (CMK). If you attempt to share an image that is encrypted by using a service key, the request fails.
+   * >Notice: Sharing images encrypted with a service key is no longer supported. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image encrypted with a service key.
    * 
    * This parameter is required.
    * 
@@ -32,11 +26,10 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Specifies whether to publish or unpublish the community image. Valid values:
+   * Specifies whether to publish or delist the community image. Valid values:
    * 
-   * - true: publishes the image as a community image.
-   * 
-   * - false: unpublishes the community image. The image becomes a custom image. If the image is a custom image, this setting has no effect.
+   * - true: Publishes the image as a community image.
+   * - false: Delists the image to a regular image. If the image is already a regular image, no change is made.
    * 
    * Default value: false.
    * 
@@ -46,7 +39,7 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   isPublic?: boolean;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * >This parameter is in invitational preview and is not available for use.
    * 
    * @example
    * hide
@@ -56,7 +49,7 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -66,7 +59,7 @@ export class ModifyImageSharePermissionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the Alibaba Cloud accounts from which to unshare the image. You can specify up to 10 account IDs. If you specify more than 10 account IDs in a request, only the first 10 are processed.
+   * The Alibaba Cloud account ID from which you want to delete image sharing. Valid values of N: 1 to 10. If you commit more than 10 Alibaba Cloud accounts at a time, the system processes only the first 10 accounts and ignores the rest.
    * 
    * @example
    * 1234567890

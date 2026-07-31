@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReInitDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically start the instance after the disk is reinitialized. Valid values:
+   * Specifies whether to automatically start the instance after the disk is re-initialized. Valid values:
    * 
    * - true: automatically starts the instance.
    * - false: does not automatically start the instance.
@@ -18,7 +18,7 @@ export class ReInitDiskRequest extends $dara.Model {
   autoStartInstance?: boolean;
   /**
    * @remarks
-   * The ID of the disk to be reinitialized.
+   * The ID of the disk to be re-initialized.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class ReInitDiskRequest extends $dara.Model {
    * @remarks
    * The name of the key pair.
    * 
-   * > This parameter is applicable only to Linux instances. When the system disk is reinitialized, you can attach an SSH key pair to the ECS instance as the logon credential. After you use an SSH key pair, the username and password logon method is disabled.
+   * > This parameter is applicable only to Linux instances. When the system disk is re-initialized, you can attach an SSH key pair to the ECS instance as a logon credential. After you use an SSH key pair, the username and password logon method is disabled.
    * 
    * @example
    * testKeyPairName
@@ -40,7 +40,7 @@ export class ReInitDiskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to reset the username and password of the ECS instance when the system disk is reinitialized. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+   * Specifies whether to reset the username and password of the ECS instance when the system disk is re-initialized. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
    * 
    * ```
    * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
@@ -58,7 +58,7 @@ export class ReInitDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to use the free Security Center service after the system disk is reinitialized. Valid values: 
+   * Specifies whether to use the free Security Center service after the system disk is re-initialized. Valid values: 
    *          
    * - Active: uses the Security Center service. This value is applicable only to public images.  
    * 

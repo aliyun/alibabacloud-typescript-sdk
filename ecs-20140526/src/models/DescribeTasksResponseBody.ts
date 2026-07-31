@@ -72,7 +72,7 @@ export class DescribeTasksResponseBodyTaskSet extends $dara.Model {
 export class DescribeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 10

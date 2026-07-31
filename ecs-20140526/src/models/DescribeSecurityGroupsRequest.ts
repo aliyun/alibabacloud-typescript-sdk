@@ -50,7 +50,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
    * Specifies whether to perform only a dry run. Valid values:
    *          
    * - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-   * - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the authorization is verified.
+   * - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the authorization is verified.
    * 
    * Default value: false.
    * 
@@ -77,7 +77,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   isQueryEcsCount?: boolean;
   /**
    * @remarks
-   * The maximum number of entries per page for paging query. If you set this parameter, the `MaxResults` and `NextToken` paging method is used.
+   * The maximum number of entries per page for a paged query. Settings this parameter indicates that the `MaxResults` and `NextToken` combination is used for paging.
    * 
    * Maximum value: 100.
    * 
@@ -100,7 +100,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous request. You do not need to set this parameter for the first request.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -110,7 +110,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be offline. Use NextToken and MaxResults for paging.
+   * > This parameter will be offline soon. Use NextToken and MaxResults for paged query and paging operations.
    * 
    * @example
    * 1
@@ -118,7 +118,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be offline. Use NextToken and MaxResults for paging.
+   * > This parameter will be offline soon. Use NextToken and MaxResults for paged query and paging operations.
    * 
    * @example
    * 10
@@ -148,7 +148,7 @@ export class DescribeSecurityGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-bp67acfmxazb4p****

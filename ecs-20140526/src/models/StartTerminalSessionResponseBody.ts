@@ -29,7 +29,7 @@ export class StartTerminalSessionResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The URL of the WebSocket session for the remote connection to the ECS instance. The URL contains the session ID (`SessionId`) and the `SecurityToken` for system verification.
+   * The URL of the WebSocket session for the remote connection to the ECS instance. The URL contains the session ID (SessionId) and the SecurityToken used for system verification.
    * 
    * @example
    * wss://cn-hangzhou.axt.aliyuncs.com/session?sessionId=s-hz023od0x9****&token=d86c2df2-d19c-4bd8-b817-a19ef123****

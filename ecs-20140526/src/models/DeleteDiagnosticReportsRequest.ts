@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDiagnosticReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDiagnosticReportsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the diagnostic reports. You can specify up to 100 resource IDs.
+   * The list of diagnostic report IDs. A maximum of 100 IDs are supported.
    * 
    * This parameter is required.
    */

@@ -443,10 +443,6 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroups ex
 }
 
 export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The auto provisioning groups.
-   */
   autoProvisioningGroups?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroups;
   /**
    * @remarks
@@ -474,7 +470,7 @@ export class DescribeAutoProvisioningGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of auto provisioning groups found.
+   * The total number of queried auto-provisioning groups.
    * 
    * @example
    * 10

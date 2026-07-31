@@ -115,7 +115,7 @@ export class DescribeImageSharePermissionResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The page number of the returned results.
+   * The page number of the query results.
    * 
    * @example
    * 1

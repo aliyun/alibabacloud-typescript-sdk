@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyReservedInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Modifies the attributes of a reserved instance, such as its name and description.
+   * The error code returned.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyReservedInstanceAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ModifyReservedInstanceAttributeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message for this instance operation. The return value Success indicates that this operation is successful. For more information, see the "Error codes" section in this topic.
+   * The error message returned for the instance operation. A return value of Success indicates success. For more information, see the error codes section.
    * 
    * @example
    * Success
@@ -29,7 +29,7 @@ export class ModifyReservedInstanceAttributeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSendFileResultsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key for the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * The tag key of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
    * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
@@ -17,7 +17,7 @@ export class DescribeSendFileResultsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value for the file sending task. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the file sending task. Valid values of N: 1 to 20. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -59,13 +59,13 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The overall sending status of the file. The overall status depends on the combined execution status of all target instances. Valid values:
+   * The overall sending status of the file. The overall status depends on the combined execution status of all instances in the sending task. Valid values:
    * 
    * - Pending: The system is validating or sending the file. The overall status is Pending if the file sending status of at least one instance is Pending.
-   * - Running: The file is being sent to the instance. The overall status is Running if the file sending status of at least one instance is Running.
-   * - Success: The file is sent successfully. The overall status is Success if the file sending status of all instances is Success.
+   * - Running: The file is being sent on instances. The overall status is Running if the file sending status of at least one instance is Running.
+   * - Success: The file is sent. The overall status is Success if the file sending status of all instances is Success.
    * - Failed: The file failed to be sent. The overall status is Failed if the file sending status of all instances is Failed.
-   * - PartialFailed: The file is sent to some instances but fails on others. The overall status is PartialFailed if the file sending status of all instances is Success or Failed.
+   * - PartialFailed: The file is sent on some instances but failed on others. The overall status is PartialFailed if the file sending status of all instances is Success or Failed.
    * 
    * @example
    * Success
@@ -81,7 +81,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page in a paging query.
+   * The maximum number of entries per page for a paged query.
    * 
    * Maximum value: 50.
    * 
@@ -111,7 +111,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
    * 
    * @example
    * 1
@@ -119,7 +119,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. Use NextToken and MaxResults to complete paging query operations.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
    * 
    * @example
    * 10
@@ -147,7 +147,7 @@ export class DescribeSendFileResultsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: DescribeSendFileResultsRequestTag[];
   static names(): { [key: string]: string } {

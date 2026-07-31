@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotLinksRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of disks. You can specify up to 100 disk IDs at a time. The DiskIds parameter is a JSON array. Separate multiple IDs with commas (,).
+   * The disk IDs. You can specify up to 100 disk IDs at a time. The DiskIds parameter is a JSON array. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["d-bp1d6tsvznfghy7y****", "d-bp1ippxbaql9zet7****", … "d-bp1ib7bcz07lcxa9****"]
@@ -74,7 +74,7 @@ export class DescribeSnapshotLinksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of snapshot chains. You can specify up to 100 snapshot chain IDs at a time. The SnapshotLinkIds parameter is a JSON array. Separate multiple IDs with commas (,).
+   * The snapshot chain IDs. You can specify up to 100 snapshot chain IDs at a time. The SnapshotLinkIds parameter is a JSON array. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]

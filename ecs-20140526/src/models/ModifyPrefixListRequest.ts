@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrefixListRequestAddEntry extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block in entry N to be added to the prefix list. Valid values of N: 0 to 200.
+   * The Classless Inter-Domain Routing (CIDR) block of the prefix list entry to add. Valid values of N: 0 to 200.
    * 
-   * Take note of the following items when you add the entries:
-   * 
-   * - The total number of entries in the prefix list cannot exceed the maximum number of entries you specified for the prefix list. You can call the [DescribePrefixListAttributes](https://help.aliyun.com/document_detail/205872.html) operation to query the maximum number of entries that the prefix list can contain.
-   * 
-   * - You cannot specify duplicate CIDR blocks.
-   * 
-   * - The CIDR blocks cannot be the same as the `RemoveEntry.N.Cidr` values.
+   * Take note of the following items:
+   * - The total number of entries in the prefix list cannot exceed the maximum number of entries supported by the prefix list. You can invoke [DescribePrefixListAttributes](https://help.aliyun.com/document_detail/205872.html) to query the maximum number of entries supported by a specified prefix list.
+   * - Duplicate CIDR blocks are not allowed in Settings.
+   * - The value cannot be the same as the value of the `RemoveEntry.N.Cidr` parameter.
    * 
    * This parameter is required.
    * 
@@ -23,7 +20,7 @@ export class ModifyPrefixListRequestAddEntry extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The description in entry N. The description must be 2 to 32 characters in length and cannot start with `http://` or `https://`. Valid values of N: 0 to 200.
+   * The description of the prefix list entry. The description must be 2 to 32 characters in length and cannot start with `http://` or `https://`. Valid values of N: 0 to 200.
    * 
    * @example
    * Description Sample 01
@@ -55,13 +52,11 @@ export class ModifyPrefixListRequestAddEntry extends $dara.Model {
 export class ModifyPrefixListRequestRemoveEntry extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block in entry N to be deleted from the prefix list. Valid values of N: 0 to 200.
+   * The Classless Inter-Domain Routing (CIDR) block of the prefix list entry to delete. Valid values of N: 0 to 200.
    * 
-   * Take note of the following items when you delete the entries:
-   * 
-   * - You cannot specify duplicate CIDR blocks.
-   * 
-   * - The CIDR blocks cannot be the same as the `AddEntry.N.Cidr` values.
+   * Take note of the following items:
+   * - Duplicate CIDR blocks are not allowed in Settings.
+   * - The value cannot be the same as the value of the `AddEntry.N.Cidr` parameter.
    * 
    * This parameter is required.
    * 
@@ -93,7 +88,7 @@ export class ModifyPrefixListRequestRemoveEntry extends $dara.Model {
 export class ModifyPrefixListRequest extends $dara.Model {
   /**
    * @remarks
-   * The entries to be added to the prefix list.
+   * The prefix list entries to add.
    */
   addEntry?: ModifyPrefixListRequestAddEntry[];
   /**
@@ -108,7 +103,7 @@ export class ModifyPrefixListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the prefix list.
+   * The prefix list ID.
    * 
    * This parameter is required.
    * 
@@ -118,7 +113,7 @@ export class ModifyPrefixListRequest extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The name of the prefix list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the prefix list. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`. It can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * PrefixListNameSample
@@ -126,7 +121,7 @@ export class ModifyPrefixListRequest extends $dara.Model {
   prefixListName?: string;
   /**
    * @remarks
-   * The region ID of the prefix list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -136,7 +131,7 @@ export class ModifyPrefixListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The entries to be deleted from the prefix list.
+   * The prefix list entries to delete.
    */
   removeEntry?: ModifyPrefixListRequestRemoveEntry[];
   resourceOwnerAccount?: string;

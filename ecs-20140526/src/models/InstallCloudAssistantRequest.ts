@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallCloudAssistantRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The IDs of the instances. You can specify 1 to 50 instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class InstallCloudAssistantRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of instances. You can specify up to 50 instance IDs in a single request.
+   * The region ID of the instances. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

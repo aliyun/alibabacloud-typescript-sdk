@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewDedicatedHostsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 23841229****

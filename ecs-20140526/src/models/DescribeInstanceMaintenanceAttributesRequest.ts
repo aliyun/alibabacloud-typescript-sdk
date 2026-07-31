@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceMaintenanceAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance IDs. You can specify up to 100 instance IDs.
+   * The list of instance IDs. You can specify up to 100 instance IDs.
    * 
    * @example
    * i-bp67acfmxazb4p****
@@ -15,11 +15,11 @@ export class DescribeInstanceMaintenanceAttributesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the maintenance attribute list.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeInstanceMaintenanceAttributesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values: 1 to 100.
    * 
-   * Default value: 10.
+   * Default value: 10
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeInstanceMaintenanceAttributesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

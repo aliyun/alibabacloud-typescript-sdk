@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePortRangeListAssociationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging queries.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -17,7 +17,7 @@ export class DescribePortRangeListAssociationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The pagination token. Set this parameter to the value of `NextToken` that was returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh15YZPnzqF7Vs2EB6Ix327v
@@ -27,7 +27,7 @@ export class DescribePortRangeListAssociationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the port list.
+   * The port range list ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribePortRangeListAssociationsRequest extends $dara.Model {
   portRangeListId?: string;
   /**
    * @remarks
-   * The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the port range list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

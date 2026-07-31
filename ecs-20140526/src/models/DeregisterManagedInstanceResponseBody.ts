@@ -61,7 +61,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The number of times that Cloud Assistant tasks were executed on the managed instance.
+   * The number of times that Cloud Assistant tasks were run on the managed instance.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the Cloud Assistant task was last executed.
+   * The time when the last Cloud Assistant task was run.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -77,7 +77,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   lastInvokedTime?: string;
   /**
    * @remarks
-   * The machine code of the managed instance.
+   * The machine ID of the managed instance.
    * 
    * @example
    * e03231b37ab14e53b5795ad625fc****
@@ -85,7 +85,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   machineId?: string;
   /**
    * @remarks
-   * The operating system type of the managed instance.
+   * The operating system of the managed instance.
    * 
    * @example
    * linux
@@ -93,7 +93,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The version information about the operating system.
+   * The version of the operating system.
    * 
    * @example
    * Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
@@ -165,7 +165,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
 export class DeregisterManagedInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the managed instances.
+   * The information about the managed instance.
    */
   instance?: DeregisterManagedInstanceResponseBodyInstance;
   /**

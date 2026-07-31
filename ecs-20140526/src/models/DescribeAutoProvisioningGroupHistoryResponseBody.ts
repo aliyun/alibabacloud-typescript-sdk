@@ -281,10 +281,6 @@ export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGro
 }
 
 export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array of scheduled task history records.
-   */
   autoProvisioningGroupHistories?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistories;
   /**
    * @remarks
@@ -312,7 +308,7 @@ export class DescribeAutoProvisioningGroupHistoryResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of scheduled tasks.
+   * The total number of scheduling tasks queried.
    * 
    * @example
    * 10

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageFromFamilyRequest extends $dara.Model {
   /**
    * @remarks
-   * The family name of the image that you want to use to create the instances.
+   * The name of the image family.
    * 
-   * You can configure image families for custom images, public images, community images, and shared images. For more information, see [Overview of image families](https://help.aliyun.com/document_detail/174241.html).
+   * Image families are supported for custom images, public images, community images, and shared images. For more information, see [Image family overview](https://help.aliyun.com/document_detail/174241.html).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeImageFromFamilyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region in which to create the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -121,7 +121,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of snapshot chains.
-   * > When you use the `MaxResults` and `NextToken` parameters for a paged query, the returned `TotalCount` value is invalid. For paging, use `MaxResults` and `NextToken` instead.
+   * > When you use the `MaxResults` and `NextToken` parameters for a paged query, the returned `TotalCount` value is invalid. For paging, use `NextToken` and `MaxResults` instead.
    * 
    * @example
    * 9

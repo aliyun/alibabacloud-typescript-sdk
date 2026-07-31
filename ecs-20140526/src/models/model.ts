@@ -378,6 +378,7 @@ export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportIm
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTagsImportImageTag } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptions } from './DescribeImagePipelinesResponseBody';
+export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetRepairItems } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetTagsTag } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetTags } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetToRegionIds } from './DescribeImagePipelinesResponseBody';
@@ -412,6 +413,7 @@ export { DescribeInstanceAttributeResponseBodyOperationLocksLockReason } from '.
 export { DescribeInstanceAttributeResponseBodyOperationLocks } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAttributeResponseBodyPublicIpAddress } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAttributeResponseBodySecurityGroupIds } from './DescribeInstanceAttributeResponseBody';
+export { DescribeInstanceAttributeResponseBodySecurityOptions } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAttributeResponseBodyVpcAttributes } from './DescribeInstanceAttributeResponseBody';
 export { DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributesInstanceRenewAttribute } from './DescribeInstanceAutoRenewAttributeResponseBody';
@@ -468,6 +470,7 @@ export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBa
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeightingWeightingInfos } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfoBandwidthWeighting } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeNetworkInfo } from './DescribeInstanceTypesResponseBody';
+export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSecurityOptions } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeSupportedBootModes } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypesInstanceType } from './DescribeInstanceTypesResponseBody';
 export { DescribeInstanceTypesResponseBodyInstanceTypes } from './DescribeInstanceTypesResponseBody';
@@ -500,6 +503,7 @@ export { DescribeInstancesResponseBodyInstancesInstancePrivateDnsNameOptions } f
 export { DescribeInstancesResponseBodyInstancesInstancePublicIpAddress } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesInstanceRdmaIpAddress } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds } from './DescribeInstancesResponseBody';
+export { DescribeInstancesResponseBodyInstancesInstanceSecurityOptions } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesInstanceTagsTag } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesInstanceTags } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyInstancesInstanceVpcAttributesPrivateIpAddress } from './DescribeInstancesResponseBody';

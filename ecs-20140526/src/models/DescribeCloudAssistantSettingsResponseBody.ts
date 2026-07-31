@@ -32,7 +32,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   allowedUpgradeWindows?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows;
   /**
    * @remarks
-   * Indicates whether the Cloud Assistant agent checks for and applies updates upon startup.
+   * Indicates whether Cloud Assistant Agent checks for and performs updates immediately upon startup.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   bootstrapUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether to prevent the Cloud Assistant agent from automatically updating.
+   * Indicates whether Cloud Assistant Agent is prohibited from checking for and performing updates.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   disableUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether custom agent upgrade settings are enabled. If this parameter is not specified or is set to `false`, the system attempts to upgrade the agent every 30 minutes by default.
+   * Indicates whether the custom Agent upgrade configuration is enabled. If the value is false or empty, the default behavior is to attempt an upgrade every 30 minutes.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   enabled?: boolean;
   /**
    * @remarks
-   * The time zone of the allowed upgrade windows.
+   * The time zone of the allowed upgrade time windows.
    * 
    * @example
    * Asia/Shanghai
@@ -164,7 +164,7 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
 export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig extends $dara.Model {
   /**
    * @remarks
-   * The maximum CPU usage limit for the main process of the Cloud Assistant agent.
+   * The maximum CPU usage allowed for the Cloud Assistant Agent main process.
    * 
    * @example
    * 20
@@ -172,7 +172,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   cpuLimit?: number;
   /**
    * @remarks
-   * Indicates whether to retain the script file in the Cloud Assistant directory after a command invocation is complete.
+   * Indicates whether the script file is retained in the Cloud Assistant directory after command execution is complete.
    * 
    * @example
    * false
@@ -188,7 +188,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   logFileCountLimit?: number;
   /**
    * @remarks
-   * The maximum size for a single Cloud Assistant log file.
+   * The size limit of Cloud Assistant log files.
    * 
    * @example
    * 100MB
@@ -196,7 +196,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   logSizeLimit?: string;
   /**
    * @remarks
-   * The maximum memory usage limit for the main process of the Cloud Assistant agent.
+   * The maximum memory usage allowed for the Cloud Assistant Agent main process.
    * 
    * @example
    * 35MB
@@ -204,7 +204,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   memoryLimit?: string;
   /**
    * @remarks
-   * The number of consecutive times CPU or memory usage can exceed the configured limits before the Cloud Assistant agent process is terminated.
+   * The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, Cloud Assistant Agent automatically stops running.
    * 
    * @example
    * 3
@@ -244,15 +244,12 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Session Manager feature is enabled. Valid values:
+   * Specifies whether the Cloud Assistant session feature is enabled. Valid values:
+   * * true: Enabled.
+   * * false: Disabled.
    * 
-   * - `true`: enabled
-   * 
-   * - `false`: disabled
-   * 
-   * **Note**:
-   * 
-   * - This setting takes effect in all regions.
+   * Note:
+   * * Enabling or disabling the session feature takes effect across all regions.
    * 
    * @example
    * true
@@ -340,7 +337,7 @@ export class DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs extend
 export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The upgrade settings for the Cloud Assistant agent.
+   * The Cloud Assistant Agent upgrade configuration.
    */
   agentUpgradeConfig?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig;
   ossDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs;
@@ -354,12 +351,12 @@ export class DescribeCloudAssistantSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource usage settings for the Cloud Assistant agent.
+   * The Cloud Assistant resource usage configuration.
    */
   resourceUsageConfig?: DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig;
   /**
    * @remarks
-   * Configurations for the Session Manager feature.
+   * The Cloud Assistant session feature configuration.
    */
   sessionManagerConfig?: DescribeCloudAssistantSettingsResponseBodySessionManagerConfig;
   slsDeliveryConfigs?: DescribeCloudAssistantSettingsResponseBodySlsDeliveryConfigs;

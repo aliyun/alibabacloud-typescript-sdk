@@ -13,7 +13,7 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the diagnostic metric needs to be assessed by running a Cloud Assistant command in a guest operating system.
+   * Indicates whether a script needs to be executed in the guest OS.
    * 
    * @example
    * true
@@ -53,13 +53,11 @@ export class DescribeDiagnosticMetricsResponseBodyMetrics extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The operating system type supported by the diagnostic metric. Valid values:
+   * The supported operating system. Valid values:
    * 
-   * - Windows
-   * 
-   * - Linux
-   * 
-   * - All: Windows and Linux
+   * - Windows: Windows operating systems are supported.
+   * - Linux: Linux operating systems are supported.
+   * - All: both Windows and Linux operating systems are supported.
    * 
    * @example
    * ALL
@@ -106,7 +104,7 @@ export class DescribeDiagnosticMetricsResponseBody extends $dara.Model {
   metrics?: DescribeDiagnosticMetricsResponseBodyMetrics[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

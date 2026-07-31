@@ -61,7 +61,7 @@ export class DescribeImageSupportInstanceTypesRequest extends $dara.Model {
   actionType?: string;
   /**
    * @remarks
-   * The list of filter conditions for querying resources.
+   * The list of filter conditions used to query resources.
    */
   filter?: DescribeImageSupportInstanceTypesRequestFilter[];
   /**

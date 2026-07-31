@@ -7,7 +7,7 @@ export class DeleteSnapshotGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the snapshot-consistent group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the snapshot-consistent group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
    * 
    * This parameter is required.
    * 

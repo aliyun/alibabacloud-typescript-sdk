@@ -31,11 +31,11 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The ID of the destination security group to which you want to grant access permissions. Specify at least one of `DestGroupId` and `DestCidrIp`.
+   * The ID of the destination security group for which you want to configure access permissions. Set at least one of `DestGroupId` and `DestCidrIp`.
    * 
-   * - Specify at least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId.
-   * - If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can only be set to intranet.
-   * - If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence.
+   * - Set at least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId.
+   * - If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can be set only to intranet.
+   * - If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence by default.
    * 
    * @example
    * sg-bp67acfmxa123b****
@@ -43,7 +43,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   destGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the destination security group when you set a cross-account security group rule.
+   * The Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
    * 
    * @example
    * EcsforCloud@Alibaba.com
@@ -51,7 +51,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   destGroupOwnerAccount?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the destination security group when you set a cross-account security group rule.
+   * The ID of the Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
    * 
    * @example
    * 1234567890
@@ -93,7 +93,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The destination IPv6 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv6 format IP address range are supported.
    * 
-   * > Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time. Settings for both parameters simultaneously are not allowed.
+   * > Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time. Settings for this parameter and `DestCidrIp` are mutually exclusive.
    * 
    * Default value: null.
    * 
@@ -105,7 +105,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
    * @remarks
    * The source IPv6 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv6 format IP address range are supported.
    * 
-   * > Only VPC-type IP addresses are supported. This parameter and `SourceCidrIp` cannot be specified at the same time. Settings for both parameters simultaneously are not allowed.
+   * > Only VPC-type IP addresses are supported. Settings for this parameter and `SourceCidrIp` are mutually exclusive.
    * 
    * Default value: null.
    * 
@@ -115,7 +115,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The network interface type.
+   * The network interface controller (NIC) type.
    * 
    * > When you modify a rule by specifying the security group rule ID, this parameter cannot be modified. To make such a change, add a new rule and then delete the current rule.
    * 
@@ -198,7 +198,7 @@ export class ModifySecurityGroupEgressRuleRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The security group rule ID. You can call [DescribeSecurityGroupAttribute](https://help.aliyun.com/document_detail/2679845.html) to query the security group rule ID.
+   * The security group rule ID. You can call [DescribeSecurityGroupAttribute](https://help.aliyun.com/document_detail/2679845.html) to query security group rule IDs.
    * 
    * @example
    * sgr-bp67acfmxazb4q****

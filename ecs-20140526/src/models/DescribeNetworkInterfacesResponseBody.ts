@@ -160,15 +160,18 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6SetsIpv6Set extends $dara.Model {
   ipv6Address?: string;
+  primary?: boolean;
   static names(): { [key: string]: string } {
     return {
       ipv6Address: 'Ipv6Address',
+      primary: 'Primary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ipv6Address: 'string',
+      primary: 'boolean',
     };
   }
 
@@ -533,7 +536,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   networkInterfaceSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -541,9 +544,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the returned page.
-   * 
-   * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+   * The paging query parameter.
    * 
    * @example
    * 1
@@ -551,9 +552,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
-   * 
-   * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+   * The paging query parameter.
    * 
    * @example
    * 1
@@ -569,9 +568,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of ENIs.
-   * 
-   * > If you specify the `MaxResults` and `NextToken` parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
+   * The total number of Elastic Network Interfaces (ENIs) returned.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDedicatedHostClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host group.
+   * The ID of the dedicated host cluster.
    * 
    * @example
    * dc-bp12wlf6bw0vz9v2****

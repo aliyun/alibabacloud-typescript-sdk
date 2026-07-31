@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the ECS instances belong.
+   * The cluster ID of the instances.
    * 
-   * > This parameter is deprecated. We recommend that you do not use this parameter.
+   * >Notice: This parameter is deprecated and is not recommended.
    * 
    * @example
    * cls-bp67acfmxazb4p****
@@ -15,9 +15,9 @@ export class DescribeInstanceStatusRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The IDs of ECS instances. You can specify 1 to 100 instance IDs.
+   * The instance ID array. Array length: 1 to 100.
    * 
-   * Example: ["i-bp1j4i2jdf3owlhe\\*\\*\\*\\*", "i-bp1j4i2jdf3o1234\\*\\*\\*\\*"].
+   * Example: ["i-bp1j4i2jdf3owlhe****", "i-bp1j4i2jdf3o1234****"].
    * 
    * @example
    * i-bp1j4i2jdf3owlhe****
@@ -27,9 +27,9 @@ export class DescribeInstanceStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance status list.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -39,7 +39,7 @@ export class DescribeInstanceStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50.
+   * The number of entries per page for paging. Valid values: 1 to 50.
    * 
    * Default value: 10.
    * 
@@ -49,7 +49,7 @@ export class DescribeInstanceStatusRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the instances. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class DescribeInstanceStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The zone ID of the instances. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+   * The zone to which the instances belong. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the most recent zone list.
    * 
    * @example
    * cn-hangzhou-d

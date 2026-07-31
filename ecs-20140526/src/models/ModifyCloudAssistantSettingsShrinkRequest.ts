@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of upgrading the Cloud Assistant agent.
+   * The Cloud Assistant Agent upgrade configuration.
    */
   agentUpgradeConfigShrink?: string;
   /**
    * @remarks
-   * The configurations of delivering records to OSS.
+   * The OSS delivery configuration.
    */
   ossDeliveryConfigShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The configurations of resource usage for Cloud Assistant. This setting takes effect only when the version of the Cloud Assistant agent is not earlier than the following versions:
+   * The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
    * 
    * - Windows: 2.1.4.1065
    * 
@@ -38,20 +38,16 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   resourceUsageConfigShrink?: string;
   /**
    * @remarks
-   * The configurations of the Session Manager feature.
+   * The Cloud Assistant session feature configuration.
    */
   sessionManagerConfigShrink?: string;
   /**
    * @remarks
-   * The type of the service configurations. Valid values:
-   * 
-   * - `SessionManagerDelivery`: the configurations of delivering session records.
-   * 
-   * - `InvocationDelivery`: the configurations of delivering command execution records.
-   * 
-   * - `AgentUpgradeConfig`: the configurations of upgrading the Cloud Assistant agent.
-   * 
-   * - `SessionManagerConfig`: the configurations of Cloud Assistant Session Manager.
+   * The service configuration type. Valid values:
+   * - SessionManagerDelivery: session operation log delivery.
+   * - InvocationDelivery: task execution log delivery.
+   * - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration.
+   * - SessionManagerConfig: Cloud Assistant SessionManager configuration.
    * 
    * This parameter is required.
    * 
@@ -61,7 +57,7 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   settingType?: string;
   /**
    * @remarks
-   * The configurations of delivering records to SLS.
+   * The Simple Log Service (SLS) delivery configuration.
    */
   slsDeliveryConfigShrink?: string;
   static names(): { [key: string]: string } {

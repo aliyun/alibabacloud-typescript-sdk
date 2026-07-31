@@ -317,7 +317,7 @@ export class DescribeDedicatedHostClustersResponseBody extends $dara.Model {
   dedicatedHostClusters?: DescribeDedicatedHostClustersResponseBodyDedicatedHostClusters;
   /**
    * @remarks
-   * The page number.
+   * The page number of the dedicated host cluster list.
    * 
    * @example
    * 1
@@ -341,7 +341,7 @@ export class DescribeDedicatedHostClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of dedicated host clusters.
+   * The total number of dedicated hosts.
    * 
    * @example
    * 2

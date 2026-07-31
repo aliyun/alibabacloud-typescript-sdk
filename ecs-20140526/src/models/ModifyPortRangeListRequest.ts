@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
   /**
    * @remarks
-   * The description of the port range in entry N. The description must be 2 to 32 characters in length and cannot start with http\\:// or https\\://. Valid values of N: 0 to 200.
+   * The description of the port range. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
    * 
    * @example
    * This is description.
@@ -13,13 +13,13 @@ export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
+   * The port range. Valid values of N: 0 to 200. Settings:
    * 
-   * - The total number of entries in the port list cannot exceed the `MaxEntries` value.
+   * - The number of entries cannot exceed the maximum entry capacity (`MaxEntries`).
    * 
-   * - `PortRange` in different entries cannot be duplicated.
+   * - You cannot specify duplicate values for `PortRange`.
    * 
-   * - The value of this parameter cannot be the same as the value of `RemoveEntry.N.PortRange`.
+   * - The value cannot be the same as the value of the `RemoveEntry.N.PortRange` parameter.
    * 
    * @example
    * 80/80
@@ -51,11 +51,11 @@ export class ModifyPortRangeListRequestAddEntry extends $dara.Model {
 export class ModifyPortRangeListRequestRemoveEntry extends $dara.Model {
   /**
    * @remarks
-   * The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
+   * The port range. Valid values of N: 0 to 200. Settings:
    * 
-   * - `PortRange` in different entries cannot be duplicated.
+   * - You cannot specify duplicate values for `PortRange`.
    * 
-   * - The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
+   * - The value cannot be the same as the value of the `AddEntry.N.PortRange` parameter.
    * 
    * @example
    * 80/80
@@ -85,7 +85,7 @@ export class ModifyPortRangeListRequestRemoveEntry extends $dara.Model {
 export class ModifyPortRangeListRequest extends $dara.Model {
   /**
    * @remarks
-   * The entries that you want to add or modify for the port list.
+   * The entries to add or modify in the port range list.
    */
   addEntry?: ModifyPortRangeListRequestAddEntry[];
   /**
@@ -98,7 +98,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the port list. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
+   * The description of the port range list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * This is description.
@@ -108,7 +108,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the port list.
+   * The ID of the port range list to modify.
    * 
    * This parameter is required.
    * 
@@ -118,7 +118,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   portRangeListId?: string;
   /**
    * @remarks
-   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the port range list. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with http://, https://, com.aliyun, or com.alibabacloud. It can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * PortRangeListNameSample
@@ -126,7 +126,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   portRangeListName?: string;
   /**
    * @remarks
-   * The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the port range list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -136,7 +136,7 @@ export class ModifyPortRangeListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The entries that you want to remove from the port list.
+   * The entries to delete from the port range list.
    */
   removeEntry?: ModifyPortRangeListRequestRemoveEntry[];
   resourceOwnerAccount?: string;

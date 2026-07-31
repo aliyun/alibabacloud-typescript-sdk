@@ -58,7 +58,7 @@ export class DescribeClassicLinkInstancesResponseBody extends $dara.Model {
   links?: DescribeClassicLinkInstancesResponseBodyLinks;
   /**
    * @remarks
-   * The page number.
+   * The page number in the paging query.
    * 
    * @example
    * 1
@@ -66,7 +66,7 @@ export class DescribeClassicLinkInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in the paging query.
    * 
    * @example
    * 10
@@ -82,7 +82,7 @@ export class DescribeClassicLinkInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of ClassicLink connections.
+   * The total number of connections.
    * 
    * @example
    * 2

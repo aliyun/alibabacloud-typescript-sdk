@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVscResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * DD38F-12VBW2-**EKX
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the Virtual Storage Channel.
+   * 
    * @example
    * vsc-b*d31dq
    */

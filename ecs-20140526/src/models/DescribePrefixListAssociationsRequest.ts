@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrefixListAssociationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The number of entries per page for paging.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -17,7 +17,7 @@ export class DescribePrefixListAssociationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the `NextToken` value returned in the previous call to the DescribePrefixListAssociations operation. Leave this parameter empty the first time you call this operation.
+   * The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -27,7 +27,7 @@ export class DescribePrefixListAssociationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the prefix list.
+   * The prefix list ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribePrefixListAssociationsRequest extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The region ID of the prefix list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

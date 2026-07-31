@@ -13,7 +13,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   accountId?: number;
   /**
    * @remarks
-   * The ENI ID.
+   * The ID of the network interface controller (NIC).
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -21,7 +21,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ENI permission ID.
+   * The ID of the network interface controller (NIC) permission.
    * 
    * @example
    * eni-perm-bp1cs4lwn56lfb****
@@ -29,7 +29,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   networkInterfacePermissionId?: string;
   /**
    * @remarks
-   * The ENI permission.
+   * The network interface controller (NIC) permission.
    * 
    * @example
    * InstanceAttach
@@ -37,12 +37,12 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
   permission?: string;
   /**
    * @remarks
-   * The ENI permission state. Valid values:
+   * The status of the network interface controller (NIC) permission. Valid values:
    * 
-   * - Pending: The permission is being granted.
-   * - Granted: The permission has been granted.
-   * - Revoking: The permission is being revoked.
-   * - Revoked: The permission has been revoked.
+   * - Pending: Authorization in progress.
+   * - Granted: Authorization granted.
+   * - Revoking: Authorization being revoked.
+   * - Revoked: Authorization revoked.
    * 
    * @example
    * Granted
@@ -90,7 +90,7 @@ export class CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermiss
 export class CreateNetworkInterfacePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the ENI permission.
+   * The information about the network interface controller (NIC) permissions.
    */
   networkInterfacePermission?: CreateNetworkInterfacePermissionResponseBodyNetworkInterfacePermission;
   /**

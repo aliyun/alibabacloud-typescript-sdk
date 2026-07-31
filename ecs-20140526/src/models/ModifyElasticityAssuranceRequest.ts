@@ -15,7 +15,7 @@ export class ModifyElasticityAssuranceRequestPrivatePoolOptions extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The name of the elasticity assurance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http\\:// or https\\://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the elasticity assurance. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. The name can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
    * eapTestName
@@ -47,7 +47,7 @@ export class ModifyElasticityAssuranceRequestPrivatePoolOptions extends $dara.Mo
 export class ModifyElasticityAssuranceRequestRecurrenceRules extends $dara.Model {
   /**
    * @remarks
-   * The end time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * The end time of the time-sharing assurance. The value must be on the hour.
    * 
    * @example
    * 10
@@ -55,15 +55,12 @@ export class ModifyElasticityAssuranceRequestRecurrenceRules extends $dara.Model
   endHour?: number;
   /**
    * @remarks
-   * The type of the assurance schedule. Valid values:
+   * The policy type of the recurrence rule. Valid values:
+   * - Daily: repeats on a daily basis.
+   * - Weekly: repeats on a weekly basis.
+   * - Monthly: repeats on a monthly basis.
    * 
-   * - Daily
-   * 
-   * - Weekly
-   * 
-   * - Monthly
-   * 
-   * > If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * > You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
    * @example
    * Daily
@@ -71,15 +68,13 @@ export class ModifyElasticityAssuranceRequestRecurrenceRules extends $dara.Model
   recurrenceType?: string;
   /**
    * @remarks
-   * The days of the week or month on which the capacity reservation of the time-segmented elasticity assurance takes effect or the interval, in number of days, at which the capacity reservation takes effect.
+   * The value of the recurrence rule.
    * 
-   * - If you set `RecurrenceType` to `Daily`, you can specify only one value. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
+   * - If `RecurrenceType` is set to `Daily`, you can specify only one value. Valid values: 1 to 31. The value specifies the interval in days between recurrences.
+   * - If `RecurrenceType` is set to `Weekly`, you can specify multiple values separated by commas (,). The values for Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6. For example, `1,2` specifies Monday and Tuesday.
+   * - If `RecurrenceType` is set to `Monthly`, the format is `A-B`. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` specifies the 1st to 5th day of each month.
    * 
-   * - If you set `RecurrenceType` to `Weekly`, you can specify multiple values. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
-   * 
-   * - If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format. Valid values of A and B: 1 to 31. B must be greater than or equal to A. Example: `1-5`, which specifies that the capacity reservation takes effect every day from the first day up to the fifth day of each month.
-   * 
-   * > If this parameter is specified, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * > You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
    * @example
    * 5
@@ -87,9 +82,9 @@ export class ModifyElasticityAssuranceRequestRecurrenceRules extends $dara.Model
   recurrenceValue?: string;
   /**
    * @remarks
-   * The start time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * The effective period start time of the time-sharing assurance. The value must be on the hour.
    * 
-   * > You must specify both `StartHour` and `EndHour`. The EndHour value must be at least 4 hours later than the StartHour value.
+   * > You must specify both `StartHour` and `EndHour`, and the difference between them must be at least 4 hours.
    * 
    * @example
    * 4
@@ -126,7 +121,7 @@ export class ModifyElasticityAssuranceRequest extends $dara.Model {
   privatePoolOptions?: ModifyElasticityAssuranceRequestPrivatePoolOptions;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -142,7 +137,7 @@ export class ModifyElasticityAssuranceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The total number of instances for which you want to reserve capacity. Valid values: the number of created instances to 1000. This parameter is mutually exclusive with other parameters in the same request.
+   * The total number of instances to be reserved by the elasticity assurance. Valid values: number of used instances to 1000. This parameter cannot be modified together with other parameters.
    * 
    * @example
    * 10
@@ -152,14 +147,12 @@ export class ModifyElasticityAssuranceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The assurance schedules of the time-segmented elasticity assurance.
-   * 
-   * > Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+   * The list of recurrence rules for the time-sharing elasticity assurance.
    */
   recurrenceRules?: ModifyElasticityAssuranceRequestRecurrenceRules[];
   /**
    * @remarks
-   * The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the elasticity assurance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

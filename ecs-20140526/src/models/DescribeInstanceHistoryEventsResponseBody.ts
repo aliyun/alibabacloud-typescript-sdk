@@ -318,7 +318,7 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The query token returned in this invocation.
-   * > When you use MaxResults and NextToken parameters for paging query and no NextToken is returned, no more data is available.
+   * > When you use MaxResults and NextToken parameters for paging queries and no NextToken is returned, no more data is available.
    * 
    * @example
    * f1c9fa9de5752***
@@ -328,8 +328,8 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
    * @remarks
    * The page number of the instance event list.
    * 
-   * > * When you use MaxResults and NextToken parameters for paging query, the returned PageNumber parameter value is meaningless.
-   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
+   * > * When you use MaxResults and NextToken for paging queries, the returned PageNumber parameter value is meaningless.
+   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging queries instead.
    * 
    * @example
    * 1
@@ -337,10 +337,10 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page as specified in the request.
+   * The number of entries per page as settings in the request.
    * 
-   * > * When you use MaxResults and NextToken parameters for paging query, the returned PageSize parameter value is meaningless.
-   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging query instead.
+   * > * When you use MaxResults and NextToken for paging queries, the returned PageSize parameter value is meaningless.
+   * > * This parameter will be deprecated. Use NextToken and MaxResults for paging queries instead.
    * 
    * @example
    * 10
@@ -358,7 +358,7 @@ export class DescribeInstanceHistoryEventsResponseBody extends $dara.Model {
    * @remarks
    * The total number of instance events.
    * 
-   * > When you use MaxResults and NextToken parameters for paging query, the returned TotalCount parameter value is meaningless.
+   * > When you use MaxResults and NextToken parameters for paging queries, the returned TotalCount parameter value is meaningless.
    * 
    * @example
    * 2

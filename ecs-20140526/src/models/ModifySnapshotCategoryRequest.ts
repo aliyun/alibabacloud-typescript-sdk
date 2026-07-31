@@ -7,7 +7,7 @@ export class ModifySnapshotCategoryRequest extends $dara.Model {
    * @remarks
    * The snapshot type.
    * 
-   * - Archive: archive snapshot.
+   * - Archive: archived snapshot
    * 
    * @example
    * Archive
@@ -19,13 +19,13 @@ export class ModifySnapshotCategoryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The number of days for which the snapshot is retained. The retention period starts from the snapshot creation time (CreationTime). A standard snapshot must have been retained for at least 14 days after creation before it can be archived.
+   * The number of days for which the snapshot is retained. The retention period starts from the snapshot creation time (CreationTime). A standard snapshot can be archived only after it has been retained for at least 14 days since its creation.
    * 
-   * Archive snapshots must be retained for at least 60 days. When the retention period of an archive snapshot is calculated, the retention period of the standard snapshot is deducted. If an archive snapshot is deleted before 60 days, you are charged for 60 days of archive storage. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
+   * Archived snapshots must be retained for at least 60 days. When calculating the retention period of an archived snapshot, the time already retained as a standard snapshot is deducted. If an archived snapshot is deleted before 60 days, you are charged for 60 days of archive storage. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
    * 
    * Valid values: [74, 65536].
    * 
-   * > If you do not specify this parameter, the snapshot is permanently retained.
+   * >If you do not specify this parameter, the snapshot is permanently retained.
    * 
    * @example
    * 100

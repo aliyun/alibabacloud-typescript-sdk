@@ -163,7 +163,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The internal network connectivity policy of the security group. Valid values: 
+   * The network connectivity policy within the security group. Valid values: 
    *          
    * - Accept: service interconnection.
    * - Drop: internal isolation.
@@ -174,7 +174,7 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
   innerAccessPolicy?: string;
   /**
    * @remarks
-   * The paging token returned in this call. When you use `MaxResults` and `NextToken` for paging query, if this value is empty, no more data is available.
+   * The query token (Token) returned in this call. When you use `MaxResults` and `NextToken` for paged query, if this value is empty, no more data is available. This indicates that paging is complete.
    * 
    * @example
    * AAAAAdDWBF2****

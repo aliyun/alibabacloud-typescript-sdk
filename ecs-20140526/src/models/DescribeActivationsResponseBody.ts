@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActivationsResponseBodyActivationListTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the activation code.
+   * The tag key of the managed instance activation code.
    * 
    * @example
    * owner
@@ -13,7 +13,7 @@ export class DescribeActivationsResponseBodyActivationListTags extends $dara.Mod
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the activation code.
+   * The tag value of the managed instance activation code.
    * 
    * @example
    * zhangsan
@@ -45,7 +45,7 @@ export class DescribeActivationsResponseBodyActivationListTags extends $dara.Mod
 export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F1234****
@@ -53,7 +53,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The time when the activation code was created.
+   * The creation time.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -61,7 +61,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The number of instances that were deregistered.
+   * The number of deregistered instances.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   ipAddressRange?: string;
   /**
    * @remarks
-   * The number of instances that were registered.
+   * The number of registered instances.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the activation code.
+   * The tags of the managed instance activation code.
    */
   tags?: DescribeActivationsResponseBodyActivationListTags[];
   /**
@@ -190,7 +190,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   activationList?: DescribeActivationsResponseBodyActivationList[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this response.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -206,7 +206,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10

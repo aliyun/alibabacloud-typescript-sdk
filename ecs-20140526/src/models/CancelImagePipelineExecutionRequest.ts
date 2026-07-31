@@ -45,7 +45,7 @@ export class CancelImagePipelineExecutionRequestTemplateTag extends $dara.Model 
 export class CancelImagePipelineExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image building task.
+   * The ID of the building task.
    * 
    * This parameter is required.
    * 

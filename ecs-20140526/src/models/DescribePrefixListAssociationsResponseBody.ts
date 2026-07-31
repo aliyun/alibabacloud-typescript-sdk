@@ -57,7 +57,7 @@ export class DescribePrefixListAssociationsResponseBodyPrefixListAssociations ex
 export class DescribePrefixListAssociationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token that is returned in this call. If the return value is empty, no more data is returned.
+   * The pagination token returned in this call. If the return value is empty, no more data is available.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -66,7 +66,7 @@ export class DescribePrefixListAssociationsResponseBody extends $dara.Model {
   prefixListAssociations?: DescribePrefixListAssociationsResponseBodyPrefixListAssociations;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 38793DB8-A4B2-4AEC-BFD3-111234E9188D

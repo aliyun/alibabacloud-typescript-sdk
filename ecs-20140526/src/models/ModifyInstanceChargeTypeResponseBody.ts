@@ -61,7 +61,7 @@ export class ModifyInstanceChargeTypeResponseBody extends $dara.Model {
   feeOfInstances?: ModifyInstanceChargeTypeResponseBodyFeeOfInstances;
   /**
    * @remarks
-   * The order ID.
+   * The order ID. This parameter is returned only when the billing method is changed to subscription.
    * 
    * @example
    * 20413515388****

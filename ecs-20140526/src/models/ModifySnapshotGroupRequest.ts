@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySnapshotGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description of the snapshot-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The new description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is new description
@@ -13,7 +13,7 @@ export class ModifySnapshotGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with a `http://` or `https://`. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:).
+   * The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), underscores (_), hyphens (-), or colons (:).
    * 
    * @example
    * testName02
@@ -23,7 +23,7 @@ export class ModifySnapshotGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the snapshot-consistent group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the snapshot-consistent group. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifySnapshotGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the snapshot-consistent group. You can call the [DescribeSnapshotGroups](https://help.aliyun.com/document_detail/210940.html) operation to query the IDs of available snapshot-consistent groups.
+   * The ID of the snapshot-consistent group. You can call [DescribeSnapshotGroups](https://help.aliyun.com/document_detail/210940.html) to query snapshot-consistent group IDs.
    * 
    * This parameter is required.
    * 

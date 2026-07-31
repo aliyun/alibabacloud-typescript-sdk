@@ -5,24 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyUserBusinessBehaviorRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * The ID of the region.
-   */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The key of the attribute to modify.
-   * 
    * This parameter is required.
    */
   statusKey?: string;
   /**
    * @remarks
-   * The new value of the attribute.
-   * 
    * This parameter is required.
    */
   statusValue?: string;

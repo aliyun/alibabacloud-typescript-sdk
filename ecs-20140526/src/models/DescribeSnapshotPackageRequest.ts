@@ -7,9 +7,9 @@ export class DescribeSnapshotPackageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the OSS storage plan list. Minimum value: 1.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -17,9 +17,9 @@ export class DescribeSnapshotPackageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 1 to 100.
+   * The number of entries per page for a paged query. Maximum value: 100.
    * 
-   * Default value: 10
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class DescribeSnapshotPackageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The region ID of the snapshot. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -245,7 +245,7 @@ export class DescribeDisksFullStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of EBS devices for which full status information is returned.
+   * The total number of full status entries.
    * 
    * @example
    * 2

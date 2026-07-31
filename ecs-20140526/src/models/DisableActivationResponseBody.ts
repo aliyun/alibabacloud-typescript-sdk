@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableActivationResponseBodyActivation extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F1234****
@@ -13,7 +13,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The number of instances that were deregistered.
+   * The creation time.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -21,7 +21,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The maximum number of times that the activation code can be used to register managed instances.
+   * The number of deregistered instances.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   deregisteredCount?: number;
   /**
    * @remarks
-   * The number of registered instances.
+   * The description of the activation code.
    * 
    * @example
    * This is description.
@@ -37,7 +37,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP addresses of the hosts that can use the activation code.
+   * Indicates whether the activation code is disabled.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The description of the activation code.
+   * The maximum number of times that the activation code can be used to register managed instances.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * Indicates whether the activation code is disabled.
+   * The default instance name prefix.
    * 
    * @example
    * test-InstanceName
@@ -61,7 +61,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The validity period of the activation code. Unit: hours.
+   * The IP addresses of hosts that are allowed to use the activation code.
    * 
    * @example
    * 0.0.0.0/0
@@ -69,7 +69,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   ipAddressRange?: string;
   /**
    * @remarks
-   * The default prefix of the instance name.
+   * The number of registered instances.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
   registeredCount?: number;
   /**
    * @remarks
-   * The activation code ID.
+   * The validity period of the activation code. Unit: hours.
    * 
    * @example
    * 4
@@ -125,12 +125,12 @@ export class DisableActivationResponseBodyActivation extends $dara.Model {
 export class DisableActivationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the activation code was created.
+   * The information about the activation code and its usage.
    */
   activation?: DisableActivationResponseBodyActivation;
   /**
    * @remarks
-   * Details about the activation code and its usage information.
+   * The request ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F74942176

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeCommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command task.
+   * The command execution ID.
    * 
    * @example
    * t-7d2a745b412b4601b2d47f6a768d****

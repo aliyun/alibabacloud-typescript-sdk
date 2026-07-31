@@ -90,7 +90,7 @@ export class DescribeDiskMonitorDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned for disk usage information, which is the number of periods.
+   * The total number of returned entries of cloud disk usage information, which is the number of periods.
    * 
    * @example
    * 3

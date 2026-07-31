@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyElasticityAssuranceAutoRenewAttributeRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The IDs of elasticity assurances.
+   * The list of elasticity assurance service IDs to modify.
    * 
-   * > You can renew up to 50 elasticity assurances at a time.
+   * > You can modify up to 50 elasticity assurance services at a time.
    */
   id?: string[];
   static names(): { [key: string]: string } {
@@ -40,11 +40,16 @@ export class ModifyElasticityAssuranceAutoRenewAttributeRequest extends $dara.Mo
   ownerId?: number;
   /**
    * @remarks
-   * The auto-renewal period for the elasticity assurance.
+   * The auto-renewal period of the instance.
    * 
-   * - Valid values when `PeriodUnit` is set to `Year`: 1, 3, and 5.
    * 
-   * - Valid values when `PeriodUnit` is set to `Month`: 1.
+   * 
+   * - If `PeriodUnit` is set to `Year`, valid values: 1, 3, and 5.
+   * 
+   * - If `PeriodUnit` is set to `Month`, valid values: 1.
+   * 
+   * 
+   * 
    * 
    * Default value: 1.
    * 
@@ -54,11 +59,11 @@ export class ModifyElasticityAssuranceAutoRenewAttributeRequest extends $dara.Mo
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration. Valid values:
+   * The unit of the renewal period. Valid values:
    * 
-   * - Month
+   * - Month: month
    * 
-   * - Year
+   * - Year: year
    * 
    * Default value: Month.
    * 
@@ -68,7 +73,7 @@ export class ModifyElasticityAssuranceAutoRenewAttributeRequest extends $dara.Mo
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the region to which the elasticity assurance belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the elasticity assurance service. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -78,13 +83,13 @@ export class ModifyElasticityAssuranceAutoRenewAttributeRequest extends $dara.Mo
   regionId?: string;
   /**
    * @remarks
-   * The auto-renewal status of the elasticity assurance. Valid values:
+   * The auto-renewal status of the instance. Valid values:
    * 
-   * - AutoRenewal: Auto-renewal is enabled for the elasticity assurance.
+   * - AutoRenewal: Auto-renewal is enabled.
    * 
-   * - Normal: Auto-renewal is disabled for the elasticity assurance.
+   * - Normal: Auto-renewal is disabled.
    * 
-   * - NotRenewal: The elasticity assurance is not renewed. The system no longer sends an expiration notification but sends only a renewal notification three days before the elasticity assurance expires. You can change the value of this parameter from NotRenewal to `Normal` for an elasticity assurance, and then manually renew the elasticity assurance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
+   * - NotRenewal: The instance will not be renewed. After this value is specified, the system no longer sends expiration reminders and sends only a non-renewal reminder three days before the expiration date. You can change the value for an elasticity assurance service from NotRenewal to Normal and then manually renew the service or enable auto-renewal.
    * 
    * @example
    * Normal

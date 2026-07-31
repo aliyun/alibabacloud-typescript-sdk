@@ -6,8 +6,6 @@ export class DeactivateRouterInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the router interface.
-   * 
    * This parameter is required.
    */
   regionId?: string;
@@ -15,8 +13,6 @@ export class DeactivateRouterInterfaceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the router interface.
-   * 
    * This parameter is required.
    */
   routerInterfaceId?: string;

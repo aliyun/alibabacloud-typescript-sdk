@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the auto provisioning group.
+   * The ID of the auto-provisioning group.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number for the paging query.
+   * The page number of the paging query.
    * 
    * Minimum value: 1.
    * 
@@ -29,7 +29,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the paging query. You can use this parameter to configure paging settings.
+   * The number of entries per page. Settings for the paging query.
    * 
    * Maximum value: 100.
    * 
@@ -41,7 +41,7 @@ export class DescribeAutoProvisioningGroupInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the auto provisioning group resides. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the auto-provisioning group. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

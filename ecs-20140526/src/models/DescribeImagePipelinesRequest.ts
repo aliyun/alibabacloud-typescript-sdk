@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImagePipelinesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of a tag. Up to 20 tags are supported.
+   * The tag key. Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeImagePipelinesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of a tag. Up to 20 tags are supported.
+   * The tag value. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -45,7 +45,7 @@ export class DescribeImagePipelinesRequestTag extends $dara.Model {
 export class DescribeImagePipelinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the image pipelines. You can specify up to 20 IDs.
+   * The image template ID. Valid values of N: 1 to 20.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****
@@ -53,7 +53,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   imagePipelineId?: string[];
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: 1 to 500.
+   * The maximum number of entries per page for paging queries. Valid values: 1 to 500.
    * 
    * Default value: 50.
    * 
@@ -63,7 +63,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the image pipeline.
+   * The template name.
    * 
    * @example
    * testImagePipeline
@@ -71,7 +71,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value from the previous response. Omit this parameter on your first request.
+   * The pagination token. Set this parameter to the value of `NextToken` returned by the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -81,7 +81,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -91,9 +91,9 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. If you use this parameter for filtering, you can query a maximum of 1,000 resources.
+   * The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
    * 
-   * > Filtering by the default resource group is not supported.
+   * >Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -103,7 +103,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A list of tags.
+   * The tags.
    */
   tag?: DescribeImagePipelinesRequestTag[];
   static names(): { [key: string]: string } {

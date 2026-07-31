@@ -38,7 +38,7 @@ export class DescribeElasticityAssuranceInstancesRequest extends $dara.Model {
   privatePoolOptions?: DescribeElasticityAssuranceInstancesRequestPrivatePoolOptions;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page for a paging query.
    * 
    * Maximum value: 100.
    * 
@@ -50,7 +50,7 @@ export class DescribeElasticityAssuranceInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the query. Set the value to the NextToken value obtained from the response to the preceding request.
+   * The pagination token for the elasticity assurance query. Obtain the value from the result of the previous request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -60,7 +60,7 @@ export class DescribeElasticityAssuranceInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the elasticity assurance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

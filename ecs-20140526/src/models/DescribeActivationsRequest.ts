@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActivationsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the activation code. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * The tag key of the managed instance dynamic code. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If a single tag is specified to query resources, up to 1,000 resources that have this tag can be returned. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags can be returned. To query more than 1,000 resources that have specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
-   * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -17,7 +17,7 @@ export class DescribeActivationsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the activation code. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the managed instance activation code. Valid values of N: 1 to 20. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class DescribeActivationsRequestTag extends $dara.Model {
 export class DescribeActivationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F1234****
@@ -67,9 +67,9 @@ export class DescribeActivationsRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries per page for a paged query.
    * 
-   * Valid values: 1 to 50.
+   * Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -79,7 +79,7 @@ export class DescribeActivationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value returned in the previous response.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -91,7 +91,7 @@ export class DescribeActivationsRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1.
    * 
    * Default value: 1.
    * 
@@ -101,9 +101,9 @@ export class DescribeActivationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * Valid values: 1 to 50.
+   * Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -113,9 +113,9 @@ export class DescribeActivationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
+   * The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the region IDs and other information.
    * 
    * This parameter is required.
    * 
@@ -135,7 +135,7 @@ export class DescribeActivationsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the activation code.
+   * The tags.
    */
   tag?: DescribeActivationsRequestTag[];
   static names(): { [key: string]: string } {

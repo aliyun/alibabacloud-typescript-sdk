@@ -57,7 +57,7 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the security group. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
    * 
    * Default value: empty.
    * 
@@ -89,7 +89,7 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the security group. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters that are categorized as letter in Unicode, including Chinese characters and English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the security group. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters that are categorized as letters in Unicode, including letters in English and Chinese, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
    * 
    * @example
    * testSecurityGroupName
@@ -118,7 +118,7 @@ export class CreateSecurityGroupRequest extends $dara.Model {
   serviceManaged?: boolean;
   /**
    * @remarks
-   * The tags to bind to the security group. Array length: 0 to 20.
+   * The tags to add to the security group. Array length: 0 to 20.
    */
   tag?: CreateSecurityGroupRequestTag[];
   /**

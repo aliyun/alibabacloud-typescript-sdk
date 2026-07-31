@@ -11,8 +11,6 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The CPU architecture. Valid values:
-   * - X86.
-   * - ARM.
    * 
    * @example
    * X86
@@ -26,8 +24,6 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The GPU type.
-   * 
-   * > Fuzzy matching is supported. For example, if the GPU type of an instance type is NVIDIA V100, you can enter NVIDIA to query the instance type.
    * 
    * @example
    * NVIDIA V100
@@ -45,24 +41,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   instanceCategories?: string[];
   /**
    * @remarks
-   * The category of the instance type. Valid values:
-   * 
-   * - General-purpose: general-purpose instance type.
-   * - Compute-optimized: compute-optimized instance type.
-   * - Memory-optimized: memory-optimized instance type.
-   * - Big data: big data instance type.
-   * - Local SSDs: local SSD instance type.
-   * - High Clock Speed: high clock speed instance type.
-   * - Enhanced: enhanced instance type.
-   * - Shared: shared instance type.
-   * - Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
-   * - Visual Compute-optimized: visual compute-optimized instance type.
-   * - Heterogeneous Service: heterogeneous service instance type.
-   * - Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
-   * - Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
-   * - ECS Bare Metal: ECS Bare Metal Instance.
-   * - Super Computing Cluster: Super Computing Cluster instance type.
-   * - High Performance Compute: high-performance computing instance type.
+   * The instance type category. Valid values:
    * 
    * @example
    * Big data
@@ -71,9 +50,6 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The level of the instance family. Valid values:
-   * - EntryLevel: entry level (shared).
-   * - EnterpriseLevel: enterprise level.
-   * - CreditEntryLevel: credit-based entry level.
    * 
    * @example
    * EntryLevel
@@ -86,9 +62,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   instanceTypeFamilies?: string[];
   /**
    * @remarks
-   * The instance family that the instance type belongs to. For valid values, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
-   * 
-   * For more information about instance families, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance family to which the instance type belongs. For more information, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
    * 
    * @example
    * ecs.g6
@@ -104,15 +78,12 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * The local disk categories to query. Array length: 1 to 2.
+   * The local disk types to query. Array length: 1 to 2.
    */
   localStorageCategories?: string[];
   /**
    * @remarks
-   * The category of local disks. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
-   * 
-   * - local_hdd_pro: SATA HDDs used by the d1ne and d1 instance families.
-   * - local_ssd_pro: NVMe SSDs used by the i2, i2g, i1, ga1, and gn5 instance families.
+   * The local disk type. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
    * 
    * @example
    * local_ssd_pro
@@ -120,9 +91,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   localStorageCategory?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paginated query. Maximum value: 1600.
-   * 
-   * Default value: 1600.
+   * The maximum number of entries per page for paging query. Maximum value: 1600.
    * 
    * @example
    * 10
@@ -133,9 +102,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The maximum number of vCPU cores when you query instance types. Valid values: positive integers.
-   * 
-   * > Instance types with more vCPU cores than the specified value are not returned.
+   * The expected maximum number of vCPU cores when querying instance types. Valid values: positive integers.
    * 
    * @example
    * 10
@@ -143,9 +110,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maximumCpuCoreCount?: number;
   /**
    * @remarks
-   * The maximum CPU base clock speed when you query instance types.
-   * 
-   * > Instance types with a base clock speed higher than the specified value are not returned.
+   * The expected maximum clock speed when querying instance types.
    * 
    * @example
    * 3.2
@@ -153,9 +118,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maximumCpuSpeedFrequency?: number;
   /**
    * @remarks
-   * The maximum CPU turbo frequency when you query instance types.
-   * 
-   * > Instance types with a turbo frequency higher than the specified value are not returned.
+   * The expected maximum turbo frequency when querying instance types.
    * 
    * @example
    * 4.1
@@ -163,9 +126,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maximumCpuTurboFrequency?: number;
   /**
    * @remarks
-   * The maximum number of GPUs when you query instance types. Valid values: positive integers.
-   * 
-   * > Instance types with more GPUs than the specified value are not returned.
+   * The expected maximum number of GPUs when querying instance types. Valid values: positive integers.
    * 
    * @example
    * 10
@@ -173,9 +134,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maximumGPUAmount?: number;
   /**
    * @remarks
-   * The maximum memory size when you query instance types. Unit: GiB.
-   * 
-   * > Instance types with a memory size larger than the specified value are not returned.
+   * The expected maximum memory size when querying instance types. Unit: GiB.
    * 
    * @example
    * 60
@@ -183,9 +142,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   maximumMemorySize?: number;
   /**
    * @remarks
-   * The minimum baseline vCPU computing performance (total of all vCPUs) for burstable instance types t5 and t6 when you query instance types.
-   * 
-   * > Instance types with a baseline vCPU computing performance lower than the specified value are not returned.
+   * The expected minimum baseline vCPU computing performance (sum of all vCPUs) for burstable instances t5 and t6 when querying instance types.
    * 
    * @example
    * 12
@@ -193,9 +150,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumBaselineCredit?: number;
   /**
    * @remarks
-   * The minimum number of vCPU cores when you query instance types. Valid values: positive integers.
-   * 
-   * > Instance types with fewer vCPU cores than the specified value are not returned.
+   * The expected minimum number of vCPU cores when querying instance types. Valid values: positive integers.
    * 
    * @example
    * 2
@@ -203,9 +158,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumCpuCoreCount?: number;
   /**
    * @remarks
-   * The minimum CPU base clock speed when you query instance types.
-   * 
-   * > Instance types with a base clock speed lower than the specified value are not returned.
+   * The expected minimum clock speed when querying instance types.
    * 
    * @example
    * 2.5
@@ -213,9 +166,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumCpuSpeedFrequency?: number;
   /**
    * @remarks
-   * The minimum CPU turbo frequency when you query instance types.
-   * 
-   * > Instance types with a turbo frequency lower than the specified value are not returned.
+   * The expected minimum turbo frequency when querying instance types.
    * 
    * @example
    * 3.2
@@ -223,9 +174,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumCpuTurboFrequency?: number;
   /**
    * @remarks
-   * The minimum number of cloud disks that can be attached when you query instance types.
-   * 
-   * > Instance types that support fewer cloud disks than the specified value are not returned.
+   * The expected minimum number of cloud disks that can be attached when querying instance types.
    * 
    * @example
    * 4
@@ -233,9 +182,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumDiskQuantity?: number;
   /**
    * @remarks
-   * The minimum number of IPv6 addresses per ENI when you query instance types.
-   * 
-   * > Instance types that support fewer IPv6 addresses per ENI than the specified value are not returned.
+   * The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
    * 
    * @example
    * 2
@@ -243,9 +190,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniIpv6AddressQuantity?: number;
   /**
    * @remarks
-   * The minimum number of IPv4 addresses per ENI when you query instance types.
-   * 
-   * > Instance types that support fewer IPv4 addresses per ENI than the specified value are not returned.
+   * The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
    * 
    * @example
    * 2
@@ -253,9 +198,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The minimum number of ENIs that can be attached when you query instance types.
-   * 
-   * > Instance types that support fewer ENIs than the specified value are not returned.
+   * The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached per network interface controller (NIC) when querying instance types.
    * 
    * @example
    * 4
@@ -263,9 +206,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniQuantity?: number;
   /**
    * @remarks
-   * The minimum number of ERIs when you query instance types.
-   * 
-   * > Instance types with fewer ERIs than the specified value are not returned.
+   * The expected minimum number of Elastic RDMA Interfaces (ERIs) per network interface controller (NIC) when querying instance types.
    * 
    * @example
    * 0
@@ -273,9 +214,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEriQuantity?: number;
   /**
    * @remarks
-   * The minimum number of GPUs when you query instance types. Valid values: positive integers.
-   * 
-   * > Instance types with fewer GPUs than the specified value are not returned.
+   * The expected minimum number of GPUs when querying instance types. Valid values: positive integers.
    * 
    * @example
    * 3
@@ -283,9 +222,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumGPUAmount?: number;
   /**
    * @remarks
-   * The minimum initial vCPU credits for burstable instance types t5 and t6 when you query instance types.
-   * 
-   * > Instance types with initial vCPU credits lower than the specified value are not returned.
+   * The expected minimum initial vCPU CPU credits for burstable instances t5 and t6 when querying instance types.
    * 
    * @example
    * 12
@@ -293,9 +230,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumInitialCredit?: number;
   /**
    * @remarks
-   * The minimum inbound internal bandwidth when you query instance types. Unit: kbit/s.
-   * 
-   * > Instance types with an inbound internal bandwidth lower than the specified value are not returned.
+   * The expected minimum inbound internal bandwidth when querying instance types. Unit: kbit/s.
    * 
    * @example
    * 12288
@@ -303,9 +238,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumInstanceBandwidthRx?: number;
   /**
    * @remarks
-   * The minimum outbound internal bandwidth when you query instance types. Unit: kbit/s.
-   * 
-   * > Instance types with an outbound internal bandwidth lower than the specified value are not returned.
+   * The expected minimum outbound internal bandwidth when querying instance types. Unit: kbit/s.
    * 
    * @example
    * 12288
@@ -313,9 +246,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumInstanceBandwidthTx?: number;
   /**
    * @remarks
-   * The minimum inbound packet forwarding rate over the internal network when you query instance types. Unit: pps.
-   * 
-   * > Instance types with an inbound packet forwarding rate lower than the specified value are not returned.
+   * The expected minimum inbound packet forwarding rate over the internal network when querying instance types. Unit: pps.
    * 
    * @example
    * 15
@@ -323,9 +254,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumInstancePpsRx?: number;
   /**
    * @remarks
-   * The minimum outbound packet forwarding rate over the internal network when you query instance types. Unit: pps.
-   * 
-   * > Instance types with an outbound packet forwarding rate lower than the specified value are not returned.
+   * The expected minimum outbound packet forwarding rate over the internal network when querying instance types. Unit: pps.
    * 
    * @example
    * 15
@@ -333,9 +262,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumInstancePpsTx?: number;
   /**
    * @remarks
-   * The minimum number of local disks attached to the instance when you query instance types.
-   * 
-   * > Instance types with fewer local disks than the specified value are not returned.
+   * The expected minimum number of local disks attached to the instance when querying instance types.
    * 
    * @example
    * 4
@@ -343,7 +270,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumLocalStorageAmount?: number;
   /**
    * @remarks
-   * The capacity of a single local disk attached to the instance. Unit: GiB.
+   * The capacity of each local disk attached to the instance. Unit: GiB.
    * 
    * @example
    * 40
@@ -351,9 +278,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumLocalStorageCapacity?: number;
   /**
    * @remarks
-   * The minimum memory size when you query instance types. Unit: GiB.
-   * 
-   * > Instance types with a memory size smaller than the specified value are not returned.
+   * The expected minimum memory size when querying instance types. Unit: GiB.
    * 
    * @example
    * 20
@@ -361,9 +286,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The minimum default number of queues supported by the primary ENI when you query instance types.
-   * 
-   * > Instance types with fewer default queues on the primary ENI than the specified value are not returned.
+   * The expected minimum number of default queues for the primary ENI when querying instance types.
    * 
    * @example
    * 8
@@ -371,9 +294,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumPrimaryEniQueueNumber?: number;
   /**
    * @remarks
-   * The minimum number of QueuePair (QP) queues per Elastic RDMA Interface (ERI) when you query instance types.
-   * 
-   * > Instance types with fewer QP queues per ERI than the specified value are not returned.
+   * The expected minimum number of QueuePair (QP) queues per Elastic RDMA Interface (ERI) when querying instance types.
    * 
    * @example
    * 8
@@ -381,9 +302,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumQueuePairNumber?: number;
   /**
    * @remarks
-   * The minimum default number of queues supported by the secondary ENI when you query instance types.
-   * 
-   * > Instance types with fewer default queues on the secondary ENI than the specified value are not returned.
+   * The expected minimum number of default queues for secondary Elastic Network Interfaces (ENIs) per network interface controller (NIC) when querying instance types.
    * 
    * @example
    * 4
@@ -391,7 +310,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumSecondaryEniQueueNumber?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous call to this API operation. You do not need to set this parameter for the first request.
+   * The query token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first call.
    * 
    * @example
    * e71d8a535bd9cc11
@@ -402,10 +321,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Indicates whether cloud disks attached to the instance type support NVMe. Valid values:
-   * 
-   * - required: supported. Cloud disks are attached in NVMe mode.
-   * - unsupported: not supported. Cloud disks are not attached in NVMe mode.
+   * Specifies whether the cloud disks attached to the instance type support NVMe. Valid values:
    * 
    * @example
    * required
@@ -416,8 +332,6 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The processor model.
-   * 
-   * > Fuzzy matching is supported. For example, if the processor model of an instance type is Intel Xeon(Ice Lake) Platinum 8369B, you can enter Intel to query the instance type.
    * 
    * @example
    * Intel Xeon(Ice Lake) Platinum 8369B

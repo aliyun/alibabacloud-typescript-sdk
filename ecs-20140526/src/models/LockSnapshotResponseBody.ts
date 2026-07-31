@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   /**
    * @remarks
-   * The cool-off period for compliance mode. Unit: hours.
+   * The cool-off period in compliance mode. Unit: hours.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   coolOffPeriod?: number;
   /**
    * @remarks
-   * The time the cool-off period for compliance mode ends. The time is in UTC and follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the cool-off period in compliance mode ends. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-10-15T13:00:00Z
@@ -21,7 +21,7 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   coolOffPeriodExpiredTime?: string;
   /**
    * @remarks
-   * The time the lock was created. The time is in UTC and follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the snapshot was locked. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-10-15T10:00:00Z
@@ -29,7 +29,7 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   lockCreationTime?: string;
   /**
    * @remarks
-   * The lock duration, in days. The snapshot lock automatically expires at the end of this period.
+   * The lock duration. The snapshot lock automatically expires after the lock duration ends. Unit: days.
    * 
    * @example
    * 1
@@ -37,9 +37,9 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   lockDuration?: number;
   /**
    * @remarks
-   * The time the lock duration starts. The time is in UTC and follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the lock duration starts. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. 
    * 
-   * If you lock a snapshot that is in the `progressing` state, the lock duration starts only after the snapshot enters the `accomplished` state.
+   * If you lock a snapshot that is in the progressing state, the lock duration starts only after the snapshot enters the accomplished state.
    * 
    * @example
    * 2025-10-15T10:00:00Z
@@ -47,7 +47,7 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   lockDurationStartTime?: string;
   /**
    * @remarks
-   * The time the lock expires. The time is in UTC and follows the [ISO 8601](https://help.aliyun.com/zh/ecs/developer-reference/iso-8601-time-format?spm=a2c4g.11186623.0.0.277c6c92kl7kXM) standard in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the lock expires. The time follows the [ISO 8601](https://www.alibabacloud.com/help/en/ecs/developer-reference/iso-8601-time-format) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-10-16T10:00:00Z
@@ -55,9 +55,8 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   lockExpiredTime?: string;
   /**
    * @remarks
-   * The lock mode. Possible value:
-   * 
-   * - `compliance`: The snapshot is locked in compliance mode. A snapshot in compliance mode cannot be unlocked and can be deleted only after its lock duration expires. You cannot shorten the lock duration, but users with the required Resource Access Management (RAM) permissions can extend it at any time. When you lock a snapshot in compliance mode, you can optionally specify a cool-off period.
+   * The lock mode. Valid values: 
+   * - compliance: The snapshot is locked in compliance mode. A snapshot locked in compliance mode cannot be unlocked by any user and can be deleted only after the lock duration expires. Users cannot shorten the lock duration, but users with the required RAM permissions can extend the lock duration at any time. When locking a snapshot in compliance mode, you can optionally specify a cool-off period.
    * 
    * @example
    * compliance
@@ -65,13 +64,10 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The lock status. Possible values:
-   * 
-   * - `compliance-cooloff`: The snapshot is locked in compliance mode but is still in its cool-off period. The snapshot cannot be deleted. However, users with the required Resource Access Management (RAM) permissions can unlock it, change the cool-off period, and adjust the lock duration.
-   * 
-   * - `compliance`: The snapshot is locked in compliance mode, and the cool-off period has ended. The snapshot cannot be unlocked or deleted, but users with the required Resource Access Management (RAM) permissions can extend the lock duration.
-   * 
-   * - `expired`: The snapshot was previously locked, but the lock duration has ended, and the lock has expired. The snapshot is not currently locked and can be deleted.
+   * The lock status. Valid values: 
+   * - compliance-cooloff: The snapshot is locked in compliance mode but is still within the cool-off period. The snapshot cannot be deleted, but users with the required RAM permissions can unlock the snapshot, extend or shorten the cool-off period, and extend or shorten the lock duration. 
+   * - compliance: The snapshot is locked in compliance mode and the cool-off period has ended. The snapshot cannot be unlocked or deleted, but users with the required RAM permissions can extend the lock duration. 
+   * - expired: The snapshot was previously locked, but the lock duration has ended and the lock has expired. The snapshot is currently unlocked and can be deleted.
    * 
    * @example
    * compliance-cooloff
@@ -125,7 +121,7 @@ export class LockSnapshotResponseBodyLockedSnapshotInfo extends $dara.Model {
 export class LockSnapshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Information about the locked snapshot.
+   * The locked snapshot information.
    */
   lockedSnapshotInfo?: LockSnapshotResponseBodyLockedSnapshotInfo;
   /**

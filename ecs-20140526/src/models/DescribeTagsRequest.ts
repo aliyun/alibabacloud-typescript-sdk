@@ -45,7 +45,7 @@ export class DescribeTagsRequestTag extends $dara.Model {
 export class DescribeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is about to be deprecated. To ensure compatibility, use other parameters.
+   * > This parameter is about to be deprecated. To ensure compatibility, use other parameters instead.
    * 
    * @example
    * null
@@ -88,7 +88,7 @@ export class DescribeTagsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource to which the tag is attached. For example, if the resource type (ResourceType) is instance, the resource ID is the instance ID.
+   * The ID of the resource to which the tag is attached. For example, if ResourceType is set to instance, ResourceId indicates the instance ID.
    * 
    * @example
    * s-946ntx4wr****
@@ -106,7 +106,7 @@ export class DescribeTagsRequest extends $dara.Model {
    * - image: image.
    * - securitygroup: security group.
    * - volume: storage volume.
-   * - eni: network interface controller (NIC).
+   * - eni: Elastic Network Interface (ENI).
    * - ddh: dedicated host.
    * - keypair: SSH key pair.
    * - launchtemplate: launch template.
@@ -121,7 +121,7 @@ export class DescribeTagsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeTagsRequestTag[];
   static names(): { [key: string]: string } {

@@ -53,7 +53,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of resources for which the O&M window is configured.
+   * The resource type for which the O&M window is configured.
    * 
    * @example
    * Tag
@@ -135,7 +135,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
 export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The type of the recurrence cycle. Valid values:
+   * The cycle type. Valid values:
    * - Daily: daily recurrence.
    * - Weekly: weekly recurrence.
    * 
@@ -145,7 +145,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges within the recurrence cycle of the O&M window (in UTC).
+   * The time ranges within the recurring cycle of the O&M window (UTC time zone).
    */
   rangeList?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriodRangeList[];
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowList
   targetResource?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTargetResource;
   /**
    * @remarks
-   * The recurrence cycle of the window.
+   * The recurring cycle of the window.
    */
   timePeriod?: DescribePlanMaintenanceWindowsResponseBodyPlanMaintenanceWindowListTimePeriod;
   static names(): { [key: string]: string } {
@@ -313,7 +313,7 @@ export class DescribePlanMaintenanceWindowsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned under the current query conditions. This parameter is optional and may not be returned by default.
+   * The total number of entries that match the query conditions. This parameter is optional and may not be returned by default.
    * 
    * @example
    * 1

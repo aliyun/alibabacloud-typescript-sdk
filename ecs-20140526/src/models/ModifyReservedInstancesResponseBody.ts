@@ -31,7 +31,7 @@ export class ModifyReservedInstancesResponseBodyReservedInstanceIdSets extends $
 export class ModifyReservedInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the reserved instance.
+   * The request ID.
    * 
    * @example
    * ED9E4A5F-FF4D-4C96-BE80-6B4227060DD7

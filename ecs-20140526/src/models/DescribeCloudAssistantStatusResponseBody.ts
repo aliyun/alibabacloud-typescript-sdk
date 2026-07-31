@@ -79,7 +79,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $dara.Model {
   instanceCloudAssistantStatusSet?: DescribeCloudAssistantStatusResponseBodyInstanceCloudAssistantStatusSet;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -87,7 +87,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 prefixes to unassign.
+   * One or more IPv4 prefixes to remove.
    */
   ipv4Prefix?: string[];
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the Elastic Network Interface (ENI).
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The secondary private IP addresses to unassign.
+   * One or more secondary private IP addresses to remove.
    * 
    * @example
    * ``192.168.**.**``
@@ -30,7 +30,7 @@ export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   privateIpAddress?: string[];
   /**
    * @remarks
-   * The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 

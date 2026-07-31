@@ -216,7 +216,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
    * 
    * @example
    * 1
@@ -224,7 +224,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
+   * > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
    * 
    * @example
    * 10
@@ -243,7 +243,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
    * @remarks
    * The total number of snapshots.
    * 
-   * > When you use `MaxResults` and `NextToken` parameters for paging, the returned `TotalCount` parameter value is invalid.
+   * > When you use `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is invalid.
    * 
    * @example
    * 1

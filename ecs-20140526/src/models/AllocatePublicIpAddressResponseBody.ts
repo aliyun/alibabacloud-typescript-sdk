@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocatePublicIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The public IP address.
+   * The public IP address of the instance.
    * 
    * @example
    * ``112.124.**.**``

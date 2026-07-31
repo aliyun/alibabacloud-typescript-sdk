@@ -53,7 +53,7 @@ export class ModifyPlanMaintenanceWindowRequestTargetResource extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type for the O&M window configuration.
+   * The type of resource to which the O&M window applies.
    * 
    * @example
    * Tag
@@ -143,7 +143,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriodRangeList extends $dara
 export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The cycle type. Valid values: Daily and Weekly.
+   * The type of the cycle. Valid values: Daily and Weekly.
    * 
    * @example
    * Year
@@ -151,7 +151,7 @@ export class ModifyPlanMaintenanceWindowRequestTimePeriod extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The time ranges of the O&M window recurring cycle (UTC time zone).
+   * The time ranges of the recurring O&M window cycle (UTC time zone).
    */
   rangeList?: ModifyPlanMaintenanceWindowRequestTimePeriodRangeList[];
   static names(): { [key: string]: string } {

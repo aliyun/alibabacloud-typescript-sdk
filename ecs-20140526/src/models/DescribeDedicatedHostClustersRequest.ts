@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedHostClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 64 characters in length, and can neither contain `http://` or `https://` nor `acs:` or `aliyun`.
+   * The tag key of the dedicated host cluster. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
    * 
-   * You can filter no more than 1,000 host groups, regardless of how many tags are used. To query more than 1,000 host groups, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) API operation.
+   * If you use a single tag to filter resources, the resource count with the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
    * 
    * @example
    * TestKey
@@ -15,7 +15,7 @@ export class DescribeDedicatedHostClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Valid values of N: 1 to 20. The tag value cannot be an empty string. It can be up to 64 characters in length and cannot contain `http://` or `https://`.
+   * The tag value of the dedicated host cluster. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 64 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -47,7 +47,7 @@ export class DescribeDedicatedHostClustersRequestTag extends $dara.Model {
 export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of host group IDs. The value can be a JSON array consisting of multiple IDs in the `["dc-xxxxxxxxx", "dc-yyyyyyyyy",..., "dc-zzzzzzzzz"]` format. Separate the IDs with commas (,).
+   * The IDs of dedicated host clusters. The value is a JSON array of dedicated host cluster IDs in the format of `["dc-xxxxxxxxx", "dc-yyyyyyyyy", … ,"dc-zzzzzzzzz"]`. A maximum of 100 IDs are supported. Separate multiple IDs with commas (,).
    * 
    * @example
    * ["dc-bp12wlf6am0vz9v2****", "dc-bp12wlf6am0vz9v3****"]
@@ -55,7 +55,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   dedicatedHostClusterIds?: string;
   /**
    * @remarks
-   * The name of the host group.
+   * The name of the dedicated host cluster.
    * 
    * @example
    * myDDHCluster
@@ -63,7 +63,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   dedicatedHostClusterName?: string;
   /**
    * @remarks
-   * > This parameter is unavailable for use.
+   * >This parameter is not yet available.
    * 
    * @example
    * null
@@ -73,11 +73,11 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number of the dedicated host cluster list.
    * 
-   * Pages start from page 1.
+   * Minimum value: 1.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -85,9 +85,9 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page for the paged query. Settings for paging:
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -97,7 +97,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the host group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the dedicated host cluster. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -107,9 +107,9 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the host group. You can use a resource group ID to filter no more than 1,000 host groups.
+   * The ID of the resource group to which the dedicated host cluster belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
-   * > A default resource group is not supported.
+   * >Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -119,7 +119,7 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * > This parameter is unavailable for use.
+   * >This parameter is not yet available.
    * 
    * @example
    * null
@@ -127,12 +127,12 @@ export class DescribeDedicatedHostClustersRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the host group.
+   * The tags.
    */
   tag?: DescribeDedicatedHostClustersRequestTag[];
   /**
    * @remarks
-   * The zone ID of the host group. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+   * The zone ID of the dedicated host cluster. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the available zones.
    * 
    * @example
    * cn-hangzhou-f

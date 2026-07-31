@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically renew the instance before it expires.
+   * Specifies whether to enable auto-renewal before the instance expires.
    * 
    * - true: enables auto-renewal.
    * - false: disables auto-renewal.
@@ -21,21 +21,21 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
    * The auto-renewal duration of the instance.
    * 
    * <props="china">
-   * - When `PeriodUnit` is set to `Year`, the valid values of `Duration` are: {"1", "2", "3", "4", "5"}
-   * - When `PeriodUnit` is set to `Month`, the valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}
-   * - When `PeriodUnit` is set to `Week`, the valid values of `Duration` are: {"1", "2", "3", "4"}
+   * - If `PeriodUnit` is set to `Year`, valid values of `Duration` are: {"1", "2", "3", "4", "5"}.
+   * - If `PeriodUnit` is set to `Month`, valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}.
+   * - If `PeriodUnit` is set to `Week`, valid values of `Duration` are: {"1", "2", "3", "4"}.
    * 
    * 
    * 
    * <props="intl">
-   * - When `PeriodUnit` is set to `Year`, the valid values of `Duration` are: {"1", "2", "3", "4", "5"}
-   * - When `PeriodUnit` is set to `Month`, the valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}
+   * - If `PeriodUnit` is set to `Year`, valid values of `Duration` are: {"1", "2", "3", "4", "5"}.
+   * - If `PeriodUnit` is set to `Month`, valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}.
    * 
    * 
    * 
    * <props="partner">
-   * - When `PeriodUnit` is set to `Year`, the valid values of `Duration` are: {"1", "2", "3", "4", "5"}
-   * - When `PeriodUnit` is set to `Month`, the valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}
+   * - If `PeriodUnit` is set to `Year`, valid values of `Duration` are: {"1", "2", "3", "4", "5"}.
+   * - If `PeriodUnit` is set to `Month`, valid values of `Duration` are: {"1", "2", "3", "6", "12", "24", "36", "48", "60"}.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Instance ID. You can specify up to 100 subscription instances at a time. Separate multiple instance IDs with commas (,).
+   * The instance IDs. You can specify up to 100 subscription instance IDs at a time. Separate multiple instance IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The unit of the renewal duration, that is, the unit of the `Duration` parameter. Valid values:
+   * The unit of the renewal duration specified by the `Duration` parameter. Valid values:
    * 
    * <props="china">
    * - Week
@@ -80,7 +80,7 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * The region ID of the instances. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -90,15 +90,15 @@ export class ModifyInstanceAutoRenewAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The auto-renewal status of the instance. Valid values:
+   * The auto-renewal status of ECS instance. Valid values:
    * 
    * - AutoRenewal: enables auto-renewal.
    * 
    * - Normal: disables auto-renewal.
    * 
-   * - NotRenewal: does not renew the instance. After this value is set, the system no longer sends expiration reminders and only sends a non-renewal reminder three days before the instance expires. ECS instances that are set to not renew can be changed to pending renewal (`Normal`), and then manually renewed or set to auto-renewal.
+   * - NotRenewal: does not renew ECS instance. After this value is specified, the system no longer sends expiration notifications. Only a non-renewal reminder is sent three days before ECS instance expires. You can change the value for an instance from NotRenewal to `Normal` and then manually renew ECS instance or configure auto-renewal.
    * 
-   * > The `RenewalStatus` parameter takes precedence over the `AutoRenew` parameter. If the `RenewalStatus` parameter is not specified, the `AutoRenew` parameter takes effect by default.
+   * > The `RenewalStatus` parameter takes precedence over the `AutoRenew` parameter. If `RenewalStatus` is not specified, the `AutoRenew` parameter is used by default.
    * 
    * @example
    * AutoRenewal

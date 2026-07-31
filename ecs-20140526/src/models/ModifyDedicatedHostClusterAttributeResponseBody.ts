@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedHostClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 11B55F58-D3A4-4A9B-9596-342420D02FF8

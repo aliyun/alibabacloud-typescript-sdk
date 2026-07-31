@@ -122,7 +122,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   instancePluginStatusSet?: ListPluginStatusResponseBodyInstancePluginStatusSet;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -130,7 +130,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the query result.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records that match the query conditions.
    * 
    * @example
    * 1

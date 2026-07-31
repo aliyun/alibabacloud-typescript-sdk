@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePortRangeListsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N. Valid values: 1 to 20.
+   * The tag key of the instance. Valid values of N: 1 to 20.
    * 
-   * If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query resources.
    * 
    * @example
    * key for PortRangeList
@@ -15,7 +15,7 @@ export class DescribePortRangeListsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The tag value.
    * 
    * @example
    * value for PortRangeList
@@ -47,9 +47,9 @@ export class DescribePortRangeListsRequestTag extends $dara.Model {
 export class DescribePortRangeListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The number of entries per page for a paged query.
    * 
-   * - Maximum value: 100
+   * - Maximum value: 100.
    * 
    * - Default value: 10.
    * 
@@ -59,7 +59,7 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
    * 
    * @example
    * 727d41872117f2816343eeb432fbc5bfd21dc824589d2a4be0b5e8707e68181f
@@ -69,12 +69,12 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the port list. Valid values of N: 0 to 100.
+   * The ID of the port range list. Valid values of N: 0 to 100.
    */
   portRangeListId?: string[];
   /**
    * @remarks
-   * The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the port range list. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, Chinese characters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * PortRangeListNameSample
@@ -82,7 +82,7 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   portRangeListName?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -92,9 +92,9 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned in the response. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to query the most recent resource group list.
+   * The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1000. You can invoke [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) to query the list of resource groups.
    * 
-   * > A default resource group is not supported.
+   * >Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -104,7 +104,7 @@ export class DescribePortRangeListsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags that are added to the port list.
+   * The tags bound to the port range list.
    */
   tag?: DescribePortRangeListsRequestTag[];
   static names(): { [key: string]: string } {

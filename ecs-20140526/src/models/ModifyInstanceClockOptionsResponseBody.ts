@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceClockOptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,9 +13,9 @@ export class ModifyInstanceClockOptionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the modification task.
+   * The modification task ID.
    * 
-   * You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the modification results.
+   * You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the modification result.
    * 
    * @example
    * t-bp1hvgwromzv32iq****

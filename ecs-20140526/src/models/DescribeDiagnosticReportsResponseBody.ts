@@ -145,7 +145,7 @@ export class DescribeDiagnosticReportsResponseBodyReports extends $dara.Model {
 export class DescribeDiagnosticReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

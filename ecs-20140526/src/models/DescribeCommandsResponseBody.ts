@@ -289,7 +289,7 @@ export class DescribeCommandsResponseBody extends $dara.Model {
   commands?: DescribeCommandsResponseBodyCommands;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, all results have been retrieved.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -297,7 +297,7 @@ export class DescribeCommandsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the command list.
    * 
    * @example
    * 1

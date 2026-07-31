@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeManagedInstancesResponseBodyInstancesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If a single tag is specified to query resources, up to 1,000 resources that have this tag added are returned. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added are returned. To query more than 1,000 resources that have the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -17,7 +17,7 @@ export class DescribeManagedInstancesResponseBodyInstancesTags extends $dara.Mod
   tagKey?: string;
   /**
    * @remarks
-   * The value of tag N of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * The tag value of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class DescribeManagedInstancesResponseBodyInstancesTags extends $dara.Mod
 export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID.
    * 
    * @example
    * 3704F543-F768-43FA-9864-897F75B3****
@@ -67,11 +67,11 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Indicates whether the managed instance is connected. Valid values:
+   * Indicates whether the managed instance is connected.
    * 
-   * - true: The managed instance is connected. You can manage the instance by using Cloud Assistant.
+   * - true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
    * 
-   * - false: The managed instance is not connected. The managed instance may be down or Cloud Assistant Agent may be incorrectly installed.
+   * - false: The managed instance is not connected. The server may be shut down or Cloud Assistant Agent may not be properly installed.
    * 
    * @example
    * true
@@ -87,7 +87,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The ID of the managed instance.
+   * The managed instance ID.
    * 
    * @example
    * mi-hz018jrc1o0****
@@ -119,7 +119,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The number of times that Cloud Assistant tasks were executed on the managed instance.
+   * The number of times that Cloud Assistant tasks were run on the managed instance.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the last Cloud Assistant task was executed.
+   * The time when the last Cloud Assistant task was run.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -135,7 +135,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   lastInvokedTime?: string;
   /**
    * @remarks
-   * The machine code of the managed instance.
+   * The machine ID of the managed instance.
    * 
    * @example
    * e03231b37ab14e53b5795ad625fc****
@@ -143,7 +143,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   machineId?: string;
   /**
    * @remarks
-   * The operating system type of the managed instance.
+   * The operating system of the managed instance.
    * 
    * @example
    * Linux
@@ -151,7 +151,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The version information of the operating system.
+   * The version of the operating system.
    * 
    * @example
    * Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
@@ -159,7 +159,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The time when the managed instance was registered.
+   * The registration time of the managed instance.
    * 
    * @example
    * 2021-01-20T08:57:56Z
@@ -175,7 +175,7 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the managed instance.
+   * The tags.
    */
   tags?: DescribeManagedInstancesResponseBodyInstancesTags[];
   static names(): { [key: string]: string } {
@@ -235,12 +235,12 @@ export class DescribeManagedInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeManagedInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried managed instances.
+   * The list of managed instances.
    */
   instances?: DescribeManagedInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token returned in this call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -248,7 +248,7 @@ export class DescribeManagedInstancesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the managed instance list.
    * 
    * @example
    * 1
@@ -272,7 +272,7 @@ export class DescribeManagedInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried managed instances.
+   * The total number of managed instances queried.
    * 
    * @example
    * 1

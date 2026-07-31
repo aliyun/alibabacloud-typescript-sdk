@@ -60,7 +60,7 @@ export class DescribeResourceByTagsResponseBodyResources extends $dara.Model {
 export class DescribeResourceByTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the results.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeResourceByTagsResponseBody extends $dara.Model {
   resources?: DescribeResourceByTagsResponseBodyResources;
   /**
    * @remarks
-   * The total number of resources.
+   * The total number of returned resources.
    * 
    * @example
    * 8
