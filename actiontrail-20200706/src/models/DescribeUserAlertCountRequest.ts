@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserAlertCountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2025-06-10
    */
   endDate?: string;
   /**
+   * @remarks
+   * The start time. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2025-05-12
    */

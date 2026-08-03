@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAdvancedQueryTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the simple query mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,26 @@ export class UpdateAdvancedQueryTemplateRequest extends $dara.Model {
   simpleQuery?: boolean;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * x4a0Tw5dQy2J6IRJxf4kng
+   * utpl-QNL3dpYkQcyjZxrIQC****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template. The maximum length is 64 characters.
+   * 
+   * @example
+   * example-template
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The query statement of the template.
+   * 
    * @example
    * event.eventName: ConsoleSignin AND event.userIdentity.type: root-account
    */

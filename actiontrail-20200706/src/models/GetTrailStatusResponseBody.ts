@@ -7,8 +7,9 @@ export class GetTrailStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether logging is enabled for the trail. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -50,8 +51,9 @@ export class GetTrailStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the destination Object Storage Service (OSS) bucket is available. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -69,8 +71,9 @@ export class GetTrailStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the destination Log Service Logstore is available. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

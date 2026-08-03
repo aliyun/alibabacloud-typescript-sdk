@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAdvancedQueryTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 95F2CD1D-9BD3-564A-A74A-743FFC5E46E5
    */

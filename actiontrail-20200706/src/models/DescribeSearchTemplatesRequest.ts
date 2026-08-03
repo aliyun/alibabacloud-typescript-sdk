@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSearchTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The maximum number of entries to return. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

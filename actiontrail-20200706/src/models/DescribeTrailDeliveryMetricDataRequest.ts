@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrailDeliveryMetricDataRequest extends $dara.Model {
   /**
    * @remarks
+   * The end of the time window for the query. Specify the time in ISO 8601 format: \\"YYYY-MM-DDThh:mm:ssZ\\". The \\"Z\\" indicates UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,16 @@ export class DescribeTrailDeliveryMetricDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The name of the delivery monitoring metric. Valid values:
+   * 
+   * - `delivery_sls_success_count`: The number of logs successfully delivered to SLS.
+   * 
+   * - `delivery_sls_fail_count`: The number of logs that failed to be delivered to SLS.
+   * 
+   * - `delivery_oss_success_count`: The number of logs successfully delivered to OSS.
+   * 
+   * - `delivery_oss_fail_count`: The number of logs that failed to be delivered to OSS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +33,10 @@ export class DescribeTrailDeliveryMetricDataRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
+   * The statistical period for the metric data, in seconds. The value must be 60 or a multiple of 60.
+   * 
+   * Recommended values: 60, 900, and 3600.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +45,8 @@ export class DescribeTrailDeliveryMetricDataRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
+   * The start of the time window for the query. Specify the time in ISO 8601 format: \\"YYYY-MM-DDThh:mm:ssZ\\". The \\"Z\\" indicates UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +55,8 @@ export class DescribeTrailDeliveryMetricDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * The name of the trail.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataEventServicesResponseBodyDataServiceInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The data events supported by the service.
+   */
   eventNames?: string[];
   /**
+   * @remarks
+   * The cloud service name.
+   * 
    * @example
    * Cms
    */
@@ -37,15 +44,25 @@ export class ListDataEventServicesResponseBodyDataServiceInfos extends $dara.Mod
 
 export class ListDataEventServicesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned for the current request.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * VjE6bHJlTGoxdm1M****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The supported Alibaba Cloud services and the data events for each service.
+   */
   serviceInfos?: ListDataEventServicesResponseBodyDataServiceInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -76,8 +93,15 @@ export class ListDataEventServicesResponseBodyData extends $dara.Model {
 }
 
 export class ListDataEventServicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: ListDataEventServicesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 851038F3-33AB-4C49-97D7-6AB37D35****
    */

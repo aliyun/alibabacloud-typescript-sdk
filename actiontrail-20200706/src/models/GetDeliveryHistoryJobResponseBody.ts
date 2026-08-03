@@ -15,10 +15,13 @@ export class GetDeliveryHistoryJobResponseBodyStatus extends $dara.Model {
    * @remarks
    * The task status in each region. Valid values:
    * 
-   * *   0: The task is initializing.
-   * *   1: The task is delivering historical events.
-   * *   2: The task is complete.
-   * *   3: The task fails.
+   * - 0: The task is initializing.
+   * 
+   * - 1: The task is delivering historical events.
+   * 
+   * - 2: The task is complete.
+   * 
+   * - 3: The task fails.
    * 
    * @example
    * 2
@@ -84,10 +87,13 @@ export class GetDeliveryHistoryJobResponseBody extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   0: The task is initializing.
-   * *   1: The task is delivering historical events.
-   * *   2: The task is complete.
-   * *   3: The task fails.
+   * - 0: The task is initializing.
+   * 
+   * - 1: The task is delivering historical events.
+   * 
+   * - 2: The task is complete.
+   * 
+   * - 3: The task fails.
    * 
    * @example
    * 2

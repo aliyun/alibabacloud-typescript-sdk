@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeScenesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword. This operation performs a case-insensitive, fuzzy match.
+   * 
    * @example
    * ak
    */

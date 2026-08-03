@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeResourceLifeCycleEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * ACS::ECS::Instance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The name of the Alibaba Cloud service.
+   * 
    * @example
    * ECS
    */

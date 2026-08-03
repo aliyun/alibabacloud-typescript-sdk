@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTrailDeliveryMetricDataResponseBodyMetricList extends $dara.Model {
   /**
+   * @remarks
+   * The value of the metric. The meaning of this parameter depends on the value of the `MetricName` parameter in the request.
+   * 
+   * For example, if `MetricName` is set to `delivery_sls_success_count`, `Count` indicates the number of logs successfully delivered to SLS.
+   * 
    * @example
    * 21
    */
   count?: number;
   /**
+   * @remarks
+   * The Unix timestamp, in milliseconds, that marks the start of the time window for this data point.
+   * 
    * @example
    * 1775721600000
    */
@@ -37,8 +45,15 @@ export class DescribeTrailDeliveryMetricDataResponseBodyMetricList extends $dara
 }
 
 export class DescribeTrailDeliveryMetricDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of data points for the delivery monitoring metric.
+   */
   metricList?: DescribeTrailDeliveryMetricDataResponseBodyMetricList[];
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 851038F3-33AB-4C49-97D7-6AB37D35****
    */

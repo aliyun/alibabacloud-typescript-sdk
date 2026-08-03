@@ -13,7 +13,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 104758519118****
@@ -29,7 +29,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The details about the event.
+   * The event details.
    * 
    * @example
    * {
@@ -64,7 +64,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
    * The Chinese name of the Alibaba Cloud service that was last accessed.
    * 
    * @example
-   * Elastic Compute Service (ECS)
+   * 云服务器ECS
    */
   serviceNameCn?: string;
   /**
@@ -100,7 +100,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
   serviceNameEn?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the last usage record.
    * 
    * @example
    * ManagementEvent
@@ -108,7 +108,7 @@ export class GetAccessKeyLastUsedInfoResponseBody extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The timestamp when the AccessKey pair was last called.
+   * The timestamp when the AccessKey pair was last used. Unit: milliseconds.
    * 
    * This parameter is required.
    * 

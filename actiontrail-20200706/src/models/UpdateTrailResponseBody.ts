@@ -64,7 +64,7 @@ export class UpdateTrailResponseBody extends $dara.Model {
    * The ARN of the RAM role that is assumed by ActionTrail to deliver events to the OSS bucket.
    * 
    * @example
-   * acs:ram::***:role/aliyunserviceroleforactiontrail
+   * acs:ram::151266687691****:role/aliyunserviceroleforactiontrail
    */
   ossWriteRoleArn?: string;
   /**
@@ -88,7 +88,7 @@ export class UpdateTrailResponseBody extends $dara.Model {
    * The ARN of the RAM role that is assumed by ActionTrail is to deliver events to the Log Service project.
    * 
    * @example
-   * acs:ram::***:role/aliyunserviceroleforactiontrail
+   * acs:ram::151266687691****:role/aliyunserviceroleforactiontrail
    */
   slsWriteRoleArn?: string;
   /**

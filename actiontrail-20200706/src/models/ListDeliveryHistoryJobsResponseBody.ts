@@ -21,7 +21,7 @@ export class ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs extends $dar
   endTime?: string;
   /**
    * @remarks
-   * The home region of the trail.
+   * The home region.
    * 
    * @example
    * cn-hangzhou
@@ -37,12 +37,15 @@ export class ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs extends $dar
   jobId?: number;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
-   * *   0: The task is initializing.
-   * *   1: The task is delivering historical events.
-   * *   2: The task is complete.
-   * *   3: The task fails.
+   * - 0: The task is being initialized.
+   * 
+   * - 1: The task is delivering events.
+   * 
+   * - 2: The task is complete.
+   * 
+   * - 3: The task failed.
    * 
    * @example
    * 2
@@ -66,7 +69,7 @@ export class ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs extends $dar
   trailName?: string;
   /**
    * @remarks
-   * The time when the task was updated.
+   * The time when the task was last updated.
    * 
    * @example
    * 2021-04-26T03:20:08Z
@@ -110,7 +113,7 @@ export class ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs extends $dar
 export class ListDeliveryHistoryJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of historical event delivery tasks.
+   * The list of data backfill tasks.
    */
   deliveryHistoryJobs?: ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs[];
   /**
@@ -123,7 +126,7 @@ export class ListDeliveryHistoryJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -131,7 +134,7 @@ export class ListDeliveryHistoryJobsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B190816C-6DCA-4DC5-9B8E-EE0367B57CFF
@@ -139,7 +142,7 @@ export class ListDeliveryHistoryJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of historical event delivery tasks returned.
+   * The total number of tasks.
    * 
    * @example
    * 1

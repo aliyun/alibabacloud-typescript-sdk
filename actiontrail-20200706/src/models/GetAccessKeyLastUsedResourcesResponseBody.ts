@@ -48,45 +48,45 @@ export class GetAccessKeyLastUsedResourcesResponseBodyResources extends $dara.Mo
   resourceType?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the last usage record.
    * 
    * Valid values:
    * 
-   * *   Internal
+   * - Internal
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     other events
+   *   Other event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   ManagementEvent
+   * - ManagementEvent
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     management events
+   *   Management event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   DataEvent
+   * - DataEvent
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     data events
+   *   Data event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * ManagementEvent
@@ -94,7 +94,7 @@ export class GetAccessKeyLastUsedResourcesResponseBodyResources extends $dara.Mo
   source?: string;
   /**
    * @remarks
-   * The timestamp when the resource was used. Unit: millisecond.
+   * The timestamp when the resource was used. Unit: milliseconds.
    * 
    * @example
    * 1657247532000

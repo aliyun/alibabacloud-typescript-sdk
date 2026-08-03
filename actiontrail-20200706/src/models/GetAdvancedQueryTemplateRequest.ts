@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdvancedQueryTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * utpl-N9fpjnFBSWauSXhVNP3erw
+   * utpl-N9fpjnFBSWauSXhVNP****
    */
   templateId?: string;
   static names(): { [key: string]: string } {

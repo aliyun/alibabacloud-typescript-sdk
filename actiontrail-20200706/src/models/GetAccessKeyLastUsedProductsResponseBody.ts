@@ -43,7 +43,7 @@ export class GetAccessKeyLastUsedProductsResponseBodyProducts extends $dara.Mode
    * The Chinese name of the Alibaba Cloud service.
    * 
    * @example
-   * Elastic Compute Service (ECS)
+   * 云服务器ECS
    */
   serviceNameCn?: string;
   /**
@@ -56,45 +56,45 @@ export class GetAccessKeyLastUsedProductsResponseBodyProducts extends $dara.Mode
   serviceNameEn?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the last usage record.
    * 
    * Valid values:
    * 
-   * *   Internal
+   * - Internal
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     other events
+   *   Other event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   ManagementEvent
+   * - ManagementEvent
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     management events
+   *   Management event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   DataEvent
+   * - DataEvent
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     data events
+   *   Data event
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * ManagementEvent
@@ -102,7 +102,7 @@ export class GetAccessKeyLastUsedProductsResponseBodyProducts extends $dara.Mode
   source?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. Unit: millisecond.
+   * The timestamp when the Alibaba Cloud service was used. Unit: milliseconds.
    * 
    * @example
    * 1657247532000

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInsightTypesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The types of Insights events.
+   * 
    * @example
    * {\\"ApiCallRateInsight\\": \\"Enable\\", \\"ApiErrorRateInsight\\": \\"Enable\\", \\"IpInsight\\": \\"Enable\\", \\"AkInsight\\": \\"Enable\\"}
    */
   insightTypes?: { [key: string]: any };
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EC4A1F64-4927-5714-B205-5A0B16A2****
    */

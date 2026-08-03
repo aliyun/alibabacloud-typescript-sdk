@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAdvancedQueryTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 145318BE-DEE1-4C57-AA7C-5BE7D34A6AE0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the simple query mode is enabled.
+   * 
    * @example
    * true
    */
   simpleQuery?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
-   * utpl-QNL3dpYkQcyjZxrIQCciqQ
+   * utpl-QNL3dpYkQcyjZxrIQC****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template. The maximum length is 64 characters.
+   * 
+   * @example
+   * example-template
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The query statement of the template.
+   * 
    * @example
    * event.userIdentity.type: root-account AND event.userIdentity.accessKeyId: *
    */

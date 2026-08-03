@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataEventSelectorRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the trail.
+   * 
    * This parameter is required.
    * 
    * @example

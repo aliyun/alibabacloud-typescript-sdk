@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserTrailCountResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * An array of trail counts, where each count corresponds to a date in the `Dates` array.
+   */
   counts?: number[];
+  /**
+   * @remarks
+   * A list of dates.
+   */
   dates?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +43,15 @@ export class DescribeUserTrailCountResponseBodyData extends $dara.Model {
 }
 
 export class DescribeUserTrailCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeUserTrailCountResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EDDEBA6B-FFE2-4EF6-8BAB-2A6B98DC****
    */

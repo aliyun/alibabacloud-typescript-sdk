@@ -7,8 +7,9 @@ export class DescribeTrailsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the information about multi-account trails. Valid values:
    * 
-   * *   true
-   * *   false (default)
+   * - true
+   * 
+   * - false (default)
    * 
    * @example
    * false
@@ -18,8 +19,9 @@ export class DescribeTrailsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return the information about shadow trails. Valid values:
    * 
-   * *   false: Do not return the information about shadow trails. It is the default value.
-   * *   true: Return the information about shadow trails.
+   * - false: Do not return the information about shadow trails. It is the default value.
+   * 
+   * - true: Return the information about shadow trails.
    * 
    * @example
    * false

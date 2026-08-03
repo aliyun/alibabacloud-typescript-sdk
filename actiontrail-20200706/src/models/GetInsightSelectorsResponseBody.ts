@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInsightSelectorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of Insights event types.
+   */
   insightSelectors?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D0227506-AA8C-5998-8A62-74769106****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the trail.
+   * 
    * @example
    * acs:actiontrail:cn-shanghai:159498693826****:trail/trail-name
    */

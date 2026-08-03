@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LookupEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range when event details were queried.
+   * The end of the time range of the retrieved events.
    * 
    * @example
    * 2020-07-22T14:00:00Z
@@ -13,16 +13,14 @@ export class LookupEventsResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The returned event details.
-   * 
-   * For more information about the fields in an event log, see [ActionTrail event log reference](https://help.aliyun.com/document_detail/28819.html).
+   * The list of retrieved events.
    */
   events?: { [key: string]: any }[];
   /**
    * @remarks
-   * The token used to return the next page of query results.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * > This parameter is not returned if no more results are to be returned.
+   * > If NextToken is empty, no next page exists.
    * 
    * @example
    * eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
@@ -30,15 +28,15 @@ export class LookupEventsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * FD79665A-CE8B-49D4-82E6-5EE2E0E791DD
+   * FD79665A-CE8B-49D4-82E6-5EE2E0E7****
    */
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range when event details were queried.
+   * The start of the time range of the retrieved events.
    * 
    * @example
    * 2020-07-15T14:00:00Z

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserAlertCountResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics returned.
+   */
   counts?: number[];
+  /**
+   * @remarks
+   * The dates of alerts.
+   */
   dates?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,8 +43,15 @@ export class DescribeUserAlertCountResponseBodyData extends $dara.Model {
 }
 
 export class DescribeUserAlertCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DescribeUserAlertCountResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 90D6CC31-947F-5D8A-BEDC-F312EE9B31EA
    */

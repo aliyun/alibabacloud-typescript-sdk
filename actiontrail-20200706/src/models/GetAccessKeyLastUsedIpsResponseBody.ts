@@ -40,13 +40,15 @@ export class GetAccessKeyLastUsedIpsResponseBodyIps extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the last usage record.
    * 
    * Valid values:
    * 
-   * *   Internal: other events.
-   * *   ManagementEvent: management events.
-   * *   DataEvent: data events.
+   * - Internal: Other event
+   * 
+   * - ManagementEvent: Management event
+   * 
+   * - DataEvent: Data event
    * 
    * @example
    * ManagementEvent

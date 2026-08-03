@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeliveryHistoryJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the historical event delivery task.
+   * The task ID.
    * 
    * @example
    * 16602
@@ -13,7 +13,7 @@ export class CreateDeliveryHistoryJobResponseBody extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9D356A34-D5A9-41CD-9915-837B7F9D8722

@@ -17,7 +17,7 @@ export class GetAccessKeyLastUsedIpsRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
    * 
-   * >  You must specify the token that is obtained from the previous query as the value of NextToken.
+   * > You must specify the token that is obtained from the previous query as the value of NextToken.
    * 
    * @example
    * eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****

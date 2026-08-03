@@ -10,7 +10,7 @@ export class GetAccessKeyLastUsedResourcesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * LTAI****************
+   * LTAI4Fz1ykT4qxgNMvN6****
    */
   accessKey?: string;
   /**
@@ -27,8 +27,9 @@ export class GetAccessKeyLastUsedResourcesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Valid values: 0 to 100.
-   * *   Default value: 20.
+   * - Valid values: 0 to 100.
+   * 
+   * - Default value: 20.
    * 
    * @example
    * 20

@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeScenesResponseBodySceneList extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the scenario.
+   * 
+   * @example
+   * Query access events for the primary and sub-accounts and access keys under various scenarios, such as access events occurrence, access without MFA authentication, and failed access attempts.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the scenario.
+   * 
+   * @example
+   * Account-related or AccessKey Pair-related Events
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the scenario.
+   * 
    * @example
    * sc-lpYrjKouRfy3MK-wteJW_Q
    */
   sceneId?: string;
   /**
+   * @remarks
+   * The identifier for the scenario category.
+   * 
    * @example
    * identity
    */
   token?: string;
   /**
+   * @remarks
+   * The type of the scenario.
+   * 
    * @example
    * normal
    */
@@ -51,10 +74,17 @@ export class DescribeScenesResponseBodySceneList extends $dara.Model {
 
 export class DescribeScenesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7EC26DF0-35AC-5F37-82B3-F5545D0A****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of scenarios.
+   */
   sceneList?: DescribeScenesResponseBodySceneList[];
   static names(): { [key: string]: string } {
     return {

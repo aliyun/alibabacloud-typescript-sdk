@@ -15,9 +15,11 @@ export class DescribeTrailsResponseBodyTrailList extends $dara.Model {
    * @remarks
    * The read/write type of the events that are delivered. Valid values:
    * 
-   * *   Write: write events. This is the default value.
-   * *   Read: read events.
-   * *   All: read and write events.
+   * - Write: write events. This is the default value.
+   * 
+   * - Read: read events.
+   * 
+   * - All: read and write events.
    * 
    * @example
    * All
@@ -35,8 +37,9 @@ export class DescribeTrailsResponseBodyTrailList extends $dara.Model {
    * @remarks
    * Indicates whether the trail is a multi-account trail. Valid values:
    * 
-   * *   false (default)
-   * *   true
+   * - false (default)
+   * 
+   * - true
    * 
    * @example
    * false
@@ -70,7 +73,7 @@ export class DescribeTrailsResponseBodyTrailList extends $dara.Model {
    * @remarks
    * The ID of the resource directory.
    * 
-   * >  This parameter is returned only when the trail is a multi-account trail.
+   * > This parameter is returned only when the trail is a multi-account trail.
    * 
    * @example
    * rd-EV****
@@ -105,7 +108,7 @@ export class DescribeTrailsResponseBodyTrailList extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the RAM role that is assumed by ActionTrail to deliver events to the OSS bucket.
    * 
    * @example
-   * acs:ram::***:role/aliyunserviceroleforactiontrail
+   * acs:ram::151266687691****:role/aliyunserviceroleforactiontrail
    */
   ossWriteRoleArn?: string;
   /**
@@ -144,9 +147,11 @@ export class DescribeTrailsResponseBodyTrailList extends $dara.Model {
    * @remarks
    * The status of the trail. Valid values:
    * 
-   * *   Disable: disabled.
-   * *   Enable: enabled.
-   * *   Fresh: The trail is created but is not enabled.
+   * - Disable: disabled.
+   * 
+   * - Enable: enabled.
+   * 
+   * - Fresh: The trail is created but is not enabled.
    * 
    * @example
    * Enable

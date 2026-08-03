@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PutInsightSelectorsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The types of Insights events that the trail should deliver.
+   * 
    * @example
    * [{"insightType":"AkInsight"},{"insightType":"IpInsight"}]
    */
   insightSelectors?: string;
   /**
    * @remarks
+   * The name of the trail.
+   * 
    * This parameter is required.
    * 
    * @example

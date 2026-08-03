@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableInsightResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4ABAEA6E-C740-5CE2-A003-643E5519****
    */

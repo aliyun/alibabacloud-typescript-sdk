@@ -8,7 +8,7 @@ export class GetGlobalEventsStorageRegionResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 0474CD9D-DF37-55D4-8383-D978CFBE13A4
+   * 0474CD9D-DF37-55D4-8383-D265CFBE13A5
    */
   requestId?: string;
   /**
@@ -17,32 +17,32 @@ export class GetGlobalEventsStorageRegionResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   ap-southeast-1
+   * - ap-southeast-1
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     the Singapore region
+   *   the Singapore region
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   cn-hangzhou
+   * - cn-hangzhou
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     the China (Hangzhou) region
+   *   the China (Hangzhou) region
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   storageRegion?: string;
   static names(): { [key: string]: string } {

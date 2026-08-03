@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAdvancedQueryTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the template.
+   * 
    * @example
    * utpl-QNL3dpYkQcyjZxrIQCciqQ
    */

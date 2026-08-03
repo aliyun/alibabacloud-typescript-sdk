@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the details about the event.
+   * The event details.
    * 
    * @example
    * {
@@ -32,7 +32,7 @@ export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The name of the event.
+   * The event name.
    * 
    * @example
    * DescribeInstances
@@ -40,7 +40,7 @@ export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the last usage record.
    * 
    * @example
    * ManagementEvent
@@ -48,7 +48,7 @@ export class GetAccessKeyLastUsedEventsResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The timestamp when the event was generated.
+   * The timestamp when the event was generated. Unit: milliseconds.
    * 
    * @example
    * 1657247532000
@@ -91,7 +91,11 @@ export class GetAccessKeyLastUsedEventsResponseBody extends $dara.Model {
   events?: GetAccessKeyLastUsedEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * The token that is used to retrieve the next page of results. If the value of this parameter is not empty, the next page exists. You must set the value to the NextToken value returned from the last call.
+   * 
+   * colspan="1" rowspan="1">
+   * 
+   * eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD\\*\\*\\*\\*
    * 
    * @example
    * eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD****
@@ -99,7 +103,7 @@ export class GetAccessKeyLastUsedEventsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * This parameter is required.
    * 
