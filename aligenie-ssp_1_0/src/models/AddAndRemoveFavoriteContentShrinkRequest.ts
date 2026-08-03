@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class AddAndRemoveFavoriteContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openAddAndRemoveFavoriteContentRequestShrink?: string;
   /**
    * @remarks
+   * User identification information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

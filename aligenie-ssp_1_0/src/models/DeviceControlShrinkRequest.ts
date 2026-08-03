@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeviceControlShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Input parameters for volume control
+   */
   controlRequestShrink?: string;
   /**
    * @remarks
+   * List of device ID information.
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;

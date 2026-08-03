@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListCateContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identifier information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Request Parameters
+   * 
    * This parameter is required.
    */
   requestShrink?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

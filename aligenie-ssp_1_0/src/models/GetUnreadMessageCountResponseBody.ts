@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUnreadMessageCountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code returned by the service
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * 用户信息不存在
+   */
   message?: string;
   /**
+   * @remarks
+   * Number of unread messages
+   * 
    * @example
    * 10
    */

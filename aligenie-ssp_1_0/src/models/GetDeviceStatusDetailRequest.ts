@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. Enter the Project ID of the product’s project here. You can view it in the Tmall Genie AI Platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. Enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID. Enter the value of deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,10 @@ export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of device ID:  
+   * OPEN_ID: The default device ID.  
+   * UNION_ID: An organization-level device ID. You must request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +46,9 @@ export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1
    */
@@ -72,11 +85,18 @@ export class GetDeviceStatusDetailRequestDeviceInfo extends $dara.Model {
 export class GetDeviceStatusDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * List of device identification information.
+   * 
    * This parameter is required.
    */
   deviceInfo?: GetDeviceStatusDetailRequestDeviceInfo;
   /**
    * @remarks
+   * A collection of specified keys for device settings:  
+   * Player: player  
+   * Device volume: speaker  
+   * Battery level: power
+   * 
    * This parameter is required.
    */
   keys?: string[];

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the SkillID of the application; when the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Maojing, and each method corresponds to a different encoding type: PACKAGE_NAME: APK package name, used in the Android application customer link; SKILL_ID: skill ID, used in the cloud link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID (deviceOpenId or deviceUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of the device ID: OPEN_ID: default device ID; UNION_ID: organization-dimension device ID, available only after an organization has been requested on the Maojing Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -72,6 +83,8 @@ export class DeleteAlarmsRequestDeviceInfo extends $dara.Model {
 export class DeleteAlarmsRequestPayload extends $dara.Model {
   /**
    * @remarks
+   * Alarms to delete
+   * 
    * This parameter is required.
    */
   alarmIds?: number[];
@@ -102,6 +115,8 @@ export class DeleteAlarmsRequestPayload extends $dara.Model {
 export class DeleteAlarmsRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -110,6 +125,8 @@ export class DeleteAlarmsRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the User Identifier for Maojing, and each way corresponds to a different encoding type: PACKAGE_NAME refers to the APK package name, which is the encoding type for the Android application customer ingest endpoint; SKILL_ID refers to the skill ID, which is the encoding type for the cloud ingest endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +135,8 @@ export class DeleteAlarmsRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier (userOpenId or userUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,6 +145,10 @@ export class DeleteAlarmsRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of the User ID:  
+   * - OPEN_ID: The default User ID identity.  
+   * - UNION_ID: The User ID identity at the organization dimension. This is available only after an organization has been requested on the Maojing Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -133,6 +156,9 @@ export class DeleteAlarmsRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -169,16 +195,22 @@ export class DeleteAlarmsRequestUserInfo extends $dara.Model {
 export class DeleteAlarmsRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: DeleteAlarmsRequestDeviceInfo;
   /**
    * @remarks
+   * Input parameters for the service request
+   * 
    * This parameter is required.
    */
   payload?: DeleteAlarmsRequestPayload;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: DeleteAlarmsRequestUserInfo;

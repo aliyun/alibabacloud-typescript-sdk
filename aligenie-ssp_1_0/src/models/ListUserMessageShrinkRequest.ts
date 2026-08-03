@@ -4,16 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserMessageShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * After a specific point in time
+   * 
    * @example
    * 2022-07-27 14:06:55.984
    */
   beforeTime?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;
   /**
+   * @remarks
+   * Number of records to query
+   * 
    * @example
    * 10
    */

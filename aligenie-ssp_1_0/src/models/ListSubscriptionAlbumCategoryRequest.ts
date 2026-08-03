@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSubscriptionAlbumCategoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * Category name
+   * 
    * @example
    * 儿歌
    */

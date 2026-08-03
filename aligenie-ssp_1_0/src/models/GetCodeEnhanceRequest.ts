@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCodeEnhanceRequestChannelInfo extends $dara.Model {
   /**
    * @remarks
+   * Activation Channel, such as WeChat or ThirdApp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetCodeEnhanceRequestChannelInfo extends $dara.Model {
    */
   channel?: string;
   /**
+   * @remarks
+   * Extension information.
+   * 
    * @example
    * {}
    */
@@ -42,6 +47,8 @@ export class GetCodeEnhanceRequestChannelInfo extends $dara.Model {
 export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. Enter the Project ID of the project to which the product belongs. You can view it in the Tmall Genie AI Platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +57,8 @@ export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding Type. Enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +67,8 @@ export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier. Enter the value of userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +77,10 @@ export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID:  
+   * OPENID: The default User ID identifier.  
+   * UNIONID: The organization-dimension User ID identifier. You must request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +88,9 @@ export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1
    */
@@ -109,11 +127,15 @@ export class GetCodeEnhanceRequestUserInfo extends $dara.Model {
 export class GetCodeEnhanceRequest extends $dara.Model {
   /**
    * @remarks
+   * Activation Channel, such as WeChat mini program or third-party app.
+   * 
    * This parameter is required.
    */
   channelInfo?: GetCodeEnhanceRequestChannelInfo;
   /**
    * @remarks
+   * List of User Identifier information.
+   * 
    * This parameter is required.
    */
   userInfo?: GetCodeEnhanceRequestUserInfo;

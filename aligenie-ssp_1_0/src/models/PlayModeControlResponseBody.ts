@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class PlayModeControlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Playback mode
+   * 
+   * List loop: Repeat; Shuffle: Shuffle; Single-track loop: RepeatOne; NAT mode: Normal;
+   * 
    * @example
    * Normal
    */
@@ -31,22 +36,38 @@ export class PlayModeControlResponseBodyResult extends $dara.Model {
 
 export class PlayModeControlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code of the invocation
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional information, typically used to briefly describe a failed invocation to help the caller troubleshoot the issue.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 10002398812
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Actual return result of the service
+   */
   result?: PlayModeControlResponseBodyResult;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded. true indicates success, and false indicates failure. When the value is false, check the Message field for details.
+   * 
    * @example
    * true
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnbindDeviceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned. A value of 200 indicates that the call succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the device was detached successfully.
+   * 
    * @example
    * true
    */

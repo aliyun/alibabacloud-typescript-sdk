@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeviceBasicInfoResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Firmware version of the device.
+   * 
    * @example
    * 2.0.3
    */
   firmwareVersion?: string;
   /**
+   * @remarks
+   * MAC address of the device.
+   * 
    * @example
    * b4:xx:xx:xx:65:2b
    */
   mac?: string;
   /**
+   * @remarks
+   * Name of the device.
+   * 
    * @example
    * 我的设备
    */
   name?: string;
   /**
+   * @remarks
+   * SN information of the device.
+   * 
    * @example
    * 1200xxx048
    */
@@ -52,20 +64,33 @@ export class GetDeviceBasicInfoResponseBodyResult extends $dara.Model {
 
 export class GetDeviceBasicInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code returned. A value of 200 indicates that the call succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Detailed information returned.
+   */
   result?: GetDeviceBasicInfoResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

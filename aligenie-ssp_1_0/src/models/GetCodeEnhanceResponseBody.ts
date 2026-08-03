@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCodeEnhanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returned error code. A value of 200 indicates that the invocation Succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return Result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Detailed returned information.
+   * 
    * @example
    * Aexfgc
    */

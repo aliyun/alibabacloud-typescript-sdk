@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloudPlayerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
@@ -22,6 +28,9 @@ export class CloudPlayerResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return Result: true indicates validation succeeded; false indicates validation failed.
+   * 
    * @example
    * true
    */

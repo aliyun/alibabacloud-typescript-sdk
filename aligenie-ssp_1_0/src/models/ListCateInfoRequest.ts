@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCateInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Default value is song (the extension field currently only supports song)
+   * 
    * This parameter is required.
    * 
    * @example

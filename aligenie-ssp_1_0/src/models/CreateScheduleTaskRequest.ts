@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScheduleTaskRequestDeviceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the SkillID of the application. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client application.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding type. There are multiple ways to obtain the device identity for Maojing, and each method corresponds to a different encoding type: PACKAGE_NAME: APK package name, used for Android application customer linkage; SKILL_ID: skill ID, used for cloud linkage.
+   * 
    * @example
    * PROJECT_ID
    */
   encodeType?: string;
   /**
+   * @remarks
+   * Device ID (deviceOpenId or deviceUnionId)
+   * 
    * @example
    * DAFE****ce3ej=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of device ID: OPEN_ID: default device ID; UNION_ID: organization-level device ID, available only after applying for an organization in the Maojing Skill Application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -59,6 +74,9 @@ export class CreateScheduleTaskRequestDeviceInfo extends $dara.Model {
 
 export class CreateScheduleTaskRequestPayloadActionDTOs extends $dara.Model {
   /**
+   * @remarks
+   * Vendor-defined command
+   * 
    * @example
    * {"k1":"v1","k2":{"key":1}}
    */
@@ -89,26 +107,41 @@ export class CreateScheduleTaskRequestPayloadActionDTOs extends $dara.Model {
 
 export class CreateScheduleTaskRequestPayloadScheduleDTOOnce extends $dara.Model {
   /**
+   * @remarks
+   * Trigger day
+   * 
    * @example
    * 26
    */
   day?: number;
   /**
+   * @remarks
+   * Trigger Hour
+   * 
    * @example
    * 12
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger Minute
+   * 
    * @example
    * 30
    */
   minute?: number;
   /**
+   * @remarks
+   * Trigger Month
+   * 
    * @example
    * 7
    */
   month?: number;
   /**
+   * @remarks
+   * Trigger Year
+   * 
    * @example
    * 2022
    */
@@ -143,7 +176,15 @@ export class CreateScheduleTaskRequestPayloadScheduleDTOOnce extends $dara.Model
 }
 
 export class CreateScheduleTaskRequestPayloadScheduleDTOStatutoryWorkingDay extends $dara.Model {
+  /**
+   * @remarks
+   * Trigger hour; Multiple Choice
+   */
   hours?: number[];
+  /**
+   * @remarks
+   * Trigger minute; Multiple Choice
+   */
   minutes?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -175,8 +216,20 @@ export class CreateScheduleTaskRequestPayloadScheduleDTOStatutoryWorkingDay exte
 }
 
 export class CreateScheduleTaskRequestPayloadScheduleDTOWeekly extends $dara.Model {
+  /**
+   * @remarks
+   * Trigger days of the week, where 1–7 represent Monday through Sunday, respectively
+   */
   daysOfWeek?: number[];
+  /**
+   * @remarks
+   * Trigger hour
+   */
   hours?: number[];
+  /**
+   * @remarks
+   * Trigger minute
+   */
   minutes?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -213,9 +266,15 @@ export class CreateScheduleTaskRequestPayloadScheduleDTOWeekly extends $dara.Mod
 }
 
 export class CreateScheduleTaskRequestPayloadScheduleDTO extends $dara.Model {
+  /**
+   * @remarks
+   * One-time Scan Configuration
+   */
   once?: CreateScheduleTaskRequestPayloadScheduleDTOOnce;
   /**
    * @remarks
+   * Schedule end time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -224,6 +283,8 @@ export class CreateScheduleTaskRequestPayloadScheduleDTO extends $dara.Model {
   scheduleEndTime?: number;
   /**
    * @remarks
+   * Schedule Start Time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -232,13 +293,23 @@ export class CreateScheduleTaskRequestPayloadScheduleDTO extends $dara.Model {
   scheduleStartTime?: number;
   /**
    * @remarks
+   * Schedule Type
+   * 
    * This parameter is required.
    * 
    * @example
    * ONCE
    */
   scheduleType?: string;
+  /**
+   * @remarks
+   * Statutory working day schedule configuration
+   */
   statutoryWorkingDay?: CreateScheduleTaskRequestPayloadScheduleDTOStatutoryWorkingDay;
+  /**
+   * @remarks
+   * Loop schedule configuration
+   */
   weekly?: CreateScheduleTaskRequestPayloadScheduleDTOWeekly;
   static names(): { [key: string]: string } {
     return {
@@ -283,16 +354,23 @@ export class CreateScheduleTaskRequestPayloadScheduleDTO extends $dara.Model {
 export class CreateScheduleTaskRequestPayload extends $dara.Model {
   /**
    * @remarks
+   * Scheduling action parameters
+   * 
    * This parameter is required.
    */
   actionDTOs?: CreateScheduleTaskRequestPayloadActionDTOs[];
   /**
+   * @remarks
+   * Idempotent ID
+   * 
    * @example
    * 1
    */
   idempotentId?: string;
   /**
    * @remarks
+   * Scheduling information
+   * 
    * This parameter is required.
    */
   scheduleDTO?: CreateScheduleTaskRequestPayloadScheduleDTO;
@@ -329,26 +407,43 @@ export class CreateScheduleTaskRequestPayload extends $dara.Model {
 
 export class CreateScheduleTaskRequestUserInfo extends $dara.Model {
   /**
+   * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s SkillID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding Type. There are multiple ways to obtain the user identifier for Maojing, and each method corresponds to a different encoding type: PACKAGE_NAME: APK package name, used for Android application customer links; SKILL_ID: Skill ID, used for cloud-based links.
+   * 
    * @example
    * PROJECT_ID
    */
   encodeType?: string;
   /**
+   * @remarks
+   * User Identifier (userOpenId or userUnionId)
+   * 
    * @example
    * HOFF****my7Iw=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of User ID:  
+   * - OPEN_ID: The default User ID identity.  
+   * - UNION_ID: The User ID identity at the organization dimension. This is available only after an organization has been requested on the Maojing Skill Application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID; Required if IdType is UNION_ID
+   * 
    * @example
    * 1**2
    */
@@ -385,16 +480,22 @@ export class CreateScheduleTaskRequestUserInfo extends $dara.Model {
 export class CreateScheduleTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: CreateScheduleTaskRequestDeviceInfo;
   /**
    * @remarks
+   * Input parameters for the service request
+   * 
    * This parameter is required.
    */
   payload?: CreateScheduleTaskRequestPayload;
   /**
    * @remarks
+   * User Identifier Information
+   * 
    * This parameter is required.
    */
   userInfo?: CreateScheduleTaskRequestUserInfo;

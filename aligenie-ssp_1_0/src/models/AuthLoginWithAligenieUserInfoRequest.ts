@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AuthLoginWithAligenieUserInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Encrypted Aligenie User Identifier
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AuthLoginWithAligenieUserInfoRequest extends $dara.Model {
   encryptedAligenieUserIdentifier?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

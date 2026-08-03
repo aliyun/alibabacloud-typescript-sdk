@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeviceByUserIdAndChanelShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Activation channel, such as WeChat mini program or third-party app.
+   * 
    * This parameter is required.
    */
   channelInfoShrink?: string;
   /**
    * @remarks
+   * List of User Identifier information.
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

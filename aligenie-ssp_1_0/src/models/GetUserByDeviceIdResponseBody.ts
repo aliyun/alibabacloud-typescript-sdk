@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserByDeviceIdResponseBodyResultUserUnionIds extends $dara.Model {
   /**
+   * @remarks
+   * The organization ID.
+   * 
    * @example
    * 1**2
    */
   organizationId?: string;
   /**
+   * @remarks
+   * The user\\"s UnionID.
+   * 
    * @example
    * 1553*B0C3
    */
@@ -38,10 +44,17 @@ export class GetUserByDeviceIdResponseBodyResultUserUnionIds extends $dara.Model
 
 export class GetUserByDeviceIdResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The openID corresponding to the user information.
+   * 
    * @example
    * 0963*0158
    */
   userOpenId?: string;
+  /**
+   * @remarks
+   * The list of organization IDs and UnionIDs for the user.
+   */
   userUnionIds?: GetUserByDeviceIdResponseBodyResultUserUnionIds[];
   static names(): { [key: string]: string } {
     return {
@@ -71,21 +84,33 @@ export class GetUserByDeviceIdResponseBodyResult extends $dara.Model {
 
 export class GetUserByDeviceIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned. A value of 200 indicates that the call succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The list of user information returned.
+   * 
    * @example
    * true
    */

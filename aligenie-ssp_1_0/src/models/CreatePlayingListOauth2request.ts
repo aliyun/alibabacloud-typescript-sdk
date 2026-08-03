@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. Enter the Project ID of the project to which the product belongs. You can view it in the Tmall Genie AI Platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. Enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID. Enter the value of deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,10 @@ export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of device ID:  
+   * OPEN_ID: The default device ID.  
+   * UNION_ID: The organization-level device ID. You must request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +46,9 @@ export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 1
    */
@@ -72,6 +85,10 @@ export class CreatePlayingListOAuth2RequestDeviceInfo extends $dara.Model {
 export class CreatePlayingListOAuth2RequestOpenCreatePlayingListRequestContentList extends $dara.Model {
   /**
    * @remarks
+   * Third-party ID.  
+   * 
+   * If the item is content, this is the content ID; if it is an album, this is the album ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,6 +97,8 @@ export class CreatePlayingListOAuth2RequestOpenCreatePlayingListRequestContentLi
   rawId?: string;
   /**
    * @remarks
+   * Source
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,34 +131,62 @@ export class CreatePlayingListOAuth2RequestOpenCreatePlayingListRequestContentLi
 export class CreatePlayingListOAuth2RequestOpenCreatePlayingListRequest extends $dara.Model {
   /**
    * @remarks
+   * Playback objects
+   * 
    * This parameter is required.
    */
   contentList?: CreatePlayingListOAuth2RequestOpenCreatePlayingListRequestContentList[];
   /**
    * @remarks
+   * Content type for playback
+   * 
+   * Content: content; Album: album; Playlist: collect
+   * 
    * This parameter is required.
    * 
    * @example
    * content
    */
   contentType?: string;
+  /**
+   * @remarks
+   * Extension information
+   */
   extendInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * Index of the item to play
+   * 
+   * Can be empty. Default is 0, which means playback starts from the beginning.
+   * 
    * @example
    * 0
    */
   index?: number;
   /**
+   * @remarks
+   * Indicates whether album playback should continue from the last played episode. For example, if the last playback stopped at episode 5, whether to resume from episode 5. Default is true.
+   * 
    * @example
    * true
    */
   needAlbumContinued?: boolean;
   /**
+   * @remarks
+   * Playback source, the unique identifier for configuring playback control capabilities.  
+   * 
+   * Optional. Default value is "default".
+   * 
    * @example
    * default
    */
   playFrom?: string;
   /**
+   * @remarks
+   * Playback pattern
+   * 
+   * Repeat all: Repeat; Shuffle: Shuffle; Repeat one: RepeatOne; Play in order: Normal.
+   * 
    * @example
    * Repeat
    */
@@ -186,11 +233,15 @@ export class CreatePlayingListOAuth2RequestOpenCreatePlayingListRequest extends 
 export class CreatePlayingListOAuth2Request extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfo?: CreatePlayingListOAuth2RequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openCreatePlayingListRequest?: CreatePlayingListOAuth2RequestOpenCreatePlayingListRequest;

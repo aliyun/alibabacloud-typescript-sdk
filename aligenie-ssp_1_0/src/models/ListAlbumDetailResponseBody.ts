@@ -3,27 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlbumDetailResponseBodyResultOpenDataItemListAuthors extends $dara.Model {
+  /**
+   * @remarks
+   * Author type
+   */
   authorTypes?: string[];
   /**
+   * @remarks
+   * Gender
+   * 
    * @example
    * MALE
    */
   gender?: string;
   /**
+   * @remarks
+   * Primary key ID of the author
+   * 
    * @example
    * 12314
    */
   id?: number;
   /**
+   * @remarks
+   * Whether the author is online
+   * 
    * @example
    * false
    */
   online?: boolean;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * qingting
    */
   source?: string;
+  /**
+   * @remarks
+   * Author title
+   * 
+   * @example
+   * 播音呆瓜小贼
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,26 +84,41 @@ export class ListAlbumDetailResponseBodyResultOpenDataItemListAuthors extends $d
 
 export class ListAlbumDetailResponseBodyResultOpenDataItemListCover extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether OSS rules can be used for cropping
+   * 
    * @example
    * false
    */
   canResize?: boolean;
   /**
+   * @remarks
+   * Default image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   img?: string;
   /**
+   * @remarks
+   * Large image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   large?: string;
   /**
+   * @remarks
+   * Medium image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   medium?: string;
   /**
+   * @remarks
+   * Small image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
@@ -115,73 +153,142 @@ export class ListAlbumDetailResponseBodyResultOpenDataItemListCover extends $dar
 }
 
 export class ListAlbumDetailResponseBodyResultOpenDataItemList extends $dara.Model {
+  /**
+   * @remarks
+   * Alias
+   */
   alias?: string[];
   /**
+   * @remarks
+   * Indicates whether the content is available for audition
+   * 
    * @example
    * false
    */
   audition?: boolean;
+  /**
+   * @remarks
+   * Author of the content
+   */
   authors?: ListAlbumDetailResponseBodyResultOpenDataItemListAuthors[];
   /**
+   * @remarks
+   * Transform controlType based on the associated public category
+   * 
    * @example
    * audio
    */
   category?: string;
   /**
+   * @remarks
+   * Is charged
+   * 
    * @example
    * false
    */
   charge?: boolean;
   /**
+   * @remarks
+   * category ID
+   * 
    * @example
    * 80012017
    */
   commCateId?: number;
+  /**
+   * @remarks
+   * Content thumbnail
+   */
   cover?: ListAlbumDetailResponseBodyResultOpenDataItemListCover;
+  /**
+   * @remarks
+   * Content description
+   * 
+   * @example
+   * 内容描述
+   */
   description?: string;
   /**
+   * @remarks
+   * Duration
+   * 
    * @example
    * 180
    */
   duration?: number;
   /**
+   * @remarks
+   * popularity score
+   * 
    * @example
    * 10
    */
   hotScore?: number;
   /**
+   * @remarks
+   * content ID
+   * 
    * @example
    * 1231231
    */
   id?: number;
   /**
+   * @remarks
+   * Type of content, such as music, audio, radio, jokes, etc.
+   * 
    * @example
    * ALBUM
    */
   itemType?: string;
   /**
+   * @remarks
+   * OrderIndex sequence
+   * 
    * @example
    * 1
    */
   orderIndex?: number;
   /**
+   * @remarks
+   * Third-party ID
+   * 
    * @example
    * 12323423
    */
   rawId?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * qingting
    */
   source?: string;
+  /**
+   * @remarks
+   * style
+   */
   styles?: string[];
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * 超能狂少在都市
+   */
   title?: string;
   /**
+   * @remarks
+   * Transform favoriteType based on the associated public category
+   * 
    * @example
    * program
    */
   type?: string;
   /**
+   * @remarks
+   * Indicates whether the content is playable
+   * 
    * @example
    * VALID
    */
@@ -257,17 +364,30 @@ export class ListAlbumDetailResponseBodyResultOpenDataItemList extends $dara.Mod
 
 export class ListAlbumDetailResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
+  /**
+   * @remarks
+   * Data information
+   */
   openDataItemList?: ListAlbumDetailResponseBodyResultOpenDataItemList[];
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * total number of records
+   * 
    * @example
    * 21421
    */
@@ -304,11 +424,17 @@ export class ListAlbumDetailResponseBodyResult extends $dara.Model {
 
 export class ListAlbumDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Code encoding
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Message information
+   * 
    * @example
    * success
    */
@@ -321,6 +447,10 @@ export class ListAlbumDetailResponseBody extends $dara.Model {
    * F12B6147-5925-19E5-A3AD-E1EE1360F34E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListAlbumDetailResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

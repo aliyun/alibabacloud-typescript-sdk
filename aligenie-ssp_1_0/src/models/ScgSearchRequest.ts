@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ScgSearchRequestScgFilterOffSetParam extends $dara.Model {
   /**
+   * @remarks
+   * Number of returned items
+   * 
    * @example
    * 20
    */
   limit?: number;
   /**
+   * @remarks
+   * Number of skipped items
+   * 
    * @example
    * 10
    */
@@ -38,11 +44,17 @@ export class ScgSearchRequestScgFilterOffSetParam extends $dara.Model {
 
 export class ScgSearchRequestScgFilterPageParam extends $dara.Model {
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of records per page
+   * 
    * @example
    * 10
    */
@@ -72,16 +84,25 @@ export class ScgSearchRequestScgFilterPageParam extends $dara.Model {
 
 export class ScgSearchRequestScgFilterSortParam extends $dara.Model {
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * internal_id
    */
   sortKey?: string;
   /**
+   * @remarks
+   * Sorting order
+   * 
    * @example
    * ASC
    */
   sortOrder?: string;
   /**
+   * @remarks
+   * Sorting field (default: empty string)
+   * 
    * @example
    * “”
    */
@@ -112,15 +133,27 @@ export class ScgSearchRequestScgFilterSortParam extends $dara.Model {
 }
 
 export class ScgSearchRequestScgFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Paging type
+   */
   offSetParam?: ScgSearchRequestScgFilterOffSetParam;
+  /**
+   * @remarks
+   * Paging type
+   */
   pageParam?: ScgSearchRequestScgFilterPageParam;
   /**
    * @remarks
+   * Sorting parameters
+   * 
    * This parameter is required.
    */
   sortParam?: ScgSearchRequestScgFilterSortParam;
   /**
    * @remarks
+   * Whether to use the pageParam object for paging. Choose either offSetParam or pageParam. The default paging mode is pageParam.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -166,11 +199,15 @@ export class ScgSearchRequestScgFilter extends $dara.Model {
 export class ScgSearchRequest extends $dara.Model {
   /**
    * @remarks
+   * Query filter
+   * 
    * This parameter is required.
    */
   scgFilter?: ScgSearchRequestScgFilter;
   /**
    * @remarks
+   * Selection pool ID. Optional values: MC201132 (Ethnic Chinese Style), MC201136 (Pop Music), MC201139 (Sweet Love), MC201133 (Folk), MC201137 (Relaxing Reading), MC201138 (Happiness), PA202029 (Stories), PA202030 (Children\\"s Songs), PA202028 (Chinese Classics and History), PA202032 (Encyclopedia), PA202031 (English Children\\"s Songs)
+   * 
    * This parameter is required.
    * 
    * @example

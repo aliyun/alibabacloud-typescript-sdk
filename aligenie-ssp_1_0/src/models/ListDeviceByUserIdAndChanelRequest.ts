@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeviceByUserIdAndChanelRequestChannelInfo extends $dara.Model {
   /**
    * @remarks
+   * Activation provisioning channel, such as WeChat or ThirdApp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListDeviceByUserIdAndChanelRequestChannelInfo extends $dara.Model {
    */
   channel?: string;
   /**
+   * @remarks
+   * Extension information.
+   * 
    * @example
    * {}
    */
@@ -42,6 +47,8 @@ export class ListDeviceByUserIdAndChanelRequestChannelInfo extends $dara.Model {
 export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type; enter the Project ID of the project to which the product belongs. You can view this in the Tmall Genie AI platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +57,8 @@ export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding Type; enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +67,8 @@ export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier; enter the value of userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +77,10 @@ export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The Type of the User ID:  
+   * OPEN_ID: The default User ID identity.  
+   * UNION_ID: The User ID identity at the organization dimension, which requires you to request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +88,9 @@ export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID; required if IdType is UNION_ID.
+   * 
    * @example
    * 1***2
    */
@@ -109,11 +127,15 @@ export class ListDeviceByUserIdAndChanelRequestUserInfo extends $dara.Model {
 export class ListDeviceByUserIdAndChanelRequest extends $dara.Model {
   /**
    * @remarks
+   * Activation channel, such as WeChat mini program or third-party app.
+   * 
    * This parameter is required.
    */
   channelInfo?: ListDeviceByUserIdAndChanelRequestChannelInfo;
   /**
    * @remarks
+   * List of User Identifier information.
+   * 
    * This parameter is required.
    */
   userInfo?: ListDeviceByUserIdAndChanelRequestUserInfo;

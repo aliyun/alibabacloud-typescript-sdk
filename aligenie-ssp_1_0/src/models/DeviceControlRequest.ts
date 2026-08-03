@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeviceControlRequestControlRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether mute is enabled. If this field is set to true, you must also specify the volume value as 0.
+   * 
    * @example
    * false
    */
   muted?: boolean;
   /**
+   * @remarks
+   * Target volume value
+   * 
    * @example
    * 10
    */
@@ -39,6 +45,8 @@ export class DeviceControlRequestControlRequest extends $dara.Model {
 export class DeviceControlRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type. Enter the Project ID of the project where the product resides. You can View this in the Tmall Genie AI platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +55,8 @@ export class DeviceControlRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding Type. Enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +65,8 @@ export class DeviceControlRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID. Enter the value of deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +75,10 @@ export class DeviceControlRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of Device ID:  
+   * OPEN_ID: The default Device ID identity.  
+   * UNION_ID: The organization-dimension Device ID identity. You must request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +86,9 @@ export class DeviceControlRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID of the device. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1*****2
    */
@@ -104,9 +123,15 @@ export class DeviceControlRequestDeviceInfo extends $dara.Model {
 }
 
 export class DeviceControlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Input parameters for volume control
+   */
   controlRequest?: DeviceControlRequestControlRequest;
   /**
    * @remarks
+   * List of device ID information.
+   * 
    * This parameter is required.
    */
   deviceInfo?: DeviceControlRequestDeviceInfo;

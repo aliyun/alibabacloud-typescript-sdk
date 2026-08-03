@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlbumIsAddedResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Album ID
+   * 
    * @example
    * 51999575
    */
   albumId?: string;
   /**
+   * @remarks
+   * Whether it is subscribed
+   * 
    * @example
    * false
    */
@@ -38,20 +44,33 @@ export class ListAlbumIsAddedResponseBodyResult extends $dara.Model {
 
 export class ListAlbumIsAddedResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * BCC85E69-5DA6-197E-A8C1-8A1B19CF781B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result
+   */
   result?: ListAlbumIsAddedResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

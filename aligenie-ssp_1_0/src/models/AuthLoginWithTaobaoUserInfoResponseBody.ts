@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AuthLoginWithTaobaoUserInfoResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Expiration time of the login state access token (long integer)
+   * 
    * @example
    * 1659506854230
    */
   expiredTimeLong?: number;
   /**
+   * @remarks
+   * Login state access token
+   * 
    * @example
    * d15aa92de679d0d225aa845268be19ee
    */
@@ -38,21 +44,38 @@ export class AuthLoginWithTaobaoUserInfoResponseBodyResult extends $dara.Model {
 
 export class AuthLoginWithTaobaoUserInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 73C67BD9-175A-1324-8202-9FAABBB3E6FA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Response Result
+   */
   result?: AuthLoginWithTaobaoUserInfoResponseBodyResult;
+  /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

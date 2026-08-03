@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddSubResponseBodyResultScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The epoch for trigger
+   */
   daysOfWeek?: number[];
   /**
+   * @remarks
+   * The hour of the clock when the trigger occurs.
+   * 
    * @example
    * 12
    */
   hour?: number;
   /**
+   * @remarks
+   * The minute of the Time when the trigger occurs.
+   * 
    * @example
    * 23
    */
@@ -44,32 +54,54 @@ export class AddSubResponseBodyResultScheduleInfo extends $dara.Model {
 
 export class AddSubResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Album ID
+   * 
    * @example
    * 51999575
    */
   albumId?: string;
   /**
+   * @remarks
+   * Daily study quantity
+   * 
    * @example
    * 2
    */
   dailyStudyCnt?: number;
   /**
+   * @remarks
+   * Device ID
+   * 
    * @example
    * 5874DBCCA3038FAA1A70A8060F07F26D
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Subscription record ID
+   * 
    * @example
    * 81
    */
   id?: number;
   /**
+   * @remarks
+   * Playback mode
+   * 
    * @example
    * sequence
    */
   playMode?: string;
+  /**
+   * @remarks
+   * Schedule information
+   */
   scheduleInfo?: AddSubResponseBodyResultScheduleInfo;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1152893538998276761
    */
@@ -111,17 +143,31 @@ export class AddSubResponseBodyResult extends $dara.Model {
 }
 
 export class AddSubResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Status code. A value of 200 indicates success.
+   */
   code?: number;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B99D27ED-4E12-1414-9FDE-599C57C4B204
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: AddSubResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

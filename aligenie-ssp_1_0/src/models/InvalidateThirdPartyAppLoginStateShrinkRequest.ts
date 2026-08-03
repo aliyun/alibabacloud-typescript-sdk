@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class InvalidateThirdPartyAppLoginStateShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Third-party application identity
+   * 
    * This parameter is required.
    * 
    * @example

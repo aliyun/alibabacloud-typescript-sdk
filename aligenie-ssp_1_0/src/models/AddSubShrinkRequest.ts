@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddSubShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Subscribe to album request
+   */
   addSubscriptionInfoRequestShrink?: string;
+  /**
+   * @remarks
+   * Device Information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * User Information
+   */
   userInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {

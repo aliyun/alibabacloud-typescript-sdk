@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendMessageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code returned by the service; "SUCCESS" indicates success, otherwise it indicates failure
+   * 
    * @example
    * SUCCESS
    */
   code?: string;
+  /**
+   * @remarks
+   * Error message; if present, the send operation failed
+   * 
+   * @example
+   * 外部userId映射关系不存在
+   */
   message?: string;
   /**
+   * @remarks
+   * Message sending result
+   * 
    * @example
    * true
    */

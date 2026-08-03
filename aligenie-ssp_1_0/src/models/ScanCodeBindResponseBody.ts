@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ScanCodeBindResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Product group
+   * 
    * @example
    * X1
    */
   bizGroup?: string;
   /**
+   * @remarks
+   * Product categorization
+   * 
    * @example
    * AILABS
    */
@@ -26,7 +32,7 @@ export class ScanCodeBindResponseBodyResult extends $dara.Model {
    * DAFE****ce3ej=
    * 
    * @example
-   * 用户opneId
+   * 用户OpenId
    */
   userOpenId?: string;
   static names(): { [key: string]: string } {
@@ -58,20 +64,33 @@ export class ScanCodeBindResponseBodyResult extends $dara.Model {
 
 export class ScanCodeBindResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned error code. A value of 200 indicates that the invocation succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Result message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 686DF82F-45C4-7DF7-8B67-27B91CFD63A9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Detailed information returned.
+   */
   result?: ScanCodeBindResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

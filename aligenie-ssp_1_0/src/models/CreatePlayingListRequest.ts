@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID.  
+   * When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,11 @@ export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used as the encoding type for the Android application customer link.  
+   * `SKILL_ID`: Skill ID, used as the encoding type for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +31,8 @@ export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, set to either deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +41,11 @@ export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of device ID.
+   * 
+   * `OPEN_ID`: Default device ID identity.  
+   * `UNION_ID`: Organization-dimension device ID identity. This value is available only after an organization has been requested on the Tmall Genie skill application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +53,9 @@ export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,6 +92,10 @@ export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
 export class CreatePlayingListRequestOpenCreatePlayingListRequestContentList extends $dara.Model {
   /**
    * @remarks
+   * Third-party ID.
+   * 
+   * If the content type is "content", this is the content ID. If it is "album", this is the album ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,6 +104,8 @@ export class CreatePlayingListRequestOpenCreatePlayingListRequestContentList ext
   rawId?: string;
   /**
    * @remarks
+   * Source
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,34 +138,64 @@ export class CreatePlayingListRequestOpenCreatePlayingListRequestContentList ext
 export class CreatePlayingListRequestOpenCreatePlayingListRequest extends $dara.Model {
   /**
    * @remarks
+   * Playback content list.
+   * 
+   * If the content type is "content", multiple entries are supported. If it is "album", only the first entry takes effect.
+   * 
    * This parameter is required.
    */
   contentList?: CreatePlayingListRequestOpenCreatePlayingListRequestContentList[];
   /**
    * @remarks
+   * Content type for playback.
+   * 
+   * Values: "content" for content, "album" for album, and "collect" for playlist.
+   * 
    * This parameter is required.
    * 
    * @example
    * content
    */
   contentType?: string;
+  /**
+   * @remarks
+   * extension information
+   */
   extendInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * Playback index.
+   * 
+   * Can be empty. Default is 0, indicating playback starts from the beginning.
+   * 
    * @example
    * 0
    */
   index?: number;
   /**
+   * @remarks
+   * Whether to resume album playback. For example, if the user previously listened up to episode 5 of an album, whether to continue from episode 5. Default is true.
+   * 
    * @example
    * true
    */
   needAlbumContinued?: boolean;
   /**
+   * @remarks
+   * Playback source, the UUID for configuring playback control capabilities.
+   * 
+   * Can be empty. Default is "default".
+   * 
    * @example
    * default
    */
   playFrom?: string;
   /**
+   * @remarks
+   * Playback pattern.
+   * 
+   * Repeat: list loop; Shuffle: random; RepeatOne: single track loop; Normal: sequential playback.
+   * 
    * @example
    * Repeat
    */
@@ -186,6 +242,11 @@ export class CreatePlayingListRequestOpenCreatePlayingListRequest extends $dara.
 export class CreatePlayingListRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID.  
+   * When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -194,6 +255,11 @@ export class CreatePlayingListRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used as the encoding type for the Android application customer link.  
+   * `SKILL_ID`: Skill ID, used as the encoding type for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -202,6 +268,8 @@ export class CreatePlayingListRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to either userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -210,6 +278,11 @@ export class CreatePlayingListRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID.
+   * 
+   * `OPEN_ID`: Default User ID identity.  
+   * `UNION_ID`: Organization-dimension User ID identity. This value is available only after an organization has been requested on the Tmall Genie skill application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -217,6 +290,9 @@ export class CreatePlayingListRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -253,16 +329,22 @@ export class CreatePlayingListRequestUserInfo extends $dara.Model {
 export class CreatePlayingListRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID information
+   * 
    * This parameter is required.
    */
   deviceInfo?: CreatePlayingListRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openCreatePlayingListRequest?: CreatePlayingListRequestOpenCreatePlayingListRequest;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: CreatePlayingListRequestUserInfo;

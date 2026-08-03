@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeviceIdByIdentityResponseBodyResultDeviceUnionIds extends $dara.Model {
   /**
+   * @remarks
+   * The UnionId of the device.
+   * 
    * @example
    * 1553*B0C3
    */
   deviceUnionId?: string;
   /**
+   * @remarks
+   * Organization ID.
+   * 
    * @example
    * 1**2
    */
@@ -38,10 +44,17 @@ export class GetDeviceIdByIdentityResponseBodyResultDeviceUnionIds extends $dara
 
 export class GetDeviceIdByIdentityResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The openId corresponding to the device.
+   * 
    * @example
    * A963*0158
    */
   deviceOpenId?: string;
+  /**
+   * @remarks
+   * Organization ID and UnionId information corresponding to the device.
+   */
   deviceUnionIds?: GetDeviceIdByIdentityResponseBodyResultDeviceUnionIds[];
   static names(): { [key: string]: string } {
     return {
@@ -71,20 +84,33 @@ export class GetDeviceIdByIdentityResponseBodyResult extends $dara.Model {
 
 export class GetDeviceIdByIdentityResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned. A value of 200 indicates that the invocation succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0EC7DA****A0726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Detailed information returned.
+   */
   result?: GetDeviceIdByIdentityResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

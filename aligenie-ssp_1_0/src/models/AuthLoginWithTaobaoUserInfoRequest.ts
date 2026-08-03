@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AuthLoginWithTaobaoUserInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Encrypted Taobao User Identifier
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AuthLoginWithTaobaoUserInfoRequest extends $dara.Model {
   encryptedTaobaoUserIdentifier?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

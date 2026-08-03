@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class FindUserlistToAuthLoginWithPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Text message verification code
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class FindUserlistToAuthLoginWithPhoneNumberRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
+   * Phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class FindUserlistToAuthLoginWithPhoneNumberRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
+   * Region encoding
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class FindUserlistToAuthLoginWithPhoneNumberRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

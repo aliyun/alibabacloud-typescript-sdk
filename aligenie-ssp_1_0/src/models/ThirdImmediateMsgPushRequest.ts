@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ThirdImmediateMsgPushRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business type (FLIGHT: flight, TRAIN: train)
+   * 
    * @example
    * FLIGHT
    */
   bizType?: string;
   /**
+   * @remarks
+   * Change details (JSON-formatted change data)
+   * 
    * @example
-   * changeDetail
+   * {}
    */
   changeDetail?: string;
   /**
+   * @remarks
+   * Order ID
+   * 
    * @example
    * orderId
    */
   orderId?: string;
   /**
+   * @remarks
+   * Passenger IDs to change
+   * 
    * @example
    * psgIds
    */
   psgIds?: string;
   /**
+   * @remarks
+   * Request source
+   * 
    * @example
    * source
    */
   source?: string;
   /**
+   * @remarks
+   * change type (TRAIN_ISSUED, FLIGHT_CHANGED)
+   * 
    * @example
-   * trafficChangeType
+   * TRAIN_ISSUED
    */
   trafficChangeType?: string;
   /**
+   * @remarks
+   * change type description (ticket issued, rebooked)
+   * 
    * @example
-   * trafficChangeTypeDesc
+   * 已出票
    */
   trafficChangeTypeDesc?: string;
   /**
+   * @remarks
+   * Journey IDs to change
+   * 
    * @example
    * trafficJourneyIds
    */
   trafficJourneyIds?: string;
   /**
+   * @remarks
+   * sub-order ID of the changed train request
+   * 
    * @example
    * trafficSubOrderIds
    */
   trafficSubOrderIds?: string;
   /**
+   * @remarks
+   * user ID
+   * 
    * @example
    * userId
    */

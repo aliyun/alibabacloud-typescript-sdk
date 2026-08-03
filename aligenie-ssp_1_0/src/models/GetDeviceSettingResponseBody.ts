@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeviceSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returned error code. The value 200 indicates that the call Succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return Result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returns specific device Settings information.
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

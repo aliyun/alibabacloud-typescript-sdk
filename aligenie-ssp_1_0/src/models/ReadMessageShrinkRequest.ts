@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ReadMessageShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Message ID
+   * 
    * @example
    * 12345
    */
   messageId?: number;
   /**
    * @remarks
+   * User information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

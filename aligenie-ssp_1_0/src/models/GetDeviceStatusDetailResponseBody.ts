@@ -3,58 +3,100 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDeviceStatusDetailResponseBodyResultPlayer extends $dara.Model {
+  /**
+   * @remarks
+   * Song Album
+   */
   audioAlbum?: string;
   /**
+   * @remarks
+   * Artist
+   * 
    * @example
    * 刘德华
    */
   audioAnchor?: string;
   /**
+   * @remarks
+   * Extension Information
+   * 
    * @example
    * ""
    */
   audioExt?: string;
   /**
+   * @remarks
+   * Audio ID
+   * 
    * @example
    * 123
    */
   audioId?: string;
   /**
+   * @remarks
+   * Song length, in seconds
+   * 
    * @example
    * 253
    */
   audioLength?: string;
+  /**
+   * @remarks
+   * Song Name
+   */
   audioName?: string;
   /**
+   * @remarks
+   * Song Source (xiami)
+   * 
    * @example
    * xiami
    */
   audioSource?: string;
   /**
+   * @remarks
+   * Song URL
+   * 
    * @example
    * https://xxx
    */
   audioUrl?: string;
   /**
+   * @remarks
+   * Song Type (mp3)
+   * 
    * @example
    * mp3
    */
   format?: string;
   /**
+   * @remarks
+   * Playback progress
+   * 
    * @example
    * 30
    */
   progress?: string;
   /**
+   * @remarks
+   * Playback Source (cloud)
+   * 
    * @example
    * cloud
    */
   source?: string;
   /**
+   * @remarks
+   * Playback status, pause
+   * 
    * @example
    * pause
    */
   status?: string;
+  /**
+   * @remarks
+   * Reporting Time
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +145,17 @@ export class GetDeviceStatusDetailResponseBodyResultPlayer extends $dara.Model {
 
 export class GetDeviceStatusDetailResponseBodyResultPower extends $dara.Model {
   /**
+   * @remarks
+   * Battery value
+   * 
    * @example
    * 30
    */
   quantity?: number;
+  /**
+   * @remarks
+   * Power status
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,8 +181,15 @@ export class GetDeviceStatusDetailResponseBodyResultPower extends $dara.Model {
 }
 
 export class GetDeviceStatusDetailResponseBodyResultSpeaker extends $dara.Model {
+  /**
+   * @remarks
+   * Is muted
+   */
   muted?: boolean;
   /**
+   * @remarks
+   * Current volume value
+   * 
    * @example
    * 10
    */
@@ -162,8 +218,20 @@ export class GetDeviceStatusDetailResponseBodyResultSpeaker extends $dara.Model 
 }
 
 export class GetDeviceStatusDetailResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Player information
+   */
   player?: GetDeviceStatusDetailResponseBodyResultPlayer;
+  /**
+   * @remarks
+   * Battery information
+   */
   power?: GetDeviceStatusDetailResponseBodyResultPower;
+  /**
+   * @remarks
+   * Volume information
+   */
   speaker?: GetDeviceStatusDetailResponseBodyResultSpeaker;
   static names(): { [key: string]: string } {
     return {
@@ -201,20 +269,33 @@ export class GetDeviceStatusDetailResponseBodyResult extends $dara.Model {
 
 export class GetDeviceStatusDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returned error code. 200 indicates that the invocation succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return Result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned detailed information.
+   */
   result?: GetDeviceStatusDetailResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

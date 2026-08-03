@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InvalidateThirdPartyAppLoginStateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * success
    */
@@ -22,6 +28,9 @@ export class InvalidateThirdPartyAppLoginStateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   * 
    * @example
    * true
    */

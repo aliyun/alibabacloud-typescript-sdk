@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer link. `SKILL_ID`: Skill ID, used for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, set to either deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of Device ID.
+   * 
+   * `OPEN_ID`: The default Device ID identity. `UNION_ID`: The organization-dimension Device ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,6 +89,8 @@ export class GetCurrentPlayingListRequestDeviceInfo extends $dara.Model {
 export class GetCurrentPlayingListRequestOpenQueryPlayListRequest extends $dara.Model {
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,6 +99,8 @@ export class GetCurrentPlayingListRequestOpenQueryPlayListRequest extends $dara.
   pageNum?: number;
   /**
    * @remarks
+   * Number of items per page
+   * 
    * This parameter is required.
    * 
    * @example
@@ -112,6 +133,10 @@ export class GetCurrentPlayingListRequestOpenQueryPlayListRequest extends $dara.
 export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,6 +145,10 @@ export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the Tmall Genie User Identifier, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer link. `SKILL_ID`: Skill ID, used for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -128,6 +157,8 @@ export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier, set to either userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -136,6 +167,10 @@ export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of User ID.
+   * 
+   * `OPEN_ID`: The default User ID identity. `UNION_ID`: The organization-dimension User ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -143,6 +178,9 @@ export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is `UNION_ID`.
+   * 
    * @example
    * 123
    */
@@ -179,16 +217,22 @@ export class GetCurrentPlayingListRequestUserInfo extends $dara.Model {
 export class GetCurrentPlayingListRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfo?: GetCurrentPlayingListRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openQueryPlayListRequest?: GetCurrentPlayingListRequestOpenQueryPlayListRequest;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: GetCurrentPlayingListRequestUserInfo;

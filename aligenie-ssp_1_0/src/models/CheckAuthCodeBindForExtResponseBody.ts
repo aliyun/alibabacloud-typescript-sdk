@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckAuthCodeBindForExtResponseBodyResultDeviceOpenInfo extends $dara.Model {
   /**
+   * @remarks
+   * External device ID
+   * 
    * @example
    * A963*0158
    */
@@ -41,6 +44,9 @@ export class CheckAuthCodeBindForExtResponseBodyResultDeviceOpenInfo extends $da
 
 export class CheckAuthCodeBindForExtResponseBodyResultUserOpenInfo extends $dara.Model {
   /**
+   * @remarks
+   * External user ID
+   * 
    * @example
    * 0963*0158
    */
@@ -77,7 +83,15 @@ export class CheckAuthCodeBindForExtResponseBodyResultUserOpenInfo extends $dara
 }
 
 export class CheckAuthCodeBindForExtResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Device open information
+   */
   deviceOpenInfo?: CheckAuthCodeBindForExtResponseBodyResultDeviceOpenInfo;
+  /**
+   * @remarks
+   * User open information
+   */
   userOpenInfo?: CheckAuthCodeBindForExtResponseBodyResultUserOpenInfo;
   static names(): { [key: string]: string } {
     return {
@@ -110,20 +124,33 @@ export class CheckAuthCodeBindForExtResponseBodyResult extends $dara.Model {
 
 export class CheckAuthCodeBindForExtResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned error code. The value 200 indicates that the invocation succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return Result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Detailed information
+   */
   result?: CheckAuthCodeBindForExtResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindAligenieUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Logon credential
+   * 
    * This parameter is required.
    * 
    * @example

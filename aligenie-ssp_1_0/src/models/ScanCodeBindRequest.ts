@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ScanCodeBindRequestBindReq extends $dara.Model {
   /**
    * @remarks
+   * Product client ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +24,9 @@ export class ScanCodeBindRequestBindReq extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * Extension parameter
+   * 
    * @example
    * {"key":"value"}
    */
@@ -54,6 +59,8 @@ export class ScanCodeBindRequestBindReq extends $dara.Model {
 export class ScanCodeBindRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type. Enter the Project ID of the project to which the product belongs. You can view this in the Tmall Genie AI Platform console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +69,8 @@ export class ScanCodeBindRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. Enter PROJECT_ID here.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +79,8 @@ export class ScanCodeBindRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier. Enter the value of userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,6 +89,10 @@ export class ScanCodeBindRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Device ID type:  
+   * OPEN_ID: Default Device ID identifier.  
+   * UNION_ID: Organization-dimension Device ID identifier. You must request an organization in advance on the Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -85,6 +100,9 @@ export class ScanCodeBindRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 111
    */
@@ -121,11 +139,15 @@ export class ScanCodeBindRequestUserInfo extends $dara.Model {
 export class ScanCodeBindRequest extends $dara.Model {
   /**
    * @remarks
+   * Input parameters for QR code scanning binding
+   * 
    * This parameter is required.
    */
   bindReq?: ScanCodeBindRequestBindReq;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: ScanCodeBindRequestUserInfo;

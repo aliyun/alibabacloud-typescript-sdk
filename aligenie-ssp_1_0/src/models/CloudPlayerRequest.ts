@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloudPlayerRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Encoding key
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CloudPlayerRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CloudPlayerRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Open ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,12 +35,21 @@ export class CloudPlayerRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * ID Type
+   * 
    * This parameter is required.
    * 
    * @example
    * OPEN_ID
    */
   idType?: string;
+  /**
+   * @remarks
+   * Organization ID (can be empty)
+   * 
+   * @example
+   * 为空
+   */
   organizationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -68,6 +83,8 @@ export class CloudPlayerRequestDeviceInfo extends $dara.Model {
 export class CloudPlayerRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Encoding key
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +93,8 @@ export class CloudPlayerRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,6 +103,8 @@ export class CloudPlayerRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Open ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92,12 +113,21 @@ export class CloudPlayerRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * ID Type
+   * 
    * This parameter is required.
    * 
    * @example
    * OPEN_ID
    */
   idType?: string;
+  /**
+   * @remarks
+   * Organization ID (can be empty)
+   * 
+   * @example
+   * 为空
+   */
   organizationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,6 +161,8 @@ export class CloudPlayerRequestUserInfo extends $dara.Model {
 export class CloudPlayerRequest extends $dara.Model {
   /**
    * @remarks
+   * Index of the currently playing song. Starts from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -139,11 +171,15 @@ export class CloudPlayerRequest extends $dara.Model {
   curPlayIndex?: number;
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: CloudPlayerRequestDeviceInfo;
   /**
    * @remarks
+   * Playback pattern
+   * 
    * This parameter is required.
    * 
    * @example
@@ -151,17 +187,24 @@ export class CloudPlayerRequest extends $dara.Model {
    */
   playMode?: string;
   /**
+   * @remarks
+   * Song ID (used to recompute the index when the index is invalid)
+   * 
    * @example
    * 123
    */
   songId?: string;
   /**
    * @remarks
+   * List of song IDs (1–200 songs)
+   * 
    * This parameter is required.
    */
   songIdList?: string[];
   /**
    * @remarks
+   * Source of cloud-recommended songs
+   * 
    * This parameter is required.
    * 
    * @example
@@ -170,6 +213,8 @@ export class CloudPlayerRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
+   * Open user information
+   * 
    * This parameter is required.
    */
   userInfo?: CloudPlayerRequestUserInfo;

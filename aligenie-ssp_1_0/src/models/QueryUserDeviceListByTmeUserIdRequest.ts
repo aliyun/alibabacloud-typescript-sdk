@@ -5,12 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserDeviceListByTmeUserIdRequest extends $dara.Model {
   /**
    * @remarks
+   * "KG": KuGou  
+   * "KW": Kuwo  
+   * "QM": QQ Music
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * KG
    */
   sp?: string;
   /**
    * @remarks
+   * TME User ID
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * FDEEDE337BAA780793D72F7F20BEF2F5
    */
   tmeUserId?: string;
   static names(): { [key: string]: string } {

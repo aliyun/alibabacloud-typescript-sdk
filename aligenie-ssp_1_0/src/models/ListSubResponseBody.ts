@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSubResponseBodyResultDataListScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Trigger epoch
+   */
   daysOfWeek?: number[];
   /**
+   * @remarks
+   * Trigger hour
+   * 
    * @example
    * 12
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger minute
+   * 
    * @example
    * 23
    */
@@ -44,42 +54,70 @@ export class ListSubResponseBodyResultDataListScheduleInfo extends $dara.Model {
 
 export class ListSubResponseBodyResultDataList extends $dara.Model {
   /**
+   * @remarks
+   * Album ID
+   * 
    * @example
    * 51999575
    */
   albumId?: string;
   /**
+   * @remarks
+   * Album thumbnail
+   * 
    * @example
    * https://ailabs.alibabausercontent.com/images/8838/1600839452498.jpg
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * Daily study quantity
+   * 
    * @example
    * 2
    */
   dailyStudyCnt?: number;
   /**
+   * @remarks
+   * Device ID
+   * 
    * @example
    * 5874DBCCA3038FAA1A70A8060F07F26D
    */
   deviceId?: string;
   /**
+   * @remarks
+   * Subscription record ID
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * Playback mode
+   * 
    * @example
    * sequence
    */
   playMode?: string;
+  /**
+   * @remarks
+   * Schedule information
+   */
   scheduleInfo?: ListSubResponseBodyResultDataListScheduleInfo;
   /**
+   * @remarks
+   * Album title
+   * 
    * @example
    * 小科学家探索
    */
   title?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1152893538998276761
    */
@@ -125,14 +163,28 @@ export class ListSubResponseBodyResultDataList extends $dara.Model {
 }
 
 export class ListSubResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Subscription list
+   */
   dataList?: ListSubResponseBodyResultDataList[];
+  /**
+   * @remarks
+   * Is there a next page
+   */
   hasNext?: boolean;
   /**
+   * @remarks
+   * Total number of data entries
+   * 
    * @example
    * 3
    */
   totalCount?: number;
   /**
+   * @remarks
+   * Total number of pages
+   * 
    * @example
    * 1
    */
@@ -169,20 +221,33 @@ export class ListSubResponseBodyResult extends $dara.Model {
 
 export class ListSubResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 0D0C09C2-ADC1-198B-964D-24F4FAD967DB
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result
+   */
   result?: ListSubResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

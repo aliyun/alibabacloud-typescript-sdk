@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlarmResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request result status code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * error message
+   * 
+   * @example
+   * xx为空
+   */
   message?: string;
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 43***28C-A810-5***-8747-EC226A086881
    */
   requestId?: string;
   /**
+   * @remarks
+   * Alarm ID
+   * 
    * @example
    * 1234567
    */

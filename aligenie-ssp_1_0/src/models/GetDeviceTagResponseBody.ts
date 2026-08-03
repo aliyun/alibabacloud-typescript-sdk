@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDeviceTagResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Tag information of the device.
+   * 
    * @example
    * {       "antest1": "antest1",       "antest": "a"     }
    */
@@ -34,20 +37,33 @@ export class GetDeviceTagResponseBodyResult extends $dara.Model {
 
 export class GetDeviceTagResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned. A value of 200 indicates that the call succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Detailed information returned.
+   */
   result?: GetDeviceTagResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListCommonCateFirstFloorRequest extends $dara.Model {
   /**
    * @remarks
+   * Default value: song (extension field currently only supports song)
+   * 
    * This parameter is required.
    * 
    * @example

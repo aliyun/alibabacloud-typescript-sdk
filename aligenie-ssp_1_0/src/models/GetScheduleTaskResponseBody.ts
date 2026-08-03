@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetScheduleTaskResponseBodyResultActionTopicList extends $dara.Model {
   /**
+   * @remarks
+   * Vendor-defined command
+   * 
    * @example
    * {"k1":"v1","k2":{"key":1}}
    */
@@ -33,28 +36,47 @@ export class GetScheduleTaskResponseBodyResultActionTopicList extends $dara.Mode
 }
 
 export class GetScheduleTaskResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Trigger behavior
+   */
   actionTopicList?: GetScheduleTaskResponseBodyResultActionTopicList[];
   /**
+   * @remarks
+   * Trigger Cron Expression
+   * 
    * @example
    * 0 10 20 30 6 ? 2022
    */
   cron?: string;
   /**
+   * @remarks
+   * Validity Period - End Time
+   * 
    * @example
    * 1659169473000
    */
   scheduleEndTime?: string;
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * 1234567
    */
   scheduleId?: number;
   /**
+   * @remarks
+   * Validity Period - Start Time
+   * 
    * @example
    * 1656577473000
    */
   scheduleStartTime?: string;
   /**
+   * @remarks
+   * Schedule Type
+   * 
    * @example
    * ONCE
    */
@@ -95,16 +117,33 @@ export class GetScheduleTaskResponseBodyResult extends $dara.Model {
 
 export class GetScheduleTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Response message
+   * 
+   * @example
+   * 调用成功
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F7E21065-6C21-1158-A2F9-AEFE5CAB7C94
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Service response parameters
+   */
   result?: GetScheduleTaskResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

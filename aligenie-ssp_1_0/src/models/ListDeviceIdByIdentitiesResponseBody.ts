@@ -5,20 +5,33 @@ import { ResultValue } from "./ResultValue";
 
 export class ListDeviceIdByIdentitiesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned error code. A value of 200 indicates that the call succeeded.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The return result of invoking this API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0EC7*726E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of detailed returned information.
+   */
   result?: { [key: string]: ResultValue };
   static names(): { [key: string]: string } {
     return {

@@ -67,11 +67,17 @@ export class ListSubRequestDeviceInfo extends $dara.Model {
 
 export class ListSubRequestPage extends $dara.Model {
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 10
    */
@@ -165,16 +171,22 @@ export class ListSubRequestUserInfo extends $dara.Model {
 export class ListSubRequest extends $dara.Model {
   /**
    * @remarks
+   * Device Information
+   * 
    * This parameter is required.
    */
   deviceInfo?: ListSubRequestDeviceInfo;
   /**
    * @remarks
+   * Pagination Parameters
+   * 
    * This parameter is required.
    */
   page?: ListSubRequestPage;
   /**
    * @remarks
+   * User information
+   * 
    * This parameter is required.
    */
   userInfo?: ListSubRequestUserInfo;

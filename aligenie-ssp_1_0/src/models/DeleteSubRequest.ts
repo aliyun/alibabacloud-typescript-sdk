@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSubRequest extends $dara.Model {
   /**
    * @remarks
+   * Subscription album record ID
+   * 
    * This parameter is required.
    * 
    * @example

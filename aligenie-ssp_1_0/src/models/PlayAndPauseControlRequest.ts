@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * If the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. If the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device identity for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer link. `SKILL_ID`: Skill ID, used for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, which can be set to deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of Device ID.
+   * 
+   * `OPEN_ID`: The default device ID identity. `UNION_ID`: The organization-dimension device ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. This parameter is required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,6 +89,8 @@ export class PlayAndPauseControlRequestDeviceInfo extends $dara.Model {
 export class PlayAndPauseControlRequestOpenPlayAndPauseControlParam extends $dara.Model {
   /**
    * @remarks
+   * Playback: Play; Pause: Pause.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,6 +121,10 @@ export class PlayAndPauseControlRequestOpenPlayAndPauseControlParam extends $dar
 export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -110,6 +133,10 @@ export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier from Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer flow. `SKILL_ID`: Skill ID, used for the cloud-based flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +145,8 @@ export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to either userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,6 +155,10 @@ export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of User ID.
+   * 
+   * `OPEN_ID`: The default user ID identity. `UNION_ID`: The organization-dimension user ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -133,6 +166,9 @@ export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is `UNION_ID`.
+   * 
    * @example
    * 123
    */
@@ -169,16 +205,22 @@ export class PlayAndPauseControlRequestUserInfo extends $dara.Model {
 export class PlayAndPauseControlRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: PlayAndPauseControlRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openPlayAndPauseControlParam?: PlayAndPauseControlRequestOpenPlayAndPauseControlParam;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: PlayAndPauseControlRequestUserInfo;

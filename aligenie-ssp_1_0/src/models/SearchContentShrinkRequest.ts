@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class SearchContentShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Request Parameters
+   * 
    * This parameter is required.
    */
   requestShrink?: string;
   /**
    * @remarks
+   * User identification information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class PreviousAndNextControlShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openControlPlayingListRequestShrink?: string;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

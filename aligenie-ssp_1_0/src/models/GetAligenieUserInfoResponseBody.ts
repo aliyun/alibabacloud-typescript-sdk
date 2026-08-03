@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAligenieUserInfoResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Aligenie user nickname
+   * 
    * @example
    * XXX
    */
   aligenieNickname?: string;
   /**
+   * @remarks
+   * URL of the Aligenie user profile picture
+   * 
    * @example
    * http://img.alicdn.com/xxx.jpg
    */
   avatar?: string;
+  /**
+   * @remarks
+   * Indicates whether the account can be logged off
+   */
   deletable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -41,21 +51,34 @@ export class GetAligenieUserInfoResponseBodyResult extends $dara.Model {
 
 export class GetAligenieUserInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 73C67BD9-175A-1324-8202-9FAABBB3E6FA
    */
   requestId?: string;
   result?: GetAligenieUserInfoResponseBodyResult;
+  /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

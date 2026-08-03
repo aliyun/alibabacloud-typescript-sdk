@@ -5,11 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SetDeviceSettingShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of user identifier information.
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * The collection of keys specified for device settings:  
+   * Do Not Disturb mode: nightMode
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class SetDeviceSettingShrinkRequest extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * Attribute Value
+   * 
    * @example
    * {"enable":true}
    */

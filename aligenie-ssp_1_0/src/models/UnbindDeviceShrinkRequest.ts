@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindDeviceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of device identity information.
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * List of user identifier information.
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

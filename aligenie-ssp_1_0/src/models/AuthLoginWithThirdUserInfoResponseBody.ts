@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AuthLoginWithThirdUserInfoResponseBodyDataObj extends $dara.Model {
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * dbe2eb4458302b9246c6da17fbc95f4b
    */
@@ -31,11 +34,17 @@ export class AuthLoginWithThirdUserInfoResponseBodyDataObj extends $dara.Model {
 
 export class AuthLoginWithThirdUserInfoResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Expiration time of the logon state access token
+   * 
    * @example
    * 1659428051452
    */
   expiredTimeLong?: number;
   /**
+   * @remarks
+   * Logon state access token
+   * 
    * @example
    * bd9ccdb121ee950ddead51e943e081fe
    */
@@ -65,23 +74,43 @@ export class AuthLoginWithThirdUserInfoResponseBodyResult extends $dara.Model {
 
 export class AuthLoginWithThirdUserInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * When Code is 5140001, it indicates that logon failed because the third-party user is not attached to a Tmall Genie user. The frontend must initiate the phone number authorization logon flow based on this error code. In subsequent steps, the frontend must return the SessionId in DataObj to the server.
+   */
   dataObj?: AuthLoginWithThirdUserInfoResponseBodyDataObj;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 73C67BD9-175A-1324-8202-9FAABBB3E6FA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Response Result
+   */
   result?: AuthLoginWithThirdUserInfoResponseBodyResult;
   /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   * 
    * @example
    * true
    */

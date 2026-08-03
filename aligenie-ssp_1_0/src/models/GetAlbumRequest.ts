@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlbumRequest extends $dara.Model {
   /**
    * @remarks
+   * Album ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAlbumRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * Default Value: song
+   * 
    * This parameter is required.
    * 
    * @example

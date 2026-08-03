@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class PlayAndPauseControlShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openPlayAndPauseControlParamShrink?: string;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

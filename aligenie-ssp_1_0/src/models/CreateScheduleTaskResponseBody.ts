@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateScheduleTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * 调用成功
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F7E2****B7C94
    */
   requestId?: string;
   /**
+   * @remarks
+   * ID of the successfully created job
+   * 
    * @example
    * 1234567
    */

@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class ResultValueDeviceUnionIds extends $dara.Model {
   /**
+   * @remarks
+   * The organization ID.
+   * 
    * @example
    * 1**2
    */
   organizationId?: string;
   /**
+   * @remarks
+   * The UnionId of the device.
+   * 
    * @example
    * 1553*B0C3
    */
@@ -40,27 +46,46 @@ export class ResultValueDeviceUnionIds extends $dara.Model {
 
 export class ResultValue extends $dara.Model {
   /**
+   * @remarks
+   * The openId corresponding to the device.
+   * 
    * @example
    * A963*0158
    */
   deviceOpenId?: string;
+  /**
+   * @remarks
+   * The organization ID and UnionId information corresponding to the device.
+   */
   deviceUnionIds?: ResultValueDeviceUnionIds[];
   /**
+   * @remarks
+   * The name of the device.
+   * 
    * @example
    * 我的设备
    */
   name?: string;
   /**
+   * @remarks
+   * The firmware version of the device.
+   * 
    * @example
    * 2.0.3
    */
   firmwareVersion?: string;
   /**
+   * @remarks
+   * The MAC address of the device.
+   * 
    * @example
    * b4:xx:xx:xx:65:2b
    */
   mac?: string;
   /**
+   * @remarks
+   * The SN information of the device.
+   * 
    * @example
    * 1200xx048
    */

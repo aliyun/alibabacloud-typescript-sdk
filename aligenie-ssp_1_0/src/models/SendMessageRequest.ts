@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type. When the encoding type is SKILLID, this value is the application\\"s Skill ID. When the encoding type is PACKAGENAME, this value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SendMessageRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the User Identifier for Maojing, and each method corresponds to a different encoding type: - PACKAGENAME: APK package name, used for Android application customer links - SKILLID: Skill ID, used for cloud-based links
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class SendMessageRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier (userOpenId or userUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class SendMessageRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID: - OPENID: default User ID identity - UNIONID: organization-dimension User ID identity, available only after an organization has been requested on the Maojing Skill Application Open Platform
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class SendMessageRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID; required when IdType is UNION_ID
+   * 
    * @example
    * 1**2
    */
@@ -71,6 +82,9 @@ export class SendMessageRequestUserInfo extends $dara.Model {
 
 export class SendMessageRequest extends $dara.Model {
   /**
+   * @remarks
+   * Message URL
+   * 
    * @example
    * http://xx
    */

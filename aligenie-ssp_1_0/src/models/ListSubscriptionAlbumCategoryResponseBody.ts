@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSubscriptionAlbumCategoryResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Category ID
+   * 
    * @example
    * 80011
    */
   categoryId?: string;
   /**
+   * @remarks
+   * Category name
+   * 
    * @example
    * 儿童
    */
@@ -38,20 +44,33 @@ export class ListSubscriptionAlbumCategoryResponseBodyResult extends $dara.Model
 
 export class ListSubscriptionAlbumCategoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 60E7A523-9766-1D07-87A2-6E587420C59B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of categories
+   */
   result?: ListSubscriptionAlbumCategoryResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

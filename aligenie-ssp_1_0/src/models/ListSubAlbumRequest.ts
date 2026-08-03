@@ -39,11 +39,17 @@ export class ListSubAlbumRequestDeviceInfo extends $dara.Model {
 
 export class ListSubAlbumRequestQuerySubscriptionAlbumRequestPage extends $dara.Model {
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 10
    */
@@ -73,12 +79,17 @@ export class ListSubAlbumRequestQuerySubscriptionAlbumRequestPage extends $dara.
 
 export class ListSubAlbumRequestQuerySubscriptionAlbumRequest extends $dara.Model {
   /**
+   * @remarks
+   * Album ID
+   * 
    * @example
    * 4476001
    */
   albumId?: string;
   /**
    * @remarks
+   * Category ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,10 +98,15 @@ export class ListSubAlbumRequestQuerySubscriptionAlbumRequest extends $dara.Mode
   categoryId?: number;
   /**
    * @remarks
+   * Pagination Parameters
+   * 
    * This parameter is required.
    */
   page?: ListSubAlbumRequestQuerySubscriptionAlbumRequestPage;
   /**
+   * @remarks
+   * Album title
+   * 
    * @example
    * 睡前故事
    */
@@ -161,12 +177,20 @@ export class ListSubAlbumRequestUserInfo extends $dara.Model {
 }
 
 export class ListSubAlbumRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Device Information
+   */
   deviceInfo?: ListSubAlbumRequestDeviceInfo;
   /**
    * @remarks
    * request
    */
   querySubscriptionAlbumRequest?: ListSubAlbumRequestQuerySubscriptionAlbumRequest;
+  /**
+   * @remarks
+   * User information
+   */
   userInfo?: ListSubAlbumRequestUserInfo;
   static names(): { [key: string]: string } {
     return {

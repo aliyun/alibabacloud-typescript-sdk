@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Content ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetContentRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * Default value: song
+   * 
    * This parameter is required.
    * 
    * @example

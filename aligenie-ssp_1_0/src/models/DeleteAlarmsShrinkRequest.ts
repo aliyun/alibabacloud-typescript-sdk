@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlarmsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Input parameters for the service request
+   * 
    * This parameter is required.
    */
   payloadShrink?: string;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

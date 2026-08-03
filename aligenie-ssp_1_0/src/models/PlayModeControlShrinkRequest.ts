@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class PlayModeControlShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openPlayModeControlRequestShrink?: string;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

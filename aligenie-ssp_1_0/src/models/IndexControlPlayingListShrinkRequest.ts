@@ -10,11 +10,15 @@ export class IndexControlPlayingListShrinkRequest extends $dara.Model {
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openIndexControlRequestShrink?: string;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj extends $dara.Model {
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * dbe2eb4458302b9246c6da17fbc95f4b
    */
@@ -31,26 +34,50 @@ export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj extends $
 
 export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin extends $dara.Model {
   /**
+   * @remarks
+   * Profile picture
+   * 
    * @example
    * https://xxx
    */
   avatar?: string;
   /**
+   * @remarks
+   * Encrypted User Identifier
+   * 
    * @example
    * KsVgypxAipf+xNECMZV2ONMcheqiIoEGFvgx+T8s1oV6/euTK9+ImYvLVPsSqFDh
    */
   encryptedUserIdentifier?: string;
   /**
+   * @remarks
+   * User Search Type  
+   * 
+   * For Taobao users, the value is fixed as:  
+   * PHONE_NUMBER_BINDING_WITH_TAOBAO: The phoneNumber is queried as the phone number bound to a Taobao account.  
+   * 
+   * For Tmall Genie users, the value can be:  
+   * PHONE_NUMBER_BINDING_WITH_ALIGENIE: The phoneNumber is queried as the phone number bound to a Tmall Genie device;  
+   * PHONE_NUMBER_BINDING_WITH_TAOBAO: The phoneNumber is queried as the phone number bound to a Taobao account.
+   * 
    * @example
    * PHONE_NUMBER_BINDING_WITH_ALIGENIE：phoneNumber
    */
   findingType?: string;
   /**
+   * @remarks
+   * Nickname
+   * 
    * @example
    * XXX
    */
   nickname?: string;
   /**
+   * @remarks
+   * User Type  
+   * TAOBAO: Taobao user  
+   * ALIGENIE: Tmall Genie user
+   * 
    * @example
    * ALIGENIE
    */
@@ -85,6 +112,10 @@ export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToA
 }
 
 export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of accounts eligible for authorization login
+   */
   userListToAuthLogin?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyResultUserListToAuthLogin[];
   static names(): { [key: string]: string } {
     return {
@@ -112,22 +143,43 @@ export class FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult extends $d
 
 export class FindUserlistToAuthLoginWithPhoneNumberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * When the code is 5140003, it indicates that the invocation failed because no account list eligible for authorization login was found for the given phone number. The frontend can prompt the user to confirm generating a Jingle account via the phone number or suggest registering a Taobao account using the phone number first. In subsequent flows, the frontend must return the sessionId from DataObj to the server.
+   */
   dataObj?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyDataObj;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 73C67BD9-175A-1324-8202-9FAABBB3E6FA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Response Result
+   */
   result?: FindUserlistToAuthLoginWithPhoneNumberResponseBodyResult;
+  /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

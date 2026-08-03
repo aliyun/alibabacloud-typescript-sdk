@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeviceByUserIdShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of User Identifier information.
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

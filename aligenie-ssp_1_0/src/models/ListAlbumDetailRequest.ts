@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlbumDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * album ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListAlbumDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListAlbumDetailRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
+   * number of records per page
+   * 
    * This parameter is required.
    * 
    * @example

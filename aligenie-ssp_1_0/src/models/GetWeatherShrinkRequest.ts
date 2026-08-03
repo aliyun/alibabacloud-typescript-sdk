@@ -5,16 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetWeatherShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
+   * @remarks
+   * Input parameters for the service request
+   * 
    * **if can be null:**
    * false
    */
   payloadShrink?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

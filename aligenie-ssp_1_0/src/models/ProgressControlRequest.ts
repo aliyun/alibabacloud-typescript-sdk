@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ProgressControlRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class ProgressControlRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer flow. `SKILL_ID`: Skill ID, used for the cloud-based flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class ProgressControlRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID. Set to either deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class ProgressControlRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of Device ID.
+   * 
+   * `OPEN_ID`: The default device identity. `UNION_ID`: The organization-dimension device identity, which is available only after an organization has been requested on the Tmall Genie Skills Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class ProgressControlRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -70,9 +87,15 @@ export class ProgressControlRequestDeviceInfo extends $dara.Model {
 }
 
 export class ProgressControlRequestOpenProgressControlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Extension information
+   */
   extendInfo?: { [key: string]: any };
   /**
    * @remarks
+   * Song progress, in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -108,6 +131,10 @@ export class ProgressControlRequestOpenProgressControlRequest extends $dara.Mode
 export class ProgressControlRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -116,6 +143,10 @@ export class ProgressControlRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the Tmall Genie user identity, and each way corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application client path. `SKILL_ID`: Skill ID, used for the cloud-based path.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -124,6 +155,8 @@ export class ProgressControlRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -132,6 +165,10 @@ export class ProgressControlRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of User ID.
+   * 
+   * `OPEN_ID`: The default User ID identity. `UNION_ID`: The organization-dimension User ID identity, which is available only after an organization has been requested on the Tmall Genie Skills Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -139,6 +176,9 @@ export class ProgressControlRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is `UNION_ID`.
+   * 
    * @example
    * 123
    */
@@ -175,16 +215,22 @@ export class ProgressControlRequestUserInfo extends $dara.Model {
 export class ProgressControlRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: ProgressControlRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openProgressControlRequest?: ProgressControlRequestOpenProgressControlRequest;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: ProgressControlRequestUserInfo;

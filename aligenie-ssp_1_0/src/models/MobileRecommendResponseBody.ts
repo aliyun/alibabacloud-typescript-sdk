@@ -3,22 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MobileRecommendResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Author information
+   */
   authors?: string[];
   /**
+   * @remarks
+   * Album thumbnail image
+   * 
    * @example
    * http://img4.kuwo.cn/star/albumcover/120/78/77/1688821132.jpg
    */
   cover?: string;
   /**
+   * @remarks
+   * Third-party ID of the content
+   * 
    * @example
    * 550144364
    */
   rawId?: string;
   /**
+   * @remarks
+   * Source of the content
+   * 
    * @example
    * KG
    */
   source?: string;
+  /**
+   * @remarks
+   * Content title
+   * 
+   * @example
+   * 稻香
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,11 +74,17 @@ export class MobileRecommendResponseBodyResult extends $dara.Model {
 
 export class MobileRecommendResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code of the invocation
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * If an error occurs, the error message will be output.
+   * 
    * @example
    * success
    */
@@ -71,6 +97,10 @@ export class MobileRecommendResponseBody extends $dara.Model {
    * 5C5809B4-F465-52E0-9A8B-61396F9E593B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Request result.
+   */
   result?: MobileRecommendResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

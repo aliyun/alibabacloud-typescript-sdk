@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDeviceBasicInfoShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of device identity information.
+   */
   deviceInfosShrink?: string;
   static names(): { [key: string]: string } {
     return {

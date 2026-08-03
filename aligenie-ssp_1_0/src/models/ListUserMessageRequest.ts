@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserMessageRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type. When the encoding type is SKILLID, this value is the application\\"s Skill ID. When the encoding type is PACKAGENAME, this value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListUserMessageRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier for Maojing, and each method corresponds to a different encoding type: - PACKAGENAME: APK package name, used for Android application client links - SKILLID: Skill ID, used for cloud-based links
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListUserMessageRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier (userOpenId or userUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ListUserMessageRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of user ID: - OPENID: Default user ID identifier - UNIONID: Organization-level user ID identifier, available only after an organization has been registered on the Maojing skill application Open Platform
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class ListUserMessageRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID
+   * 
    * @example
    * 1**2
    */
@@ -71,16 +82,24 @@ export class ListUserMessageRequestUserInfo extends $dara.Model {
 
 export class ListUserMessageRequest extends $dara.Model {
   /**
+   * @remarks
+   * After a specific point in time
+   * 
    * @example
    * 2022-07-27 14:06:55.984
    */
   beforeTime?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: ListUserMessageRequestUserInfo;
   /**
+   * @remarks
+   * Number of records to query
+   * 
    * @example
    * 10
    */

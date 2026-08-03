@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the Skill ID of the application. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Mo
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the Tmall Genie device ID, and each method corresponds to a different encoding type: PACKAGE_NAME refers to the APK package name, used in the Android application customer flow; SKILL_ID refers to the skill ID, used in the cloud-based flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Mo
   encodeType?: string;
   /**
    * @remarks
+   * Device ID (deviceOpenId or deviceUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Mo
   id?: string;
   /**
    * @remarks
+   * The type of Device ID. OPEN_ID: the default device identity. UNION_ID: the device identity at the organization dimension, which is available only after an organization has been requested on the Maojing Skills Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Mo
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,11 +83,15 @@ export class InvalidateThirdPartyAppLoginStateRequestDeviceInfo extends $dara.Mo
 export class InvalidateThirdPartyAppLoginStateRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfo?: InvalidateThirdPartyAppLoginStateRequestDeviceInfo;
   /**
    * @remarks
+   * Third-party application identity
+   * 
    * This parameter is required.
    * 
    * @example

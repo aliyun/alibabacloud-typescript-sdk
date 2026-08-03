@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAligenieUserInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Logon state access credential
+   * 
    * This parameter is required.
    * 
    * @example

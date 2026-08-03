@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EcologyOpennessSendVerificationCodeResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Validity Period (unit: seconds)
+   * 
    * @example
    * 900
    */
   expireIn?: number;
   /**
+   * @remarks
+   * Recency before the next resend is allowed (unit: seconds)
+   * 
    * @example
    * 60
    */
@@ -38,21 +44,38 @@ export class EcologyOpennessSendVerificationCodeResponseBodyResult extends $dara
 
 export class EcologyOpennessSendVerificationCodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 73C67BD9-175A-1324-8202-9FAABBB3E6FA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Response Result
+   */
   result?: EcologyOpennessSendVerificationCodeResponseBodyResult;
+  /**
+   * @remarks
+   * Flag indicating whether the invocation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

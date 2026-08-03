@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePlayingListResponseBodyResultCover extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether OSS rules can be used for cropping.
+   * 
    * @example
    * false
    */
   canResize?: boolean;
   /**
+   * @remarks
+   * default image
+   * 
    * @example
    * http://imgopen.xmcdn.com/group58/M06/08/9B/wKgLglzTyTjiOy0oAAcOTv16ohg815.jpg!op_type=3&columns=640&rows=640
    */
   img?: string;
   /**
+   * @remarks
+   * Large image
+   * 
    * @example
    * http://imgopen.xmcdn.com/group58/M06/08/9B/wKgLglzTyTjiOy0oAAcOTv16ohg815.jpg!op_type=3&columns=640&rows=640
    */
   large?: string;
   /**
+   * @remarks
+   * Medium image
+   * 
    * @example
    * http://imgopen.xmcdn.com/group58/M06/08/9B/wKgLglzTyTjiOy0oAAcOTv16ohg815.jpg!op_type=3&columns=640&rows=640
    */
   mediam?: string;
   /**
+   * @remarks
+   * medium image
+   * 
    * @example
    * http://imgopen.xmcdn.com/group58/M06/08/9B/wKgLglzTyTjiOy0oAAcOTv16ohg815.jpg!op_type=3&columns=640&rows=640
    */
   medium?: string;
   /**
+   * @remarks
+   * small image
+   * 
    * @example
    * http://imgopen.xmcdn.com/group58/M06/08/9B/wKgLglzTyTjiOy0oAAcOTv16ohg815.jpg!op_type=3&columns=640&rows=640
    */
@@ -65,76 +83,143 @@ export class CreatePlayingListResponseBodyResultCover extends $dara.Model {
 }
 
 export class CreatePlayingListResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Third-party album name
+   * 
+   * @example
+   * 晚安妈妈睡前故事
+   */
   albumName?: string;
   /**
+   * @remarks
+   * Third-party album ID
+   * 
    * @example
    * 260744
    */
   albumRawId?: string;
   /**
+   * @remarks
+   * Length
+   * 
    * @example
    * 190
    */
   audioLength?: number;
   /**
+   * @remarks
+   * The copyright field is upgraded to indicate whether the content is playable: 0 means playable, 1 or 2 means not playable.
+   * 
    * @example
    * 0
    */
   copyright?: number;
+  /**
+   * @remarks
+   * thumbnail image object
+   */
   cover?: CreatePlayingListResponseBodyResultCover;
   /**
+   * @remarks
+   * Default playback order of the package: 0 for sequential, 1 for reverse.
+   * 
    * @example
    * 1
    */
   defaultPlayOrder?: number;
   /**
+   * @remarks
+   * Playback URL
+   * 
    * @example
    * https://openaudio.cos.tx.xmcdn.com/storages/587f-audiofreehighqps/15/CE/GKwRIJIGnb11ABc6SwF59DNb.mp3
    */
   itemUrl?: string;
   /**
+   * @remarks
+   * is collected
+   * 
    * @example
    * false
    */
   liked?: boolean;
   /**
+   * @remarks
+   * Lyrics URL
+   * 
    * @example
    * https://aicontent.alibabausercontent.com/lyric/thirdsource/6f4c8408073db134b0d097c122b5a1a1.lrc
    */
   lyricUrl?: string;
   /**
+   * @remarks
+   * Playback pattern (Repeat, Shuffle, RepeatOne, Normal)
+   * 
    * @example
    * Repeat
    */
   playMode?: string;
   /**
+   * @remarks
+   * Position of the item in the playlist
+   * 
    * @example
    * 0
    */
   pos?: number;
   /**
+   * @remarks
+   * Playback progress of the song
+   * 
    * @example
    * 0
    */
   progress?: number;
   /**
+   * @remarks
+   * third-party ID
+   * 
    * @example
    * 550144364
    */
   rawId?: string;
+  /**
+   * @remarks
+   * Author
+   * 
+   * @example
+   * 晚安妈妈
+   */
   singer?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * ximalayav2
    */
   source?: string;
+  /**
+   * @remarks
+   * title
+   * 
+   * @example
+   * 足球鞋赛车 晚安妈妈
+   */
   title?: string;
   /**
+   * @remarks
+   * type (such as music, program, joke, news, children_song, radio, etc.)
+   * 
    * @example
    * story
    */
   type?: string;
   /**
+   * @remarks
+   * Playback availability: VALID(10), UNKNOWN(20), NOT_VALID(30)
+   * 
    * @example
    * VALID
    */
@@ -199,22 +284,38 @@ export class CreatePlayingListResponseBodyResult extends $dara.Model {
 
 export class CreatePlayingListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code of the invocation
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Additional information, typically used to briefly describe a failed invocation to help the caller troubleshoot the issue.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 10002398812
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Actual return result of the service
+   */
   result?: CreatePlayingListResponseBodyResult;
   /**
+   * @remarks
+   * Indicates whether the invocation succeeded. true indicates success, and false indicates failure. When the value is false, check the Message field for details.
+   * 
    * @example
    * true
    */

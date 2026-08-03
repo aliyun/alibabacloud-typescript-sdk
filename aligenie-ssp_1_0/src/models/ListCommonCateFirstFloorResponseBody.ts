@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCommonCateFirstFloorResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Category ID
+   * 
    * @example
    * 80012
    */
   cateId?: number;
+  /**
+   * @remarks
+   * Category name
+   * 
+   * @example
+   * 有声内容
+   */
   cateName?: string;
   /**
+   * @remarks
+   * Parent category ID
+   * 
    * @example
    * 0
    */
@@ -41,20 +54,33 @@ export class ListCommonCateFirstFloorResponseBodyResult extends $dara.Model {
 
 export class ListCommonCateFirstFloorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Code encoding
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Message information
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F12B6147-5925-19E5-A3AD-E1EE1360F34E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListCommonCateFirstFloorResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

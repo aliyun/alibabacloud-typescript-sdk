@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PlayModeControlRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class PlayModeControlRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for Android application customer journeys. `SKILL_ID`: Skill ID, used for cloud-based journeys.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class PlayModeControlRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class PlayModeControlRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of device ID
+   * 
+   * `OPEN_ID`: Default device ID identity. `UNION_ID`: Organization-dimension device ID identity, available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class PlayModeControlRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,6 +89,10 @@ export class PlayModeControlRequestDeviceInfo extends $dara.Model {
 export class PlayModeControlRequestOpenPlayModeControlRequest extends $dara.Model {
   /**
    * @remarks
+   * Playback mode
+   * 
+   * List loop: Repeat; Shuffle: Shuffle; Single track loop: RepeatOne; NAT mode: Normal;
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,6 +123,10 @@ export class PlayModeControlRequestOpenPlayModeControlRequest extends $dara.Mode
 export class PlayModeControlRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the application\\"s Skill ID. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -110,6 +135,10 @@ export class PlayModeControlRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the User Identifier for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer ingest endpoint. `SKILL_ID`: Skill ID, used for the cloud-side ingest endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +147,8 @@ export class PlayModeControlRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier, set to userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,6 +157,10 @@ export class PlayModeControlRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID
+   * 
+   * `OPEN_ID`: The default User ID identity. `UNION_ID`: Organization-dimension User ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -133,6 +168,9 @@ export class PlayModeControlRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -169,16 +207,22 @@ export class PlayModeControlRequestUserInfo extends $dara.Model {
 export class PlayModeControlRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: PlayModeControlRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openPlayModeControlRequest?: PlayModeControlRequestOpenPlayModeControlRequest;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: PlayModeControlRequestUserInfo;

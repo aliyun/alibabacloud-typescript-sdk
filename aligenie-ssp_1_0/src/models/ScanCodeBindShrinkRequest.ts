@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ScanCodeBindShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Input parameters for QR code scanning binding
+   * 
    * This parameter is required.
    */
   bindReqShrink?: string;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

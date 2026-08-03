@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryMusicTypeResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Ringtone type ID
+   * 
    * @example
    * 1
    */
   musicType?: number;
   /**
+   * @remarks
+   * Name of the ringtone category
+   * 
    * @example
    * xx
    */
@@ -38,16 +44,33 @@ export class QueryMusicTypeResponseBodyResult extends $dara.Model {
 
 export class QueryMusicTypeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code returned by the alarm service
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * error message
+   * 
+   * @example
+   * 设备账号未关联
+   */
   message?: string;
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 43***28C-A810-5***-8747-EC226A086881
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of ringtone types
+   */
   result?: QueryMusicTypeResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {

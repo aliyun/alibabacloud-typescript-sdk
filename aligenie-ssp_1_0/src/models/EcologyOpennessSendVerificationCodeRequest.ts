@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EcologyOpennessSendVerificationCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * Phone number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EcologyOpennessSendVerificationCodeRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
+   * Region encoding
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class EcologyOpennessSendVerificationCodeRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * Session ID
+   * 
    * This parameter is required.
    * 
    * @example

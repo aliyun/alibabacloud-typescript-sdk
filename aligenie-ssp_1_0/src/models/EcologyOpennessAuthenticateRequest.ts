@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EcologyOpennessAuthenticateRequest extends $dara.Model {
   /**
    * @remarks
+   * entity key
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class EcologyOpennessAuthenticateRequest extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * entity Type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class EcologyOpennessAuthenticateRequest extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * logon state access token
+   * 
    * This parameter is required.
    * 
    * @example

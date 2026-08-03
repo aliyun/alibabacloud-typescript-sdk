@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCommonCateSecondFloorRequest extends $dara.Model {
   /**
+   * @remarks
+   * Parent category ID
+   * 
    * @example
    * 80010
    */

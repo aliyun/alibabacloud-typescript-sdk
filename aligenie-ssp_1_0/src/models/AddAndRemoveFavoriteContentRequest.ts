@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer link. `SKILL_ID`: Skill ID, used for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of device ID
+   * 
+   * `OPEN_ID`: Default device ID identifier. `UNION_ID`: Device ID identifier at the organization dimension. This value is available only after an organization has been registered on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -70,9 +87,15 @@ export class AddAndRemoveFavoriteContentRequestDeviceInfo extends $dara.Model {
 }
 
 export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRequestOpenSourceRawIdPair extends $dara.Model {
+  /**
+   * @remarks
+   * Extension information
+   */
   extendInfo?: { [key: string]: any };
   /**
    * @remarks
+   * Third-party ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -81,6 +104,8 @@ export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRe
   rawId?: string;
   /**
    * @remarks
+   * Source
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +143,10 @@ export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRe
 export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Operation Type
+   * 
+   * ADD for collect; REMOVE for remove from favorites
+   * 
    * This parameter is required.
    * 
    * @example
@@ -126,11 +155,17 @@ export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRe
   favoriteCmd?: string;
   /**
    * @remarks
+   * Object to collect or remove from favorites
+   * 
    * This parameter is required.
    */
   openSourceRawIdPair?: AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRequestOpenSourceRawIdPair;
   /**
    * @remarks
+   * Content type
+   * 
+   * Content: CONTENT; Album: ALBUM; Playlist: COLLECT.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -168,6 +203,10 @@ export class AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRe
 export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -176,6 +215,10 @@ export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for the Android application customer link. `SKILL_ID`: Skill ID, used for the cloud-based link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -184,6 +227,8 @@ export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier, set to userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -192,6 +237,10 @@ export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of User ID.
+   * 
+   * `OPEN_ID`: The default User ID identity. `UNION_ID`: The organization-dimension User ID identity. This value is available only after an organization has been requested on the Tmall Genie Skills Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -199,6 +248,9 @@ export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -235,16 +287,22 @@ export class AddAndRemoveFavoriteContentRequestUserInfo extends $dara.Model {
 export class AddAndRemoveFavoriteContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfo?: AddAndRemoveFavoriteContentRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openAddAndRemoveFavoriteContentRequest?: AddAndRemoveFavoriteContentRequestOpenAddAndRemoveFavoriteContentRequest;
   /**
    * @remarks
+   * User identification information
+   * 
    * This parameter is required.
    */
   userInfo?: AddAndRemoveFavoriteContentRequestUserInfo;

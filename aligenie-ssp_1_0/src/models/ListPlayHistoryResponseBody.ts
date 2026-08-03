@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPlayHistoryResponseBodyResultAuthorsCover extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether OSS rules can be used for cropping
+   * 
    * @example
    * false
    */
   canResize?: boolean;
   /**
+   * @remarks
+   * Default image
+   * 
    * @example
    * https://a.jpg
    */
   img?: string;
   /**
+   * @remarks
+   * Large image
+   * 
    * @example
    * https://a.jpg
    */
   large?: string;
   /**
+   * @remarks
+   * Medium image
+   * 
    * @example
    * https://a.jpg
    */
   medium?: string;
   /**
+   * @remarks
+   * Small image
+   * 
    * @example
    * https://a.jpg
    */
@@ -58,34 +73,71 @@ export class ListPlayHistoryResponseBodyResultAuthorsCover extends $dara.Model {
 }
 
 export class ListPlayHistoryResponseBodyResultAuthors extends $dara.Model {
+  /**
+   * @remarks
+   * Author types
+   */
   authorTypes?: string[];
+  /**
+   * @remarks
+   * Profile picture
+   */
   cover?: ListPlayHistoryResponseBodyResultAuthorsCover;
+  /**
+   * @remarks
+   * Author description
+   * 
+   * @example
+   * 播音呆瓜小贼
+   */
   description?: string;
   /**
+   * @remarks
+   * Gender
+   * 
    * @example
    * MALE
    */
   gender?: string;
   /**
+   * @remarks
+   * Author primary key ID
+   * 
    * @example
    * 13597709
    */
   id?: number;
   /**
+   * @remarks
+   * Is online
+   * 
    * @example
    * false
    */
   online?: boolean;
   /**
+   * @remarks
+   * Third-party author ID
+   * 
    * @example
    * 123123
    */
   rawId?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * qingting
    */
   source?: string;
+  /**
+   * @remarks
+   * Author title
+   * 
+   * @example
+   * 播音呆瓜小贼
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,31 +184,49 @@ export class ListPlayHistoryResponseBodyResultAuthors extends $dara.Model {
 
 export class ListPlayHistoryResponseBodyResultCover extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether OSS rules can be used for cropping
+   * 
    * @example
    * false
    */
   canResize?: boolean;
   /**
+   * @remarks
+   * Default image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   img?: string;
   /**
+   * @remarks
+   * Large image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   large?: string;
   /**
+   * @remarks
+   * Medium image (Deprecated)
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   mediam?: string;
   /**
+   * @remarks
+   * Medium image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
   medium?: string;
   /**
+   * @remarks
+   * Small image
+   * 
    * @example
    * http://pic.qtfm.cn/2017/0207/2017020718285.jpg
    */
@@ -193,57 +263,113 @@ export class ListPlayHistoryResponseBodyResultCover extends $dara.Model {
 }
 
 export class ListPlayHistoryResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Alias
+   */
   alias?: string[];
   /**
+   * @remarks
+   * Is audition available
+   * 
    * @example
    * false
    */
   audition?: boolean;
+  /**
+   * @remarks
+   * Authors of the content
+   */
   authors?: ListPlayHistoryResponseBodyResultAuthors[];
   /**
+   * @remarks
+   * Transform controlType based on the category
+   * 
    * @example
    * audio
    */
   category?: string;
   /**
+   * @remarks
+   * Is charged
+   * 
    * @example
    * false
    */
   charge?: boolean;
   /**
+   * @remarks
+   * Category ID
+   * 
    * @example
    * 80012017
    */
   commCateId?: number;
+  /**
+   * @remarks
+   * Album cover image
+   */
   cover?: ListPlayHistoryResponseBodyResultCover;
+  /**
+   * @remarks
+   * Content description
+   * 
+   * @example
+   * 内容描述
+   */
   description?: string;
   /**
+   * @remarks
+   * Hot Score
+   * 
    * @example
    * 10
    */
   hotScore?: number;
   /**
+   * @remarks
+   * Content ID
+   * 
    * @example
    * 13597709
    */
   id?: number;
   /**
+   * @remarks
+   * Type of content, such as music, audio, radio, jokes, etc.
+   * 
    * @example
    * ALBUM
    */
   itemType?: string;
   /**
+   * @remarks
+   * Source
+   * 
    * @example
    * qingting
    */
   source?: string;
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * 超能狂少在都市
+   */
   title?: string;
   /**
+   * @remarks
+   * Convert to favoriteType based on the associated public category
+   * 
    * @example
    * program
    */
   type?: string;
   /**
+   * @remarks
+   * Indicates whether the content is playable
+   * 
    * @example
    * VALID
    */
@@ -308,15 +434,25 @@ export class ListPlayHistoryResponseBodyResult extends $dara.Model {
 
 export class ListPlayHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Code encoding
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Message information
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   result?: ListPlayHistoryResponseBodyResult[];
   /**
    * @remarks

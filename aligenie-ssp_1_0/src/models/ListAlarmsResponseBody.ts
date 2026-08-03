@@ -4,18 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlarmsResponseBodyResultModelMusicInfo extends $dara.Model {
   /**
+   * @remarks
+   * Ringtone ID
+   * 
    * @example
    * 1
    */
   musicId?: number;
+  /**
+   * @remarks
+   * Ringtone Name
+   * 
+   * @example
+   * xx铃声
+   */
   musicName?: string;
   /**
+   * @remarks
+   * Ringtone Category ID
+   * 
    * @example
    * 1
    */
   musicType?: number;
+  /**
+   * @remarks
+   * Ringtone Category Name
+   * 
+   * @example
+   * xx音乐
+   */
   musicTypeName?: string;
   /**
+   * @remarks
+   * Music URL
+   * 
    * @example
    * http://xx
    */
@@ -51,26 +74,41 @@ export class ListAlarmsResponseBodyResultModelMusicInfo extends $dara.Model {
 
 export class ListAlarmsResponseBodyResultModelScheduleInfoOnce extends $dara.Model {
   /**
+   * @remarks
+   * Trigger time: day
+   * 
    * @example
    * 29
    */
   day?: number;
   /**
+   * @remarks
+   * Trigger time: hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger time: minute
+   * 
    * @example
    * 0
    */
   minute?: number;
   /**
+   * @remarks
+   * Trigger Time: Month
+   * 
    * @example
    * 7
    */
   month?: number;
   /**
+   * @remarks
+   * Trigger Time: Year
+   * 
    * @example
    * 2022
    */
@@ -106,11 +144,17 @@ export class ListAlarmsResponseBodyResultModelScheduleInfoOnce extends $dara.Mod
 
 export class ListAlarmsResponseBodyResultModelScheduleInfoStatutoryWorkingDay extends $dara.Model {
   /**
+   * @remarks
+   * Trigger time: hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger time: minute
+   * 
    * @example
    * 0
    */
@@ -139,13 +183,23 @@ export class ListAlarmsResponseBodyResultModelScheduleInfoStatutoryWorkingDay ex
 }
 
 export class ListAlarmsResponseBodyResultModelScheduleInfoWeekly extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of days of the week to trigger
+   */
   daysOfWeek?: number[];
   /**
+   * @remarks
+   * Trigger time: hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger time: minute
+   * 
    * @example
    * 0
    */
@@ -179,13 +233,28 @@ export class ListAlarmsResponseBodyResultModelScheduleInfoWeekly extends $dara.M
 }
 
 export class ListAlarmsResponseBodyResultModelScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * One-time: This property is active when the loop type is ONCE.
+   */
   once?: ListAlarmsResponseBodyResultModelScheduleInfoOnce;
+  /**
+   * @remarks
+   * Statutory working day: This property is active when the loop Type is STATUTORYWORKINGDAY.
+   */
   statutoryWorkingDay?: ListAlarmsResponseBodyResultModelScheduleInfoStatutoryWorkingDay;
   /**
+   * @remarks
+   * Schedule Type / Loop Type: ONCE -> One-time, WEEKLY -> Weekly loop, STATUTORYWORKINGDAY -> Statutory working day
+   * 
    * @example
    * ONCE
    */
   type?: string;
+  /**
+   * @remarks
+   * Weekly loop: This property is active when the loop Type is WEEKLY.
+   */
   weekly?: ListAlarmsResponseBodyResultModelScheduleInfoWeekly;
   static names(): { [key: string]: string } {
     return {
@@ -225,29 +294,59 @@ export class ListAlarmsResponseBodyResultModelScheduleInfo extends $dara.Model {
 
 export class ListAlarmsResponseBodyResultModel extends $dara.Model {
   /**
+   * @remarks
+   * Alarm ID
+   * 
    * @example
    * 1234567
    */
   alarmId?: number;
+  /**
+   * @remarks
+   * Music information
+   */
   musicInfo?: ListAlarmsResponseBodyResultModelMusicInfo;
+  /**
+   * @remarks
+   * Schedule information
+   */
   scheduleInfo?: ListAlarmsResponseBodyResultModelScheduleInfo;
+  /**
+   * @remarks
+   * Chinese description of loop type
+   * 
+   * @example
+   * 单次
+   */
   scheduleTypeDesc?: string;
   /**
+   * @remarks
+   * Status: 0 Normal, 1 Deleted, 2 Shutdown
+   * 
    * @example
    * 0
    */
   status?: number;
   /**
+   * @remarks
+   * Trigger date description (one-time)
+   * 
    * @example
    * 2022-07-29
    */
   triggerDateDesc?: string;
   /**
+   * @remarks
+   * Trigger time description
+   * 
    * @example
    * 10:00
    */
   triggerTimeDesc?: string;
   /**
+   * @remarks
+   * Ringtone volume, default 40
+   * 
    * @example
    * 40
    */
@@ -295,22 +394,38 @@ export class ListAlarmsResponseBodyResultModel extends $dara.Model {
 
 export class ListAlarmsResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * current page
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * alarm list
+   */
   model?: ListAlarmsResponseBodyResultModel[];
   /**
+   * @remarks
+   * total number of pages
+   * 
    * @example
    * 10
    */
   pageCount?: number;
   /**
+   * @remarks
+   * number of entries per page: maximum is 100; values exceeding 100 are treated as 100
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * total number of entries
+   * 
    * @example
    * 100
    */
@@ -349,16 +464,33 @@ export class ListAlarmsResponseBodyResult extends $dara.Model {
 
 export class ListAlarmsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code returned by the alarm service
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * error message
+   * 
+   * @example
+   * 设备账号未关联
+   */
   message?: string;
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 43***28C-A810-5***-8747-EC226A086881
    */
   requestId?: string;
+  /**
+   * @remarks
+   * collection of alarm list results
+   */
   result?: ListAlarmsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

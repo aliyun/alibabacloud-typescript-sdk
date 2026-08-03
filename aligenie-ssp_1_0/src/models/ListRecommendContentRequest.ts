@@ -4,26 +4,50 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecommendContentRequestDeviceInfo extends $dara.Model {
   /**
+   * @remarks
+   * Value corresponding to the encoding type
+   * 
+   * When the encoding type is SKILL_ID, the value is the application\\"s Skill ID.
+   * When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * PACKAGE_NAME: APK package name, used for the Android application client path.
+   * SKILL_ID: Skill ID, used for the cloud-based path.
+   * 
    * @example
    * PACKAGE_NAME
    */
   encodeType?: string;
   /**
+   * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * @example
    * DAFE****ce3ej=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of device ID
+   * 
+   * OPEN_ID: Default device ID identity.
+   * UNION_ID: Organization-dimension device ID identity. This value is available only after an organization has been registered on the Tmall Genie Skill Application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -59,11 +83,17 @@ export class ListRecommendContentRequestDeviceInfo extends $dara.Model {
 
 export class ListRecommendContentRequestRequest extends $dara.Model {
   /**
+   * @remarks
+   * Quantity of recommendations
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * Default value: song (currently, the extension field supports only song)
+   * 
    * @example
    * song
    */
@@ -93,26 +123,50 @@ export class ListRecommendContentRequestRequest extends $dara.Model {
 
 export class ListRecommendContentRequestUserInfo extends $dara.Model {
   /**
+   * @remarks
+   * Value corresponding to the encoding type.
+   * 
+   * When the encoding type is SKILL_ID, the value is the Skill ID of the application.  
+   * When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier for Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * PACKAGE_NAME: APK package name, used for the Android application client path.
+   * SKILL_ID: Skill ID, used for the cloud-based path.
+   * 
    * @example
    * PACKAGE_NAME
    */
   encodeType?: string;
   /**
+   * @remarks
+   * User Identifier, set to userOpenId or userUnionId.
+   * 
    * @example
    * HOFF****my7Iw=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of User ID.
+   * 
+   * OPEN_ID: The default User ID identifier.  
+   * UNION_ID: The organization-dimension User ID identifier. This value is available only after an organization has been requested on the Tmall Genie Skills Application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -149,16 +203,22 @@ export class ListRecommendContentRequestUserInfo extends $dara.Model {
 export class ListRecommendContentRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfo?: ListRecommendContentRequestDeviceInfo;
   /**
    * @remarks
+   * Request Parameters
+   * 
    * This parameter is required.
    */
   request?: ListRecommendContentRequestRequest;
   /**
    * @remarks
+   * User identification information
+   * 
    * This parameter is required.
    */
   userInfo?: ListRecommendContentRequestUserInfo;

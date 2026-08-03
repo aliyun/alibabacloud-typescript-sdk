@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendMessageShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Message URL
+   * 
    * @example
    * http://xx
    */

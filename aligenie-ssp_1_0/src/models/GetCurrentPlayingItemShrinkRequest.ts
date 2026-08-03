@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetCurrentPlayingItemShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * User identification information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

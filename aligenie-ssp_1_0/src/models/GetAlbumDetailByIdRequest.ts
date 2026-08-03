@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlbumDetailByIdRequest extends $dara.Model {
   /**
+   * @remarks
+   * Album ID
+   * 
    * @example
    * 51999575
    */

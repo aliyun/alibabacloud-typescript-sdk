@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePlayingListShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openCreatePlayingListRequestShrink?: string;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

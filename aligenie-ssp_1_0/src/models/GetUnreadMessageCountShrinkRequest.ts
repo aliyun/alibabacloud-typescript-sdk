@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUnreadMessageCountShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * User Identifier information
+   */
   userInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {

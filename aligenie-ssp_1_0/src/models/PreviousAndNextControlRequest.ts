@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID for Tmall Genie, and each method corresponds to a different encoding type.  
+   * 
+   * `PACKAGE_NAME`: APK package name, used for Android application customer journeys. `SKILL_ID`: Skill ID, used for cloud-based journeys.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +29,8 @@ export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +39,10 @@ export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of Device ID.
+   * 
+   * `OPEN_ID`: The default device identity. `UNION_ID`: The organization-dimension device identity, which is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -72,6 +89,8 @@ export class PreviousAndNextControlRequestDeviceInfo extends $dara.Model {
 export class PreviousAndNextControlRequestOpenControlPlayingListRequest extends $dara.Model {
   /**
    * @remarks
+   * Next track: NEXT; Previous track: PREVIOUS
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,6 +99,9 @@ export class PreviousAndNextControlRequestOpenControlPlayingListRequest extends 
   cmd?: string;
   extendInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * Whether initiated by the device. Default is false.
+   * 
    * @example
    * false
    */
@@ -115,6 +137,10 @@ export class PreviousAndNextControlRequestOpenControlPlayingListRequest extends 
 export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * When the encoding type is `SKILL_ID`, the value is the Skill ID of the application. When the encoding type is `PACKAGE_NAME`, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -123,6 +149,10 @@ export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identity from Tmall Genie, and each method corresponds to a different encoding type.
+   * 
+   * `PACKAGE_NAME`: APK package name, used for Android application client-side flows. `SKILL_ID`: Skill ID, used for cloud-side flows.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -131,6 +161,8 @@ export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -139,6 +171,10 @@ export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The type of User ID.
+   * 
+   * `OPEN_ID`: The default user identity. `UNION_ID`: The organization-dimension user identity, which is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -146,6 +182,9 @@ export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 123
    */
@@ -182,16 +221,22 @@ export class PreviousAndNextControlRequestUserInfo extends $dara.Model {
 export class PreviousAndNextControlRequest extends $dara.Model {
   /**
    * @remarks
+   * Device ID information
+   * 
    * This parameter is required.
    */
   deviceInfo?: PreviousAndNextControlRequestDeviceInfo;
   /**
    * @remarks
+   * Business parameters
+   * 
    * This parameter is required.
    */
   openControlPlayingListRequest?: PreviousAndNextControlRequestOpenControlPlayingListRequest;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfo?: PreviousAndNextControlRequestUserInfo;

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AuthLoginWithThirdUserInfoShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Extension information
+   * 
    * @example
    * {}
    * 
@@ -13,6 +16,8 @@ export class AuthLoginWithThirdUserInfoShrinkRequest extends $dara.Model {
   extInfoShrink?: string;
   /**
    * @remarks
+   * Scene code, which must be requested from Tmall Genie in advance
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +26,8 @@ export class AuthLoginWithThirdUserInfoShrinkRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
+   * Third-party User Identifier
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +36,8 @@ export class AuthLoginWithThirdUserInfoShrinkRequest extends $dara.Model {
   thirdUserIdentifier?: string;
   /**
    * @remarks
+   * Third-party User Type
+   * 
    * This parameter is required.
    * 
    * @example

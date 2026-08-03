@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlbumIsAddedShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Album ID list
+   */
   albumIdListShrink?: string;
+  /**
+   * @remarks
+   * Device Information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * User information
+   */
   userInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {

@@ -73,8 +73,20 @@ export class ListAlbumIsAddedRequestUserInfo extends $dara.Model {
 }
 
 export class ListAlbumIsAddedRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Album ID list
+   */
   albumIdList?: string[];
+  /**
+   * @remarks
+   * Device Information
+   */
   deviceInfo?: ListAlbumIsAddedRequestDeviceInfo;
+  /**
+   * @remarks
+   * User information
+   */
   userInfo?: ListAlbumIsAddedRequestUserInfo;
   static names(): { [key: string]: string } {
     return {

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMusicResponseBodyResultModel extends $dara.Model {
   /**
+   * @remarks
+   * Ringtone ID
+   * 
    * @example
    * 1
    */
   musicId?: number;
   /**
+   * @remarks
+   * Ringtone name
+   * 
    * @example
    * xx
    */
   musicName?: string;
   /**
+   * @remarks
+   * Ringtone category ID
+   * 
    * @example
    * 1
    */
   musicType?: number;
   /**
+   * @remarks
+   * Ringtone category name
+   * 
    * @example
    * xx
    */
   musicTypeName?: string;
   /**
+   * @remarks
+   * Ringtone URL
+   * 
    * @example
    * http://xx
    */
@@ -59,22 +74,38 @@ export class ListMusicResponseBodyResultModel extends $dara.Model {
 
 export class ListMusicResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Current page
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of ringtones
+   */
   model?: ListMusicResponseBodyResultModel[];
   /**
+   * @remarks
+   * Total number of pages
+   * 
    * @example
    * 10
    */
   pageCount?: number;
   /**
+   * @remarks
+   * Number of entries per page: maximum value is 100; values exceeding 100 are treated as 100
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 100
    */
@@ -113,16 +144,33 @@ export class ListMusicResponseBodyResult extends $dara.Model {
 
 export class ListMusicResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code returned by the alarm service
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * error message
+   * 
+   * @example
+   * 音乐类型名称为空
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 43***28C-A810-5***-8747-EC226A086881
    */
   requestId?: string;
+  /**
+   * @remarks
+   * collection of ringtone query results
+   */
   result?: ListMusicResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

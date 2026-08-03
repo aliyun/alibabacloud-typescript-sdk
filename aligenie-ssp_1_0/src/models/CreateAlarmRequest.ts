@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAlarmRequestDeviceInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the Skill ID of the application; when the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateAlarmRequestDeviceInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the device identity for Maojing, and each method corresponds to a different encoding type: PACKAGE_NAME: APK package name, used in the Android application customer link; SKILL_ID: skill ID, used in the cloud link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateAlarmRequestDeviceInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * Device ID (deviceOpenId or deviceUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class CreateAlarmRequestDeviceInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of device ID: OPEN_ID: default device ID; UNION_ID: organization-dimension device ID, available only after applying for an organization on the Maojing Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class CreateAlarmRequestDeviceInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -72,6 +83,8 @@ export class CreateAlarmRequestDeviceInfo extends $dara.Model {
 export class CreateAlarmRequestPayloadMusicInfo extends $dara.Model {
   /**
    * @remarks
+   * Ringtone ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80,11 +93,18 @@ export class CreateAlarmRequestPayloadMusicInfo extends $dara.Model {
   musicId?: number;
   /**
    * @remarks
+   * Ringtone name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * xx铃声
    */
   musicName?: string;
   /**
    * @remarks
+   * Ringtone category ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,10 +113,18 @@ export class CreateAlarmRequestPayloadMusicInfo extends $dara.Model {
   musicType?: number;
   /**
    * @remarks
+   * Ringtone category name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * xx音乐
    */
   musicTypeName?: string;
   /**
+   * @remarks
+   * Ringtone URL
+   * 
    * @example
    * http://xx
    */
@@ -132,26 +160,41 @@ export class CreateAlarmRequestPayloadMusicInfo extends $dara.Model {
 
 export class CreateAlarmRequestPayloadScheduleInfoOnce extends $dara.Model {
   /**
+   * @remarks
+   * Trigger Time: Day
+   * 
    * @example
    * 1
    */
   day?: number;
   /**
+   * @remarks
+   * Trigger Time: Hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger time: Minute
+   * 
    * @example
    * 0
    */
   minute?: number;
   /**
+   * @remarks
+   * Trigger time: Month
+   * 
    * @example
    * 8
    */
   month?: number;
   /**
+   * @remarks
+   * Trigger time: Year
+   * 
    * @example
    * 2022
    */
@@ -187,11 +230,17 @@ export class CreateAlarmRequestPayloadScheduleInfoOnce extends $dara.Model {
 
 export class CreateAlarmRequestPayloadScheduleInfoStatutoryWorkingDay extends $dara.Model {
   /**
+   * @remarks
+   * Trigger time: hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger time: minute
+   * 
    * @example
    * 0
    */
@@ -220,13 +269,23 @@ export class CreateAlarmRequestPayloadScheduleInfoStatutoryWorkingDay extends $d
 }
 
 export class CreateAlarmRequestPayloadScheduleInfoWeekly extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of Days of the Week to Trigger
+   */
   daysOfWeek?: number[];
   /**
+   * @remarks
+   * Trigger time: hour
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Trigger Time: Minute
+   * 
    * @example
    * 0
    */
@@ -260,16 +319,31 @@ export class CreateAlarmRequestPayloadScheduleInfoWeekly extends $dara.Model {
 }
 
 export class CreateAlarmRequestPayloadScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * One-time: This property is active when the loop type is ONCE.
+   */
   once?: CreateAlarmRequestPayloadScheduleInfoOnce;
+  /**
+   * @remarks
+   * Statutory working day: This property is active when the loop Type is STATUTORY_WORKING_DAY.
+   */
   statutoryWorkingDay?: CreateAlarmRequestPayloadScheduleInfoStatutoryWorkingDay;
   /**
    * @remarks
+   * Schedule Type / Loop Type:  
+   * ONCE -> One-time, WEEKLY -> Weekly loop, STATUTORY_WORKING_DAY -> Statutory working day
+   * 
    * This parameter is required.
    * 
    * @example
    * ONCE
    */
   type?: string;
+  /**
+   * @remarks
+   * Weekly Loop: This property is active when the loop Type is WEEKLY.
+   */
   weekly?: CreateAlarmRequestPayloadScheduleInfoWeekly;
   static names(): { [key: string]: string } {
     return {
@@ -310,15 +384,22 @@ export class CreateAlarmRequestPayloadScheduleInfo extends $dara.Model {
 export class CreateAlarmRequestPayload extends $dara.Model {
   /**
    * @remarks
+   * Ringtone information
+   * 
    * This parameter is required.
    */
   musicInfo?: CreateAlarmRequestPayloadMusicInfo;
   /**
    * @remarks
+   * Schedule information
+   * 
    * This parameter is required.
    */
   scheduleInfo?: CreateAlarmRequestPayloadScheduleInfo;
   /**
+   * @remarks
+   * Ringtone volume
+   * 
    * @example
    * 40
    */
@@ -357,6 +438,8 @@ export class CreateAlarmRequestPayload extends $dara.Model {
 export class CreateAlarmRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type. When the encoding type is SKILL_ID, the value is the application\\"s Skill ID. When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -365,6 +448,8 @@ export class CreateAlarmRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding Type. There are multiple ways to obtain the User Identifier for Maojing, and each way corresponds to a different encoding Type: PACKAGE_NAME: APK package name, used for the Android application Customer link; SKILL_ID: Skill ID, used for the cloud link.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -373,6 +458,8 @@ export class CreateAlarmRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User Identifier (userOpenId or userUnionId)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -381,6 +468,8 @@ export class CreateAlarmRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID: OPEN_ID: default User ID identifier; UNION_ID: organization-dimension User ID identifier, available only after an organization has been requested on the Maojing Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -388,6 +477,9 @@ export class CreateAlarmRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required when IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -424,16 +516,22 @@ export class CreateAlarmRequestUserInfo extends $dara.Model {
 export class CreateAlarmRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfo?: CreateAlarmRequestDeviceInfo;
   /**
    * @remarks
+   * Input parameters for the service request
+   * 
    * This parameter is required.
    */
   payload?: CreateAlarmRequestPayload;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: CreateAlarmRequestUserInfo;

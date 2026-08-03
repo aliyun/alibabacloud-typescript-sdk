@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ThirdImmediateMsgPushResponseBodyModel extends $dara.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 2DF6FEFE-3301-16DD-ABCC-968A9524920B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * whether the push succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -34,16 +41,30 @@ export class ThirdImmediateMsgPushResponseBodyModel extends $dara.Model {
 
 export class ThirdImmediateMsgPushResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * 500000000
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 服务器内部异常
    */
   errorMsg?: string;
+  /**
+   * @remarks
+   * push result
+   */
   model?: ThirdImmediateMsgPushResponseBodyModel;
+  /**
+   * @remarks
+   * whether the invocation succeeded
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

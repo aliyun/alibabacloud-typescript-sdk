@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device Information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Pagination Parameters
+   * 
    * This parameter is required.
    */
   pageShrink?: string;
   /**
    * @remarks
+   * User information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;
