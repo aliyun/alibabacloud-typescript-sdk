@@ -126,6 +126,8 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
   circuitCode?: string;
   creationTime?: string;
   description?: string;
+  deviceFeaturesSelected?: string;
+  downDelayTime?: number;
   enabledTime?: string;
   endTime?: string;
   expectSpec?: string;
@@ -168,6 +170,8 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       circuitCode: 'CircuitCode',
       creationTime: 'CreationTime',
       description: 'Description',
+      deviceFeaturesSelected: 'DeviceFeaturesSelected',
+      downDelayTime: 'DownDelayTime',
       enabledTime: 'EnabledTime',
       endTime: 'EndTime',
       expectSpec: 'ExpectSpec',
@@ -213,6 +217,8 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       circuitCode: 'string',
       creationTime: 'string',
       description: 'string',
+      deviceFeaturesSelected: 'string',
+      downDelayTime: 'number',
       enabledTime: 'string',
       endTime: 'string',
       expectSpec: 'string',

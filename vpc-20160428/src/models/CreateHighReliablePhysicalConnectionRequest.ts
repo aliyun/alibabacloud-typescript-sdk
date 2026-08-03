@@ -7,7 +7,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
    * @remarks
    * The ID of the access point where the Express Connect circuit is located.
    * 
-   * > When **HighReliableType** is set to **MultiApMultiDevice** or **MultiApSingleDevice**, two different access points are required. When **HighReliableType** is set to **SingleApMultiDevice** or **SingleApMultiConnection**, one access point is required.
+   * > When **HighReliableType** is set to **MultiApMultiDevice** or **MultiApSingleDevice**, you must specify two different access points. When **HighReliableType** is set to **SingleApMultiDevice** or **SingleApMultiConnection**, you must specify one access point.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
    * @remarks
    * The description of the Express Connect circuit.
    * 
-   * The description must be 2 to 256 characters in length. It must start with a letter or Chinese character and cannot start with `http://` or `https://`.
+   * The description must be 2 to 256 characters in length, and must start with a letter or Chinese character, but cannot start with `http://` or `https://`.
    * 
    * @example
    * description
@@ -53,11 +53,11 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
    * 
    * - **CM**: China Mobile.
    * 
-   * - **CO**: Other Chinese providers. 
+   * - **CO**: Other Chinese carriers. 
    * 
    * - **Equinix**: Equinix.
    * 
-   * - **Other**: Other providers outside the Chinese mainland.
+   * - **Other**: Other carriers outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
    * @remarks
    * The name of the Express Connect circuit.  
    * 
-   * The name must be 2 to 128 characters in length. It must start with a letter or Chinese character and can contain digits, underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
+   * The name must be 2 to 128 characters in length, and must start with a letter or Chinese character. It can contain digits, underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -77,7 +77,7 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The supported optical module models for the Express Connect circuit access point. Valid values:
+   * The optical module model supported by the Express Connect circuit access point. Valid values:
    * - 1000Base-LX : 
    *   - `SFP-GE-LR-SM1310,10KM`
    *   - `SFP-GE-ER-SM1310,40KM`
@@ -101,10 +101,10 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $dara.Mod
   opticalModuleModel?: string;
   /**
    * @remarks
-   * The geographic location of the on-premises data center.
+   * The geographical location of the on-premises data center.
    * 
    * @example
-   * XX街道
+   * XX Street
    */
   peerLocation?: string;
   /**
@@ -181,7 +181,7 @@ export class CreateHighReliablePhysicalConnectionRequestTag extends $dara.Model 
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length. It must start with a letter or Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length, and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -191,7 +191,7 @@ export class CreateHighReliablePhysicalConnectionRequestTag extends $dara.Model 
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It must start with a letter or Chinese character and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length, and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -241,11 +241,11 @@ export class CreateHighReliablePhysicalConnectionRequest extends $dara.Model {
   apList?: CreateHighReliablePhysicalConnectionRequestApList[];
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -260,9 +260,9 @@ export class CreateHighReliablePhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run without creating the instance. The system checks required parameters, request format, and instance status. If the check fails, the error code `DRYRUN.FAIL` is returned along with the corresponding error list. If the check passes, the code `DRYRUN.SUCCESS` is returned.
+   * - **true**: performs a dry run without creating the instance. The system checks the required parameters, request format, and instance status. If the check fails, the error code `DRYRUN.FAIL` is returned along with the corresponding error list. If the check succeeds, the code `DRYRUN.SUCCESS` is returned.
    * 
-   * - **false** (default): sends a normal request. After the check passes, the instance is created.
+   * - **false** (default): sends the request. After the request passes the check, the instance is created.
    * 
    * @example
    * false
@@ -272,10 +272,10 @@ export class CreateHighReliablePhysicalConnectionRequest extends $dara.Model {
    * @remarks
    * The zone redundancy mode. Valid values:
    * 
-   * - **MultiApMultiDevice**: Maximum disaster recovery. This mode supports two different access points and two different devices, providing maximum disaster recovery.
-   * - **MultiApSingleDevice**: Enhanced disaster recovery. This mode supports two different access points and one device, providing enhanced disaster recovery.
-   * - **SingleApMultiDevice**: Development and testing. This mode supports one access point and two devices. It is recommended only for development and testing of non-critical workloads.
-   * - **SingleApMultiConnection**: High-bandwidth load balancing. This mode is available only to users in the whitelist. It supports one access point, one device, and multiple physical ports. Contact your account manager if needed.
+   * - **MultiApMultiDevice**: Maximum disaster recovery. This mode uses two different access points and two different devices, providing maximum disaster recovery.
+   * - **MultiApSingleDevice**: Enhanced disaster recovery. This mode uses two different access points and one device, providing enhanced disaster recovery.
+   * - **SingleApMultiDevice**: Development and testing. This mode uses one access point and two devices. It is recommended only for development and testing of non-critical workloads.
+   * - **SingleApMultiConnection**: High-bandwidth load balancing. This mode is available only to users in the whitelist. It uses one access point, one device, and multiple physical ports. Contact your account manager if you need this mode.
    * 
    * This parameter is required.
    * 
@@ -297,7 +297,7 @@ export class CreateHighReliablePhysicalConnectionRequest extends $dara.Model {
    * 
    * - **100GBase-LR**: 100 GE single-mode optical port.
    *     
-   * > 40GBase-LR and 100GBase-LR are subject to actual backend port availability. Contact your account manager for details.
+   * > 40GBase-LR and 100GBase-LR are subject to the actual port availability in the backend. Contact your account manager for port availability details.
    * 
    * This parameter is required.
    * 
@@ -327,7 +327,7 @@ export class CreateHighReliablePhysicalConnectionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreateHighReliablePhysicalConnectionRequestTag[];
   static names(): { [key: string]: string } {

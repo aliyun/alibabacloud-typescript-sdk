@@ -7,7 +7,7 @@ export class CreatePhysicalConnectionRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class CreatePhysicalConnectionRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -89,7 +89,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of device advanced capabilities.
+   * The list of advanced device capabilities.
    */
   deviceAdvancedCapacity?: string[];
   /**
@@ -155,7 +155,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
    * The geographical location of the on-premises data center.
    * 
    * @example
-   * XX街道
+   * XX Street
    */
   peerLocation?: string;
   /**
@@ -176,7 +176,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
    * 
    * - **100GBase-LR**: 100 GE single-mode optical port.
    * 
-   * > 40GBase-LR and 100GBase-LR are created based on the actual port availability. Contact your account manager for details.
+   * > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
    * 
    * @example
    * 1000Base-T
@@ -184,7 +184,7 @@ export class CreatePhysicalConnectionRequest extends $dara.Model {
   portType?: string;
   /**
    * @remarks
-   * The instance ID of the redundant Express Connect circuit. The redundant circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+   * The instance ID of the redundant Express Connect circuit. The circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
    * 
    * @example
    * pc-119mfjzm****

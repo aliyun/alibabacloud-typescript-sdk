@@ -15,9 +15,9 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * efefe566754h
@@ -30,19 +30,20 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
    * @example
-   * 物理专线的描述信息
+   * Description of the Express Connect circuit
    */
   description?: string;
+  downDelayTime?: number;
   /**
    * @remarks
-   * The carrier that provides the access to the physical line. Valid values:
+   * The carrier that provides the access to the physical connection. Valid values:
    * 
-   * - **CT**: China Telecom.
-   * - **CU**: China Unicom.
-   * - **CM**: China Mobile.
-   * - **CO**: other carriers in the Chinese mainland.
-   * - **Equinix**: Equinix.
-   * - **Other**: other carriers outside the Chinese mainland.
+   * - **CT**: China Telecom
+   * - **CU**: China Unicom
+   * - **CM**: China Mobile
+   * - **CO**: Other carriers in the Chinese mainland
+   * - **Equinix**: Equinix
+   * - **Other**: Other carriers outside the Chinese mainland
    * 
    * @example
    * CT
@@ -55,7 +56,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
-   * 物理专线的名称
+   * Name of the Express Connect circuit
    */
   name?: string;
   ownerAccount?: string;
@@ -65,7 +66,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The geographical location of the on-premises data center.
    * 
    * @example
-   * 浙江省杭州市XX区XX街道XX号
+   * No. XX, XX Road, XX District, Hangzhou City, Zhejiang Province
    */
   peerLocation?: string;
   /**
@@ -83,14 +84,14 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
    * The port type of the Express Connect circuit access point. Valid values:
    * 
    * - **100Base-T**: 100M Ethernet port.
-   * - **1000Base-T (default)**: 1 GE port.
+   * - **1000Base-T (default)**: 1 GE electrical port.
    * - **1000Base-LX**: GE single-mode optical port (10 km).
-   * - **10GBase-T**: 10 GE port.
+   * - **10GBase-T**: 10 GE electrical port.
    * - **10GBase-LR**: 10 GE single-mode optical port (10 km).
    * - **40GBase-LR**: 40 GE single-mode optical port.
    * - **100GBase-LR**: 100 GE single-mode optical port.
    * 
-   * > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
+   * > To create 40GBase-LR or 100GBase-LR ports, check the actual port availability on the backend. Contact your account manager for details.
    * 
    * @example
    * 1000Base-LX
@@ -131,6 +132,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
       circuitCode: 'CircuitCode',
       clientToken: 'ClientToken',
       description: 'Description',
+      downDelayTime: 'DownDelayTime',
       lineOperator: 'LineOperator',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
@@ -151,6 +153,7 @@ export class ModifyPhysicalConnectionAttributeRequest extends $dara.Model {
       circuitCode: 'string',
       clientToken: 'string',
       description: 'string',
+      downDelayTime: 'number',
       lineOperator: 'string',
       name: 'string',
       ownerAccount: 'string',

@@ -43,7 +43,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   flowLogName?: string;
   /**
    * @remarks
-   * The IP address version of the traffic captured by the flow log.
+   * The IP version of the traffic captured by the flow log.
    * 
    * @example
    * IPv4

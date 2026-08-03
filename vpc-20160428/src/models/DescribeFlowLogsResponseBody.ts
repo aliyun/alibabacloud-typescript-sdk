@@ -207,7 +207,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page in paging queries.
+   * The number of entries per page in paging query.
    * 
    * @example
    * 20

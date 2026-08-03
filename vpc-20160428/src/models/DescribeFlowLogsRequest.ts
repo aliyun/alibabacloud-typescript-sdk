@@ -7,7 +7,7 @@ export class DescribeFlowLogsRequestTags extends $dara.Model {
    * @remarks
    * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -17,7 +17,7 @@ export class DescribeFlowLogsRequestTags extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -95,7 +95,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries. Maximum value: **50**. Default value: **20**.
+   * The number of entries per page in paging query. Maximum value: **50**. Default value: **20**.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
    * @remarks
    * The region ID of the flow log.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -156,11 +156,11 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the flow log. Valid values:
-   * - **Active**: The flow log is active.
+   * - **Active**: the flow log is active.
    * 
-   * - **Activating**: The flow log is being created.
+   * - **Activating**: the flow log is being created.
    * 
-   * - **Inactive**: The flow log is inactive.
+   * - **Inactive**: the flow log is inactive.
    * 
    * @example
    * Active
@@ -179,7 +179,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
    *   
    * - **Allow**: traffic allowed by access control.
    *   
-   * - **Drop**: traffic denied by access control.
+   * - **Drop**: traffic deny by access control.
    * 
    * @example
    * All
@@ -187,7 +187,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   trafficType?: string;
   /**
    * @remarks
-   * The ID of the VPC for which you want to query flow logs.
+   * The ID of the VPC whose flow logs you want to query.
    * 
    * @example
    * vpc-bp1nwd16gvo1wgs****
