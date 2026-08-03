@@ -122,7 +122,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
   /**
    * @remarks
    * The resource type.
-   * > This parameter is case-sensitive. Make sure that the spelling is correct.
+   * > This parameter is case-sensitive. Make sure that the value is spelled correctly.
    * 
    * @example
    * DurationPackage
@@ -201,7 +201,7 @@ export class DescribeMultiPriceRequest extends $dara.Model {
   packageCode?: string;
   /**
    * @remarks
-   * The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter in the non-reseller pattern.
+   * The user ID of the resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
    * 
    * @example
    * 182864463481****

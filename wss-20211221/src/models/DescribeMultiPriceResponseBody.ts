@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount price.
    * 
    * @example
    * 734.65
@@ -24,7 +24,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
    * The module name.
    * 
    * @example
-   * Enterprise Office - 8C32G
+   * Enterprise Office-8C32G
    */
   moduleName?: string;
   /**
@@ -46,7 +46,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
   savingPlanDiscountPrice?: number;
   /**
    * @remarks
-   * The actual payment price. The value is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount.
    * 
    * @example
    * 292.2
@@ -88,7 +88,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail extends $dara.Model {
   /**
    * @remarks
-   * The discount amount.
+   * The discount price.
    * 
    * @example
    * 20.00
@@ -113,7 +113,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
   savingPlanRecommendPrice?: number;
   /**
    * @remarks
-   * The actual payment price. The value is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount.
    * 
    * @example
    * 80.00
@@ -200,6 +200,8 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
 
 export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   activityId?: string;
+  effective?: boolean;
+  endTimestamp?: string;
   /**
    * @remarks
    * The description of the promotion rule.
@@ -208,6 +210,8 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
    * new
    */
   optionCode?: string;
+  priceBreakReduceValue?: string;
+  priceBreakThreshold?: string;
   /**
    * @remarks
    * The description of the promotion.
@@ -218,7 +222,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   promotionDesc?: string;
   /**
    * @remarks
-   * The ID of the promotion.
+   * The promotion ID.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -226,10 +230,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   promotionId?: string;
   /**
    * @remarks
-   * The name of the promotion.
+   * The promotion name.
    * 
    * @example
-   * Promotion name
+   * PromotionName
    */
   promotionName?: string;
   /**
@@ -240,25 +244,36 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
    * true
    */
   selected?: boolean;
+  startTimestamp?: string;
   static names(): { [key: string]: string } {
     return {
       activityId: 'ActivityId',
+      effective: 'Effective',
+      endTimestamp: 'EndTimestamp',
       optionCode: 'OptionCode',
+      priceBreakReduceValue: 'PriceBreakReduceValue',
+      priceBreakThreshold: 'PriceBreakThreshold',
       promotionDesc: 'PromotionDesc',
       promotionId: 'PromotionId',
       promotionName: 'PromotionName',
       selected: 'Selected',
+      startTimestamp: 'StartTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       activityId: 'string',
+      effective: 'boolean',
+      endTimestamp: 'string',
       optionCode: 'string',
+      priceBreakReduceValue: 'string',
+      priceBreakThreshold: 'string',
       promotionDesc: 'string',
       promotionId: 'string',
       promotionName: 'string',
       selected: 'boolean',
+      startTimestamp: 'string',
     };
   }
 
@@ -286,7 +301,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount.
+   * The discount price.
    * 
    * @example
    * 534.6
@@ -325,7 +340,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   refundPrice?: number;
   /**
    * @remarks
-   * The actual payment price. The value is the original price minus the discount amount.
+   * The actual payment price. The value is the original price minus the discount.
    * 
    * @example
    * 82.6
@@ -386,7 +401,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the promotion rule.
+   * The promotion rule ID.
    * 
    * @example
    * hrzdvc
