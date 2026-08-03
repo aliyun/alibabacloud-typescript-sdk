@@ -3,33 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendSdkStreamMessageRequest extends $dara.Model {
-  /**
-   * @example
-   * {"test":""}
-   */
   data?: string;
-  /**
-   * @remarks
-   * header
-   * 
-   * @example
-   * {}
-   */
   header?: string;
-  /**
-   * @example
-   * avatar
-   */
   moduleName?: string;
-  /**
-   * @example
-   * GetProject
-   */
   operationName?: string;
-  /**
-   * @example
-   * 123456
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

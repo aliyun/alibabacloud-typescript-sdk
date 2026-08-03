@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BuildAICoachScriptRecordResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1234567
-   */
   scriptId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,33 +27,10 @@ export class BuildAICoachScriptRecordResponseBodyData extends $dara.Model {
 
 export class BuildAICoachScriptRecordResponseBody extends $dara.Model {
   data?: BuildAICoachScriptRecordResponseBodyData;
-  /**
-   * @example
-   * PARAM_ERROR
-   */
   errorCode?: string;
-  /**
-   * @example
-   * Deduct task already success,Please do not resubmit.token \\"369e8f2c-d283-424a-96c4-c83efe08c89e\\"
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4830493A-728F-5F19-BBCC-1443292E9C49
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   scriptRecordId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

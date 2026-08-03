@@ -6,10 +6,6 @@ export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $d
   audioUrl?: string;
   dateLabel?: string;
   evaluationFeedback?: string;
-  /**
-   * @example
-   * {}
-   */
   evaluationResult?: string;
   message?: string;
   recordId?: string;
@@ -49,34 +45,14 @@ export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $d
 
 export class GetAICoachTaskSessionHistoryResponseBody extends $dara.Model {
   conversationList?: GetAICoachTaskSessionHistoryResponseBodyConversationList[];
-  /**
-   * @example
-   * 0
-   */
   duration?: number;
-  /**
-   * @example
-   * 2024-11-08 09:33:21
-   */
   endTime?: string;
   pauseDuration?: number;
-  /**
-   * @example
-   * D5798660-1531-5D12-9C20-16FEE9D22351
-   */
   requestId?: string;
   scriptName?: string;
-  /**
-   * @example
-   * 2024-08-21 05:00:01
-   */
   startTime?: string;
   status?: string;
   total?: number;
-  /**
-   * @example
-   * 1579404690269235
-   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {

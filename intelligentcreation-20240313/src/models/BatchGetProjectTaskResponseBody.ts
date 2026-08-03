@@ -4,30 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchGetProjectTaskResponseBodyResultList extends $dara.Model {
   errorMsg?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
-  /**
-   * @example
-   * 11
-   */
   taskId?: string;
-  /**
-   * @example
-   * http
-   */
   videoDownloadUrl?: string;
-  /**
-   * @example
-   * 1000
-   */
   videoDuration?: number;
-  /**
-   * @example
-   * http
-   */
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,13 +41,6 @@ export class BatchGetProjectTaskResponseBodyResultList extends $dara.Model {
 }
 
 export class BatchGetProjectTaskResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 11
-   */
   requestId?: string;
   resultList?: BatchGetProjectTaskResponseBodyResultList[];
   static names(): { [key: string]: string } {

@@ -152,34 +152,14 @@ export class QueryAvatarProjectResponseBodyFrames extends $dara.Model {
 }
 
 export class QueryAvatarProjectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1000222
-   */
   agentId?: string;
-  /**
-   * @example
-   * error
-   */
   errorMsg?: string;
   frames?: QueryAvatarProjectResponseBodyFrames[];
-  /**
-   * @example
-   * doc_test_3
-   */
   projectName?: string;
-  /**
-   * @example
-   * 2C331582-7390-5949-8D9A-AC8239185B37
-   */
   requestId?: string;
   resSpecType?: string;
   scaleType?: string;
   scriptModelTag?: string;
-  /**
-   * @example
-   * DEPLOYING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

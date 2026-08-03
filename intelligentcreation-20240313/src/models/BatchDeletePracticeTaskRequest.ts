@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchDeletePracticeTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 1234567890
-   */
   idempotentId?: string;
   taskIds?: string[];
   static names(): { [key: string]: string } {

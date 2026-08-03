@@ -3,38 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAnchorRequest extends $dara.Model {
-  /**
-   * @remarks
-   * 类型
-   * 
-   * @example
-   * VIDEO_ANCHOR
-   */
   anchorCategory?: string;
   anchorMaterialName?: string;
-  /**
-   * @example
-   * https://xxx
-   */
   coverUrl?: string;
   digitalHumanType?: string;
-  /**
-   * @example
-   * F
-   */
   gender?: string;
-  /**
-   * @example
-   * offlineSynthesis
-   */
   useScene?: string;
-  /**
-   * @remarks
-   * 视频文件osskey
-   * 
-   * @example
-   * path/key.mp4
-   */
   videoOssKey?: string;
   static names(): { [key: string]: string } {
     return {

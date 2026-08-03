@@ -3,29 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAICoachTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Deduct.DeductTaskAlreadySuccess
-   */
   errorCode?: string;
   errorMessage?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
-  /**
-   * @example
-   * 821882330423951360
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

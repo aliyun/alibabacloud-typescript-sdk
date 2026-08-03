@@ -9,15 +9,7 @@ export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $dara.Model 
   dialogueTipFlag?: boolean;
   initiator?: string;
   inputTypeList?: string[];
-  /**
-   * @example
-   * 11
-   */
   maxDuration?: number;
-  /**
-   * @example
-   * test
-   */
   scriptDesc?: string;
   scriptName?: string;
   scriptRecordId?: string;
@@ -79,38 +71,12 @@ export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $dara.Model 
 }
 
 export class CreateAICoachTaskSessionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * rtctoken
-   * 
-   * @example
-   * 11
-   */
   channelToken?: string;
-  /**
-   * @example
-   * 4830493A-728F-5F19-BBCC-1443292E9C49
-   */
   requestId?: string;
   scriptInfo?: CreateAICoachTaskSessionResponseBodyScriptInfo;
-  /**
-   * @example
-   * 111
-   */
   sessionId?: string;
   sessionStatus?: number;
-  /**
-   * @remarks
-   * Token
-   * 
-   * @example
-   * 11
-   */
   token?: string;
-  /**
-   * @example
-   * 11
-   */
   webSocketUrl?: string;
   static names(): { [key: string]: string } {
     return {

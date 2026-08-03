@@ -4,25 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAICoachScriptPageRequest extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {

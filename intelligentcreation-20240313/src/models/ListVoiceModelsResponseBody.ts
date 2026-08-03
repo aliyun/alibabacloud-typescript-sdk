@@ -4,39 +4,12 @@ import { VoiceModelResponse } from "./VoiceModelResponse";
 
 
 export class ListVoiceModelsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * 040002
-   */
   errorCode?: string;
-  /**
-   * @example
-   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
-   */
   errorMessage?: string;
   list?: VoiceModelResponse[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 14878724-A835-578D-9DD5-4779ADCE9221
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 10
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

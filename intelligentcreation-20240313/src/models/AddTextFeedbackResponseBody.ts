@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddTextFeedbackResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 3239281273464326823
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

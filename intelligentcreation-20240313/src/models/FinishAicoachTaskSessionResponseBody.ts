@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FinishAICoachTaskSessionResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 14878724-A835-578D-9DD5-4779ADCE9221
-   */
   requestId?: string;
   status?: string;
   static names(): { [key: string]: string } {

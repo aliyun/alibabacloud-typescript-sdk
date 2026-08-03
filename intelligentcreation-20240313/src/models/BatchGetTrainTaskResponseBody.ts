@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   voiceId?: number;
-  /**
-   * @example
-   * zh
-   */
   voiceLanguage?: string;
-  /**
-   * @example
-   * http://www.voice.com
-   */
   voiceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,53 +32,17 @@ export class BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial extends $dara.M
 }
 
 export class BatchGetTrainTaskResponseBodyVoiceList extends $dara.Model {
-  /**
-   * @example
-   * 1524004782438111
-   */
   aliyunSubId?: string;
   auditFailMessage?: string;
-  /**
-   * @example
-   * auditFail
-   */
   auditStatus?: string;
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   createTime?: string;
-  /**
-   * @example
-   * M
-   */
   gender?: string;
   name?: string;
-  /**
-   * @example
-   * BASIC_MODEL
-   */
   resSpecType?: string;
-  /**
-   * @example
-   * 837091359375048704
-   */
   taskId?: string;
-  /**
-   * @example
-   * CopyVoice
-   */
   taskType?: string;
   trainFailMessage?: string;
-  /**
-   * @example
-   * trainFail
-   */
   trainStatus?: string;
-  /**
-   * @example
-   * realTimeInteractivity
-   */
   useScene?: string;
   voiceMaterial?: BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial;
   static names(): { [key: string]: string } {
@@ -142,10 +94,6 @@ export class BatchGetTrainTaskResponseBodyVoiceList extends $dara.Model {
 }
 
 export class BatchGetTrainTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 2226A26A-26E5-5AB9-A14A-54D612FCF96A
-   */
   requestId?: string;
   voiceList?: BatchGetTrainTaskResponseBodyVoiceList[];
   static names(): { [key: string]: string } {

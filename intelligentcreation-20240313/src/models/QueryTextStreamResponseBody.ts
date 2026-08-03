@@ -3,28 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTextStreamResponseBody extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   end?: boolean;
-  /**
-   * @example
-   * 1
-   */
   index?: number;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * None
-   */
   message?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {

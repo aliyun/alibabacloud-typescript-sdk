@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryImageToVideoTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 868125994191405056
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

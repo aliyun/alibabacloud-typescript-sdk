@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetTrainTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 1524004782431111
-   */
   aliyunMainId?: string;
   taskIdList?: string[];
   static names(): { [key: string]: string } {

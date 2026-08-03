@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelectResourceRequest extends $dara.Model {
-  /**
-   * @example
-   * 1111
-   */
   idempotentId?: string;
   static names(): { [key: string]: string } {
     return {

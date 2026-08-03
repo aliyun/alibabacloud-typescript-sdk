@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchDeletePracticeTaskResponseBodyResults extends $dara.Model {
-  /**
-   * @example
-   * job delete error by auth
-   */
   message?: string;
-  /**
-   * @example
-   * 901524394325590016
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,29 +29,10 @@ export class BatchDeletePracticeTaskResponseBodyResults extends $dara.Model {
 }
 
 export class BatchDeletePracticeTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 040002
-   */
   errorCode?: string;
-  /**
-   * @example
-   * true
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 10923AA3-F7A1-5EA0-ACCA-D704269EAA78
-   */
   requestId?: string;
   results?: BatchDeletePracticeTaskResponseBodyResults[];
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

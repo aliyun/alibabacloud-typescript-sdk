@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelectResourceResponseBodyResourceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 111
-   */
   expireTime?: string;
-  /**
-   * @example
-   * 11
-   */
   lastExpire?: number;
-  /**
-   * @example
-   * 1249
-   */
   remainCount?: number;
-  /**
-   * @example
-   * 2
-   */
   resourceType?: number;
-  /**
-   * @example
-   * second
-   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +39,6 @@ export class SelectResourceResponseBodyResourceInfoList extends $dara.Model {
 
 export class SelectResourceResponseBody extends $dara.Model {
   aliyunUid?: string;
-  /**
-   * @example
-   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-   */
   requestId?: string;
   resourceInfoList?: SelectResourceResponseBodyResourceInfoList[];
   static names(): { [key: string]: string } {

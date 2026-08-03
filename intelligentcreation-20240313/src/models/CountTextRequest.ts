@@ -3,28 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CountTextRequest extends $dara.Model {
-  /**
-   * @remarks
-   * API
-   * 
-   * @example
-   * PLATFORM
-   */
   generationSource?: string;
-  /**
-   * @example
-   * Garment
-   */
   industry?: string;
-  /**
-   * @example
-   * 1
-   */
   publishStatus?: string;
-  /**
-   * @example
-   * RED_BOOK
-   */
   style?: string;
   static names(): { [key: string]: string } {
     return {

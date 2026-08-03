@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckSessionResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 5389BE87-571B-573C-90ED-F07C5E68760B
-   */
   requestId?: string;
-  /**
-   * @example
-   * FREE
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

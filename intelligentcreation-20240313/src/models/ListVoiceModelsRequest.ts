@@ -3,27 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVoiceModelsRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
   resSpecType?: string;
-  /**
-   * @example
-   * offlineSynthesis
-   */
   useScene?: string;
   voiceLanguage?: string;
-  /**
-   * @example
-   * PRIVATE_VOICE
-   */
   voiceType?: string;
   static names(): { [key: string]: string } {
     return {

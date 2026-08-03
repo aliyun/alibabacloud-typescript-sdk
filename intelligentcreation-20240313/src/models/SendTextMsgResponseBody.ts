@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendTextMsgResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 827BF714-19E7-51B5-A434-C21BFEE05983
-   */
   requestId?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

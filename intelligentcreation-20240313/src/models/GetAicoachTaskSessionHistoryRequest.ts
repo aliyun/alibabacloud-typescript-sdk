@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAICoachTaskSessionHistoryRequest extends $dara.Model {
   pageNumber?: number;
   pageSize?: number;
-  /**
-   * @example
-   * 111
-   */
   sessionId?: string;
-  /**
-   * @example
-   * 1251317954812712
-   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {

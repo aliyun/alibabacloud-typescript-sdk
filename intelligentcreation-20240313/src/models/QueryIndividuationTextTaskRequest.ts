@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryIndividuationTextTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 829682927337963520
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

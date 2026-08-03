@@ -3,28 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InteractTextResponseBody extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   end?: boolean;
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   message?: string;
   relatedImages?: string[];
   relatedVideos?: string[];
-  /**
-   * @example
-   * 79e954faffe2415ebd18188ba787d78e
-   */
   sessionId?: string;
-  /**
-   * @example
-   * 2
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVideoClipTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 1314445556
-   */
   aliyunMainId?: string;
   description?: string;
   ossKeys?: string[];

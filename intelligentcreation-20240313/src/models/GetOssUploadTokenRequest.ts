@@ -6,17 +6,11 @@ export class GetOssUploadTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 8021678.png
    */
   fileName?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ProductImage
    */
   fileType?: string;
   uploadType?: number;

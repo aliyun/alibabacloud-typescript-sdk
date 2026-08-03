@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAvatarResourceRequest extends $dara.Model {
-  /**
-   * @example
-   * 11111
-   */
   idempotentId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,20 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles extends $dara.Model {
   desc?: string;
-  /**
-   * @example
-   * false
-   */
   disabled?: boolean;
-  /**
-   * @example
-   * RED_BOOK
-   */
   name?: string;
-  /**
-   * @example
-   * 111
-   */
   templateKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,10 +35,6 @@ export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles
 }
 
 export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypes extends $dara.Model {
-  /**
-   * @example
-   * Rewrite
-   */
   name?: string;
   textStyles?: GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles[];
   static names(): { [key: string]: string } {
@@ -80,10 +64,6 @@ export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypes extends $
 }
 
 export class GetTextTemplateResponseBodyAvailableIndustry extends $dara.Model {
-  /**
-   * @example
-   * Car
-   */
   name?: string;
   textModeTypes?: GetTextTemplateResponseBodyAvailableIndustryTextModeTypes[];
   static names(): { [key: string]: string } {
@@ -114,10 +94,6 @@ export class GetTextTemplateResponseBodyAvailableIndustry extends $dara.Model {
 
 export class GetTextTemplateResponseBody extends $dara.Model {
   availableIndustry?: GetTextTemplateResponseBodyAvailableIndustry;
-  /**
-   * @example
-   * 3239281273464326823
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

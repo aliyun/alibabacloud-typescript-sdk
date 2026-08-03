@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAICoachCheatDetectionResponseBodyImageCheatList extends $dara.Model {
-  /**
-   * @example
-   * 2025-03-22 10:05:07
-   */
   time?: string;
-  /**
-   * @example
-   * https://demo.com
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,16 +29,8 @@ export class GetAICoachCheatDetectionResponseBodyImageCheatList extends $dara.Mo
 }
 
 export class GetAICoachCheatDetectionResponseBodyImageCheat extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   desc?: string;
   list?: GetAICoachCheatDetectionResponseBodyImageCheatList[];
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -77,15 +61,7 @@ export class GetAICoachCheatDetectionResponseBodyImageCheat extends $dara.Model 
 }
 
 export class GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList extends $dara.Model {
-  /**
-   * @example
-   * 2024-12-11 10:07:23
-   */
   time?: string;
-  /**
-   * @example
-   * https://demo.com
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +87,6 @@ export class GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList extend
 }
 
 export class GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList extends $dara.Model {
-  /**
-   * @example
-   * https://demo.com
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,16 +111,8 @@ export class GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList extends 
 
 export class GetAICoachCheatDetectionResponseBodyVoiceCheat extends $dara.Model {
   comparisonList?: GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList[];
-  /**
-   * @example
-   * demo
-   */
   desc?: string;
   originalList?: GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList[];
-  /**
-   * @example
-   * 1
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -184,43 +148,13 @@ export class GetAICoachCheatDetectionResponseBodyVoiceCheat extends $dara.Model 
 }
 
 export class GetAICoachCheatDetectionResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   cheatId?: string;
-  /**
-   * @example
-   * success
-   */
   errorCode?: string;
   errorMessage?: string;
-  /**
-   * @example
-   * 2025-02-24 12:00:00
-   */
   gmtCreate?: string;
   imageCheat?: GetAICoachCheatDetectionResponseBodyImageCheat;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @remarks
-   * true
-   * 
-   * @example
-   * True
-   */
   success?: boolean;
   voiceCheat?: GetAICoachCheatDetectionResponseBodyVoiceCheat;
   static names(): { [key: string]: string } {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchDeletePracticeTaskShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 1234567890
-   */
   idempotentId?: string;
   taskIdsShrink?: string;
   static names(): { [key: string]: string } {

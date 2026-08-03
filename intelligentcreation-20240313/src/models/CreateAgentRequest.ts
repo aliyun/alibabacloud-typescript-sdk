@@ -3,37 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAgentRequest extends $dara.Model {
-  /**
-   * @example
-   * http://img.com
-   */
   agentIconUrl?: string;
-  /**
-   * @example
-   * AgentAlpha
-   */
   agentName?: string;
-  /**
-   * @example
-   * aiCoachPractice
-   */
   agentScene?: string;
-  /**
-   * @example
-   * 18-22
-   */
   characterAgeStage?: string;
   characterGender?: string;
-  /**
-   * @example
-   * Tom
-   */
   characterName?: string;
   extraDescription?: string;
-  /**
-   * @example
-   * Common
-   */
   industry?: string;
   static names(): { [key: string]: string } {
     return {

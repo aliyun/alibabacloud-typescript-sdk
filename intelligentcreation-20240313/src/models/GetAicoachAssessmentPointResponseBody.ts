@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   name?: string;
-  /**
-   * @example
-   * 50
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -37,10 +29,6 @@ export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordV
 }
 
 export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,21 +52,9 @@ export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringR
 }
 
 export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   answerName?: string;
-  /**
-   * @example
-   * 50
-   */
   answerWeight?: number;
   keywordValues?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues[];
-  /**
-   * @example
-   * 50
-   */
   keywordWeight?: number;
   scoringRules?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules[];
   static names(): { [key: string]: string } {
@@ -117,15 +93,7 @@ export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues extends
 }
 
 export class GetAICoachAssessmentPointResponseBodyAnswerListParameters extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   name?: string;
-  /**
-   * @example
-   * 441323200602114284
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -152,27 +120,11 @@ export class GetAICoachAssessmentPointResponseBodyAnswerListParameters extends $
 
 export class GetAICoachAssessmentPointResponseBodyAnswerList extends $dara.Model {
   answerValues?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues[];
-  /**
-   * @example
-   * true
-   */
   enabledKeyword?: boolean;
   nameList?: string[];
-  /**
-   * @example
-   * and
-   */
   operators?: string;
   parameters?: GetAICoachAssessmentPointResponseBodyAnswerListParameters[];
-  /**
-   * @example
-   * custom
-   */
   type?: string;
-  /**
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -218,70 +170,19 @@ export class GetAICoachAssessmentPointResponseBodyAnswerList extends $dara.Model
 
 export class GetAICoachAssessmentPointResponseBody extends $dara.Model {
   answerList?: GetAICoachAssessmentPointResponseBodyAnswerList[];
-  /**
-   * @example
-   * 10
-   */
   citations?: number;
-  /**
-   * @example
-   * 1
-   */
   documentId?: string;
-  /**
-   * @example
-   * demo
-   */
   documentName?: string;
-  /**
-   * @example
-   * 2025-02-24 12:00:00
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2025-02-24 12:00:00
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * 1
-   */
   kbId?: string;
-  /**
-   * @example
-   * Cloudcode
-   */
   kbType?: string;
   knowledgeList?: string[];
-  /**
-   * @example
-   * demo
-   */
   name?: string;
   pointId?: string;
-  /**
-   * @example
-   * demo
-   */
   questionDescription?: string;
-  /**
-   * @example
-   * demo
-   */
   questionSample?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 4830493A-728F-5F19-BBCC-1443292E9C49
-   */
   requestId?: string;
-  /**
-   * @example
-   * DRAFT
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

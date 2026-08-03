@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateAvatarProjectRequest extends $dara.Model {
-  /**
-   * @example
-   * DELETE
-   */
   operateType?: string;
-  /**
-   * @example
-   * 812907463682949120
-   */
   projectId?: string;
-  /**
-   * @example
-   * 1
-   */
   resChannelNumber?: number;
-  /**
-   * @example
-   * FREE
-   */
   resType?: string;
   static names(): { [key: string]: string } {
     return {

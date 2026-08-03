@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTrainTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 84657DE0-B68C-508B-AFE7-8ED921854E3C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 837091359375048704
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

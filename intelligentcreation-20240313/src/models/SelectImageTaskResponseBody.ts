@@ -3,25 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SelectImageTaskResponseBodyImageInfos extends $dara.Model {
-  /**
-   * @example
-   * www.ali.com
-   */
   customImageUrl?: string;
-  /**
-   * @example
-   * 1
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 500
-   */
   imageH?: string;
-  /**
-   * @example
-   * 500
-   */
   imageW?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,59 +35,16 @@ export class SelectImageTaskResponseBodyImageInfos extends $dara.Model {
 }
 
 export class SelectImageTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
-   */
   errorMessage?: string;
-  /**
-   * @example
-   * 1
-   */
   failed?: string;
-  /**
-   * @example
-   * PLATFORM
-   */
   generationSource?: string;
-  /**
-   * @example
-   * 1
-   */
   gmtCreate?: string;
   imageInfos?: SelectImageTaskResponseBodyImageInfos[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   scene?: string;
-  /**
-   * @example
-   * Successed
-   */
   status?: string;
-  /**
-   * @example
-   * 1
-   */
   subtaskProcessing?: string;
-  /**
-   * @example
-   * 1
-   */
   success?: string;
-  /**
-   * @example
-   * 10
-   */
   total?: string;
   static names(): { [key: string]: string } {
     return {

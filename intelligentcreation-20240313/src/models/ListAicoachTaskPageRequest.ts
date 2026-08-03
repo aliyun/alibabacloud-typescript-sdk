@@ -4,31 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAICoachTaskPageRequest extends $dara.Model {
   endTime?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
   startTime?: string;
-  /**
-   * @example
-   * FINISHED
-   */
   status?: string;
-  /**
-   * @example
-   * 111
-   */
   studentId?: string;
-  /**
-   * @example
-   * 313123123
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

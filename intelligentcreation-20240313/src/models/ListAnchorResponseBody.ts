@@ -4,42 +4,12 @@ import { AnchorResponse } from "./AnchorResponse";
 
 
 export class ListAnchorResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * code
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * Deduct.DeductTaskAlreadySuccess
-   */
   errorCode?: string;
-  /**
-   * @example
-   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
-   */
   errorMessage?: string;
   list?: AnchorResponse[];
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 5389BE87-571B-573C-90ED-F07C5E68760B
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
-  /**
-   * @example
-   * 10
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

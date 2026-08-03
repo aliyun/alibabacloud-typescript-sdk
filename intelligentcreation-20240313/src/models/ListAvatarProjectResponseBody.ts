@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAvatarProjectResponseBodyQueryAvatarProjectResultList extends $dara.Model {
-  /**
-   * @example
-   * 1000206
-   */
   agentId?: string;
   errorMsg?: string;
-  /**
-   * @example
-   * 12826084562688
-   */
   projectId?: string;
   projectName?: string;
-  /**
-   * @example
-   * DEPLOYING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,10 +39,6 @@ export class ListAvatarProjectResponseBodyQueryAvatarProjectResultList extends $
 
 export class ListAvatarProjectResponseBody extends $dara.Model {
   queryAvatarProjectResultList?: ListAvatarProjectResponseBodyQueryAvatarProjectResultList[];
-  /**
-   * @example
-   * D7F2B74F-63F2-5DD6-95E4-F408EAD6617E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

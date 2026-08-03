@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTrainTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 13168123111
-   */
   aliyunMainId?: string;
-  /**
-   * @example
-   * BASIC_MODEL
-   */
   resSpecType?: string;
-  /**
-   * @example
-   * CopyAnchorAndVoice
-   */
   taskType?: string;
-  /**
-   * @example
-   * realTimeInteractivity
-   */
   useScene?: string;
-  /**
-   * @example
-   * M
-   */
   voiceGender?: string;
-  /**
-   * @example
-   * zh
-   */
   voiceLanguage?: string;
   voiceName?: string;
-  /**
-   * @example
-   * https://yic-pre/video/test-0513.mp3
-   */
   voicePath?: string;
   static names(): { [key: string]: string } {
     return {

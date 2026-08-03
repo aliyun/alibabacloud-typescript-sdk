@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAgentRequest extends $dara.Model {
-  /**
-   * @example
-   * 840016700254633984
-   */
   agentId?: string;
   static names(): { [key: string]: string } {
     return {

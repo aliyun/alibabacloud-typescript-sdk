@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReleaseAgentRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   agentId?: string;
   static names(): { [key: string]: string } {
     return {

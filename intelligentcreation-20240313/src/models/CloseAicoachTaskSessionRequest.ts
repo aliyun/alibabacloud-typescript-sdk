@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CloseAICoachTaskSessionRequest extends $dara.Model {
-  /**
-   * @example
-   * 11
-   */
   sessionId?: string;
-  /**
-   * @example
-   * 273610276967782972
-   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {

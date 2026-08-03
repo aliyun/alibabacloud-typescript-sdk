@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAICoachAssessmentPointRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pointId?: string;
   static names(): { [key: string]: string } {
     return {

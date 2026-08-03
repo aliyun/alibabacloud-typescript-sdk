@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAICoachTaskReportRequestDialogueList extends $dara.Model {
-  /**
-   * @example
-   * hello
-   */
   message?: string;
-  /**
-   * @example
-   * coach
-   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,15 +30,7 @@ export class CreateAICoachTaskReportRequestDialogueList extends $dara.Model {
 
 export class CreateAICoachTaskReportRequest extends $dara.Model {
   dialogueList?: CreateAICoachTaskReportRequestDialogueList[];
-  /**
-   * @example
-   * 123456789
-   */
   idempotentId?: string;
-  /**
-   * @example
-   * 874890065171169280
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

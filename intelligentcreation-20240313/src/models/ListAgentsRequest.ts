@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentsRequest extends $dara.Model {
-  /**
-   * @example
-   * 840016700254633984
-   */
   agentId?: string;
-  /**
-   * @example
-   * text
-   */
   agentScene?: string;
-  /**
-   * @example
-   * SYSTEM
-   */
   owner?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   static names(): { [key: string]: string } {
     return {

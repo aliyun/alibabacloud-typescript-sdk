@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TransferPortraitStyleRequest extends $dara.Model {
-  /**
-   * @example
-   * 500
-   */
   height?: number;
-  /**
-   * @example
-   * WWW
-   */
   imageUrl?: string;
-  /**
-   * @example
-   * 4
-   */
   numbers?: number;
-  /**
-   * @example
-   * 1
-   */
   redrawAmplitude?: number;
-  /**
-   * @example
-   * 1
-   */
   style?: number;
-  /**
-   * @example
-   * 500
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {

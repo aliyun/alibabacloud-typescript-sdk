@@ -949,6 +949,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建文档生成剧本任务
+   * 
+   * @param request - CreateGenerateAICoachScriptTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGenerateAICoachScriptTaskResponse
+   */
+  async createGenerateAICoachScriptTaskWithOptions(request: $_model.CreateGenerateAICoachScriptTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGenerateAICoachScriptTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assessmentPoint)) {
+      body["assessmentPoint"] = request.assessmentPoint;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dialogueKey)) {
+      body["dialogueKey"] = request.dialogueKey;
+    }
+
+    if (!$dara.isNull(request.dialogueUrl)) {
+      body["dialogueUrl"] = request.dialogueUrl;
+    }
+
+    if (!$dara.isNull(request.docList)) {
+      body["docList"] = request.docList;
+    }
+
+    if (!$dara.isNull(request.docUrlList)) {
+      body["docUrlList"] = request.docUrlList;
+    }
+
+    if (!$dara.isNull(request.scriptName)) {
+      body["scriptName"] = request.scriptName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGenerateAICoachScriptTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/scriptGenerateTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGenerateAICoachScriptTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateGenerateAICoachScriptTaskResponse({}));
+  }
+
+  /**
+   * 创建文档生成剧本任务
+   * 
+   * @param request - CreateGenerateAICoachScriptTaskRequest
+   * @returns CreateGenerateAICoachScriptTaskResponse
+   */
+  async createGenerateAICoachScriptTask(request: $_model.CreateGenerateAICoachScriptTaskRequest): Promise<$_model.CreateGenerateAICoachScriptTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGenerateAICoachScriptTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建配图生成任务
    * 
    * @param request - CreateIllustrationTaskRequest
@@ -1793,6 +1862,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看剧本调试详情
+   * 
+   * @param request - GetAICoachDebugResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachDebugResultResponse
+   */
+  async getAICoachDebugResultWithOptions(request: $_model.GetAICoachDebugResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAICoachDebugResultResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataId)) {
+      query["dataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      query["dataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.scriptDebugId)) {
+      query["scriptDebugId"] = request.scriptDebugId;
+    }
+
+    if (!$dara.isNull(request.scriptRecordId)) {
+      query["scriptRecordId"] = request.scriptRecordId;
+    }
+
+    if (!$dara.isNull(request.scriptSnapshotId)) {
+      query["scriptSnapshotId"] = request.scriptSnapshotId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAICoachDebugResult",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/getDebugResult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAICoachDebugResultResponse>(await this.callApi(params, req, runtime), new $_model.GetAICoachDebugResultResponse({}));
+  }
+
+  /**
+   * 查看剧本调试详情
+   * 
+   * @param request - GetAICoachDebugResultRequest
+   * @returns GetAICoachDebugResultResponse
+   */
+  async getAICoachDebugResult(request: $_model.GetAICoachDebugResultRequest): Promise<$_model.GetAICoachDebugResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachDebugResultWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询剧本详情
    * 
    * @param request - GetAICoachScriptRequest
@@ -1835,6 +1969,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAICoachScriptWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询文档生成剧本任务结果
+   * 
+   * @param request - GetAICoachScriptGenerateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachScriptGenerateTaskResponse
+   */
+  async getAICoachScriptGenerateTaskWithOptions(request: $_model.GetAICoachScriptGenerateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAICoachScriptGenerateTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAICoachScriptGenerateTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/scriptGenerateTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAICoachScriptGenerateTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetAICoachScriptGenerateTaskResponse({}));
+  }
+
+  /**
+   * 查询文档生成剧本任务结果
+   * 
+   * @param request - GetAICoachScriptGenerateTaskRequest
+   * @returns GetAICoachScriptGenerateTaskResponse
+   */
+  async getAICoachScriptGenerateTask(request: $_model.GetAICoachScriptGenerateTaskRequest): Promise<$_model.GetAICoachScriptGenerateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachScriptGenerateTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2511,6 +2690,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAICoachTaskPageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据剧本对练任务查询会话历史
+   * 
+   * @param request - ListAICoachTaskSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAICoachTaskSessionResponse
+   */
+  async listAICoachTaskSessionWithOptions(request: $_model.ListAICoachTaskSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAICoachTaskSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAICoachTaskSession",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/listTaskSession`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new $_model.ListAICoachTaskSessionResponse({}));
+  }
+
+  /**
+   * 根据剧本对练任务查询会话历史
+   * 
+   * @param request - ListAICoachTaskSessionRequest
+   * @returns ListAICoachTaskSessionResponse
+   */
+  async listAICoachTaskSession(request: $_model.ListAICoachTaskSessionRequest): Promise<$_model.ListAICoachTaskSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAICoachTaskSessionWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3974,6 +4210,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopProjectTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 提交剧本考核点调试
+   * 
+   * @param request - SubmitAICoachDebugRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAICoachDebugResponse
+   */
+  async submitAICoachDebugWithOptions(request: $_model.SubmitAICoachDebugRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAICoachDebugResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataId)) {
+      body["dataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      body["dataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.deductionRule)) {
+      body["deductionRule"] = request.deductionRule;
+    }
+
+    if (!$dara.isNull(request.dialogueList)) {
+      body["dialogueList"] = request.dialogueList;
+    }
+
+    if (!$dara.isNull(request.expressiveness)) {
+      body["expressiveness"] = request.expressiveness;
+    }
+
+    if (!$dara.isNull(request.point)) {
+      body["point"] = request.point;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAICoachDebug",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/saveDebug`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAICoachDebugResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAICoachDebugResponse({}));
+  }
+
+  /**
+   * 提交剧本考核点调试
+   * 
+   * @param request - SubmitAICoachDebugRequest
+   * @returns SubmitAICoachDebugResponse
+   */
+  async submitAICoachDebug(request: $_model.SubmitAICoachDebugRequest): Promise<$_model.SubmitAICoachDebugResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitAICoachDebugWithOptions(request, headers, runtime);
   }
 
   /**

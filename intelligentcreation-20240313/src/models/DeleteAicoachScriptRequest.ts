@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAICoachScriptRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   scriptId?: string;
   static names(): { [key: string]: string } {
     return {

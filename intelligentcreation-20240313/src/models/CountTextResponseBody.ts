@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CountTextResponseBodyCountTextCmdList extends $dara.Model {
-  /**
-   * @example
-   * 4
-   */
   count?: number;
-  /**
-   * @example
-   * RED_BOOK
-   */
   theme?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,10 +29,6 @@ export class CountTextResponseBodyCountTextCmdList extends $dara.Model {
 }
 
 export class CountTextResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 6C9CB64D-E2D3-5BF2-A9E6-2445F952F178
-   */
   requestId?: string;
   countTextCmdList?: CountTextResponseBodyCountTextCmdList[];
   static names(): { [key: string]: string } {

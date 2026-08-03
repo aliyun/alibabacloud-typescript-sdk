@@ -6,15 +6,7 @@ export class StartAvatarSessionRequest extends $dara.Model {
   channelToken?: string;
   customPushUrl?: string;
   customUserId?: string;
-  /**
-   * @example
-   * 13534711288320
-   */
   projectId?: string;
-  /**
-   * @example
-   * 15ED6083-B0B8-5B2A-BEDB-94A5C687C812
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAICoachTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 541E7123-2E8A-5BA2-AC38-665650C84129
-   */
   requestId?: string;
   scriptRecordId?: string;
   studentAudioUrl?: string;

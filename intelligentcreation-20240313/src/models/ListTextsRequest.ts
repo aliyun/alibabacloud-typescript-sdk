@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTextsRequest extends $dara.Model {
-  /**
-   * @example
-   * API
-   */
   generationSource?: string;
-  /**
-   * @example
-   * Common
-   */
   industry?: string;
   keyword?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * PUBLISH
-   */
   publishStatus?: string;
-  /**
-   * @example
-   * WECHAT_MOMENT
-   */
   textStyleType?: string;
-  /**
-   * @example
-   * xxx
-   */
   textTheme?: string;
   static names(): { [key: string]: string } {
     return {

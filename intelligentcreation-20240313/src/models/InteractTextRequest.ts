@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InteractTextRequest extends $dara.Model {
-  /**
-   * @example
-   * 1000222
-   */
   agentId?: string;
   content?: string;
-  /**
-   * @example
-   * 144285195534941
-   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {

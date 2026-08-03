@@ -4,15 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddTextFeedbackRequest extends $dara.Model {
   content?: string;
-  /**
-   * @example
-   * 1
-   */
   quality?: number;
-  /**
-   * @example
-   * 8478
-   */
   textId?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,36 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnchorRequest extends $dara.Model {
   anchorCategory?: string;
   anchorId?: string;
-  /**
-   * @example
-   * PUBLIC_MODEL
-   */
   anchorType?: string;
-  /**
-   * @example
-   * 9:16
-   */
   coverRate?: string;
-  /**
-   * @example
-   * staticTransparency
-   */
   digitalHumanType?: string;
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
   resSpecType?: string;
-  /**
-   * @example
-   * offlineSynthesis
-   */
   useScene?: string;
   static names(): { [key: string]: string } {
     return {

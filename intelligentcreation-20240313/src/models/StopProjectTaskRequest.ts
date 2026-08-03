@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StopProjectTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 1111111
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

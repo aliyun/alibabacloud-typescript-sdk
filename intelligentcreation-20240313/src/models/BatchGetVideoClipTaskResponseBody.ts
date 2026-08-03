@@ -3,29 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetVideoClipTaskResponseBodyTaskListVideoList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   beginTime?: number;
   description?: string;
-  /**
-   * @example
-   * 11110
-   */
   endTime?: number;
   errorMsg?: string;
   title?: string;
-  /**
-   * @example
-   * https://e-ai.oss-cn-guangzhou.aliyuncs.com/video/jlkasdl.mp4
-   */
   videoDownloadUrl?: string;
   videoName?: string;
-  /**
-   * @example
-   * https://e-ai.oss-cn-guangzhou.aliyuncs.com/video/jlkasdl.mp4
-   */
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,25 +47,9 @@ export class BatchGetVideoClipTaskResponseBodyTaskListVideoList extends $dara.Mo
 }
 
 export class BatchGetVideoClipTaskResponseBodyTaskList extends $dara.Model {
-  /**
-   * @example
-   * FINISHED
-   */
   status?: string;
-  /**
-   * @example
-   * 864413342857035776
-   */
   taskId?: string;
-  /**
-   * @example
-   * 43335
-   */
   totalDuration?: number;
-  /**
-   * @example
-   * 11
-   */
   totalToken?: number;
   videoList?: BatchGetVideoClipTaskResponseBodyTaskListVideoList[];
   static names(): { [key: string]: string } {
@@ -117,10 +85,6 @@ export class BatchGetVideoClipTaskResponseBodyTaskList extends $dara.Model {
 }
 
 export class BatchGetVideoClipTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
-   */
   requestId?: string;
   taskList?: BatchGetVideoClipTaskResponseBodyTaskList[];
   static names(): { [key: string]: string } {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAvatarProjectRequest extends $dara.Model {
-  /**
-   * @example
-   * 11111
-   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {

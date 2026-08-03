@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SendSdkStreamMessageResponseBody extends $dara.Model {
-  /**
-   * @example
-   * {"id":"123"}
-   */
   commonStreamMessage?: string;
   static names(): { [key: string]: string } {
     return {

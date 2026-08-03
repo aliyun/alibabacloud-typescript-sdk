@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitImageToVideoTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * http://xxx/image.png
-   */
   imageUrl?: string;
   posPrompt?: string;
   static names(): { [key: string]: string } {

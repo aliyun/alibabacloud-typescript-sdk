@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $dara.Model {
-  /**
-   * @example
-   * 21275
-   */
   resourceId?: string;
-  /**
-   * @example
-   * STANDARD
-   */
   type?: string;
-  /**
-   * @example
-   * 1719904342237
-   */
   validPeriodTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,10 +33,6 @@ export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $dara.
 
 export class QueryAvatarResourceResponseBody extends $dara.Model {
   queryResourceInfoList?: QueryAvatarResourceResponseBodyQueryResourceInfoList[];
-  /**
-   * @example
-   * D5798660-1531-5D12-9C20-16FEE9D22351
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

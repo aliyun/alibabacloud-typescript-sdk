@@ -24,9 +24,6 @@ export class GetAICoachTaskSessionResourceUsageResponseBody extends $dara.Model 
    */
   errorMessage?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 4D902811-B75C-5D1B-8882-D515F8E2F977
    */

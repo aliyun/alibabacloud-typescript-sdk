@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAICoachCheatDetectionRequest extends $dara.Model {
-  /**
-   * @example
-   * 79e954faffe2415ebd18188ba787d78e
-   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveAvatarProjectRequestFramesLayersMaterial extends $dara.Model {
-  /**
-   * @example
-   * image/png
-   */
   format?: string;
-  /**
-   * @example
-   * 434508
-   */
   id?: string;
-  /**
-   * @example
-   * https://xxx
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,32 +32,12 @@ export class SaveAvatarProjectRequestFramesLayersMaterial extends $dara.Model {
 }
 
 export class SaveAvatarProjectRequestFramesLayers extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   height?: number;
   index?: number;
   material?: SaveAvatarProjectRequestFramesLayersMaterial;
-  /**
-   * @example
-   * 1
-   */
   positionX?: number;
-  /**
-   * @example
-   * 1
-   */
   positionY?: number;
-  /**
-   * @example
-   * ANCHOR
-   */
   type?: string;
-  /**
-   * @example
-   * 100
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -110,22 +78,10 @@ export class SaveAvatarProjectRequestFramesLayers extends $dara.Model {
 export class SaveAvatarProjectRequestFramesVideoScript extends $dara.Model {
   emotion?: string;
   pitchRate?: string;
-  /**
-   * @example
-   * 1.0
-   */
   speedRate?: string;
   textContent?: string;
   voiceLanguage?: string;
-  /**
-   * @example
-   * 1
-   */
   voiceTemplateId?: string;
-  /**
-   * @example
-   * 50
-   */
   volume?: string;
   static names(): { [key: string]: string } {
     return {
@@ -196,39 +152,15 @@ export class SaveAvatarProjectRequestFrames extends $dara.Model {
 }
 
 export class SaveAvatarProjectRequest extends $dara.Model {
-  /**
-   * @example
-   * 1000196
-   */
   agentId?: string;
   bitRate?: string;
   frameRate?: string;
   frames?: SaveAvatarProjectRequestFrames[];
-  /**
-   * @example
-   * CREATE
-   */
   operateType?: string;
-  /**
-   * @example
-   * 787594567117586432
-   */
   projectId?: string;
-  /**
-   * @example
-   * df_cs_471437
-   */
   projectName?: string;
-  /**
-   * @example
-   * STANDARD
-   */
   resSpecType?: string;
   resolution?: string;
-  /**
-   * @example
-   * 9:16
-   */
   scaleType?: string;
   scriptModelTag?: string;
   synchronizedDisplay?: string;

@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAgentRequest extends $dara.Model {
-  /**
-   * @example
-   * http://abc/1.jpg
-   */
   agentIconUrl?: string;
-  /**
-   * @example
-   * 1
-   */
   agentId?: string;
-  /**
-   * @example
-   * agent
-   */
   agentName?: string;
-  /**
-   * @example
-   * 18-20
-   */
   characterAgeStage?: string;
   characterGender?: string;
-  /**
-   * @example
-   * ZhangSan
-   */
   characterName?: string;
-  /**
-   * @example
-   * He is a doctor.
-   */
   extraDescription?: string;
-  /**
-   * @example
-   * Medical
-   */
   industry?: string;
   static names(): { [key: string]: string } {
     return {

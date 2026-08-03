@@ -31,15 +31,7 @@ export class BatchCreateAICoachTaskRequestStudentList extends $dara.Model {
 }
 
 export class BatchCreateAICoachTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * 7915125A-0D96-5A25-A54B-D3B739A86AFC
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1
-   */
   scriptRecordId?: string;
   studentIds?: string[];
   studentList?: BatchCreateAICoachTaskRequestStudentList[];

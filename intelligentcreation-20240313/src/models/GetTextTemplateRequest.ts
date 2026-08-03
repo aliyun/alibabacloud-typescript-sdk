@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTextTemplateRequest extends $dara.Model {
-  /**
-   * @example
-   * Car
-   */
   industry?: string;
   static names(): { [key: string]: string } {
     return {

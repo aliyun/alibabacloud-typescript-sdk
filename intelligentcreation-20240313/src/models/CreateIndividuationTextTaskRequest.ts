@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIndividuationTextTaskRequest extends $dara.Model {
   crowdPack?: string[][];
-  /**
-   * @example
-   * 840015278620459008
-   */
   projectId?: string;
   taskName?: string;
   static names(): { [key: string]: string } {

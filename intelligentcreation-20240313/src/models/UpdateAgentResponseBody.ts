@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAgentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-   */
   requestId?: string;
-  /**
-   * @example
-   * Success
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

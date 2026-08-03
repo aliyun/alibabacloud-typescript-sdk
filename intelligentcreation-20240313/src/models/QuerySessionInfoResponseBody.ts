@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySessionInfoResponseBodyQueryResourceInfoList extends $dara.Model {
-  /**
-   * @example
-   * a169e9ec18404edc9972afd80866dc97
-   */
   sessionId?: string;
-  /**
-   * @example
-   * FREE
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,15 +30,7 @@ export class QuerySessionInfoResponseBodyQueryResourceInfoList extends $dara.Mod
 
 export class QuerySessionInfoResponseBody extends $dara.Model {
   queryResourceInfoList?: QuerySessionInfoResponseBodyQueryResourceInfoList[];
-  /**
-   * @example
-   * 4D902811-B75C-5D1B-8882-D515F8E2F977
-   */
   requestId?: string;
-  /**
-   * @example
-   * 26
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

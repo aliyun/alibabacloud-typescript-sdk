@@ -27,22 +27,10 @@ export class SubmitProjectTaskRequestFramesLayersMaterialMask extends $dara.Mode
 
 export class SubmitProjectTaskRequestFramesLayersMaterial extends $dara.Model {
   anchorStyleLevel?: string;
-  /**
-   * @example
-   * video/mp4
-   */
   format?: string;
-  /**
-   * @example
-   * 38863
-   */
   id?: string;
   mask?: SubmitProjectTaskRequestFramesLayersMaterialMask;
   speed?: string;
-  /**
-   * @example
-   * https://xxx
-   */
   url?: string;
   volume?: number;
   static names(): { [key: string]: string } {
@@ -82,36 +70,12 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $dara.Model {
 }
 
 export class SubmitProjectTaskRequestFramesLayers extends $dara.Model {
-  /**
-   * @example
-   * 222
-   */
   height?: number;
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   material?: SubmitProjectTaskRequestFramesLayersMaterial;
-  /**
-   * @example
-   * 11
-   */
   positionX?: number;
-  /**
-   * @example
-   * 22
-   */
   positionY?: number;
-  /**
-   * @example
-   * ANCHOR
-   */
   type?: string;
-  /**
-   * @example
-   * 111
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -150,55 +114,15 @@ export class SubmitProjectTaskRequestFramesLayers extends $dara.Model {
 }
 
 export class SubmitProjectTaskRequestFramesSubtitle extends $dara.Model {
-  /**
-   * @example
-   * BottomLeft
-   */
   alignment?: string;
-  /**
-   * @example
-   * #ffffff
-   */
   backgroundColor?: string;
-  /**
-   * @example
-   * SimSun
-   */
   font?: string;
-  /**
-   * @example
-   * #ffffff
-   */
   fontColor?: string;
-  /**
-   * @example
-   * 32
-   */
   fontSize?: number;
-  /**
-   * @example
-   * 11
-   */
   maxCharLength?: number;
-  /**
-   * @example
-   * 2
-   */
   positionX?: number;
-  /**
-   * @example
-   * 1
-   */
   positionY?: number;
-  /**
-   * @example
-   * 22
-   */
   textHeight?: number;
-  /**
-   * @example
-   * 11
-   */
   textWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -240,35 +164,15 @@ export class SubmitProjectTaskRequestFramesSubtitle extends $dara.Model {
 }
 
 export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
-  /**
-   * @example
-   * https://xxx
-   */
   audioUrl?: string;
   emotion?: string;
   pitchRate?: string;
   speechOpen?: boolean;
-  /**
-   * @example
-   * 2.0
-   */
   speedRate?: string;
   textContent?: string;
-  /**
-   * @example
-   * TEXT
-   */
   type?: string;
   voiceLanguage?: string;
-  /**
-   * @example
-   * 11
-   */
   voiceTemplateId?: number;
-  /**
-   * @example
-   * 20
-   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -310,10 +214,6 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
 }
 
 export class SubmitProjectTaskRequestFrames extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   index?: number;
   layers?: SubmitProjectTaskRequestFramesLayers[];
   subtitle?: SubmitProjectTaskRequestFramesSubtitle;
@@ -355,20 +255,8 @@ export class SubmitProjectTaskRequestFrames extends $dara.Model {
 }
 
 export class SubmitProjectTaskRequest extends $dara.Model {
-  /**
-   * @remarks
-   * frame
-   */
   frames?: SubmitProjectTaskRequestFrames[];
-  /**
-   * @example
-   * 9:16
-   */
   scaleType?: string;
-  /**
-   * @example
-   * 1
-   */
   subtitleTag?: number;
   transparentBackground?: number;
   static names(): { [key: string]: string } {

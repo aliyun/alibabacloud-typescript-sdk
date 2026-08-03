@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryIndividuationTextTaskResponseBodyTextList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @example
-   * 2761
-   */
   textId?: string;
-  /**
-   * @example
-   * 11
-   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,29 +32,10 @@ export class QueryIndividuationTextTaskResponseBodyTextList extends $dara.Model 
 }
 
 export class QueryIndividuationTextTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 56AC346B-AF40-5E4F-AFFE-FD8BA5E6FB3A
-   */
   requestId?: string;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
   textList?: QueryIndividuationTextTaskResponseBodyTextList[];
-  /**
-   * @example
-   * yyyy-MM-dd HH:mm:ss
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

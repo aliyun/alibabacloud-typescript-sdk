@@ -29,35 +29,11 @@ export class GetAICoachScriptResponseBodyCheckCheatConfig extends $dara.Model {
 }
 
 export class GetAICoachScriptResponseBodyCompleteStrategy extends $dara.Model {
-  /**
-   * @example
-   * 5
-   */
   abnormalQuitSessionExpired?: number;
-  /**
-   * @example
-   * true
-   */
   abnormalQuitSessionExpiredFlag?: boolean;
-  /**
-   * @example
-   * true
-   */
   clickCompleteAutoEnd?: boolean;
-  /**
-   * @example
-   * 15
-   */
   duration?: number;
-  /**
-   * @example
-   * true
-   */
   durationFlag?: boolean;
-  /**
-   * @example
-   * true
-   */
   fullCoverageAutoEnd?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -306,17 +282,9 @@ export class GetAICoachScriptResponseBodyExpressivenessList extends $dara.Model 
 }
 
 export class GetAICoachScriptResponseBodyPointDeductionRuleList extends $dara.Model {
-  /**
-   * @example
-   * demo
-   */
   description?: string;
   punishmentTypes?: string[];
   ruleValue?: string;
-  /**
-   * @example
-   * 90
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -439,15 +407,7 @@ export class GetAICoachScriptResponseBodyPointsAnswerListAnswerValues extends $d
 }
 
 export class GetAICoachScriptResponseBodyPointsAnswerListParameters extends $dara.Model {
-  /**
-   * @example
-   * name
-   */
   name?: string;
-  /**
-   * @example
-   * value
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -479,15 +439,7 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   nameList?: string[];
   operators?: string;
   parameters?: GetAICoachScriptResponseBodyPointsAnswerListParameters[];
-  /**
-   * @example
-   * normalKnowledge
-   */
   type?: string;
-  /**
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -536,28 +488,12 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
 export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
   answerList?: GetAICoachScriptResponseBodyPointsAnswerList[];
   knowledgeList?: string[];
-  /**
-   * @example
-   * demo
-   */
   name?: string;
   pointId?: string;
-  /**
-   * @example
-   * test
-   */
   questionDescription?: string;
   questionSample?: string;
   scriptPointId?: string;
-  /**
-   * @example
-   * 1
-   */
   sortNo?: number;
-  /**
-   * @example
-   * 50
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -604,10 +540,6 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
 
 export class GetAICoachScriptResponseBodySampleDialogueList extends $dara.Model {
   message?: string;
-  /**
-   * @example
-   * coach
-   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -697,53 +629,17 @@ export class GetAICoachScriptResponseBodyScoreConfig extends $dara.Model {
 }
 
 export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
   abilityEvaluation?: number;
-  /**
-   * @example
-   * false
-   */
   abilityEvaluationEnabled?: boolean;
-  /**
-   * @example
-   * 10
-   */
   assessmentPoint?: number;
   assessmentPointEnabled?: boolean;
   customReplyRuleEnabled?: boolean;
-  /**
-   * @example
-   * 10
-   */
   expressiveness?: number;
-  /**
-   * @example
-   * true
-   */
   expressivenessEnabled?: boolean;
-  /**
-   * @example
-   * 10
-   */
   pointDeductionRule?: number;
-  /**
-   * @example
-   * true
-   */
   pointDeductionRuleEnabled?: boolean;
   similarPronunciationScoringEnabled?: boolean;
-  /**
-   * @example
-   * 10
-   */
   standard?: number;
-  /**
-   * @example
-   * true
-   */
   standardEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -791,122 +687,43 @@ export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
 export class GetAICoachScriptResponseBody extends $dara.Model {
   agentId?: string;
   appendQuestionFlag?: boolean;
-  /**
-   * @example
-   * point
-   */
   assessmentScope?: string;
   checkCheatConfig?: GetAICoachScriptResponseBodyCheckCheatConfig;
   closingRemarks?: string;
   completeStrategy?: GetAICoachScriptResponseBodyCompleteStrategy;
-  /**
-   * @example
-   * https://demo.com
-   */
   coverUrl?: string;
   customReplyRules?: GetAICoachScriptResponseBodyCustomReplyRules[];
-  /**
-   * @example
-   * 500
-   */
   dialogueInputTextLimit?: number;
-  /**
-   * @example
-   * true
-   */
   dialogueTextFlag?: boolean;
-  /**
-   * @example
-   * true
-   */
   dialogueTipFlag?: boolean;
-  /**
-   * @example
-   * 30
-   */
   dialogueVoiceLimit?: number;
-  /**
-   * @example
-   * true
-   */
   evaluateReportFlag?: boolean;
   expressiveness?: { [key: string]: number };
   expressivenessList?: GetAICoachScriptResponseBodyExpressivenessList[];
+  extendCustomNameMap?: { [key: string]: string };
   gifDynamicUrl?: string;
   gifStaticUrl?: string;
-  /**
-   * @example
-   * 2025-02-24 12:00:00
-   */
   gmtCreate?: string;
-  /**
-   * @example
-   * 2025-02-24 12:00:00
-   */
   gmtModified?: string;
-  /**
-   * @example
-   * coach
-   */
   initiator?: string;
   interactionInputTypes?: string[];
-  /**
-   * @example
-   * 1
-   */
   interactionType?: number;
-  /**
-   * @example
-   * demo
-   */
   introduce?: string;
-  /**
-   * @example
-   * demo
-   */
   name?: string;
   openingRemarks?: string;
-  /**
-   * @example
-   * true
-   */
   orderAckFlag?: boolean;
   pointCoveredFlag?: boolean;
   pointDeductionRuleList?: GetAICoachScriptResponseBodyPointDeductionRuleList[];
   points?: GetAICoachScriptResponseBodyPoints[];
-  /**
-   * @example
-   * 1
-   */
   requestId?: string;
   sampleDialogueList?: GetAICoachScriptResponseBodySampleDialogueList[];
   scoreConfig?: GetAICoachScriptResponseBodyScoreConfig;
-  /**
-   * @example
-   * 1
-   */
   scriptRecordId?: string;
   sparringTipContent?: string;
   sparringTipTitle?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * true
-   */
   studentThinkTimeFlag?: boolean;
-  /**
-   * @example
-   * 100
-   */
   studentThinkTimeLimit?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   voiceId?: string;
   voiceLanguage?: string;
@@ -928,6 +745,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       evaluateReportFlag: 'evaluateReportFlag',
       expressiveness: 'expressiveness',
       expressivenessList: 'expressivenessList',
+      extendCustomNameMap: 'extendCustomNameMap',
       gifDynamicUrl: 'gifDynamicUrl',
       gifStaticUrl: 'gifStaticUrl',
       gmtCreate: 'gmtCreate',
@@ -975,6 +793,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       evaluateReportFlag: 'boolean',
       expressiveness: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       expressivenessList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyExpressivenessList },
+      extendCustomNameMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gifDynamicUrl: 'string',
       gifStaticUrl: 'string',
       gmtCreate: 'string',
@@ -1020,6 +839,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.expressivenessList)) {
       $dara.Model.validateArray(this.expressivenessList);
+    }
+    if(this.extendCustomNameMap) {
+      $dara.Model.validateMap(this.extendCustomNameMap);
     }
     if(Array.isArray(this.interactionInputTypes)) {
       $dara.Model.validateArray(this.interactionInputTypes);

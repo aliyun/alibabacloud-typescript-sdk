@@ -3,35 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetProjectTaskResponseBody extends $dara.Model {
-  /**
-   * @example
-   * error
-   */
   errorMsg?: string;
-  /**
-   * @example
-   * 5389BE87-571B-573C-90ED-F07C5E68760B
-   */
   requestId?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
-  /**
-   * @example
-   * www.ali.com
-   */
   videoDownloadUrl?: string;
-  /**
-   * @example
-   * 111
-   */
   videoDuration?: number;
-  /**
-   * @example
-   * www.ali.com
-   */
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {

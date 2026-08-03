@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteIndividuationProjectRequest extends $dara.Model {
-  /**
-   * @example
-   * 840015278620459008
-   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {

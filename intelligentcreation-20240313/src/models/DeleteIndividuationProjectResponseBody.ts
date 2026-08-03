@@ -4,18 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIndividuationProjectResponseBody extends $dara.Model {
   desc?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
-   */
   requestId?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

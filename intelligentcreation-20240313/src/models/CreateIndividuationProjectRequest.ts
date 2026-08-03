@@ -4,16 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateIndividuationProjectRequest extends $dara.Model {
   projectInfo?: string;
-  /**
-   * @example
-   * avatar-1
-   */
   projectName?: string;
   purpose?: string;
-  /**
-   * @example
-   * ail003
-   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
