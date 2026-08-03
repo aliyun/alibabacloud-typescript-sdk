@@ -11,6 +11,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
    * sas_71e24437d2797ce8fc59692905a4****
    */
   alertUuid?: string;
+  detectionRuleIds?: string[];
   /**
    * @remarks
    * The end time as a UNIX timestamp in milliseconds (ms).
@@ -196,6 +197,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       alertUuid: 'AlertUuid',
+      detectionRuleIds: 'DetectionRuleIds',
       endTime: 'EndTime',
       incidentName: 'IncidentName',
       incidentStatus: 'IncidentStatus',
@@ -223,6 +225,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       alertUuid: 'string',
+      detectionRuleIds: { 'type': 'array', 'itemType': 'string' },
       endTime: 'number',
       incidentName: 'string',
       incidentStatus: 'number',
@@ -248,6 +251,9 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.detectionRuleIds)) {
+      $dara.Model.validateArray(this.detectionRuleIds);
+    }
     if(Array.isArray(this.incidentStatusList)) {
       $dara.Model.validateArray(this.incidentStatusList);
     }

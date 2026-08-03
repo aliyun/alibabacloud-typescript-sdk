@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ATT\\&CK stage of the alert.
+   * The alert ATT&CK technique.
    * 
    * @example
    * Discovery
@@ -14,7 +14,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertAttCkMapping?: string;
   /**
    * @remarks
-   * The alert description. You can use $$ to reference fields from the query output.
+   * The alert description. You can use $$ to reference query output fields.
    * 
    * @example
    * Alert from: $product_code$, detected network attack from $src_ip$, affected assets include: $dst_ip$
@@ -23,18 +23,11 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level of the alert. Valid values:
-   * 
-   * - 5: critical.
-   * 
-   * - 4: important.
-   * 
-   * - 3: medium.
-   * 
-   * - 2: low.
-   * 
-   * - 1: informational.
-   * 
-   * This parameter is required.
+   * - 5: Critical.
+   * - 4: High.
+   * - 3: Medium.
+   * - 2: Low.
+   * - 1: Informational.
    * 
    * @example
    * 1
@@ -43,7 +36,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertLevelMapping?: string;
   /**
    * @remarks
-   * The alert name. You can use $$ to reference fields from the query output.
+   * The alert name. You can use $$ to reference query output fields.
    * 
    * @example
    * Detected high-frequency multi-type network attacks from $src_ip$
@@ -51,17 +44,11 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertName?: string;
   /**
    * @remarks
-   * The ID of the alert template for the detection rule. Valid values:
-   * 
+   * The ID of the detection rule alert template. Valid values:
    * - ALERT_ACTIVITY: other alerts.
-   * 
-   * - EDR_ALERT_ACTIVITY: Endpoint Detection and Response (EDR) alerts.
-   * 
+   * - EDR_ALERT_ACTIVITY: endpoint detection and response alerts.
    * - FIREWALL_ALERT_ACTIVITY: firewall alerts.
-   * 
-   * - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
-   * 
-   * This parameter is required.
+   * - WAF_ALERT_ACTIVITY: web application firewall alerts.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -69,7 +56,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertSchemaId?: string;
   /**
    * @remarks
-   * The tactic phase of the alert.
+   * The alert tactic stage.
    * 
    * @example
    * TA0042
@@ -77,7 +64,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertTacticId?: string;
   /**
    * @remarks
-   * The count for the alert threshold.
+   * The alert threshold count.
    * 
    * @example
    * 10
@@ -85,7 +72,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertThresholdCount?: number;
   /**
    * @remarks
-   * The list of fields for the alert threshold. Separate multiple fields with commas.
+   * The list of alert threshold fields, separated by commas (,).
    * 
    * @example
    * alert_type,ip
@@ -101,9 +88,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   alertThresholdPeriod?: string;
   /**
    * @remarks
-   * The alert type.
-   * 
-   * This parameter is required.
+   * The Alarm Metric of the alerting rule.
    * 
    * @example
    * WebShell
@@ -134,9 +119,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule expression. Valid values:
-   * 
    * - sql: SQL.
-   * 
    * - playbook: playbook.
    * 
    * @example
@@ -154,8 +137,6 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the detection rule.
-   * 
-   * This parameter is required.
    * 
    * @example
    * dr-ha1i09ob3zmqrs85****
@@ -188,19 +169,15 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule. Valid values:
-   * 
-   * - preset: predefined detection rule.
-   * 
+   * - preset: preset detection rule.
    * - custom: custom detection rule.
-   * 
    * - custom_template: rule template.
-   * 
-   * This parameter is required.
    * 
    * @example
    * custom
    */
   detectionRuleType?: string;
+  detectionRules?: string;
   /**
    * @remarks
    * The entity mapping configuration.
@@ -211,7 +188,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   entityMappings?: string;
   /**
    * @remarks
-   * The configuration of the event aggregation period.
+   * The event aggregation period configuration.
    * 
    * @example
    * 5m
@@ -220,16 +197,11 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The event aggregation type. Valid values:
-   * 
-   * - none: Events are not generated.
-   * 
-   * - graph_compute: graph computing (supported by predefined rules).
-   * 
-   * - expert: expert rules.
-   * 
-   * - passthrough: Alerts are passed through (one-to-one).
-   * 
-   * - window: Similar alerts are aggregated (window).
+   * - none: No event is generated.
+   * - graph_compute: Graph computing. This value is supported by predefined rules.
+   * - expert: Expert rule.
+   * - passthrough: Alerting pass-through (one-to-one).
+   * - window: Same-type aggregation (window).
    * 
    * @example
    * window
@@ -238,9 +210,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -259,15 +229,13 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the log normalization schema.
    * 
-   * This parameter is required.
-   * 
    * @example
    * API_RISK_ACTIVITY
    */
   logSchemaId?: string;
   /**
    * @remarks
-   * The custom parameters for the playbook.
+   * The custom parameters of the playbook.
    * 
    * @example
    * {
@@ -287,11 +255,9 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland.
+   * - ap-southeast-1: Your assets reside outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -299,7 +265,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID that an administrator uses to switch to the perspective of another member.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -307,7 +273,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The start time for scheduling. This is a 13-digit UNIX timestamp.
+   * The scheduling start time. The value is a 13-digit UNIX timestamp.
    * 
    * @example
    * 1733269771123
@@ -315,7 +281,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleBeginTime?: number;
   /**
    * @remarks
-   * The cron expression for scheduling. This parameter is required if you set ScheduleType to cron.
+   * The scheduling cron expression. This parameter is required when ScheduleType is set to cron.
    * 
    * @example
    * 0/5 * * * *
@@ -323,7 +289,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleExpression?: string;
   /**
    * @remarks
-   * The maximum number of retries after a timeout. Valid values: 1 to 100.
+   * The maximum number of retries upon timeout. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -331,7 +297,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   scheduleMaxRetries?: number;
   /**
    * @remarks
-   * The maximum timeout period in seconds. Valid values: 60 to 1800.
+   * The maximum timeout period, in seconds. Valid values: 60 to 1800.
    * 
    * @example
    * 60
@@ -340,9 +306,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The scheduling type. Valid values:
-   * 
    * - fixed_rate: fixed interval.
-   * 
    * - cron: cron expression.
    * 
    * @example
@@ -380,6 +344,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
       detectionRuleTemplateId: 'DetectionRuleTemplateId',
       detectionRuleTemplateVersion: 'DetectionRuleTemplateVersion',
       detectionRuleType: 'DetectionRuleType',
+      detectionRules: 'DetectionRules',
       entityMappings: 'EntityMappings',
       incidentAggregationExpression: 'IncidentAggregationExpression',
       incidentAggregationType: 'IncidentAggregationType',
@@ -422,6 +387,7 @@ export class CreateDetectionRuleRequest extends $dara.Model {
       detectionRuleTemplateId: 'string',
       detectionRuleTemplateVersion: 'string',
       detectionRuleType: 'string',
+      detectionRules: 'string',
       entityMappings: 'string',
       incidentAggregationExpression: 'string',
       incidentAggregationType: 'string',

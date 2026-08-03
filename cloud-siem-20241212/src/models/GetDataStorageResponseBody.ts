@@ -21,7 +21,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
   logStoreTtl?: number;
   /**
    * @remarks
-   * The hot storage capacity used.
+   * The hot storage used capacity.
    * 
    * @example
    * 10.333
@@ -165,7 +165,7 @@ export class GetDataStorageResponseBodyDataRecordLogStores extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) of the Logstore.
+   * The Logstore TTL.
    * 
    * @example
    * 90
@@ -173,7 +173,7 @@ export class GetDataStorageResponseBodyDataRecordLogStores extends $dara.Model {
   logStoreTtl?: number;
   /**
    * @remarks
-   * The used capacity of the Logstore.
+   * The Logstore used capacity.
    * 
    * @example
    * 11.111
@@ -216,8 +216,8 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   /**
    * @remarks
    * The group to which the log belongs. Valid values:
-   * - host: host logs.
-   * - security: security logs.
+   * - host: Host logs.
+   * - security: Security logs.
    * 
    * @example
    * host
@@ -225,7 +225,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logDeliveryGroup?: string;
   /**
    * @remarks
-   * Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
+   * Indicates whether you are allowed to toggle the log delivery switch. Log delivery cannot be performed if the service is not purchased. Valid values:
    * - allow: Allowed.
    * - deny: Not allowed.
    * 
@@ -236,8 +236,8 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   /**
    * @remarks
    * The log delivery status. Valid values:
-   * - enable: log delivery is enabled.
-   * - disable: log delivery is disabled.
+   * - enable: Log delivery is enabled.
+   * - disable: Log delivery is disabled.
    * 
    * @example
    * enable
@@ -261,7 +261,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logName?: string;
   /**
    * @remarks
-   * The default log query conditions for the log. When multiple logs are stored in the same Logstore, log query conditions are required to query individual logs.
+   * The default log query conditions for the log. When multiple logs are stored in the same Logstore, query conditions are required to perform a log query for a specific log.
    * 
    * @example
    * [{\\"__topic__\\":\\"sas-net-block\\"}]
@@ -295,7 +295,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logStoreTtl?: number;
   /**
    * @remarks
-   * The hot storage capacity used.
+   * The hot storage used capacity.
    * 
    * @example
    * 10.333
@@ -361,7 +361,7 @@ export class GetDataStorageResponseBodyDataUnusedLogStores extends $dara.Model {
   logStoreTtl?: number;
   /**
    * @remarks
-   * The hot storage capacity used.
+   * The hot storage used capacity.
    * 
    * @example
    * 10.333
@@ -403,7 +403,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   coldStorageUsedCapacity?: number;
   /**
    * @remarks
-   * The storage region of user logs.
+   * The storage region of user-side logs.
    * 
    * @example
    * cn-shanghai
@@ -411,9 +411,9 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionId?: string;
   /**
    * @remarks
-   * Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact your account manager to reset the region. The region can be reset only once. Valid values:
-   * - allow: The storage region can be modified.
-   * - deny: The storage region cannot be modified.
+   * Indicates whether the storage region can be modified. By default, modification is not allowed. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+   * - allow: Modification is allowed.
+   * - deny: Modification is not allowed.
    * 
    * @example
    * deny
@@ -421,7 +421,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionPermission?: string;
   /**
    * @remarks
-   * The storage capacity purchased in the subscription scenario.
+   * The storage capacity purchased in the prepaid scenario.
    * 
    * @example
    * 100
@@ -445,15 +445,18 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageUsedCapacityDetail?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project that stores user logs.
+   * The name of the Simple Log Service (SLS) project that stores user logs.
    * 
    * @example
    * aliyun-cloudsiem-data-171835723111****-cn-shanghai
    */
   logProject?: string;
+  logProjectState?: string;
+  logProjectStateChangeAllowed?: boolean;
+  logServiceDisabled?: boolean;
   /**
    * @remarks
-   * The details of the Logstores for normalized data.
+   * The details of Logstores for normalized data.
    */
   normalizationLogStores?: GetDataStorageResponseBodyDataNormalizationLogStores[];
   /**
@@ -473,7 +476,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   sasLogStores?: GetDataStorageResponseBodyDataSasLogStores[];
   /**
    * @remarks
-   * The list of legacy SIEM V1 Logstores.
+   * The list of SIEM V1 legacy Logstores.
    */
   unusedLogStores?: GetDataStorageResponseBodyDataUnusedLogStores[];
   static names(): { [key: string]: string } {
@@ -485,6 +488,9 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
       dataStorageUsedCapacity: 'DataStorageUsedCapacity',
       dataStorageUsedCapacityDetail: 'DataStorageUsedCapacityDetail',
       logProject: 'LogProject',
+      logProjectState: 'LogProjectState',
+      logProjectStateChangeAllowed: 'LogProjectStateChangeAllowed',
+      logServiceDisabled: 'LogServiceDisabled',
       normalizationLogStores: 'NormalizationLogStores',
       normalizationLogViews: 'NormalizationLogViews',
       recordLogStores: 'RecordLogStores',
@@ -502,6 +508,9 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
       dataStorageUsedCapacity: 'number',
       dataStorageUsedCapacityDetail: 'string',
       logProject: 'string',
+      logProjectState: 'string',
+      logProjectStateChangeAllowed: 'boolean',
+      logServiceDisabled: 'boolean',
       normalizationLogStores: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataNormalizationLogStores },
       normalizationLogViews: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataNormalizationLogViews },
       recordLogStores: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataRecordLogStores },

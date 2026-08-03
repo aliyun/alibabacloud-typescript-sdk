@@ -21,6 +21,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
    * dr-qo5ww6ux0uc28*****
    */
   detectionRuleId?: string;
+  detectionRuleName?: string;
   entityInfos?: string;
   incidentDescription?: string;
   /**
@@ -126,6 +127,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       attckTactics: 'AttckTactics',
       createTime: 'CreateTime',
       detectionRuleId: 'DetectionRuleId',
+      detectionRuleName: 'DetectionRuleName',
       entityInfos: 'EntityInfos',
       incidentDescription: 'IncidentDescription',
       incidentName: 'IncidentName',
@@ -148,6 +150,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       attckTactics: 'string',
       createTime: 'number',
       detectionRuleId: 'string',
+      detectionRuleName: 'string',
       entityInfos: 'string',
       incidentDescription: 'string',
       incidentName: 'string',

@@ -557,6 +557,10 @@ export default class Client extends OpenApi {
       body["DetectionRuleType"] = request.detectionRuleType;
     }
 
+    if (!$dara.isNull(request.detectionRules)) {
+      body["DetectionRules"] = request.detectionRules;
+    }
+
     if (!$dara.isNull(request.entityMappings)) {
       body["EntityMappings"] = request.entityMappings;
     }
@@ -4077,6 +4081,10 @@ export default class Client extends OpenApi {
       body["AlertUuid"] = request.alertUuid;
     }
 
+    if (!$dara.isNull(request.detectionRuleIds)) {
+      body["DetectionRuleIds"] = request.detectionRuleIds;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
@@ -5030,7 +5038,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of query views.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - ListQueryViewsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5094,7 +5102,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of query views.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - ListQueryViewsRequest
    * @returns ListQueryViewsResponse

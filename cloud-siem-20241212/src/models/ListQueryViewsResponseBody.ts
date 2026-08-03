@@ -113,9 +113,12 @@ export class ListQueryViewsResponseBodyQueryViews extends $dara.Model {
 }
 
 export class ListQueryViewsResponseBody extends $dara.Model {
+  logProjectName?: string;
+  logRegionId?: string;
+  logStoreName?: string;
   /**
    * @remarks
-   * The maximum number of results to return per request when using the NextToken-based pagination. Valid values: 1 to 100. Default value: 50.
+   * The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
    * 
    * @example
    * 50
@@ -123,7 +126,7 @@ export class ListQueryViewsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAASLVeIxed4466E0LVmGkzwS6hJKd9DGVGMDRM6Lu****
@@ -144,6 +147,9 @@ export class ListQueryViewsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      logProjectName: 'LogProjectName',
+      logRegionId: 'LogRegionId',
+      logStoreName: 'LogStoreName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       queryViews: 'QueryViews',
@@ -153,6 +159,9 @@ export class ListQueryViewsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      logProjectName: 'string',
+      logRegionId: 'string',
+      logStoreName: 'string',
       maxResults: 'number',
       nextToken: 'string',
       queryViews: { 'type': 'array', 'itemType': ListQueryViewsResponseBodyQueryViews },
