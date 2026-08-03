@@ -1,0 +1,277 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties extends $dara.Model {
+  /**
+   * @example
+   * USD
+   */
+  currency?: string;
+  /**
+   * @example
+   * 1672617600000
+   */
+  end?: number;
+  /**
+   * @example
+   * PERCENTAGE
+   */
+  penaltyType?: string;
+  /**
+   * @example
+   * 50
+   */
+  penaltyValue?: string;
+  /**
+   * @example
+   * 1672531200000
+   */
+  start?: number;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      end: 'End',
+      penaltyType: 'PenaltyType',
+      penaltyValue: 'PenaltyValue',
+      start: 'Start',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      end: 'number',
+      penaltyType: 'string',
+      penaltyValue: 'string',
+      start: 'number',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBodyDataCancellationPolicies extends $dara.Model {
+  penalties?: GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties[];
+  /**
+   * @example
+   * FREE_CANCELLATION
+   */
+  policyType?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      penalties: 'Penalties',
+      policyType: 'PolicyType',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      penalties: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties },
+      policyType: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.penalties)) {
+      $dara.Model.validateArray(this.penalties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices extends $dara.Model {
+  /**
+   * @example
+   * 5000
+   */
+  amount?: string;
+  /**
+   * @example
+   * 2026-07-01
+   */
+  date?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      date: 'Date',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      date: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBodyDataPricing extends $dara.Model {
+  /**
+   * @example
+   * USD
+   */
+  currency?: string;
+  nightlyPrices?: GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices[];
+  /**
+   * @example
+   * 10000
+   */
+  totalAmount?: string;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      nightlyPrices: 'NightlyPrices',
+      totalAmount: 'TotalAmount',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      nightlyPrices: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices },
+      totalAmount: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nightlyPrices)) {
+      $dara.Model.validateArray(this.nightlyPrices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
+  cancellationPolicies?: GlobalHotelValidatePriceResponseBodyDataCancellationPolicies[];
+  /**
+   * @example
+   * itemOffer_123
+   */
+  itemOfferId?: string;
+  pricing?: GlobalHotelValidatePriceResponseBodyDataPricing;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cancellationPolicies: 'CancellationPolicies',
+      itemOfferId: 'ItemOfferId',
+      pricing: 'Pricing',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancellationPolicies: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataCancellationPolicies },
+      itemOfferId: 'string',
+      pricing: GlobalHotelValidatePriceResponseBodyDataPricing,
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cancellationPolicies)) {
+      $dara.Model.validateArray(this.cancellationPolicies);
+    }
+    if(this.pricing && typeof (this.pricing as any).validate === 'function') {
+      (this.pricing as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBody extends $dara.Model {
+  data?: GlobalHotelValidatePriceResponseBodyData;
+  /**
+   * @example
+   * CreateOrderFailed
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 创建订单失败
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * 260E4F99-983D-1919-834C-5C42E98E5B2B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GlobalHotelValidatePriceResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

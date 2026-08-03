@@ -1882,4 +1882,1734 @@ export default class Client extends OpenApi {
     return await this.transitVisaWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 申请退款
+   * 
+   * @param request - ApplyRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyRefundResponse
+   */
+  async applyRefundWithOptions(request: $_model.ApplyRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.refundReason)) {
+      body["RefundReason"] = request.refundReason;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "applyRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/applyRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyRefundResponse>(await this.callApi(params, req, runtime), new $_model.ApplyRefundResponse({}));
+  }
+
+  /**
+   * 申请退款
+   * 
+   * @param request - ApplyRefundRequest
+   * @returns ApplyRefundResponse
+   */
+  async applyRefund(request: $_model.ApplyRefundRequest): Promise<$_model.ApplyRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.applyRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量查询酒店详情
+   * 
+   * @param tmpReq - BatchGetHotelDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetHotelDetailResponse
+   */
+  async batchGetHotelDetailWithOptions(tmpReq: $_model.BatchGetHotelDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetHotelDetailResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchGetHotelDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "batchGetHotelDetail",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/batchGetHotelDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetHotelDetailResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetHotelDetailResponse({}));
+  }
+
+  /**
+   * 批量查询酒店详情
+   * 
+   * @param request - BatchGetHotelDetailRequest
+   * @returns BatchGetHotelDetailResponse
+   */
+  async batchGetHotelDetail(request: $_model.BatchGetHotelDetailRequest): Promise<$_model.BatchGetHotelDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchGetHotelDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消或退款
+   * 
+   * @param request - CancelOrRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelOrRefundResponse
+   */
+  async cancelOrRefundWithOptions(request: $_model.CancelOrRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelOrRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "cancelOrRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/cancelOrRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelOrRefundResponse>(await this.callApi(params, req, runtime), new $_model.CancelOrRefundResponse({}));
+  }
+
+  /**
+   * 取消或退款
+   * 
+   * @param request - CancelOrRefundRequest
+   * @returns CancelOrRefundResponse
+   */
+  async cancelOrRefund(request: $_model.CancelOrRefundRequest): Promise<$_model.CancelOrRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelOrRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消订单
+   * 
+   * @param request - CancelOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelOrderResponse
+   */
+  async cancelOrderWithOptions(request: $_model.CancelOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "cancelOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/cancelOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelOrderResponse>(await this.callApi(params, req, runtime), new $_model.CancelOrderResponse({}));
+  }
+
+  /**
+   * 取消订单
+   * 
+   * @param request - CancelOrderRequest
+   * @returns CancelOrderResponse
+   */
+  async cancelOrder(request: $_model.CancelOrderRequest): Promise<$_model.CancelOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创单并支付
+   * 
+   * @param tmpReq - CreateAndPayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAndPayResponse
+   */
+  async createAndPayWithOptions(tmpReq: $_model.CreateAndPayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndPayResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAndPayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contact)) {
+      request.contactShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contact, "Contact", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.guests)) {
+      request.guestsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.guests, "Guests", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.contactShrink)) {
+      body["Contact"] = request.contactShrink;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.guestsShrink)) {
+      body["Guests"] = request.guestsShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferId)) {
+      body["ItemOfferId"] = request.itemOfferId;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "createAndPay",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/createAndPay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAndPayResponse>(await this.callApi(params, req, runtime), new $_model.CreateAndPayResponse({}));
+  }
+
+  /**
+   * 创单并支付
+   * 
+   * @param request - CreateAndPayRequest
+   * @returns CreateAndPayResponse
+   */
+  async createAndPay(request: $_model.CreateAndPayRequest): Promise<$_model.CreateAndPayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAndPayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建订单
+   * 
+   * @param tmpReq - CreateOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrderResponse
+   */
+  async createOrderWithOptions(tmpReq: $_model.CreateOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contact)) {
+      request.contactShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contact, "Contact", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.guests)) {
+      request.guestsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.guests, "Guests", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.contactShrink)) {
+      body["Contact"] = request.contactShrink;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.guestsShrink)) {
+      body["Guests"] = request.guestsShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferId)) {
+      body["ItemOfferId"] = request.itemOfferId;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "createOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/createOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateOrderResponse({}));
+  }
+
+  /**
+   * 创建订单
+   * 
+   * @param request - CreateOrderRequest
+   * @returns CreateOrderResponse
+   */
+  async createOrder(request: $_model.CreateOrderRequest): Promise<$_model.CreateOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 申请退款
+   * 
+   * @param request - GlobalHotelApplyRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelApplyRefundResponse
+   */
+  async globalHotelApplyRefundWithOptions(request: $_model.GlobalHotelApplyRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelApplyRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.refundReason)) {
+      body["RefundReason"] = request.refundReason;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelApplyRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelApplyRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelApplyRefundResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelApplyRefundResponse({}));
+  }
+
+  /**
+   * 申请退款
+   * 
+   * @param request - GlobalHotelApplyRefundRequest
+   * @returns GlobalHotelApplyRefundResponse
+   */
+  async globalHotelApplyRefund(request: $_model.GlobalHotelApplyRefundRequest): Promise<$_model.GlobalHotelApplyRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelApplyRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量查询酒店详情
+   * 
+   * @param tmpReq - GlobalHotelBatchGetHotelDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelBatchGetHotelDetailResponse
+   */
+  async globalHotelBatchGetHotelDetailWithOptions(tmpReq: $_model.GlobalHotelBatchGetHotelDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelBatchGetHotelDetailResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelBatchGetHotelDetailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelBatchGetHotelDetail",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelBatchGetHotelDetail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelBatchGetHotelDetailResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelBatchGetHotelDetailResponse({}));
+  }
+
+  /**
+   * 批量查询酒店详情
+   * 
+   * @param request - GlobalHotelBatchGetHotelDetailRequest
+   * @returns GlobalHotelBatchGetHotelDetailResponse
+   */
+  async globalHotelBatchGetHotelDetail(request: $_model.GlobalHotelBatchGetHotelDetailRequest): Promise<$_model.GlobalHotelBatchGetHotelDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelBatchGetHotelDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消或退款
+   * 
+   * @param request - GlobalHotelCancelOrRefundRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelCancelOrRefundResponse
+   */
+  async globalHotelCancelOrRefundWithOptions(request: $_model.GlobalHotelCancelOrRefundRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelCancelOrRefundResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelCancelOrRefund",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelCancelOrRefund`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelCancelOrRefundResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelCancelOrRefundResponse({}));
+  }
+
+  /**
+   * 取消或退款
+   * 
+   * @param request - GlobalHotelCancelOrRefundRequest
+   * @returns GlobalHotelCancelOrRefundResponse
+   */
+  async globalHotelCancelOrRefund(request: $_model.GlobalHotelCancelOrRefundRequest): Promise<$_model.GlobalHotelCancelOrRefundResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelCancelOrRefundWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消订单
+   * 
+   * @param request - GlobalHotelCancelOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelCancelOrderResponse
+   */
+  async globalHotelCancelOrderWithOptions(request: $_model.GlobalHotelCancelOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelCancelOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelCancelOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelCancelOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelCancelOrderResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelCancelOrderResponse({}));
+  }
+
+  /**
+   * 取消订单
+   * 
+   * @param request - GlobalHotelCancelOrderRequest
+   * @returns GlobalHotelCancelOrderResponse
+   */
+  async globalHotelCancelOrder(request: $_model.GlobalHotelCancelOrderRequest): Promise<$_model.GlobalHotelCancelOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelCancelOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创单并支付
+   * 
+   * @param tmpReq - GlobalHotelCreateAndPayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelCreateAndPayResponse
+   */
+  async globalHotelCreateAndPayWithOptions(tmpReq: $_model.GlobalHotelCreateAndPayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelCreateAndPayResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelCreateAndPayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contact)) {
+      request.contactShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contact, "Contact", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.guests)) {
+      request.guestsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.guests, "Guests", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.contactShrink)) {
+      body["Contact"] = request.contactShrink;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.guestsShrink)) {
+      body["Guests"] = request.guestsShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferId)) {
+      body["ItemOfferId"] = request.itemOfferId;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelCreateAndPay",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelCreateAndPay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelCreateAndPayResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelCreateAndPayResponse({}));
+  }
+
+  /**
+   * 创单并支付
+   * 
+   * @param request - GlobalHotelCreateAndPayRequest
+   * @returns GlobalHotelCreateAndPayResponse
+   */
+  async globalHotelCreateAndPay(request: $_model.GlobalHotelCreateAndPayRequest): Promise<$_model.GlobalHotelCreateAndPayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelCreateAndPayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建订单
+   * 
+   * @param tmpReq - GlobalHotelCreateOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelCreateOrderResponse
+   */
+  async globalHotelCreateOrderWithOptions(tmpReq: $_model.GlobalHotelCreateOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelCreateOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelCreateOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contact)) {
+      request.contactShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contact, "Contact", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.guests)) {
+      request.guestsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.guests, "Guests", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.contactShrink)) {
+      body["Contact"] = request.contactShrink;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.guestsShrink)) {
+      body["Guests"] = request.guestsShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferId)) {
+      body["ItemOfferId"] = request.itemOfferId;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelCreateOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelCreateOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelCreateOrderResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelCreateOrderResponse({}));
+  }
+
+  /**
+   * 创建订单
+   * 
+   * @param request - GlobalHotelCreateOrderRequest
+   * @returns GlobalHotelCreateOrderResponse
+   */
+  async globalHotelCreateOrder(request: $_model.GlobalHotelCreateOrderRequest): Promise<$_model.GlobalHotelCreateOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelCreateOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分销支付
+   * 
+   * @param request - GlobalHotelPayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelPayResponse
+   */
+  async globalHotelPayWithOptions(request: $_model.GlobalHotelPayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelPayResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelPay",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelPay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelPayResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelPayResponse({}));
+  }
+
+  /**
+   * 分销支付
+   * 
+   * @param request - GlobalHotelPayRequest
+   * @returns GlobalHotelPayResponse
+   */
+  async globalHotelPay(request: $_model.GlobalHotelPayRequest): Promise<$_model.GlobalHotelPayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelPayWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询酒店报价可用性
+   * 
+   * @param tmpReq - GlobalHotelQueryAvailabilityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelQueryAvailabilityResponse
+   */
+  async globalHotelQueryAvailabilityWithOptions(tmpReq: $_model.GlobalHotelQueryAvailabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelQueryAvailabilityResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelQueryAvailabilityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adultCount)) {
+      body["AdultCount"] = request.adultCount;
+    }
+
+    if (!$dara.isNull(request.checkInDate)) {
+      body["CheckInDate"] = request.checkInDate;
+    }
+
+    if (!$dara.isNull(request.checkOutDate)) {
+      body["CheckOutDate"] = request.checkOutDate;
+    }
+
+    if (!$dara.isNull(request.childCount)) {
+      body["ChildCount"] = request.childCount;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelQueryAvailability",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelQueryAvailability`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelQueryAvailabilityResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelQueryAvailabilityResponse({}));
+  }
+
+  /**
+   * 查询酒店报价可用性
+   * 
+   * @param request - GlobalHotelQueryAvailabilityRequest
+   * @returns GlobalHotelQueryAvailabilityResponse
+   */
+  async globalHotelQueryAvailability(request: $_model.GlobalHotelQueryAvailabilityRequest): Promise<$_model.GlobalHotelQueryAvailabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelQueryAvailabilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量日历报价查询
+   * 
+   * @param tmpReq - GlobalHotelQueryCalendarAvailabilityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelQueryCalendarAvailabilityResponse
+   */
+  async globalHotelQueryCalendarAvailabilityWithOptions(tmpReq: $_model.GlobalHotelQueryCalendarAvailabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelQueryCalendarAvailabilityResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelQueryCalendarAvailabilityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adultCount)) {
+      body["AdultCount"] = request.adultCount;
+    }
+
+    if (!$dara.isNull(request.checkInDateEnd)) {
+      body["CheckInDateEnd"] = request.checkInDateEnd;
+    }
+
+    if (!$dara.isNull(request.checkInDateStart)) {
+      body["CheckInDateStart"] = request.checkInDateStart;
+    }
+
+    if (!$dara.isNull(request.childCount)) {
+      body["ChildCount"] = request.childCount;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelQueryCalendarAvailability",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelQueryCalendarAvailability`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelQueryCalendarAvailabilityResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelQueryCalendarAvailabilityResponse({}));
+  }
+
+  /**
+   * 批量日历报价查询
+   * 
+   * @param request - GlobalHotelQueryCalendarAvailabilityRequest
+   * @returns GlobalHotelQueryCalendarAvailabilityResponse
+   */
+  async globalHotelQueryCalendarAvailability(request: $_model.GlobalHotelQueryCalendarAvailabilityRequest): Promise<$_model.GlobalHotelQueryCalendarAvailabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelQueryCalendarAvailabilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询订单
+   * 
+   * @param request - GlobalHotelQueryOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelQueryOrderResponse
+   */
+  async globalHotelQueryOrderWithOptions(request: $_model.GlobalHotelQueryOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelQueryOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelQueryOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelQueryOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelQueryOrderResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelQueryOrderResponse({}));
+  }
+
+  /**
+   * 查询订单
+   * 
+   * @param request - GlobalHotelQueryOrderRequest
+   * @returns GlobalHotelQueryOrderResponse
+   */
+  async globalHotelQueryOrder(request: $_model.GlobalHotelQueryOrderRequest): Promise<$_model.GlobalHotelQueryOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelQueryOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页查询城市行政区划（中英文）
+   * 
+   * @param request - GlobalHotelSearchCityPageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelSearchCityPageResponse
+   */
+  async globalHotelSearchCityPageWithOptions(request: $_model.GlobalHotelSearchCityPageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelSearchCityPageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.count)) {
+      body["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.countryCode)) {
+      body["CountryCode"] = request.countryCode;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      body["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelSearchCityPage",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelSearchCityPage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelSearchCityPageResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelSearchCityPageResponse({}));
+  }
+
+  /**
+   * 分页查询城市行政区划（中英文）
+   * 
+   * @param request - GlobalHotelSearchCityPageRequest
+   * @returns GlobalHotelSearchCityPageResponse
+   */
+  async globalHotelSearchCityPage(request: $_model.GlobalHotelSearchCityPageRequest): Promise<$_model.GlobalHotelSearchCityPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelSearchCityPageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按城市分页查询酒店列表
+   * 
+   * @param request - GlobalHotelSearchHotelListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelSearchHotelListResponse
+   */
+  async globalHotelSearchHotelListWithOptions(request: $_model.GlobalHotelSearchHotelListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelSearchHotelListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.cityCode)) {
+      body["CityCode"] = request.cityCode;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelSearchHotelList",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelSearchHotelList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelSearchHotelListResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelSearchHotelListResponse({}));
+  }
+
+  /**
+   * 按城市分页查询酒店列表
+   * 
+   * @param request - GlobalHotelSearchHotelListRequest
+   * @returns GlobalHotelSearchHotelListResponse
+   */
+  async globalHotelSearchHotelList(request: $_model.GlobalHotelSearchHotelListRequest): Promise<$_model.GlobalHotelSearchHotelListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelSearchHotelListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 验价
+   * 
+   * @param tmpReq - GlobalHotelValidatePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalHotelValidatePriceResponse
+   */
+  async globalHotelValidatePriceWithOptions(tmpReq: $_model.GlobalHotelValidatePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GlobalHotelValidatePriceResponse> {
+    tmpReq.validate();
+    let request = new $_model.GlobalHotelValidatePriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adults)) {
+      body["Adults"] = request.adults;
+    }
+
+    if (!$dara.isNull(request.children)) {
+      body["Children"] = request.children;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferKey)) {
+      body["ItemOfferKey"] = request.itemOfferKey;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "globalHotelValidatePrice",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotelValidatePrice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GlobalHotelValidatePriceResponse>(await this.callApi(params, req, runtime), new $_model.GlobalHotelValidatePriceResponse({}));
+  }
+
+  /**
+   * 验价
+   * 
+   * @param request - GlobalHotelValidatePriceRequest
+   * @returns GlobalHotelValidatePriceResponse
+   */
+  async globalHotelValidatePrice(request: $_model.GlobalHotelValidatePriceRequest): Promise<$_model.GlobalHotelValidatePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalHotelValidatePriceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分销支付
+   * 
+   * @param request - PayRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PayResponse
+   */
+  async payWithOptions(request: $_model.PayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PayResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "pay",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/pay`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PayResponse>(await this.callApi(params, req, runtime), new $_model.PayResponse({}));
+  }
+
+  /**
+   * 分销支付
+   * 
+   * @param request - PayRequest
+   * @returns PayResponse
+   */
+  async pay(request: $_model.PayRequest): Promise<$_model.PayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.payWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询酒店报价可用性
+   * 
+   * @param tmpReq - QueryAvailabilityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAvailabilityResponse
+   */
+  async queryAvailabilityWithOptions(tmpReq: $_model.QueryAvailabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAvailabilityResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryAvailabilityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adultCount)) {
+      body["AdultCount"] = request.adultCount;
+    }
+
+    if (!$dara.isNull(request.checkInDate)) {
+      body["CheckInDate"] = request.checkInDate;
+    }
+
+    if (!$dara.isNull(request.checkOutDate)) {
+      body["CheckOutDate"] = request.checkOutDate;
+    }
+
+    if (!$dara.isNull(request.childCount)) {
+      body["ChildCount"] = request.childCount;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "queryAvailability",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/queryAvailability`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAvailabilityResponse>(await this.callApi(params, req, runtime), new $_model.QueryAvailabilityResponse({}));
+  }
+
+  /**
+   * 查询酒店报价可用性
+   * 
+   * @param request - QueryAvailabilityRequest
+   * @returns QueryAvailabilityResponse
+   */
+  async queryAvailability(request: $_model.QueryAvailabilityRequest): Promise<$_model.QueryAvailabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAvailabilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量日历报价查询
+   * 
+   * @param tmpReq - QueryCalendarAvailabilityRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCalendarAvailabilityResponse
+   */
+  async queryCalendarAvailabilityWithOptions(tmpReq: $_model.QueryCalendarAvailabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCalendarAvailabilityResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryCalendarAvailabilityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.standardHotelIds)) {
+      request.standardHotelIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.standardHotelIds, "StandardHotelIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adultCount)) {
+      body["AdultCount"] = request.adultCount;
+    }
+
+    if (!$dara.isNull(request.checkInDateEnd)) {
+      body["CheckInDateEnd"] = request.checkInDateEnd;
+    }
+
+    if (!$dara.isNull(request.checkInDateStart)) {
+      body["CheckInDateStart"] = request.checkInDateStart;
+    }
+
+    if (!$dara.isNull(request.childCount)) {
+      body["ChildCount"] = request.childCount;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.standardHotelIdsShrink)) {
+      body["StandardHotelIds"] = request.standardHotelIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "queryCalendarAvailability",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/queryCalendarAvailability`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCalendarAvailabilityResponse>(await this.callApi(params, req, runtime), new $_model.QueryCalendarAvailabilityResponse({}));
+  }
+
+  /**
+   * 批量日历报价查询
+   * 
+   * @param request - QueryCalendarAvailabilityRequest
+   * @returns QueryCalendarAvailabilityResponse
+   */
+  async queryCalendarAvailability(request: $_model.QueryCalendarAvailabilityRequest): Promise<$_model.QueryCalendarAvailabilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryCalendarAvailabilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询订单
+   * 
+   * @param request - QueryOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOrderResponse
+   */
+  async queryOrderWithOptions(request: $_model.QueryOrderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryOrderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.externalOrderNo)) {
+      body["ExternalOrderNo"] = request.externalOrderNo;
+    }
+
+    if (!$dara.isNull(request.orderNo)) {
+      body["OrderNo"] = request.orderNo;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "queryOrder",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/queryOrder`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryOrderResponse>(await this.callApi(params, req, runtime), new $_model.QueryOrderResponse({}));
+  }
+
+  /**
+   * 查询订单
+   * 
+   * @param request - QueryOrderRequest
+   * @returns QueryOrderResponse
+   */
+  async queryOrder(request: $_model.QueryOrderRequest): Promise<$_model.QueryOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryOrderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页查询城市行政区划（中英文）
+   * 
+   * @param request - SearchCityPageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCityPageResponse
+   */
+  async searchCityPageWithOptions(request: $_model.SearchCityPageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchCityPageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.count)) {
+      body["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.countryCode)) {
+      body["CountryCode"] = request.countryCode;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      body["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "searchCityPage",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/searchCityPage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchCityPageResponse>(await this.callApi(params, req, runtime), new $_model.SearchCityPageResponse({}));
+  }
+
+  /**
+   * 分页查询城市行政区划（中英文）
+   * 
+   * @param request - SearchCityPageRequest
+   * @returns SearchCityPageResponse
+   */
+  async searchCityPage(request: $_model.SearchCityPageRequest): Promise<$_model.SearchCityPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchCityPageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按城市分页查询酒店列表
+   * 
+   * @param request - SearchHotelListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchHotelListResponse
+   */
+  async searchHotelListWithOptions(request: $_model.SearchHotelListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchHotelListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.cityCode)) {
+      body["CityCode"] = request.cityCode;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "searchHotelList",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/globalHotel/searchHotelList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchHotelListResponse>(await this.callApi(params, req, runtime), new $_model.SearchHotelListResponse({}));
+  }
+
+  /**
+   * 按城市分页查询酒店列表
+   * 
+   * @param request - SearchHotelListRequest
+   * @returns SearchHotelListResponse
+   */
+  async searchHotelList(request: $_model.SearchHotelListRequest): Promise<$_model.SearchHotelListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchHotelListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 验价
+   * 
+   * @param tmpReq - ValidatePriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidatePriceResponse
+   */
+  async validatePriceWithOptions(tmpReq: $_model.ValidatePriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ValidatePriceResponse> {
+    tmpReq.validate();
+    let request = new $_model.ValidatePriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.childrenAges)) {
+      request.childrenAgesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.childrenAges, "ChildrenAges", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accountNo)) {
+      body["AccountNo"] = request.accountNo;
+    }
+
+    if (!$dara.isNull(request.adults)) {
+      body["Adults"] = request.adults;
+    }
+
+    if (!$dara.isNull(request.children)) {
+      body["Children"] = request.children;
+    }
+
+    if (!$dara.isNull(request.childrenAgesShrink)) {
+      body["ChildrenAges"] = request.childrenAgesShrink;
+    }
+
+    if (!$dara.isNull(request.itemOfferKey)) {
+      body["ItemOfferKey"] = request.itemOfferKey;
+    }
+
+    if (!$dara.isNull(request.roomCount)) {
+      body["RoomCount"] = request.roomCount;
+    }
+
+    if (!$dara.isNull(request.tracerId)) {
+      body["TracerId"] = request.tracerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "validatePrice",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/validatePrice`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidatePriceResponse>(await this.callApi(params, req, runtime), new $_model.ValidatePriceResponse({}));
+  }
+
+  /**
+   * 验价
+   * 
+   * @param request - ValidatePriceRequest
+   * @returns ValidatePriceResponse
+   */
+  async validatePrice(request: $_model.ValidatePriceRequest): Promise<$_model.ValidatePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.validatePriceWithOptions(request, headers, runtime);
+  }
+
 }
