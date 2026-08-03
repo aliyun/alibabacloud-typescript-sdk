@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VideoModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The ServiceCode for video moderation.
+   * The service code for video moderation.
    * 
    * @example
    * videoDetection
@@ -13,7 +13,7 @@ export class VideoModerationResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The parameter set required by the moderation service. taskId specifies the taskId of the moderation task to query. Only one taskId can be specified per request.
+   * The parameter set required by the moderation service. taskId specifies the task ID of the moderation task to query. Only one taskId can be specified per request.
    * 
    * @example
    * {"taskId":"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5"}
