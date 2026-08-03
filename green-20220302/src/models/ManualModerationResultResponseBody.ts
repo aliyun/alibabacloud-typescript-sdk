@@ -8,7 +8,7 @@ export class ManualModerationResultResponseBodyDataResult extends $dara.Model {
    * The label description.
    * 
    * @example
-   * 未检测出风险
+   * No risk detected.
    */
   description?: string;
   /**
@@ -66,13 +66,13 @@ export class ManualModerationResultResponseBodyData extends $dara.Model {
   reviewCount?: string;
   /**
    * @remarks
-   * The risk level, returned based on the configured high and low risk scores. Valid values:
+   * The risk level, returned based on the configured high and low risk thresholds. Valid values:
    * 
    * - high: High risk.
    *  
    * - low: Low risk.
    * 
-   * - none: No risk detected.
+   *  - none: No risk detected.
    * 
    * @example
    * high

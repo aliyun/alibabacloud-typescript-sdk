@@ -128,6 +128,7 @@ export { VideoModerationResultResponseBodyDataExtAigcDataAIGC } from './VideoMod
 export { VideoModerationResultResponseBodyDataExtAigcData } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataExt } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataFrameResultFrameSummarys } from './VideoModerationResultResponseBody';
+export { VideoModerationResultResponseBodyDataFrameResultFramesResultsAigcData } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLocation } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo } from './VideoModerationResultResponseBody';

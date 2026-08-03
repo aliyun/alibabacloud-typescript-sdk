@@ -56,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the document content moderation result.
+   * The document moderation result.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +91,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the document content moderation result.
+   * The document moderation result.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @returns DescribeFileModerationResultResponse
@@ -699,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the manual review result.
+   * Retrieves the manual review result for content moderation.
    * 
    * @param request - ManualModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -730,7 +730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the manual review result.
+   * Retrieves the manual review result for content moderation.
    * 
    * @param request - ManualModerationResultRequest
    * @returns ManualModerationResultResponse

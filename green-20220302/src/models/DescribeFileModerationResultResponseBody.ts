@@ -219,7 +219,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskLevel?: string;
   /**
    * @remarks
-   * The details of the hit risks.
+   * The details of the hit risk.
    * 
    * @example
    * xxx
@@ -251,7 +251,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   text?: string;
   /**
    * @remarks
-   * The text segment information.
+   * The text segmentation information.
    * 
    * @example
    * [0,999]
@@ -297,7 +297,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
 export class DescribeFileModerationResultResponseBodyDataPageResult extends $dara.Model {
   /**
    * @remarks
-   * The image moderation result.
+   * The image detection results.
    */
   imageResult?: DescribeFileModerationResultResponseBodyDataPageResultImageResult[];
   /**
@@ -318,7 +318,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
   pageNum?: number;
   /**
    * @remarks
-   * The text moderation result.
+   * The text moderation results.
    */
   textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
   /**
@@ -455,12 +455,61 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC extends $dara.Model {
+  /**
+   * @remarks
+   * The content producer code.
+   * 
+   * @example
+   * 00119144030008867405X210001
+   */
   contentProducer?: string;
+  /**
+   * @remarks
+   * The content propagator code.
+   * 
+   * @example
+   * 00119144030008867405X220001
+   */
   contentPropagator?: string;
+  /**
+   * @remarks
+   * The content attribute declared by the implicit identifier.
+   * 
+   * @example
+   * Belongs to AI-generated synthetic content.
+   */
   label?: string;
+  /**
+   * @remarks
+   * The content production ID.
+   * 
+   * @example
+   * tos-cn-i-tb4s082cfz/ad88d9b125694f57b2c72235e5c42af1
+   */
   produceID?: string;
+  /**
+   * @remarks
+   * The content propagation ID.
+   * 
+   * @example
+   * tos-cn-i-tb4s082cfz/ad88d9b125694f57b2c72235e5c42af1
+   */
   propagateID?: string;
+  /**
+   * @remarks
+   * Reserved field 1.
+   * 
+   * @example
+   * None.
+   */
   reservedCode1?: string;
+  /**
+   * @remarks
+   * Reserved field 2.
+   * 
+   * @example
+   * None.
+   */
   reservedCode2?: string;
   static names(): { [key: string]: string } {
     return {
@@ -496,7 +545,18 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData extends $dara.Model {
+  /**
+   * @remarks
+   * The implicit identifier information of AI-generated content.
+   */
   AIGC?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC;
+  /**
+   * @remarks
+   * The comprehensive analysis report of large model authenticity verification.
+   * 
+   * @example
+   * ### Comprehensive report for users.
+   */
   explain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -525,6 +585,10 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt extends $dara.Model {
+  /**
+   * @remarks
+   * The detection details of AI-generated content.
+   */
   aigcData?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData;
   static names(): { [key: string]: string } {
     return {
@@ -551,8 +615,29 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The label confidence score.
+   * 
+   * @example
+   * 95.96
+   */
   confidence?: number;
+  /**
+   * @remarks
+   * The Chinese description of the risk label.
+   * 
+   * @example
+   * Suspected AI-generated synthetic content.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The risk label.
+   * 
+   * @example
+   * tamper_aigc
+   */
   label?: string;
   static names(): { [key: string]: string } {
     return {
@@ -580,8 +665,23 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryR
 }
 
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The extended information.
+   */
   ext?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt;
+  /**
+   * @remarks
+   * The list of hit authenticity verification risk labels.
+   */
   riskLabels?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryRiskLabels[];
+  /**
+   * @remarks
+   * The overall risk level of the document, which is the highest level among all hit labels.
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -718,6 +818,10 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
    * 1
    */
   pageSum?: number;
+  /**
+   * @remarks
+   * The document authenticity verification risk summary.
+   */
   riskSummary?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummary;
   /**
    * @remarks
@@ -763,7 +867,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
 export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccountId passed in by the customer.
+   * The AccountId specified in the request.
    * 
    * @example
    * accountIdtest123
@@ -779,7 +883,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * Optional. The document type.
+   * The document type. This parameter is optional.
    * 
    * @example
    * doc
@@ -787,7 +891,7 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * The list of moderation results.
+   * The list of detection results.
    */
   pageResult?: DescribeFileModerationResultResponseBodyDataPageResult[];
   /**

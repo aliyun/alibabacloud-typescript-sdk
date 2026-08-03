@@ -678,6 +678,29 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
   }
 }
 
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsAigcData extends $dara.Model {
+  explain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      explain: 'Explain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      explain: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $dara.Model {
   /**
    * @remarks
@@ -1059,6 +1082,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsVlCont
 }
 
 export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $dara.Model {
+  aigcData?: VideoModerationResultResponseBodyDataFrameResultFramesResultsAigcData;
   /**
    * @remarks
    * The custom image library information returned when a custom image library is hit.
@@ -1099,6 +1123,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   vlContent?: VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent;
   static names(): { [key: string]: string } {
     return {
+      aigcData: 'AigcData',
       customImage: 'CustomImage',
       logoData: 'LogoData',
       publicFigure: 'PublicFigure',
@@ -1111,6 +1136,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
 
   static types(): { [key: string]: any } {
     return {
+      aigcData: VideoModerationResultResponseBodyDataFrameResultFramesResultsAigcData,
       customImage: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage },
       logoData: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData },
       publicFigure: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure },
@@ -1122,6 +1148,9 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   }
 
   validate() {
+    if(this.aigcData && typeof (this.aigcData as any).validate === 'function') {
+      (this.aigcData as any).validate();
+    }
     if(Array.isArray(this.customImage)) {
       $dara.Model.validateArray(this.customImage);
     }

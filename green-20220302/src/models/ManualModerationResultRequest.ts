@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManualModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter set required by the service, in JSON string format.
+   * The set of parameters required by the service, in JSON string format.
    * - TaskId: The task ID returned when the task was submitted.
    * 
    * @example
