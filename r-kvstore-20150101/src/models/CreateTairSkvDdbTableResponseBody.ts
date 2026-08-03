@@ -55,7 +55,7 @@ export class CreateTairSkvDdbTableResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The current status of the instance. The value is fixed to Creating.
+   * The current status of the instance. The value is fixed as Creating.
    * 
    * @example
    * Creating
@@ -79,7 +79,7 @@ export class CreateTairSkvDdbTableResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The queries per second (QPS). This value is the theoretical value for the current instance specification.
+   * The queries per second (QPS). This value is the theoretical maximum for the current instance specifications.
    * 
    * @example
    * 100000

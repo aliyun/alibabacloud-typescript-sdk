@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Model {
   /**
    * @remarks
-   * The service category. Valid values:
-   * 
-   * *   **0**: Redis Open-Source Edition
-   * *   **1**: Tair (Enterprise Edition)
+   * The product category. Valid values:
+   * - **0**: Redis Community Edition
+   * - **1**: Tair (Enhanced Edition)
    * 
    * @example
    * 0
@@ -16,7 +15,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   category?: number;
   /**
    * @remarks
-   * The time when the parameter template was created.
+   * The creation time of the parameter template.
    * 
    * @example
    * 2023-04-18 16:32:45
@@ -25,10 +24,9 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   /**
    * @remarks
    * The engine type. Valid values:
-   * 
-   * *   **redis**: Redis Open-Source Edition or Tair (In-Memory)
-   * *   **tair_pena**: Tair (On NVM)
-   * *   **tair_pdb**: Tair (On Disk)
+   * - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
+   * - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
+   * - **tair_pdb**: Tair (Enhanced Edition) cloud disk type.
    * 
    * @example
    * tair_pena
@@ -36,7 +34,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   engine?: string;
   /**
    * @remarks
-   * The compatible engine version.
+   * The engine-compatible version.
    * 
    * @example
    * 5
@@ -44,7 +42,7 @@ export class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Mo
   engineVersion?: string;
   /**
    * @remarks
-   * The time when the parameter template was last modified.
+   * The most recent modification time of the parameter template.
    * 
    * @example
    * 2023-04-18 16:32:45

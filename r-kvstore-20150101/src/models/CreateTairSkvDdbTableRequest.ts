@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTairSkvDdbTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster backup set ID. Some new cluster architectures support cluster backup set IDs. You can call [DescribeClusterBackupList](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeclusterbackuplist-redis) to obtain the ID.
+   * The cluster backup set ID. Some new cluster architectures support this parameter. You can call [DescribeClusterBackupList](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeclusterbackuplist-redis) to obtain the ID.
    * 
    * @example
    * cb-hyxdof5x9kqb**
@@ -13,7 +13,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and cannot exceed 64 ASCII characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz**
@@ -43,6 +43,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  restoreTime?: string;
   /**
    * @remarks
    * The table schema configuration in JSON format.
@@ -54,7 +55,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * To create an instance from a backup set of an existing instance, specify the ID of the source instance in this parameter.
+   * To create an instance from a backup set of an existing instance, specify the source instance ID in this parameter.
    * 
    * > This parameter must be used together with BackupId.
    * 
@@ -100,6 +101,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      restoreTime: 'RestoreTime',
       schema: 'Schema',
       securityToken: 'SecurityToken',
       srcDBInstanceId: 'SrcDBInstanceId',
@@ -119,6 +121,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      restoreTime: 'string',
       schema: 'string',
       securityToken: 'string',
       srcDBInstanceId: 'string',

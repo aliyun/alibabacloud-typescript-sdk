@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The architecture of the instance. Valid values:
-   * 
-   * *   **cluster**: cluster architecture
-   * *   **standard**: standard architecture
-   * *   **rwsplit**: read/write splitting architecture
+   * The architecture type. Valid values:
+   * * **cluster**: Cluster Edition.
+   * * **standard**: Standard Edition.
+   * * **rwsplit**: read/write splitting edition.
    * 
    * @example
    * cluster
@@ -25,10 +24,9 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   capacity?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * The billing method. Valid values:
+   * * **PrePaid**: subscription.
+   * * **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -60,7 +58,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
+   * The Redis-compatible engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
    * 
    * @example
    * 6.0
@@ -68,8 +66,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   engineVersion?: string;
   /**
    * @remarks
-   * The ID of the distributed instance.
-   * 
+   * The distributed instance ID.
    * > This parameter is returned only when the instance is a child instance of a distributed instance.
    * 
    * @example
@@ -78,7 +75,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   globalInstanceId?: string;
   /**
    * @remarks
-   * The instance type of the instance.
+   * The instance type.
    * 
    * @example
    * redis.logic.sharding.2g.2db.0rodb.4proxy.default
@@ -86,7 +83,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   instanceClass?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -102,23 +99,22 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   instanceName?: string;
   /**
    * @remarks
-   * The state of the instance. Valid values:
-   * 
-   * *   **Normal**: The instance is normal.
-   * *   **Creating**: The instance is being created.
-   * *   **Changing**: The configurations of the instance are being changed.
-   * *   **Inactive**: The instance is disabled.
-   * *   **Flushing**: The instance is being released.
-   * *   **Released**: The instance is released.
-   * *   **Transforming**: The billing method of the instance is being changed.
-   * *   **Unavailable**: The instance is unavailable.
-   * *   **Error**: The instance failed to be created.
-   * *   **Migrating**: The instance is being migrated.
-   * *   **BackupRecovering**: The instance is being restored from a backup.
-   * *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-   * *   **NetworkModifying**: The network type of the instance is being changed.
-   * *   **SSLModifying**: The SSL certificate of the instance is being changed.
-   * *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+   * The instance status. Valid values:
+   * * **Normal**: The instance is running.
+   * * **Creating**: The instance is being created.
+   * * **Changing**: The instance is being modified.
+   * * **Inactive**: The instance is disabled.
+   * * **Flushing**: The instance is being purged.
+   * * **Released**: The instance is released.
+   * * **Transforming**: The instance is being transformed.
+   * * **Unavailable**: The instance is unavailable.
+   * * **Error**: The instance failed to be created.
+   * * **Migrating**: The instance is being migrated.
+   * * **BackupRecovering**: The instance is being restored from a backup.
+   * * **MinorVersionUpgrading**: A minor version upgrade is in progress.
+   * * **NetworkModifying**: The network configuration is being modified.
+   * * **SSLModifying**: The SSL configuration is being modified.
+   * * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
    * 
    * @example
    * Normal
@@ -126,11 +122,10 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   instanceStatus?: string;
   /**
    * @remarks
-   * The edition of the instance. Valid values:
-   * 
-   * *   **Tair**: Tair (Enterprise Edition)
-   * *   **Redis**: Redis Open-Source Edition
-   * *   **Memcache**
+   * The instance type. Valid values:
+   * * **Tair**: Tair (Enterprise Edition).
+   * * **Redis**: Redis Community Edition.
+   * * **Memcache**
    * 
    * @example
    * Redis
@@ -138,20 +133,20 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   instanceType?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   **CLASSIC**: classic network
-   * *   **VPC**: VPC
+   * The network type. Valid values:
+   * * **CLASSIC**: classic network.
+   * * **VPC**: virtual private cloud (VPC).
    * 
    * @example
    * CLASSIC
    */
   networkType?: string;
+  nodeType?: string;
   /**
    * @remarks
-   * The private IP address of the instance.
-   * 
-   * > This parameter is not returned when the instance is deployed in the classic network.
+   * The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (internal endpoint) to connect to the instance.
+   * > - This parameter is not returned if the network type of the instance is classic network.
+   * > - This parameter is not returned for cloud-native instances.
    * 
    * @example
    * 172.16.49.***
@@ -159,7 +154,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   privateIp?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -167,7 +162,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The resource group ID to which the instance belongs.
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -175,8 +170,8 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   resourceGroupId?: string;
   /**
    * @remarks
-   * Instance\\"s secondary zone id.
-   * > This parameter is only returned when the instance has a secondary zone ID.
+   * The secondary zone ID.
+   * > This parameter is returned only when the instance has a secondary zone.
    * 
    * @example
    * cn-hangzhou-g
@@ -184,7 +179,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the instance is connected.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****
@@ -192,7 +187,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1nme44gek34slfc****
@@ -200,7 +195,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-b
@@ -222,6 +217,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
       instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
       networkType: 'NetworkType',
+      nodeType: 'NodeType',
       privateIp: 'PrivateIp',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -248,6 +244,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
       instanceStatus: 'string',
       instanceType: 'string',
       networkType: 'string',
+      nodeType: 'string',
       privateIp: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -270,12 +267,12 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
 export class DescribeInstancesOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried instances.
+   * The list of instances.
    */
   instances?: DescribeInstancesOverviewResponseBodyInstances[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1E83311F-0EE4-4922-A3BF-730B312B****

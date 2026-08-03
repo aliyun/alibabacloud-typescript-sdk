@@ -88,7 +88,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The queries per second (QPS). This value is the theoretical value for the current instance specification.
+   * The queries per second (QPS). This value is the theoretical value for the current instance specifications.
    * 
    * @example
    * 100000

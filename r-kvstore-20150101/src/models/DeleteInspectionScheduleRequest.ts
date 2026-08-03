@@ -2,29 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeBackupPolicyRequest extends $dara.Model {
+export class DeleteInspectionScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * r-bp1zxszhcgatnx****
+   * ta-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  /**
+   * @example
+   * scheduleId-202604141xxxx
+   */
+  scheduleId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
+      scheduleId: 'ScheduleId',
       securityToken: 'SecurityToken',
     };
   }
@@ -32,10 +28,7 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      scheduleId: 'string',
       securityToken: 'string',
     };
   }

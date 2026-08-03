@@ -2,41 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeBackupPolicyRequest extends $dara.Model {
+export class DescribeInspectionTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * r-bp1zxszhcgatnx****
+   * ta-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
   securityToken?: string;
+  /**
+   * @example
+   * 1
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       securityToken: 'SecurityToken',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      pageNum: 'string',
+      pageSize: 'string',
       securityToken: 'string',
+      type: 'string',
     };
   }
 

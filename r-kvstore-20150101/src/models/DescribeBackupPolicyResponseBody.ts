@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authAction?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -37,7 +37,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -53,7 +53,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   noPermissionType?: string;
   /**
    * @remarks
-   * This parameter is no longer used. Ignore this parameter.
+   * Same as above.
    * 
    * @example
    * -
@@ -95,12 +95,13 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The following parameters are no longer used. Ignore the parameters.
+   * This parameter is deprecated. Ignore this parameter.
    */
   accessDeniedDetail?: DescribeBackupPolicyResponseBodyAccessDeniedDetail;
+  backupLogStartTime?: string;
   /**
    * @remarks
-   * The retention period of the backup data. Unit: days.
+   * The number of days for which backup data is retained.
    * 
    * @example
    * 7
@@ -108,10 +109,9 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   backupRetentionPeriod?: string;
   /**
    * @remarks
-   * Indicates whether the backup-as-a-service feature is enabled for the instance. Valid values:
-   * 
-   * *   **1**: The backup-as-a-service feature is enabled for the instance.
-   * *   **0**: The backup-as-a-service feature is disabled for the instance.
+   * Indicates whether the backup service is enabled for the instance. Valid values:
+   * * **1**: enabled.
+   * * **0**: disabled.
    * 
    * @example
    * 0
@@ -119,10 +119,9 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   dbsInstance?: string;
   /**
    * @remarks
-   * Indicates whether incremental data backup is enabled. Valid values:
-   * 
-   * *   **1**: Incremental data backup is enabled.
-   * *   **0**: Incremental data backup is disabled.
+   * Indicates whether incremental backup is enabled. Valid values:
+   * * **1**: enabled.
+   * * **0**: disabled.
    * 
    * @example
    * 1
@@ -131,14 +130,13 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The backup cycle. Valid values:
-   * 
-   * *   **Monday**
-   * *   **Tuesday**
-   * *   **Wednesday**
-   * *   **Thursday**
-   * *   **Friday**
-   * *   **Saturday**
-   * *   **Sunday**
+   * * **Monday**
+   * * **Tuesday**
+   * * **Wednesday**
+   * * **Thursday**
+   * * **Friday**
+   * * **Saturday**
+   * * **Sunday**
    * 
    * @example
    * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
@@ -146,7 +144,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The time range during which the backup was created. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+   * The backup time. The time is in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 05:00Z-06:00Z
@@ -154,7 +152,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The next backup time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+   * The next backup time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2019-03-14T05:28Z
@@ -162,7 +160,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredNextBackupTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90B82DB7-FB28-4CC2-ADBF-1F8659F3****
@@ -171,6 +169,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
+      backupLogStartTime: 'BackupLogStartTime',
       backupRetentionPeriod: 'BackupRetentionPeriod',
       dbsInstance: 'DbsInstance',
       enableBackupLog: 'EnableBackupLog',
@@ -184,6 +183,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessDeniedDetail: DescribeBackupPolicyResponseBodyAccessDeniedDetail,
+      backupLogStartTime: 'string',
       backupRetentionPeriod: 'string',
       dbsInstance: 'string',
       enableBackupLog: 'number',

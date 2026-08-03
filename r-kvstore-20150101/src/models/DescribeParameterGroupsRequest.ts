@@ -6,20 +6,20 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The engine type. Valid values:
-   * 
-   * *   **redis**: Redis Open-Source Edition or Tair (In-Memory)
-   * *   **tair_pena**: Tair (On NVM)
-   * *   **tair_pdb**: Tair (On Disk)
+   * - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
+   * - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
+   * - **tair_pdb**: Tair (Enhanced Edition) cloud disk type (ESSD/SSD).
    * 
    * @example
    * redis
    */
   dbType?: string;
+  engineVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -33,6 +33,7 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dbType: 'DbType',
+      engineVersion: 'EngineVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -45,6 +46,7 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dbType: 'string',
+      engineVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

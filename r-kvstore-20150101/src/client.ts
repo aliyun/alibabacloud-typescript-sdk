@@ -56,28 +56,32 @@ export default class Client extends OpenApi {
       'na-south-1': "r-kvstore.na-south-1.aliyuncs.com",
       'me-east-1': "r-kvstore.me-east-1.aliyuncs.com",
       'me-central-1': "r-kvstore.me-central-1.aliyuncs.com",
+      'eu-west-2': "r-kvstore.eu-west-2.aliyuncs.com",
       'eu-west-1': "r-kvstore.eu-west-1.aliyuncs.com",
       'eu-central-1': "r-kvstore.eu-central-1.aliyuncs.com",
+      'cn-zhongwei': "r-kvstore.cn-zhongwei.aliyuncs.com",
       'cn-zhengzhou-jva': "r-kvstore.cn-zhengzhou-jva.aliyuncs.com",
       'cn-zhangjiakou': "r-kvstore.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com",
       'cn-wuhan-lr': "r-kvstore.cn-wuhan-lr.aliyuncs.com",
       'cn-shenzhen-finance-1': "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-shenzhen': "r-kvstore.cn-shenzhen.aliyuncs.com",
       'cn-shanghai-finance-1': "r-kvstore.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-north-2-gov-1': "r-kvstore.cn-north-2-gov-1.aliyuncs.com",
       'cn-nanjing': "r-kvstore.cn-nanjing.aliyuncs.com",
       'cn-huhehaote': "r-kvstore.cn-huhehaote.aliyuncs.com",
       'cn-hongkong': "r-kvstore.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "r-kvstore.cn-heyuan-acdr-1.aliyuncs.com",
       'cn-guangzhou': "r-kvstore.cn-guangzhou.aliyuncs.com",
       'cn-fuzhou': "r-kvstore.cn-fuzhou.aliyuncs.com",
       'cn-chengdu': "r-kvstore.cn-chengdu.aliyuncs.com",
       'cn-beijing-finance-1': "r-kvstore.cn-beijing-finance-1.aliyuncs.com",
+      'ap-southeast-8': "r-kvstore.ap-southeast-8.aliyuncs.com",
       'ap-southeast-7': "r-kvstore.ap-southeast-7.aliyuncs.com",
       'ap-southeast-6': "r-kvstore.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "r-kvstore.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "r-kvstore.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "r-kvstore.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "r-kvstore.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "r-kvstore.ap-south-1.aliyuncs.com",
       'ap-northeast-2': "r-kvstore.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "r-kvstore.ap-northeast-1.aliyuncs.com",
     };
@@ -428,6 +432,56 @@ export default class Client extends OpenApi {
   async cancelActiveOperationTasks(request: $_model.CancelActiveOperationTasksRequest): Promise<$_model.CancelActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭巡检任务
+   * 
+   * @param request - CancelInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelInspectionTaskResponse
+   */
+  async cancelInspectionTaskWithOptions(request: $_model.CancelInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelInspectionTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelInspectionTask",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelInspectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelInspectionTaskResponse({}));
+  }
+
+  /**
+   * 关闭巡检任务
+   * 
+   * @param request - CancelInspectionTaskRequest
+   * @returns CancelInspectionTaskResponse
+   */
+  async cancelInspectionTask(request: $_model.CancelInspectionTaskRequest): Promise<$_model.CancelInspectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelInspectionTaskWithOptions(request, runtime);
   }
 
   /**
@@ -899,12 +953,148 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+   * 创建定时巡检任务配置
+   * 
+   * @param request - CreateInspectionScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInspectionScheduleResponse
+   */
+  async createInspectionScheduleWithOptions(request: $_model.CreateInspectionScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInspectionScheduleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
+    }
+
+    if (!$dara.isNull(request.inspectionWindow)) {
+      query["InspectionWindow"] = request.inspectionWindow;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.scheduleName)) {
+      query["ScheduleName"] = request.scheduleName;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      query["Timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInspectionSchedule",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInspectionScheduleResponse>(await this.callApi(params, req, runtime), new $_model.CreateInspectionScheduleResponse({}));
+  }
+
+  /**
+   * 创建定时巡检任务配置
+   * 
+   * @param request - CreateInspectionScheduleRequest
+   * @returns CreateInspectionScheduleResponse
+   */
+  async createInspectionSchedule(request: $_model.CreateInspectionScheduleRequest): Promise<$_model.CreateInspectionScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInspectionScheduleWithOptions(request, runtime);
+  }
+
+  /**
+   * 手动创建巡检任务
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTaskWithOptions(request: $_model.CreateInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInspectionTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInspectionTask",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInspectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateInspectionTaskResponse({}));
+  }
+
+  /**
+   * 手动创建巡检任务
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTask(request: $_model.CreateInspectionTaskRequest): Promise<$_model.CreateInspectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
    * 
    * @remarks
-   * Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-   * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-   * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+   * Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+   * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+   * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
    * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1135,12 +1325,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+   * Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
    * 
    * @remarks
-   * Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-   * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-   * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+   * Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+   * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+   * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -1953,7 +2143,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+   * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
    * 
    * @param request - CreateTairSkvDdbTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1992,6 +2182,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.restoreTime)) {
+      query["RestoreTime"] = request.restoreTime;
     }
 
     if (!$dara.isNull(request.schema)) {
@@ -2040,7 +2234,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+   * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
    * 
    * @param request - CreateTairSkvDdbTableRequest
    * @returns CreateTairSkvDdbTableResponse
@@ -2051,11 +2245,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Tair Serverless KV workspace instance.
+   * Activates a Tair Serverless KV workspace instance.
    * 
    * @remarks
    * ## Operation description
-   * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+   * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
    * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
    * 
    * @param request - CreateTairSkvDdbWorkspaceRequest
@@ -2143,11 +2337,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Tair Serverless KV workspace instance.
+   * Activates a Tair Serverless KV workspace instance.
    * 
    * @remarks
    * ## Operation description
-   * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+   * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
    * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
    * 
    * @param request - CreateTairSkvDdbWorkspaceRequest
@@ -2382,6 +2576,70 @@ export default class Client extends OpenApi {
   async deleteGlobalSecurityIPGroup(request: $_model.DeleteGlobalSecurityIPGroupRequest): Promise<$_model.DeleteGlobalSecurityIPGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除定时巡检任务
+   * 
+   * @remarks
+   * 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+   * 调用本接口时，实例必须满足以下条件：
+   * * 实例状态为运行中。
+   * * 实例的付费方式为后付费（按量付费）。
+   * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+   * 
+   * @param request - DeleteInspectionScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInspectionScheduleResponse
+   */
+  async deleteInspectionScheduleWithOptions(request: $_model.DeleteInspectionScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInspectionScheduleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInspectionSchedule",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInspectionScheduleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInspectionScheduleResponse({}));
+  }
+
+  /**
+   * 删除定时巡检任务
+   * 
+   * @remarks
+   * 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+   * 调用本接口时，实例必须满足以下条件：
+   * * 实例状态为运行中。
+   * * 实例的付费方式为后付费（按量付费）。
+   * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+   * 
+   * @param request - DeleteInspectionScheduleRequest
+   * @returns DeleteInspectionScheduleResponse
+   */
+  async deleteInspectionSchedule(request: $_model.DeleteInspectionScheduleRequest): Promise<$_model.DeleteInspectionScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInspectionScheduleWithOptions(request, runtime);
   }
 
   /**
@@ -3255,7 +3513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+   * Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3306,7 +3564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+   * Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -5061,6 +5319,238 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看定时调度历次巡检报告
+   * 
+   * @param request - DescribeInspectionScheduleReportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInspectionScheduleReportsResponse
+   */
+  async describeInspectionScheduleReportsWithOptions(request: $_model.DescribeInspectionScheduleReportsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionScheduleReportsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInspectionScheduleReports",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInspectionScheduleReportsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInspectionScheduleReportsResponse({}));
+  }
+
+  /**
+   * 查看定时调度历次巡检报告
+   * 
+   * @param request - DescribeInspectionScheduleReportsRequest
+   * @returns DescribeInspectionScheduleReportsResponse
+   */
+  async describeInspectionScheduleReports(request: $_model.DescribeInspectionScheduleReportsRequest): Promise<$_model.DescribeInspectionScheduleReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInspectionScheduleReportsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看定时巡检任务配置
+   * 
+   * @param request - DescribeInspectionSchedulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInspectionSchedulesResponse
+   */
+  async describeInspectionSchedulesWithOptions(request: $_model.DescribeInspectionSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionSchedulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInspectionSchedules",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInspectionSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInspectionSchedulesResponse({}));
+  }
+
+  /**
+   * 查看定时巡检任务配置
+   * 
+   * @param request - DescribeInspectionSchedulesRequest
+   * @returns DescribeInspectionSchedulesResponse
+   */
+  async describeInspectionSchedules(request: $_model.DescribeInspectionSchedulesRequest): Promise<$_model.DescribeInspectionSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInspectionSchedulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询某个巡检任务的报告
+   * 
+   * @param request - DescribeInspectionTaskReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInspectionTaskReportResponse
+   */
+  async describeInspectionTaskReportWithOptions(request: $_model.DescribeInspectionTaskReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionTaskReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.inspectionInsId)) {
+      query["InspectionInsId"] = request.inspectionInsId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInspectionTaskReport",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInspectionTaskReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInspectionTaskReportResponse({}));
+  }
+
+  /**
+   * 查询某个巡检任务的报告
+   * 
+   * @param request - DescribeInspectionTaskReportRequest
+   * @returns DescribeInspectionTaskReportResponse
+   */
+  async describeInspectionTaskReport(request: $_model.DescribeInspectionTaskReportRequest): Promise<$_model.DescribeInspectionTaskReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInspectionTaskReportWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询智能巡检任务列表
+   * 
+   * @param request - DescribeInspectionTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInspectionTasksResponse
+   */
+  async describeInspectionTasksWithOptions(request: $_model.DescribeInspectionTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInspectionTasks",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInspectionTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInspectionTasksResponse({}));
+  }
+
+  /**
+   * 查询智能巡检任务列表
+   * 
+   * @param request - DescribeInspectionTasksRequest
+   * @returns DescribeInspectionTasksResponse
+   */
+  async describeInspectionTasks(request: $_model.DescribeInspectionTasksRequest): Promise<$_model.DescribeInspectionTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInspectionTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a Tair (Redis-compatible) instance.
    * 
    * @param request - DescribeInstanceAttributeRequest
@@ -5259,10 +5749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例的多 VIP 信息
+   * Queries the load balancer (LB) information of an instance.
    * 
    * @remarks
-   * 关于多LB，详情参见
+   * For more information about multiple LBs, see.
    * 
    * @param request - DescribeInstanceMultiVIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5309,10 +5799,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例的多 VIP 信息
+   * Queries the load balancer (LB) information of an instance.
    * 
    * @remarks
-   * 关于多LB，详情参见
+   * For more information about multiple LBs, see.
    * 
    * @param request - DescribeInstanceMultiVIPRequest
    * @returns DescribeInstanceMultiVIPResponse
@@ -5615,11 +6105,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+   * Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
    * 
    * @remarks
-   * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-   * > This operation returns non-paged results.
+   * If you do not specify any request parameters, the overview information of all instances is returned.
+   * > This operation does not support pagination for the returned results.
    * 
    * @param request - DescribeInstancesOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5662,6 +6152,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -5730,11 +6224,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+   * Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
    * 
    * @remarks
-   * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-   * > This operation returns non-paged results.
+   * If you do not specify any request parameters, the overview information of all instances is returned.
+   * > This operation does not support pagination for the returned results.
    * 
    * @param request - DescribeInstancesOverviewRequest
    * @returns DescribeInstancesOverviewResponse
@@ -6161,7 +6655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available parameter templates.
+   * Queries the list of available parameter templates.
    * 
    * @param request - DescribeParameterGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6172,6 +6666,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.dbType)) {
       query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -6216,7 +6714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of available parameter templates.
+   * Queries the list of available parameter templates.
    * 
    * @param request - DescribeParameterGroupsRequest
    * @returns DescribeParameterGroupsResponse
@@ -7559,7 +8057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Queries the details of a task.
    * 
    * @param request - DescribeTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7594,7 +8092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务详情
+   * Queries the details of a task.
    * 
    * @param request - DescribeTaskDetailRequest
    * @returns DescribeTaskDetailResponse
@@ -9650,6 +10148,84 @@ export default class Client extends OpenApi {
   async modifyGlobalSecurityIPGroupRelation(request: $_model.ModifyGlobalSecurityIPGroupRelationRequest): Promise<$_model.ModifyGlobalSecurityIPGroupRelationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyGlobalSecurityIPGroupRelationWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改定时巡检配置
+   * 
+   * @param request - ModifyInspectionScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInspectionScheduleResponse
+   */
+  async modifyInspectionScheduleWithOptions(request: $_model.ModifyInspectionScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInspectionScheduleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
+    }
+
+    if (!$dara.isNull(request.inspectionWindow)) {
+      query["InspectionWindow"] = request.inspectionWindow;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.reportLanguage)) {
+      query["ReportLanguage"] = request.reportLanguage;
+    }
+
+    if (!$dara.isNull(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!$dara.isNull(request.scheduleName)) {
+      query["ScheduleName"] = request.scheduleName;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      query["Timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInspectionSchedule",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInspectionScheduleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInspectionScheduleResponse({}));
+  }
+
+  /**
+   * 修改定时巡检配置
+   * 
+   * @param request - ModifyInspectionScheduleRequest
+   * @returns ModifyInspectionScheduleResponse
+   */
+  async modifyInspectionSchedule(request: $_model.ModifyInspectionScheduleRequest): Promise<$_model.ModifyInspectionScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInspectionScheduleWithOptions(request, runtime);
   }
 
   /**
@@ -12199,6 +12775,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 手动重试巡检任务
+   * 
+   * @param request - RetryInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryInspectionTaskResponse
+   */
+  async retryInspectionTaskWithOptions(request: $_model.RetryInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryInspectionTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryInspectionTask",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryInspectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.RetryInspectionTaskResponse({}));
+  }
+
+  /**
+   * 手动重试巡检任务
+   * 
+   * @param request - RetryInspectionTaskRequest
+   * @returns RetryInspectionTaskResponse
+   */
+  async retryInspectionTask(request: $_model.RetryInspectionTaskRequest): Promise<$_model.RetryInspectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 启动TairCustom的主机
    * 
    * @param request - StartTairKVCacheCustomInstanceRequest
@@ -12494,6 +13120,66 @@ export default class Client extends OpenApi {
   async switchInstanceProxy(request: $_model.SwitchInstanceProxyRequest): Promise<$_model.SwitchInstanceProxyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.switchInstanceProxyWithOptions(request, runtime);
+  }
+
+  /**
+   * 实例指定目标可用区切换
+   * 
+   * @remarks
+   * 当前接口仅支持云原生架构实例
+   * 
+   * @param request - SwitchInstanceToTargetZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchInstanceToTargetZoneResponse
+   */
+  async switchInstanceToTargetZoneWithOptions(request: $_model.SwitchInstanceToTargetZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchInstanceToTargetZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.switchType)) {
+      query["SwitchType"] = request.switchType;
+    }
+
+    if (!$dara.isNull(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchInstanceToTargetZone",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SwitchInstanceToTargetZoneResponse>(await this.callApi(params, req, runtime), new $_model.SwitchInstanceToTargetZoneResponse({}));
+  }
+
+  /**
+   * 实例指定目标可用区切换
+   * 
+   * @remarks
+   * 当前接口仅支持云原生架构实例
+   * 
+   * @param request - SwitchInstanceToTargetZoneRequest
+   * @returns SwitchInstanceToTargetZoneResponse
+   */
+  async switchInstanceToTargetZone(request: $_model.SwitchInstanceToTargetZoneRequest): Promise<$_model.SwitchInstanceToTargetZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.switchInstanceToTargetZoneWithOptions(request, runtime);
   }
 
   /**

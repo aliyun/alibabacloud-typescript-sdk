@@ -2,40 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeBackupPolicyRequest extends $dara.Model {
+export class DescribeInspectionSchedulesRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  enabled?: number;
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * r-bp1zxszhcgatnx****
+   * ta-bp1zxszhcgatnx****
    */
   instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * scheduleId-202604141xxxx
+   */
+  scheduleId?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      enabled: 'Enabled',
       instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      scheduleId: 'ScheduleId',
       securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enabled: 'number',
       instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      scheduleId: 'string',
       securityToken: 'string',
     };
   }

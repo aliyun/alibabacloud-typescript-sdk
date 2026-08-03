@@ -13,7 +13,7 @@ export class CreateTairSkvDdbWorkspaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot contain the following characters: @/:="<>{} and spaces.
+   * The instance name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot contain the following characters: @ / : = " < > { } or spaces.
    * 
    * @example
    * apitest
@@ -35,7 +35,7 @@ export class CreateTairSkvDdbWorkspaceRequest extends $dara.Model {
    * @remarks
    * The password of the instance. The password must meet the following requirements:
    * * The password is 8 to 32 characters in length.
-   * * The password contains at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. Supported special characters are `!@#$%^&*()_+-=`.
+   * * The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters are `!@#$%^&*()_+-=`.
    * 
    * @example
    * Pass!123456
@@ -51,7 +51,7 @@ export class CreateTairSkvDdbWorkspaceRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61012.htm) to query available regions. Use this parameter to specify the region in which to create the instance.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions. Use this parameter to specify the region in which to create the instance.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CreateTairSkvDdbWorkspaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-resourcegroupid1
