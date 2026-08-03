@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   /**
    * @remarks
-   * The last access time (atime) of the file.
+   * The query time.
    * 
-   * The time is in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * @example
    * 2021-02-01T10:08:08Z
@@ -17,11 +17,11 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   atime?: string;
   /**
    * @remarks
-   * The metadata change time (ctime) of the file.
+   * The time when the metadata was modified.
    * 
-   * The time is in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:10Z
@@ -29,7 +29,7 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   ctime?: string;
   /**
    * @remarks
-   * The ID of the file or directory.
+   * The FileId of the directory or file.
    * 
    * @example
    * 66
@@ -37,15 +37,14 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * Specifies whether the directory contains any archive files.
+   * Indicates whether the directory contains archive storage class files.
    * 
-   * This parameter is returned only when `Type` is `Directory`.
+   * This parameter is returned and meaningful only when Type is set to Directory.
    * 
    * Valid values:
    * 
-   * - `true`: Yes
-   * 
-   * - `false`: No
+   * - true: The directory contains archive storage class files.
+   * - false: The directory does not contain archive storage class files.
    * 
    * @example
    * true
@@ -53,15 +52,14 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   hasArchiveFile?: string;
   /**
    * @remarks
-   * Specifies whether the directory contains any infrequent access files.
+   * Indicates whether the directory contains IA storage class files.
    * 
-   * This parameter is returned only when `Type` is `Directory`.
+   * This parameter is returned and meaningful only when Type is set to Directory.
    * 
    * Valid values:
    * 
-   * - `true`: Yes
-   * 
-   * - `false`: No
+   * - true: The directory contains IA storage class files.
+   * - false: The directory does not contain IA storage class files.
    * 
    * @example
    * true
@@ -77,11 +75,11 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   inode?: string;
   /**
    * @remarks
-   * The last modification time (mtime) of the file.
+   * The time when the file was modified.
    * 
-   * The time is in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -89,17 +87,32 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   mtime?: string;
   /**
    * @remarks
-   * The name of the file or directory.
+   * The file name or directory name.
    * 
    * @example
    * file.txt
    */
   name?: string;
+  /**
+   * @remarks
+   * The total duration for which the file has been stored as an archive file. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   offlineDuration?: number;
+  /**
+   * @remarks
+   * The total duration for which the file has remained unchanged since it was stored as an archive file. Unit: seconds.
+   * 
+   * @example
+   * 3600
+   */
   offlineUnchangedDuration?: number;
   /**
    * @remarks
-   * The owner of the file or directory. This parameter is returned only when `ProtocolType` is `SMB` and access control is enabled.
+   * The portable account ID.
+   * This parameter is meaningful only when ProtocolType is set to SMB and access control is enabled.
    * 
    * @example
    * 37862c****
@@ -107,11 +120,11 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The last data retrieval time.
+   * The time when the most recent data retrieval task was run.
    * 
-   * The time is in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * @example
    * 2021-02-11T10:08:08Z
@@ -119,11 +132,11 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   retrieveTime?: string;
   /**
    * @remarks
-   * The size of the file, in bytes.
+   * The size of the file.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * Unit: bytes.
    * 
-   * This value is returned and is meaningful only when Type is File.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * @example
    * 1024
@@ -131,15 +144,13 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The storage class of the file.
+   * The storage class type of the returned file.
    * 
-   * This parameter is returned only when `Type` is `File`.
+   * This parameter is returned and meaningful only when Type is set to File.
    * 
    * Valid values:
-   * 
-   * - `InfrequentAccess`
-   * 
-   * - `Archive`
+   * - InfrequentAccess: IA storage class.
+   * - Archive: Archive storage class.
    * 
    * @example
    * InfrequentAccess
@@ -147,13 +158,12 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The type of the entry.
+   * The type of the returned result.
    * 
    * Valid values:
    * 
-   * - `File`: a file
-   * 
-   * - `Directory`: a directory
+   * - File: file.
+   * - Directory: directory.
    * 
    * @example
    * File
@@ -211,12 +221,12 @@ export class ListDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
 export class ListDirectoriesAndFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of directory and file entries.
+   * The collection of directory or file information.
    */
   entries?: ListDirectoriesAndFilesResponseBodyEntries[];
   /**
    * @remarks
-   * The pagination token. If the response is truncated, include this token in the next request to retrieve the next page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation position.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

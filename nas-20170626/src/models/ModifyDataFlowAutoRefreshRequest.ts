@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   /**
    * @remarks
-   * The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minute.
+   * The automatic update interval. CPFS checks the directory for data updates at each interval. If data updates exist, an automatic update task is started. Unit: minutes.
    * 
    * Valid values: 5 to 526600. Default value: 10.
    * 
@@ -15,10 +15,10 @@ export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   autoRefreshInterval?: number;
   /**
    * @remarks
-   * The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. The following information is displayed:
+   * The automatic update policy. This policy specifies how data updates from the source are imported to CPFS after the source data is updated. Valid values:
    * 
-   * *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
-   * *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
+   * - None: Data updates from the source are not automatically imported to CPFS. You can import source data updates by using a dataflow task.
+   * - ImportChanged: Data updates from the source are automatically imported to CPFS.
    * 
    * @example
    * None
@@ -26,11 +26,11 @@ export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   autoRefreshPolicy?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * Ensures the idempotency of the request. Generate a parameter value from your client to ensure that the value is unique across different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -38,7 +38,7 @@ export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the dataflow.
+   * The dataflow ID.
    * 
    * This parameter is required.
    * 
@@ -48,14 +48,14 @@ export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   dataFlowId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run.
+   * Specifies whether to perform a dry run for this request.
    * 
-   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no fileset quota is canceled and no fee is incurred.
+   * A dry run checks parameter validity and resource availability without actually creating an instance or incurring fees.
    * 
-   * Valid value:
+   * Valid values:
    * 
-   * *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. Otherwise, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
-   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a fileset is created.
+   * - true: Sends a dry run request without creating an instance. The check items include whether required parameters are specified, the request format, business limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FileSystemId is empty.
+   * - false (default): Sends a normal request. After the check succeeds, the instance is directly created.
    * 
    * @example
    * false
@@ -63,7 +63,7 @@ export class ModifyDataFlowAutoRefreshRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 

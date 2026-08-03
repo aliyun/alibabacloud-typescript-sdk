@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecentlyRecycledDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRecentlyRecycledDirectoriesRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The number of directories to return for each query.
+   * The maximum number of directories to return per query.
    * 
    * Valid values: 10 to 1000.
    * 
@@ -27,9 +27,9 @@ export class ListRecentlyRecycledDirectoriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The pagination token for the next page. You do not need to specify this parameter for the first query.
    * 
-   * If not all directories are returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
+   * If the query results are not completely returned, the NextToken parameter is returned with a value. You can specify the NextToken value in the next request to continue the query.
    * 
    * @example
    * 1256****25

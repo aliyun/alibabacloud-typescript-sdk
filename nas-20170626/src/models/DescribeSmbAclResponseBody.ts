@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the file system allows anonymous access. Valid values:
+   * Indicates whether anonymous access is allowed. Valid values:
    * 
-   * *   true: The file system allows anonymous access.
-   * *   false: The file system does not allow anonymous access.
+   * - true: Anonymous access is allowed.
+   * 
+   * - false: Anonymous access is not allowed.
    * 
    * @example
    * true
@@ -16,10 +17,11 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   enableAnonymousAccess?: boolean;
   /**
    * @remarks
-   * Indicates whether the ACL feature is enabled. Valid values:
+   * Indicates whether the SMB AD ACL feature is enabled.
    * 
-   * *   true: The ACL feature is enabled.
-   * *   false: The ACL feature is disabled.
+   * - true: The SMB AD ACL feature is enabled.
+   * 
+   * - false: The SMB AD ACL feature is not enabled.
    * 
    * @example
    * true
@@ -27,10 +29,11 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Indicates whether encryption in transit is enabled. Valid values:
+   * Indicates whether encryption in transit is enabled.
    * 
-   * *   true: Encryption in transit is enabled.
-   * *   false: Encryption in transit is disabled.
+   * - true: Encryption in transit is enabled.
+   * 
+   * - false: Encryption in transit is not enabled.
    * 
    * @example
    * true
@@ -38,7 +41,7 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   encryptData?: boolean;
   /**
    * @remarks
-   * The home directory of each user.
+   * The home directory path for each user.
    * 
    * @example
    * /home
@@ -46,10 +49,11 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   homeDirPath?: string;
   /**
    * @remarks
-   * Indicates whether the file system denies access from non-encrypted clients. Valid values:
+   * Indicates whether unencrypted clients are rejected.
    * 
-   * *   true: The file system denies access from non-encrypted clients.
-   * *   false: The file system allows access from non-encrypted clients.
+   * - true: Unencrypted clients are rejected.
+   * 
+   * - false: Unencrypted clients are not rejected.
    * 
    * @example
    * true
@@ -57,7 +61,7 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
   rejectUnencryptedAccess?: boolean;
   /**
    * @remarks
-   * The ID of a super admin.
+   * The ID of the superuser.
    * 
    * @example
    * S-1-0-0
@@ -97,7 +101,7 @@ export class DescribeSmbAclResponseBodyAcl extends $dara.Model {
 export class DescribeSmbAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the ACL feature.
+   * The ACL information.
    */
   acl?: DescribeSmbAclResponseBodyAcl;
   /**

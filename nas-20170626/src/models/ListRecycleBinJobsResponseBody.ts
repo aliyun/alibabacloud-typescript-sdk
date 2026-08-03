@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -13,9 +13,9 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
-   * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+   * This value is valid only when Status is Fail or PartialSuccess.
    * 
    * @example
    * InvalidFileId.NotFound
@@ -25,7 +25,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
    * @remarks
    * The error message.
    * 
-   * A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+   * This value is valid only when JobStatus is Fail or PartialSuccess.
    * 
    * @example
    * The Target File or Directory does not exist.
@@ -33,7 +33,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the file or directory in the job.
+   * The FileId of the file or directory associated with the task.
    * 
    * @example
    * 04***08
@@ -41,7 +41,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The name of the file or directory that is associated with the job.
+   * The name of the file or directory associated with the task.
    * 
    * @example
    * test001
@@ -49,7 +49,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 8C****C54
@@ -57,7 +57,7 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The progress of the job.
+   * The execution progress of the task.
    * 
    * Valid values: 1 to 100.
    * 
@@ -67,14 +67,14 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
+   * The task status. Valid values:
    * 
-   * *   Running: The job is running.
-   * *   Defragmenting: The job is defragmenting data.
-   * *   PartialSuccess: The job is partially completed.
-   * *   Success: The job is completed.
-   * *   Fail: The job failed.
-   * *   Cancelled: The job is canceled.
+   * - Running: The task is running.
+   * - Defragmenting: Data is being defragmented.
+   * - PartialSuccess: The task partially succeeded.
+   * - Success: The task succeeded.
+   * - Fail: The task failed.
+   * - Cancelled: The task is canceled.
    * 
    * @example
    * Fail
@@ -82,10 +82,10 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the job. Valid values:
+   * The task type. Valid values:
    * 
-   * *   Restore: a file restoration job
-   * *   Delete: a file deletion job
+   * - Restore: A file restoration task.
+   * - Delete: A file deletion task.
    * 
    * @example
    * Restore
@@ -131,12 +131,12 @@ export class ListRecycleBinJobsResponseBodyJobs extends $dara.Model {
 export class ListRecycleBinJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the jobs of the recycle bin.
+   * The collection of task information in the recycle bin.
    */
   jobs?: ListRecycleBinJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class ListRecycleBinJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of jobs returned per page.
+   * The number of tasks per page.
    * 
    * @example
    * 10
@@ -160,7 +160,7 @@ export class ListRecycleBinJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of jobs.
+   * The total number of tasks in the recycle bin.
    * 
    * @example
    * 1

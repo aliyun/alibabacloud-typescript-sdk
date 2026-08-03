@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Model {
   /**
+   * @remarks
+   * The POSIX group ID.
+   * 
    * @example
    * 10
    */
   posixGroupId?: number;
+  /**
+   * @remarks
+   * The secondary group ID.
+   */
   posixSecondaryGroupIds?: number[];
   /**
+   * @remarks
+   * The POSIX user ID.
+   * 
    * @example
    * 156
    */
@@ -44,16 +54,25 @@ export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Mod
 
 export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends $dara.Model {
   /**
+   * @remarks
+   * The owner group ID.
+   * 
    * @example
    * 12
    */
   ownerGroupId?: number;
   /**
+   * @remarks
+   * The owner user ID.
+   * 
    * @example
    * 1
    */
   ownerUserId?: number;
   /**
+   * @remarks
+   * The POSIX permission.
+   * 
    * @example
    * 0755
    */
@@ -85,11 +104,17 @@ export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends 
 
 export class ListAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TestValue
    */
@@ -119,89 +144,167 @@ export class ListAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
 
 export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
+   * @remarks
+   * The access point ARN.
+   * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
    */
   ARN?: string;
   /**
+   * @remarks
+   * The permission group name.
+   * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
    */
   accessGroup?: string;
   /**
+   * @remarks
+   * The access point ID.
+   * 
    * @example
    * ap-ie15y*****
    */
   accessPointId?: string;
   /**
+   * @remarks
+   * The access point name.
+   * 
    * @example
    * test
    */
   accessPointName?: string;
   /**
+   * @remarks
+   * AgenticSpace Id。
+   * 
    * @example
    * agentic-229oypxjgpau2****
    */
   agenticSpaceId?: string;
   /**
+   * @remarks
+   * The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2026-03-28T06:32:14Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the agentic space was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2026-06-10T10:08:08Z
    */
   createTimeUtc?: string;
   /**
+   * @remarks
+   * The access point domain name.
+   * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * Indicates whether the RAM policy is enabled.
+   * 
    * @example
    * false
    */
   enabledRam?: boolean;
   /**
+   * @remarks
+   * The file system ID.
+   * 
    * @example
    * 091yj49baxscll2****
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2026-06-24T02:10:23Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The time when the agentic space was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2026-06-10T10:08:08Z
    */
   modifyTimeUtc?: string;
+  /**
+   * @remarks
+   * The POSIX user.
+   */
   posixUser?: ListAccessPointsResponseBodyAccessPointsPosixUser;
   /**
+   * @remarks
+   * The root directory.
+   * 
    * @example
    * /
    */
   rootPath?: string;
+  /**
+   * @remarks
+   * The root directory permission.
+   */
   rootPathPermission?: ListAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
+   * @remarks
+   * The current root directory status.
+   * 
+   * Valid values:
+   * 
+   * - 0: The root path status is unknown.
+   * - 1: The root path does not exist. It may have been deleted by the user.
+   * - 2: The root path status is normal.
+   * 
    * @example
    * 2
    */
   rootPathStatus?: string;
   /**
+   * @remarks
+   * The current access point status.
+   * 
+   * Valid values:
+   * 
+   * - Active: Available.
+   * - Inactive: Unavailable.
+   * - Pending: Being created.
+   * - Deleting: Being deleted.
+   * 
+   * > You can mount a file system only when the status is Active.
+   * 
    * @example
    * Active
    */
   status?: string;
+  /**
+   * @remarks
+   * The access point tag list.
+   */
   tags?: ListAccessPointsResponseBodyAccessPointsTags[];
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-2zevmwkwyztjuoffg****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-2zesj9afh3y518k9o****
    */
@@ -275,14 +378,23 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
 }
 
 export class ListAccessPointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The access point information.
+   */
   accessPoints?: ListAccessPointsResponseBodyAccessPoints[];
   /**
+   * @remarks
+   * The query token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * 
    * @example
    * 52frCAAAAABoZS90cm****==
    */
   nextToken?: string;
   /**
    * @remarks
+   * Id of the request
+   * 
    * This parameter is required.
    * 
    * @example
@@ -290,6 +402,9 @@ export class ListAccessPointsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of access points.
+   * 
    * @example
    * 20
    */

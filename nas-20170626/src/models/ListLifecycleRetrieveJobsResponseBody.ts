@@ -7,7 +7,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
    * @remarks
    * The time when the task was created.
    * 
-   * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-02-30T10:08:08Z
@@ -15,7 +15,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   createTime?: string;
   /**
    * @remarks
-   * The total number of files that are read in the data retrieval task.
+   * The total number of files read by the data retrieval task.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   discoveredFileCount?: number;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * 31a8e4****
@@ -31,7 +31,7 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the data retrieval task.
+   * The data retrieval task ID.
    * 
    * @example
    * lrj-nfstest-ia-160****853-hshvw
@@ -39,12 +39,12 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   jobId?: string;
   /**
    * @remarks
-   * The execution path of the data retrieval task.
+   * The execution paths of the data retrieval task.
    */
   paths?: string[];
   /**
    * @remarks
-   * The total number of files that are retrieved.
+   * The number of files successfully retrieved by the data retrieval task.
    * 
    * @example
    * 80
@@ -53,11 +53,10 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   /**
    * @remarks
    * The status of the data retrieval task. Valid values:
-   * 
-   * *   active: The task is running.
-   * *   canceled: The task is canceled.
-   * *   completed: The task is completed.
-   * *   failed: The task has failed.
+   * - active: running.
+   * - canceled: canceled.
+   * - completed: completed.
+   * - failed: failed.
    * 
    * @example
    * completed
@@ -65,10 +64,9 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   status?: string;
   /**
    * @remarks
-   * The storage class.
-   * 
-   * *   InfrequentAccess: the IA storage class.
-   * *   Archive: the Archive storage class.
+   * The storage class. Valid values:
+   * - InfrequentAccess: IA storage class.
+   * - Archive: Archive storage class.
    * 
    * @example
    * InfrequentAccess
@@ -76,9 +74,9 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
   storageType?: string;
   /**
    * @remarks
-   * The time when the task was updated.
+   * The time when the task was last updated.
    * 
-   * The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
    * 
    * @example
    * 2021-02-30T11:08:08Z
@@ -127,12 +125,12 @@ export class ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs extends 
 export class ListLifecycleRetrieveJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the data retrieval tasks.
+   * The collection of data retrieval task information.
    */
   lifecycleRetrieveJobs?: ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -140,7 +138,7 @@ export class ListLifecycleRetrieveJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of data retrieval tasks on each page.
    * 
    * @example
    * 10
@@ -148,7 +146,7 @@ export class ListLifecycleRetrieveJobsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****

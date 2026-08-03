@@ -15,7 +15,7 @@ export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The lifecycle policy ID.
+   * The ID of the lifecycle policy.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the list.
    * 
-   * Starts from 1. Default: 1.
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -35,9 +35,9 @@ export class DescribeLifecyclePolicyLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries to return on each page.
+   * The number of log entries per page.
    * 
-   * Value range: 1–100. Default: 10.
+   * Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

@@ -9,6 +9,7 @@ export { CreateDataFlowRequestAutoRefreshs } from './CreateDataFlowRequest';
 export { CreateDataFlowSubTaskRequestCondition } from './CreateDataFlowSubTaskRequest';
 export { CreateFileSystemRequestTag } from './CreateFileSystemRequest';
 export { CreateFilesetRequestQuota } from './CreateFilesetRequest';
+export { CreateLifecyclePolicyRequestDeleteRules } from './CreateLifecyclePolicyRequest';
 export { CreateLifecyclePolicyRequestRetrieveRules } from './CreateLifecyclePolicyRequest';
 export { CreateLifecyclePolicyRequestTransitRules } from './CreateLifecyclePolicyRequest';
 export { CreateMountTargetResponseBodyMountTargetExtra } from './CreateMountTargetResponseBody';
@@ -88,9 +89,11 @@ export { DescribeFilesystemsVscAttachInfoRequestResourceIds } from './DescribeFi
 export { DescribeFilesystemsVscAttachInfoRequestRoleChain } from './DescribeFilesystemsVscAttachInfoRequest';
 export { DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfoVscAttachInfo } from './DescribeFilesystemsVscAttachInfoResponseBody';
 export { DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfo } from './DescribeFilesystemsVscAttachInfoResponseBody';
+export { DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesDeleteRules } from './DescribeLifecyclePoliciesResponseBody';
 export { DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules } from './DescribeLifecyclePoliciesResponseBody';
 export { DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules } from './DescribeLifecyclePoliciesResponseBody';
 export { DescribeLifecyclePoliciesResponseBodyLifecyclePolicies } from './DescribeLifecyclePoliciesResponseBody';
+export { DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules } from './DescribeLifecyclePolicyLogsResponseBody';
 export { DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveRules } from './DescribeLifecyclePolicyLogsResponseBody';
 export { DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRules } from './DescribeLifecyclePolicyLogsResponseBody';
 export { DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs } from './DescribeLifecyclePolicyLogsResponseBody';
@@ -146,6 +149,7 @@ export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagRe
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ModifyFileSystemRequestOptions } from './ModifyFileSystemRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
+export { UpdateLifecyclePolicyRequestDeleteRules } from './UpdateLifecyclePolicyRequest';
 export { UpdateLifecyclePolicyRequestRetrieveRules } from './UpdateLifecyclePolicyRequest';
 export { UpdateLifecyclePolicyRequestTransitRules } from './UpdateLifecyclePolicyRequest';
 export { AddClientToBlackListRequest } from './AddClientToBlackListRequest';

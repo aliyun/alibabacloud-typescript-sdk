@@ -79,7 +79,7 @@ export class DescribeAccessRulesResponseBody extends $dara.Model {
   accessRules?: DescribeAccessRulesResponseBodyAccessRules;
   /**
    * @remarks
-   * The page number.
+   * The page number of the file system list.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class DescribeAccessRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of permission rules on each page.
    * 
    * @example
    * 1
@@ -103,7 +103,7 @@ export class DescribeAccessRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of rules.
+   * The total number of permission rules.
    * 
    * @example
    * 1

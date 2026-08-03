@@ -14,8 +14,8 @@ export class DescribeAgenticSpacesRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the filter key. Wildcards are not supported.
-   * - AgenticSpaceIds: only a single ID is supported.
+   * The value of the filter key. This parameter does not support wildcards.
+   * - AgenticSpaceIds: Only a single ID can be specified.
    * 
    * @example
    * 06229oypxjgox0u****
@@ -62,7 +62,7 @@ export class DescribeAgenticSpacesRequest extends $dara.Model {
   filters?: DescribeAgenticSpacesRequestFilters[];
   /**
    * @remarks
-   * The number of results per query.
+   * The number of results for each query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 

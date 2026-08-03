@@ -219,11 +219,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
 
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends $dara.Model {
   enableABE?: boolean;
+  enableDataInsight?: boolean;
   enableOplock?: boolean;
   vscAccessPointAccessOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
       enableABE: 'EnableABE',
+      enableDataInsight: 'EnableDataInsight',
       enableOplock: 'EnableOplock',
       vscAccessPointAccessOnly: 'VscAccessPointAccessOnly',
     };
@@ -232,6 +234,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends
   static types(): { [key: string]: any } {
     return {
       enableABE: 'boolean',
+      enableDataInsight: 'boolean',
       enableOplock: 'boolean',
       vscAccessPointAccessOnly: 'boolean',
     };
@@ -625,7 +628,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of file systems on each page.
+   * The number of file systems per page.
    * 
    * @example
    * 1

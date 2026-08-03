@@ -2,6 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateLifecyclePolicyRequestDeleteRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule attribute.
+   * 
+   * Valid values:
+   * - Atime: the access time of the file.
+   * 
+   * @example
+   * Atime
+   */
+  attribute?: string;
+  /**
+   * @remarks
+   * The rule threshold.
+   * 
+   * Valid values:
+   * - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 1 to 365.
+   * 
+   * @example
+   * 1
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLifecyclePolicyRequestRetrieveRules extends $dara.Model {
   /**
    * @remarks
@@ -63,7 +109,7 @@ export class CreateLifecyclePolicyRequestTransitRules extends $dara.Model {
    * The rule threshold.
    * 
    * Valid values:
-   * - When Attribute is set to Atime, the value indicates the number of days since the file was last accessed. Valid values: 0 to 365.
+   * - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 0 to 365.
    * 
    * @example
    * 3
@@ -95,14 +141,19 @@ export class CreateLifecyclePolicyRequestTransitRules extends $dara.Model {
 export class CreateLifecyclePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the lifecycle policy.
+   * The file data expiration and deletion rules. You can configure up to one rule.
+   */
+  deleteRules?: CreateLifecyclePolicyRequestDeleteRules[];
+  /**
+   * @remarks
+   * The lifecycle policy description.
    * 
    * Format:
    * The description must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
    * >Only CPFS for Lingjun is supported.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -117,7 +168,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The Policy Name of the lifecycle management policy. The name must be 3 to 64 characters in length, start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
+   * The lifecycle management policy name. The name must be 3 to 64 characters in length, start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
    * 
    * >This parameter is required for General-purpose NAS but not required for CPFS for Lingjun.
    * 
@@ -176,7 +227,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   paths?: string[];
   /**
    * @remarks
-   * The file data retrieval rules. A maximum of one rule can be configured.
+   * The file data retrieval rules. You can configure up to one rule.
    * >Only CPFS for Lingjun file systems are supported.
    * 
    * >When LifecyclePolicyType is set to OnDemand, at least one of TransitRules or RetrieveRules must be specified.
@@ -184,7 +235,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   retrieveRules?: CreateLifecyclePolicyRequestRetrieveRules[];
   /**
    * @remarks
-   * The storage type.
+   * The storage tiering type.
    * - InfrequentAccess: IA storage class.
    * - Archive: Archive storage.
    * 
@@ -198,13 +249,14 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The file data transit rules. A maximum of one rule can be configured.
+   * The file data transit rules. You can configure up to one rule.
    * 
-   * >Supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
+   * >This parameter is supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
    */
   transitRules?: CreateLifecyclePolicyRequestTransitRules[];
   static names(): { [key: string]: string } {
     return {
+      deleteRules: 'DeleteRules',
       description: 'Description',
       fileSystemId: 'FileSystemId',
       lifecyclePolicyName: 'LifecyclePolicyName',
@@ -220,6 +272,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deleteRules: { 'type': 'array', 'itemType': CreateLifecyclePolicyRequestDeleteRules },
       description: 'string',
       fileSystemId: 'string',
       lifecyclePolicyName: 'string',
@@ -234,6 +287,9 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.deleteRules)) {
+      $dara.Model.validateArray(this.deleteRules);
+    }
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
     }

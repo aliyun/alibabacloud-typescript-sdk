@@ -68,7 +68,7 @@ export class SetAgenticSpaceQuotaRequest extends $dara.Model {
    * 
    * - Minimum value: 10,737,418,240 (10 GiB).
    * - Maximum value: 1,099,511,627,776,000 (1,024,000 GiB).
-   * - Step: 1,073,741,824 (1 GiB).
+   * - Increment: 1,073,741,824 (1 GiB).
    * 
    * @example
    * 10737418240

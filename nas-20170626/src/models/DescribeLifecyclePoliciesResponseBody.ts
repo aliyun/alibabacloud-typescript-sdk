@@ -2,6 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesDeleteRules extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute of the rule.
+   * 
+   * Valid values:
+   * - Atime: The access time of the file.
+   * 
+   * @example
+   * Atime
+   */
+  attribute?: string;
+  /**
+   * @remarks
+   * The threshold of the rule.
+   * 
+   * Valid values:
+   * - When Attribute is set to Atime, the value indicates the number of days since the file was last accessed. Valid values: 1 to 365.
+   * 
+   * @example
+   * 5
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules extends $dara.Model {
   /**
    * @remarks
@@ -95,10 +141,15 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   createTime?: string;
   /**
    * @remarks
+   * The file data expiration and deletion rules. A maximum of one rule can be configured.
+   */
+  deleteRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesDeleteRules[];
+  /**
+   * @remarks
    * The description of the policy.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
@@ -119,7 +170,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   lifecyclePolicyId?: string;
   /**
    * @remarks
-   * The lifecycle management policy name.
+   * The name of the lifecycle management policy.
    * 
    * @example
    * lifecyclepolicy_01
@@ -138,10 +189,10 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * The management rule associated with the lifecycle management policy.
    * 
    * Valid values:
-   * - DEFAULT_ATIME_14: files not accessed in the last 14 days
-   * - DEFAULT_ATIME_30: files not accessed in the last 30 days
-   * - DEFAULT_ATIME_60: files not accessed in the last 60 days
-   * - DEFAULT_ATIME_90: files not accessed in the last 90 days.
+   * - DEFAULT_ATIME_14: Files not accessed in the last 14 days.
+   * - DEFAULT_ATIME_30: Files not accessed in the last 30 days.
+   * - DEFAULT_ATIME_60: Files not accessed in the last 60 days.
+   * - DEFAULT_ATIME_90: Files not accessed in the last 90 days.
    * 
    * @example
    * DEFAULT_ATIME_14
@@ -162,12 +213,12 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   paths?: string[];
   /**
    * @remarks
-   * The data retrieval rules for files.
+   * The file data retrieval rules.
    */
   retrieveRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesRetrieveRules[];
   /**
    * @remarks
-   * The storage class type. Valid values:
+   * The storage type. Valid values:
    * - InfrequentAccess: IA storage class.
    * - Archive: Archive storage class.
    * 
@@ -177,12 +228,13 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   storageType?: string;
   /**
    * @remarks
-   * The data transit rules for files.
+   * The file data transit rules.
    */
   transitRules?: DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesTransitRules[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      deleteRules: 'DeleteRules',
       description: 'Description',
       fileSystemId: 'FileSystemId',
       lifecyclePolicyId: 'LifecyclePolicyId',
@@ -200,6 +252,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      deleteRules: { 'type': 'array', 'itemType': DescribeLifecyclePoliciesResponseBodyLifecyclePoliciesDeleteRules },
       description: 'string',
       fileSystemId: 'string',
       lifecyclePolicyId: 'string',
@@ -215,6 +268,9 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   }
 
   validate() {
+    if(Array.isArray(this.deleteRules)) {
+      $dara.Model.validateArray(this.deleteRules);
+    }
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
     }

@@ -161,7 +161,7 @@ export class DescribeDataFlowSubTasksResponseBody extends $dara.Model {
   dataFlowSubTask?: DescribeDataFlowSubTasksResponseBodyDataFlowSubTask;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
    * 
    * @example
    * pUJaUwAAAABhdGUyNTk1MQ==

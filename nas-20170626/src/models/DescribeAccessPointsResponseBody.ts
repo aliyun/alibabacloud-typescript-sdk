@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The POSIX group ID.
+   * The POSIX user group ID.
    * 
    * @example
    * 12
@@ -13,7 +13,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary group ID.
+   * The secondary user group ID.
    */
   posixSecondaryGroupIds?: number[];
   /**
@@ -177,7 +177,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * The time when the access point was created.
+   * The time when the access point was created. Format: Unix/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -185,7 +185,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The domain name of the access point.
+   * The access point domain name.
    * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
@@ -209,7 +209,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified.
+   * The time when the access point was last modified. Format: Unix/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -230,7 +230,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The root directory permissions.
+   * The root directory permission.
    */
   rootPathPermission?: DescribeAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
@@ -258,7 +258,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * - Pending: being created.
    * - Deleting: being deleted.
    * 
-   * > You can mount a file system only when the status is Active.
+   * > You can mount the file system only when the status is Active.
    * 
    * @example
    * Active

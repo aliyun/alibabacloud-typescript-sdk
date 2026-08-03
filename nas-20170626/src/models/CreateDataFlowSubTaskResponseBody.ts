@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataFlowSubTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data streaming task.
+   * The data flow streaming task ID.
    * 
    * @example
    * subTaskId-370kyfmyknxcyzw****

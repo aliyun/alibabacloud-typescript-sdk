@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataFlowTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token that ensures the idempotence of the request. The token must be unique across different requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
    * 
-   * `ClientToken` can contain only ASCII characters and must not exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the `RequestId` of the API request as the `ClientToken`. The `RequestId` may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -20,13 +20,10 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
    * The conflict policy for files with the same name.
    * Valid values:
    * 
-   * - SKIP_THE_FILE: Skips files with the same name.
-   * 
-   * - KEEP_LATEST: Compares update times and keeps the latest version.
-   * 
-   * - OVERWRITE_EXISTING: Forcibly overwrites files with the same name.
-   * 
-   * > This parameter is required if the file system is a CPFS AI-Computing Edition instance.
+   * - SKIP_THE_FILE: skips files with the same name.
+   * - KEEP_LATEST: compares the update time and keeps the latest version.
+   * - OVERWRITE_EXISTING: forcibly overwrites files with the same name.
+   * > This parameter is required when the file system type is CPFS for Lingjun.
    * 
    * @example
    * SKIP_THE_FILE
@@ -34,16 +31,14 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   conflictPolicy?: string;
   /**
    * @remarks
-   * Specifies whether to automatically create the directory if it does not exist.
+   * Specifies whether to enable automatic creation of the folder if it does not exist.
    * Valid values:
    * 
-   * - true: Automatically creates the directory.
+   * - true: enables automatic creation of the folder.
+   * - false (default): does not enable automatic creation of the folder.
    * 
-   * - false (default): Does not automatically create the directory.
-   * 
-   * > * This parameter takes effect only when `TaskAction` is set to `Import`.
-   * >
-   * > * This parameter is supported only by CPFS AI-Computing Edition V2.6.0 and later.
+   * > - This parameter takes effect when TaskAction is set to Import.
+   * > - Only CPFS for Lingjun 2.6.0 and later support this feature.
    * 
    * @example
    * false
@@ -51,7 +46,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   createDirIfNotExist?: boolean;
   /**
    * @remarks
-   * The ID of the data flow.
+   * The data flow ID.
    * 
    * This parameter is required.
    * 
@@ -61,15 +56,14 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   dataFlowId?: string;
   /**
    * @remarks
-   * The data type that the data flow task operates on.
+   * The type of data on which the data flow task operates.
    * 
    * Valid values:
    * 
-   * - Metadata: The metadata of the file, including attributes such as timestamp, ownership, and permissions. If you select `Metadata`, only the file metadata is imported. You can see the file, but when you access the file data, it is loaded from the source storage on demand.
-   * 
-   * - Data: The data blocks of the file.
-   * 
-   * - MetaAndData: The metadata and data blocks of the file.
+   * - Metadata: the metadata of files, including the timestamp, ownership, permission, and other attributes. If you select Metadata, only the metadata of files is imported. You can view the file, but when you access the file data, the data is loaded from the source storage on demand.
+   * - Data: the data blocks of files.
+   * - MetaAndData: the metadata and data blocks of files.
+   * > When TaskAction is set to Evict, the DataType parameter is required.
    * 
    * @example
    * Metadata
@@ -77,27 +71,19 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The source directory of the data.
+   * The source directory of data.
    * 
    * Limits:
-   * 
-   * - The length must be 1 to 1,023 characters.
-   * 
-   * - The directory must be UTF-8 encoded.
-   * 
-   * - The directory must start and end with a forward slash (`/`).
-   * 
+   * - The value must be 1 to 1,023 characters in length.
+   * - The value must be encoded in UTF-8.
+   * - The value must start and end with a forward slash (/).
    * - Only one directory can be specified at a time.
-   * 
-   * - If `TaskAction` is `Export`, this directory must be a relative path within `FileSystemPath`.
-   * 
-   * - If `TaskAction` is `Import`, this directory must be a relative path within `SourceStoragePath`.
-   * 
-   * - If `TaskAction` is `StreamExport`, this directory must be a relative path within `FileSystemPath`.
-   * 
-   * - If `TaskAction` is `StreamImport`, this directory must be a relative path within `SourceStoragePath`.
-   * 
-   * > `StreamImport` and `StreamExport` are supported only by CPFS AI-Computing Edition V2.6.0 and later.
+   * - When TaskAction is set to Export, this directory must be a relative path within FileSystemPath.
+   * - When TaskAction is set to Import, this directory must be a relative path within SourceStoragePath.
+   * - When TaskAction is set to StreamExport, this directory must be a relative path within FileSystemPath.
+   * - When TaskAction is set to StreamImport, this directory must be a relative path within SourceStoragePath.
+   * > StreamImport and StreamExport are supported only in CPFS for Lingjun 2.6.0 and later.
+   * Directory, EntryList, and TransferFileListPath are mutually exclusive parameters. You can specify only one of them.
    * 
    * @example
    * /path_in_cpfs/
@@ -105,15 +91,14 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this creation request.
+   * Specifies whether to perform a dry run.
    * 
-   * A dry run checks parameter validity and inventory without creating an instance or incurring charges.
+   * The dry run checks parameter validity and whether required resources are available. The dry run does not create an instance or incur fees.
    * 
    * Valid values:
    * 
-   * - true: Sends a check request without creating the instance. The system checks for required parameters, request format, business limits, and NAS inventory. If the check fails, an error is returned. If the check passes, an HTTP 200 status code is returned, but `TaskId` is empty.
-   * 
-   * - false (default): Sends a normal request and creates the instance after the check passes.
+   * - true: performs a dry run without creating the instance. The system checks whether the required parameters are specified, whether the request format is valid, whether service limits are reached, and whether the required NAS resources are available. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned, but TaskId is empty.
+   * - false (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
    * 
    * @example
    * false
@@ -121,26 +106,17 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The destination directory for the data flow task mapping.
+   * The target directory to which the data flow task maps.
    * Limits:
-   * 
-   * - The directory must start and end with a forward slash (`/`). The `/../` sequence is not supported.
-   * 
-   * - The length must be 1 to 1,023 characters.
-   * 
-   * - The directory must be UTF-8 encoded.
-   * 
-   * - Only one directory can be specified at a time.
-   * 
-   * - If `TaskAction` is `Export`, this directory must be a relative path within `SourceStoragePath`.
-   * 
-   * - If `TaskAction` is `Import`, this directory must be a relative path within `FileSystemPath`.
-   * 
-   * - If `TaskAction` is `StreamExport`, this directory must be a relative path within `SourceStoragePath`.
-   * 
-   * - If `TaskAction` is `StreamImport`, this directory must be a relative path within `FileSystemPath`.
-   * 
-   * > `StreamImport` and `StreamExport` are supported only by CPFS AI-Computing Edition V2.6.0 and later.
+   *  - The value must start and end with a forward slash (/). /../ is not supported.
+   *  - The value must be 1 to 1,023 characters in length.
+   *  - The value must be encoded in UTF-8.
+   *  - Only one directory can be specified at a time.
+   *  - When TaskAction is set to Export, this directory must be a relative path within SourceStoragePath.
+   *  - When TaskAction is set to Import, this directory must be a relative path within FileSystemPath.
+   *  - When TaskAction is set to StreamExport, this directory must be a relative path within SourceStoragePath.
+   *  - When TaskAction is set to StreamImport, this directory must be a relative path within FileSystemPath.
+   * > StreamImport and StreamExport are supported only in CPFS for Lingjun 2.6.0 and later.
    * 
    * @example
    * /path_in_cpfs/
@@ -148,21 +124,17 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   dstDirectory?: string;
   /**
    * @remarks
-   * The list of files for the data flow task to execute.
+   * The list of files on which the data flow task is executed.
    * 
    * Limits:
    * 
-   * - The list must be UTF-8 encoded.
-   * 
+   * - The value must be encoded in UTF-8.
    * - The total length of the file list must be less than 64 KB.
-   * 
-   * - The file list must be in JSON format.
-   * 
-   * - The path of a single file must be 1 to 1,023 characters in length and must start with a forward slash (`/`).
-   * 
-   * - If `TaskAction` is `Import`, each element in the list represents an OSS Object name.
-   * 
-   * - If `TaskAction` is `Export`, each element in the list represents a CPFS file path.
+   * - The file list is in JSON format.
+   * - The path of each file must be 1 to 1,023 characters in length and must start with a forward slash (/).
+   * - When TaskAction is set to Import, each element in the list represents an OSS object name.
+   * - When TaskAction is set to Export, each element in the list represents a CPFS file path.
+   * > Directory, EntryList, and TransferFileListPath are mutually exclusive parameters. You can specify only one of them.
    * 
    * @example
    * ["/path_in_cpfs/file1", "/path_in_cpfs/file2"]
@@ -170,11 +142,11 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   entryList?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
-   * - CPFS General Purpose Edition: The ID must start with `cpfs-`, such as `cpfs-125487****`.
+   * - General-purpose CPFS: must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
    * 
-   * - CPFS AI-Computing Edition: The ID must start with `bmcpfs-`, such as `bmcpfs-0015****`.
+   * - CPFS for Lingjun: must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
    * 
    * This parameter is required.
    * 
@@ -184,13 +156,11 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * Filters the subdirectories under the `Directory` parameter and transfers the content of the filtered subdirectories.
+   * Filters directories under the specified directory and transfers the content of the included folders.
    * 
-   * > - This parameter takes effect only when the `Directory` parameter is specified.
-   * >
-   * > - The path of a single folder must be 1 to 1,023 characters in length and must start and end with a forward slash (`/`). The total length cannot exceed 3,000 characters.
-   * >
-   * > - This feature is supported only by CPFS AI-Computing Edition.
+   * > - This parameter takes effect only when the Directory parameter is specified.
+   * > - The path of each folder must be 1 to 1,023 characters in length and must start and end with a forward slash (/). The total length must not exceed 3,000 characters.
+   * > - Only CPFS for Lingjun supports this feature.
    * 
    * @example
    * ["/test/","/test1/"]
@@ -198,8 +168,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   includes?: string;
   /**
    * @remarks
-   * If you specify `SrcTaskId`, enter the ID of a data flow task. The system copies the `TaskAction`, `DataType`, and `EntryList` parameter information from the specified task. You do not need to specify these parameters.
-   * 
+   * If you specify SrcTaskId, enter the data flow task ID. The system copies the TaskAction, DataType, and EntryList parameter information from the specified data flow task, and you do not need to specify these parameters separately.
    * > Data flow streaming tasks are not supported.
    * 
    * @example
@@ -208,23 +177,17 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   srcTaskId?: string;
   /**
    * @remarks
-   * The type of the data flow task.
+   * The data flow node type.
    * 
    * Valid values:
    * 
-   * - Import: Imports specified data from the source storage to the CPFS file system.
-   * 
-   * - Export: Exports specified data from the CPFS file system to the source storage.
-   * 
-   * - StreamImport: Imports a large amount of specified data from the source storage to the CPFS file system.
-   * 
-   * - StreamExport: Exports a large amount of specified data from the CPFS file system to the source storage.
-   * 
-   * - Evict: Releases the data blocks of a file from the CPFS file system. After the release, only the metadata of the file is retained. You can still query the file, but its data blocks are cleared and no longer occupy storage capacity. When you access the file data, it is loaded from the source storage on demand.
-   * 
-   * - Inventory: Obtains the inventory of files managed by a data flow for the CPFS file system. This provides the cache status of files in the data flow.
-   * 
-   * > CPFS AI-Computing Edition supports only `Import`, `Export`, `StreamImport`, and `StreamExport`. `StreamImport` and `StreamExport` are supported only by CPFS AI-Computing Edition V2.6.0 and later.
+   * - Import: performs data import from the source storage to CPFS.
+   * - Export: exports specified data from CPFS to the source storage.
+   * - StreamImport: batch imports specified data from the source storage to CPFS.
+   * - StreamExport: batch exports specified data from CPFS to the source storage.
+   * - Evict: releases data blocks of files on CPFS. After the release, only metadata is retained on CPFS. You can still query the file, but the data blocks are purged and do not occupy storage capacity on CPFS. When you access the file data, the data is loaded from the source storage on demand.
+   * - Inventory: obtains the file checklist managed by the data stream on CPFS. The checklist provides the cache status of files in the data flow.
+   * > CPFS for Lingjun supports only Import, Export, StreamImport, and StreamExport. StreamImport and StreamExport are supported only in CPFS for Lingjun 2.6.0 and later.
    * 
    * @example
    * Import
@@ -232,29 +195,23 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   taskAction?: string;
   /**
    * @remarks
-   * Specifies an OSS directory. Data is synchronized based on the content of the CSV files in this directory. The following limits apply.
+   * The OSS directory. Data is synchronized based on the content of CSV files in the OSS directory. Limits:
+   * - The value must start and end with a forward slash (/).
    * 
-   * - The path must start and end with a forward slash (`/`).
+   * - The value is case-sensitive.
    * 
-   * - The path is case-sensitive.
+   * - The value must be 1 to 1,023 characters in length.
    * 
-   * - The length must be between 1 and 1,023 characters.
+   * - The value must be encoded in UTF-8.
    * 
-   * - The path must be UTF-8 encoded.
    * 
-   * > * `TransferFileListPath`, `Directory`, and `EntryList` are mutually exclusive. You can specify only one of them.
-   * >
-   * > * This parameter specifies an existing path in OSS. The `*.csv` files are stored in this path.
-   * >
-   * > * `TransferFileListPath` supports only the `Import` and `Export` features.
-   * >
-   * > * For an `Import` task, the files or directories specified in the CSV file are imported from OSS to the CPFS file system.
-   * >
-   * > * For an `Export` task, the files or directories specified in the CSV file are exported from the CPFS file system to OSS.
-   * >
-   * > * The CSV file must contain `Name` and `Type` columns. `Name` is the relative path. `Type` can be `dir` or `file`. If `Type` is `dir`, the `Name` value must end with a forward slash (`/`).
-   * >
-   * > * This feature is supported only by CPFS AI-Computing Edition.
+   * >- TransferFileListPath, Directory, and EntryList are mutually exclusive parameters. You can specify only one of them.
+   * >- This parameter specifies an existing path in OSS. The \\*.csv files in the path are stored in OSS.
+   * > - TransferFileListPath supports only Import and Export.
+   * > - In the Import scenario, the files or directories specified in the CSV files are imported from OSS to CPFS.
+   * > - In the Export scenario, the files or directories specified in the CSV files are exported from CPFS to OSS.
+   * > - The CSV file format must include the Name and Type columns. Name is a relative path, and Type supports two values: dir and file. If Type is dir, the Name value must end with a forward slash (/).
+   * >- Only CPFS for Lingjun supports this feature.
    * 
    * @example
    * /test_oss_path/

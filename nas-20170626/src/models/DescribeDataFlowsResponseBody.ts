@@ -159,7 +159,7 @@ export class DescribeDataFlowsResponseBody extends $dara.Model {
   dataFlowInfo?: DescribeDataFlowsResponseBodyDataFlowInfo;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to obtain content starting from the truncation point.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

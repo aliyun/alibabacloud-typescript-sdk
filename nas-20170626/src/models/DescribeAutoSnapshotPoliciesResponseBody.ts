@@ -82,7 +82,7 @@ export class DescribeAutoSnapshotPoliciesResponseBody extends $dara.Model {
   autoSnapshotPolicies?: DescribeAutoSnapshotPoliciesResponseBodyAutoSnapshotPolicies;
   /**
    * @remarks
-   * The page number.
+   * The page number of the automatic snapshot policy list.
    * 
    * @example
    * 1

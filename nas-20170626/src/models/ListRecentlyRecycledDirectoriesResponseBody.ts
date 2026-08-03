@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * 04***08
@@ -13,7 +13,7 @@ export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $dara.Mo
   fileId?: string;
   /**
    * @remarks
-   * The time when the directory was last deleted.
+   * The most recent time when a delete operation was performed on the directory. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -29,7 +29,7 @@ export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The absolute path to the directory.
+   * The absolute path of the directory.
    * 
    * @example
    * /a/b
@@ -65,14 +65,14 @@ export class ListRecentlyRecycledDirectoriesResponseBodyEntries extends $dara.Mo
 export class ListRecentlyRecycledDirectoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the directories that are recently deleted.
+   * The information about directories on which delete operations were recently performed.
    */
   entries?: ListRecentlyRecycledDirectoriesResponseBodyEntries[];
   /**
    * @remarks
-   * A pagination token.
+   * The pagination token for the next page.
    * 
-   * If not all directories are returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
+   * If the query results are not completely returned, the NextToken parameter is returned with a value. You can specify the NextToken value in the next request to continue the query.
    * 
    * @example
    * 1256****25

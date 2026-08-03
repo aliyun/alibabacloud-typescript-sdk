@@ -15,7 +15,7 @@ export class DescribeAccessRulesRequest extends $dara.Model {
   accessGroupName?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the permission rule.
    * 
    * @example
    * 1
@@ -27,8 +27,8 @@ export class DescribeAccessRulesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-   * *   extreme: Extreme NAS file system.
+   * - standard (default): General-purpose NAS.
+   * - extreme: Extreme NAS.
    * 
    * @example
    * standard
@@ -36,9 +36,9 @@ export class DescribeAccessRulesRequest extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the file system list.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value (default value): 1.
    * 
    * @example
    * 1
@@ -46,7 +46,7 @@ export class DescribeAccessRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of file systems on each page during a paged query.
    * 
    * Valid values: 1 to 100.
    * 

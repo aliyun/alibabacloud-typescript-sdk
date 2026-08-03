@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the advanced Extreme NAS file system.
+   * The ID of the Advanced Extreme NAS file system.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetFileSystemRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The snapshot ID.
+   * The ID of the historical snapshot to which you want to roll back the specified file system.
    * 
    * This parameter is required.
    * 

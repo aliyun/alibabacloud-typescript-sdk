@@ -116,9 +116,9 @@ export class DescribeFilesetsResponseBody extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
+   * - CPFS: The ID starts with `cpfs-`, such as cpfs-099394bd928c****.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+   * - CPFS for Lingjun: The ID starts with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
    * 
    * @example
    * bmcpfs-290w65p03ok64ya****
@@ -128,7 +128,7 @@ export class DescribeFilesetsResponseBody extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the response is truncated, you can use this token in the next request to retrieve the remaining results.
+   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to initiate a new request to retrieve the content after the truncation point.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

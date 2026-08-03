@@ -110,6 +110,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
   directory?: string;
   dstDirectory?: string;
   endTime?: string;
+  entryList?: string;
   errorMsg?: string;
   fileSystemPath?: string;
   filesystemId?: string;
@@ -138,6 +139,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
       directory: 'Directory',
       dstDirectory: 'DstDirectory',
       endTime: 'EndTime',
+      entryList: 'EntryList',
       errorMsg: 'ErrorMsg',
       fileSystemPath: 'FileSystemPath',
       filesystemId: 'FilesystemId',
@@ -166,6 +168,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
       directory: 'string',
       dstDirectory: 'string',
       endTime: 'string',
+      entryList: 'string',
       errorMsg: 'string',
       fileSystemPath: 'string',
       filesystemId: 'string',
@@ -229,7 +232,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfo extends $dara.Model {
 export class DescribeDataFlowTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If the response is truncated, use NextToken to retrieve the remaining results.
+   * The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the truncation point.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

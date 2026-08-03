@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecycleBinJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * rb-15****ed-r-1625****2441
@@ -23,9 +23,9 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page in a paged query.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Start value (default value): 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paged query.
    * 
    * Valid values: 1 to 100.
    * 
@@ -45,15 +45,15 @@ export class ListRecycleBinJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The job status. Valid values:
+   * The task status. Valid values:
    * 
-   * *   Running: The job is running.
-   * *   Defragmenting: The job is defragmenting data.
-   * *   PartialSuccess: The job is partially completed.
-   * *   Success: The job is completed.
-   * *   Fail: The job failed.
-   * *   Cancelled: The job is canceled.
-   * *   all (default)
+   * - Running: The task is running.
+   * - Defragmenting: Data is being defragmented.
+   * - PartialSuccess: The task partially succeeded.
+   * - Success: The task succeeded.
+   * - Fail: The task failed.
+   * - Cancelled: The task is canceled.
+   * - All (default): All statuses.
    * 
    * @example
    * All

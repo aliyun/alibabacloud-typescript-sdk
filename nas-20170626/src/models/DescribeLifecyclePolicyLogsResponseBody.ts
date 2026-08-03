@@ -2,12 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute of the rule.
+   * 
+   * Valid values:
+   * - Atime: the access time of the file.
+   */
+  attribute?: string;
+  /**
+   * @remarks
+   * The threshold of the rule.
+   * 
+   * Valid values:
+   * - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+   */
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveRules extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the rule. Valid value:
-   * 
-   * - `RetrieveType`: The retrieval method.
+   * The attribute of the rule. Valid values:
+   * - RetrieveType: the retrieval method.
    * 
    * @example
    * RetrieveType
@@ -16,12 +55,9 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveR
   /**
    * @remarks
    * The threshold of the rule. Valid values:
-   * 
-   * - If `Attribute` is set to `RetrieveType`:
-   * 
-   *   - `AfterVisit`: Data is retrieved on a best-effort basis when accessed. This value is available only if `LifecyclePolicyType` is set to `Auto`.
-   * 
-   *   - `All`: All data is retrieved. This value is available only if `LifecyclePolicyType` is set to `OnDemand`.
+   * - RetrieveType
+   *     - AfterVisit: Supported when LifecyclePolicyType=Auto. Indicates best-effort recall on visit.
+   *     - All: Supported when LifecyclePolicyType=OnDemand. Indicates retrieving all data.
    * 
    * @example
    * All
@@ -55,9 +91,8 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
    * @remarks
    * The attribute of the rule.
    * 
-   * Valid value:
-   * 
-   * - `Atime`: The last access time of a file.
+   * Valid values:
+   * - Atime: the access time of the file.
    * 
    * @example
    * Atime
@@ -65,11 +100,10 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
   attribute?: string;
   /**
    * @remarks
-   * The rule threshold.
+   * The threshold of the rule.
    * 
    * Valid values:
-   * 
-   * - If `Attribute` is set to `Atime`, this parameter specifies the number of days since a file was last accessed. The value must be an integer from 1 to 365.
+   * - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -101,7 +135,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
 export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The time is displayed in UTC and is in the `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-10-20T02:25:07Z
@@ -109,27 +143,27 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   createTime?: string;
   /**
    * @remarks
-   * The execution paths of the task.
+   * The file data expiration and deletion rules. A maximum of one rule can be configured.
+   */
+  deleteRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules[];
+  /**
+   * @remarks
+   * The execution paths of the specified retrieval task.
    */
   paths?: string[];
   /**
    * @remarks
-   * The retrieval rules for file data.
+   * The file data retrieval rules.
    */
   retrieveRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveRules[];
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * - `PENDING`: The task is initializing.
-   * 
-   * - `RUNNING`: The task is running.
-   * 
-   * - `STOPPED`: The task is stopped.
-   * 
-   * - `FINISHED`: The task is complete.
-   * 
-   * - `FAILED`: The task failed.
+   * The status of the data retrieval task. Valid values:
+   * - PENDING: Being created.
+   * - RUNNING: Running.
+   * - STOPPED: Stopped.
+   * - FINISHED: Finished.
+   * - FAILED: Failed.
    * 
    * @example
    * RUNNING
@@ -137,11 +171,9 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   status?: string;
   /**
    * @remarks
-   * The storage tier. Valid values:
-   * 
-   * - `InfrequentAccess`: Infrequent Access (default).
-   * 
-   * - `Archive`: Archive Storage.
+   * The tiered storage type. Valid values:
+   * - InfrequentAccess: IA storage class (default).
+   * - Archive: Archive storage.
    * 
    * @example
    * InfrequentAccess
@@ -149,7 +181,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   storageType?: string;
   /**
    * @remarks
-   * The task summary.
+   * The task overview.
    * 
    * @example
    * Total tasks: 100000, success tasks: 100000
@@ -157,12 +189,13 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   summary?: string;
   /**
    * @remarks
-   * The transition rules for file data.
+   * The file data transit rules.
    */
   transitRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRules[];
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      deleteRules: 'DeleteRules',
       paths: 'Paths',
       retrieveRules: 'RetrieveRules',
       status: 'Status',
@@ -175,6 +208,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      deleteRules: { 'type': 'array', 'itemType': DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules },
       paths: { 'type': 'array', 'itemType': 'string' },
       retrieveRules: { 'type': 'array', 'itemType': DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveRules },
       status: 'string',
@@ -185,6 +219,9 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   }
 
   validate() {
+    if(Array.isArray(this.deleteRules)) {
+      $dara.Model.validateArray(this.deleteRules);
+    }
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
     }
@@ -218,7 +255,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of log entries per page.
    * 
    * @example
    * 10
@@ -234,13 +271,12 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request succeeded.
+   * The request status.
    * 
    * Valid values:
    * 
-   * - `true`: The request succeeded.
-   * 
-   * - `false`: The request failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -248,7 +284,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of logs.
+   * The total number of log entries.
    * 
    * @example
    * 36

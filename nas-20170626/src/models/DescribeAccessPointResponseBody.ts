@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The POSIX user group ID.
+   * The POSIX group ID.
    * 
    * @example
    * 12
@@ -13,7 +13,7 @@ export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.M
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary user group ID.
+   * The secondary group IDs.
    */
   posixSecondaryGroupIds?: number[];
   /**
@@ -55,7 +55,7 @@ export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.M
 export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The file group ID.
+   * The file group ID of the owner.
    * 
    * @example
    * 123
@@ -63,7 +63,7 @@ export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extend
   ownerGroupId?: number;
   /**
    * @remarks
-   * The file owner ID.
+   * The user ID of the owner.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extend
   ownerUserId?: number;
   /**
    * @remarks
-   * The POSIX permissions.
+   * The POSIX permission.
    * 
    * @example
    * 0755
@@ -185,7 +185,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The time when the access point was created.
+   * The time when the access point was created. Format: Unix/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -193,7 +193,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the AgenticSpace was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The time when the access point was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -225,7 +225,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified.
+   * The time when the access point was last modified. Format: Unix/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -233,7 +233,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The time when the AgenticSpace was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The time when the access point was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -262,7 +262,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The permissions for creating the root directory.
+   * The root directory creation permissions.
    */
   rootPathPermission?: DescribeAccessPointResponseBodyAccessPointRootPathPermission;
   /**
@@ -285,10 +285,10 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Active: active
-   * - Inactive: inactive
-   * - Pending: being created
-   * - Deleting: being deleted
+   * - Active: available.
+   * - Inactive: unavailable.
+   * - Pending: being created.
+   * - Deleting: being deleted.
    * 
    * @example
    * Active
@@ -311,7 +311,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
    * @remarks
    * The VPC ID.
    * 
-   * The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which you want to mount the file system.
+   * The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to be mounted.
    * 
    * @example
    * vpc-2zesj9afh3y518k9o****

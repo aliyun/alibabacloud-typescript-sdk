@@ -7,9 +7,9 @@ export class SetFilesetQuotaRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,12 +17,14 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. The dry run checks parameter validity and prerequisites. The dry run does not delete the specified quota or incur fees.
+   * Specifies whether to perform a dry run for this request.
+   * A dry run checks parameter validity and dependencies without actually deleting the instance or incurring charges.
    * 
    * Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the HTTP status code 200 is returned.
-   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, the quota is deleted.
+   * - true: Sends a check request without deleting the export directory. The check items include whether required parameters are specified, the request format, and business limit dependencies. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
+   * 
+   * - false (default): Sends a normal request. After the check passes, the instance is directly deleted.
    * 
    * @example
    * false
@@ -30,12 +32,13 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The number of files of the quota. Valid values:
+   * The file count limit of the quota. Valid values:
    * 
-   * *   Minimum value: 10,000.
-   * *   Maximum value: 10,000,000,000.
+   * - Minimum value: 10,000.
    * 
-   * >  If you do not specify this parameter, the number of files is unlimited.
+   * - Maximum value: 10,000,000,000.
+   * 
+   * > If this parameter is not specified, the file count is unlimited.
    * 
    * @example
    * 10000
@@ -43,7 +46,7 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   fileCountLimit?: number;
   /**
    * @remarks
-   * The ID of the CPFS for LINGJUN file system. The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * The ID of the CPFS for Lingjun file system. The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****. You can call [DescribeFileSystems](https://www.alibabacloud.com/help/en/nas/developer-reference/api-nas-2017-06-26-describefilesystems) (FileSystemType=bmcpfs) to query existing file systems.
    * 
    * This parameter is required.
    * 
@@ -53,7 +56,7 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The fileset ID.
+   * Fileset ID。
    * 
    * This parameter is required.
    * 
@@ -63,14 +66,15 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   fsetId?: string;
   /**
    * @remarks
-   * The total capacity of the quota. Unit: bytes.
+   * The total capacity limit of the quota. Unit: bytes.
    * 
    * Valid values:
    * 
-   * *   Minimum value: 10,737,418,240 (10 GiB).
-   * *   Step size: 1,073,741,824 (1 GiB).
+   * - Minimum value: 10,737,418,240 (10 GiB).
    * 
-   * >  If you do not specify this parameter, the capacity is unlimited.
+   * - Increment: 1,073,741,824 (1 GiB).
+   * 
+   * > If this parameter is not specified, the capacity is unlimited.
    * 
    * @example
    * 10737418240

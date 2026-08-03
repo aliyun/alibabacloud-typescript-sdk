@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopLifecyclePolicyExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****.
+   * > This operation is supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
    * 
    * This parameter is required.
    * 
