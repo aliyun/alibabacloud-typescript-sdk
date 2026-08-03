@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/gpdb20160503",
-  "version": "3.11.0",
+  "version": "3.11.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
     "@alicloud/credentials": "^2.4.2",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",

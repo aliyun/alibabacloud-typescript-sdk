@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSupabaseProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated order.
+   * The associated order ID.
    * 
    * @example
    * 278880417310796
@@ -13,7 +13,7 @@ export class CreateSupabaseProjectResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The instance ID of the Supabase instance.
+   * The Supabase instance ID.
    * 
    * @example
    * spb-xxxx

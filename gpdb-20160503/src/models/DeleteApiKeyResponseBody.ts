@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteApiKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API KEY ID。
+   * 
    * @example
    * api-xxxxxx
    */
   keyId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D****
    */

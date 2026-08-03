@@ -426,8 +426,8 @@ export class QueryContentResponseBody extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - **success**: Succeeded.
-   * - **fail**: Failed.
+   * - **success**: The operation is successful.
+   * - **fail**: The operation failed.
    * 
    * @example
    * success

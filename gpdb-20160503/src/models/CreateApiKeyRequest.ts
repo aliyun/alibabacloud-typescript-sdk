@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApiKeyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test secret
    */
   description?: string;
   /**
    * @remarks
+   * The name of the API key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,13 +22,22 @@ export class CreateApiKeyRequest extends $dara.Model {
    */
   keyName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of service IDs to authorize.
+   */
   serviceIds?: string[];
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

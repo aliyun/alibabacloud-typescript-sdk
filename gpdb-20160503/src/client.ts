@@ -31,14 +31,13 @@ export default class Client extends OpenApi {
       'eu-west-1': "gpdb.eu-west-1.aliyuncs.com",
       'eu-central-1': "gpdb.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "gpdb.cn-zhangjiakou.aliyuncs.com",
+      'cn-wulanchabu': "gpdb.cn-wulanchabu.aliyuncs.com",
       'cn-huhehaote': "gpdb.cn-huhehaote.aliyuncs.com",
       'cn-chengdu': "gpdb.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "gpdb.aliyuncs.com",
+      'cn-beijing-finance-1': "gpdb.cn-beijing-finance-1.aliyuncs.com",
       'ap-southeast-7': "gpdb.ap-southeast-7.aliyuncs.com",
       'ap-southeast-5': "gpdb.ap-southeast-5.aliyuncs.com",
       'ap-southeast-3': "gpdb.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-2': "gpdb.ap-southeast-2.aliyuncs.com",
-      'ap-south-1': "gpdb.ap-south-1.aliyuncs.com",
       'ap-northeast-2': "gpdb.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "gpdb.ap-northeast-1.aliyuncs.com",
     };
@@ -1228,10 +1227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API密钥
+   * Creates an API key.
    * 
    * @remarks
-   * 创建API密钥。
+   * Creates an API key.
    * 
    * @param tmpReq - CreateApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1284,10 +1283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API密钥
+   * Creates an API key.
    * 
    * @remarks
-   * 创建API密钥。
+   * Creates an API key.
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -1568,10 +1567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an AnalyticDB for PostgreSQL instance.
+   * Creates an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1782,10 +1781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an AnalyticDB for PostgreSQL instance.
+   * Creates an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -3520,6 +3519,10 @@ export default class Client extends OpenApi {
       query["StorageSize"] = request.storageSize;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!$dara.isNull(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -3884,10 +3887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除API密钥
+   * Deletes an API key.
    * 
    * @remarks
-   * 删除API密钥。
+   * Deletes an API key.
    * 
    * @param request - DeleteApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3922,10 +3925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除API密钥
+   * Deletes an API key.
    * 
    * @remarks
-   * 删除API密钥。
+   * Deletes an API key.
    * 
    * @param request - DeleteApiKeyRequest
    * @returns DeleteApiKeyResponse
@@ -5564,10 +5567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除SaaS工作空间
+   * Deletes a SaaS workspace.
    * 
    * @remarks
-   * 此接口为删除上下文服务工作空间
+   * Deletes a context service workspace.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5602,10 +5605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除SaaS工作空间
+   * Deletes a SaaS workspace.
    * 
    * @remarks
-   * 此接口为删除上下文服务工作空间
+   * Deletes a context service workspace.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -10880,10 +10883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取API密钥详情
+   * Retrieves the details of an API key.
    * 
    * @remarks
-   * 获取API密钥详情。
+   * Retrieves the details of an API key.
    * 
    * @param request - GetApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10918,10 +10921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取API密钥详情
+   * Retrieves the details of an API key.
    * 
    * @remarks
-   * 获取API密钥详情。
+   * Retrieves the details of an API key.
    * 
    * @param request - GetApiKeyRequest
    * @returns GetApiKeyResponse
@@ -11058,10 +11061,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SaaS服务信息
+   * Retrieves SaaS service information.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - GetSaasServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11096,10 +11099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SaaS服务信息
+   * Retrieves SaaS service information.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - GetSaasServiceRequest
    * @returns GetSaasServiceResponse
@@ -11172,13 +11175,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SaaS服务访问信息
+   * Retrieves access information for a SaaS service.
    * 
    * @remarks
-   * ## 使用说明
-   * 本接口用于查看所有模型服务信息。
-   * ## QPS限制
-   * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * ## Operation description
+   * This operation is used to query information about all model services.
+   * ## QPS limit
+   * The default single-user QPS limit for this operation is 1,000 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - GetServiceAccessInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11213,13 +11216,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SaaS服务访问信息
+   * Retrieves access information for a SaaS service.
    * 
    * @remarks
-   * ## 使用说明
-   * 本接口用于查看所有模型服务信息。
-   * ## QPS限制
-   * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+   * ## Operation description
+   * This operation is used to query information about all model services.
+   * ## QPS limit
+   * The default single-user QPS limit for this operation is 1,000 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - GetServiceAccessInfoRequest
    * @returns GetServiceAccessInfoResponse
@@ -11606,11 +11609,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SaaS工作空间
+   * Queries a SaaS workspace.
    * 
    * @remarks
-   * ## 使用说明
-   * 本接口用于查看指定工作空间信息。
+   * ## Operation description
+   * This operation is used to query information about a specified workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11645,11 +11648,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SaaS工作空间
+   * Queries a SaaS workspace.
    * 
    * @remarks
-   * ## 使用说明
-   * 本接口用于查看指定工作空间信息。
+   * ## Operation description
+   * This operation is used to query information about a specified workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -11952,10 +11955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API密钥列表
+   * Queries a list of API keys.
    * 
    * @remarks
-   * 查询API密钥列表。
+   * Queries a list of API keys.
    * 
    * @param request - ListApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12002,10 +12005,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API密钥列表
+   * Queries a list of API keys.
    * 
    * @remarks
-   * 查询API密钥列表。
+   * Queries a list of API keys.
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse
@@ -13081,7 +13084,7 @@ export default class Client extends OpenApi {
    * Queries the list of SaaS services.
    * 
    * @remarks
-   * ## Operation description
+   * ## Usage notes
    * This operation is used to query information about all SaaS services.
    * 
    * @param request - ListSaasServiceRequest
@@ -13132,7 +13135,7 @@ export default class Client extends OpenApi {
    * Queries the list of SaaS services.
    * 
    * @remarks
-   * ## Operation description
+   * ## Usage notes
    * This operation is used to query information about all SaaS services.
    * 
    * @param request - ListSaasServiceRequest
@@ -13860,7 +13863,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This operation is used to query information about all workspaces.
+   * This operation is used to view information about all workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13911,7 +13914,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * This operation is used to query information about all workspaces.
+   * This operation is used to view information about all workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -15938,10 +15941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停SaaS服务
+   * Pauses a SaaS service.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - PauseSaasServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15976,10 +15979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停SaaS服务
+   * Pauses a SaaS service.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - PauseSaasServiceRequest
    * @returns PauseSaasServiceResponse
@@ -17276,10 +17279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复SaaS服务
+   * Resumes a SaaS service.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - ResumeSaasServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17314,10 +17317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复SaaS服务
+   * Resumes a SaaS service.
    * 
    * @remarks
-   * 删除模型服务。
+   * Deletes a model service.
    * 
    * @param request - ResumeSaasServiceRequest
    * @returns ResumeSaasServiceResponse

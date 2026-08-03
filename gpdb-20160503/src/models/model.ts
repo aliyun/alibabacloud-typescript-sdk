@@ -53,6 +53,7 @@ export { CreateDBInstanceRequestTag } from './CreateDbinstanceRequest';
 export { CreateDocumentCollectionRequestSparseVectorIndexConfig } from './CreateDocumentCollectionRequest';
 export { CreateDocumentCollectionRequestVectorIndexConfig } from './CreateDocumentCollectionRequest';
 export { CreateRemoteADBDataSourceResponseBodyDataSourceItem } from './CreateRemoteAdbdataSourceResponseBody';
+export { CreateSupabaseProjectRequestTags } from './CreateSupabaseProjectRequest';
 export { DescribeAccountsResponseBodyAccountsDBInstanceAccount } from './DescribeAccountsResponseBody';
 export { DescribeAccountsResponseBodyAccounts } from './DescribeAccountsResponseBody';
 export { DescribeActiveSQLRecordsResponseBodyQueries } from './DescribeActiveSqlrecordsResponseBody';
@@ -205,6 +206,7 @@ export { ListModelServicesResponseBodyModelServices } from './ListModelServicesR
 export { ListNamespacesResponseBodyNamespaces } from './ListNamespacesResponseBody';
 export { ListRemoteADBDataSourcesResponseBodyDataSourceItemsRemoteDataSources } from './ListRemoteAdbdataSourcesResponseBody';
 export { ListRemoteADBDataSourcesResponseBodyDataSourceItems } from './ListRemoteAdbdataSourcesResponseBody';
+export { ListSaasServiceResponseBodyItemsComponents } from './ListSaasServiceResponseBody';
 export { ListSaasServiceResponseBodyItems } from './ListSaasServiceResponseBody';
 export { ListSchemasResponseBodySchemas } from './ListSchemasResponseBody';
 export { ListSecretsResponseBodySecretsSecrets } from './ListSecretsResponseBody';
@@ -223,6 +225,7 @@ export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagRe
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ListWorkspacesResponseBodyItemsApikeysAuthServices } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyItemsApikeys } from './ListWorkspacesResponseBody';
+export { ListWorkspacesResponseBodyItemsServicesComponents } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyItemsServices } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyItems } from './ListWorkspacesResponseBody';
 export { ModifyDBResourceGroupRequestResourceGroupItems } from './ModifyDbresourceGroupRequest';

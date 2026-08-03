@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PauseSaasServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the service.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example

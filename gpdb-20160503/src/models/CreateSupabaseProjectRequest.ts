@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateSupabaseProjectRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
@@ -21,7 +47,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value false is used.
+   * Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
    * 
    * @example
    * false
@@ -29,7 +55,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   autoScale?: boolean;
   /**
    * @remarks
-   * The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
+   * The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -69,9 +95,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Free: free tier.
-   * - Postpaid: pay-as-you-go.
-   * - Prepaid: subscription.
+   * - Free: Free tier.
+   * - Postpaid: Pay-as-you-go.
+   * - Prepaid: Subscription.
    * 
    * @example
    * Free
@@ -142,6 +168,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * 50
    */
   storageSize?: number;
+  tags?: CreateSupabaseProjectRequestTags[];
   /**
    * @remarks
    * The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
@@ -194,6 +221,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       regionId: 'RegionId',
       securityIPList: 'SecurityIPList',
       storageSize: 'StorageSize',
+      tags: 'Tags',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -215,6 +243,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       regionId: 'string',
       securityIPList: 'string',
       storageSize: 'number',
+      tags: { 'type': 'array', 'itemType': CreateSupabaseProjectRequestTags },
       usedTime: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -223,6 +252,9 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

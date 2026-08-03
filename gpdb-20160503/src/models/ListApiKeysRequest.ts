@@ -4,27 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApiKeysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the API key.
+   * 
    * @example
    * my api
    */
   keyName?: string;
   /**
+   * @remarks
+   * The maximum number of records to return in this query.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

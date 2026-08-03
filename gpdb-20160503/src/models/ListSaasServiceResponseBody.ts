@@ -2,7 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListSaasServiceResponseBodyItemsComponents extends $dara.Model {
+  componentId?: string;
+  componentType?: string;
+  createTime?: string;
+  cu?: string;
+  deletionProtection?: boolean;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      componentId: 'ComponentId',
+      componentType: 'ComponentType',
+      createTime: 'CreateTime',
+      cu: 'Cu',
+      deletionProtection: 'DeletionProtection',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentId: 'string',
+      componentType: 'string',
+      createTime: 'string',
+      cu: 'string',
+      deletionProtection: 'boolean',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSaasServiceResponseBodyItems extends $dara.Model {
+  components?: ListSaasServiceResponseBodyItemsComponents[];
   /**
    * @remarks
    * The creation time.
@@ -19,6 +58,7 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
    * 1
    */
   cu?: number;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The expiration time.
@@ -40,7 +80,7 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * [Deprecated]
+   * **[Deprecated]**
    * 
    * @example
    * deprecated
@@ -86,8 +126,10 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      components: 'Components',
       createTime: 'CreateTime',
       cu: 'Cu',
+      deletionProtection: 'DeletionProtection',
       expireTime: 'ExpireTime',
       payType: 'PayType',
       plan: 'Plan',
@@ -100,8 +142,10 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      components: { 'type': 'array', 'itemType': ListSaasServiceResponseBodyItemsComponents },
       createTime: 'string',
       cu: 'number',
+      deletionProtection: 'boolean',
       expireTime: 'string',
       payType: 'string',
       plan: 'string',
@@ -113,6 +157,9 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
     super.validate();
   }
 

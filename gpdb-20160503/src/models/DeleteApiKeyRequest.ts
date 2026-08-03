@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApiKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * API KEY ID。
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteApiKeyRequest extends $dara.Model {
    */
   keyId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

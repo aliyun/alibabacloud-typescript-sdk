@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated and is no longer returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
-   * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the connection string of the instance.
+   * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the endpoint of the instance.
    * 
    * @example
    * gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
@@ -31,7 +31,7 @@ export class CreateDBInstanceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * This parameter is deprecated and is no longer returned.
+   * **[Deprecated]** This parameter is deprecated and no value is returned.
    * 
    * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the port number of the instance.
    * 

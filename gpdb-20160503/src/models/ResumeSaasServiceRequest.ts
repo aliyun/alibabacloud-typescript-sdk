@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResumeSaasServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the SaaS service.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example

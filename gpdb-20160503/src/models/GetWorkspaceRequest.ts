@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the workspace.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The ID of the workspace where the service resides.
+   * 
    * This parameter is required.
    * 
    * @example

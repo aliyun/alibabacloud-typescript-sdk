@@ -125,7 +125,46 @@ export class ListWorkspacesResponseBodyItemsApikeys extends $dara.Model {
   }
 }
 
+export class ListWorkspacesResponseBodyItemsServicesComponents extends $dara.Model {
+  createTime?: string;
+  cu?: string;
+  deletionProtection?: boolean;
+  status?: string;
+  componentId?: string;
+  componentType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      cu: 'Cu',
+      deletionProtection: 'DeletionProtection',
+      status: 'Status',
+      componentId: 'componentId',
+      componentType: 'componentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      cu: 'string',
+      deletionProtection: 'boolean',
+      status: 'string',
+      componentId: 'string',
+      componentType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
+  components?: ListWorkspacesResponseBodyItemsServicesComponents[];
   /**
    * @remarks
    * The creation time.
@@ -142,6 +181,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
    * 1
    */
   cu?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The expiration time.
@@ -166,7 +206,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * [Deprecated]
+   * **[Deprecated]**
    * 
    * @example
    * deprecated
@@ -212,8 +252,10 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      components: 'Components',
       createTime: 'CreateTime',
       cu: 'Cu',
+      deletionProtection: 'DeletionProtection',
       expireTime: 'ExpireTime',
       payType: 'PayType',
       plan: 'Plan',
@@ -226,8 +268,10 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      components: { 'type': 'array', 'itemType': ListWorkspacesResponseBodyItemsServicesComponents },
       createTime: 'string',
       cu: 'string',
+      deletionProtection: 'boolean',
       expireTime: 'string',
       payType: 'string',
       plan: 'string',
@@ -239,6 +283,9 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
     super.validate();
   }
 
