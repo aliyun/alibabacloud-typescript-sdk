@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster IDs of all clusters in a region.
    * 
    * This parameter is required.
    * 
@@ -26,19 +25,18 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time must be in UTC and in the `yyyy-MM-ddTHH:mmZ` format.
-   * 
+   * The end of the time range to query. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ format.
    * > - The end time must be later than the start time.
-   * >
-   * > - The time range cannot exceed 24 hours.
+   * > - The interval between the start time and the end time cannot exceed 24 hours.
    * 
    * @example
    * 2022-08-12T17:08Z
    */
   endTime?: string;
+  engineType?: string;
   /**
    * @remarks
-   * The client IP address and port number.
+   * The IP address and port number of the client that executed the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -46,37 +44,23 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * Specifies the fields for sorting the results. The value is a JSON string that is an array of objects. The order of objects in the array defines the sort priority. Each object contains the`Field` and`Type` parameters. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`.
+   * The sorting order based on specified fields. The value is in JSON format and is an ordered JSON array. Compound sorting is performed in the order of the input array. The array contains the `Field` and `Type` fields. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`.
+   * * `Field` specifies the field name for sorting. Valid values:
+   *     * **HostAddress**: the address of the client that connects to the database.
+   *     * **UserName**: the username.
+   *     * **ExecutionStartTime**: the execution start time of the SQL statement.
+   *     * **QueryTime**: the execution duration of the SQL statement.
+   *     * **PeakMemoryUsage**: the peak memory usage during the execution of the SQL statement.
+   *     * **ScanRows**: the number of rows scanned by the task with a data source.
+   *     * **ScanSize**: the amount of scanned data.
+   *     * **ScanTime**: the total time consumed for scanning data.
+   *     * **PlanningTime**: the time consumed for generating the execution plan.
+   *     * **WallTime**: the cumulative CPU time of all operators across all nodes in the query.
+   *     * **ProcessID**: the process ID.
    * 
-   * - `Field`: the field by which to sort the results. Valid values:
-   * 
-   *   - **HostAddress**: the client IP address.
-   * 
-   *   - **UserName**: the username.
-   * 
-   *   - **ExecutionStartTime**: the execution start time of the SQL statement.
-   * 
-   *   - **QueryTime**: the execution duration.
-   * 
-   *   - **PeakMemoryUsage**: the peak memory usage of the SQL statement.
-   * 
-   *   - **ScanRows**: the number of rows scanned by a task that involves a data source.
-   * 
-   *   - **ScanSize**: the amount of data scanned.
-   * 
-   *   - **ScanTime**: the time taken for the data scan.
-   * 
-   *   - **PlanningTime**: the time taken to generate the execution plan.
-   * 
-   *   - **WallTime**: the total CPU time of all operators on all nodes.
-   * 
-   *   - **ProcessID**: the process ID.
-   * 
-   * - `Type`: the sort order. Valid values:
-   * 
-   *   - **Desc**: descending order.
-   * 
-   *   - **Asc**: ascending order.
+   * * `Type` specifies the sorting type. Valid values:
+   *     * **Desc**: descending order.
+   *     * **Asc**: ascending order.
    * 
    * @example
    * [{"Field":"ExecuteTime","Type":"Desc"},{"Field":"HostAddress","Type":"Asc"}]
@@ -84,11 +68,9 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The sort order for the results based on execution time. Valid values:
-   * 
-   * - **asc**: ascending order.
-   * 
-   * - **desc**: descending order.
+   * The order in which the results are sorted by SQL execution time. Valid values:
+   * * **asc**: ascending order.
+   * * **desc**: descending order.
    * 
    * @example
    * asc
@@ -98,7 +80,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -106,14 +88,10 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values:
-   * 
+   * The number of entries per page. Valid values:
    * - **10** (default)
-   * 
    * - **30**
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -125,12 +103,12 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * 无
+   * None
    */
   proxyUser?: string;
   /**
    * @remarks
-   * A keyword used to perform a fuzzy search on the returned results.
+   * The keyword used to filter the returned results.
    * 
    * @example
    * adb
@@ -139,8 +117,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query available regions.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -153,22 +130,15 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the SQL statement. Valid values:
-   * 
    * - **DELETE**
-   * 
    * - **SELECT**
-   * 
    * - **UPDATE**
-   * 
    * - **INSERT INTO SELECT**
-   * 
    * - **ALTER**
-   * 
    * - **DROP**
-   * 
    * - **CREATE**
    * 
-   * > You can specify only one type per request. If this parameter is not specified, all types are queried by default.
+   * > Only one type can be specified per request. If this parameter is left empty, all types are queried by default.
    * 
    * @example
    * SELECT
@@ -176,9 +146,8 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The start of the time range to query. The time must be in UTC and in the `yyyy-MM-ddTHH:mmZ` format.
-   * 
-   * > You can query SQL audit logs only when this feature is enabled. Logs are available for the last 30 days. If you disable and then re-enable SQL audit, only logs generated after the feature was re-enabled are returned.
+   * The beginning of the time range to query. Specify the time in UTC in the yyyy-MM-ddTHH:mmZ format.
+   * > SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is disabled and then re-enabled, only entries recorded after re-enabling are available.
    * 
    * @example
    * 2022-08-12T04:17Z
@@ -186,11 +155,9 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement was successfully executed. Valid values:
-   * 
-   * - **true**: The SQL statement succeeded.
-   * 
-   * - **false**: The SQL statement failed.
+   * Specifies whether the SQL statement was executed successfully. Valid values:
+   * * **true**: The SQL statement was executed successfully.
+   * * **false**: The SQL statement failed to be executed.
    * 
    * @example
    * true
@@ -209,6 +176,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       DBName: 'DBName',
       endTime: 'EndTime',
+      engineType: 'EngineType',
       hostAddress: 'HostAddress',
       order: 'Order',
       orderType: 'OrderType',
@@ -233,6 +201,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
       DBClusterId: 'string',
       DBName: 'string',
       endTime: 'string',
+      engineType: 'string',
       hostAddress: 'string',
       order: 'string',
       orderType: 'string',

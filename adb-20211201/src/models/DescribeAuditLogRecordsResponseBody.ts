@@ -13,7 +13,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   connId?: string;
   /**
    * @remarks
-   * The name of the database on which the SQL statement ran.
+   * The name of the database on which the SQL statement was executed.
    * 
    * @example
    * adb_demo
@@ -21,7 +21,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The execution start time of the SQL statement. The time is in the `yyyy-MM-dd HH:mm:ss` format and in the local time zone.
+   * The execution start time of the SQL statement in local time. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2022-08-12 10:10:00
@@ -29,7 +29,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * The execution start time of the SQL statement, as a millisecond timestamp.
+   * The execution start time of the SQL statement, in millisecond-precision UNIX timestamp.
    * 
    * @example
    * 1774600396584
@@ -37,7 +37,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   executeTimestamp?: number;
   /**
    * @remarks
-   * Specifies whether the response contains diagnostic information.
+   * Indicates whether diagnostic information is included.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   hasDiagnosticInfo?: boolean;
   /**
    * @remarks
-   * The IP address and port of the client that ran the SQL statement.
+   * The IP address and port number of the client that executed the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -56,7 +56,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The process ID.
+   * The task ID.
    * 
    * @example
    * 202106081752021720161662490345362390
@@ -64,7 +64,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   processID?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The details of the SQL statement.
    * 
    * @example
    * SELECT * FROM adb_hdfs_import_source
@@ -72,7 +72,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The SQL type.
+   * The type of the SQL statement.
    * 
    * @example
    * SELECT
@@ -80,11 +80,9 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLType?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement succeeded. Valid values:
-   * 
-   * - **true**: The SQL statement succeeded.
-   * 
-   * - **false**: The SQL statement failed.
+   * Indicates whether the SQL statement was executed successfully. Valid values:
+   * - **true**: The SQL statement was executed successfully.
+   * - **false**: The SQL statement failed to be executed.
    * 
    * @example
    * true
@@ -92,7 +90,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   succeed?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement in milliseconds (ms).
+   * The execution duration of the SQL statement. Unit: milliseconds (ms).
    * 
    * @example
    * 216
@@ -100,7 +98,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   totalTime?: string;
   /**
    * @remarks
-   * The username of the account that ran the SQL statement.
+   * The username that executed the SQL statement.
    * 
    * @example
    * test
@@ -152,7 +150,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * @example
@@ -161,7 +159,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * A list of audit log records.
+   * The list.
    */
   items?: DescribeAuditLogRecordsResponseBodyItems[];
   /**
@@ -174,7 +172,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -190,7 +188,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 6974
