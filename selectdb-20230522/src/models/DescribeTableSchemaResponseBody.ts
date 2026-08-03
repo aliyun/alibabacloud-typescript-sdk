@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTableSchemaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The CREATE TABLE statement.
+   * 
    * @example
    * CREATE TABLE test_tb
    * (
@@ -17,16 +20,25 @@ export class DescribeTableSchemaResponseBody extends $dara.Model {
    */
   createStatement?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * test_db
    */
   database?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * test_tb
    */

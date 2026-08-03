@@ -13,7 +13,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
-   * The billing method.
+   * The billing type.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The elastic computing resources.
+   * The elastic compute resources.
    * 
    * @example
    * 4
@@ -59,7 +59,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   dbInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether this is an inquiry for changing the billing method of the cluster.
+   * Specifies whether to query the price for converting the cluster billing type.
    * 
    * @example
    * true
@@ -75,7 +75,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   preCacheSize?: number;
   /**
    * @remarks
-   * The reserved computing resources.
+   * The reserved compute resources.
    * 
    * @example
    * 4
@@ -92,6 +92,9 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 123412345
    */

@@ -275,6 +275,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether a specified IP address already exists in a network whitelist group.
+   * 
    * @param request - CheckIpExistsInSecurityIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckIpExistsInSecurityIpListResponse
@@ -300,6 +302,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks whether a specified IP address already exists in a network whitelist group.
+   * 
    * @param request - CheckIpExistsInSecurityIpListRequest
    * @returns CheckIpExistsInSecurityIpListResponse
    */
@@ -611,6 +615,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.FEClassCode)) {
+      query["FEClassCode"] = request.FEClassCode;
+    }
+
+    if (!$dara.isNull(request.FENodeCount)) {
+      query["FENodeCount"] = request.FENodeCount;
     }
 
     if (!$dara.isNull(request.multiZoneShrink)) {
@@ -1381,7 +1393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified instance.
+   * Queries the details of an instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1420,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the details of a specified instance.
+   * Queries the details of an instance.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1867,7 +1879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表结构
+   * Retrieves the CREATE TABLE statement.
    * 
    * @param request - DescribeTableSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1910,7 +1922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表结构
+   * Retrieves the CREATE TABLE statement.
    * 
    * @param request - DescribeTableSchemaRequest
    * @returns DescribeTableSchemaResponse
@@ -2137,7 +2149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+   * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,7 +2176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+   * Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @returns GetModifyBEClusterInquiryResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.Model {
   /**
    * @remarks
-   * The cache storage size, in GB.
+   * The cache storage size. Unit: GB.
    * 
    * @example
    * 200
@@ -23,17 +23,13 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * @remarks
    * The billing method of the cluster. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go
-   * 
-   * - **Prepaid**: subscription
-   * 
    * @example
    * Prepaid
    */
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the target cluster to which this cluster is bound.
+   * The bound target cluster.
    * 
    * @example
    * selectdb-cn-7213cjv****-be
@@ -41,7 +37,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   clusterBinding?: string;
   /**
    * @remarks
-   * The number of nodes in the cluster. This parameter applies only to serverless instances.
+   * The number of cluster nodes. This parameter takes effect only in serverless mode.
    * 
    * @example
    * 1
@@ -49,7 +45,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   clusterNodeCount?: number;
   /**
    * @remarks
-   * The cluster node type. This parameter applies only to serverless instances.
+   * The cluster node type. This parameter takes effect only in serverless mode.
    * 
    * @example
    * base
@@ -73,21 +69,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   createdTime?: string;
   /**
    * @remarks
-   * The cluster class. Valid values:
-   * 
-   * - **selectdb.xlarge**: 4 CPU cores, 16 GB of memory.
-   * 
-   * - **selectdb.2xlarge**: 8 CPU cores, 32 GB of memory.
-   * 
-   * - **selectdb.4xlarge**: 16 CPU cores, 64 GB of memory.
-   * 
-   * - **selectdb.8xlarge**: 32 CPU cores, 128 GB of memory.
-   * 
-   * - **selectdb.16xlarge**: 64 CPU cores, 256 GB of memory.
-   * 
-   * - **selectdb.24xlarge**: 96 CPU cores, 384 GB of memory.
-   * 
-   * - **selectdb.32xlarge**: 128 CPU cores, 512 GB of memory.
+   * The cluster specifications. Valid values:
    * 
    * @example
    * selectdb.2xlarge
@@ -119,7 +101,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   dbInstanceName?: string;
   /**
    * @remarks
-   * The memory size, in GB.
+   * The memory size.
    * 
    * @example
    * 64
@@ -127,7 +109,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   memory?: number;
   /**
    * @remarks
-   * The time when the cluster was last modified.
+   * The modification time.
    * 
    * @example
    * 2024-07-02T16:35:44+08:00
@@ -135,7 +117,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   modifiedTime?: string;
   /**
    * @remarks
-   * The performance level.
+   * The performance level (PL).
    * 
    * @example
    * PL1
@@ -143,7 +125,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   performanceLevel?: string;
   /**
    * @remarks
-   * The maximum value of the auto-scaling range for the cluster\\"s RDS Capacity Units (RCUs).
+   * The maximum value of the automatic scaling range for the instance RCU (RDS Capacity Unit).
    * 
    * @example
    * 4
@@ -151,7 +133,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value of the auto-scaling range for the cluster\\"s RDS Capacity Units (RCUs).
+   * The minimum value of the automatic scaling range for the instance RCU (RDS Capacity Unit).
    * 
    * @example
    * 0.5
@@ -159,7 +141,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   scaleMin?: number;
   /**
    * @remarks
-   * Indicates whether a scheduled scaling policy is enabled.
+   * Indicates whether the time-based elastic policy is enabled.
    * 
    * @example
    * false
@@ -167,7 +149,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   scalingRulesEnable?: boolean;
   /**
    * @remarks
-   * The time when the cluster was started.
+   * The start time of the cluster.
    * 
    * @example
    * 2023-08-14T09:24:13Z
@@ -175,19 +157,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   startTime?: string;
   /**
    * @remarks
-   * The state of the cluster. Valid values:
-   * 
-   * - **CREATING**: The cluster is being created.
-   * 
-   * - **ACTIVATION**: The cluster is running.
-   * 
-   * - **RESOURCE_CHANGING**: The cluster configuration is being changed.
-   * 
-   * - **ORDER_PREPARING**: The order is being confirmed.
-   * 
-   * - **READONLY_RESOURCE_CHANGING**: The cluster configuration is being changed, and the cluster is write-locked.
-   * 
-   * - **DELETING**: The cluster is being deleted.
+   * The status of the cluster. Valid values:
    * 
    * @example
    * ACTIVATION
@@ -198,7 +168,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * The subdomain.
    * 
    * @example
-   * 预留参数，暂不返回。
+   * Reserved parameter. Not returned
    */
   subDomain?: string;
   /**
@@ -282,6 +252,41 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyFEClusterList extends $dara.Model {
+  dbClusterId?: string;
+  nodeCount?: number;
+  singleNodeCpuCores?: number;
+  singleNodeMemoryInGB?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      nodeCount: 'NodeCount',
+      singleNodeCpuCores: 'SingleNodeCpuCores',
+      singleNodeMemoryInGB: 'SingleNodeMemoryInGB',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      nodeCount: 'number',
+      singleNodeCpuCores: 'number',
+      singleNodeMemoryInGB: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Model {
   /**
    * @remarks
@@ -293,7 +298,7 @@ export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Mode
   availableIpCount?: number;
   /**
    * @remarks
-   * The CIDR block.
+   * The Classless Inter-Domain Routing block of the prefix list entry.
    * 
    * @example
    * 113.88.14.211/32
@@ -301,7 +306,7 @@ export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Mode
   cidr?: string;
   /**
    * @remarks
-   * A list of vSwitch IDs.
+   * The list of vSwitch IDs.
    */
   vSwitchIds?: string[];
   /**
@@ -345,7 +350,7 @@ export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Mode
 export class DescribeDBInstanceAttributeResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * testKey
@@ -353,7 +358,7 @@ export class DescribeDBInstanceAttributeResponseBodyTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * testValue
@@ -401,7 +406,7 @@ export class DescribeDBInstanceAttributeResponseBodyVirtualClusterList extends $
   activeClusterName?: string;
   /**
    * @remarks
-   * The time when the virtual cluster was created.
+   * The creation time of the instance.
    * 
    * @example
    * 2025-05-31T21:01:09Z
@@ -441,15 +446,7 @@ export class DescribeDBInstanceAttributeResponseBodyVirtualClusterList extends $
   standbyClusterName?: string;
   /**
    * @remarks
-   * The state of the virtual cluster. Valid values:
-   * 
-   * - **CREATING**: The virtual cluster is being created.
-   * 
-   * - **RUNNING**: The virtual cluster is running.
-   * 
-   * - **DELETING**: The virtual cluster is being deleted.
-   * 
-   * - **UPDATING**: The virtual cluster is being updated.
+   * The status of the instance. Valid values:
    * 
    * @example
    * UPDATING
@@ -494,16 +491,12 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   canUpgradeVersionCommunityMap?: { [key: string]: string };
   /**
    * @remarks
-   * The engine versions to which the instance can be upgraded.
+   * The list of versions to which the instance can be upgraded.
    */
   canUpgradeVersions?: string[];
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
-   * 
-   * - **Postpaid**: pay-as-you-go
-   * 
-   * - **Prepaid**: subscription
+   * The billing type of the instance. Valid values:
    * 
    * @example
    * Prepaid
@@ -520,7 +513,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   configPatternType?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time of the instance.
    * 
    * @example
    * 2023-08-14T03:00:42Z
@@ -528,7 +521,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * A list of clusters in the instance.
+   * The list of clusters that belong to the instance.
    */
   DBClusterList?: DescribeDBInstanceAttributeResponseBodyDBClusterList[];
   /**
@@ -541,7 +534,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The instance deployment mode.
+   * The deployment mode of the instance.
    * 
    * @example
    * multi_az
@@ -549,7 +542,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   deployScheme?: string;
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
    * test
@@ -557,7 +550,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The database engine.
+   * The database engine type.
    * 
    * @example
    * selectdb
@@ -581,15 +574,16 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the subscription instance.
+   * The time when the instance expires.
    * 
    * @example
    * 2023-09-17T00:00Z
    */
   expireTime?: string;
+  FEClusterList?: DescribeDBInstanceAttributeResponseBodyFEClusterList[];
   /**
    * @remarks
-   * The time when the instance was last modified. The time is in `yyyy-MM-ddTHH:mmZ` format and is displayed in UTC.
+   * The time when the instance was last modified (for example, restarted or had public network access enabled). The time is in the yyyy-MM-ddTHH:mmZ format (UTC).
    * 
    * @example
    * 2023-08-17T09:58Z
@@ -598,7 +592,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   langfuseInstanceIds?: string[];
   /**
    * @remarks
-   * The lock mode of the instance. A value of **lock** indicates that the instance was automatically locked due to an expired subscription or an overdue payment.
+   * The lock mode of the instance. The value is **lock**, which indicates that the instance is automatically expired or has an overdue payment.
    * 
    * @example
    * lock
@@ -606,7 +600,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   lockMode?: number;
   /**
    * @remarks
-   * The reason the instance is locked.
+   * The reason why the instance is locked.
    * 
    * @example
    * nolock
@@ -619,7 +613,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   MCPServerServiceStatus?: string;
   /**
    * @remarks
-   * The end time of the maintenance window.
+   * The end time of the maintenance window of the instance.
    * 
    * @example
    * Reserved parameter.
@@ -627,7 +621,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   maintainEndtime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
+   * The start time of the maintenance window of the instance.
    * 
    * @example
    * Reserved parameter.
@@ -637,8 +631,6 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The multi-zone configuration.
    * 
-   * > - This parameter is returned only if the `DeployScheme` parameter is set to `multi_az`.
-   * 
    * **if can be null:**
    * true
    */
@@ -647,7 +639,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   OTelGrafanaServiceStatus?: string;
   /**
    * @remarks
-   * The object storage space, in GB.
+   * The storage space.
    * 
    * @example
    * 0
@@ -671,7 +663,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of CPU cores.
+   * The number of CPU resources.
    * 
    * @example
    * 8
@@ -679,7 +671,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   resourceCpu?: number;
   /**
    * @remarks
-   * The ID of the instance\\"s resource group.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-aekzbck4asz3dsa
@@ -687,11 +679,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the direct port connection feature is enabled for the instance\\"s VPC.
-   * 
-   * - `true`: Enabled.
-   * 
-   * - `false`: Disabled.
+   * Indicates whether the direct port connection feature is enabled for the VPC in which the instance resides.
    * 
    * @example
    * false
@@ -701,29 +689,13 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the serverless feature is enabled for the instance.
    * 
-   * - `true`: Enabled.
-   * 
-   * - `false`: Disabled.
-   * 
    * @example
    * false
    */
   serverless?: boolean;
   /**
    * @remarks
-   * The state of the instance. Valid values:
-   * 
-   * - **CREATING**: The instance is being created.
-   * 
-   * - **ACTIVE**: The instance is running.
-   * 
-   * - **RESOURCE_CHANGING**: The instance configuration is being changed.
-   * 
-   * - **ORDER_PREPARING**: The order is being confirmed.
-   * 
-   * - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
-   * 
-   * - **DELETING**: The instance is being deleted.
+   * The status of the instance. Valid values:
    * 
    * @example
    * ACTIVE
@@ -731,7 +703,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage space, in GB.
+   * The storage size.
    * 
    * @example
    * 400
@@ -739,7 +711,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The subdomain.
+   * The zone.
    * 
    * @example
    * Reserved parameter.
@@ -747,7 +719,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   subDomain?: string;
   /**
    * @remarks
-   * A list of tags attached to the instance.
+   * The list of instance labels.
    */
   tags?: DescribeDBInstanceAttributeResponseBodyTags[];
   /**
@@ -760,7 +732,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * A list of virtual clusters.
+   * The list of virtual clusters.
    */
   virtualClusterList?: DescribeDBInstanceAttributeResponseBodyVirtualClusterList[];
   /**
@@ -795,6 +767,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       engineMinorVersion: 'EngineMinorVersion',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      FEClusterList: 'FEClusterList',
       gmtModified: 'GmtModified',
       langfuseInstanceIds: 'LangfuseInstanceIds',
       lockMode: 'LockMode',
@@ -839,6 +812,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       engineMinorVersion: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      FEClusterList: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyFEClusterList },
       gmtModified: 'string',
       langfuseInstanceIds: { 'type': 'array', 'itemType': 'string' },
       lockMode: 'number',
@@ -876,6 +850,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.DBClusterList)) {
       $dara.Model.validateArray(this.DBClusterList);
+    }
+    if(Array.isArray(this.FEClusterList)) {
+      $dara.Model.validateArray(this.FEClusterList);
     }
     if(Array.isArray(this.langfuseInstanceIds)) {
       $dara.Model.validateArray(this.langfuseInstanceIds);

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTableSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeTableSchemaRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The database name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeTableSchemaRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DescribeTableSchemaRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The table name.
+   * 
    * This parameter is required.
    * 
    * @example

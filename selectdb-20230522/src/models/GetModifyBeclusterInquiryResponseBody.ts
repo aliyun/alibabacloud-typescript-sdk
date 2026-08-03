@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
+   * > This parameter is not applicable to the China site.
+   * 
    * @example
    * 100
    */
   canPromFee?: string;
   /**
+   * @remarks
+   * The promotion rule description.
+   * 
    * @example
    * 789asdf
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
-   * General coupon deducts 100
+   * General coupon can deduct 100
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * General coupon
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 732211480132
    */
@@ -66,11 +83,19 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
    * CNY
    */
   currency?: string;
+  /**
+   * @remarks
+   * The coupon codes.
+   */
   optionalPromotions?: GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions[];
+  /**
+   * @remarks
+   * The unit price results of billing items.
+   */
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
-   * The estimated refund amount when you change the billing method of a subscription cluster to pay-as-you-go.
+   * The estimated refund amount when converting a subscription cluster to a pay-as-you-go cluster under a subscription instance.
    * 
    * @example
    * -100
@@ -78,7 +103,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   refundAmount?: string;
   /**
    * @remarks
-   * The amount.
+   * The trade amount.
    * 
    * @example
    * 1.76
@@ -122,7 +147,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
 export class GetModifyBEClusterInquiryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetModifyBEClusterInquiryResponseBodyData;
   /**

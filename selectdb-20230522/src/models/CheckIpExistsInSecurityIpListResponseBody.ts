@@ -6,6 +6,9 @@ import * as $dara from '@darabonba/typescript';
  */
 export class CheckIpExistsInSecurityIpListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the IP address exists.
+   * 
    * @example
    * true
    */
@@ -32,8 +35,15 @@ export class CheckIpExistsInSecurityIpListResponseBodyData extends $dara.Model {
 }
 
 export class CheckIpExistsInSecurityIpListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CheckIpExistsInSecurityIpListResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */
