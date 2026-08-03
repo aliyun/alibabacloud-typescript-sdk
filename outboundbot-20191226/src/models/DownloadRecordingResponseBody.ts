@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
+  earlyMediaSignatureUrl?: string;
   /**
    * @remarks
-   * The name of the recording file, typically a universally unique identifier (UUID).
+   * The recording file name, which is typically a UUID.
    * 
    * @example
    * 281eb174-3865-41c1-9274-7b6813edadab.wav
@@ -13,7 +14,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The signed URL for downloading the recording file.
+   * A URL that points to the recording file. Use HTTP to download the file.
    * 
    * @example
    * http://tiangong-staging.oss-cn-shanghai.aliyuncs.com/record/281eb174-3865-41c1-9274-7b6813edadab.wav?Expires=1578624046&OSSAccessKeyId=LTAI****cqw&Signature=dL2dxWS6VcdZrvG9xOMOBMSP3Fg%3D
@@ -21,7 +22,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
   signatureUrl?: string;
   /**
    * @remarks
-   * A JSON-formatted string that contains a list of voice slice recordings. Each item in the list includes the file name and URL of a slice.
+   * The list of segmented recordings, including file names and file URLs.
    * 
    * @example
    * [{"fileName":"10a17c447415424c99491884abe27d8a-1.wav","filePath":"https://ssml-test.oss-cn-shanghai.aliyuncs.com/7253/voiceSlice/10a17c447415424c99491884abe27d8a/10a17c447415424c99491884abe27d8a-1.wav?Expires=1686645470&OSSAccessKeyId=LTA*********kr8M9&Signature=V23OhiV5yIOoouriu6SiWkO9h8E%3D"}]
@@ -29,6 +30,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
   voiceSliceRecordingListJson?: string;
   static names(): { [key: string]: string } {
     return {
+      earlyMediaSignatureUrl: 'EarlyMediaSignatureUrl',
       fileName: 'FileName',
       signatureUrl: 'SignatureUrl',
       voiceSliceRecordingListJson: 'VoiceSliceRecordingListJson',
@@ -37,6 +39,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      earlyMediaSignatureUrl: 'string',
       fileName: 'string',
       signatureUrl: 'string',
       voiceSliceRecordingListJson: 'string',
@@ -55,7 +58,7 @@ export class DownloadRecordingResponseBodyDownloadParams extends $dara.Model {
 export class DownloadRecordingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The interface status code.
    * 
    * @example
    * OK
@@ -63,7 +66,7 @@ export class DownloadRecordingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Download parameters for the recording file.
+   * The download URL of the file.
    */
   downloadParams?: DownloadRecordingResponseBodyDownloadParams;
   /**
@@ -76,7 +79,7 @@ export class DownloadRecordingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The interface prompt message.
    * 
    * @example
    * Success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * 291cfc6a-8703-4bdd-a99d-9cba32d5288a
@@ -16,12 +16,12 @@ export class DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig extends $dar
    * The script content.
    * 
    * @example
-   * 你的花呗欠款逾期了需要处理，你现在能处理一下吗？
+   * Your Huabei payment is overdue and needs to be processed. Can you handle it now?
    */
   scriptContent?: string;
   /**
    * @remarks
-   * The ID of the script.
+   * The scene ID.
    * 
    * @example
    * 947e0875-b5d4-4b33-b18c-7b2cf85bcb4f
@@ -29,7 +29,7 @@ export class DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig extends $dar
   scriptId?: string;
   /**
    * @remarks
-   * The ID of the script voice configuration.
+   * The scene voice configuration ID.
    * 
    * @example
    * 2a07b634-e15d-445f-bbcb-fc4ea2df7b87
@@ -37,15 +37,15 @@ export class DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig extends $dar
   scriptVoiceConfigId?: string;
   /**
    * @remarks
-   * The script waveform relation data. Returned only when `Type` is `WAVEFORM`.
+   * The script recording data. This parameter has a value only when Type is set to WAVEFORM.
    * 
    * @example
-   * [{"ScriptContent":"请问你是","ScriptWaveformId":"07db2f0a-acb2-4e68-b9f4-66397414f50c"},{"ScriptContent":"吗？","ScriptWaveformId":"c2a69440-03e3-406e-b0a9-a9791fccb31b"}]
+   * [{"ScriptContent":"May I ask if you are","ScriptWaveformId":"07db2f0a-acb2-4e68-b9f4-66397414f50c"},{"ScriptContent":"?","ScriptWaveformId":"c2a69440-03e3-406e-b0a9-a9791fccb31b"}]
    */
   scriptWaveformRelation?: string;
   /**
    * @remarks
-   * The source of the script.
+   * The script source.
    * 
    * @example
    * DIALOGUE_FLOW
@@ -53,11 +53,10 @@ export class DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig extends $dar
   source?: string;
   /**
    * @remarks
-   * The type of the voice configuration. Valid values:
+   * The recording type. Valid values:
    * 
-   * - `WAVEFORM`: A recording.
-   * 
-   * - `TTS`: Text-to-speech.
+   * - WAVEFORM: recording.
+   * - TTS: text-to-speech.
    * 
    * @example
    * TTS
@@ -115,7 +114,7 @@ export class DescribeScriptVoiceConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -131,7 +130,7 @@ export class DescribeScriptVoiceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the script voice configuration.
+   * The scene voice configuration information.
    */
   scriptVoiceConfig?: DescribeScriptVoiceConfigResponseBodyScriptVoiceConfig;
   /**

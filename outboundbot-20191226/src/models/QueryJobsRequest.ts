@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter condition. Contact name.
+   * The filter condition for the contact name.
    * 
    * @example
    * 张三
@@ -13,7 +13,7 @@ export class QueryJobsRequest extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * Filter condition. End time. Default value is 0, which means up to now.
+   * The filter condition for the end time. Default value: 0, which indicates the current time.
    * 
    * @example
    * 1579077794665
@@ -21,7 +21,7 @@ export class QueryJobsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class QueryJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Task group ID.
+   * The job group ID.
    * 
    * @example
    * 994b8baf-7ef8-480c-b141-b7b6db77c4df
@@ -39,7 +39,7 @@ export class QueryJobsRequest extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class QueryJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class QueryJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filter condition. Contact phone number.
+   * The filter condition for the contact phone number.
    * 
    * @example
    * 135****8888
@@ -67,7 +67,7 @@ export class QueryJobsRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Scenario ID. This parameter is deprecated.
+   * The scenario ID. This is a legacy parameter and has been deprecated.
    * 
    * @example
    * b0f35dd1-0337-402e-9c4f-3a6c2426950a
@@ -75,7 +75,7 @@ export class QueryJobsRequest extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * Filter condition. Start time. Default value is 0, which means from 00:00 today.
+   * The filter condition for the start time. Default value: 0, which indicates the start of the current day.
    * 
    * @example
    * 1579068424883
@@ -83,7 +83,7 @@ export class QueryJobsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Time filter basis. Valid values: start, end, and job_create.
+   * Specifies whether to query by start time, end time, or job creation time. Valid values: start, end, job_create.
    * 
    * @example
    * start

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   /**
    * @remarks
-   * Contact ID.
+   * The contact ID.
    * 
    * @example
    * db3db762-e421-44c9-9a01-cb423470757c
@@ -13,7 +13,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Contact name.
+   * The contact name.
    * 
    * @example
    * 张三
@@ -21,7 +21,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * Honorific.
+   * The honorific title.
    * 
    * @example
    * 张先生
@@ -29,7 +29,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   honorific?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * fce6c599-8ede-40e3-9f78-0928eda7b4e8
@@ -37,7 +37,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Phone number.
+   * The phone number.
    * 
    * @example
    * 135****8888
@@ -45,7 +45,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Associated business ID.
+   * The associated business ID.
    * 
    * @example
    * 2fa6bac3-06da-4315-82ab-72d6fd3a6f34
@@ -53,7 +53,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   referenceId?: string;
   /**
    * @remarks
-   * Role.
+   * The role.
    * 
    * @example
    * *
@@ -61,15 +61,11 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Status.
-   * 
-   * - Available
-   * 
-   * - WrongNumber
-   * 
-   * - DoesNotExist
-   * 
-   * - Suspended
+   * The status. Valid values:
+   * - Available: Normal.
+   * - WrongNumber: Wrong number.
+   * - DoesNotExist: Nonexistent number.
+   * - Suspended: Call suspended.
    * 
    * @example
    * Available
@@ -113,7 +109,7 @@ export class QueryJobsResponseBodyJobsListContacts extends $dara.Model {
 export class QueryJobsResponseBodyJobsListExtras extends $dara.Model {
   /**
    * @remarks
-   * Business data key.
+   * The business data key.
    * 
    * @example
    * djrq
@@ -121,7 +117,7 @@ export class QueryJobsResponseBodyJobsListExtras extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Business data value.
+   * The business data value.
    * 
    * @example
    * 2019-08-21 09:49:59.0
@@ -153,7 +149,7 @@ export class QueryJobsResponseBodyJobsListExtras extends $dara.Model {
 export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   /**
    * @remarks
-   * Category.
+   * The category.
    * 
    * @example
    * {}
@@ -161,7 +157,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Content.
+   * The content.
    * 
    * @example
    * 5
@@ -169,7 +165,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Call record ID.
+   * The call record ID.
    * 
    * @example
    * 098b9b09-9223-4a8b-a422-99726f0457f3
@@ -177,7 +173,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   conversationDetailId?: string;
   /**
    * @remarks
-   * Task ID.
+   * The job group ID.
    * 
    * @example
    * ba1ba502-d044-48c0-b710-0f1f840a7c53
@@ -185,7 +181,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * b72425bd-7871-4050-838e-033d80d754b7
@@ -193,7 +189,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Summary ID.
+   * The summary ID.
    * 
    * @example
    * dc67d544-df06-4625-ae48-13e3c9f72d8a
@@ -201,7 +197,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   summaryId?: string;
   /**
    * @remarks
-   * Summary name.
+   * The summary name.
    * 
    * @example
    * score
@@ -209,7 +205,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
   summaryName?: string;
   /**
    * @remarks
-   * Call ID.
+   * The call ID.
    * 
    * @example
    * 9fdf7a81-6781-4ab8-92fb-1d4231ef365e
@@ -253,7 +249,7 @@ export class QueryJobsResponseBodyJobsListSummary extends $dara.Model {
 export class QueryJobsResponseBodyJobsListTagHits extends $dara.Model {
   /**
    * @remarks
-   * Tag group name.
+   * The tag group name.
    * 
    * @example
    * 意向收集
@@ -261,7 +257,7 @@ export class QueryJobsResponseBodyJobsListTagHits extends $dara.Model {
   tagGroup?: string;
   /**
    * @remarks
-   * Tag name.
+   * The tag name.
    * 
    * @example
    * 有意向
@@ -293,7 +289,7 @@ export class QueryJobsResponseBodyJobsListTagHits extends $dara.Model {
 export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   /**
    * @remarks
-   * Contact ID.
+   * The contact ID.
    * 
    * @example
    * db3db762-e421-44c9-9a01-cb423470757c
@@ -301,7 +297,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Contact name.
+   * The contact name.
    * 
    * @example
    * 张三
@@ -309,7 +305,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * Honorific.
+   * The honorific title.
    * 
    * @example
    * 张先生
@@ -317,7 +313,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   honorific?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * b72425bd-7871-4050-838e-033d80d754b7
@@ -325,7 +321,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Contact phone number.
+   * The contact phone number.
    * 
    * @example
    * 135****8888
@@ -333,7 +329,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Business association ID.
+   * The associated business ID.
    * 
    * @example
    * 2fa6bac3-06da-4315-82ab-72d6fd3a6f34
@@ -341,7 +337,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   referenceId?: string;
   /**
    * @remarks
-   * Role.
+   * The role.
    * 
    * @example
    * *
@@ -349,7 +345,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * Available
@@ -393,7 +389,7 @@ export class QueryJobsResponseBodyJobsListTasksContact extends $dara.Model {
 export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   /**
    * @remarks
-   * Actual call time.
+   * The actual outbound call time.
    * 
    * @example
    * 1579068424883
@@ -401,7 +397,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   actualTime?: number;
   /**
    * @remarks
-   * Summary. This field is deprecated.
+   * The summary. This is a legacy field and is no longer in use.
    * 
    * @example
    * 1
@@ -409,7 +405,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   brief?: string;
   /**
    * @remarks
-   * SIP call ID.
+   * SIP call ID。
    * 
    * @example
    * 1528189846043
@@ -417,7 +413,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   callId?: string;
   /**
    * @remarks
-   * Callee number.
+   * The called number.
    * 
    * @example
    * 135****8888
@@ -425,7 +421,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * Caller number.
+   * The calling number.
    * 
    * @example
    * 0571****3106
@@ -433,7 +429,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * Chatbot ID.
+   * The chatbot ID.
    * 
    * @example
    * 1234
@@ -441,12 +437,12 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   chatbotId?: string;
   /**
    * @remarks
-   * Contact information.
+   * The contact information.
    */
   contact?: QueryJobsResponseBodyJobsListTasksContact;
   /**
    * @remarks
-   * Call duration in seconds.
+   * The call duration.
    * 
    * @example
    * 120
@@ -454,7 +450,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * b72425bd-7871-4050-838e-033d80d754b7
@@ -462,7 +458,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Scheduled call time.
+   * The planned outbound call time.
    * 
    * @example
    * 1579068424883
@@ -470,7 +466,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   planedTime?: number;
   /**
    * @remarks
-   * Scenario ID.
+   * The scenario ID.
    * 
    * @example
    * ade80092-03d9-4f4d-ad4f-ab8a247d3150
@@ -478,73 +474,68 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * The status of the task. Valid values are described below. Note that the Succeeded status is subdivided by reason. The generic Succeeded: 1 (Connected) status is no longer returned, and a specific success reason is provided instead.
+   * The task status. Note: The Succeeded status has been subdivided into specific reason types. The Succeeded:1 (Connected) status is no longer returned. Instead, the specific sub-reason type is returned. Valid values:
    * 
-   * - Executing: 0 (Calling).
-   * 
+   * - Executing: 0 (Dialing).
    * - Succeeded: 1 (Connected).
+   * - NoAnswer: 2 (Not connected - No answer).
    * 
-   * - NoAnswer: 2 (Not connected – No answer).
+   * - NotExist: 3 (Not connected - Nonexistent number).
    * 
-   * - NotExist: 3 (Not connected – Nonexistent number).
+   * - Busy: 4 (Not connected - Busy).
    * 
-   * - Busy: 4 (Not connected – Line busy).
-   * 
-   * - Cancelled: 5 (Not dialed – Task stopped).
+   * - Cancelled: 5 (Not dialed - Task stopped).
    * 
    * - Failed: 6 (Failed).
    * 
-   * - NotConnected: 7 (Not connected – Unreachable).
+   * - NotConnected: 7 (Not connected - Unreachable).
    * 
-   * - PoweredOff: 8 (Not connected – Powered off).
+   * - PoweredOff: 8 (Not connected - Powered off).
    * 
-   * - OutOfService: 9 (Not connected – Service suspended).
+   * - OutOfService: 9 (Not connected - Called party out of service).
    * 
-   * - InArrears: 10 (Not connected – Account has an overdue payment).
+   * - InArrears: 10 (Not connected - Called party has overdue payment).
    * 
-   * - EmptyNumber: 11 (Not dialed – Invalid number).
+   * - EmptyNumber: 11 (Not dialed - Nonexistent number).
    * 
-   * - PerDayCallCountLimit: 12 (Not dialed – Daily call limit exceeded).
+   * - PerDayCallCountLimit: 12 (Not dialed - Daily limit exceeded).
    * 
-   * - ContactBlockList: 13 (Not dialed – Number on blocklist).
+   * - ContactBlockList: 13 (Not dialed - Blocked list).
    * 
-   * - CallerNotRegistered: 14 (Not dialed – Caller ID not registered).
+   * - CallerNotRegistered: 14 (Not dialed - Caller number not registered).
    * 
-   * - Terminated: 15 (Not dialed – Terminated).
+   * - Terminated: 15 (Not dialed - Terminated).
    * 
-   * - VerificationCancelled: 16 (Not dialed – Canceled due to pre-call validation failure).
+   * - VerificationCancelled: 16 (Not dialed - Pre-call verification failed).
    * 
-   * - OutOfServiceNoCall: 17 (Not dialed – Service suspended).
+   * - OutOfServiceNoCall: 17 (Not dialed - Called party out of service).
    * 
-   * - InArrearsNoCall: 18 (Not dialed – Account has an overdue payment).
+   * - InArrearsNoCall: 18 (Not dialed - Called party has overdue payment).
    * 
-   * - CallingNumberNotExist: 19 (Not dialed – Caller ID does not exist).
+   * - CallingNumberNotExist: 19 (Not dialed - Caller number does not exist).
+   * - SucceededFinish: 20 (Connected - Completed normally).
    * 
-   * - SucceededFinish: 20 (Connected – Completed normally).
+   * - SucceededChatbotHangUpAfterNoAnswer: 21 (Connected - Robot hung up after no recognition).
    * 
-   * - SucceededChatbotHangUpAfterNoAnswer: 21 (Connected – Bot hung up due to unrecognized input).
+   * - SucceededChatbotHangUpAfterSilence: 22 (Connected - Silence timeout hang-up).
    * 
-   * - SucceededChatbotHangUpAfterSilence: 22 (Connected – Bot hung up due to a silence timeout).
+   * - SucceededClientHangUpAfterNoAnswer: 23 (Connected - User hung up after no recognition).
    * 
-   * - SucceededClientHangUpAfterNoAnswer: 23 (Connected – User hung up due to unrecognized input).
+   * - SucceededClientHangUp: 24 (Connected - User hung up without reason).
    * 
-   * - SucceededClientHangUp: 24 (Connected – User hung up).
+   * - SucceededTransferByIntent: 25 (Connected - Transferred to agent by intent).
    * 
-   * - SucceededTransferByIntent: 25 (Connected – Transferred to an agent based on an intent match).
+   * - SucceededTransferAfterNoAnswer: 26 (Connected - Transferred to agent after no recognition).
    * 
-   * - SucceededTransferAfterNoAnswer: 26 (Connected – Transferred to an agent due to unrecognized input).
+   * - SucceededInoInterAction: 27 (Connected - No interaction from user side).
    * 
-   * - SucceededInoInterAction: 27 (Connected – No user interaction).
+   * - SucceededError: 28 (Connected - System exception interruption).
    * 
-   * - SucceededError: 28 (Connected – Call interrupted by a system error).
+   * - SucceededSpecialInterceptVoiceAssistant: 29 (Connected - Special intercept - Voice assistant).
    * 
-   * - SucceededSpecialInterceptVoiceAssistant: 29 (Connected – Intercepted by a voice assistant).
-   * 
-   * - SucceededSpecialInterceptExtensionNumberTransfer: 30 (Connected – Intercepted due to an extension transfer).
-   * 
-   * - SucceededSpecialInterceptCustomSpecialIntercept: 31 (Connected – Intercepted by a custom rule).
-   * 
-   * - HighRiskSipCode: 32 (Not dialed – High-risk number).
+   * - SucceededSpecialInterceptExtensionNumberTransfer: 30 (Connected - Special intercept - Extension number transfer).
+   * - SucceededSpecialInterceptCustomSpecialIntercept: 31 (Connected - Special intercept - Custom intercept).
+   * - HighRiskSipCode: 32 (Not dialed - High risk).
    * 
    * @example
    * Succeeded
@@ -552,7 +543,7 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Call ID.
+   * The call ID.
    * 
    * @example
    * ff44709e-39a6-43ba-959b-20fcabe3e496
@@ -609,54 +600,40 @@ export class QueryJobsResponseBodyJobsListTasks extends $dara.Model {
 export class QueryJobsResponseBodyJobsList extends $dara.Model {
   /**
    * @remarks
-   * Caller number list.
+   * The list of calling numbers.
    */
   callingNumbers?: string[];
   /**
    * @remarks
-   * Contact information. This parameter is deprecated.
+   * The contact information. This parameter has been deprecated.
    * 
-   * > Use the DescribeJob operation instead.
+   * > You can retrieve this information by calling the DescribeJob operation.
    */
   contacts?: QueryJobsResponseBodyJobsListContacts[];
   /**
    * @remarks
-   * Business data. Shows tag collection status for Large Language Model (LLM) scenarios.
+   * The business data. Displays tag collection results for large language model scenarios.
    * 
-   * > Keys TenantId and ServiceId are system parameters.
+   * > Keys equal to TenantId or ServiceId are system parameters.
    */
   extras?: QueryJobsResponseBodyJobsListExtras[];
   /**
    * @remarks
-   * Failure reason.
-   * 
-   * - Unknown
-   * 
-   * - NoAnswer
-   * 
-   * - InvalidStrategy
-   * 
-   * - TimeUp
-   * 
-   * - NoStrategy
-   * 
-   * - CallFailed
-   * 
-   * - PerDayCallCountLimit
-   * 
-   * - ContactBlockList
-   * 
-   * - EmptyNumber
-   * 
-   * - JobPerDayCallCountLimit
-   * 
-   * - VerificationCancelled
-   * 
-   * - ContactSuspended
-   * 
-   * - InArrears
-   * 
-   * - OutOfService
+   * The failure reason. Valid values:
+   * - Unknown: Unknown error.  
+   * - NoAnswer: No answer.
+   * - InvalidStrategy: Invalid strategy. The strategy configuration is incorrect.
+   * - TimeUp: Timeout detected during scheduling.
+   * - NoStrategy: The strategy is empty or not found.
+   * - CallFailed: Call failed.
+   * - PerDayCallCountLimit: Daily call count limit for the number reached.
+   * - ContactBlockList: The number is on the blocked list.
+   * - EmptyNumber: Nonexistent number. No further outbound calls.
+   * - JobPerDayCallCountLimit: Daily call count limit for the number reached.
+   * - VerificationCancelled: Pre-call verification failed. The call was cancelled.
+   * - ContactSuspended: Call suspended.
+   * - InArrears: Overdue payment.
+   * - OutOfService: Out of service.
    * 
    * @example
    * NoAnswer
@@ -664,7 +641,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   failureReason?: string;
   /**
    * @remarks
-   * Task ID.
+   * The job group ID.
    * 
    * @example
    * fce6c599-8ede-40e3-9f78-0928eda7b4e8
@@ -672,7 +649,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * fce6c599-8ede-40e3-9f78-0928eda7b4e8
@@ -680,7 +657,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Priority.
+   * The priority.
    * 
    * @example
    * 1
@@ -688,7 +665,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Associated business ID.
+   * The associated business ID.
    * 
    * @example
    * d5971d98-7312-4f0e-a918-a17d67133e28
@@ -696,7 +673,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   referenceId?: string;
   /**
    * @remarks
-   * Scenario ID. This parameter is deprecated.
+   * The scenario ID. This is a legacy parameter and has been deprecated.
    * 
    * @example
    * ade80092-03d9-4f4d-ad4f-ab8a247d3150
@@ -704,21 +681,14 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * Job status.
-   * 
-   * - Scheduling (0)
-   * 
-   * - Executing (1)
-   * 
-   * - Succeeded (2)
-   * 
-   * - Paused (3)
-   * 
-   * - Failed (4)
-   * 
-   * - Cancelled (5)
-   * 
-   * - Drafted (6)
+   * The job status. Valid values:
+   * - Scheduling(0): Scheduling.
+   * - Executing(1): Executing.
+   * - Succeeded(2): Completed - Reached.
+   * - Paused(3): Paused.
+   * - Failed(4): Completed - Not reached.
+   * - Cancelled(5): Cancelled - Manual intervention.
+   * - Drafted(6): Draft.
    * 
    * @example
    * Succeeded
@@ -726,7 +696,7 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Strategy ID.
+   * The strategy ID.
    * 
    * @example
    * c8a2b7f2-ad1a-4865-b872-d0080d9802d9
@@ -734,19 +704,19 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
   strategyId?: string;
   /**
    * @remarks
-   * Conversation summary. This field is deprecated.
+   * The conversation summary. This is a legacy field and is no longer in use. Deprecated.
    */
   summary?: QueryJobsResponseBodyJobsListSummary[];
   /**
    * @remarks
-   * Tags hit in small model scenarios.
+   * The tag hit information in small model scenarios.
    */
   tagHits?: QueryJobsResponseBodyJobsListTagHits[];
   /**
    * @remarks
-   * Call list. This parameter is deprecated.
+   * The call list. This parameter has been deprecated.
    * 
-   * > Use the searchTask operation instead.
+   * > You can retrieve this information by calling the searchTask operation.
    */
   tasks?: QueryJobsResponseBodyJobsListTasks[];
   static names(): { [key: string]: string } {
@@ -817,12 +787,12 @@ export class QueryJobsResponseBodyJobsList extends $dara.Model {
 export class QueryJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * Job array.
+   * The list of jobs.
    */
   list?: QueryJobsResponseBodyJobsList[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -830,7 +800,7 @@ export class QueryJobsResponseBodyJobs extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -838,7 +808,7 @@ export class QueryJobsResponseBodyJobs extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -877,7 +847,7 @@ export class QueryJobsResponseBodyJobs extends $dara.Model {
 export class QueryJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * OK
@@ -885,7 +855,7 @@ export class QueryJobsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The response code.
    * 
    * @example
    * 200
@@ -893,12 +863,12 @@ export class QueryJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Job data.
+   * The job data.
    */
   jobs?: QueryJobsResponseBodyJobs;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * Success
@@ -906,7 +876,7 @@ export class QueryJobsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -914,7 +884,7 @@ export class QueryJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DuplicateScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DuplicateScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name for the new script.
+   * The name of the new scenario.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DuplicateScriptRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the source script.
+   * The ID of the source scenario.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The API status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CreateDownloadUrlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The URL of the file.
+   * The file URL.
    * 
    * @example
    * http://www.xxx.com/xxx
@@ -29,7 +29,7 @@ export class CreateDownloadUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the operation.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class CreateDownloadUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC08CC41-6870-5594-939A-F758F057898F

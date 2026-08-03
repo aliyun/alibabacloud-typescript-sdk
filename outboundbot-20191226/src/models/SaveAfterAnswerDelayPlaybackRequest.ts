@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAfterAnswerDelayPlaybackRequest extends $dara.Model {
   /**
    * @remarks
-   * Delay before playback starts, in seconds. Default is 0 if not specified.
+   * The playback time for delayed playback. If this parameter is not specified, the default value 0 is used.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class SaveAfterAnswerDelayPlaybackRequest extends $dara.Model {
   afterAnswerDelayPlayback?: number;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,8 @@ export class SaveAfterAnswerDelayPlaybackRequest extends $dara.Model {
   entryId?: string;
   /**
    * @remarks
-   * Policy level (required)
-   * 
-   * - 2: Instance
+   * The policy level (required). Valid values:
+   * - 2: instance
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOutboundCallNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The operation status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class DeleteOutboundCallNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteOutboundCallNumberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The operation message.
    * 
    * @example
    * Success
@@ -29,7 +29,7 @@ export class DeleteOutboundCallNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -37,11 +37,10 @@ export class DeleteOutboundCallNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded:
+   * Indicates whether the query was successful. Valid values:
    * 
-   * - true: succeeded.
-   * 
-   * - false: failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

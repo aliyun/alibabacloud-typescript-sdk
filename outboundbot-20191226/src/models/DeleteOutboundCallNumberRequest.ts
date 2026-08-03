@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOutboundCallNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteOutboundCallNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Number ID
+   * The number ID.
    * 
    * This parameter is required.
    * 

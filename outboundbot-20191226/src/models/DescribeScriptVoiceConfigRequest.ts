@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeScriptVoiceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeScriptVoiceConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the script.
+   * The scene ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeScriptVoiceConfigRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The ID of the script voice configuration.
+   * The scene voice configuration ID.
    * 
    * This parameter is required.
    * 

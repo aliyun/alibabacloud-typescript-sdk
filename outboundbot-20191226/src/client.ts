@@ -879,7 +879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a URL for a Download Hub task.
+   * Creates a URL for a download center task.
    * 
    * @param request - CreateDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -906,7 +906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a URL for a Download Hub task.
+   * Creates a URL for a download center task.
    * 
    * @param request - CreateDownloadUrlRequest
    * @returns CreateDownloadUrlResponse
@@ -1195,7 +1195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a job group.
+   * Creates a job group.
    * 
    * @param request - CreateJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1274,7 +1274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a job group.
+   * Creates a job group.
    * 
    * @param request - CreateJobGroupRequest
    * @returns CreateJobGroupResponse
@@ -1571,7 +1571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an asynchronous task to export outbound call history.
+   * Creates an asynchronous task to export outbound call history.
    * 
    * @param request - CreateTaskExportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1598,7 +1598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an asynchronous task to export outbound call history.
+   * Creates an asynchronous task to export outbound call history.
    * 
    * @param request - CreateTaskExportTaskRequest
    * @returns CreateTaskExportTaskResponse
@@ -2223,7 +2223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an outbound call number. This API is deprecated.
+   * Deletes an outbound call number. This operation is deprecated.
    * 
    * @param request - DeleteOutboundCallNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2258,7 +2258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an outbound call number. This API is deprecated.
+   * Deletes an outbound call number. This operation is deprecated.
    * 
    * @param request - DeleteOutboundCallNumberRequest
    * @returns DeleteOutboundCallNumberResponse
@@ -2315,7 +2315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes uploaded recordings for a small-model scenario.
+   * Deletes uploaded recordings in a small model scenario.
    * 
    * @param request - DeleteScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2354,7 +2354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes uploaded recordings for a small-model scenario.
+   * Deletes uploaded recordings in a small model scenario.
    * 
    * @param request - DeleteScriptRecordingRequest
    * @returns DeleteScriptRecordingResponse
@@ -2521,7 +2521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes DS reports.
+   * Queries the tag statistics of hits for a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2556,7 +2556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes DS reports.
+   * Queries the tag statistics of hits for a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @returns DescribeDsReportsResponse
@@ -2669,7 +2669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Outbound Calling instance.
+   * Queries the information of an outbound robot business instance.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2700,7 +2700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Outbound Calling instance.
+   * Queries the information of an outbound robot business instance.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -2811,7 +2811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the conversation data for a specific job.
+   * Returns the conversation data of a job.
    * 
    * @param request - DescribeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2850,7 +2850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the conversation data for a specific job.
+   * Returns the conversation data of a job.
    * 
    * @param request - DescribeJobRequest
    * @returns DescribeJobResponse
@@ -2861,7 +2861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the parsing progress of an uploaded job file.
+   * Retrieves the parsing progress of an uploaded job file.
    * 
    * @param request - DescribeJobDataParsingTaskProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2896,7 +2896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the parsing progress of an uploaded job file.
+   * Retrieves the parsing progress of an uploaded job file.
    * 
    * @param request - DescribeJobDataParsingTaskProgressRequest
    * @returns DescribeJobDataParsingTaskProgressResponse
@@ -3049,7 +3049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the voice configuration of a script created in the legacy canvas.
+   * Returns a scene voice configuration in the legacy canvas scenario.
    * 
    * @param request - DescribeScriptVoiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3088,7 +3088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the voice configuration of a script created in the legacy canvas.
+   * Returns a scene voice configuration in the legacy canvas scenario.
    * 
    * @param request - DescribeScriptVoiceConfigRequest
    * @returns DescribeScriptVoiceConfigResponse
@@ -3285,7 +3285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances to which a phone number is bound in a tenant.
+   * Queries the list of number binding instances under a tenant.
    * 
    * @param request - DescribeTenantBindNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3316,7 +3316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances to which a phone number is bound in a tenant.
+   * Queries the list of number binding instances under a tenant.
    * 
    * @param request - DescribeTenantBindNumberRequest
    * @returns DescribeTenantBindNumberResponse
@@ -3513,7 +3513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Duplicates an existing script. This operation applies only to the legacy canvas.
+   * Copies a new script from an existing script (for the legacy canvas only).
    * 
    * @param request - DuplicateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3552,7 +3552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Duplicates an existing script. This operation applies only to the legacy canvas.
+   * Copies a new script from an existing script (for the legacy canvas only).
    * 
    * @param request - DuplicateScriptRequest
    * @returns DuplicateScriptResponse
@@ -5608,7 +5608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+   * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
    * 
    * @param request - ListJobGroupsAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5635,7 +5635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+   * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
    * 
    * @param request - ListJobGroupsAsyncRequest
    * @returns ListJobGroupsAsyncResponse
@@ -5646,7 +5646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple jobs.
+   * Queries multiple jobs.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5681,7 +5681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple jobs.
+   * Queries multiple jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -7054,7 +7054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an outbound call number. This API is deprecated.
+   * Modifies an outbound call number. This operation is deprecated.
    * 
    * @param request - ModifyOutboundCallNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7101,7 +7101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an outbound call number. This API is deprecated.
+   * Modifies an outbound call number. This operation is deprecated.
    * 
    * @param request - ModifyOutboundCallNumberRequest
    * @returns ModifyOutboundCallNumberResponse
@@ -7530,7 +7530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can query the list of jobs.
+   * Queries a list of jobs.
    * 
    * @param request - QueryJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7597,7 +7597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can query the list of jobs.
+   * Queries a list of jobs.
    * 
    * @param request - QueryJobsRequest
    * @returns QueryJobsResponse
@@ -7608,7 +7608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find tasks by result.
+   * Queries tasks based on task results.
    * 
    * @param request - QueryJobsWithResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7691,7 +7691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Find tasks by result.
+   * Queries tasks based on task results.
    * 
    * @param request - QueryJobsWithResultRequest
    * @returns QueryJobsWithResultResponse
@@ -7988,7 +7988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the delay before playback starts after the call is answered.
+   * Saves the delayed playback time after a call is answered.
    * 
    * @param request - SaveAfterAnswerDelayPlaybackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8027,7 +8027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the delay before playback starts after the call is answered.
+   * Saves the delayed playback time after a call is answered.
    * 
    * @param request - SaveAfterAnswerDelayPlaybackRequest
    * @returns SaveAfterAnswerDelayPlaybackResponse
@@ -8520,7 +8520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a draft job group. This operation is deprecated.
+   * Submits a job group in draft status for execution. This operation is deprecated.
    * 
    * @param request - SubmitBatchJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8555,7 +8555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a draft job group. This operation is deprecated.
+   * Submits a job group in draft status for execution. This operation is deprecated.
    * 
    * @param request - SubmitBatchJobsRequest
    * @returns SubmitBatchJobsResponse
@@ -9108,10 +9108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revoke script review.
+   * Withdraws a script review.
    * 
    * @remarks
-   * **
+   * ***
    * 
    * @param request - WithdrawScriptReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9146,10 +9146,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revoke script review.
+   * Withdraws a script review.
    * 
    * @remarks
-   * **
+   * ***
    * 
    * @param request - WithdrawScriptReviewRequest
    * @returns WithdrawScriptReviewResponse

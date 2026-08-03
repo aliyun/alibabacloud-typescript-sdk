@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOutboundCallNumberResponseBodyOutboundCallNumber extends $dara.Model {
   /**
    * @remarks
-   * Outbound call number
+   * The outbound call number.
    * 
    * @example
    * 10088xxxx
@@ -13,7 +13,7 @@ export class ModifyOutboundCallNumberResponseBodyOutboundCallNumber extends $dar
   number?: string;
   /**
    * @remarks
-   * Number ID
+   * The number ID.
    * 
    * @example
    * fa0e21e9-caab-4629-9121-1e341243d599
@@ -21,7 +21,7 @@ export class ModifyOutboundCallNumberResponseBodyOutboundCallNumber extends $dar
   outboundCallNumberId?: string;
   /**
    * @remarks
-   * Rate limiting period
+   * The rate limit cycle.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ModifyOutboundCallNumberResponseBodyOutboundCallNumber extends $dar
   rateLimitCount?: string;
   /**
    * @remarks
-   * Rate limiting count
+   * The rate limit count.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class ModifyOutboundCallNumberResponseBodyOutboundCallNumber extends $dar
 export class ModifyOutboundCallNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -73,7 +73,7 @@ export class ModifyOutboundCallNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class ModifyOutboundCallNumberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Success
@@ -89,12 +89,12 @@ export class ModifyOutboundCallNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Number information
+   * The number information.
    */
   outboundCallNumber?: ModifyOutboundCallNumberResponseBodyOutboundCallNumber;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -102,7 +102,7 @@ export class ModifyOutboundCallNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

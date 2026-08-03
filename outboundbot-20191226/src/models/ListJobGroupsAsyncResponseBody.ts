@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobGroupsAsyncResponseBodyJobGroupsExportProgress extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. The download URL of the file.
+   * The download URL. [Deprecated]
    * 
    * @example
    * http://www.xxx.com/xxx
@@ -13,7 +13,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsExportProgress extends $dara
   fileHttpUrl?: string;
   /**
    * @remarks
-   * The progress of the export.
+   * The progress.
    * 
    * @example
    * 50
@@ -21,7 +21,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsExportProgress extends $dara
   progress?: string;
   /**
    * @remarks
-   * The status of the export.
+   * The status.
    * 
    * @example
    * PENDING
@@ -55,7 +55,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsExportProgress extends $dara
 export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of canceled jobs.
+   * The number of cancelled jobs.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   cancelledNum?: number;
   /**
    * @remarks
-   * This parameter is deprecated. The total duration of the execution.
+   * The total execution duration so far. [Deprecated]
    * 
    * @example
    * 1000
@@ -71,7 +71,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   duration?: number;
   /**
    * @remarks
-   * The number of jobs that are being executed.
+   * The number of jobs being executed.
    * 
    * @example
    * 20
@@ -95,7 +95,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   pausedNum?: number;
   /**
    * @remarks
-   * The number of jobs that are being scheduled.
+   * The number of jobs being scheduled.
    * 
    * @example
    * 20
@@ -103,7 +103,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   scheduling?: number;
   /**
    * @remarks
-   * This parameter is deprecated. The time when the job group started.
+   * The start time. [Deprecated]
    * 
    * @example
    * 1640316786259
@@ -111,23 +111,16 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   startTime?: number;
   /**
    * @remarks
-   * The execution state. Valid values:
+   * The execution status. Valid values:
    * 
-   * - `Draft`: The job group is a draft.
-   * 
-   * - `Scheduling`: The job group is being scheduled.
-   * 
-   * - `Executing`: The job group is running.
-   * 
-   * - `Completed`: The job group is complete.
-   * 
-   * - `Paused`: The job group is paused.
-   * 
-   * - `Failed`: The job group has failed.
-   * 
-   * - `Cancelled`: The job group is canceled.
-   * 
-   * - `Initializing`: The job group is being initialized.
+   * - Draft: Draft.
+   * - Scheduling: Scheduling in progress.
+   * - Executing: Executing.
+   * - Completed: Completed.
+   * - Paused: Paused.
+   * - Failed: Failed.
+   * - Cancelled: Cancelled.
+   * - Initializing: Initializing.
    * 
    * @example
    * Scheduling
@@ -151,7 +144,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
   totalJobs?: number;
   /**
    * @remarks
-   * This parameter is deprecated. The number of unanswered calls.
+   * The number of unanswered jobs. [Deprecated]
    * 
    * @example
    * 1
@@ -201,7 +194,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsProgress extends $dara.Model
 export class ListJobGroupsAsyncResponseBodyJobGroupsStrategy extends $dara.Model {
   /**
    * @remarks
-   * The end time of the scheduling policy.
+   * The strategy end time.
    * 
    * @example
    * 1640316786259
@@ -209,7 +202,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsStrategy extends $dara.Model
   endTime?: number;
   /**
    * @remarks
-   * The start time of the scheduling policy.
+   * The strategy start time.
    * 
    * @example
    * 1640316786259
@@ -241,7 +234,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroupsStrategy extends $dara.Model
 export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   /**
    * @remarks
-   * The time when the job group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The creation time.
    * 
    * @example
    * 1640316786259
@@ -257,7 +250,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   exportProgress?: ListJobGroupsAsyncResponseBodyJobGroupsExportProgress;
   /**
    * @remarks
-   * This parameter is deprecated. The ID of the task that is used to parse the job file.
+   * The ID of the jobFile parsing task. [Deprecated]
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -265,7 +258,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   jobDataParsingTaskId?: string;
   /**
    * @remarks
-   * The description of the job group.
+   * The task description.
    * 
    * @example
    * xxx
@@ -273,7 +266,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   jobGroupDescription?: string;
   /**
    * @remarks
-   * The ID of the job group.
+   * The task ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -281,7 +274,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
-   * The name of the job group.
+   * The task name.
    * 
    * @example
    * xxx
@@ -289,7 +282,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   jobGroupName?: string;
   /**
    * @remarks
-   * The minimum number of concurrent calls.
+   * The minimum concurrency.
    * 
    * @example
    * 1
@@ -297,7 +290,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   minConcurrency?: number;
   /**
    * @remarks
-   * The time when the job group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The modification time, in milliseconds.
    * 
    * @example
    * 1640316786259
@@ -305,7 +298,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The progress of the job group.
+   * The node statistics information.
    * 
    * @example
    * {}
@@ -313,7 +306,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   progress?: ListJobGroupsAsyncResponseBodyJobGroupsProgress;
   /**
    * @remarks
-   * The ID of the script.
+   * The script ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -321,7 +314,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script.
+   * The script name.
    * 
    * @example
    * xxxx
@@ -329,7 +322,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The version of the script.
+   * The script version.
    * 
    * @example
    * 111
@@ -337,7 +330,7 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   scriptVersion?: string;
   /**
    * @remarks
-   * The status of the job group.
+   * The task status.
    * 
    * @example
    * Scheduling
@@ -345,9 +338,9 @@ export class ListJobGroupsAsyncResponseBodyJobGroups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * This parameter is deprecated. The scheduling policy.
+   * The strategy. [Deprecated]
    * 
-   * > To view the scheduling policy of a job group, call the `DescribeJobGroup` operation.
+   * > To view the task strategy information, call the DescribeJobGroup operation.
    * 
    * @example
    * {}
@@ -438,7 +431,7 @@ export class ListJobGroupsAsyncResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The list of job groups.
+   * The task list.
    */
   jobGroups?: ListJobGroupsAsyncResponseBodyJobGroups[];
   /**
@@ -499,7 +492,7 @@ export class ListJobGroupsAsyncResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Indicates whether the asynchronous task is valid.
+   * Indicates whether the result is valid.
    * 
    * @example
    * true

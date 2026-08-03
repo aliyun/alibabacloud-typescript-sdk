@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DuplicateScriptResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The status code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class DuplicateScriptResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the new script.
+   * The scenario ID.
    * 
    * @example
    * 6114e7e8-4140-48d9-b46d-65ea29f13fe8
@@ -45,7 +45,7 @@ export class DuplicateScriptResponseBody extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates success, while false indicates failure.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

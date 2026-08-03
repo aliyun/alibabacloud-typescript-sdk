@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Job ID list. Note: the number of child items must be less than or equal to 99.
+   * The list of job IDs. A maximum of 99 child items are allowed.
    * 
    * This parameter is required.
    * 

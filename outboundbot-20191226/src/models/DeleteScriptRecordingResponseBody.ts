@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScriptRecordingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status code.
+   * The operation status code.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class DeleteScriptRecordingResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the API.
+   * The response message.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class DeleteScriptRecordingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTaskExportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code
+   * The status code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * []
@@ -29,7 +29,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * C377C5FF-4F94-1B23-89D0-50C560623EE4
@@ -37,7 +37,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class CreateTaskExportTaskResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Export task ID
+   * The export task ID.
    * 
    * @example
    * a7d6dcff1b8b40f4a8b769a9c24e7852

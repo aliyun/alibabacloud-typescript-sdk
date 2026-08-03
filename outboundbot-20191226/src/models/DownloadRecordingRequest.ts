@@ -15,7 +15,7 @@ export class DownloadRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve voice slice recordings.
+   * Specifies whether to query segmented recordings.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class DownloadRecordingRequest extends $dara.Model {
   needVoiceSliceRecording?: boolean;
   /**
    * @remarks
-   * Specifies whether to swap the left and right audio channels. The default value is `false`.
+   * Specifies whether to swap left and right audio channels. Default value: false (not swapped).
    * 
    * @example
    * false

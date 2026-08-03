@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dara.Model {
   /**
    * @remarks
-   * Error code for a failed parsing task.
+   * The error code for the failure.
    * 
    * @example
    * Permission.JobStatus
@@ -13,7 +13,7 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
   failErrorCode?: string;
   /**
    * @remarks
-   * Reason for failure.
+   * The failure reason.
    * 
    * @example
    * CreateCorpus
@@ -21,7 +21,7 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
   failReason?: string;
   /**
    * @remarks
-   * Download URL for the file that lists parsing failures. This field is deprecated.
+   * The download URL of the parsing failure record file. [Deprecated]
    * 
    * @example
    * xxxx
@@ -29,7 +29,7 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
   feedbackUrl?: string;
   /**
    * @remarks
-   * Number of jobs processed so far.
+   * The number of jobs being processed.
    * 
    * @example
    * 2
@@ -37,17 +37,12 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
   handledJobCount?: number;
   /**
    * @remarks
-   * Status of the job.
-   * 
-   * - Pending: The job is waiting to start.
-   * 
-   * - InProgress: The job is running.
-   * 
-   * - Finished: The job completed successfully.
-   * 
-   * - PartialFinished: The job completed partially.
-   * 
-   * - Failed: The job failed.
+   * The job status. Valid values:
+   * - Pending: pending.
+   * - InProgress: in progress.
+   * - Finished: finished.
+   * - PartialFinished: partially finished.
+   * - Failed: failed.
    * 
    * @example
    * Pending
@@ -55,7 +50,7 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
   status?: string;
   /**
    * @remarks
-   * Total number of jobs in the task.
+   * The total number of jobs.
    * 
    * @example
    * 3
@@ -95,7 +90,7 @@ export class DescribeJobDataParsingTaskProgressResponseBodyProgress extends $dar
 export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * OK
@@ -103,7 +98,7 @@ export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -111,7 +106,7 @@ export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model 
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * Success
@@ -119,7 +114,7 @@ export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * Parsing progress.
+   * The progress information.
    * 
    * @example
    * {}
@@ -127,7 +122,7 @@ export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model 
   progress?: DescribeJobDataParsingTaskProgressResponseBodyProgress;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -135,7 +130,7 @@ export class DescribeJobDataParsingTaskProgressResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTenantBindNumberResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * e2d7a184-7d6c-45d4-ac24-34ab48f54669
@@ -13,7 +13,7 @@ export class DescribeTenantBindNumberResponseBodyDataList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance name
+   * The instance name.
    * 
    * @example
    * xxxx
@@ -21,7 +21,7 @@ export class DescribeTenantBindNumberResponseBodyDataList extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether the number is bound to the instance
+   * Indicates whether the number is in a bound state.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class DescribeTenantBindNumberResponseBodyDataList extends $dara.Model {
 export class DescribeTenantBindNumberResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Job group description
+   * The job group description.
    */
   list?: DescribeTenantBindNumberResponseBodyDataList[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class DescribeTenantBindNumberResponseBodyData extends $dara.Model {
 export class DescribeTenantBindNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -93,12 +93,12 @@ export class DescribeTenantBindNumberResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The returned data.
    */
   data?: DescribeTenantBindNumberResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -106,7 +106,7 @@ export class DescribeTenantBindNumberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -114,7 +114,7 @@ export class DescribeTenantBindNumberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 1364f208-982d-4d0c-89aa-d56e22b47589
@@ -122,7 +122,7 @@ export class DescribeTenantBindNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

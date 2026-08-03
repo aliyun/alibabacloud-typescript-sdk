@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 1578469042851
@@ -13,7 +13,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The ID of the creator.
+   * The creator ID.
    * 
    * @example
    * 435986
@@ -29,7 +29,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   creatorName?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The description of the business instance.
    * 
    * @example
    * 这个是第一个实例
@@ -37,7 +37,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The business instance ID.
    * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
@@ -45,7 +45,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the business instance.
    * 
    * @example
    * 第一个实例
@@ -53,7 +53,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The maximum number of concurrent conversations for the instance.
+   * The maximum concurrency of the instance.
    * 
    * @example
    * 4
@@ -61,7 +61,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   maxConcurrentConversation?: number;
   /**
    * @remarks
-   * The name of the instance owner.
+   * The name of the business instance owner.
    * 
    * @example
    * xxxx
@@ -69,7 +69,7 @@ export class DescribeInstanceResponseBodyInstance extends $dara.Model {
   ownerName?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
@@ -131,7 +131,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the instance.
+   * The business instance information.
    */
   instance?: DescribeInstanceResponseBodyInstance;
   /**
@@ -144,7 +144,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC

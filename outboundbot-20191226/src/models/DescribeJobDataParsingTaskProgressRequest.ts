@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobDataParsingTaskProgressRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class DescribeJobDataParsingTaskProgressRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * ID of the job data parsing task.
+   * The job data analytics node ID.
    * 
-   * > Get this value from the CreateJobDataParsingTask operation.
+   * > This parameter value is obtained from the CreateJobDataParsingTask operation.
    * 
    * This parameter is required.
    * 

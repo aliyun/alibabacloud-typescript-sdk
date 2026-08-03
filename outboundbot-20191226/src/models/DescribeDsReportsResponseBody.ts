@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDsReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -13,15 +13,15 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Conversation flow information, formatted as key:{value:count}
+   * The dialog flow information in the format: key:{value:aaa}}, where aaa indicates the number of occurrences.
    * 
    * @example
-   * "{\\"标签1\\":{\\"标签值1\\":2},\\"标签2\\":{\\"标签值1\\":2},\\"标签3\\":{\\"标签值1\\":1,\\"标签值2\\":1}}"
+   * "{\\"Label1\\":{\\"LabelValue1\\":2},\\"Label2\\":{\\"LabelValue1\\":2},\\"Label3\\":{\\"LabelValue1\\":1,\\"LabelValue2\\":1}}"
    */
   dsReports?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 1364f208-982d-4d0c-89aa-d56e22b47589
@@ -45,7 +45,7 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

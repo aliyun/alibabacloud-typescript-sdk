@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Specifies whether to return the script.
+   * Specifies whether to return task scenario information.
    * 
    * @example
    * false

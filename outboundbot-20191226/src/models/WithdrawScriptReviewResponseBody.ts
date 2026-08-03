@@ -21,7 +21,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
   industry?: string;
   /**
    * @remarks
-   * Indicates whether the debug version is a draft.
+   * Indicates whether the debug version is in draft state.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
   isDebugDrafted?: boolean;
   /**
    * @remarks
-   * Indicates whether the application version is a draft.
+   * Indicates whether the application version is in draft state.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
   isDrafted?: boolean;
   /**
    * @remarks
-   * The scenario.
+   * The scene.
    * 
    * @example
    * 电销
@@ -77,7 +77,7 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the script was updated.
+   * The update time.
    * 
    * @example
    * 1578881227000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScriptRecordingRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance to which the recording belongs.
+   * The instance ID to which the recordings belong.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteScriptRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the scenario to which the recording belongs.
+   * The ID of the scenario to which the recordings belong.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DeleteScriptRecordingRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * A list of recording IDs. If this parameter is empty, all recordings are selected by default.
+   * The list of recording IDs. If this parameter is left empty, all recordings are selected by default.
    * 
-   * > Obtain the recording IDs from the ListScriptRecording operation.
+   * > You can obtain recording IDs by calling the ListScriptRecording operation.
    * 
    * @example
    * ["d17d5bfa-4972-4389-9718-f9602edabe48"]
