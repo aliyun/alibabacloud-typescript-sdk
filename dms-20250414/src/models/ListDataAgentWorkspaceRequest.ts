@@ -21,7 +21,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token information.
+   * The pagination token.
    * 
    * @example
    * no use
@@ -37,7 +37,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The name of the field by which to sort.
+   * The field name used for sorting.
    * 
    * @example
    * CreateTime
@@ -45,7 +45,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number to start from.
+   * The page number.
    * 
    * This parameter is required.
    * 

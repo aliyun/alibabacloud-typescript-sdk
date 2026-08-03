@@ -13,13 +13,16 @@ export class CreateDataAgentAccuracyTestRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The data source. We recommend that you configure this in the custom agent.
+   * Deprecated.
    * 
    * @example
    * null
    */
   dataset?: string;
   /**
+   * @remarks
+   * The data source. We recommend that you configure this in the custom agent.
+   * 
    * @example
    * [{"isInternal":"N","TableIds":["51***70","51***71"],"DataSourceType":"database","Database":"internal_data_employees","DmsInstanceId":"27***5","DmsDatabaseId":"71***04","Tables":["employees","salaries"],"FileId":"rm-
    * ***","DbName":"internal_data_employees","CatalogName":"def","RegionId":"cn-hangzhou","Engine":"mysql"}]

@@ -308,6 +308,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+   * 
+   * @param request - CheckDataAgentMemoryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDataAgentMemoryConfigResponse
+   */
+  async checkDataAgentMemoryConfigWithOptions(request: $_model.CheckDataAgentMemoryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDataAgentMemoryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckDataAgentMemoryConfig",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckDataAgentMemoryConfigResponse>(await this.callApi(params, req, runtime), new $_model.CheckDataAgentMemoryConfigResponse({}));
+  }
+
+  /**
+   * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+   * 
+   * @param request - CheckDataAgentMemoryConfigRequest
+   * @returns CheckDataAgentMemoryConfigResponse
+   */
+  async checkDataAgentMemoryConfig(request: $_model.CheckDataAgentMemoryConfigRequest): Promise<$_model.CheckDataAgentMemoryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkDataAgentMemoryConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Update an Airflow instance\\"s custom configuration
    * 
    * @remarks
@@ -367,6 +409,56 @@ export default class Client extends OpenApi {
   async configAirflow(request: $_model.ConfigAirflowRequest): Promise<$_model.ConfigAirflowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.configAirflowWithOptions(request, runtime);
+  }
+
+  /**
+   * ConfigDataAgentMemory
+   * 
+   * @param request - ConfigDataAgentMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigDataAgentMemoryResponse
+   */
+  async configDataAgentMemoryWithOptions(request: $_model.ConfigDataAgentMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigDataAgentMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.recallEnabled)) {
+      query["RecallEnabled"] = request.recallEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigDataAgentMemory",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigDataAgentMemoryResponse>(await this.callApi(params, req, runtime), new $_model.ConfigDataAgentMemoryResponse({}));
+  }
+
+  /**
+   * ConfigDataAgentMemory
+   * 
+   * @param request - ConfigDataAgentMemoryRequest
+   * @returns ConfigDataAgentMemoryResponse
+   */
+  async configDataAgentMemory(request: $_model.ConfigDataAgentMemoryRequest): Promise<$_model.ConfigDataAgentMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configDataAgentMemoryWithOptions(request, runtime);
   }
 
   /**
@@ -1455,6 +1547,52 @@ export default class Client extends OpenApi {
   async deleteDataAgentKnowledgeBase(request: $_model.DeleteDataAgentKnowledgeBaseRequest): Promise<$_model.DeleteDataAgentKnowledgeBaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataAgentKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the memory of a DataAgent.
+   * 
+   * @param request - DeleteDataAgentMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentMemoryResponse
+   */
+  async deleteDataAgentMemoryWithOptions(request: $_model.DeleteDataAgentMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentMemory",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentMemoryResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentMemoryResponse({}));
+  }
+
+  /**
+   * Deletes the memory of a DataAgent.
+   * 
+   * @param request - DeleteDataAgentMemoryRequest
+   * @returns DeleteDataAgentMemoryResponse
+   */
+  async deleteDataAgentMemory(request: $_model.DeleteDataAgentMemoryRequest): Promise<$_model.DeleteDataAgentMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentMemoryWithOptions(request, runtime);
   }
 
   /**
@@ -3672,6 +3810,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+   * 
+   * @param request - ListDataAgentMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentMemoryResponse
+   */
+  async listDataAgentMemoryWithOptions(request: $_model.ListDataAgentMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contentPattern)) {
+      query["ContentPattern"] = request.contentPattern;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.fromId)) {
+      query["FromId"] = request.fromId;
+    }
+
+    if (!$dara.isNull(request.memFrom)) {
+      query["MemFrom"] = request.memFrom;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryAll)) {
+      query["QueryAll"] = request.queryAll;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentMemory",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentMemoryResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentMemoryResponse({}));
+  }
+
+  /**
+   * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+   * 
+   * @param request - ListDataAgentMemoryRequest
+   * @returns ListDataAgentMemoryResponse
+   */
+  async listDataAgentMemory(request: $_model.ListDataAgentMemoryRequest): Promise<$_model.ListDataAgentMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentMemoryWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of historical session descriptions for a Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
@@ -3754,7 +3966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the collaborative workspaces under the primary account with pagination.
+   * Retrieves the workspaces under the primary account with pagination.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3817,7 +4029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the collaborative workspaces under the primary account with pagination.
+   * Retrieves the workspaces under the primary account with pagination.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @returns ListDataAgentWorkspaceResponse
@@ -6025,6 +6237,64 @@ export default class Client extends OpenApi {
   async updateDataAgentAccuracyTest(request: $_model.UpdateDataAgentAccuracyTestRequest): Promise<$_model.UpdateDataAgentAccuracyTestResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataAgentAccuracyTestWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the memory of a DataAgent.
+   * 
+   * @param request - UpdateDataAgentMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataAgentMemoryResponse
+   */
+  async updateDataAgentMemoryWithOptions(request: $_model.UpdateDataAgentMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAgentMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.fromId)) {
+      query["FromId"] = request.fromId;
+    }
+
+    if (!$dara.isNull(request.memFrom)) {
+      query["MemFrom"] = request.memFrom;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataAgentMemory",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataAgentMemoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataAgentMemoryResponse({}));
+  }
+
+  /**
+   * Updates the memory of a DataAgent.
+   * 
+   * @param request - UpdateDataAgentMemoryRequest
+   * @returns UpdateDataAgentMemoryResponse
+   */
+  async updateDataAgentMemory(request: $_model.UpdateDataAgentMemoryRequest): Promise<$_model.UpdateDataAgentMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataAgentMemoryWithOptions(request, runtime);
   }
 
   /**

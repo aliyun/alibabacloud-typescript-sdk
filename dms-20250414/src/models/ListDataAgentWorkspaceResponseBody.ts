@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace. This value is a UNIX timestamp in seconds.
+   * The creation time of the workspace, in UNIX timestamp format (milliseconds).
    * 
    * @example
-   * 1765960516
+   * 1765960516000
    */
   createTime?: number;
   /**
@@ -27,13 +27,20 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * space for test
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether session sharing is enabled for the workspace.
+   * 
+   * @example
+   * true
+   */
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
+   * The most recent modification time of the workspace, in UNIX timestamp format (milliseconds).
    * 
    * @example
-   * 1765961516
+   * 1765961516000
    */
   modifyTime?: number;
   /**
@@ -52,6 +59,13 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * 11
    */
   totalMember?: number;
+  /**
+   * @remarks
+   * The workspace type.
+   * 
+   * @example
+   * personal
+   */
   type?: string;
   /**
    * @remarks
@@ -220,7 +234,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token information.
+   * The pagination token.
    * 
    * @example
    * no use
