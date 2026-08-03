@@ -66,7 +66,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * Take note of the following items:
    * 
    * - This parameter cannot be specified together with `ExcludeDiskId.N`.
-   * - If you specify `InstanceId`, this parameter can only be set to disks attached to the specified instance, and cross-instance disk IDs are not supported.
+   * - If you specify `InstanceId`, this parameter can only be set to disks attached to the specified instance and no longer supports specifying disk IDs across multiple instances.
    */
   diskId?: string[];
   /**
@@ -98,7 +98,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
    * 
    * Default value: false.
    * 
-   * >This parameter is deprecated. Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+   * >**[Deprecated]** Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. You do not need to set this parameter.
    * 
    * @example
    * false
@@ -106,13 +106,13 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   instantAccess?: boolean;
   /**
    * @remarks
-   * The number of days for which the snapshot instant access feature is active. Unit: days. Valid values: 1 to 65535.
+   * Settings the number of days for which the snapshot instant access feature is active. Unit: days. Valid values: 1 to 65535.
    * 
-   * This parameter takes effect only when `InstantAccess=true`. The snapshot instant access feature is automatically shutdown when the specified duration expires.
+   * This parameter takes effect only when `InstantAccess=true`. The snapshot instant access feature is automatically disabled when the specified duration expires.
    * 
-   * Default value: null, which indicates that the instant access feature is active until the snapshot is released.
+   * Default value: null, which indicates that the duration is the same as the snapshot release period.
    * 
-   * >This parameter is deprecated. Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+   * >**[Deprecated]** Standard snapshots of enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. You do not need to set this parameter.
    * 
    * @example
    * 1

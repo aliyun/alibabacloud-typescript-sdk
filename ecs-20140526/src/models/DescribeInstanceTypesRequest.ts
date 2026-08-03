@@ -18,7 +18,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   cpuArchitecture?: string;
   /**
    * @remarks
-   * The CPU architectures to query. Array length: 1 to 2.
+   * The specified CPU architectures to query. Array length: 1 to 2.
    */
   cpuArchitectures?: string[];
   /**
@@ -31,12 +31,12 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   GPUSpec?: string;
   /**
    * @remarks
-   * The GPU types to query. Array length: 1 to 10.
+   * The specified GPU types to query. Array length: 1 to 10.
    */
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The instance type categories to query. Array length: 1 to 10.
+   * The specified instance type categories to query. Array length: 1 to 10.
    */
   instanceCategories?: string[];
   /**
@@ -57,7 +57,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   instanceFamilyLevel?: string;
   /**
    * @remarks
-   * The instance families to query. Array length: 1 to 10.
+   * The specified instance families to query. Array length: 1 to 10.
    */
   instanceTypeFamilies?: string[];
   /**
@@ -78,7 +78,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * The local disk types to query. Array length: 1 to 2.
+   * The specified local disk types. Array length: 1 to 2.
    */
   localStorageCategories?: string[];
   /**
@@ -91,7 +91,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   localStorageCategory?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for paging query. Maximum value: 1600.
+   * The maximum number of entries per page for a paged query. Maximum value: 1600. This parameter is used for paging.
    * 
    * @example
    * 10
@@ -182,7 +182,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumDiskQuantity?: number;
   /**
    * @remarks
-   * The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
+   * The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) when querying instance types.
    * 
    * @example
    * 2
@@ -190,7 +190,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniIpv6AddressQuantity?: number;
   /**
    * @remarks
-   * The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
+   * The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) when querying instance types.
    * 
    * @example
    * 2
@@ -198,7 +198,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached per network interface controller (NIC) when querying instance types.
+   * The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached when querying instance types.
    * 
    * @example
    * 4
@@ -206,7 +206,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumEniQuantity?: number;
   /**
    * @remarks
-   * The expected minimum number of Elastic RDMA Interfaces (ERIs) per network interface controller (NIC) when querying instance types.
+   * The expected minimum number of Elastic RDMA Interfaces (ERIs) when querying instance types.
    * 
    * @example
    * 0
@@ -222,7 +222,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumGPUAmount?: number;
   /**
    * @remarks
-   * The expected minimum initial vCPU CPU credits for burstable instances t5 and t6 when querying instance types.
+   * The expected minimum initial vCPU credits for burstable instances t5 and t6 when querying instance types.
    * 
    * @example
    * 12
@@ -302,7 +302,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   minimumQueuePairNumber?: number;
   /**
    * @remarks
-   * The expected minimum number of default queues for secondary Elastic Network Interfaces (ENIs) per network interface controller (NIC) when querying instance types.
+   * The expected minimum number of default queues for the secondary Elastic Network Interface (ENI) when querying instance types.
    * 
    * @example
    * 4
@@ -339,7 +339,7 @@ export class DescribeInstanceTypesRequest extends $dara.Model {
   physicalProcessorModel?: string;
   /**
    * @remarks
-   * The processor models to query. Array length: 1 to 10.
+   * The specified processor models to query. Array length: 1 to 10.
    */
   physicalProcessorModels?: string[];
   resourceOwnerAccount?: string;

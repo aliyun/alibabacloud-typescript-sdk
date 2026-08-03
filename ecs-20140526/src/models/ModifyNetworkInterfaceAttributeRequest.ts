@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: integers from 3 to 15.
+   * The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
    * 
    * @example
    * 3
@@ -53,6 +53,7 @@ export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfigurati
 }
 
 export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $dara.Model {
+  enableExpress?: boolean;
   /**
    * @remarks
    * > This parameter is not publicly available.
@@ -73,6 +74,7 @@ export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $dara
   virtualFunctionTotalQueueNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      enableExpress: 'EnableExpress',
       enableRss: 'EnableRss',
       enableSriov: 'EnableSriov',
       virtualFunctionQuantity: 'VirtualFunctionQuantity',
@@ -82,6 +84,7 @@ export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      enableExpress: 'boolean',
       enableRss: 'boolean',
       enableSriov: 'boolean',
       virtualFunctionQuantity: 'number',
@@ -208,7 +211,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+   * The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * eniTestName
@@ -216,7 +219,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $dara.Model {
   networkInterfaceName?: string;
   /**
    * @remarks
-   * The communication parameters of the network interface controller (NIC).
+   * The communication parameter of the network interface controller (NIC).
    */
   networkInterfaceTrafficConfig?: ModifyNetworkInterfaceAttributeRequestNetworkInterfaceTrafficConfig;
   ownerAccount?: string;

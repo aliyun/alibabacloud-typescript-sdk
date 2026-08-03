@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyImageRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the copied image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:` or contain `http://` or `https://`.
+   * The tag key of the copied image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class CopyImageRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the copied image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:` or contain `http://` or `https://`.
+   * The tag value of the copied image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -61,7 +61,7 @@ export class CopyImageRequest extends $dara.Model {
   destinationDescription?: string;
   /**
    * @remarks
-   * The name of the copied image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain digits, periods (.), colons (:), underscores (_), or hyphens (-).
+   * The name of the copied image. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * YourImageName
@@ -79,8 +79,8 @@ export class CopyImageRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run. Valid values:
    * 
-   * - true: performs only a dry run. The system checks the request for potential issues, including the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
+   * - true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) user authorization is complete, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
+   * - false: performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the operation is Normal.
    * 
    * Default value: false.
    * 
@@ -144,7 +144,7 @@ export class CopyImageRequest extends $dara.Model {
    * @remarks
    * The resource group ID of the copied image. If you do not set this parameter, the copied image belongs to the default resource group.
    * 
-   * > If you are a Resource Access Management (RAM) user and invoke this operation with `ResourceGroupId` left empty, and the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Settings a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group by using the corresponding Alibaba Cloud account before you invoke this operation again.
+   * > If you are a Resource Access Management (RAM) user and invoke this operation with the `ResourceGroupId` parameter left empty, take note of the following: if the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Set the `ResourceGroupId` parameter to a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group by using the corresponding Alibaba Cloud account before you invoke this operation again. The `ResourceGroupId` parameter determines which resource group the replicated image belongs to.
    * 
    * @example
    * rg-bp67acfmxazb4p****

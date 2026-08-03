@@ -124,7 +124,7 @@ export class CreateDiskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The disk description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * testDescription
@@ -140,7 +140,7 @@ export class CreateDiskRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The name of the disk. The name must be 2 to 128 characters in length and can contain characters that are categorized as letter in Unicode, including Chinese and English characters, and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-). The name must start with a character that is categorized as letter in Unicode.
+   * The disk name. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode (including English and Chinese characters) and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-). The name must start with a character that is classified as letter in Unicode.
    * 
    * @example
    * testDiskName
@@ -164,7 +164,7 @@ export class CreateDiskRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the subscription instance to which the subscription disk is automatically attached after the disk is created.
+   * Creates a subscription disk and automatically attaches it to the specified subscription instance.
    * 
    * @example
    * i-bp18pnlg1ds9rky4****
@@ -190,7 +190,7 @@ export class CreateDiskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The performance level of the enterprise SSD (ESSD) to create. Valid values:
+   * The performance level of the enterprise SSD (ESSD) disk. Valid values:
    * 
    * @example
    * PL1
@@ -234,7 +234,7 @@ export class CreateDiskRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the snapshot to use to create the disk. Snapshots created on or before July 15, 2013 cannot be used to create disks.
+   * The snapshot ID that is used to create the disk. Snapshots created on or before July 15, 2013 cannot be used to create disks.
    * 
    * @example
    * s-bp67acfmxazb4p****
@@ -250,7 +250,7 @@ export class CreateDiskRequest extends $dara.Model {
   storageClusterId?: string;
   /**
    * @remarks
-   * The ID of the storage set.
+   * The storage set ID.
    * 
    * @example
    * ss-bp67acfmxazb4p****
@@ -266,7 +266,7 @@ export class CreateDiskRequest extends $dara.Model {
   storageSetPartitionNumber?: number;
   /**
    * @remarks
-   * The list of tags for the disk.
+   * The tags of the disk.
    */
   tag?: CreateDiskRequestTag[];
   /**

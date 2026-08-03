@@ -13,7 +13,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The order ID. This parameter is returned only when you create a subscription ECS instance (request parameter `InstanceChargeType=PrePaid`).
+   * The order ID. This parameter is returned only when you create a subscription ECS instance (the request parameter `InstanceChargeType=PrePaid`).
    * 
    * @example
    * 1234567890

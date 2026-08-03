@@ -345,7 +345,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-2ze88m67qx5z****
@@ -354,7 +354,7 @@ export class CreateNetworkInterfaceResponseBody extends $dara.Model {
   securityGroupIds?: CreateNetworkInterfaceResponseBodySecurityGroupIds;
   /**
    * @remarks
-   * The Virtual Network Operator (VNO) ID associated with the network interface controller (NIC).
+   * The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) corresponds.
    * 
    * @example
    * 12345678910

@@ -228,7 +228,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyBondInterfaceSpecifica
 export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The timeout period for a TCP connection in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
+   * The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
    * 
    * @example
    * 3
@@ -236,7 +236,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * The timeout period for an established TCP connection. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+   * The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
    * 
    * @example
    * 910
@@ -244,7 +244,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * The timeout period for a UDP flow. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
+   * The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
    * 
    * @example
    * 30
@@ -276,6 +276,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyConnectionTrackingConf
 }
 
 export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extends $dara.Model {
+  enableExpress?: boolean;
   /**
    * @remarks
    * > This parameter is not yet available for use.
@@ -296,6 +297,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extend
   virtualFunctionTotalQueueNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      enableExpress: 'EnableExpress',
       enableRss: 'EnableRss',
       enableSriov: 'EnableSriov',
       virtualFunctionQuantity: 'VirtualFunctionQuantity',
@@ -305,6 +307,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyEnhancedNetwork extend
 
   static types(): { [key: string]: any } {
     return {
+      enableExpress: 'boolean',
       enableRss: 'boolean',
       enableSriov: 'boolean',
       virtualFunctionQuantity: 'number',
@@ -490,7 +493,7 @@ export class DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTraffi
   queueNumber?: number;
   /**
    * @remarks
-   * The number of queues supported by the RDMA ENI.
+   * The number of queues supported by the RDMA network interface.
    * 
    * @example
    * 8
@@ -986,7 +989,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+   * The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
    * 
    * @example
    * rg-bp67acfmxazb4p****

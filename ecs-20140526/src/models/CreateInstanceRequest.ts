@@ -35,7 +35,7 @@ export class CreateInstanceRequestHibernationOptions extends $dara.Model {
 export class CreateInstanceRequestPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private pool. The ID of an elasticity assurance or capacity reservation.
+   * The ID of the private pool. The ID of the private pool is the same as that of the elasticity assurance or capacity reservation.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -43,7 +43,7 @@ export class CreateInstanceRequestPrivatePoolOptions extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The private pool option for the instance launch. A private pool is generated when an elasticity assurance or capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
+   * The private pool options for the instance launch. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
    * 
    * @example
    * Open
@@ -91,7 +91,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters.
    * 
    * @example
    * SystemDiskName
@@ -99,7 +99,7 @@ export class CreateInstanceRequestSystemDisk extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The performance level (PL) of the enterprise SSD (ESSD) used as the system disk. Settings for the performance level. If the system disk is a standard SSD, this parameter is ignored. Valid values:
+   * The performance level of the enterprise SSD used as the system disk. Settings depend on the disk category. Valid values:
    * 
    * @example
    * PL1
@@ -237,7 +237,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   device?: string;
   /**
    * @remarks
-   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters.
    * 
    * @example
    * DataDiskName
@@ -261,7 +261,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The Key Management Service (KMS) key ID for the disk.
+   * The ID of the Key Management Service (KMS) key used by the disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d****
@@ -269,7 +269,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * The performance level (PL) of the enterprise SSD used as a data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Settings for the performance level. If the data disk is a standard SSD, this parameter is ignored. Valid values:
+   * The performance level of the enterprise SSD used as a data disk. Settings depend on the disk category. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
    * 
    * @example
    * PL2
@@ -285,7 +285,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The snapshot ID used to create data disk N. Valid values of N: 1 to 16.
+   * The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16.
    * 
    * @example
    * s-bp17441ohwka0yuh****
@@ -293,7 +293,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create an ECS instance, set this parameter.
+   * The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create the ECS instance, set this parameter.
    * 
    * @example
    * dbsc-j5e1sf2vaf5he8m2****
@@ -345,7 +345,7 @@ export class CreateInstanceRequestDataDisk extends $dara.Model {
 export class CreateInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * The tag key of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -353,7 +353,7 @@ export class CreateInstanceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The tag value of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -417,7 +417,7 @@ export class CreateInstanceRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -425,7 +425,7 @@ export class CreateInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cluster ID of the instance.
+   * The ID of the cluster to which the instance belongs.
    * 
    * @example
    * c-bp67acfmxazb4p****
@@ -454,7 +454,7 @@ export class CreateInstanceRequest extends $dara.Model {
   dedicatedHostId?: string;
   /**
    * @remarks
-   * The release protection attribute of the instance. Specifies whether the instance can be released from the ECS console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
+   * The release protection attribute of the instance. Specifies whether the instance can be released from the console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
    * 
    * @example
    * false
@@ -462,7 +462,7 @@ export class CreateInstanceRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The group number of the instance in the deployment set. This parameter takes effect only when the deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
+   * The number of the deployment set group to which to deploy the instance in the deployment set. This parameter takes effect only when the deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
    * 
    * @example
    * 1
@@ -542,7 +542,7 @@ export class CreateInstanceRequest extends $dara.Model {
   imageFamily?: string;
   /**
    * @remarks
-   * The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the `ImageId` on the image product page. If you do not specify `ImageFamily` to select the latest available image from an image family, this parameter is required.
+   * The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the `ImageId` on the product page of the Alibaba Cloud Marketplace image. This parameter is required if you do not specify `ImageFamily` to select the latest available image from an image family.
    * 
    * @example
    * ubuntu_18_04_64_20G_alibase_20190624.vhd
@@ -566,7 +566,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the default value is the instance ID.
+   * The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters. If this parameter is not specified, the default value is the instance ID.
    * 
    * @example
    * k8s-node-[1,4]-alibabacloud
@@ -574,7 +574,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The instance type.
+   * The instance type of the instance.
    * 
    * This parameter is required.
    * 
@@ -608,8 +608,8 @@ export class CreateInstanceRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Specifies whether the instance is an I/O optimized instance. The I/O optimization improves instance performance. Valid values:
-   * The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none.
+   * Specifies whether the instance is I/O optimization enabled. Valid values:
+   * The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none. For other instance types, the default value is optimized.
    * 
    * @example
    * optimized
@@ -667,7 +667,7 @@ export class CreateInstanceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The private IP address of the instance. The IP address must be an available address within the CIDR block of the specified vSwitch (VSwitchId).
+   * The private IP address of the instance. The IP address must be an available address in the CIDR block of the specified vSwitch (VSwitchId).
    * 
    * @example
    * 172.16.236.*
@@ -727,7 +727,7 @@ export class CreateInstanceRequest extends $dara.Model {
   spotDuration?: number;
   /**
    * @remarks
-   * The interruption pattern of the spot instance. Valid values:
+   * The break mode of the spot instance. Valid values:
    * 
    * @example
    * Terminate
@@ -735,7 +735,7 @@ export class CreateInstanceRequest extends $dara.Model {
   spotInterruptionBehavior?: string;
   /**
    * @remarks
-   * The maximum hourly price of the instance. A maximum of three decimal places is supported. This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
+   * The maximum hourly price of the instance. A maximum of three decimal places are supported. This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
    * 
    * @example
    * 0.98
@@ -788,7 +788,7 @@ export class CreateInstanceRequest extends $dara.Model {
   useAdditionalService?: boolean;
   /**
    * @remarks
-   * The instance user data. The data must be encoded in Base64. The raw data can be up to 32 KB in size.
+   * Instance user data of the instance. Instance user data must be encoded in Base64. The raw data can be up to 32 KB in size.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
@@ -796,7 +796,7 @@ export class CreateInstanceRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The vSwitch ID. This parameter is required when you create a VPC-connected instance. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query created vSwitches.
+   * The vSwitch ID. This parameter is required if you create a VPC-connected instance. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query created vSwitches.
    * 
    * @example
    * vsw-bp1s5fnvk4gn2tws0****

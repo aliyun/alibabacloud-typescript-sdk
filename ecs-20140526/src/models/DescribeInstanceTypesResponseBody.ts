@@ -145,11 +145,13 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOption
 }
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedNetwork extends $dara.Model {
+  expressSupport?: boolean;
   rssSupport?: boolean;
   sriovSupport?: boolean;
   vfQueueNumberPerEni?: number;
   static names(): { [key: string]: string } {
     return {
+      expressSupport: 'ExpressSupport',
       rssSupport: 'RssSupport',
       sriovSupport: 'SriovSupport',
       vfQueueNumberPerEni: 'VfQueueNumberPerEni',
@@ -158,6 +160,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeEnhancedN
 
   static types(): { [key: string]: any } {
     return {
+      expressSupport: 'boolean',
       rssSupport: 'boolean',
       sriovSupport: 'boolean',
       vfQueueNumberPerEni: 'number',
