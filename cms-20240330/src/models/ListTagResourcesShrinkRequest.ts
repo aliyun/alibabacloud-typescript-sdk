@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * xxxxxxxxxx
@@ -21,7 +21,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of resource IDs.
+   * The list of resource IDs.
    */
   resourceIdShrink?: string;
   /**
@@ -36,9 +36,9 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. These are used as filter conditions for the query.
+   * The labels. Used as filter conditions for the query.
    * 
-   * You can specify up to 20 tags.
+   * You can specify up to 20 labels.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

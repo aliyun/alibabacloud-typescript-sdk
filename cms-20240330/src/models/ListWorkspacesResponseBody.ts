@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
@@ -41,7 +75,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -49,7 +83,15 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The resource group ID.
+   * 
+   * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Simple Log Service project name.
    * 
    * @example
    * sls-project-test-001
@@ -57,7 +99,12 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The tags.
+   */
+  tags?: ListWorkspacesResponseBodyWorkspacesTags[];
+  /**
+   * @remarks
+   * The workspace name.
    * 
    * This parameter is required.
    * 
@@ -72,7 +119,9 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       displayName: 'displayName',
       lastModifyTime: 'lastModifyTime',
       regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
       slsProject: 'slsProject',
+      tags: 'tags',
       workspaceName: 'workspaceName',
     };
   }
@@ -84,12 +133,17 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       displayName: 'string',
       lastModifyTime: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       slsProject: 'string',
+      tags: { 'type': 'array', 'itemType': ListWorkspacesResponseBodyWorkspacesTags },
       workspaceName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -101,7 +155,11 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 50. Maximum value: 50.
+   * The number of entries per page.
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
    * 
    * @example
    * 10
@@ -109,7 +167,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxxxxxxxx
@@ -117,7 +175,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

@@ -208,7 +208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Modifies the resource group to which a resource belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -249,7 +249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Modifies the resource group to which a resource belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -3968,7 +3968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query integration center policy information.
+   * Queries the policy information of the DDoS Access Center.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @param headers - map
@@ -3995,7 +3995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query integration center policy information.
+   * Queries the policy information of the DDoS Access Center.
    * 
    * @param request - GetIntegrationPolicyRequest
    * @returns GetIntegrationPolicyResponse
@@ -4636,11 +4636,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ServiceTask
+   * Queries the details of a single ServiceTask under a specified application.
    * 
    * @remarks
-   * 根据 taskId 查询单个服务任务详情。
-   * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+   * Queries the details of a single service task based on the taskId.
+   * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
    * 
    * @param request - GetServiceTaskRequest
    * @param headers - map
@@ -4673,11 +4673,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ServiceTask
+   * Queries the details of a single ServiceTask under a specified application.
    * 
    * @remarks
-   * 根据 taskId 查询单个服务任务详情。
-   * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+   * Queries the details of a single service task based on the taskId.
+   * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
    * 
    * @param request - GetServiceTaskRequest
    * @returns GetServiceTaskResponse
@@ -6742,14 +6742,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举ServiceTask
+   * Lists service tasks.
    * 
    * @remarks
-   * 按任务类型列举应用下的服务任务。
-   * - type=heapdump：返回堆转储任务列表
-   * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-   * - type=live_debug_*：返回对应 LiveDebug 任务列表
-   * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+   * Lists service tasks under an application by task type.
+   * - type=heapdump: Returns the list of heap dump tasks.
+   * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+   * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+   * Supports nextToken/maxResults pagination and searchCondition filtering.
    * 
    * @param request - ListServiceTaskRequest
    * @param headers - map
@@ -6794,14 +6794,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举ServiceTask
+   * Lists service tasks.
    * 
    * @remarks
-   * 按任务类型列举应用下的服务任务。
-   * - type=heapdump：返回堆转储任务列表
-   * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-   * - type=live_debug_*：返回对应 LiveDebug 任务列表
-   * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+   * Lists service tasks under an application by task type.
+   * - type=heapdump: Returns the list of heap dump tasks.
+   * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+   * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+   * Supports nextToken/maxResults pagination and searchCondition filtering.
    * 
    * @param request - ListServiceTaskRequest
    * @returns ListServiceTaskResponse
@@ -6884,7 +6884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags attached to resources.
+   * Queries labels associated with resources.
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param headers - map
@@ -6943,7 +6943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags attached to resources.
+   * Queries labels associated with resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -6966,6 +6966,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListWorkspacesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     if (!$dara.isNull(tmpReq.workspaceNameList)) {
       request.workspaceNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaceNameList, "workspaceNameList", "simple");
     }
@@ -6981,6 +6985,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.region)) {
       query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.workspaceName)) {
@@ -7136,8 +7148,16 @@ export default class Client extends OpenApi {
       body["displayName"] = request.displayName;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.slsProject)) {
       body["slsProject"] = request.slsProject;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7404,7 +7424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to one or more resources.
+   * Attaches labels to resources.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -7445,7 +7465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to one or more resources.
+   * Attaches labels to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -7457,7 +7477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag
+   * Unbinds labels from a resource.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -7512,7 +7532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a tag
+   * Unbinds labels from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

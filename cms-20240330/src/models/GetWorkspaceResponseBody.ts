@@ -2,10 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetWorkspaceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -15,7 +55,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The workspace description.
    * 
    * @example
    * workspace test
@@ -31,7 +71,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified.
+   * The last modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -57,7 +97,15 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The resource group ID.
+   * 
+   * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Simple Log Service project name.
    * 
    * @example
    * sls-project-test-001
@@ -65,7 +113,12 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The tags.
+   */
+  tags?: GetWorkspaceResponseBodyTags[];
+  /**
+   * @remarks
+   * The workspace name.
    * 
    * This parameter is required.
    * 
@@ -81,7 +134,9 @@ export class GetWorkspaceResponseBody extends $dara.Model {
       lastModifyTime: 'lastModifyTime',
       regionId: 'regionId',
       requestId: 'requestId',
+      resourceGroupId: 'resourceGroupId',
       slsProject: 'slsProject',
+      tags: 'tags',
       workspaceName: 'workspaceName',
     };
   }
@@ -94,12 +149,17 @@ export class GetWorkspaceResponseBody extends $dara.Model {
       lastModifyTime: 'string',
       regionId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       slsProject: 'string',
+      tags: { 'type': 'array', 'itemType': GetWorkspaceResponseBodyTags },
       workspaceName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

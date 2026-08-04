@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key.
+   * The label key.
    * 
    * @example
    * env
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    * 
    * @example
    * test
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return. The maximum value is 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 20
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * xxxxxxxxxx
@@ -89,7 +89,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The label list.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

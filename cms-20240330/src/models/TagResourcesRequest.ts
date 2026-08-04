@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of resource IDs.
+   * The list of resource IDs.
    * 
    * This parameter is required.
    */
@@ -23,9 +23,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The labels.
    * 
-   * You can attach a maximum of 20 tags.
+   * You can attach up to 20 labels.
    */
   tag?: Tag[];
   static names(): { [key: string]: string } {

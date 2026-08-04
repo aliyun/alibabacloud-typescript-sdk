@@ -206,6 +206,7 @@ export { GetServiceRecordResponseBodyRecord } from './GetServiceRecordResponseBo
 export { GetUmodelResponseBodyCommonSchemaRef } from './GetUmodelResponseBody';
 export { GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef } from './GetUmodelCommonSchemaRefResponseBody';
 export { GetUmodelDataResponseBodyErrors } from './GetUmodelDataResponseBody';
+export { GetWorkspaceResponseBodyTags } from './GetWorkspaceResponseBody';
 export { ListAddonReleasesResponseBodyReleasesConditions } from './ListAddonReleasesResponseBody';
 export { ListAddonReleasesResponseBodyReleasesSubAddonRelease } from './ListAddonReleasesResponseBody';
 export { ListAddonReleasesResponseBodyReleases } from './ListAddonReleasesResponseBody';
@@ -286,7 +287,10 @@ export { ListServiceRecordsResponseBodyRecords } from './ListServiceRecordsRespo
 export { ListServicesRequestTags } from './ListServicesRequest';
 export { ListServicesResponseBodyServices } from './ListServicesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ListWorkspacesRequestTags } from './ListWorkspacesRequest';
+export { ListWorkspacesResponseBodyWorkspacesTags } from './ListWorkspacesResponseBody';
 export { ListWorkspacesResponseBodyWorkspaces } from './ListWorkspacesResponseBody';
+export { PutWorkspaceRequestTags } from './PutWorkspaceRequest';
 export { SearchMemoriesResponseBodyRelations } from './SearchMemoriesResponseBody';
 export { SearchMemoriesResponseBodyResults } from './SearchMemoriesResponseBody';
 export { UpdateAggTaskGroupRequestTags } from './UpdateAggTaskGroupRequest';

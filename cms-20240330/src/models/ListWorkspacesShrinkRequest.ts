@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 50. Maximum value: 50.
+   * The number of entries per page.
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
    * 
    * @example
    * 10
@@ -13,7 +17,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxxxxxxxx
@@ -32,7 +36,20 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The name of the workspace. This parameter supports fuzzy search.
+   * The resource group ID.
+   * 
+   * @example
+   * rg-ae******ey
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tagsShrink?: string;
+  /**
+   * @remarks
+   * The workspace name. Fuzzy match is used.
    * 
    * @example
    * workspace-test-001
@@ -40,7 +57,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The names of the workspaces. This parameter supports exact search.
+   * The workspace name. Exact match is used.
    * 
    * @example
    * workspace-test-001
@@ -54,6 +71,8 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       region: 'region',
+      resourceGroupId: 'resourceGroupId',
+      tagsShrink: 'tags',
       workspaceName: 'workspaceName',
       workspaceNameListShrink: 'workspaceNameList',
     };
@@ -64,6 +83,8 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       region: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
       workspaceName: 'string',
       workspaceNameListShrink: 'string',
     };
