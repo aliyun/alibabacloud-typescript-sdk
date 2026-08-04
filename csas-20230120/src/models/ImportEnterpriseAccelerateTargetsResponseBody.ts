@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportEnterpriseAccelerateTargetsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * ID of the import task.
+   * 
    * @example
    * 1648723859058501
    */
   data?: string;
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * 305508BD-8A31-5E15-86CE-52D57967C45E
    */

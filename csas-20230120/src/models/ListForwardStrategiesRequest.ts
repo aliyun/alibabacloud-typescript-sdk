@@ -4,23 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListForwardStrategiesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the current page in paging query. Valid values: 1 to 10000.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
+  /**
+   * @remarks
+   * The list of access destination instance IDs.
+   */
   destinationIds?: string[];
   /**
+   * @remarks
+   * The type of the access destination. Valid values:
+   * - **Connector**: connector.
+   * 
    * @example
    * Connector
    */
   destinationType?: string;
+  /**
+   * @remarks
+   * The list of forwarding rule IDs.
+   */
   forwardIds?: string[];
   /**
+   * @remarks
+   * The name of the forwarding rule.
+   * 
    * @example
    * acs_rand_str_acs
    */
   name?: string;
   /**
+   * @remarks
+   * The number of entries per page in paging query. Valid values: 1 to 1000.
+   * 
    * @example
    * 10
    */

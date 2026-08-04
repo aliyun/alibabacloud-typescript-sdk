@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteRegistrationPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * D6707286-A50E-57B1-B2CF-EFAC59E850D8
    */

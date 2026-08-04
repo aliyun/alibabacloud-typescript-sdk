@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PAL7ConfigReplaceRule extends $dara.Model {
   /**
+   * @remarks
+   * The original content to be replaced.
+   * 
    * @example
    * before
    */
   from?: string;
   /**
+   * @remarks
+   * The target content for replacement.
+   * 
    * @example
    * after
    */

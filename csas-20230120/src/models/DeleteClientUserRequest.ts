@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClientUserRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the user to delete.
+   * 
    * This parameter is required.
    * 
    * @example

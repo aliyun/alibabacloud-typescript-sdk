@@ -5,11 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * List of IDs for device registration applications that exceed your quota.
+   * 
    * This parameter is required.
    */
   applicationIds?: string[];
   /**
    * @remarks
+   * Status of the device registration application. Valid values:
+   * 
+   * - **Approved**: Approve the application. You can approve only applications with a Pending status.
+   * 
+   * - **Rejected**: Reject the application. You can reject only applications with a Pending status.
+   * 
    * This parameter is required.
    * 
    * @example

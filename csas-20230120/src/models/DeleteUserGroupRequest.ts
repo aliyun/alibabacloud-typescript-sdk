@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the user group. You can get this value from:
+   * 
+   * - [ListUserGroups](~~ListUserGroups~~): Query user groups.
+   * 
+   * - [CreateUserGroup](~~CreateUserGroup~~): Create a user group.
+   * 
    * This parameter is required.
    * 
    * @example

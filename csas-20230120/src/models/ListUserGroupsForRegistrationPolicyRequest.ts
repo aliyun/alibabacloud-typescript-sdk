@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupsForRegistrationPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of device registration policy IDs. You can specify up to 100 IDs.
+   * 
    * This parameter is required.
    */
   policyIds?: string[];

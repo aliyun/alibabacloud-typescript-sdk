@@ -5,11 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserDevicesSharingStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Collection of device IDs.
+   * 
    * This parameter is required.
    */
   deviceTags?: string[];
   /**
    * @remarks
+   * Indicates whether device sharing is enabled. Values:
+   * 
+   * - **true**: Enable sharing.
+   * 
+   * - **false**: Disable sharing.
+   * 
    * This parameter is required.
    * 
    * @example

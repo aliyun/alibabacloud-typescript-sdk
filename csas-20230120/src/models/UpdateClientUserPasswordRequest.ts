@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateClientUserPasswordRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1128
    */
   id?: string;
   /**
+   * @remarks
+   * The password. If this parameter is left empty, a random password is automatically generated.
+   * 
    * @example
    * kehudiyidj
    */
   password?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * 张三
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {

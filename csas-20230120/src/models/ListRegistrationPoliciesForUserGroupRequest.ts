@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistrationPoliciesForUserGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of user group IDs. You can specify up to 100 user group IDs.
+   * 
    * This parameter is required.
    */
   userGroupIds?: string[];

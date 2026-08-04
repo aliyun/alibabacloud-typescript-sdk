@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of ConnectorIDs. Up to 100 ConnectorIDs can be entered.
+   * An array of up to 100 ConnectorIDs.
    */
   connectorIds?: string[];
   /**
    * @remarks
-   * The page number of the current page in a paginated query. Value: 1~10000.
+   * The number of the page to return. Valid values: 1 to 10,000.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ListConnectorsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Connector name. Length: 1~128 characters, supporting Chinese and uppercase/lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+   * The name of the connector. The name must be 1 to 128 characters long and can contain letters, Chinese characters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * connector_name
@@ -28,7 +28,7 @@ export class ListConnectorsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of items per page in a paginated query. Value: 1~1000.
+   * The number of entries per page. Valid values: 1 to 1,000.
    * 
    * This parameter is required.
    * 
@@ -38,9 +38,11 @@ export class ListConnectorsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Connector connection status. Values:
-   * - **Online**: Online.
-   * - **Offline**: Offline.
+   * The connection status of the connector. Valid values:
+   * 
+   * - **Online**
+   * 
+   * - **Offline**
    * 
    * @example
    * Online
@@ -48,9 +50,11 @@ export class ListConnectorsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Connector instance status. Values:
-   * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * The state of the connector instance. Valid values:
+   * 
+   * - **Enabled**
+   * 
+   * - **Disabled**
    * 
    * @example
    * Enabled

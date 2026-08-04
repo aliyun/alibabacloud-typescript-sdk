@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApprovalSchemasRequest extends $dara.Model {
   /**
    * @remarks
+   * The current page number for paged queries. Valid values: 1 to 10000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListApprovalSchemasRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
+   * The number of entries per page for paged queries. Valid values: 1 to 500.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,34 @@ export class ListApprovalSchemasRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The policy type. Valid values:
+   * 
+   * - **DomainBlacklist**: Domain blacklist.
+   * 
+   * - **DomainWhitelist**: Domain whitelist.
+   * 
+   * - **SoftwareBlock**: Software disable.
+   * 
+   * - **AppUninstall**: Terminal uninstall.
+   * 
+   * - **DlpSend**: File outbound.
+   * 
+   * - **PeripheralBlock**: Peripheral control.
+   * 
    * @example
    * DlpSend
    */
   policyType?: string;
+  /**
+   * @remarks
+   * Collection of approval template IDs.
+   */
   schemaIds?: string[];
   /**
+   * @remarks
+   * The template name. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), and hyphens (-).
+   * 
    * @example
    * test
    */

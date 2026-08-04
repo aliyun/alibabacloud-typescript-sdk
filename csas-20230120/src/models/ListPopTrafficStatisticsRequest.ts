@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPopTrafficStatisticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time for the data. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1681293719
    */
   endTime?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * The start time for the data. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1681035708
    */

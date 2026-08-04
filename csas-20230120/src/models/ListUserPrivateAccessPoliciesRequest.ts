@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserPrivateAccessPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListUserPrivateAccessPoliciesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Intranet access policy name. Length should be between 1 to 128 characters, supporting Chinese and case-sensitive English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+   * The name of the private access policy. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * private_access_policy_name
@@ -23,7 +23,7 @@ export class ListUserPrivateAccessPoliciesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of items per page for pagination. Range: 1~100.
+   * The number of entries per page set for the paginated query. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListUserPrivateAccessPoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * This parameter is required.
    * 

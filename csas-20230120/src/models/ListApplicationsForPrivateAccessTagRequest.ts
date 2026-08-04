@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForPrivateAccessTagRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of private network access tag IDs. You can specify up to 100 tag IDs.
+   * 
    * This parameter is required.
    */
   tagIds?: string[];

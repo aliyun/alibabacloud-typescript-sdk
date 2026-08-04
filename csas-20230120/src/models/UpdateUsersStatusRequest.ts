@@ -5,11 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUsersStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Collection of user IDs.
+   * 
    * This parameter is required.
    */
   saseUserIds?: string[];
   /**
    * @remarks
+   * User status. Valid values:
+   * 
+   * - **Enabled**: Enable the user.
+   * 
+   * - **Disabled**: Disable the user.
+   * 
    * This parameter is required.
    * 
    * @example

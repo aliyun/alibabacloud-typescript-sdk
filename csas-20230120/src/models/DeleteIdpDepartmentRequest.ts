@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdpDepartmentRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the department.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,10 +15,12 @@ export class DeleteIdpDepartmentRequest extends $dara.Model {
   departmentId?: string;
   /**
    * @remarks
+   * ID of the custom identity provider configuration.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 507
+   * idp-cfg68956d86e********
    */
   idpConfigId?: string;
   static names(): { [key: string]: string } {

@@ -5,12 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DetachApplication2ConnectorRequest extends $dara.Model {
   /**
    * @remarks
+   * Collection of private network access application IDs. Enter a maximum of 100 private network access application IDs.
+   * 
    * This parameter is required.
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * ConnectorID。
+   * Connector ID.
    * 
    * This parameter is required.
    * 

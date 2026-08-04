@@ -5,15 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetClientUserRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the custom identity source configuration.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 598
+   * idp-cfg68956d86e********
    */
   idpConfigId?: string;
   /**
    * @remarks
+   * Username.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   username?: string;
   static names(): { [key: string]: string } {

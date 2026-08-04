@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteUserDevicesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of endpoint device IDs. A maximum of 100 entries are supported.
+   */
   deviceTags?: string[];
   static names(): { [key: string]: string } {
     return {

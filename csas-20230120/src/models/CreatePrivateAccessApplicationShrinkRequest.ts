@@ -6,7 +6,7 @@ import { AddressGroup } from "./AddressGroup";
 export class CreatePrivateAccessApplicationShrinkRequestPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The start port. The start port must be less than or equal to the end port.
+   * The start port. The value must be less than or equal to the end port.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreatePrivateAccessApplicationShrinkRequestPortRanges extends $dara
   begin?: number;
   /**
    * @remarks
-   * The end port. The end port must be greater than or equal to the start port.
+   * The end port. The value must be greater than or equal to the start port.
    * 
    * This parameter is required.
    * 
@@ -51,15 +51,14 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   addressGroups?: AddressGroup[];
   /**
    * @remarks
-   * The addresses of the office applications. You can enter up to 1,000 addresses of office applications.
+   * The addresses of the internal-facing access application. You can specify up to 1,000 addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * Specifies whether to allow access from a browser. Default value: **Disabled**. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * The browser access status of the internal-facing access application. After this feature is enabled, you can access internal applications without a client. Default value: **Disabled**. Valid values:
+   * - **Enabled**: enabled.
+   * - **Disabled**: disabled.
    * 
    * @example
    * Disabled
@@ -68,17 +67,20 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   configMode?: string;
   /**
    * @remarks
-   * The description of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * 
+   * @example
+   * 这是一条内网访问应用
    */
   description?: string;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the configurations of Layer 7 applications.
+   * The browser access mode parameter: the application configuration.
    */
   l7ConfigShrink?: string;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the prefix of the domain name that the proxy gateway uses. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
+   * The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * app-sample
@@ -86,7 +88,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   l7ProxyDomainAutomaticPrefix?: string;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the custom domain name of the proxy gateway. Enter a valid domain name.
+   * The browser access mode parameter: the custom proxy domain name. The value must be a valid domain name.
    * 
    * @example
    * app1.example.com
@@ -94,7 +96,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   l7ProxyDomainCustom?: string;
   /**
    * @remarks
-   * The name of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the internal-facing access application. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
    * 
    * This parameter is required.
    * 
@@ -104,16 +106,15 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port ranges of the office applications. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicated or overlapped.
+   * The port ranges of the internal-facing access application. You can specify up to 65,535 port ranges. Port ranges cannot be duplicate or overlapping.
    */
   portRanges?: CreatePrivateAccessApplicationShrinkRequestPortRanges[];
   /**
    * @remarks
-   * The protocol that is used by the office application. Valid values:
-   * 
-   * *   **All**
-   * *   **TCP**
-   * *   **UDP**
+   * The protocol of the internal-facing access application. Valid values:
+   * - **All**: all protocols.
+   * - **TCP**
+   * - **UDP**.
    * 
    * This parameter is required.
    * 
@@ -123,10 +124,9 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The status of the office application. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * The status of the internal-facing access application. Valid values:
+   * - **Enabled**: enabled.
+   * - **Disabled**: disabled.
    * 
    * This parameter is required.
    * 
@@ -136,9 +136,10 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of the tags for the office applications. You can add up to six custom tags to an office application.
+   * The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
    */
   tagIds?: string[];
+  unauthorizedAccessConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
       addressGroups: 'AddressGroups',
@@ -154,6 +155,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
       protocol: 'Protocol',
       status: 'Status',
       tagIds: 'TagIds',
+      unauthorizedAccessConfigShrink: 'UnauthorizedAccessConfig',
     };
   }
 
@@ -172,6 +174,7 @@ export class CreatePrivateAccessApplicationShrinkRequest extends $dara.Model {
       protocol: 'string',
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
+      unauthorizedAccessConfigShrink: 'string',
     };
   }
 

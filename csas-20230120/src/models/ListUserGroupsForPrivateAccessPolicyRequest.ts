@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupsForPrivateAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of private network access policy IDs. Enter a maximum of 100 private network access policy IDs.
+   * 
    * This parameter is required.
    */
   policyIds?: string[];

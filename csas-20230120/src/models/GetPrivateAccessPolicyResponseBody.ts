@@ -104,7 +104,7 @@ export class GetPrivateAccessPolicyResponseBodyPolicy extends $dara.Model {
    * Intranet access policy description.
    * 
    * @example
-   * test
+   * 这是一条内网访问策略
    */
   description?: string;
   /**

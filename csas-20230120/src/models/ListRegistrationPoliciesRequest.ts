@@ -4,12 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistrationPoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of company device registration limit. Valid values:
+   * 
+   * - **Unlimited**: No limit.
+   * 
+   * - **LimitAll**: Limit by total number.
+   * 
+   * - **LimitDiff**: Limit by device categorization.
+   * 
    * @example
    * LimitAll
    */
   companyLimitType?: string;
   /**
    * @remarks
+   * The current page number for paged queries. Values range from 1 to 10000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +28,29 @@ export class ListRegistrationPoliciesRequest extends $dara.Model {
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The policy matching target type. Valid values:
+   * 
+   * - **UserGroupAll**: Associate all users.
+   * 
+   * - **UserGroupNormal**: Associate some user groups.
+   * 
    * @example
    * UserGroupAll
    */
   matchMode?: string;
   /**
+   * @remarks
+   * The name of the device registration policy. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), and hyphens (-).
+   * 
    * @example
    * registration_policy_name
    */
   name?: string;
   /**
    * @remarks
+   * The number of items per page for paged queries. Values range from 1 to 500.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,17 +58,44 @@ export class ListRegistrationPoliciesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of personal device registration limit. Valid values:
+   * 
+   * - **Unlimited**: No limit.
+   * 
+   * - **LimitAll**: Limit by total number.
+   * 
+   * - **LimitDiff**: Limit by device categorization.
+   * 
    * @example
    * LimitDiff
    */
   personalLimitType?: string;
+  /**
+   * @remarks
+   * A collection of device registration policy IDs. You can enter up to 100 device registration policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The status of the device registration policy. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
   status?: string;
   /**
+   * @remarks
+   * The user group ID. Get this value from:
+   * 
+   * - [ListUserGroups](~~ListUserGroups~~): Batch query user groups.
+   * 
+   * - [CreateUserGroup](~~CreateUserGroup~~): Create user groups.
+   * 
    * @example
    * usergroup-6f1ef2fc56b6****
    */

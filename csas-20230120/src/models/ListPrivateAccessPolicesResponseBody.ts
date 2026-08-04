@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the identity provider (IdP) for the user group. If the value of UserGroupType is **department**, this parameter is returned.
+   * The identity provider ID of the user group. This value exists when the custom user group type is **department**.
    * 
    * @example
    * 12
@@ -13,10 +13,9 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
   idpId?: number;
   /**
    * @remarks
-   * The logical operator for the user group. Valid values:
-   * 
-   * *   **Equal**
-   * *   **Unequal**
+   * The relation of the user group. Valid values:
+   * - **Equal**: Equal.
+   * - **Unequal**: Not equal.
    * 
    * @example
    * Equal
@@ -24,12 +23,11 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
   relation?: string;
   /**
    * @remarks
-   * The type of the user group, which is the key of the attribute. Valid values:
-   * 
-   * *   **username**
-   * *   **department**
-   * *   **email**
-   * *   **telephone**
+   * The type of the user group. Valid values:
+   * - **username**: Username.
+   * - **department**: Department.
+   * - **email**: Email.
+   * - **telephone**: Mobile phone.
    * 
    * @example
    * department
@@ -37,15 +35,14 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
   userGroupType?: string;
   /**
    * @remarks
-   * The value of the attribute.
-   * 
-   * *   If the value of UserGroupType is **username**, the value of this parameter is a username. The value must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), underscores (_), and periods (.).
-   * *   If the value of UserGroupType is **department**, the value of this parameter is a department. Examples: OU=Department 1, OU=SASE DingTalk.
-   * *   If the value of UserGroupType is **email**, the value of this parameter is an email address. Example: username@example.com.
-   * *   If the value of UserGroupType is **telephone**, the value of this parameter is a mobile phone number. Example: 13900001234.
+   * The value of the user group attribute.
+   * - When the user group type is **username**, this indicates the value of the username. The value must be 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase English letters. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * - When the user group type is **department**, this indicates the value of the department. For example: OU=Department1,OU=SASE DingTalk.
+   * - When the user group type is **email**, this indicates the value of the email. For example: username@example.com.
+   * - When the user group type is **telephone**, this indicates the value of the mobile phone. For example: 13900001234.
    * 
    * @example
-   * OU=Department 1, OU=SASE DingTalk
+   * OU=部门1,OU=SASE钉钉
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -78,15 +75,14 @@ export class ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes ext
 export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the applications that are specified in the private access policy. If the value of ApplicationType is **Application**, this parameter is returned.
+   * The collection of application IDs of the private access policy. This field has a value when the application type is **Application**.
    */
   applicationIds?: string[];
   /**
    * @remarks
    * The application type of the private access policy. Valid values:
-   * 
-   * *   **Application**
-   * *   **Tag**
+   * - **Application**: Application.
+   * - **Tag**: Tag.
    * 
    * @example
    * Application
@@ -102,7 +98,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The attributes of the custom user group. The attributes of the custom user group are evaluated by using a logical OR. If an attribute is matched, the policy takes effect.
+   * The collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect by union.
    */
   customUserAttributes?: ListPrivateAccessPolicesResponseBodyPolicesCustomUserAttributes[];
   /**
@@ -110,15 +106,14 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
    * The description of the private access policy.
    * 
    * @example
-   * a private access policy
+   * 这是一条内网访问策略
    */
   description?: string;
   /**
    * @remarks
-   * The action that is performed when the security baseline is not met. Valid values:
-   * 
-   * *   **Block**
-   * *   **Observe**
+   * The action to take when the security baseline is not met. Valid values:
+   * - **Block**: Block.
+   * - **Observe**: Observe.
    * 
    * @example
    * Block
@@ -126,7 +121,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   deviceAttributeAction?: string;
   /**
    * @remarks
-   * The ID of the security baseline.
+   * The ID of the security baseline policy.
    * 
    * @example
    * dag-d3f64e8bdd4a****
@@ -142,10 +137,9 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The action in the private access policy. Valid values:
-   * 
-   * *   **Block**
-   * *   **Allow**
+   * The action of the private access policy. Valid values:
+   * - **Block**: Block.
+   * - **Allow**: Allow.
    * 
    * @example
    * Allow
@@ -161,7 +155,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The priority of the private access policy. The value 1 indicates the highest priority.
+   * The priority of the private access policy. A value of 1 indicates the highest priority.
    * 
    * @example
    * 1
@@ -170,9 +164,8 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   /**
    * @remarks
    * The status of the private access policy. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -180,7 +173,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of the tags that are specified in the private access policy. If the value of ApplicationType is **Tag**, this parameter is returned.
+   * The collection of tag IDs of the private access policy. This field has a value when the application type is **Tag**.
    */
   tagIds?: string[];
   /**
@@ -193,14 +186,14 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   triggerTemplateId?: string;
   /**
    * @remarks
-   * List of trusted process group IDs.
+   * The list of trusted process group IDs.
    */
   trustedProcessGroupIds?: string[];
   /**
    * @remarks
-   * Trusted process switch status. Values: 
-   * - **Enabled**: On.
-   * - **Disabled**: Off.
+   * The status of the trusted process switch. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -208,20 +201,19 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   trustedProcessStatus?: string;
   /**
    * @remarks
-   * List of trusted software IDs.
+   * The list of trusted software IDs.
    */
   trustedSoftwareIds?: string[];
   /**
    * @remarks
-   * The IDs of user groups in the private access policy. If the value of UserGroupMode is **Normal**, this parameter is returned.
+   * The collection of user group IDs for the private access policy. This field has a value when the user group type is **Normal**.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The type of the user group in the private access policy. Valid values:
-   * 
-   * *   **Normal**: regular user group.
-   * *   **Custom**: custom user group.
+   * The user group type of the private access policy. Valid values:
+   * - **Normal**: Normal user group.
+   * - **Custom**: Custom user group.
    * 
    * @example
    * Normal
@@ -229,7 +221,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   userGroupMode?: string;
   /**
    * @remarks
-   * The start time when the zero trust policy takes effect, represented as a timestamp in seconds.
+   * The effective start time of the zero trust policy, in second-level Unix timestamp.
    * 
    * @example
    * 0
@@ -237,7 +229,9 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   validFrom?: number;
   /**
    * @remarks
-   * Switch status for effective time. Values: - **Enabled**: On. - **Disabled**: Off.
+   * The status of the effective time switch. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -245,7 +239,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
   validTimeStatus?: string;
   /**
    * @remarks
-   * The expiration time of the zero trust policy, in seconds timestamp.
+   * The effective end time of the zero trust policy, in second-level Unix timestamp.
    * 
    * @example
    * 1764727544
@@ -335,7 +329,7 @@ export class ListPrivateAccessPolicesResponseBodyPolices extends $dara.Model {
 export class ListPrivateAccessPolicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The private access policies.
+   * The list of private access policies.
    */
   polices?: ListPrivateAccessPolicesResponseBodyPolices[];
   /**

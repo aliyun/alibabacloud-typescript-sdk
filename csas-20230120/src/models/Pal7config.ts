@@ -5,7 +5,15 @@ import { PAL7ConfigRewriteOp } from "./Pal7configRewriteOp";
 
 
 export class PAL7ConfigBypassConfigUrlBypassRules extends $dara.Model {
+  /**
+   * @remarks
+   * An array of source IP address ranges that are allowed to anonymously access the application paths.
+   */
   froms?: string[];
+  /**
+   * @remarks
+   * The URL paths that allow anonymous access.
+   */
   paths?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37,12 +45,29 @@ export class PAL7ConfigBypassConfigUrlBypassRules extends $dara.Model {
 }
 
 export class PAL7ConfigBypassConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of source IP address ranges that are allowed to anonymously access the application.
+   */
   appBypassFroms?: string[];
   /**
+   * @remarks
+   * The anonymous access mode. The default value is **disabled**. Valid values:
+   * 
+   * - **disabled**: Disables anonymous access.
+   * 
+   * - **url**: Sets anonymous access at the URL level.
+   * 
+   * - **app**: Sets anonymous access at the application level.
+   * 
    * @example
    * disabled
    */
   mode?: string;
+  /**
+   * @remarks
+   * An array of rules for anonymous access to URLs.
+   */
   urlBypassRules?: PAL7ConfigBypassConfigUrlBypassRules[];
   static names(): { [key: string]: string } {
     return {
@@ -76,6 +101,10 @@ export class PAL7ConfigBypassConfig extends $dara.Model {
 }
 
 export class PAL7ConfigDnsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of DNS server addresses. The gateway preferentially uses the DNS servers configured here to resolve internal domain names.
+   */
   dnsServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +132,21 @@ export class PAL7ConfigDnsConfig extends $dara.Model {
 
 export class PAL7ConfigJsHookConfig extends $dara.Model {
   /**
+   * @remarks
+   * The mode for rewriting internal network requests in JavaScript. The default value is **disabled**. Valid values:
+   * 
+   * - **disabled**: Disables traffic redirection for JavaScript.
+   * 
+   * - **whitelist**: Enables the whitelist mode to redirect traffic as needed.
+   * 
    * @example
    * disabled
    */
   mode?: string;
+  /**
+   * @remarks
+   * An array of rules for rewriting internal network requests in JavaScript.
+   */
   replaceRules?: PAL7ConfigReplaceRule[];
   static names(): { [key: string]: string } {
     return {
@@ -135,6 +175,10 @@ export class PAL7ConfigJsHookConfig extends $dara.Model {
 }
 
 export class PAL7ConfigRequestHeaderRewriteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of rewrite operations.
+   */
   ops?: PAL7ConfigRewriteOp[];
   static names(): { [key: string]: string } {
     return {
@@ -161,6 +205,10 @@ export class PAL7ConfigRequestHeaderRewriteConfig extends $dara.Model {
 }
 
 export class PAL7ConfigRequestQueryRewriteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of rewrite operations.
+   */
   ops?: PAL7ConfigRewriteOp[];
   static names(): { [key: string]: string } {
     return {
@@ -187,6 +235,10 @@ export class PAL7ConfigRequestQueryRewriteConfig extends $dara.Model {
 }
 
 export class PAL7ConfigResponseHeaderRewriteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * An array of rewrite operations.
+   */
   ops?: PAL7ConfigRewriteOp[];
   static names(): { [key: string]: string } {
     return {
@@ -214,10 +266,21 @@ export class PAL7ConfigResponseHeaderRewriteConfig extends $dara.Model {
 
 export class PAL7ConfigResponseRewriteConfig extends $dara.Model {
   /**
+   * @remarks
+   * The rewrite mode. The default value is **auto**. Valid values:
+   * 
+   * - **disabled**: Disables rewriting of internal domain names in HTML.
+   * 
+   * - **auto**: Enables the automatic mode. The system automatically detects and rewrites internal domain names in HTML.
+   * 
    * @example
    * auto
    */
   mode?: string;
+  /**
+   * @remarks
+   * An array of rewrite rules.
+   */
   replaceRules?: PAL7ConfigReplaceRule[];
   static names(): { [key: string]: string } {
     return {
@@ -246,22 +309,60 @@ export class PAL7ConfigResponseRewriteConfig extends $dara.Model {
 }
 
 export class PAL7Config extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration for anonymous access.
+   */
   bypassConfig?: PAL7ConfigBypassConfig;
   /**
+   * @remarks
+   * The certificate ID. This parameter is required when you use a custom proxy domain name.
+   * 
    * @example
    * cert-xxxx
    */
   certId?: string;
+  /**
+   * @remarks
+   * The DNS configuration.
+   */
   dnsConfig?: PAL7ConfigDnsConfig;
+  /**
+   * @remarks
+   * The configuration for rewriting internal network requests in JavaScript.
+   */
   jsHookConfig?: PAL7ConfigJsHookConfig;
   /**
+   * @remarks
+   * The type of the proxy domain name. Valid values:
+   * 
+   * - **automatic**: Uses a mapped proxy domain name.
+   * 
+   * - **custom**: Uses a custom proxy domain name.
+   * 
    * @example
    * automatic
    */
   proxyDomainTypes?: Buffer;
+  /**
+   * @remarks
+   * The rules for rewriting HTTP request headers.
+   */
   requestHeaderRewriteConfig?: PAL7ConfigRequestHeaderRewriteConfig;
+  /**
+   * @remarks
+   * The configuration for rewriting HTTP request query parameters.
+   */
   requestQueryRewriteConfig?: PAL7ConfigRequestQueryRewriteConfig;
+  /**
+   * @remarks
+   * The configuration for rewriting HTTP response headers.
+   */
   responseHeaderRewriteConfig?: PAL7ConfigResponseHeaderRewriteConfig;
+  /**
+   * @remarks
+   * The configuration for rewriting internal domain names in HTML.
+   */
   responseRewriteConfig?: PAL7ConfigResponseRewriteConfig;
   static names(): { [key: string]: string } {
     return {

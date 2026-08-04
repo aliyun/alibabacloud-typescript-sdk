@@ -3,10 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateApprovalProcessShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * 
+   * @example
+   * 这是一个审批流程
+   */
   description?: string;
+  /**
+   * @remarks
+   * The matched approval templates.
+   */
   matchSchemasShrink?: string;
   /**
    * @remarks
+   * The process name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +28,8 @@ export class CreateApprovalProcessShrinkRequest extends $dara.Model {
   processName?: string;
   /**
    * @remarks
+   * The list of approval nodes. You can define up to 5 approval nodes.
+   * 
    * This parameter is required.
    */
   processNodes?: string[][];

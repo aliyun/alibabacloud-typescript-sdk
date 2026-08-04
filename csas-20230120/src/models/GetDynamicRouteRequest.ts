@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDynamicRouteRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the dynamic route.
+   * 
    * This parameter is required.
    * 
    * @example

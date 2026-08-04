@@ -3,29 +3,66 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersResponseBodyUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The user\\"s department.
+   * 
+   * @example
+   * 测试部
+   */
   department?: string;
   /**
+   * @remarks
+   * The user\\"s email address.
+   * 
    * @example
    * a***@example.net
    */
   email?: string;
+  /**
+   * @remarks
+   * A list of full department paths.
+   */
   fullDepartment?: string[];
+  /**
+   * @remarks
+   * The name of the Identity Provider (IdP).
+   * 
+   * @example
+   * 飞书
+   */
   idpName?: string;
   /**
+   * @remarks
+   * The user\\"s phone number.
+   * 
    * @example
    * 1381111****
    */
   phone?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
   /**
+   * @remarks
+   * The user status.
+   * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * 王先生
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,15 +104,25 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
 
 export class ListUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5FEF5CFA-14CC-5DE5-BD1F-AFFE0996E71D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of users.
+   * 
    * @example
    * 1
    */
   totalNum?: string;
+  /**
+   * @remarks
+   * An array of user objects.
+   */
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

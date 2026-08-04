@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateAccessTagsForDynamicRouteRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of dynamic route IDs. You can enter a maximum of 100 dynamic route IDs.
+   * 
    * This parameter is required.
    */
   dynamicRouteIds?: string[];

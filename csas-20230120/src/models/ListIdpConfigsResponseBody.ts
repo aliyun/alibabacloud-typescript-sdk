@@ -3,49 +3,94 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIdpConfigsResponseBodyDataDataList extends $dara.Model {
+  /**
+   * @remarks
+   * IdP configuration description.
+   * 
+   * @example
+   * 示例描述
+   */
   description?: string;
   /**
+   * @remarks
+   * IdP configuration ID.
+   * 
    * @example
    * 277
    */
   id?: string;
   /**
+   * @remarks
+   * Multi-factor authentication (MFA) type.
+   * 
    * @example
    * totp
    */
   mfa?: string;
   /**
+   * @remarks
+   * Mobile login type.
+   * 
    * @example
    * password
    */
   mobileLoginType?: string;
   /**
+   * @remarks
+   * Mobile MFA configuration type.
+   * 
    * @example
    * password
    */
   mobileMfaConfigType?: string;
   /**
+   * @remarks
+   * List of multiple IdP configuration IDs.
+   * 
    * @example
    * 1482,1355
    */
   multiIdpInfo?: string;
+  /**
+   * @remarks
+   * IdP configuration name.
+   * 
+   * @example
+   * 示例身份源
+   */
   name?: string;
   /**
+   * @remarks
+   * PC login type.
+   * 
    * @example
    * password
    */
   pcLoginType?: string;
   /**
+   * @remarks
+   * IdP configuration enable status. Values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Disabled
    */
   status?: string;
   /**
+   * @remarks
+   * IdP configuration type.
+   * 
    * @example
    * DingTalk
    */
   type?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2023-05-09T02:22:41.430Z
    */
@@ -92,8 +137,15 @@ export class ListIdpConfigsResponseBodyDataDataList extends $dara.Model {
 }
 
 export class ListIdpConfigsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of IdP configurations.
+   */
   dataList?: ListIdpConfigsResponseBodyDataDataList[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 1
    */
@@ -125,8 +177,15 @@ export class ListIdpConfigsResponseBodyData extends $dara.Model {
 }
 
 export class ListIdpConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * IdP configurations.
+   */
   data?: ListIdpConfigsResponseBodyData;
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * FD724DBC-CD76-5235-BF76-59C51B73296D
    */

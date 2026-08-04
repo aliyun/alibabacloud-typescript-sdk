@@ -4,19 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdpDepartmentsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
    * @remarks
+   * The ID of the custom IdP configuration.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1440
+   * idp-cfg68956d86e********
    */
   idpConfigId?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

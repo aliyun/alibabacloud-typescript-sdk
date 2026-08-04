@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListClientUsersResponseBodyDataDataListDepartment extends $dara.Model {
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 105
    */
   id?: string;
+  /**
+   * @remarks
+   * Department name.
+   * 
+   * @example
+   * 示例部门
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,43 +43,86 @@ export class ListClientUsersResponseBodyDataDataListDepartment extends $dara.Mod
 }
 
 export class ListClientUsersResponseBodyDataDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Department to which the user belongs.
+   */
   department?: ListClientUsersResponseBodyDataDataListDepartment;
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 10800
    */
   departmentId?: string;
+  /**
+   * @remarks
+   * User description.
+   * 
+   * @example
+   * 示例用户
+   */
   description?: string;
   /**
+   * @remarks
+   * Email address.
+   * 
    * @example
    * johndoe@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 1970
    */
   id?: string;
   /**
+   * @remarks
+   * Custom identity source configuration ID.
+   * 
    * @example
    * 1026
    */
   idpConfigId?: string;
   /**
+   * @remarks
+   * Mobile phone number without country code.
+   * 
    * @example
    * 15800820468
    */
   mobileNumber?: string;
   /**
+   * @remarks
+   * User enable status. Valid values:
+   * 
+   * - **Enabled**: enabled.
+   * 
+   * - **Disabled**: disabled.
+   * 
    * @example
    * Disabled
    */
   status?: string;
   /**
+   * @remarks
+   * Unique user identifier.
+   * 
    * @example
    * su_dead7216****
    */
   userId?: string;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * 张三
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,8 +167,15 @@ export class ListClientUsersResponseBodyDataDataList extends $dara.Model {
 }
 
 export class ListClientUsersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of user information.
+   */
   dataList?: ListClientUsersResponseBodyDataDataList[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 2
    */
@@ -147,8 +207,15 @@ export class ListClientUsersResponseBodyData extends $dara.Model {
 }
 
 export class ListClientUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * User information.
+   */
   data?: ListClientUsersResponseBodyData;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
    */

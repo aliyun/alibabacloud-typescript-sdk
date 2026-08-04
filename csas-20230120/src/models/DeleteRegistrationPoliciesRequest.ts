@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRegistrationPoliciesRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of device registration policy IDs.
+   * 
    * This parameter is required.
    */
   policyIds?: string[];

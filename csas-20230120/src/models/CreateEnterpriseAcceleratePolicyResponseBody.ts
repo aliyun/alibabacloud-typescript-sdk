@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnterpriseAcceleratePolicyResponseBody extends $dara.Model {
   eapId?: string;
   /**
+   * @remarks
+   * ID of the request.
+   * 
    * @example
    * 2CABFEBB-0CE7-575E-833A-266F75D46713
    */

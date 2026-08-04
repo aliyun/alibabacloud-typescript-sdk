@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWmBaseImageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * ID of the transparent image. Images with the same ID have identical content.
+   * 
    * @example
    * fafb432cdede9b20640e12105845386e-496883833-8242409229217337*****
    */
   imageId?: string;
   /**
+   * @remarks
+   * Temporary URL for downloading the image.
+   * 
    * @example
    * https://example.com/test-*****.png
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * Expiration time of the temporary image URL, in seconds as a UNIX timestamp.
+   * 
    * @example
    * 17185*****
    */
@@ -44,8 +53,15 @@ export class CreateWmBaseImageResponseBodyData extends $dara.Model {
 }
 
 export class CreateWmBaseImageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Transparent image information.
+   */
   data?: CreateWmBaseImageResponseBodyData;
   /**
+   * @remarks
+   * ID of the current request.
+   * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
    */

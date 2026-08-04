@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateAccessPolicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the office application. Either the ID or tag of the office application is used for queries. You can obtain the value by calling the following operations:
-   * 
-   * *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries office applications.
-   * *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an office application.
+   * The ID of the private access application. The application ID cannot be used together with the private access tag ID for filtering. Sources of the value:
+   *  - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Queries private access applications by batch.
+   *  - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
    * 
    * @example
    * pa-application-e12860ef6c48****
@@ -16,15 +15,15 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The name of the office application.
+   * The name of the private access application.
    * 
    * @example
-   * Office
+   * 办公
    */
   applicationName?: string;
   /**
    * @remarks
-   * The page number. Valid values: 1 to 10000.
+   * The page number of the current page that is returned during paginated queries. Valid values: 1 to 10000.
    * 
    * This parameter is required.
    * 
@@ -34,7 +33,7 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the private access policy. The value must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), underscores (_), and periods (.).
+   * The name of the private access policy. The name must be 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase English letters. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * private_access_policy_name
@@ -42,7 +41,7 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 1000.
+   * The number of entries per page that is set during paginated queries. Valid values: 1 to 1000.
    * 
    * This parameter is required.
    * 
@@ -52,10 +51,9 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The action in the private access policy. Valid values:
-   * 
-   * *   **Block**
-   * *   **Allow**
+   * The action of the private access policy. Valid values:
+   * - **Block**: Block.
+   * - **Allow**: Allow.
    * 
    * @example
    * Allow
@@ -63,15 +61,14 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * The IDs of the private access policies. You can enter up to 100 IDs.
+   * The collection of private access policy IDs. You can specify up to 100 private access policy IDs.
    */
   policyIds?: string[];
   /**
    * @remarks
    * The status of the private access policy. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -79,10 +76,9 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the tag for the office application. Either the ID or tag of the office application is used for queries. You can obtain the value by calling the following operations:
-   * 
-   * *   [ListPrivateAccessTags](~~ListPrivateAccessTags~~): queries tags for office applications.
-   * *   [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): creates a tag for office applications.
+   * The ID of the private access tag. The tag ID cannot be used together with the application ID for filtering. Sources of the value:
+   *  - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Queries private access tags by batch.
+   *  - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Creates a private access tag.
    * 
    * @example
    * tag-c0cb77857a99****
@@ -93,15 +89,14 @@ export class ListPrivateAccessPolicesRequest extends $dara.Model {
    * The name of the tag.
    * 
    * @example
-   * Cloud service
+   * 云产品
    */
   tagName?: string;
   /**
    * @remarks
-   * The ID of the user group. You can obtain the value by calling the following operations:
-   * 
-   * *   [ListUserGroups](~~ListUserGroups~~): queries user groups.
-   * *   [CreateUserGroup](~~CreateUserGroup~~): creates a user group.
+   * The ID of the user group. Sources of the value:
+   * - [ListUserGroups](~~ListUserGroups~~): Queries user groups by batch.
+   * - [CreateUserGroup](~~CreateUserGroup~~): Creates a user group.
    * 
    * @example
    * usergroup-6f1ef2fc56b6****

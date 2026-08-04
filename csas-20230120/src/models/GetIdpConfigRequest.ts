@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdpConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the identity provider configuration.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1465
+   * idp-cfg68956d86e********
    */
   id?: string;
   static names(): { [key: string]: string } {

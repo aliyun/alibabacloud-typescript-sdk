@@ -3,18 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRegistrationPolicyShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The restriction count for company devices.
+   */
   companyLimitCountShrink?: string;
   /**
    * @remarks
+   * The restriction type for company devices. Valid values:
+   * 
+   * - **Unlimited**: No restrictions.
+   * 
+   * - **LimitAll**: Limit by total count.
+   * 
+   * - **LimitDiff**: Limit by device category.
+   * 
    * This parameter is required.
    * 
    * @example
    * LimitAll
    */
   companyLimitType?: string;
+  /**
+   * @remarks
+   * A description of the device registration policy. The description must be 1 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * 
+   * @example
+   * 这是一条设备注册策略
+   */
   description?: string;
   /**
    * @remarks
+   * The target type for policy matching. Valid values:
+   * 
+   * - **UserGroupAll**: Apply to all users.
+   * 
+   * - **UserGroupNormal**: Apply to selected user groups.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,15 +48,29 @@ export class CreateRegistrationPolicyShrinkRequest extends $dara.Model {
   matchMode?: string;
   /**
    * @remarks
+   * The name of the device registration policy. The name must be 1 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
    * This parameter is required.
    * 
    * @example
    * registration_policy_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The restriction count for personal devices.
+   */
   personalLimitCountShrink?: string;
   /**
    * @remarks
+   * The restriction type for personal devices. Valid values:
+   * 
+   * - **Unlimited**: No restrictions.
+   * 
+   * - **LimitAll**: Limit by total count.
+   * 
+   * - **LimitDiff**: Limit by device category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,19 +78,36 @@ export class CreateRegistrationPolicyShrinkRequest extends $dara.Model {
    */
   personalLimitType?: string;
   /**
+   * @remarks
+   * The priority of the device registration policy. A value of 0 indicates the highest priority. A value of 99 indicates the lowest priority.
+   * 
    * @example
    * 99
    */
   priority?: number;
   /**
    * @remarks
+   * The status of the device registration policy. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * This parameter is required.
    * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The IDs of user groups to which the device registration policy applies. Required if MatchMode is set to **UserGroupNormal**. A maximum of 100 user groups can be specified per policy.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The list of usernames in the whitelist for the device registration policy. You can specify up to 1,000 usernames.
+   */
   whitelist?: string[];
   static names(): { [key: string]: string } {
     return {

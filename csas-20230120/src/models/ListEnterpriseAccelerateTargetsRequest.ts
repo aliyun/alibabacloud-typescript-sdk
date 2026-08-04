@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnterpriseAccelerateTargetsRequest extends $dara.Model {
   /**
    * @remarks
+   * Page number to display in a paged query. Valid values: 1 to 10000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListEnterpriseAccelerateTargetsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
+   * Enterprise Acceleration Policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListEnterpriseAccelerateTargetsRequest extends $dara.Model {
   eapId?: string;
   /**
    * @remarks
+   * Number of entries per page in a paged query. Valid values: 1 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ListEnterpriseAccelerateTargetsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Enterprise acceleration target. Supports fuzzy query.
+   * 
    * @example
    * googleapis.com
    */

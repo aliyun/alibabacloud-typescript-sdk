@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIdpDepartmentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * FEF1144C-95D1-5F7C-81EF-9DB70EA49FCE
    */

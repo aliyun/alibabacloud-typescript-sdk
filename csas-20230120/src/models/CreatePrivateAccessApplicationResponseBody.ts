@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrivateAccessApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the office application.
+   * The ID of the internal-facing access application.
    * 
    * @example
    * pa-application-e12860ef6c48****
@@ -13,7 +13,7 @@ export class CreatePrivateAccessApplicationResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6

@@ -19,6 +19,9 @@ export class ListPrivateAccessTagsResponseBodyTags extends $dara.Model {
   /**
    * @remarks
    * The description of the internal access tag.
+   * 
+   * @example
+   * 这是一条内网访问标签
    */
   description?: string;
   /**

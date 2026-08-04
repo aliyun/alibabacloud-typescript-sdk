@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApprovalSchemasForApprovalProcessesRequest extends $dara.Model {
   /**
    * @remarks
+   * A collection of approval process IDs.
+   * 
    * This parameter is required.
    */
   processIds?: string[];

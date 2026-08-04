@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DetachPolicy2ApprovalProcessRequest extends $dara.Model {
   /**
    * @remarks
+   * Business policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,20 @@ export class DetachPolicy2ApprovalProcessRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
+   * Policy type. Valid values:
+   * 
+   * - **DomainBlacklist**: Domain blacklist.
+   * 
+   * - **DomainWhitelist**: Domain whitelist.
+   * 
+   * - **SoftwareBlock**: Software disable.
+   * 
+   * - **AppUninstall**: Terminal uninstall.
+   * 
+   * - **DlpSend**: File outbound transfer.
+   * 
+   * - **PeripheralBlock**: Peripheral control.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +37,8 @@ export class DetachPolicy2ApprovalProcessRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
+   * Approval process ID.
+   * 
    * This parameter is required.
    * 
    * @example

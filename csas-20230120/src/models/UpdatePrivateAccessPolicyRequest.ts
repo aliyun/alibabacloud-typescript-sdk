@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.Model {
   /**
    * @remarks
-   * The identity source ID of the custom user group. Required when the custom user group type is **department**.
+   * The identity provider ID for the custom user attribute. This parameter is required when UserGroupType is **department**.
    * 
    * @example
    * 12
@@ -13,9 +13,11 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.
   idpId?: number;
   /**
    * @remarks
-   * Relation of the custom user group. Values:
-   * - **Equal**: Equal.
-   * - **Unequal**: Not equal.
+   * The relation used to match the custom user attribute. Valid values:
+   * 
+   * - **Equal**: Equal to.
+   * 
+   * - **Unequal**: Not equal to.
    * 
    * This parameter is required.
    * 
@@ -25,11 +27,15 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.
   relation?: string;
   /**
    * @remarks
-   * Type of the custom user group. Values:
+   * The type of the custom user attribute. Valid values:
+   * 
    * - **username**: Username.
+   * 
    * - **department**: Department.
-   * - **email**: Email.
-   * - **telephone**: Telephone.
+   * 
+   * - **email**: Email address.
+   * 
+   * - **telephone**: Phone number.
    * 
    * This parameter is required.
    * 
@@ -39,7 +45,15 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.
   userGroupType?: string;
   /**
    * @remarks
-   * Custom user group attribute values. - When the user group type is **username**, it represents the value of the username. The length should be 1 to 128 characters, supporting Chinese and case-sensitive English letters, and can include numbers, half-width periods (.), underscores (_), hyphens (-), asterisks (*), at symbols (@), and spaces. - When the user group type is **department**, it represents the value of the department. For example: OU=Department1,OU=SASE DingTalk. - When the user group type is **email**, it represents the value of the email. For example: username@example.com. - When the user group type is **telephone**, it represents the value of the mobile phone. For example: 13900001234.
+   * The value of the custom user attribute.
+   * 
+   * - If UserGroupType is **username**, this is the username. The value must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+   * 
+   * - If UserGroupType is **department**, this is the department name. Example: OU=Department 1,OU=SASE DingTalk.
+   * 
+   * - If UserGroupType is **email**, this is the email address. Example: username\\@example.com.
+   * 
+   * - If UserGroupType is **telephone**, this is the phone number. Example: 13900001234.
    * 
    * This parameter is required.
    * 
@@ -77,13 +91,15 @@ export class UpdatePrivateAccessPolicyRequestCustomUserAttributes extends $dara.
 export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * Set of application IDs for the private access policy. A single policy supports up to 100 private access application IDs.
+   * The IDs of applications associated with the internal network access policy. A single policy supports up to 100 application IDs.
    */
   applicationIds?: string[];
   /**
    * @remarks
-   * Application type of the private access policy. Values:
+   * The application type for the internal network access policy. Valid values:
+   * 
    * - **Application**: Application.
+   * 
    * - **Tag**: Tag.
    * 
    * @example
@@ -92,15 +108,15 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * Set of custom user attributes for the private access policy, required when the user group type is **Custom**. Mutually exclusive with the user group ID set. The total number of custom user groups is limited to 10.
+   * This parameter specifies a collection of custom user groups for the private network access policy. It is required when the user group type is **Custom**. This collection is mutually exclusive with the user group ID collection, and you can specify a maximum of 10 custom user groups.
    */
   customUserAttributes?: UpdatePrivateAccessPolicyRequestCustomUserAttributes[];
   /**
    * @remarks
-   * Description of the private access policy. Length should be 1 to 128 characters, supporting Chinese and English letters (both uppercase and lowercase), and can include numbers, periods (.), underscores (_), hyphens (-), and spaces.
+   * A description of the internal network access policy. The description must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
    * 
    * @example
-   * test
+   * 这是一条内网访问策略
    * 
    * **if can be null:**
    * true
@@ -108,10 +124,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The execution strategy for not meeting the security baseline. Values:
+   * The action taken when a device does not meet the security baseline. Valid values:
    * 
-   * - **Block**: Block.
-   * - **Observe**: Observe.
+   * - **Block**: Block access.
+   * 
+   * - **Observe**: Monitor access.
    * 
    * @example
    * Block
@@ -127,9 +144,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   deviceAttributeId?: string;
   /**
    * @remarks
-   * The modification type of the private access policy. Values:
-   * - **Cover** (default): Use the values of **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** to overwrite the original application ID set, user group ID set, and custom user attribute set, respectively.
-   * - **Append**: Add the values provided in **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** to the original application ID set, user group ID set, and custom user attribute set, respectively.
+   * The method used to update the internal network access policy. Valid values:
+   * 
+   * - **Cover** (default): Replace the existing application IDs, user group IDs, and custom user attributes with the values specified in **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes**.
+   * 
+   * - **Append**: Add the values specified in **ApplicationIds**, **UserGroupIds**, and **CustomUserAttributes** to the existing application IDs, user group IDs, and custom user attributes.
    * 
    * @example
    * Cover
@@ -138,9 +157,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Action of the private access policy. Values:
-   * - **Block**: Block.
-   * - **Allow**: Allow.
+   * The action that the internal network access policy takes. Valid values:
+   * 
+   * - **Block**: Block access.
+   * 
+   * - **Allow**: Allow access.
    * 
    * @example
    * Allow
@@ -148,9 +169,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   policyAction?: string;
   /**
    * @remarks
-   * ID of the private access policy. Value sources:
-   * - [ListPrivateAccessPolicies](~~ListPrivateAccessPolicies~~): Batch query for private access policies.
-   * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create a private access policy.
+   * The ID of the internal network access policy. Get this value from one of the following operations:
+   * 
+   * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List internal network access policies in batches.
+   * 
+   * - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an internal network access policy.
    * 
    * This parameter is required.
    * 
@@ -160,7 +183,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The priority of the private access policy. The number 1 indicates the highest priority. Range: 1~1000, with the maximum value being the total number of private access policies minus one.
+   * The priority of the internal network access policy. Priority 1 is the highest. Valid values: 1 to 1000. The maximum value is the total number of internal network access policies minus 1.
    * 
    * @example
    * 1
@@ -168,8 +191,10 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The status of the private access policy. Values:
+   * The status of the internal network access policy. Valid values:
+   * 
    * - **Enabled**: Enabled.
+   * 
    * - **Disabled**: Disabled.
    * 
    * @example
@@ -178,12 +203,12 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Set of tag IDs for the private access policy. A single policy supports up to 100 private access tag IDs.
+   * The IDs of tags associated with the internal network access policy. A single policy supports up to 100 tag IDs.
    */
   tagIds?: string[];
   /**
    * @remarks
-   * The trigger template ID.
+   * The ID of the trigger template.
    * 
    * @example
    * dag-d3f64e8bdd4a****
@@ -191,7 +216,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   triggerTemplateId?: string;
   /**
    * @remarks
-   * Trusted process group ID.
+   * The IDs of trusted process groups.
    * 
    * **if can be null:**
    * false
@@ -199,11 +224,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   trustedProcessGroupIds?: string[];
   /**
    * @remarks
-   * Trusted process switch status. Values: 
+   * The status of the trusted process feature. Valid values:
    * 
-   * - **Enabled**: On. 
+   * - **Enabled**: Enabled.
    * 
-   * - **Disabled**: Off.
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Disabled
@@ -211,7 +236,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   trustedProcessStatus?: string;
   /**
    * @remarks
-   * Trusted Software ID.
+   * The IDs of trusted software.
    * 
    * **if can be null:**
    * false
@@ -219,13 +244,15 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   trustedSoftwareIds?: string[];
   /**
    * @remarks
-   * Set of user group IDs for the private access policy, required when the user group type is **Normal**. Mutually exclusive with the custom user group set. A single policy supports up to 10,000 user groups, and a maximum of 2,000 user group IDs can be modified at once.
+   * The IDs of user groups associated with the internal network access policy. This parameter is required when UserGroupMode is set to Normal. This parameter is mutually exclusive with **CustomUserAttributes**. A single policy supports up to 10,000 user groups. You can update up to 2,000 user group IDs at a time.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * User group type of the private access policy. Values:
-   * - **Normal**: Normal user group.
+   * The user group type for the internal network access policy. Valid values:
+   * 
+   * - **Normal**: Regular user group.
+   * 
    * - **Custom**: Custom user group.
    * 
    * @example
@@ -234,7 +261,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   userGroupMode?: string;
   /**
    * @remarks
-   * The start time when the zero trust policy takes effect, represented as a timestamp in seconds.
+   * The start time of the zero-trust policy\\"s effective period, in seconds since the Unix epoch.
    * 
    * @example
    * 0
@@ -242,7 +269,11 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   validFrom?: number;
   /**
    * @remarks
-   * Switch status for effective time. Values: - **Enabled**: On. - **Disabled**: Off.
+   * The status of the effective time feature. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
    * 
    * @example
    * Enabled
@@ -250,7 +281,7 @@ export class UpdatePrivateAccessPolicyRequest extends $dara.Model {
   validTimeStatus?: string;
   /**
    * @remarks
-   * The expiration time of the zero trust policy, in seconds timestamp.
+   * The end time of the zero-trust policy\\"s effective period, in seconds since the Unix epoch.
    * 
    * @example
    * 1764727544

@@ -429,6 +429,67 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchema
   }
 }
 
+export class UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfigFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfig extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfigFieldMap[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfigFieldMap },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
   displayFieldValue?: string;
@@ -559,6 +620,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigs extends $dara.Model 
   domainWhitelistSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsDomainWhitelistSchemaConfig;
   endpointHardeningSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsEndpointHardeningSchemaConfig;
   peripheralBlockSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchemaConfig;
+  privateAccessBlockSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfig;
   softwareBlockSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaConfig;
   softwareHardeningSchemaConfig?: UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareHardeningSchemaConfig;
   static names(): { [key: string]: string } {
@@ -570,6 +632,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigs extends $dara.Model 
       domainWhitelistSchemaConfig: 'DomainWhitelistSchemaConfig',
       endpointHardeningSchemaConfig: 'EndpointHardeningSchemaConfig',
       peripheralBlockSchemaConfig: 'PeripheralBlockSchemaConfig',
+      privateAccessBlockSchemaConfig: 'PrivateAccessBlockSchemaConfig',
       softwareBlockSchemaConfig: 'SoftwareBlockSchemaConfig',
       softwareHardeningSchemaConfig: 'SoftwareHardeningSchemaConfig',
     };
@@ -584,6 +647,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigs extends $dara.Model 
       domainWhitelistSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsDomainWhitelistSchemaConfig,
       endpointHardeningSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsEndpointHardeningSchemaConfig,
       peripheralBlockSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchemaConfig,
+      privateAccessBlockSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsPrivateAccessBlockSchemaConfig,
       softwareBlockSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaConfig,
       softwareHardeningSchemaConfig: UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareHardeningSchemaConfig,
     };
@@ -611,6 +675,9 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigs extends $dara.Model 
     if(this.peripheralBlockSchemaConfig && typeof (this.peripheralBlockSchemaConfig as any).validate === 'function') {
       (this.peripheralBlockSchemaConfig as any).validate();
     }
+    if(this.privateAccessBlockSchemaConfig && typeof (this.privateAccessBlockSchemaConfig as any).validate === 'function') {
+      (this.privateAccessBlockSchemaConfig as any).validate();
+    }
     if(this.softwareBlockSchemaConfig && typeof (this.softwareBlockSchemaConfig as any).validate === 'function') {
       (this.softwareBlockSchemaConfig as any).validate();
     }
@@ -627,37 +694,59 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigs extends $dara.Model 
 
 export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the device uninstall approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   appUninstallSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the device registration approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   deviceRegistrationSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the file outgoing approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   dlpSendSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the domain name blacklist approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   domainBlacklistSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the domain name whitelist approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   domainWhitelistSchemaId?: string;
   endpointHardeningSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the peripheral control approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
   peripheralBlockSchemaId?: string;
+  privateAccessBlockSchemaId?: string;
   /**
+   * @remarks
+   * The ID of the software blocking approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -672,6 +761,7 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
       domainWhitelistSchemaId: 'DomainWhitelistSchemaId',
       endpointHardeningSchemaId: 'EndpointHardeningSchemaId',
       peripheralBlockSchemaId: 'PeripheralBlockSchemaId',
+      privateAccessBlockSchemaId: 'PrivateAccessBlockSchemaId',
       softwareBlockSchemaId: 'SoftwareBlockSchemaId',
       softwareHardeningSchemaId: 'SoftwareHardeningSchemaId',
     };
@@ -686,6 +776,7 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
       domainWhitelistSchemaId: 'string',
       endpointHardeningSchemaId: 'string',
       peripheralBlockSchemaId: 'string',
+      privateAccessBlockSchemaId: 'string',
       softwareBlockSchemaId: 'string',
       softwareHardeningSchemaId: 'string',
     };
@@ -702,20 +793,44 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
 
 export class UpdateApprovalProcessRequest extends $dara.Model {
   approvalType?: number;
+  /**
+   * @remarks
+   * The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+   * 
+   * @example
+   * This is a test
+   */
   description?: string;
   eventLabel?: string;
   externalConfig?: string;
   matchSchemaConfigs?: UpdateApprovalProcessRequestMatchSchemaConfigs;
+  /**
+   * @remarks
+   * The matched approval templates.
+   */
   matchSchemas?: UpdateApprovalProcessRequestMatchSchemas;
   /**
    * @remarks
+   * The ID of the approval flow.
+   * 
    * This parameter is required.
    * 
    * @example
    * approval-process-f16bf74b2b29****
    */
   processId?: string;
+  /**
+   * @remarks
+   * The name of the approval flow. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+   * 
+   * @example
+   * Test
+   */
   processName?: string;
+  /**
+   * @remarks
+   * The list of approval nodes. You can define up to 5 approval nodes.
+   */
   processNodes?: string[][];
   static names(): { [key: string]: string } {
     return {

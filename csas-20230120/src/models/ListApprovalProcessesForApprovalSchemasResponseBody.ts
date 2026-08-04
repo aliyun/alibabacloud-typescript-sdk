@@ -4,16 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses extends $dara.Model {
   /**
+   * @remarks
+   * The time when the approval flow was created.
+   * 
    * @example
    * 2022-10-25 10:44:09
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the approval flow.
+   * 
+   * @example
+   * 这是一个审批流程
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the approval flow.
+   * 
    * @example
    * approval-process-dc61e92ba5c5****
    */
   processId?: string;
+  /**
+   * @remarks
+   * The name of the approval flow.
+   * 
+   * @example
+   * 测试
+   */
   processName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,8 +63,15 @@ export class ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses
 }
 
 export class ListApprovalProcessesForApprovalSchemasResponseBodySchemas extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of approval flows.
+   */
   processes?: ListApprovalProcessesForApprovalSchemasResponseBodySchemasProcesses[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -77,10 +104,17 @@ export class ListApprovalProcessesForApprovalSchemasResponseBodySchemas extends 
 
 export class ListApprovalProcessesForApprovalSchemasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of approval templates.
+   */
   schemas?: ListApprovalProcessesForApprovalSchemasResponseBodySchemas[];
   static names(): { [key: string]: string } {
     return {

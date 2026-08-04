@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateClientUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6
    */

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsListItems extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the internal-facing application.
+   * 
    * @example
    * pa-application-104b6b97b7f0c5d9
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The name of the internal-facing application.
+   * 
    * @example
    * 437008
    */
   applicationName?: string;
   /**
+   * @remarks
+   * The internal-facing tag ID.
+   * 
    * @example
    * tag-4c8b988bb0ffdfb3
    */
   tagId?: string;
   /**
+   * @remarks
+   * The tag name.
+   * 
    * @example
    * nieshirui.nsr
    */
   tagName?: string;
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * ug-xxxxxx
    */
   userGroupId?: string;
   /**
+   * @remarks
+   * The user group name.
+   * 
    * @example
    * aaaaa
    */
@@ -66,12 +84,27 @@ export class ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingIt
 
 export class ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsList extends $dara.Model {
   /**
+   * @remarks
+   * The forwarding rule ID.
+   * 
    * @example
    * fs-41a7891ff6568421
    */
   forwardId?: string;
+  /**
+   * @remarks
+   * The binding items.
+   */
   items?: ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsListItems[];
   /**
+   * @remarks
+   * The policy matching target type. Valid values:
+   * - **UserGroupAll**: all users.
+   * - **UserGroupNormal**: specific user groups.
+   * - **ApplicationAll**: all internal-facing applications.
+   * - **Application**: specific internal-facing applications.
+   * - **Tag**: internal-facing application tags.
+   * 
    * @example
    * UserGroupAll
    */
@@ -105,8 +138,17 @@ export class ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingIt
 }
 
 export class ListForwardStrategyBindingItemsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of forwarding rule bindings.
+   */
   forwardStrategyBindingItemsList?: ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsList[];
   /**
+   * @remarks
+   * The binding item type. Valid values:
+   * - **Application**: internal-facing application
+   * - **UserGroup**: user group.
+   * 
    * @example
    * Application
    */

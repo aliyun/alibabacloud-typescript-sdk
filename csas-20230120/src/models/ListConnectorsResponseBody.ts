@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Model {
   /**
    * @remarks
-   * Internal network access application ID.
+   * The private access application ID.
    * 
    * @example
    * pa-application-e12860ef6c48****
@@ -13,7 +13,7 @@ export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * Internal network access application name.
+   * The private access application name.
    * 
    * @example
    * application_name
@@ -45,7 +45,7 @@ export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Mode
 export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.Model {
   /**
    * @remarks
-   * Connection status between the ConnectorClient and ConnectorServer.
+   * The connection status between the connector client and connector server.
    * 
    * @example
    * Disconnected
@@ -53,7 +53,7 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.
   connectionStatus?: string;
   /**
    * @remarks
-   * Unique device identifier for the ConnectorClient.
+   * The unique device ID of the connector client.
    * 
    * @example
    * C50A2386-F851-4F11-920B-DF7148DA0C22
@@ -61,7 +61,7 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.
   devTag?: string;
   /**
    * @remarks
-   * Hostname of the ConnectorClient.
+   * The hostname of the connector client.
    * 
    * @example
    * connector_client
@@ -69,7 +69,7 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.
   hostname?: string;
   /**
    * @remarks
-   * Public IP of the ConnectorClient.
+   * The public IP address of the connector client.
    * 
    * @example
    * 192.0.2.1
@@ -105,7 +105,7 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.
 export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model {
   /**
    * @remarks
-   * End time.
+   * The end time of the upgrade window.
    * 
    * @example
    * 23:00
@@ -113,7 +113,7 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model
   end?: string;
   /**
    * @remarks
-   * Start time.
+   * The start time of the upgrade window.
    * 
    * @example
    * 20:00
@@ -145,9 +145,11 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model
 export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable global acceleration. Values: 
-   * - **Enabled**: Turn on. 
-   * - **Disabled**: Turn off.
+   * Indicates whether global acceleration is enabled. Valid values:
+   * 
+   * - **Enabled**: Global acceleration is enabled.
+   * 
+   * - **Disabled**: Global acceleration is disabled.
    * 
    * @example
    * Enabled
@@ -155,12 +157,12 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   accelerateStatus?: string;
   /**
    * @remarks
-   * Collection of associated internal network access applications.
+   * A list of associated private access applications.
    */
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
   /**
    * @remarks
-   * Cluster IP.
+   * The cluster IP address.
    * 
    * @example
    * 1.1.1.1
@@ -168,7 +170,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   clusterIP?: string;
   /**
    * @remarks
-   * Cluster port.
+   * The cluster port.
    * 
    * @example
    * 8000
@@ -176,12 +178,12 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   clusterPort?: string;
   /**
    * @remarks
-   * Collection of deployed ConnectorClients.
+   * A list of deployed connector clients.
    */
   connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
   /**
    * @remarks
-   * ConnectorID.
+   * The connector ID.
    * 
    * @example
    * connector-94db94e06b98****
@@ -189,7 +191,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
-   * Connector creation time.
+   * The time the connector was created.
    * 
    * @example
    * 2022-09-27 18:10:25
@@ -197,7 +199,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Connector name.
+   * The connector name.
    * 
    * @example
    * connector_name
@@ -205,7 +207,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -213,9 +215,11 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Connector connection status. Values:
-   * - **Online**: Online.
-   * - **Offline**: Offline.
+   * The connection status of the connector. Valid values:
+   * 
+   * - **Online**: The connector is online.
+   * 
+   * - **Offline**: The connector is offline.
    * 
    * @example
    * Online
@@ -223,9 +227,11 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Connector instance status. Values:
-   * - **Enabled**: Enabled.
-   * - **Disabled**: Disabled.
+   * The status of the connector instance. Valid values:
+   * 
+   * - **Enabled**: The connector is enabled.
+   * 
+   * - **Disabled**: The connector is disabled.
    * 
    * @example
    * Enabled
@@ -233,9 +239,10 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   switchStatus?: string;
   /**
    * @remarks
-   * Connector升级时间。
+   * The upgrade window for the connector.
    */
   upgradeTime?: ListConnectorsResponseBodyConnectorsUpgradeTime;
+  vipCidr?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateStatus: 'AccelerateStatus',
@@ -250,6 +257,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
       status: 'Status',
       switchStatus: 'SwitchStatus',
       upgradeTime: 'UpgradeTime',
+      vipCidr: 'VipCidr',
     };
   }
 
@@ -267,6 +275,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
       status: 'string',
       switchStatus: 'string',
       upgradeTime: ListConnectorsResponseBodyConnectorsUpgradeTime,
+      vipCidr: 'string',
     };
   }
 
@@ -291,12 +300,12 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
 export class ListConnectorsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of Connectors.
+   * A list of connectors.
    */
   connectors?: ListConnectorsResponseBodyConnectors[];
   /**
    * @remarks
-   * The ID of the current request.
+   * The request ID.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
@@ -304,7 +313,7 @@ export class ListConnectorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of Connectors.
+   * The total number of connectors.
    * 
    * @example
    * 1

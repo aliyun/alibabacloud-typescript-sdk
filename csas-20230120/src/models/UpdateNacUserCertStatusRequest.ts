@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNacUserCertStatusRequestIdList extends $dara.Model {
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * 36efa42d-2c32-c4dc-e3fc-8541e33a****
    */
   devTag?: string;
   /**
+   * @remarks
+   * The end user ID.
+   * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
@@ -37,8 +43,19 @@ export class UpdateNacUserCertStatusRequestIdList extends $dara.Model {
 }
 
 export class UpdateNacUserCertStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of end user IDs and device IDs.
+   */
   idList?: UpdateNacUserCertStatusRequestIdList[];
   /**
+   * @remarks
+   * The certificate status for the end user device. Valid values:
+   * 
+   * - **Enabled**
+   * 
+   * - **Disabled**
+   * 
    * @example
    * Enabled
    */

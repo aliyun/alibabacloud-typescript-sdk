@@ -4,16 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $dara.Model {
   /**
+   * @remarks
+   * The name of the policy.
+   * 
    * @example
    * private_access_policy_name
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the policy.
+   * 
    * @example
    * pa-policy-ce2bf7236fab****
    */
   policyId?: string;
   /**
+   * @remarks
+   * The policy type. Valid values:
+   * 
+   * - **PrivateAccess**: private network access.
+   * 
+   * - **URLFilter**: URL filtering.
+   * 
+   * - **AppAccessControl**: application control.
+   * 
+   * - **DLP**: Data Leakage Prevention.
+   * 
+   * - **NAC**: Network Access Control.
+   * 
    * @example
    * PrivateAccess
    */
@@ -44,8 +63,15 @@ export class ListPolicesForUserGroupResponseBodyUserGroupsPolices extends $dara.
 }
 
 export class ListPolicesForUserGroupResponseBodyUserGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The policies.
+   */
   polices?: ListPolicesForUserGroupResponseBodyUserGroupsPolices[];
   /**
+   * @remarks
+   * The ID of the user group.
+   * 
    * @example
    * usergroup-6f1ef2fc56b6****
    */
@@ -78,10 +104,17 @@ export class ListPolicesForUserGroupResponseBodyUserGroups extends $dara.Model {
 
 export class ListPolicesForUserGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5F04DFBD-3F48-5F70-AE72-474026670128
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of user groups.
+   */
   userGroups?: ListPolicesForUserGroupResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
     return {

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The expected response from the backend server.
+   * 
    * @example
    * hello
    */
   expectedResponse?: string;
   /**
+   * @remarks
+   * The UDP request content.
+   * 
    * @example
    * hello
    */
@@ -38,11 +44,17 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs exten
 
 export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUserGroup extends $dara.Model {
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * ug-xxxxxxxx
    */
   userGroupId?: string;
   /**
+   * @remarks
+   * The user group name.
+   * 
    * @example
    * IT
    */
@@ -72,53 +84,101 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTaskUserGroup extends $da
 
 export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the terminal device.
+   * 
    * @example
    * E9EE1CE7-4AA0-521D-B8E1-E13E47F05E94
    */
   devTag?: string;
   /**
+   * @remarks
+   * The diagnostic task ID.
+   * 
    * @example
    * diag-3e0d36d6c15a0502
    */
   diagnoseId?: string;
   /**
+   * @remarks
+   * The diagnosis type. Valid values:
+   * 
+   * - FullLink: full-link diagnosis.
+   * - Application: application diagnosis.
+   * 
    * @example
    * FullLink
    */
   diagnoseType?: string;
   /**
+   * @remarks
+   * The address to diagnose.
+   * 
    * @example
    * 172.16.6.1
    */
   host?: string;
   /**
+   * @remarks
+   * The POP point ID. This parameter is required when manual selection is used.
+   * 
    * @example
    * pop-8ded63ce9d3d317e
    */
   popId?: string;
   /**
+   * @remarks
+   * The POP point selection mode. Valid values:
+   * - **AutoSelect**: automatic selection.
+   * - **ManualSelect**: manual selection.
+   * 
    * @example
    * AutoSelect
    */
   popMode?: string;
   /**
+   * @remarks
+   * The port.
+   * 
    * @example
    * 443
    */
   port?: string;
   /**
+   * @remarks
+   * The protocol used by the internal network access application. Valid values:
+   * - **TCP**
+   * - **UDP**.
+   * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The task running status. Valid values:
+   * - **Running**: The task is running.
+   * - **Finished**: The task is complete.
+   * - **Failed**: The task failed.
+   * 
    * @example
    * Disabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The extra information for UDP diagnosis.
+   */
   udpExtraConfigs?: CreatePADiagnosisTaskResponseBodyDiagnosisTaskUdpExtraConfigs;
+  /**
+   * @remarks
+   * The user group.
+   */
   userGroup?: CreatePADiagnosisTaskResponseBodyDiagnosisTaskUserGroup;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * zhangsan
    */
@@ -173,6 +233,10 @@ export class CreatePADiagnosisTaskResponseBodyDiagnosisTask extends $dara.Model 
 }
 
 export class CreatePADiagnosisTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The diagnostic task.
+   */
   diagnosisTask?: CreatePADiagnosisTaskResponseBodyDiagnosisTask;
   /**
    * @remarks

@@ -5,24 +5,44 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $dara.Model {
   /**
    * @remarks
-   * 内网访问标签创建时间。
+   * Time when the tag was created.
    * 
    * @example
    * 2023-02-21 14:10:16
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Description of the tag.
+   * 
+   * @example
+   * 这是一条被内网访问策略引用的标签
+   */
   description?: string;
   /**
+   * @remarks
+   * Name of the tag.
+   * 
    * @example
    * tag_name
    */
   name?: string;
   /**
+   * @remarks
+   * ID of the tag.
+   * 
    * @example
    * tag-d3f64e8bdd4a****
    */
   tagId?: string;
   /**
+   * @remarks
+   * Type of the tag. Valid values:
+   * 
+   * - **Default**: Default tag.
+   * 
+   * - **Custom**: Custom tag.
+   * 
    * @example
    * Default
    */
@@ -58,10 +78,17 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolicesTags extends $dara
 
 export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
   /**
+   * @remarks
+   * ID of the internal network access policy.
+   * 
    * @example
    * pa-policy-1b0d0e8b4bcf****
    */
   policyId?: string;
+  /**
+   * @remarks
+   * Tags for the internal network access policy.
+   */
   tags?: ListTagsForPrivateAccessPolicyResponseBodyPolicesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -90,8 +117,15 @@ export class ListTagsForPrivateAccessPolicyResponseBodyPolices extends $dara.Mod
 }
 
 export class ListTagsForPrivateAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of internal network access policies.
+   */
   polices?: ListTagsForPrivateAccessPolicyResponseBodyPolices[];
   /**
+   * @remarks
+   * ID of the request.
+   * 
    * @example
    * 9EE61139-A6A8-5E13-80AF-83435C21B26B
    */

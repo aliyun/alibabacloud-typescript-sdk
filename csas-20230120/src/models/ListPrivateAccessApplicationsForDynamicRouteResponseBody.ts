@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges extends $dara.Model {
   /**
+   * @remarks
+   * Start port.
+   * 
    * @example
    * 80
    */
   begin?: number;
   /**
+   * @remarks
+   * End port.
+   * 
    * @example
    * 81
    */
@@ -37,30 +43,70 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of private access application addresses.
+   */
   addresses?: string[];
   /**
+   * @remarks
+   * Private access application ID.
+   * 
    * @example
    * pa-application-7a9243dd02f4****
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Time when the private access application was created.
+   * 
    * @example
    * 2022-04-13 13:33:24
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Private access application description.
+   * 
+   * @example
+   * 这是一条被动态路由引用的内网访问应用
+   */
   description?: string;
   /**
+   * @remarks
+   * Private access application name.
+   * 
    * @example
    * application_name
    */
   name?: string;
+  /**
+   * @remarks
+   * Collection of private access application port ranges.
+   */
   portRanges?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges[];
   /**
+   * @remarks
+   * Protocol used by the private access application. Valid values:
+   * 
+   * - **All**: All protocols.
+   * 
+   * - **TCP**
+   * 
+   * - **UDP**
+   * 
    * @example
    * All
    */
   protocol?: string;
   /**
+   * @remarks
+   * Status of the private access application. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
@@ -107,8 +153,15 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of private access applications.
+   */
   applications?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications[];
   /**
+   * @remarks
+   * Dynamic route ID.
+   * 
    * @example
    * dr-ca9fddfac7c6****
    */
@@ -140,8 +193,15 @@ export class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRout
 }
 
 export class ListPrivateAccessApplicationsForDynamicRouteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of dynamic routes.
+   */
   dynamicRoutes?: ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes[];
   /**
+   * @remarks
+   * ID of the request.
+   * 
    * @example
    * BE4FB974-11BC-5453-9BE1-1606A73EACA6
    */

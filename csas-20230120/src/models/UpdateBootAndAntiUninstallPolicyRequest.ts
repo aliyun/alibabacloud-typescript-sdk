@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn extends $dara.Model {
   /**
+   * @remarks
+   * Dialog content.
+   * 
    * @example
    * After uninstalling, the device can no longer be used for company work, and it will lose access to the company\\"s intranet!
    */
   content?: string;
   /**
+   * @remarks
+   * Main button text.
+   * 
    * @example
    * Report
    */
   mainButtonText?: string;
   /**
+   * @remarks
+   * Secondary button text.
+   * 
    * @example
    * Ignore
    */
   minorButtonText?: string;
   /**
+   * @remarks
+   * Dialog title.
+   * 
    * @example
    * Anti-Uninstall Warning
    */
@@ -51,9 +63,37 @@ export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn exte
 }
 
 export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh extends $dara.Model {
+  /**
+   * @remarks
+   * Dialog content.
+   * 
+   * @example
+   * 卸载后该设备无法再用于公司办公，同时该设备将失去进入公司内网权限！
+   */
   content?: string;
+  /**
+   * @remarks
+   * Main button text.
+   * 
+   * @example
+   * 去报备
+   */
   mainButtonText?: string;
+  /**
+   * @remarks
+   * Secondary button text.
+   * 
+   * @example
+   * 我知道了
+   */
   minorButtonText?: string;
+  /**
+   * @remarks
+   * Dialog title.
+   * 
+   * @example
+   * 防卸载警告
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,7 +123,15 @@ export class UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh exte
 }
 
 export class UpdateBootAndAntiUninstallPolicyRequestBlockContent extends $dara.Model {
+  /**
+   * @remarks
+   * English text.
+   */
   blockTextEn?: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextEn;
+  /**
+   * @remarks
+   * Chinese text.
+   */
   blockTextZh?: UpdateBootAndAntiUninstallPolicyRequestBlockContentBlockTextZh;
   static names(): { [key: string]: string } {
     return {
@@ -116,22 +164,43 @@ export class UpdateBootAndAntiUninstallPolicyRequestBlockContent extends $dara.M
 
 export class UpdateBootAndAntiUninstallPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * Let end users submit approval requests.
+   * 
    * @example
    * true
    */
   allowReport?: boolean;
+  /**
+   * @remarks
+   * Content shown in the client-side block dialog.
+   */
   blockContent?: UpdateBootAndAntiUninstallPolicyRequestBlockContent;
   /**
+   * @remarks
+   * Enable anti-uninstall.
+   * 
    * @example
    * true
    */
   isAntiUninstall?: boolean;
   /**
+   * @remarks
+   * Enable auto-start.
+   * 
    * @example
    * true
    */
   isBoot?: boolean;
+  /**
+   * @remarks
+   * List of user group IDs to which this policy applies.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * List of whitelisted users.
+   */
   whitelistUsers?: string[];
   static names(): { [key: string]: string } {
     return {

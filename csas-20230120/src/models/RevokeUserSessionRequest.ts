@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeUserSessionRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the user in the external identity source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RevokeUserSessionRequest extends $dara.Model {
   externalIds?: string;
   /**
    * @remarks
+   * The ID of the identity source configuration to which the user belongs.
+   * 
    * This parameter is required.
    * 
    * @example

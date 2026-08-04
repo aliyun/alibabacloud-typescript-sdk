@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIdpDepartmentRequest extends $dara.Model {
   /**
    * @remarks
+   * The department ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,18 @@ export class UpdateIdpDepartmentRequest extends $dara.Model {
   departmentId?: string;
   /**
    * @remarks
+   * The department name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 示例部门
    */
   departmentName?: string;
   /**
    * @remarks
+   * The ID of the custom identity source configuration.
+   * 
    * This parameter is required.
    * 
    * @example

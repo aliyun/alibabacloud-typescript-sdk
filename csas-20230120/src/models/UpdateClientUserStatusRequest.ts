@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClientUserStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,12 @@ export class UpdateClientUserStatusRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * The status of the user. Valid values:
+   * 
+   * - **Enabled**: The user is enabled.
+   * 
+   * - **Disabled**: The user is disabled.
+   * 
    * This parameter is required.
    * 
    * @example

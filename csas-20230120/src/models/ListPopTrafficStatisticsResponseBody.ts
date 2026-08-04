@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $dara.Model {
   /**
+   * @remarks
+   * The average bandwidth value per minute. The unit is Byte/s.
+   * 
    * @example
    * 15325
    */
   average?: number;
   /**
+   * @remarks
+   * The time that corresponds to the data point.
+   * 
    * @example
    * 2023-12-06 15:29:00
    */
@@ -37,8 +43,15 @@ export class ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints extends $
 }
 
 export class ListPopTrafficStatisticsResponseBodyTrafficData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of bandwidth data points for the POPs.
+   */
   datapoints?: ListPopTrafficStatisticsResponseBodyTrafficDataDatapoints[];
   /**
+   * @remarks
+   * The name of the metric. Metrics are categorized as inbound or outbound.
+   * 
    * @example
    * InternetTx
    */
@@ -78,6 +91,10 @@ export class ListPopTrafficStatisticsResponseBody extends $dara.Model {
    * EFE7EBB2-449D-5BBB-B381-CA7839BC1649
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of bandwidth data for the POPs.
+   */
   trafficData?: ListPopTrafficStatisticsResponseBodyTrafficData[];
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount extends $dara.Model {
   /**
+   * @remarks
+   * The total number of allowed device registrations. This field is valid only when LimitType is set to **LimitAll**.
+   * 
    * @example
    * 3
    */
   all?: string;
   /**
+   * @remarks
+   * The number of allowed mobile logons. This field is valid only when LimitType is set to **LimitDiff**.
+   * 
    * @example
    * 0
    */
   mobile?: string;
   /**
+   * @remarks
+   * The number of allowed PC logons. This field is valid only when LimitType is set to **LimitDiff**.
+   * 
    * @example
    * 0
    */
@@ -45,12 +54,32 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail extends $dara.Model {
   /**
+   * @remarks
+   * Device ownership. Valid values:
+   * 
+   * - **Company**: Company-owned device.
+   * 
+   * - **Personal**: Personal device.
+   * 
    * @example
    * Company
    */
   deviceBelong?: string;
+  /**
+   * @remarks
+   * The number of allowed device registrations.
+   */
   limitCount?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetailLimitCount;
   /**
+   * @remarks
+   * The device registration limit type. Valid values:
+   * 
+   * - **Unlimited**: No limit.
+   * 
+   * - **LimitAll**: Limit by total count.
+   * 
+   * - **LimitDiff**: Limit by device category.
+   * 
    * @example
    * LimitAll
    */
@@ -85,37 +114,78 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesL
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies extends $dara.Model {
   /**
+   * @remarks
+   * The time when the device registration policy was created.
+   * 
    * @example
    * 2023-05-16 17:18:46
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the device registration policy.
+   * 
+   * @example
+   * 这是一条设备注册策略。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of device registration policy limit details.
+   */
   limitDetail?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPoliciesLimitDetail[];
   /**
+   * @remarks
+   * The target type for policy matching. Valid values:
+   * 
+   * - **UserGroupAll**: Associate with all users.
+   * 
+   * - **UserGroupNormal**: Associate with specific user groups.
+   * 
    * @example
    * UserGroupNormal
    */
   matchMode?: string;
   /**
+   * @remarks
+   * The name of the device registration policy.
+   * 
    * @example
    * registration_policy_name
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the device registration policy.
+   * 
    * @example
    * reg-policy-dcbfd33cb004****
    */
   policyId?: string;
   /**
+   * @remarks
+   * The policy priority. The number 0 indicates the highest priority. The number 99 indicates the lowest priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The status of the device registration policy. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of users on the device registration policy whitelist.
+   */
   whitelist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -161,8 +231,15 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies 
 }
 
 export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of device registration policies.
+   */
   policies?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroupsPolicies[];
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * usergroup-6f1ef2fc56b6****
    */
@@ -195,10 +272,17 @@ export class ListRegistrationPoliciesForUserGroupResponseBodyUserGroups extends 
 
 export class ListRegistrationPoliciesForUserGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of user groups.
+   */
   userGroups?: ListRegistrationPoliciesForUserGroupResponseBodyUserGroups[];
   static names(): { [key: string]: string } {
     return {

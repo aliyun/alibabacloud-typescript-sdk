@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdpConfigsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Specified IdP configuration types. Separate multiple types with a comma (,).
+   * 
    * @example
    * CSAS,DingTalk,LDAP
    */
   include?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */

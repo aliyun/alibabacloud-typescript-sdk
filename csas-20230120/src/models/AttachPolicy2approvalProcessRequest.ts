@@ -4,12 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class AttachPolicy2ApprovalProcessRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business policy ID.
+   * 
    * @example
    * ladp-27a4fedf5e73****
    */
   policyId?: string;
   /**
    * @remarks
+   * Policy type. Valid values:
+   * 
+   * - **DomainBlacklist**: Domain blacklist.
+   * 
+   * - **DomainWhitelist**: Domain whitelist.
+   * 
+   * - **SoftwareBlock**: Software disable.
+   * 
+   * - **AppUninstall**: Endpoint uninstall.
+   * 
+   * - **DlpSend**: File outbound transfer.
+   * 
+   * - **PeripheralBlock**: Peripheral control.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +35,8 @@ export class AttachPolicy2ApprovalProcessRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
+   * Approval process ID.
+   * 
    * This parameter is required.
    * 
    * @example

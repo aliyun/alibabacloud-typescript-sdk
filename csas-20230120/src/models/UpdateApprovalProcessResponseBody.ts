@@ -34,8 +34,15 @@ export class UpdateApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMa
 export class UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of terminal uninstall policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -105,8 +112,15 @@ export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesF
 export class UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of device registration policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -176,8 +190,15 @@ export class UpdateApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap ext
 export class UpdateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of file outgoing policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -247,8 +268,15 @@ export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFiel
 export class UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of domain name blacklist policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -318,8 +346,15 @@ export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFiel
 export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of domain name whitelist policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -456,8 +491,15 @@ export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPoliciesField
 export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of peripheral control policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -495,12 +537,89 @@ export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies exte
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap extends $dara.Model {
+  displayField?: string;
+  displayFieldValue?: string;
+  systemField?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
+      systemField: 'SystemField',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayField: 'string',
+      displayFieldValue: 'string',
+      systemField: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies extends $dara.Model {
+  externalProcessId?: string;
+  fieldMap?: UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap[];
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalProcessId: 'ExternalProcessId',
+      fieldMap: 'FieldMap',
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalProcessId: 'string',
+      fieldMap: { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPoliciesFieldMap },
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fieldMap)) {
+      $dara.Model.validateArray(this.fieldMap);
+    }
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
   /**
+   * @remarks
+   * The approver ID.
+   * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
+  /**
+   * @remarks
+   * The approver username.
+   * 
+   * @example
+   * Wang
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -557,8 +676,15 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldM
 export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
   externalProcessId?: string;
   fieldMap?: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap[];
+  /**
+   * @remarks
+   * The list of software blocking policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -664,29 +790,82 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies e
 }
 
 export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
+  /**
+   * @remarks
+   * The list of policies associated with terminal uninstall.
+   */
   appUninstallPolicies?: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   approvalType?: number;
   /**
+   * @remarks
+   * The time when the approval flow was created.
+   * 
    * @example
    * 2022-07-11 15:31:39
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the approval flow.
+   * 
+   * @example
+   * This is a test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of policies associated with device registration.
+   */
   deviceRegistrationPolicies?: UpdateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with file outgoing.
+   */
   dlpSendPolicies?: UpdateApprovalProcessResponseBodyProcessDlpSendPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with the domain name blacklist.
+   */
   domainBlacklistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with the domain name whitelist.
+   */
   domainWhitelistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
   endpointHardeningPolicies?: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   eventLabel?: string;
   externalConfig?: string;
-  peripheraBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies;
   /**
+   * @remarks
+   * The list of policies associated with peripheral control.
+   */
+  peripheraBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies;
+  privateAccessBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
+  /**
+   * @remarks
+   * The ID of the approval flow.
+   * 
    * @example
    * approval-process-2677fcf063f5****
    */
   processId?: string;
+  /**
+   * @remarks
+   * The name of the approval flow.
+   * 
+   * @example
+   * Test
+   */
   processName?: string;
+  /**
+   * @remarks
+   * The list of approval nodes.
+   */
   processNodes?: UpdateApprovalProcessResponseBodyProcessProcessNodes[][];
+  /**
+   * @remarks
+   * The list of policies associated with software blocking.
+   */
   softwareBlockPolicies?: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
   softwareHardeningPolicies?: UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
@@ -703,6 +882,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       eventLabel: 'EventLabel',
       externalConfig: 'ExternalConfig',
       peripheraBlockPolicies: 'PeripheraBlockPolicies',
+      privateAccessBlockPolicies: 'PrivateAccessBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
@@ -725,6 +905,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       eventLabel: 'string',
       externalConfig: 'string',
       peripheraBlockPolicies: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies,
+      privateAccessBlockPolicies: UpdateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessProcessNodes } },
@@ -755,6 +936,9 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
     if(this.peripheraBlockPolicies && typeof (this.peripheraBlockPolicies as any).validate === 'function') {
       (this.peripheraBlockPolicies as any).validate();
     }
+    if(this.privateAccessBlockPolicies && typeof (this.privateAccessBlockPolicies as any).validate === 'function') {
+      (this.privateAccessBlockPolicies as any).validate();
+    }
     if(Array.isArray(this.processNodes)) {
       $dara.Model.validateArray(this.processNodes);
     }
@@ -773,8 +957,15 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
 }
 
 export class UpdateApprovalProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The approval flow.
+   */
   process?: UpdateApprovalProcessResponseBodyProcess;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7E9D7ACD-53D5-56EF-A913-79D148D06299
    */

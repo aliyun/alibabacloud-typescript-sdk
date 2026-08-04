@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateApprovalProcessResponseBodyProcessAppUninstallPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of terminal uninstallation policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -36,8 +43,15 @@ export class CreateApprovalProcessResponseBodyProcessAppUninstallPolicies extend
 }
 
 export class CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of device registration policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -69,8 +83,15 @@ export class CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies 
 }
 
 export class CreateApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of file outbound transfer policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -102,8 +123,15 @@ export class CreateApprovalProcessResponseBodyProcessDlpSendPolicies extends $da
 }
 
 export class CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain name blacklist policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -135,8 +163,15 @@ export class CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies ext
 }
 
 export class CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain name whitelist policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -197,8 +232,15 @@ export class CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies e
 }
 
 export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of peripheral control policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -229,12 +271,51 @@ export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies ext
   }
 }
 
+export class CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApprovalProcessResponseBodyProcessProcessNodes extends $dara.Model {
   /**
+   * @remarks
+   * The approver ID.
+   * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
+  /**
+   * @remarks
+   * The username of the approver.
+   * 
+   * @example
+   * 王先生
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -260,8 +341,15 @@ export class CreateApprovalProcessResponseBodyProcessProcessNodes extends $dara.
 }
 
 export class CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of software blocking policy IDs.
+   */
   policyIds?: string[];
   /**
+   * @remarks
+   * The ID of the approval template.
+   * 
    * @example
    * approval-schema-090134f1ebff****
    */
@@ -322,26 +410,79 @@ export class CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies e
 }
 
 export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
+  /**
+   * @remarks
+   * The list of policies associated with terminal uninstallation.
+   */
   appUninstallPolicies?: CreateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
+   * @remarks
+   * The time when the approval process was created.
+   * 
    * @example
    * 2022-10-25 10:44:09
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the approval process.
+   * 
+   * @example
+   * 这是一个审批流程
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of policies associated with device registration.
+   */
   deviceRegistrationPolicies?: CreateApprovalProcessResponseBodyProcessDeviceRegistrationPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with file outbound transfer.
+   */
   dlpSendPolicies?: CreateApprovalProcessResponseBodyProcessDlpSendPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with the domain name blacklist.
+   */
   domainBlacklistPolicies?: CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
+  /**
+   * @remarks
+   * The list of policies associated with the domain name whitelist.
+   */
   domainWhitelistPolicies?: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
   endpointHardeningPolicies?: CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
-  peripheralBlockPolicies?: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
   /**
+   * @remarks
+   * The list of policies associated with peripheral control.
+   */
+  peripheralBlockPolicies?: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
+  privateAccessBlockPolicies?: CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies;
+  /**
+   * @remarks
+   * The ID of the approval process.
+   * 
    * @example
    * approval-process-dc61e92ba5c5****
    */
   processId?: string;
+  /**
+   * @remarks
+   * The name of the approval process.
+   * 
+   * @example
+   * 测试
+   */
   processName?: string;
+  /**
+   * @remarks
+   * The list of approval nodes.
+   */
   processNodes?: CreateApprovalProcessResponseBodyProcessProcessNodes[][];
+  /**
+   * @remarks
+   * The list of policies associated with software blocking.
+   */
   softwareBlockPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
   softwareHardeningPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
@@ -355,6 +496,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
       endpointHardeningPolicies: 'EndpointHardeningPolicies',
       peripheralBlockPolicies: 'PeripheralBlockPolicies',
+      privateAccessBlockPolicies: 'PrivateAccessBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
@@ -374,6 +516,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
       domainWhitelistPolicies: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
       endpointHardeningPolicies: CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies,
       peripheralBlockPolicies: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies,
+      privateAccessBlockPolicies: CreateApprovalProcessResponseBodyProcessPrivateAccessBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': CreateApprovalProcessResponseBodyProcessProcessNodes } },
@@ -404,6 +547,9 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
     if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
       (this.peripheralBlockPolicies as any).validate();
     }
+    if(this.privateAccessBlockPolicies && typeof (this.privateAccessBlockPolicies as any).validate === 'function') {
+      (this.privateAccessBlockPolicies as any).validate();
+    }
     if(Array.isArray(this.processNodes)) {
       $dara.Model.validateArray(this.processNodes);
     }
@@ -422,8 +568,15 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
 }
 
 export class CreateApprovalProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The approval process.
+   */
   process?: CreateApprovalProcessResponseBodyProcess;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 2CABFEBB-0CE7-575E-833A-266F75D46713
    */

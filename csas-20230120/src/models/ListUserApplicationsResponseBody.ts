@@ -5,11 +5,17 @@ import { AddressGroup } from "./AddressGroup";
 
 export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $dara.Model {
   /**
+   * @remarks
+   * The start port.
+   * 
    * @example
    * 80
    */
   begin?: string;
   /**
+   * @remarks
+   * The end port.
+   * 
    * @example
    * 81
    */
@@ -39,25 +45,74 @@ export class ListUserApplicationsResponseBodyApplicationsPortRanges extends $dar
 
 export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
   /**
+   * @remarks
+   * The action for private application access:
+   * 
+   * - **Block**: blocks access.
+   * 
+   * - **Allow**: allows access.
+   * 
    * @example
    * Block
    */
   action?: string;
+  /**
+   * @remarks
+   * The application address group. This parameter is returned when ConfigMode is set to Precise. This parameter is empty when ConfigMode is an empty string.
+   */
   addressGroups?: AddressGroup[];
+  /**
+   * @remarks
+   * The list of private access application addresses.
+   */
   addresses?: string[];
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * pa-application-b927baf3e592****
    */
   applicationId?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values:
+   * 
+   * - Empty string: default mode.
+   * 
+   * - Precise: precise mode.
+   * 
+   * @example
+   * Precise
+   */
   configMode?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * private_access_application_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The port ranges of the private access application. Multiple port ranges cannot be repeated or overlap.
+   */
   portRanges?: ListUserApplicationsResponseBodyApplicationsPortRanges[];
   /**
+   * @remarks
+   * The protocol of the private access application. Valid values:
+   * 
+   * - **All**: all protocols.
+   * 
+   * - **TCP**: TCP.
+   * 
+   * - **UDP**: UDP.
+   * 
+   * - **HTTP**: HTTP.
+   * 
+   * - **HTTPS**: HTTPS.
+   * 
    * @example
    * TCP
    */
@@ -107,16 +162,23 @@ export class ListUserApplicationsResponseBodyApplications extends $dara.Model {
 }
 
 export class ListUserApplicationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of applications that the user is authorized to access.
+   */
   applications?: ListUserApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of applications that the user is authorized to access.
+   * 
    * @example
    * 20
    */

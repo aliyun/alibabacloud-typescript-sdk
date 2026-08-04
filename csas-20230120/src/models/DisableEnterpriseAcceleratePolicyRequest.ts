@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableEnterpriseAcceleratePolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the enterprise acceleration policy.
+   * 
    * This parameter is required.
    * 
    * @example

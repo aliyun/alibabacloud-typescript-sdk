@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForPrivateAccessPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the private access policies. You can specify up to 100 policy IDs.
+   * 
    * This parameter is required.
    */
   policyIds?: string[];

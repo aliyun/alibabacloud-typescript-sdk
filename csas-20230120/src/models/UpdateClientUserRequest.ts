@@ -4,18 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateClientUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 10701
    */
   departmentId?: string;
+  /**
+   * @remarks
+   * User description.
+   * 
+   * @example
+   * 示例用户
+   */
   description?: string;
   /**
+   * @remarks
+   * Email address.
+   * 
    * @example
    * johndoe@example.com
    */
   email?: string;
   /**
    * @remarks
+   * User ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +38,9 @@ export class UpdateClientUserRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Mobile phone number without country code.
+   * 
    * @example
    * 13641966835
    */

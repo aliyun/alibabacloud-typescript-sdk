@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetApprovalSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the approval template. Call [ListApprovalSchemas](~~ListApprovalSchemas~~) to list approval templates.
+   * 
+   * - [ListApprovalSchemas](~~ListApprovalSchemas~~): List approval templates in batches.
+   * 
    * This parameter is required.
    * 
    * @example

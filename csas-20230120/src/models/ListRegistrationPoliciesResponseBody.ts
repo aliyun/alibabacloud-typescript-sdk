@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount extends $dara.Model {
   /**
+   * @remarks
+   * The total number of device registration limits. This field is valid when the device registration limit type is **LimitAll**.
+   * 
    * @example
    * 3
    */
   all?: number;
   /**
+   * @remarks
+   * The number of mobile client log ons allowed for device registration. This field is valid when the device registration limit type is **LimitDiff**.
+   * 
    * @example
    * 0
    */
   mobile?: number;
   /**
+   * @remarks
+   * The number of PC client log ons allowed for device registration. This field is valid when the device registration limit type is **LimitDiff**.
+   * 
    * @example
    * 0
    */
@@ -45,12 +54,32 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount e
 
 export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $dara.Model {
   /**
+   * @remarks
+   * The device ownership. Valid values:
+   * 
+   * - **Company**: Company device.
+   * 
+   * - **Personal**: Personal device.
+   * 
    * @example
    * Company
    */
   deviceBelong?: string;
+  /**
+   * @remarks
+   * The number of device registration limits.
+   */
   limitCount?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetailLimitCount;
   /**
+   * @remarks
+   * The type of device registration limit. Valid values:
+   * 
+   * - **Unlimited**: No limit.
+   * 
+   * - **LimitAll**: Limit by total number.
+   * 
+   * - **LimitDiff**: Limit by device categorization.
+   * 
    * @example
    * LimitAll
    */
@@ -85,38 +114,83 @@ export class ListRegistrationPoliciesResponseBodyPoliciesLimitDetail extends $da
 
 export class ListRegistrationPoliciesResponseBodyPolicies extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the device registration policy.
+   * 
    * @example
    * 2023-05-16 17:18:46
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the device registration policy.
+   * 
+   * @example
+   * 这是一条设备注册策略。
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of device registration policy limit details.
+   */
   limitDetail?: ListRegistrationPoliciesResponseBodyPoliciesLimitDetail[];
   /**
+   * @remarks
+   * The policy matching target type. Valid values:
+   * 
+   * - **UserGroupAll**: Associate all users.
+   * 
+   * - **UserGroupNormal**: Associate some user groups.
+   * 
    * @example
    * UserGroupNormal
    */
   matchMode?: string;
   /**
+   * @remarks
+   * The name of the device registration policy.
+   * 
    * @example
    * registration_policy_name
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the device registration policy.
+   * 
    * @example
    * reg-policy-dcbfd33cb004****
    */
   policyId?: string;
   /**
+   * @remarks
+   * The policy priority for device registration. A value of 0 indicates the highest priority, and 99 indicates the lowest priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The status of the device registration policy. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
   status?: string;
+  /**
+   * @remarks
+   * A collection of user group IDs for the device registration policy. This field has a value when the policy matching target type is **UserGroupNormal**.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * The whitelist of users for the device registration policy.
+   */
   whitelist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -167,13 +241,23 @@ export class ListRegistrationPoliciesResponseBodyPolicies extends $dara.Model {
 }
 
 export class ListRegistrationPoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of device registration policies.
+   */
   policies?: ListRegistrationPoliciesResponseBodyPolicies[];
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 7A8FE38A-E29C-5678-B84A-FEDBCB83552F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of device registration policies.
+   * 
    * @example
    * 1
    */

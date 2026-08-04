@@ -39,7 +39,21 @@ export class CreateWmExtractTaskShrinkRequest extends $dara.Model {
    * test-****.pdf
    */
   filename?: string;
+  /**
+   * @remarks
+   * Image extraction parameters
+   */
   imageExtractParamsOpenApiShrink?: string;
+  /**
+   * @remarks
+   * Audio watermark parameter: specifies whether the watermark was embedded by the client SDK. Default value: false. Valid values:  
+   * 
+   * - **true**: Yes  
+   * - **false**: No
+   * 
+   * @example
+   * false
+   */
   isClientEmbed?: boolean;
   /**
    * @remarks

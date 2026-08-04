@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DetachApplication2ConnectorResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 4D169859-A4F2-5EC8-853B-8447787C0D8A
    */

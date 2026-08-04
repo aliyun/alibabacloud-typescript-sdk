@@ -4,22 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBootAndAntiUninstallPolicyShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Let end users submit approval requests.
+   * 
    * @example
    * true
    */
   allowReport?: boolean;
+  /**
+   * @remarks
+   * Content shown in the client-side block dialog.
+   */
   blockContentShrink?: string;
   /**
+   * @remarks
+   * Enable anti-uninstall.
+   * 
    * @example
    * true
    */
   isAntiUninstall?: boolean;
   /**
+   * @remarks
+   * Enable auto-start.
+   * 
    * @example
    * true
    */
   isBoot?: boolean;
+  /**
+   * @remarks
+   * List of user group IDs to which this policy applies.
+   */
   userGroupIds?: string[];
+  /**
+   * @remarks
+   * List of whitelisted users.
+   */
   whitelistUsers?: string[];
   static names(): { [key: string]: string } {
     return {

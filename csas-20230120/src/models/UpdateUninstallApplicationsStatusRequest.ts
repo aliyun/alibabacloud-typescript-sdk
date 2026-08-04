@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUninstallApplicationsStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of uninstall request IDs.
+   */
   applicationIds?: string[];
   /**
+   * @remarks
+   * Status of the uninstall request. Valid values:
+   * 
+   * - **Approved**: Approved.
+   * 
+   * - **Rejected**: Rejected.
+   * 
    * @example
    * Approved
    */

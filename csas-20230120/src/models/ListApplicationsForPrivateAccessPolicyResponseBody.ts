@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges extends $dara.Model {
   /**
+   * @remarks
+   * The start port.
+   * 
    * @example
    * 80
    */
   begin?: number;
   /**
+   * @remarks
+   * The end port.
+   * 
    * @example
    * 81
    */
@@ -37,30 +43,70 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
 }
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of private access application addresses.
+   */
   addresses?: string[];
   /**
+   * @remarks
+   * The ID of the private access application.
+   * 
    * @example
    * pa-application-7a9243dd02f4****
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The time when the private access application was created.
+   * 
    * @example
    * 2022-09-27 18:10:25
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the private access application.
+   * 
+   * @example
+   * 这是一条被内网访问策略引用的内网访问应用
+   */
   description?: string;
   /**
+   * @remarks
+   * The name of the private access application.
+   * 
    * @example
    * application_name
    */
   name?: string;
+  /**
+   * @remarks
+   * A collection of port ranges for the private access application.
+   */
   portRanges?: ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicationsPortRanges[];
   /**
+   * @remarks
+   * The protocol of the private access application. Valid values:
+   * 
+   * - **All**: All protocols.
+   * 
+   * - **TCP**
+   * 
+   * - **UDP**
+   * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The status of the private access application. Valid values:
+   * 
+   * - **Enabled**: The application is enabled.
+   * 
+   * - **Disabled**: The application is disabled.
+   * 
    * @example
    * Enabled
    */
@@ -107,8 +153,15 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplicatio
 }
 
 export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of private access applications.
+   */
   applications?: ListApplicationsForPrivateAccessPolicyResponseBodyPolicesApplications[];
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * pa-policy-1b0d0e8b4bcf****
    */
@@ -140,8 +193,15 @@ export class ListApplicationsForPrivateAccessPolicyResponseBodyPolices extends $
 }
 
 export class ListApplicationsForPrivateAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of private access policies.
+   */
   polices?: ListApplicationsForPrivateAccessPolicyResponseBodyPolices[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 4D169859-A4F2-5EC8-853B-8447787C0D8A
    */

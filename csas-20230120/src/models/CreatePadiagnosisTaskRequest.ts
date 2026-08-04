@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePADiagnosisTaskRequestUdpExtraConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The expected response from the backend server.
+   * 
    * @example
    * hello
    */
   expectedResponse?: string;
   /**
+   * @remarks
+   * The UDP request content.
+   * 
    * @example
    * hello
    */
@@ -38,12 +44,20 @@ export class CreatePADiagnosisTaskRequestUdpExtraConfigs extends $dara.Model {
 
 export class CreatePADiagnosisTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the terminal device.
+   * 
    * @example
    * 2987b3e0-8108-2f99-4d18-3b4f1c1c36d7
    */
   devTag?: string;
   /**
    * @remarks
+   * The diagnosis type. Valid values:
+   * 
+   * - **FullLink**: full-link diagnosis.
+   * - **Application**: application diagnosis.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +66,8 @@ export class CreatePADiagnosisTaskRequest extends $dara.Model {
   diagnoseType?: string;
   /**
    * @remarks
+   * The address to diagnose.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,12 +75,19 @@ export class CreatePADiagnosisTaskRequest extends $dara.Model {
    */
   host?: string;
   /**
+   * @remarks
+   * The POP point ID.
+   * 
    * @example
    * pop-3e244b62357dcafc
    */
   popId?: string;
   /**
    * @remarks
+   * The POP point selection mode. Valid values:
+   * - **AutoSelect**: automatic selection.
+   * - **ManualSelect**: manual selection.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +96,8 @@ export class CreatePADiagnosisTaskRequest extends $dara.Model {
   popMode?: string;
   /**
    * @remarks
+   * The port.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -81,15 +106,33 @@ export class CreatePADiagnosisTaskRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
+   * The protocol used by the internal network access application. Valid values:
+   * - **TCP**
+   * - **UDP**.
+   * 
    * This parameter is required.
    * 
    * @example
    * TCP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The extra configurations for UDP diagnosis. If this parameter is not specified, any response received is considered a success.
+   */
   udpExtraConfigs?: CreatePADiagnosisTaskRequestUdpExtraConfigs;
+  /**
+   * @remarks
+   * The user group ID.
+   * 
+   * @example
+   * 用户组ID。
+   */
   userGroupId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * Zhaosi
    */

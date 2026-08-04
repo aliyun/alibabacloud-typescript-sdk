@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AttachPolicy2ApprovalProcessResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * C51D9340-4604-5331-AE62-407F3B408F86
    */

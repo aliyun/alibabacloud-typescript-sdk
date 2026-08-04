@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePrivateAccessApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the internal network access application. You can get this value from:
+   * 
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): List internal network access applications.
+   * 
+   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Create an internal network access application.
+   * 
    * This parameter is required.
    * 
    * @example

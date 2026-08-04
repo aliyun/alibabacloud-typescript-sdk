@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEnterpriseAccelerateTargetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D1AE33DD-0D46-59CD-8340-92BEA2BDD0F1
    */

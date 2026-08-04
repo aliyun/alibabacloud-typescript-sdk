@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetActiveIdpConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A description of the identity provider configuration.
+   * 
+   * @example
+   * 示例身份源
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the identity provider configuration.
+   * 
    * @example
    * idp-cfg001
    */
   id?: string;
+  /**
+   * @remarks
+   * The name of the identity provider configuration.
+   * 
+   * @example
+   * 测试身份源
+   */
   name?: string;
   /**
+   * @remarks
+   * The type of the identity provider configuration.
+   * 
    * @example
    * DingTalk
    */
@@ -43,8 +63,15 @@ export class GetActiveIdpConfigResponseBodyData extends $dara.Model {
 }
 
 export class GetActiveIdpConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The identity provider configuration.
+   */
   data?: GetActiveIdpConfigResponseBodyData;
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 4D169859-A4F2-5EC8-853B-8447787C0D8A
    */

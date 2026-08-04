@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeUserDeviceSessionRequest extends $dara.Model {
   /**
    * @remarks
+   * The device tag.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RevokeUserDeviceSessionRequest extends $dara.Model {
   devTag?: string;
   /**
    * @remarks
+   * The SASE user ID.
+   * 
    * This parameter is required.
    * 
    * @example

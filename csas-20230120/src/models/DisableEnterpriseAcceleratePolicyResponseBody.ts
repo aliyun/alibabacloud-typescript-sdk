@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableEnterpriseAcceleratePolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E4C3E4CA-87CC-5EF6-91DD-D400A812EB43
    */

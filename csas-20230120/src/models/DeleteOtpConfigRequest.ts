@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteOtpConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * 张三
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {

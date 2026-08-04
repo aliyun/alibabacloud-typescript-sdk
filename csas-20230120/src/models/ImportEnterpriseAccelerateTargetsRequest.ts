@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ImportEnterpriseAccelerateTargetsRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the enterprise acceleration policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ImportEnterpriseAccelerateTargetsRequest extends $dara.Model {
   eapId?: string;
   /**
    * @remarks
+   * URL of the file to import.
+   * 
    * This parameter is required.
    * 
    * @example

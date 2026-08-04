@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class LookupWmInfoMappingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * String-formatted watermark information obtained from the mapping lookup. Value source:
+   * 
+   * - [CreateWmInfoMapping](~~CreateWmInfoMapping~~): The **WmInfoBytesB64** parameter from the CreateWmInfoMapping API.
+   * 
    * @example
    * aGVsbG8gc2F*****
    */
@@ -30,8 +35,15 @@ export class LookupWmInfoMappingResponseBodyData extends $dara.Model {
 }
 
 export class LookupWmInfoMappingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Query result of the mapping.
+   */
   data?: LookupWmInfoMappingResponseBodyData;
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 7E9D7ACD-53D5-56EF-A913-79D148D06299
    */

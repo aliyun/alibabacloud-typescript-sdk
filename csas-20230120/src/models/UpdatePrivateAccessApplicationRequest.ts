@@ -2,12 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 import { AddressGroup } from "./AddressGroup";
 import { PAL7Config } from "./Pal7config";
+import { PAApplicationUnauthorizedAccessConfig } from "./PaapplicationUnauthorizedAccessConfig";
 
 
 export class UpdatePrivateAccessApplicationRequestPortRanges extends $dara.Model {
   /**
    * @remarks
-   * The start port. The start port must be less than or equal to the end port.
+   * The start port. The value must be less than or equal to the end port.
    * 
    * @example
    * 80
@@ -15,7 +16,7 @@ export class UpdatePrivateAccessApplicationRequestPortRanges extends $dara.Model
   begin?: number;
   /**
    * @remarks
-   * The end port. The end port must be greater than or equal to the start port.
+   * The end port. The value must be greater than or equal to the start port.
    * 
    * @example
    * 81
@@ -48,15 +49,14 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   addressGroups?: AddressGroup[];
   /**
    * @remarks
-   * The addresses of the office applications. You can enter up to 1,000 addresses of office applications.
+   * The addresses of the internal-facing access application. You can specify up to 1000 addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The ID of the office application. You can obtain the value by calling the following operations:
-   * 
-   * *   [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): queries office applications.
-   * *   [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an office application.
+   * The ID of the internal-facing access application. You can obtain the value from the following operations:
+   * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): lists internal-facing access applications.
+   * - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): creates an internal-facing access application.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,10 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   configMode?: string;
   /**
    * @remarks
-   * The description of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+   * 
+   * @example
+   * 这是一条内网访问应用
    * 
    * **if can be null:**
    * true
@@ -75,12 +78,12 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the configurations of Layer 7 applications.
+   * The browser access mode parameter: the Layer 7 application configuration.
    */
   l7Config?: PAL7Config;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the prefix of the domain name that the proxy gateway uses. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
+   * The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
    * 
    * @example
    * app1-xxx
@@ -88,7 +91,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   l7ProxyDomainAutomaticPrefix?: string;
   /**
    * @remarks
-   * The browser access mode parameter. The parameter specifies the custom domain name of the proxy gateway.
+   * The browser access mode parameter: the custom proxy domain name.
    * 
    * @example
    * app1.example.com
@@ -96,7 +99,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   l7ProxyDomainCustom?: string;
   /**
    * @remarks
-   * 浏览器访问模式参数：私有代理域名。
+   * The browser access mode parameter: the private proxy domain name.
    * 
    * @example
    * app1.example.com
@@ -106,10 +109,9 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   l7ProxyDomainPrivate?: string;
   /**
    * @remarks
-   * The modification type of the office application. Valid values:
-   * 
-   * *   **Cover**: uses the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to overwrite the original addresses, port ranges, and tag IDs. This is the default value.
-   * *   **Append**: adds the values of the **Addresses**, **PortRanges**, and **TagIds** parameters respectively to the original addresses, port ranges, and tag IDs.
+   * The modification type of the internal-facing access application. Valid values:
+   * - **Cover** (default): overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
+   * - **Append**: adds the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
    * 
    * @example
    * Cover
@@ -118,16 +120,15 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port ranges of the office applications. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicated or overlapped.
+   * The port ranges of the internal-facing access application. You can specify up to 65535 port ranges. Multiple port ranges cannot be duplicate or overlap.
    */
   portRanges?: UpdatePrivateAccessApplicationRequestPortRanges[];
   /**
    * @remarks
-   * The protocol that is used by the office application. Valid values:
-   * 
-   * *   **All**
-   * *   **TCP**
-   * *   **UDP**
+   * The protocol of the internal-facing access application. Valid values:
+   * - **All**: all protocols.
+   * - **TCP**
+   * - **UDP**
    * 
    * @example
    * All
@@ -135,10 +136,9 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The status of the office application. Valid values:
-   * 
-   * *   **Enabled**
-   * *   **Disabled**
+   * The status of the internal-facing access application. Valid values:
+   * - **Enabled**: enabled.
+   * - **Disabled**: disabled.
    * 
    * @example
    * Enabled
@@ -146,12 +146,13 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The IDs of the tags for the office applications. You can add up to six custom tags to an office application.
+   * The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
    * 
    * **if can be null:**
    * true
    */
   tagIds?: string[];
+  unauthorizedAccessConfig?: PAApplicationUnauthorizedAccessConfig;
   static names(): { [key: string]: string } {
     return {
       addressGroups: 'AddressGroups',
@@ -169,6 +170,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
       protocol: 'Protocol',
       status: 'Status',
       tagIds: 'TagIds',
+      unauthorizedAccessConfig: 'UnauthorizedAccessConfig',
     };
   }
 
@@ -189,6 +191,7 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
       protocol: 'string',
       status: 'string',
       tagIds: { 'type': 'array', 'itemType': 'string' },
+      unauthorizedAccessConfig: PAApplicationUnauthorizedAccessConfig,
     };
   }
 
@@ -207,6 +210,9 @@ export class UpdatePrivateAccessApplicationRequest extends $dara.Model {
     }
     if(Array.isArray(this.tagIds)) {
       $dara.Model.validateArray(this.tagIds);
+    }
+    if(this.unauthorizedAccessConfig && typeof (this.unauthorizedAccessConfig as any).validate === 'function') {
+      (this.unauthorizedAccessConfig as any).validate();
     }
     super.validate();
   }

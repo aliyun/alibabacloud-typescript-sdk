@@ -4,32 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Model {
   /**
+   * @remarks
+   * The description of the forwarding rule.
+   * 
    * @example
    * asdasdasd
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the destination instance.
+   * 
    * @example
    * connector-4178bc59bec56df1
    */
   destinationId?: string;
   /**
+   * @remarks
+   * The type of the access destination. Valid values:
+   * - **Connector**: connector.
+   * 
    * @example
    * Connector
    */
   destinationType?: string;
   /**
+   * @remarks
+   * The ID of the forwarding rule.
+   * 
    * @example
    * fs-8b299ac5a93a0a3a
    */
   forwardId?: string;
+  /**
+   * @remarks
+   * The name of the forwarding rule.
+   * 
+   * @example
+   * 白名单加速
+   */
   name?: string;
   /**
+   * @remarks
+   * The policy priority.
+   * 
    * @example
    * 100
    */
   priority?: string;
   /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
@@ -68,6 +96,10 @@ export class ListForwardStrategiesResponseBodyForwardStrategies extends $dara.Mo
 }
 
 export class ListForwardStrategiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of forwarding rules.
+   */
   forwardStrategies?: ListForwardStrategiesResponseBodyForwardStrategies[];
   /**
    * @remarks
@@ -78,6 +110,9 @@ export class ListForwardStrategiesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of policies.
+   * 
    * @example
    * 1
    */

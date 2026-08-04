@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserDeviceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the endpoint device. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example

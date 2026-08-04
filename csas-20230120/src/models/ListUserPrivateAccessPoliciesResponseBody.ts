@@ -13,9 +13,9 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttribute
   idpId?: number;
   /**
    * @remarks
-   * Relation of the user group. Values:
-   * - **Equal**: Equal.
-   * - **Unequal**: Not equal.
+   * The relationship of the user group. Valid values:
+   * - **Equal**: equal to.
+   * - **Unequal**: not equal to.
    * 
    * @example
    * Equal
@@ -23,11 +23,11 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttribute
   relation?: string;
   /**
    * @remarks
-   * Type of the user group. Values:
-   * - **username**: Username.
-   * - **department**: Department.
-   * - **email**: Email.
-   * - **telephone**: Telephone.
+   * The type of the user group. Valid values:
+   * - **username**: the username.
+   * - **department**: the department.
+   * - **email**: the email address.
+   * - **telephone**: the mobile phone number.
    * 
    * @example
    * department
@@ -36,10 +36,10 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttribute
   /**
    * @remarks
    * The value of the user group attribute.
-   * - When the user group type is **username**, it represents the value of the username. The length is 1 to 128 characters, supporting Chinese and case-sensitive English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
-   * - When the user group type is **department**, it represents the value of the department. For example: OU=Department1,OU=SASE DingTalk.
-   * - When the user group type is **email**, it represents the value of the email. For example: username@example.com.
-   * - When the user group type is **telephone**, it represents the value of the phone number. For example: 13900001234.
+   * - When the user group type is **username**, this parameter indicates the value of the username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+   * - When the user group type is **department**, this parameter indicates the value of the department. For example: OU=Department1,OU=SASE DingTalk.
+   * - When the user group type is **email**, this parameter indicates the value of the email address. For example: username@example.com.
+   * - When the user group type is **telephone**, this parameter indicates the value of the mobile phone number. For example: 13900001234.
    * 
    * @example
    * OU=部门1,OU=SASE钉钉
@@ -75,12 +75,12 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttribute
 export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Model {
   /**
    * @remarks
-   * Set of custom user group attributes. Multiple custom user group attributes are in an OR relationship, effective as a union.
+   * The collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect as a union.
    */
   customUserAttributes?: ListUserPrivateAccessPoliciesResponseBodyPolicesCustomUserAttributes[];
   /**
    * @remarks
-   * Associated security baseline.
+   * The associated security baseline.
    * 
    * @example
    * device_attribute_name
@@ -88,7 +88,7 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   deviceAttributeName?: string;
   /**
    * @remarks
-   * Associated user group.
+   * The user group to which the policy belongs.
    * 
    * @example
    * user_group_name
@@ -96,7 +96,7 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   matchedUserGroup?: string;
   /**
    * @remarks
-   * Intranet access policy name.
+   * The name of the private access policy.
    * 
    * @example
    * private_access_policy_name
@@ -104,9 +104,9 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * Action of the intranet access policy. Values:
-   * - **Block**: Block.
-   * - **Allow**: Allow.
+   * The action of the private access policy. Valid values:
+   * - **Block**: blocks the access.
+   * - **Allow**: allows the access.
    * 
    * @example
    * Allow
@@ -114,7 +114,7 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   policyAction?: string;
   /**
    * @remarks
-   * Intranet access policy ID.
+   * The ID of the private access policy.
    * 
    * @example
    * pa-policy-1b0d0e8b4bcf****
@@ -122,7 +122,7 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   policyId?: string;
   /**
    * @remarks
-   * Priority of the intranet access policy. The number 1 indicates the highest priority.
+   * The priority of the private access policy. The number 1 indicates the highest priority.
    * 
    * @example
    * 1
@@ -130,19 +130,19 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
   priority?: number;
   /**
    * @remarks
-   * List of trusted process group IDs.
+   * The list of trusted process group IDs.
    */
   trustedProcessGroupIds?: string[];
   /**
    * @remarks
-   * List of trusted software IDs.
+   * The list of trusted software IDs.
    */
   trustedSoftwareIds?: string[];
   /**
    * @remarks
-   * Type of the user group for the intranet access policy. Values:
-   * - **Normal**: Normal user group.
-   * - **Custom**: Custom user group.
+   * The user group type of the private access policy. Valid values:
+   * - **Normal**: a normal user group.
+   * - **Custom**: a custom user group.
    * 
    * @example
    * Custom
@@ -199,12 +199,12 @@ export class ListUserPrivateAccessPoliciesResponseBodyPolices extends $dara.Mode
 export class ListUserPrivateAccessPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of authorized policies.
+   * The list of authorized access policies.
    */
   polices?: ListUserPrivateAccessPoliciesResponseBodyPolices[];
   /**
    * @remarks
-   * ID of the request.
+   * Id of the request.
    * 
    * @example
    * 9D852F87-AFB5-51B8-AACD-F7D0EFB8277D
@@ -212,7 +212,7 @@ export class ListUserPrivateAccessPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of authorized policies.
+   * The total number of authorized access policies.
    * 
    * @example
    * 20

@@ -3,40 +3,109 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportUserDevicesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of client statuses.
+   */
   appStatuses?: string[];
+  /**
+   * @remarks
+   * Department name. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+   * 
+   * @example
+   * 测试部
+   */
   department?: string;
   /**
+   * @remarks
+   * Terminal device ownership. Valid values:
+   * 
+   * - **Personal**: Personal device.
+   * 
+   * - **Company**: Company device.
+   * 
    * @example
    * Company
    */
   deviceBelong?: string;
+  /**
+   * @remarks
+   * Collection of terminal device statuses.
+   */
   deviceStatuses?: string[];
+  /**
+   * @remarks
+   * Collection of terminal device IDs.
+   */
   deviceTags?: string[];
+  /**
+   * @remarks
+   * Collection of terminal device operating system types.
+   */
   deviceTypes?: string[];
+  /**
+   * @remarks
+   * Collection of office data protection statuses.
+   */
   dlpStatuses?: string[];
   /**
+   * @remarks
+   * Terminal device name. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system returns all terminal devices whose names contain four-byte UTF-8 characters.
+   * 
    * @example
    * win10-64bit
    */
   hostname?: string;
+  /**
+   * @remarks
+   * Collection of Internet access statuses.
+   */
   iaStatuses?: string[];
   /**
+   * @remarks
+   * MAC address of the terminal device.
+   * 
    * @example
-   * 00:16:XX:XX:7c:46
+   * 00:16:7c:46:**:**
    */
   mac?: string;
+  /**
+   * @remarks
+   * Collection of network admission statuses.
+   */
   nacStatuses?: string[];
+  /**
+   * @remarks
+   * Collection of private network access statuses.
+   */
   paStatuses?: string[];
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
   /**
+   * @remarks
+   * Whether device sharing is enabled. Valid values:
+   * 
+   * - **true**: Sharing is enabled.
+   * 
+   * - **false**: Sharing is disabled.
+   * 
    * @example
    * true
    */
   sharingStatus?: boolean;
+  /**
+   * @remarks
+   * Username. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+   * 
+   * @example
+   * 王先生
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {

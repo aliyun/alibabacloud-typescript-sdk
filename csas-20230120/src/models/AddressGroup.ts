@@ -6,11 +6,17 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddressGroupPorts extends $dara.Model {
   /**
+   * @remarks
+   * Start port. Must be less than or equal to the end port.
+   * 
    * @example
    * 123
    */
   begin?: number;
   /**
+   * @remarks
+   * End port. Must be greater than or equal to the start port.
+   * 
    * @example
    * 1234
    */
@@ -39,7 +45,15 @@ export class AddressGroupPorts extends $dara.Model {
 }
 
 export class AddressGroup extends $dara.Model {
+  /**
+   * @remarks
+   * Address list.
+   */
   addresses?: string[];
+  /**
+   * @remarks
+   * Port list.
+   */
   ports?: AddressGroupPorts[];
   static names(): { [key: string]: string } {
     return {

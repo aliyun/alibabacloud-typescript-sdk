@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetWmEmbedTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID obtained when creating the embedding job. Source of the value:  
+   * - [CreateWmEmbedTask](~~CreateWmEmbedTask~~): Create a watermark embedding job.
+   * 
    * This parameter is required.
    * 
    * @example

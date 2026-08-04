@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdpDepartmentsResponseBodyDataDataList extends $dara.Model {
   /**
+   * @remarks
+   * The department ID.
+   * 
    * @example
    * 30520
    */
   id?: string;
   /**
+   * @remarks
+   * The ID of the custom IdP configuration.
+   * 
    * @example
    * 1440
    */
   idpConfigId?: string;
+  /**
+   * @remarks
+   * The department name.
+   * 
+   * @example
+   * 示例部门
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,8 +53,15 @@ export class ListIdpDepartmentsResponseBodyDataDataList extends $dara.Model {
 }
 
 export class ListIdpDepartmentsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of department information.
+   */
   dataList?: ListIdpDepartmentsResponseBodyDataDataList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 2
    */
@@ -73,8 +93,15 @@ export class ListIdpDepartmentsResponseBodyData extends $dara.Model {
 }
 
 export class ListIdpDepartmentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The department information.
+   */
   data?: ListIdpDepartmentsResponseBodyData;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 102350E7-1A20-58F5-9D63-ABEA820AE6E1
    */

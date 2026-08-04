@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetWmExtractTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the extraction task. You can obtain the task ID by calling the [CreateWmExtractTask](~~CreateWmExtractTask~~) operation.
+   * 
+   * - [CreateWmExtractTask](~~CreateWmExtractTask~~): Create a watermark extraction task.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetClientUserResponseBodyDataDepartment extends $dara.Model {
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 107
    */
   id?: string;
+  /**
+   * @remarks
+   * Department name.
+   * 
+   * @example
+   * 示例部门
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,43 +43,86 @@ export class GetClientUserResponseBodyDataDepartment extends $dara.Model {
 }
 
 export class GetClientUserResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Department to which the user belongs.
+   */
   department?: GetClientUserResponseBodyDataDepartment;
   /**
+   * @remarks
+   * Department ID.
+   * 
    * @example
    * 10713
    */
   departmentId?: string;
+  /**
+   * @remarks
+   * User description.
+   * 
+   * @example
+   * 示例用户
+   */
   description?: string;
   /**
+   * @remarks
+   * Email address.
+   * 
    * @example
    * johndoe@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 83
    */
   id?: string;
   /**
+   * @remarks
+   * ID of the custom identity source configuration.
+   * 
    * @example
-   * 598
+   * idp-cfg68956d86e********
    */
   idpConfigId?: string;
   /**
+   * @remarks
+   * Mobile phone number without country code.
+   * 
    * @example
-   * 13641966835
+   * 1364196****
    */
   mobileNumber?: string;
   /**
+   * @remarks
+   * User status. Valid values:
+   * 
+   * - **Enabled**: Enabled.
+   * 
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Disabled
    */
   status?: string;
   /**
+   * @remarks
+   * Unique identifier of the user.
+   * 
    * @example
    * su_abcd7215****
    */
   userId?: string;
+  /**
+   * @remarks
+   * Username.
+   * 
+   * @example
+   * 张三
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,8 +167,15 @@ export class GetClientUserResponseBodyData extends $dara.Model {
 }
 
 export class GetClientUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * User details.
+   */
   data?: GetClientUserResponseBodyData;
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
    */
