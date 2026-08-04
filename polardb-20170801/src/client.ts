@@ -66,6 +66,7 @@ export default class Client extends OpenApi {
       'cn-hongkong': "polardb.cn-hongkong.aliyuncs.com",
       'cn-guangzhou': "polardb.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "polardb.cn-chengdu.aliyuncs.com",
+      'ap-southeast-8': "polardb.ap-southeast-8.aliyuncs.com",
       'ap-southeast-7': "polardb.ap-southeast-7.aliyuncs.com",
       'ap-southeast-6': "polardb.ap-southeast-6.aliyuncs.com",
       'ap-southeast-5': "polardb.ap-southeast-5.aliyuncs.com",
@@ -18570,7 +18571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quota list.
+   * Queries the quota list.
    * 
    * @param request - DescribePolarFsQuotaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18621,7 +18622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the quota list.
+   * Queries the quota list.
    * 
    * @param request - DescribePolarFsQuotaListRequest
    * @returns DescribePolarFsQuotaListResponse
@@ -29088,14 +29089,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets file quota rules for specific directories in a PolarFS instance.
+   * Sets file quota rules for a specified directory in a Polarlakebase instance.
    * 
    * @remarks
-   * ## Request
-   * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+   * ## Request description
+   * This operation sets file quota rules for a specific directory in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which quota rules are applied and their related attributes. When you use `FilePathId` to specify a directory, ensure that the path is an absolute path from the root directory rather than a mount point path. You can also use the `Strategy` parameter to control how rules take effect on existing files. By default, rules take effect only when they are missing.
    * ### Notes
-   * - The `FilePathQuotas` list can contain up to 21 items.
-   * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+   * - The maximum length of the `FilePathQuotas` list is 21.
+   * - To apply rules to multiple levels of subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
    * 
    * @param request - SetPolarFsFileQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29134,14 +29135,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets file quota rules for specific directories in a PolarFS instance.
+   * Sets file quota rules for a specified directory in a Polarlakebase instance.
    * 
    * @remarks
-   * ## Request
-   * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+   * ## Request description
+   * This operation sets file quota rules for a specific directory in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which quota rules are applied and their related attributes. When you use `FilePathId` to specify a directory, ensure that the path is an absolute path from the root directory rather than a mount point path. You can also use the `Strategy` parameter to control how rules take effect on existing files. By default, rules take effect only when they are missing.
    * ### Notes
-   * - The `FilePathQuotas` list can contain up to 21 items.
-   * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+   * - The maximum length of the `FilePathQuotas` list is 21.
+   * - To apply rules to multiple levels of subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
    * 
    * @param request - SetPolarFsFileQuotaRequest
    * @returns SetPolarFsFileQuotaResponse

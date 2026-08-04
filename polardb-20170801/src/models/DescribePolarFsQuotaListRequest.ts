@@ -5,25 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarFsQuotaListRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID of the PolarDB instance on which the application depends.
    * 
    * @example
    * pc-************
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 30, 50, and 100.
+   * 
+   * Default value: 30.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The PolarFs instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +41,10 @@ export class DescribePolarFsQuotaListRequest extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The quota mode.
+   * The query mode. Valid values:
+   * 
+   * -  **quotaPolicy**: quota rule
+   * - **quota**: quota
    * 
    * @example
    * quotaPolicy

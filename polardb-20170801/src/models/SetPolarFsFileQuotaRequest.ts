@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   /**
    * @remarks
-   * The capacity quota in GB.
+   * The quota capacity. Unit: GB.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The absolute path of the directory.
+   * The directory path.
    * 
    * @example
    * /a/project
@@ -21,7 +21,7 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   filePathId?: string;
   /**
    * @remarks
-   * The inode quota.
+   * The quota inodes.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   inodes?: number;
   /**
    * @remarks
-   * The maximum depth of subdirectories to traverse under the path specified by `FilePathId`. A value of 1 traverses only the first level of subdirectories. A value of 0 traverses to the deepest level.
+   * The number of subdirectory levels to traverse under `FilePathId`. A value of 1 indicates that only the first-level subdirectories are traversed. A value of 0 indicates that all levels are traversed to the deepest level.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   maxDepth?: number;
   /**
    * @remarks
-   * A list of file quota rule IDs, separated by a comma (`,`).
+   * The IDs of the rules to apply, separated by commas (,).
    * 
    * @example
    * 1,2
@@ -45,11 +45,10 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   quotaIds?: string;
   /**
    * @remarks
-   * Specifies how to apply the rule to existing files. Valid values:
+   * The mode in which rules take effect on existing files. Valid values:
    * 
-   * - **missing**: Applies the rule only if one does not already exist. (Default)
-   * 
-   * - **all**: Applies the rule to all files.
+   * - **missing**: Rules take effect only when they are missing. This is the default value.
+   * - **all**: Rules take effect on all files.
    * 
    * @example
    * missing
@@ -97,14 +96,14 @@ export class SetPolarFsFileQuotaRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * An array of objects defining the file quota rules for specific directories.
+   * The details of the quota rules to apply to directories.
    * 
    * This parameter is required.
    */
   filePathQuotas?: SetPolarFsFileQuotaRequestFilePathQuotas[];
   /**
    * @remarks
-   * The ID of the PolarFS instance.
+   * The Polarlakebase instance ID.
    * 
    * This parameter is required.
    * 

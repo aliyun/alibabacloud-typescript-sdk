@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model {
   /**
    * @remarks
-   * The capacity in bytes.
+   * The capacity.
    * 
    * @example
    * 1073741824
@@ -13,7 +13,7 @@ export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model 
   capacity?: number;
   /**
    * @remarks
-   * The inode quota.
+   * Inodes
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model 
   path?: string;
   /**
    * @remarks
-   * The used capacity in bytes.
+   * The used capacity.
    * 
    * @example
    * 104857600
@@ -37,7 +37,7 @@ export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model 
   usedCapacity?: number;
   /**
    * @remarks
-   * The number of inodes in use.
+   * The number of used inodes.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model 
 export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -91,8 +91,8 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of records per page. Valid values: **30**, **50**, and **100**.
-   * 
+   * The number of entries per page. Valid values: **30**, **50**, and **100**.
+   *                               
    * Default value: **30**.
    * 
    * @example
@@ -101,7 +101,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The PolarFs instance ID.
    * 
    * @example
    * pfs-test****
@@ -109,12 +109,12 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * A list of directory quotas.
+   * The directory quotas.
    */
   quotaItems?: DescribePolarFsQuotaListResponseBodyQuotaItems[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******

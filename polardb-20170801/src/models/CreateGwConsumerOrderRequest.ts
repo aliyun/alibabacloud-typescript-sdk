@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGwConsumerOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * The idempotency token.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a42***********
@@ -13,9 +13,7 @@ export class CreateGwConsumerOrderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The expiration time of the API key in ISO 8601 format. The value must be later than the current time.
-   * 
-   * This parameter is required.
+   * The expiration time of the API key in ISO-8601 format. The value must be later than the current time.
    * 
    * @example
    * 2027-07-23T03:09:08Z
@@ -33,7 +31,7 @@ export class CreateGwConsumerOrderRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The number of API keys to generate, which corresponds to the number of resource plans to purchase. Valid values: 1 to 30.
+   * The number of API keys to generate (the number of capacity plans to order). Valid values: 1 to 30.
    * 
    * This parameter is required.
    * 
@@ -43,16 +41,12 @@ export class CreateGwConsumerOrderRequest extends $dara.Model {
   keyCount?: number;
   /**
    * @remarks
-   * The specification tier of the resource plan. Valid values:
-   * 
-   * - basic: 3000 points per plan.
-   * - advanced: 6000 points per plan.
-   * - pro: 9000 points per plan.
+   * The number of credits per API key. The value is a positive integer string.
    * 
    * This parameter is required.
    * 
    * @example
-   * basic
+   * 3000
    */
   packageSpec?: string;
   /**

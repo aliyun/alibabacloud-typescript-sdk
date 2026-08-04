@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolarFsFileQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarFS instance.
+   * The Polarlakebase instance ID.
    * 
    * @example
    * pfs-2ze0i74ka607*****
@@ -13,7 +13,7 @@ export class SetPolarFsFileQuotaResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 925B84D9-CA72-432C-95CF-738C22******
