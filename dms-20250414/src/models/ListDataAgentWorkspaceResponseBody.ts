@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace, in UNIX timestamp format (milliseconds).
+   * The creation time of the workspace, in milliseconds (UNIX timestamp).
    * 
    * @example
    * 1765960516000
@@ -19,6 +19,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * 20282*****7591
    */
   creator?: string;
+  creatorName?: string;
   /**
    * @remarks
    * The description of the workspace.
@@ -37,7 +38,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The most recent modification time of the workspace, in UNIX timestamp format (milliseconds).
+   * The most recent modification time of the workspace, in milliseconds (UNIX timestamp).
    * 
    * @example
    * 1765961516000
@@ -51,6 +52,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * admin
    */
   roleName?: string;
+  runningSessionCount?: number;
   /**
    * @remarks
    * The number of members in the workspace.
@@ -59,6 +61,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * 11
    */
   totalMember?: number;
+  totalSessionCount?: number;
   /**
    * @remarks
    * The workspace type.
@@ -95,11 +98,14 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
     return {
       createTime: 'CreateTime',
       creator: 'Creator',
+      creatorName: 'CreatorName',
       description: 'Description',
       isSessionShareEnabled: 'IsSessionShareEnabled',
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
+      runningSessionCount: 'RunningSessionCount',
       totalMember: 'TotalMember',
+      totalSessionCount: 'TotalSessionCount',
       type: 'Type',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
@@ -111,11 +117,14 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
     return {
       createTime: 'number',
       creator: 'string',
+      creatorName: 'string',
       description: 'string',
       isSessionShareEnabled: 'boolean',
       modifyTime: 'number',
       roleName: 'string',
+      runningSessionCount: 'number',
       totalMember: 'number',
+      totalSessionCount: 'number',
       type: 'string',
       workspaceId: 'string',
       workspaceName: 'string',

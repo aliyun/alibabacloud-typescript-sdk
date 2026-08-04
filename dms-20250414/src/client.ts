@@ -1550,6 +1550,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes MCP Servers from a specified workspace.
+   * 
+   * @param tmpReq - DeleteDataAgentMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentMcpResponse
+   */
+  async deleteDataAgentMcpWithOptions(tmpReq: $_model.DeleteDataAgentMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentMcpResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteDataAgentMcpShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.mcpServerIds)) {
+      request.mcpServerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mcpServerIds, "McpServerIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.mcpServerIdsShrink)) {
+      query["McpServerIds"] = request.mcpServerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentMcp",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentMcpResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentMcpResponse({}));
+  }
+
+  /**
+   * Deletes MCP Servers from a specified workspace.
+   * 
+   * @param request - DeleteDataAgentMcpRequest
+   * @returns DeleteDataAgentMcpResponse
+   */
+  async deleteDataAgentMcp(request: $_model.DeleteDataAgentMcpRequest): Promise<$_model.DeleteDataAgentMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentMcpWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the memory of a DataAgent.
    * 
    * @param request - DeleteDataAgentMemoryRequest
@@ -2706,6 +2758,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+   * 
+   * @param request - GetDataAgentMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentMcpResponse
+   */
+  async getDataAgentMcpWithOptions(request: $_model.GetDataAgentMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentMcpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mcpServerId)) {
+      query["McpServerId"] = request.mcpServerId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentMcp",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentMcpResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentMcpResponse({}));
+  }
+
+  /**
+   * Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+   * 
+   * @param request - GetDataAgentMcpRequest
+   * @returns GetDataAgentMcpResponse
+   */
+  async getDataAgentMcp(request: $_model.GetDataAgentMcpRequest): Promise<$_model.GetDataAgentMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentMcpWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
    * 
    * @param request - GetDataAgentSubAccountInfoRequest
@@ -3086,6 +3184,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+   * 
+   * @param request - GetListMcpServerToolsResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetListMcpServerToolsResultResponse
+   */
+  async getListMcpServerToolsResultWithOptions(request: $_model.GetListMcpServerToolsResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetListMcpServerToolsResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.mcpServerUuid)) {
+      query["McpServerUuid"] = request.mcpServerUuid;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetListMcpServerToolsResult",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetListMcpServerToolsResultResponse>(await this.callApi(params, req, runtime), new $_model.GetListMcpServerToolsResultResponse({}));
+  }
+
+  /**
+   * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+   * 
+   * @param request - GetListMcpServerToolsResultRequest
+   * @returns GetListMcpServerToolsResultResponse
+   */
+  async getListMcpServerToolsResult(request: $_model.GetListMcpServerToolsResultRequest): Promise<$_model.GetListMcpServerToolsResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getListMcpServerToolsResultWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a task to schedule and run a Notebook file.
    * 
    * @param request - GetNotebookAndSubmitTaskRequest
@@ -3415,6 +3563,136 @@ export default class Client extends OpenApi {
   async getWorkspaceQuota(request: $_model.GetWorkspaceQuotaRequest): Promise<$_model.GetWorkspaceQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkspaceQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * Installs all currently available system MCP services for a specified Data Agent workspace.
+   * 
+   * @param request - InitWorkspaceSystemMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitWorkspaceSystemMcpServerResponse
+   */
+  async initWorkspaceSystemMcpServerWithOptions(request: $_model.InitWorkspaceSystemMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitWorkspaceSystemMcpServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitWorkspaceSystemMcpServer",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitWorkspaceSystemMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.InitWorkspaceSystemMcpServerResponse({}));
+  }
+
+  /**
+   * Installs all currently available system MCP services for a specified Data Agent workspace.
+   * 
+   * @param request - InitWorkspaceSystemMcpServerRequest
+   * @returns InitWorkspaceSystemMcpServerResponse
+   */
+  async initWorkspaceSystemMcpServer(request: $_model.InitWorkspaceSystemMcpServerRequest): Promise<$_model.InitWorkspaceSystemMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initWorkspaceSystemMcpServerWithOptions(request, runtime);
+  }
+
+  /**
+   * Imports an MCP into DataAgent.
+   * 
+   * @remarks
+   * Imports an MCP into DataAgent.
+   * 
+   * @param request - InstallDataAgentMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallDataAgentMcpResponse
+   */
+  async installDataAgentMcpWithOptions(request: $_model.InstallDataAgentMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallDataAgentMcpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.endpoint)) {
+      query["Endpoint"] = request.endpoint;
+    }
+
+    if (!$dara.isNull(request.fromJson)) {
+      query["FromJson"] = request.fromJson;
+    }
+
+    if (!$dara.isNull(request.headers)) {
+      query["Headers"] = request.headers;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needUidInHeader)) {
+      query["NeedUidInHeader"] = request.needUidInHeader;
+    }
+
+    if (!$dara.isNull(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    if (!$dara.isNull(request.transportType)) {
+      query["TransportType"] = request.transportType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vswId)) {
+      query["VswId"] = request.vswId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallDataAgentMcp",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallDataAgentMcpResponse>(await this.callApi(params, req, runtime), new $_model.InstallDataAgentMcpResponse({}));
+  }
+
+  /**
+   * Imports an MCP into DataAgent.
+   * 
+   * @remarks
+   * Imports an MCP into DataAgent.
+   * 
+   * @param request - InstallDataAgentMcpRequest
+   * @returns InstallDataAgentMcpResponse
+   */
+  async installDataAgentMcp(request: $_model.InstallDataAgentMcpRequest): Promise<$_model.InstallDataAgentMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.installDataAgentMcpWithOptions(request, runtime);
   }
 
   /**
@@ -3810,6 +4088,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+   * 
+   * @param request - ListDataAgentMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataAgentMcpResponse
+   */
+  async listDataAgentMcpWithOptions(request: $_model.ListDataAgentMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentMcpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.readyOnly)) {
+      query["ReadyOnly"] = request.readyOnly;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataAgentMcp",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataAgentMcpResponse>(await this.callApi(params, req, runtime), new $_model.ListDataAgentMcpResponse({}));
+  }
+
+  /**
+   * Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+   * 
+   * @param request - ListDataAgentMcpRequest
+   * @returns ListDataAgentMcpResponse
+   */
+  async listDataAgentMcp(request: $_model.ListDataAgentMcpRequest): Promise<$_model.ListDataAgentMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataAgentMcpWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the DataAgent memory list (up to 50 memories per RAM user).
    * 
    * @param request - ListDataAgentMemoryRequest
@@ -3884,7 +4232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of historical session descriptions for a Data Agent.
+   * Retrieves the list of historical session descriptions for Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3899,6 +4247,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.createStartTime)) {
       query["CreateStartTime"] = request.createStartTime;
+    }
+
+    if (!$dara.isNull(request.creatorId)) {
+      query["CreatorId"] = request.creatorId;
     }
 
     if (!$dara.isNull(request.customAgentId)) {
@@ -3955,7 +4307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of historical session descriptions for a Data Agent.
+   * Retrieves the list of historical session descriptions for Data Agent.
    * 
    * @param request - ListDataAgentSessionRequest
    * @returns ListDataAgentSessionResponse
@@ -3975,6 +4327,10 @@ export default class Client extends OpenApi {
   async listDataAgentWorkspaceWithOptions(request: $_model.ListDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataAgentWorkspaceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
     }
@@ -5364,6 +5720,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configuration of an MCP server.
+   * 
+   * @remarks
+   * Modifies the configuration of an MCP server.
+   * 
+   * @param request - ModifyDataAgentMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDataAgentMcpResponse
+   */
+  async modifyDataAgentMcpWithOptions(request: $_model.ModifyDataAgentMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDataAgentMcpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.endpoint)) {
+      query["Endpoint"] = request.endpoint;
+    }
+
+    if (!$dara.isNull(request.headers)) {
+      query["Headers"] = request.headers;
+    }
+
+    if (!$dara.isNull(request.mcpServerId)) {
+      query["McpServerId"] = request.mcpServerId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needUidInHeader)) {
+      query["NeedUidInHeader"] = request.needUidInHeader;
+    }
+
+    if (!$dara.isNull(request.transportType)) {
+      query["TransportType"] = request.transportType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDataAgentMcp",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDataAgentMcpResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDataAgentMcpResponse({}));
+  }
+
+  /**
+   * Modifies the configuration of an MCP server.
+   * 
+   * @remarks
+   * Modifies the configuration of an MCP server.
+   * 
+   * @param request - ModifyDataAgentMcpRequest
+   * @returns ModifyDataAgentMcpResponse
+   */
+  async modifyDataAgentMcp(request: $_model.ModifyDataAgentMcpRequest): Promise<$_model.ModifyDataAgentMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDataAgentMcpWithOptions(request, runtime);
+  }
+
+  /**
    * Operate custom agents in personal spaces and workspaces.
    * 
    * @param request - OperateCustomAgentRequest
@@ -5981,6 +6417,56 @@ export default class Client extends OpenApi {
   async startDataAgentAccuracyTestTask(request: $_model.StartDataAgentAccuracyTestTaskRequest): Promise<$_model.StartDataAgentAccuracyTestTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startDataAgentAccuracyTestTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+   * 
+   * @param request - StartListMcpServerToolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartListMcpServerToolsResponse
+   */
+  async startListMcpServerToolsWithOptions(request: $_model.StartListMcpServerToolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartListMcpServerToolsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.mcpServerUuid)) {
+      query["McpServerUuid"] = request.mcpServerUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartListMcpServerTools",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartListMcpServerToolsResponse>(await this.callApi(params, req, runtime), new $_model.StartListMcpServerToolsResponse({}));
+  }
+
+  /**
+   * Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+   * 
+   * @param request - StartListMcpServerToolsRequest
+   * @returns StartListMcpServerToolsResponse
+   */
+  async startListMcpServerTools(request: $_model.StartListMcpServerToolsRequest): Promise<$_model.StartListMcpServerToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startListMcpServerToolsWithOptions(request, runtime);
   }
 
   /**

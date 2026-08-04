@@ -11,6 +11,8 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
   failedCount?: number;
   gmtCreate?: string;
   gmtModified?: string;
+  operatorMode?: string;
+  requestedOperatorMode?: string;
   skippedCount?: number;
   status?: string;
   successCount?: number;
@@ -27,6 +29,8 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
       failedCount: 'FailedCount',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      operatorMode: 'OperatorMode',
+      requestedOperatorMode: 'RequestedOperatorMode',
       skippedCount: 'SkippedCount',
       status: 'Status',
       successCount: 'SuccessCount',
@@ -46,6 +50,8 @@ export class AgenticDmsInstanceSyncTask extends $dara.Model {
       failedCount: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
+      operatorMode: 'string',
+      requestedOperatorMode: 'string',
       skippedCount: 'number',
       status: 'string',
       successCount: 'number',

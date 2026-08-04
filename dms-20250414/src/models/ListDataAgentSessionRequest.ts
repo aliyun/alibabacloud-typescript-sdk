@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the session creation period.
+   * The end time for session creation.
    * 
    * @example
    * 1770912000000
@@ -13,12 +13,13 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   createEndTime?: number;
   /**
    * @remarks
-   * The start time of the session creation period.
+   * The start time for session creation.
    * 
    * @example
    * 1770825600000
    */
   createStartTime?: number;
+  creatorId?: string;
   /**
    * @remarks
    * The custom agent ID.
@@ -29,7 +30,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -43,6 +44,12 @@ export class ListDataAgentSessionRequest extends $dara.Model {
    * true
    */
   isSaved?: boolean;
+  /**
+   * @remarks
+   * The mode. Valid values:
+   * - Analysis
+   * - Coding
+   */
   mode?: string;
   /**
    * @remarks
@@ -62,7 +69,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The session type. This parameter is required if a workspace is specified.
+   * The session type. This parameter is required when a workspace is specified.
    * 
    * @example
    * myFavorite
@@ -73,7 +80,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
    * The Data Agent title. Fuzzy match is supported.
    * 
    * @example
-   * 帮我分析一下这份数据
+   * Analyze this data for me
    */
   title?: string;
   /**
@@ -88,6 +95,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
     return {
       createEndTime: 'CreateEndTime',
       createStartTime: 'CreateStartTime',
+      creatorId: 'CreatorId',
       customAgentId: 'CustomAgentId',
       DMSUnit: 'DMSUnit',
       isSaved: 'IsSaved',
@@ -104,6 +112,7 @@ export class ListDataAgentSessionRequest extends $dara.Model {
     return {
       createEndTime: 'number',
       createStartTime: 'number',
+      creatorId: 'string',
       customAgentId: 'string',
       DMSUnit: 'string',
       isSaved: 'boolean',

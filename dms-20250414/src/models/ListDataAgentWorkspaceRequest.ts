@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataAgentWorkspaceRequest extends $dara.Model {
+  creator?: string;
   /**
    * @remarks
    * The current DMS unit.
@@ -37,7 +38,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field name used for sorting.
+   * The name of the field by which to sort.
    * 
    * @example
    * CreateTime
@@ -83,6 +84,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   workspaceType?: string;
   static names(): { [key: string]: string } {
     return {
+      creator: 'Creator',
       DMSUnit: 'DMSUnit',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -97,6 +99,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      creator: 'string',
       DMSUnit: 'string',
       maxResults: 'number',
       nextToken: 'string',

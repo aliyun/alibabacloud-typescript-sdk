@@ -15,7 +15,7 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
    * @remarks
    * The usage stage of the custom agent. Valid values:
    * - **debug**: Debug stage.
-   * - **prod**: Production stage.
+   * - **prod**: Production environment stage.
    * 
    * @example
    * prod
@@ -42,9 +42,9 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
   /**
    * @remarks
    * The mode. Valid values:
-   *  - **ASK_DATA**: Ask data mode.
-   *  - **ANALYSIS**: Analysis mode.
-   *  - **INSIGHT**: Insight mode.
+   * - **ASK_DATA**: Ask data mode.
+   * - **ANALYSIS**: Analysis mode.
+   * - **INSIGHT**: Insight mode.
    * 
    * @example
    * ANALYSIS
@@ -54,7 +54,7 @@ export class ListDataAgentSessionResponseBodyDataSessionConfig extends $dara.Mod
    * @remarks
    * The name of the user OSS bucket.
    * 
-   * - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+   * - Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
    * 
    * @example
    * user-oss-bucket
@@ -166,7 +166,7 @@ export class ListDataAgentSessionResponseBodyData extends $dara.Model {
    * The title.
    * 
    * @example
-   * 分析一下这份文件，给出报告。
+   * Analyze this file and generate a report
    */
   title?: string;
   /**
@@ -229,7 +229,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   data?: ListDataAgentSessionResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned when the request is abnormal.
    * 
    * @example
    * success
@@ -237,7 +237,7 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * UnknownError
@@ -269,10 +269,10 @@ export class ListDataAgentSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request is successful.
-   * - **false**: The request fails.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true
