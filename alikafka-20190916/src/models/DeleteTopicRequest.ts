@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTopicRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteTopicRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * The topic name.
    * 
    * This parameter is required.
    * 

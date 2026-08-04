@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePostPayOrderRequestServerlessConfig extends $dara.Model {
   /**
    * @remarks
-   * The reserved publish traffic specification. Only integers are supported. The minimum value is 60. This parameter is required for serverless instances.
-   * > The actual upper limit is subject to the inventory in the current region. Refer to the purchase page for the available range.
+   * The reserved publish capacity. Only integers are supported. The minimum value is 60. This parameter is required for serverless instances.
+   * > The actual upper limit is subject to the available inventory in the current region. Refer to the purchase page for the available range.
    * 
    * @example
    * 60
@@ -14,9 +14,9 @@ export class UpgradePostPayOrderRequestServerlessConfig extends $dara.Model {
   reservedPublishCapacity?: number;
   /**
    * @remarks
-   * The reserved subscribe traffic specification. Only integers are supported. The minimum value is 20. This parameter is required for serverless instances.
+   * The reserved subscribe capacity. Only integers are supported. The minimum value is 20. This parameter is required for serverless instances.
    * 
-   * > The actual upper limit is subject to the inventory in the current region. Refer to the purchase page for the available range.
+   * > The actual upper limit is subject to the available inventory in the current region. Refer to the purchase page for the available range.
    * 
    * @example
    * 60
@@ -62,13 +62,13 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The Internet traffic.
+   * The public network traffic.
    * 
-   * - The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
+   * - The public network traffic that you specify must be greater than or equal to the current public network traffic of the instance.
    * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > - If EipModel is set to true, the value of EipMax must be greater than 0.
-   * > - If EipModel is set to false, the value of EipMax must be 0.
+   * > - If **EipModel** is set to **true**, the value of **EipMax** must be greater than 0.
+   * > - If **EipModel** is set to **false**, the value of **EipMax** must be **0**.
    * > - If the instance is a serverless instance, you do not need to specify this parameter.
    * 
    * @example
@@ -104,7 +104,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
    * 
    * - The peak traffic that you specify must be greater than or equal to the current peak traffic of the instance.
    * 
-   * - You must specify either the peak traffic or the traffic specification. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
+   * - You must specify either the traffic specification or the peak traffic. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
    * 
    * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * > If the instance is a serverless instance, you do not need to specify this parameter.
@@ -119,7 +119,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
    * 
    * - The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
    * 
-   * - You must specify either the peak traffic or the traffic specification. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
+   * - You must specify either the traffic specification or the peak traffic. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
    * 
    * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * > If the instance is a serverless instance, you do not need to specify this parameter. This parameter is required for pay-as-you-go instances.
@@ -134,7 +134,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
    * 
    * * You must specify either the number of partitions or the topic specification. Specify only the number of partitions.
    * 
-   * * If you specify both the number of partitions and the topic specification, the system validates whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, an error is returned. If they are equivalent, the purchase is made based on the number of partitions.
+   * * If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
    * 
    * * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * > If the instance is a serverless instance, you do not need to specify this parameter. This parameter is required for pay-as-you-go instances.
@@ -155,7 +155,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The settings of the serverless instance. This parameter is required when you change the specifications of a serverless instance.
+   * The settings of the serverless instance. This parameter is required when you upgrade a serverless instance.
    */
   serverlessConfig?: UpgradePostPayOrderRequestServerlessConfig;
   /**
@@ -166,7 +166,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
    * 
    * - normal: Standard Edition (shared throughput)
    * - professional: Professional Edition (shared throughput)
-   * - professionalForHighRead: Professional Edition (shared read throughput)
+   * - professionalForHighRead: Professional Edition (shared throughput for high read)
    * 
    * If the PaidType of the instance is 3 (reserved specification pay-as-you-go + serverless elastic scaling pay-as-you-go), valid values:
    * - normal: Serverless Standard Edition
@@ -183,7 +183,7 @@ export class UpgradePostPayOrderRequest extends $dara.Model {
    * 
    * - You must specify either the number of partitions or the topic specification. Specify only the number of partitions.
    * 
-   * - If you specify both the number of partitions and the topic specification, the system validates whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, an error is returned. If they are equivalent, the purchase is made based on the number of partitions.
+   * - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
    * 
    * - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates success.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteConsumerGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class DeleteConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****

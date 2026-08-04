@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A return value of 200 indicates success.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteAclResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class DeleteAclResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B0740227-AA9A-4E14-8E9F-36ED665****

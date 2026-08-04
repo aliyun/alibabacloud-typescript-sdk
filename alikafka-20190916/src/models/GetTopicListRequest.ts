@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class GetTopicListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class GetTopicListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance to which the topic belongs.
    * 
    * @example
    * cn-hangzhou
@@ -39,7 +39,7 @@ export class GetTopicListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the topic whose information you want to query.
+   * The name of the topic whose information you want to retrieve.
    * 
    * @example
    * topic_name

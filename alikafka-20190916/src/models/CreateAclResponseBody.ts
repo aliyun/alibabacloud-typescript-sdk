@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates success.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateAclResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class CreateAclResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 56729737-C428-4E1B-AC68-7A8C2D5****

@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrePayInstanceShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * -
+   * - N ranges from 1 to 20.
    * 
-   * -
+   * - If this parameter is left empty, all tag keys are matched.
    * 
-   * - The key must be 1 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
+   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -21,13 +21,13 @@ export class CreatePrePayInstanceShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * -
+   * - N ranges from 1 to 20.
    * 
-   * -
+   * - This parameter can be left empty.
    * 
-   * - The value can be 0 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
+   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * test
@@ -59,20 +59,22 @@ export class CreatePrePayInstanceShrinkRequestTag extends $dara.Model {
 export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the Confluent components.
+   * The Confluent component configurations.
    * 
-   * > This parameter is required if you create a Confluent instance.
+   * 
+   * > This parameter is required when you create a Confluent instance.
    */
   confluentConfigShrink?: string;
   /**
    * @remarks
    * The deployment type. Valid values:
    * 
-   * - **4**: an instance accessible from the internet and a VPC
+   * - **4**: Internet- and VPC-connected instance
    * 
-   * - **5**: an instance accessible from a VPC only
+   * - **5**: VPC-connected instance
    * 
-   * > If you create a Confluent instance, you cannot specify the deployment type and must set this parameter to 5. After the instance is created, you can configure internet access for each component.
+   * 
+   * > When you create a Confluent instance, you cannot select the deployment type. Only the value 5 is allowed. After the purchase, you can configure whether to enable public access for each component.
    * 
    * @example
    * 5
@@ -80,11 +82,11 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   deployType?: number;
   /**
    * @remarks
-   * The disk capacity, in GB.
+   * The disk capacity. Unit: GB.
    * 
    * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is not required if you create a Confluent instance.
+   * > This parameter is not required when you create a Confluent instance.
    * 
    * @example
    * 500
@@ -94,11 +96,11 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - **0**: ultra disk
+   * - **0**: ultra cloud disk
    * 
    * - **1**: SSD
    * 
-   * > This parameter is not required if you create a Confluent instance.
+   * > This parameter is not required when you create a Confluent instance.
    * 
    * @example
    * 1
@@ -106,11 +108,10 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The subscription duration, in months. Default value: 1. Valid values:
+   * The subscription duration. Unit: months. Default value: 1. Valid values:
    * 
-   * - Confluent instances: **1** and **12**
-   * 
-   * - Kafka instances: **1**
+   * - **Confluent instances: 1 or 12**
+   * - **ApsaraMQ for Kafka instances: 1**
    * 
    * @example
    * 1
@@ -118,13 +119,14 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The peak internet bandwidth.
+   * The Internet traffic.
    * 
-   * - This parameter is required if you set **DeployType** to **4**.
+   * - This parameter is required if **DeployType** is set to **4**.
    * 
-   * - For the value range, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+   * - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
    * 
-   * > This parameter is not required if you create a Confluent instance.
+   * 
+   * > This parameter is not required when you create a Confluent instance.
    * 
    * @example
    * 3
@@ -132,11 +134,11 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The I/O specification.
+   * The traffic specification.
+   *  
    * 
    * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * 
-   * > This parameter is not required if you create a Confluent instance.
+   * > This parameter is not required when you create a Confluent instance.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -144,11 +146,11 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing type. Valid values:
    * 
    * - **0**: subscription
    * 
-   * - **4**: subscription for Confluent instances
+   * - **4**: Confluent subscription
    * 
    * @example
    * 1
@@ -156,11 +158,10 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   paidType?: number;
   /**
    * @remarks
-   * The number of partitions.
+   * The number of partitions to purchase.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * 
-   * > This parameter is not required if you create a Confluent instance.
+   * * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * > This parameter is not required when you create a Confluent instance.
    * 
    * @example
    * 1000
@@ -178,9 +179,9 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
-   * If you do not specify this parameter, the instance is placed in the default resource group. You can find the resource group ID in the Resource Group console.
+   * If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -188,15 +189,15 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The specification type.
+   * The edition type.
    * 
-   * Valid values for Kafka instances:
+   * Valid values for ApsaraMQ for Kafka instances:
    * 
-   * - **normal**: Standard Edition (High-write)
+   * - **normal**: Standard Edition (shared throughput for writes)
    * 
-   * - **professional**: Professional Edition (High-write)
+   * - **professional**: Professional Edition (shared throughput for writes)
    * 
-   * - **professionalForHighRead**: Professional Edition (High-read)
+   * - **professionalForHighRead**: Professional Edition (shared throughput for reads)
    * 
    * Valid values for Confluent instances:
    * 
@@ -212,7 +213,7 @@ export class CreatePrePayInstanceShrinkRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tags to attach to the instance. You can specify up to 20 tags.
+   * The tags.
    */
   tag?: CreatePrePayInstanceShrinkRequestTag[];
   static names(): { [key: string]: string } {

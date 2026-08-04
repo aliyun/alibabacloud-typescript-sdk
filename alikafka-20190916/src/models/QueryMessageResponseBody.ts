@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMessageResponseBodyMessageList extends $dara.Model {
   /**
    * @remarks
-   * The chaincode checksum.
+   * The checksum value.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   checksum?: number;
   /**
    * @remarks
-   * The message key.
+   * The key of the message.
    * 
    * @example
    * this is key
@@ -61,7 +61,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   serializedValueSize?: number;
   /**
    * @remarks
-   * The message creation time. Represented as a UNIX timestamp. Unit: milliseconds.
+   * The message creation time. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1705482172640
@@ -85,9 +85,11 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * The size of the truncated key message. Value: bytes.
+   * The size of the truncated key message. Unit: bytes.
    * 
-   * > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
+   * 
+   * > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
+   * [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -97,7 +99,8 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
    * @remarks
    * The size of the truncated value message. Unit: bytes.
    * 
-   * > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
+   * > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
+   * [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -105,7 +108,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   truncatedValueSize?: number;
   /**
    * @remarks
-   * The message value.
+   * The value of the message.
    * 
    * @example
    * Welcome to Ali kafka
@@ -169,7 +172,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
 export class QueryMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success.
+   * The returned code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -177,7 +180,7 @@ export class QueryMessageResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * operation success.
@@ -185,7 +188,7 @@ export class QueryMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The query message results.
+   * The query results of messages.
    */
   messageList?: QueryMessageResponseBodyMessageList[];
   /**
@@ -198,10 +201,8 @@ export class QueryMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * 
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

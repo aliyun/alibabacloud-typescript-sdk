@@ -1,3 +1,6 @@
+export { BatchDeleteTopicsResponseBodyDataResultsTopicDeleteResultItemVO } from './BatchDeleteTopicsResponseBody';
+export { BatchDeleteTopicsResponseBodyDataResults } from './BatchDeleteTopicsResponseBody';
+export { BatchDeleteTopicsResponseBodyData } from './BatchDeleteTopicsResponseBody';
 export { CreateConsumerGroupRequestTag } from './CreateConsumerGroupRequest';
 export { CreatePostPayInstanceRequestServerlessConfig } from './CreatePostPayInstanceRequest';
 export { CreatePostPayInstanceRequestTag } from './CreatePostPayInstanceRequest';
@@ -84,6 +87,10 @@ export { AddUserDefinedSgRequest } from './AddUserDefinedSgRequest';
 export { AddUserDefinedSgShrinkRequest } from './AddUserDefinedSgShrinkRequest';
 export { AddUserDefinedSgResponseBody } from './AddUserDefinedSgResponseBody';
 export { AddUserDefinedSgResponse } from './AddUserDefinedSgResponse';
+export { BatchDeleteTopicsRequest } from './BatchDeleteTopicsRequest';
+export { BatchDeleteTopicsShrinkRequest } from './BatchDeleteTopicsShrinkRequest';
+export { BatchDeleteTopicsResponseBody } from './BatchDeleteTopicsResponseBody';
+export { BatchDeleteTopicsResponse } from './BatchDeleteTopicsResponse';
 export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
 export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
 export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';

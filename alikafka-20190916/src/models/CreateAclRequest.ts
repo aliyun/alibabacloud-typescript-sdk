@@ -5,19 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclRequest extends $dara.Model {
   /**
    * @remarks
-   * Operation type. Valid values:
+   * The operation type. Valid values:
    * 
-   * - **Write**: write
+   * - **Write**: write.
    * 
-   * - **Read**: read
+   * - **Read**: read.
    * 
-   * - **Describe**: read TransactionalId
-   * 
-   * - **IdempotentWrite**: idempotent write to Cluster
-   * 
-   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster, only available for Serverless instances.
-   * 
-   * - **DESCRIBE_CONFIGS**: query configuration, only available for Serverless instances.
+   * - **Describe**: read TransactionalId.
+   * - **IdempotentWrite**: idempotent write to Cluster.
+   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
    * 
    * This parameter is required.
    * 
@@ -27,23 +24,21 @@ export class CreateAclRequest extends $dara.Model {
   aclOperationType?: string;
   /**
    * @remarks
-   * Batch authorization operation types. Multiple operations are separated by commas (,).
+   * The operation types for batch authorization. Separate multiple operations with commas (,).
    * 
    * Valid values:
    * 
-   * - **Write**: read
+   * - **Write**: write.
    * 
-   * - **Read**: write
+   * - **Read**: read.
    * 
-   * - **Describe**: read TransactionalId
+   * - **Describe**: read TransactionalId.
+   * - **IdempotentWrite**: idempotent write to Cluster.
+   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
    * 
-   * - **IdempotentWrite**: idempotent write to Cluster
    * 
-   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster, only available for Serverless instances.
-   * 
-   * - **DESCRIBE_CONFIGS**: query configuration, only available for Serverless instances.
-   * 
-   * > This parameter is only supported for Serverless instances.
+   * > This parameter is available only for serverless instances.
    * 
    * @example
    * Write,Read
@@ -51,13 +46,12 @@ export class CreateAclRequest extends $dara.Model {
   aclOperationTypes?: string;
   /**
    * @remarks
-   * Authorization method. Valid values:
+   * The authorization method. Valid values:
+   * - **DENY**: Denied.
+   *  
+   * - **ALLOW**: Allowed.
    * 
-   * - **DENY**: deny.
-   * 
-   * - **ALLOW**: allow.
-   * 
-   * > This parameter is only supported for Serverless instances.
+   * > This parameter is available only for serverless instances.
    * 
    * @example
    * DENY
@@ -65,13 +59,15 @@ export class CreateAclRequest extends $dara.Model {
   aclPermissionType?: string;
   /**
    * @remarks
-   * Resource name.
+   * The resource name.
    * 
-   * - The name of the resource, which can be a topic name, Group ID, cluster name, or transaction ID.
+   * - The name of the resource, which can be a topic name, group ID, cluster name, or transaction ID.
    * 
    * - You can use an asterisk (\\*) to represent all resources of this type.
    * 
-   * > * Only after authorization is granted to all resources can you query the authorized resources using an asterisk (\\*).
+   * 
+   * > 
+   * > - The asterisk (\\*) returns results only after permissions are granted to all resources.
    * 
    * This parameter is required.
    * 
@@ -81,11 +77,11 @@ export class CreateAclRequest extends $dara.Model {
   aclResourceName?: string;
   /**
    * @remarks
-   * Matching pattern. Valid values:
+   * The matching mode. Valid values:
    * 
-   * - **LITERAL**: exact match
+   * - **LITERAL**: exact match.
    * 
-   * - **PREFIXED**: prefix match
+   * - **PREFIXED**: prefix match.
    * 
    * This parameter is required.
    * 
@@ -95,14 +91,12 @@ export class CreateAclRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
-   * Resource type. Valid values:
+   * The resource type. Valid values:
    * 
    * - **Topic**: message topic.
    * 
    * - **Group**: consumer group.
-   * 
    * - **Cluster**: instance.
-   * 
    * - **TransactionalId**: transaction ID.
    * 
    * This parameter is required.
@@ -113,11 +107,9 @@ export class CreateAclRequest extends $dara.Model {
   aclResourceType?: string;
   /**
    * @remarks
-   * Source IP.
-   * 
-   * > - Only specific IP addresses or \\* (all IPs) are supported. IP address ranges are not supported.
-   * >
-   * > - This parameter is only supported for Serverless instances.
+   * The source IP address.
+   * >- Only specific IP addresses or an asterisk (\\*) to allow all IP addresses are supported. IP CIDR blocks are not supported.
+   * >- This parameter is available only for serverless instances.
    * 
    * @example
    * *
@@ -125,7 +117,7 @@ export class CreateAclRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -135,7 +127,7 @@ export class CreateAclRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -145,11 +137,14 @@ export class CreateAclRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * - You can use an asterisk (\\*) to represent all usernames.
    * 
-   * > * Only after authorization is granted to all users can you query the authorized users using an asterisk (\\*).
+   * 
+   * 
+   * > 
+   * > - The asterisk (\\*) returns results only after permissions are granted to all users.
    * 
    * This parameter is required.
    * 

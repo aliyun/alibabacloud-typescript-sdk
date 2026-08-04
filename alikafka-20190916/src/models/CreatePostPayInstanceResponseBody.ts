@@ -13,7 +13,7 @@ export class CreatePostPayInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 236972661580636
@@ -45,7 +45,7 @@ export class CreatePostPayInstanceResponseBodyData extends $dara.Model {
 export class CreatePostPayInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class CreatePostPayInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   data?: CreatePostPayInstanceResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -66,7 +66,7 @@ export class CreatePostPayInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABA4A7FD-E10F-45C7-9774-A5236015A***

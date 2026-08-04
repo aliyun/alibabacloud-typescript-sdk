@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoGroupCreationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * A value of **200** indicates success.
    * 
@@ -31,7 +31,7 @@ export class EnableAutoGroupCreationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

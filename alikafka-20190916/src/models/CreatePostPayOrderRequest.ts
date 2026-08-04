@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePostPayOrderRequestServerlessConfig extends $dara.Model {
   /**
    * @remarks
-   * The reserved capacity for message publishing. You can specify only an integer for this parameter. The minimum value is 60. This parameter is required if you create a Serverless instance.
+   * The reserved publish traffic specification value. Only integers are supported. The minimum value is 60. This parameter is required for serverless instances.
    * 
-   * > The actual upper limit is subject to the inventory in the current region. For more information, see the instance purchase page.
+   * 
+   * > The actual upper limit depends on the inventory in the current region. Refer to the purchase page for the available range.
    * 
    * @example
    * 60
@@ -15,9 +16,9 @@ export class CreatePostPayOrderRequestServerlessConfig extends $dara.Model {
   reservedPublishCapacity?: number;
   /**
    * @remarks
-   * The reserved capacity for message subscription. You can specify only an integer for this parameter. The minimum value is 20. This parameter is required if you create a Serverless instance.
+   * The reserved subscribe traffic specification value. Only integers are supported. The minimum value is 20. This parameter is required for serverless instances.
    * 
-   * > The actual upper limit is subject to the inventory in the current region. For more information, see the instance purchase page.
+   * > The actual upper limit depends on the inventory in the current region. Refer to the purchase page for the available range.
    * 
    * @example
    * 60
@@ -49,13 +50,10 @@ export class CreatePostPayOrderRequestServerlessConfig extends $dara.Model {
 export class CreatePostPayOrderRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
-   * 
-   * - N can be an integer from 1 to 20.
-   * 
-   * - If this parameter is empty, all tag keys are matched.
-   * 
-   * - The tag key can be up to 128 characters in length. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
+   * The tag key of the resource.
+   * - N ranges from 1 to 20.
+   * - If this parameter is left empty, all tag keys are matched.
+   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -65,13 +63,10 @@ export class CreatePostPayOrderRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
-   * 
-   * - N can be an integer from 1 to 20.
-   * 
-   * - This parameter must be empty if the tag key is empty. If this parameter is empty, all tag values are matched.
-   * 
-   * - The tag value can be up to 128 characters in length. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
+   * The tag value of the resource.
+   * - N ranges from 1 to 20.
+   * - If the tag key is left empty, this parameter must also be left empty. If this parameter is left empty, all tag values are matched.
+   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -105,9 +100,9 @@ export class CreatePostPayOrderRequest extends $dara.Model {
    * @remarks
    * The deployment type. Valid values:
    * 
-   * - **4**: An instance that is accessible from the Internet and a VPC.
+   * - **4**: Internet- and VPC-connected instance
    * 
-   * - **5**: An instance that is accessible only from a VPC.
+   * - **5**: VPC-connected instance
    * 
    * This parameter is required.
    * 
@@ -119,9 +114,8 @@ export class CreatePostPayOrderRequest extends $dara.Model {
    * @remarks
    * The disk capacity.
    * 
-   * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 500
@@ -131,11 +125,10 @@ export class CreatePostPayOrderRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - **0**: Ultra disk
+   * - **0**: premium cloud disk
    * 
    * - **1**: SSD
-   * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 0
@@ -145,11 +138,11 @@ export class CreatePostPayOrderRequest extends $dara.Model {
    * @remarks
    * The Internet traffic.
    * 
-   * - This parameter is required if you set **DeployType** to **4**.
+   * - If **DeployType** is set to **4**, this parameter is required.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 0
@@ -157,13 +150,13 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The peak traffic. This parameter is not recommended.
+   * The maximum traffic (not recommended).
    * 
-   * - You must specify this parameter or \\`IoMaxSpec\\`. If you specify both parameters, the value of \\`IoMaxSpec\\` takes precedence. We recommend that you specify only \\`IoMaxSpec\\`.
+   * - You must specify one of IoMax and IoMaxSpec. If both parameters are specified, the value of IoMaxSpec takes precedence. Specify only IoMaxSpec.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 20
@@ -171,13 +164,13 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   ioMax?: number;
   /**
    * @remarks
-   * The traffic specification. This parameter is recommended.
+   * The traffic specification (recommended).
    * 
-   * - You must specify this parameter or \\`IoMax\\`. If you specify both parameters, the value of this parameter takes precedence. We recommend that you specify only this parameter.
+   * - You must specify one of IoMax and IoMaxSpec. If both parameters are specified, the value of IoMaxSpec takes precedence. Specify only IoMaxSpec.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -185,11 +178,10 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing type. Valid values:
    * 
-   * - 1 (default): Pay-as-you-go for a reserved instance.
-   * 
-   * - 3: Pay-as-you-go for a reserved Serverless instance and pay-as-you-go for elastic scaling of a Serverless instance.
+   * - 1 (default): reserved instance with pay-as-you-go billing.
+   * - 3: serverless instance with reserved specification pay-as-you-go billing + serverless elastic scaling pay-as-you-go billing.
    * 
    * @example
    * 1
@@ -197,15 +189,15 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   paidType?: number;
   /**
    * @remarks
-   * The number of partitions. This parameter is recommended.
+   * The number of partitions (recommended).
    * 
-   * - You must specify this parameter or \\`TopicQuota\\`. We recommend that you specify only this parameter.
+   * * You must specify one of PartitionNum and TopicQuota. Specify only PartitionNum.
    * 
-   * - If you specify both this parameter and \\`TopicQuota\\`, the system verifies whether the values of the two parameters are equivalent based on the previous topic-based sales model. If the values are not equivalent, the system returns a failure. If the values are equivalent, the purchase is made based on the number of partitions.
+   * * If both PartitionNum and TopicQuota are specified, the system verifies whether the values are equivalent based on the legacy topic sales model. If the values are not equivalent, the request fails. If the values are equivalent, the purchase is made based on the number of partitions.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * * For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 50
@@ -223,9 +215,9 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
-   * If you do not set this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
+   * If this parameter is not specified, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -233,30 +225,26 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The settings of the Serverless instance. This parameter is required if you create a Serverless instance.
+   * The settings of the serverless instance. This parameter is required when you create a serverless instance.
    */
   serverlessConfig?: CreatePostPayOrderRequestServerlessConfig;
   /**
    * @remarks
    * The specification type.
    * 
-   * If you set \\`PaidType\\` to 1 (pay-as-you-go for a reserved instance), valid values are:
+   * Valid values when PaidType is set to 1 (reserved instance with pay-as-you-go billing):
    * 
-   * - normal: Standard Edition (High-write)
+   * - normal: Standard Edition (shared throughput for writes)
+   * - professional: Professional Edition (shared throughput for writes)
+   * - professionalForHighRead: Professional Edition (shared throughput for reads)
    * 
-   * - professional: Professional Edition (High-write)
-   * 
-   * - professionalForHighRead: Professional Edition (High-read)
-   * 
-   * If you set \\`PaidType\\` to 3 (pay-as-you-go for a reserved Serverless instance and pay-as-you-go for elastic scaling of a Serverless instance), valid values are:
+   * Valid values when PaidType is set to 3 (serverless instance with reserved specification pay-as-you-go billing + serverless elastic scaling pay-as-you-go billing):
    * 
    * - basic: Serverless Basic Edition
-   * 
    * - normal: Serverless Standard Edition
-   * 
    * - professional: Serverless Professional Edition
    * 
-   * For more information about these specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For more information about these specification types, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * normal
@@ -264,22 +252,22 @@ export class CreatePostPayOrderRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreatePostPayOrderRequestTag[];
   /**
    * @remarks
-   * The number of topics. This parameter is not recommended.
+   * The number of topics (not recommended).
    * 
-   * - You must specify this parameter or \\`PartitionNum\\`. We recommend that you specify only \\`PartitionNum\\`.
+   * - You must specify one of PartitionNum and TopicQuota. Specify only PartitionNum.
    * 
-   * - If you specify both this parameter and \\`PartitionNum\\`, the system verifies whether the values of the two parameters are equivalent based on the previous topic-based sales model. If the values are not equivalent, the system returns a failure. If the values are equivalent, the purchase is made based on the number of partitions.
+   * - If both PartitionNum and TopicQuota are specified, the system verifies whether the values are equivalent based on the legacy topic sales model. If the values are not equivalent, the request fails. If the values are equivalent, the purchase is made based on the number of partitions.
    * 
-   * - The default value of this parameter varies based on the traffic specification. You are charged for the extra topics that exceed the default value.
+   * - The default value varies based on the traffic specification. If the value exceeds the default value, additional fees are charged.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > Do not specify this parameter if you create a Serverless instance.
+   * > If you create a serverless instance, you do not need to set this parameter.
    * 
    * @example
    * 50

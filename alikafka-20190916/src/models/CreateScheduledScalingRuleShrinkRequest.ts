@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The duration (unit: minutes) of a scheduled elastic task.
+   * The duration (unit: minutes) of a single scheduled elastic scaling task.
    * 
-   * > The parameter value must be at least 15 minutes.
+   * > The value must be at least 15 minutes.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   durationMinutes?: number;
   /**
    * @remarks
-   * Enables or disables the scheduled task policy. Valid values:
+   * Specifies whether to enable or disable the scheduled policy. Valid values:
    * 
-   * - **true**: Enables the policy.
-   * - **false**: Disables the policy.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -28,15 +28,13 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The time when the scheduled policy starts to execute.
+   * The time when the scheduled policy starts to take effect.
    * 
-   * For a one-time scheduling policy type, the start execution time must be more than 30 minutes later than the current time.
+   * If the schedule type is single execution, the start time must be at least 30 minutes later than the current time.
    * 
-   * >Notice: 
    * 
-   * To avoid the service from continuously executing upgrade and downgrade tasks, the time interval between different scheduled tasks must be at least 60 minutes.
    * 
-   * </notice>
+   * >Notice: To prevent the server from continuously performing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.
    * 
    * This parameter is required.
    * 
@@ -66,11 +64,9 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * When ScheduleType is set to repeat, you need to fill in this parameter. Enumeration values are:
-   * 
-   * - Daily: Daily scheduled task.
-   * 
-   * - Weekly: Weekly scheduled task.
+   * The repeat type. This parameter is required when ScheduleType is set to repeat. Valid values:
+   *       <li> Daily: timed scheduling every day.
+   *       <li> Weekly: timed scheduling every week.
    * 
    * @example
    * Weekly
@@ -78,9 +74,9 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   repeatType?: string;
   /**
    * @remarks
-   * The scheduled elastic reserved production specification (unit: MB/s).
+   * The reserved production specification for scheduled elastic scaling (unit: MB/s).
    * 
-   * > At least one of the ReservedPubFlow and ReservedSubFlow parameters must be higher than the current specification.
+   * > At least one of ReservedPubFlow and ReservedSubFlow must be higher than the current specification.
    * 
    * This parameter is required.
    * 
@@ -90,9 +86,8 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   reservedPubFlow?: number;
   /**
    * @remarks
-   * The scheduled elastic reserved consumption specification (unit: MB/s).
-   * 
-   * > At least one of the ReservedSubFlow and ReservedPubFlow parameters must be higher than the current specification.
+   * The reserved consumption specification for scheduled elastic scaling (unit: MB/s).
+   * > At least one of ReservedSubFlow and ReservedPubFlow must be higher than the current specification.
    * 
    * This parameter is required.
    * 
@@ -104,7 +99,7 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The name of the scheduled policy rule.
    * 
-   * > The name cannot be the same as other rule names for the same instance.
+   * > The name must be unique among all rules of the same instance.
    * 
    * This parameter is required.
    * 
@@ -116,8 +111,9 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The schedule type. Valid values:
    * 
-   * - at: Scheduled only once.
-   * - repeat: Scheduled repeatedly.
+   * - at: scheduled once only.
+   * 
+   * - repeat: scheduled repeatedly.
    * 
    * This parameter is required.
    * 
@@ -137,7 +133,7 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   timeZone?: string;
   /**
    * @remarks
-   * The weekly types. Supports execution on multiple days.
+   * The days of the week. Multiple days are supported for repeated execution.
    */
   weeklyTypesShrink?: string;
   static names(): { [key: string]: string } {

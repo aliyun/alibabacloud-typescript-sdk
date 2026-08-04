@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrePayOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the call is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreatePrePayOrderResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class CreatePrePayOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20497346575****
@@ -29,7 +29,7 @@ export class CreatePrePayOrderResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****

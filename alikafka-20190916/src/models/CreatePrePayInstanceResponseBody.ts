@@ -13,7 +13,7 @@ export class CreatePrePayInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The unique ID of the order.
+   * The order ID.
    * 
    * @example
    * 236972661xxxx
@@ -45,7 +45,7 @@ export class CreatePrePayInstanceResponseBodyData extends $dara.Model {
 export class CreatePrePayInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates a successful request.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class CreatePrePayInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CreatePrePayInstanceResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -66,7 +66,7 @@ export class CreatePrePayInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * E57A8862-DF68-4055-8E55-B80CB4****
@@ -74,7 +74,7 @@ export class CreatePrePayInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

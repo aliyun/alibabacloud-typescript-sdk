@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates that the request is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C0F207C-77A6-43E5-991C-9D98510A****
@@ -29,7 +29,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

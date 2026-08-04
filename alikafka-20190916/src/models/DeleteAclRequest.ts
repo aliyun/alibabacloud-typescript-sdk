@@ -5,19 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAclRequest extends $dara.Model {
   /**
    * @remarks
-   * Operation type. Valid values:
+   * The operation type. Valid values:
    * 
-   * - **Write**: Write
+   * - **Write**: write.
    * 
-   * - **Read**: Read
+   * - **Read**: read.
    * 
-   * - **Describe**: Read TransactionalId
-   * 
-   * - **IdempotentWrite**: Idempotent write to Cluster
-   * 
-   * - **IDEMPOTENT_WRITE**: Idempotent write to Cluster, only available for Serverless instances.
-   * 
-   * - **DESCRIBE_CONFIGS**: Query configuration, only available for Serverless instances.
+   * - **Describe**: read TransactionalId.
+   * - **IdempotentWrite**: idempotent write to Cluster.
+   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
    * 
    * This parameter is required.
    * 
@@ -27,23 +24,19 @@ export class DeleteAclRequest extends $dara.Model {
   aclOperationType?: string;
   /**
    * @remarks
-   * Batch authorization operation types. Multiple operations are separated by commas (,).
+   * The batch authorization operation types. Separate multiple operations with commas (,).
    * 
    * Valid values:
+   * - **Write**: write.
    * 
-   * - **Write**: Read
+   * - **Read**: read.
    * 
-   * - **Read**: Write
+   * - **Describe**: read TransactionalId.
+   * - **IdempotentWrite**: idempotent write to Cluster.
+   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
    * 
-   * - **Describe**: Read TransactionalId
-   * 
-   * - **IdempotentWrite**: Idempotent write to Cluster
-   * 
-   * - **IDEMPOTENT_WRITE**: Idempotent write to Cluster, only available for Serverless instances.
-   * 
-   * - **DESCRIBE_CONFIGS**: Query configuration, only available for Serverless instances.
-   * 
-   * > This parameter is only supported for Serverless instances.
+   * > This parameter is available only for serverless instances.
    * 
    * @example
    * Write,Read
@@ -51,13 +44,12 @@ export class DeleteAclRequest extends $dara.Model {
   aclOperationTypes?: string;
   /**
    * @remarks
-   * Authorization method. Valid values:
+   * The authorization method. Valid values:
    * 
-   * - DENY: Deny
+   * - DENY: deny.
+   * - ALLOW: allow.
    * 
-   * - ALLOW: Allow
-   * 
-   * > This parameter is only supported for Serverless instances.
+   * > This parameter is available only for serverless instances.
    * 
    * @example
    * DENY
@@ -65,11 +57,11 @@ export class DeleteAclRequest extends $dara.Model {
   aclPermissionType?: string;
   /**
    * @remarks
-   * Resource name.
+   * The resource name.
    * 
-   * - Topic name or Group name.
+   * - The name of a topic or consumer group.
    * 
-   * - Asterisk (\\*) represents all Topic or Group names.
+   * - An asterisk (\\*) indicates the names of all topics or consumer groups.
    * 
    * This parameter is required.
    * 
@@ -79,11 +71,11 @@ export class DeleteAclRequest extends $dara.Model {
   aclResourceName?: string;
   /**
    * @remarks
-   * Matching pattern. Valid values:
+   * The matching mode. Valid values:
    * 
-   * - **LITERAL**: Exact matching pattern
+   * - **LITERAL**: full-name match.
    * 
-   * - **PREFIXED**: Prefix matching pattern
+   * - **PREFIXED**: prefix match.
    * 
    * This parameter is required.
    * 
@@ -93,15 +85,14 @@ export class DeleteAclRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type. Valid values:
    * 
-   * - **Topic**: Message topic.
+   * - **Topic**: topic.
    * 
-   * - **Group**: Consumer group.
+   * - **Group**: consumer group.
    * 
-   * - **Cluster**: Instance.
-   * 
-   * - **TransactionalId**: Transaction ID.
+   * - **Cluster**: instance.
+   * - **TransactionalId**: transaction ID.
    * 
    * This parameter is required.
    * 
@@ -111,11 +102,9 @@ export class DeleteAclRequest extends $dara.Model {
   aclResourceType?: string;
   /**
    * @remarks
-   * Source IP.
-   * 
-   * > - Only supports specific IP addresses or setting \\* (all IPs), does not support IP segments.
-   * >
-   * > - This parameter is only supported for Serverless instances.
+   * The source IP address.
+   * >- Only specific IP addresses or an asterisk (\\*) to allow all IP addresses are supported. CIDR blocks are not supported.
+   * >- This parameter is available only for serverless instances.
    * 
    * @example
    * *
@@ -123,7 +112,7 @@ export class DeleteAclRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -133,7 +122,7 @@ export class DeleteAclRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -143,7 +132,7 @@ export class DeleteAclRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * This parameter is required.
    * 

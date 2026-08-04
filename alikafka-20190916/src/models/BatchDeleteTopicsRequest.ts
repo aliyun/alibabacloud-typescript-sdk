@@ -2,54 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteConsumerGroupRequest extends $dara.Model {
+export class BatchDeleteTopicsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the consumer group.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * CID-test
-   */
-  consumerId?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * alikafka_post-cn-v0h1fgs2****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
+  topics?: string[];
   static names(): { [key: string]: string } {
     return {
-      consumerId: 'ConsumerId',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      topics: 'Topics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      consumerId: 'string',
       instanceId: 'string',
       regionId: 'string',
+      topics: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
+    }
     super.validate();
   }
 
