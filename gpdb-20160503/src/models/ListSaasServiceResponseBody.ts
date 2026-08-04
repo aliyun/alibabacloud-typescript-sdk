@@ -3,11 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSaasServiceResponseBodyItemsComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The component ID.
+   * 
+   * @example
+   * 0644c5aa-5306-478b-ac39-bb4660cdc9f7
+   */
   componentId?: string;
+  /**
+   * @remarks
+   * The type of the subcomponent.
+   * 
+   * @example
+   * gamestudio
+   */
   componentType?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2021-10-09T04:54:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The compute resource of the component.
+   * 
+   * @example
+   * 2
+   */
   cu?: string;
+  /**
+   * @remarks
+   * The release protection status.
+   * 
+   * @example
+   * true
+   */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The service status. Valid values:
+   * 
+   * - active: Running.
+   * - creating: Being created.
+   * 
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,6 +86,10 @@ export class ListSaasServiceResponseBodyItemsComponents extends $dara.Model {
 }
 
 export class ListSaasServiceResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of service subcomponents.
+   */
   components?: ListSaasServiceResponseBodyItemsComponents[];
   /**
    * @remarks
@@ -58,6 +107,16 @@ export class ListSaasServiceResponseBodyItems extends $dara.Model {
    * 1
    */
   cu?: number;
+  /**
+   * @remarks
+   * Indicates whether the release protection feature is enabled. Valid values:
+   * 
+   * * **true**: Enabled.
+   * * **false**: Disabled.
+   * 
+   * @example
+   * True
+   */
   deletionProtection?: boolean;
   /**
    * @remarks

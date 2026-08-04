@@ -1,0 +1,54 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class UpdateSaasServiceVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * drama-123456
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

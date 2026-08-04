@@ -2,44 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListSaasServiceRequest extends $dara.Model {
+export class GrantApiKeyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 10.
-   * 
-   * @example
-   * 50
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The paging token for the next query. When you perform a paging query, the next query begins from the specified token.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a4883
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID of the workspace.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Service type, with the following value:
-   * 
-   * - **memroy**
-   * - **drama**
+   * The ID of the API key.
    * 
    * This parameter is required.
    * 
    * @example
-   * drama
+   * api-xxxxxxx
    */
-  serviceType?: string;
+  keyId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The list of service IDs to authorize.
+   * 
+   * This parameter is required.
+   */
+  serviceIdsShrink?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -52,20 +40,18 @@ export class ListSaasServiceRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      keyId: 'KeyId',
       regionId: 'RegionId',
-      serviceType: 'ServiceType',
+      serviceIdsShrink: 'ServiceIds',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
-      nextToken: 'string',
+      keyId: 'string',
       regionId: 'string',
-      serviceType: 'string',
+      serviceIdsShrink: 'string',
       workspaceId: 'string',
     };
   }

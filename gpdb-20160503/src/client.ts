@@ -995,6 +995,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks the available update versions for a SaaS service.
+   * 
+   * @remarks
+   * Checks the available update versions for a SaaS service.
+   * 
+   * @param request - CheckSaasServiceVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckSaasServiceVersionResponse
+   */
+  async checkSaasServiceVersionWithOptions(request: $_model.CheckSaasServiceVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckSaasServiceVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckSaasServiceVersion",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckSaasServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.CheckSaasServiceVersionResponse({}));
+  }
+
+  /**
+   * Checks the available update versions for a SaaS service.
+   * 
+   * @remarks
+   * Checks the available update versions for a SaaS service.
+   * 
+   * @param request - CheckSaasServiceVersionRequest
+   * @returns CheckSaasServiceVersionResponse
+   */
+  async checkSaasServiceVersion(request: $_model.CheckSaasServiceVersionRequest): Promise<$_model.CheckSaasServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkSaasServiceVersionWithOptions(request, runtime);
+  }
+
+  /**
    * Checks whether a service-linked role is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
@@ -10883,6 +10935,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries API endpoints.
+   * 
+   * @remarks
+   * Queries API access endpoints.
+   * 
+   * @param request - GetApiEndpointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiEndpointsResponse
+   */
+  async getApiEndpointsWithOptions(request: $_model.GetApiEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiEndpointsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiEndpoints",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.GetApiEndpointsResponse({}));
+  }
+
+  /**
+   * Queries API endpoints.
+   * 
+   * @remarks
+   * Queries API access endpoints.
+   * 
+   * @param request - GetApiEndpointsRequest
+   * @returns GetApiEndpointsResponse
+   */
+  async getApiEndpoints(request: $_model.GetApiEndpointsRequest): Promise<$_model.GetApiEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApiEndpointsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an API key.
    * 
    * @remarks
@@ -11660,6 +11768,72 @@ export default class Client extends OpenApi {
   async getWorkspace(request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Authorizes an API key to access SaaS services.
+   * 
+   * @remarks
+   * Retrieves the details of an API key.
+   * 
+   * @param tmpReq - GrantApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantApiKeyResponse
+   */
+  async grantApiKeyWithOptions(tmpReq: $_model.GrantApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GrantApiKeyResponse> {
+    tmpReq.validate();
+    let request = new $_model.GrantApiKeyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.serviceIds)) {
+      request.serviceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceIds, "ServiceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceIdsShrink)) {
+      query["ServiceIds"] = request.serviceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GrantApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GrantApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.GrantApiKeyResponse({}));
+  }
+
+  /**
+   * Authorizes an API key to access SaaS services.
+   * 
+   * @remarks
+   * Retrieves the details of an API key.
+   * 
+   * @param request - GrantApiKeyRequest
+   * @returns GrantApiKeyResponse
+   */
+  async grantApiKey(request: $_model.GrantApiKeyRequest): Promise<$_model.GrantApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.grantApiKeyWithOptions(request, runtime);
   }
 
   /**
@@ -15221,6 +15395,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the deletion protection setting for a SaaS service.
+   * 
+   * @remarks
+   * Modifies the deletion protection setting for a SaaS service.
+   * 
+   * @param request - ModifySaasServiceDeletionProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySaasServiceDeletionProtectionResponse
+   */
+  async modifySaasServiceDeletionProtectionWithOptions(request: $_model.ModifySaasServiceDeletionProtectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySaasServiceDeletionProtectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySaasServiceDeletionProtection",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySaasServiceDeletionProtectionResponse>(await this.callApi(params, req, runtime), new $_model.ModifySaasServiceDeletionProtectionResponse({}));
+  }
+
+  /**
+   * Modifies the deletion protection setting for a SaaS service.
+   * 
+   * @remarks
+   * Modifies the deletion protection setting for a SaaS service.
+   * 
+   * @param request - ModifySaasServiceDeletionProtectionRequest
+   * @returns ModifySaasServiceDeletionProtectionResponse
+   */
+  async modifySaasServiceDeletionProtection(request: $_model.ModifySaasServiceDeletionProtectionRequest): Promise<$_model.ModifySaasServiceDeletionProtectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySaasServiceDeletionProtectionWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -17383,6 +17613,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Revokes the access permissions of an API key to SaaS services.
+   * 
+   * @remarks
+   * Revokes the access permissions of an API key to SaaS services.
+   * 
+   * @param tmpReq - RevokeApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeApiKeyResponse
+   */
+  async revokeApiKeyWithOptions(tmpReq: $_model.RevokeApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeApiKeyResponse> {
+    tmpReq.validate();
+    let request = new $_model.RevokeApiKeyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.serviceIds)) {
+      request.serviceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceIds, "ServiceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceIdsShrink)) {
+      query["ServiceIds"] = request.serviceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.RevokeApiKeyResponse({}));
+  }
+
+  /**
+   * Revokes the access permissions of an API key to SaaS services.
+   * 
+   * @remarks
+   * Revokes the access permissions of an API key to SaaS services.
+   * 
+   * @param request - RevokeApiKeyRequest
+   * @returns RevokeApiKeyResponse
+   */
+  async revokeApiKey(request: $_model.RevokeApiKeyRequest): Promise<$_model.RevokeApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Sets the default branch for a Supabase project.
    * 
    * @remarks
@@ -18324,6 +18620,58 @@ export default class Client extends OpenApi {
   async updateDBInstancePlan(request: $_model.UpdateDBInstancePlanRequest): Promise<$_model.UpdateDBInstancePlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDBInstancePlanWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the SaaS service version.
+   * 
+   * @remarks
+   * Updates the SaaS service version.
+   * 
+   * @param request - UpdateSaasServiceVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSaasServiceVersionResponse
+   */
+  async updateSaasServiceVersionWithOptions(request: $_model.UpdateSaasServiceVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSaasServiceVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSaasServiceVersion",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSaasServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSaasServiceVersionResponse({}));
+  }
+
+  /**
+   * Updates the SaaS service version.
+   * 
+   * @remarks
+   * Updates the SaaS service version.
+   * 
+   * @param request - UpdateSaasServiceVersionRequest
+   * @returns UpdateSaasServiceVersionResponse
+   */
+  async updateSaasServiceVersion(request: $_model.UpdateSaasServiceVersionRequest): Promise<$_model.UpdateSaasServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSaasServiceVersionWithOptions(request, runtime);
   }
 
   /**
