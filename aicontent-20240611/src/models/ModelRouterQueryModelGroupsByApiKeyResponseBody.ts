@@ -5,8 +5,13 @@ import { ModelGroupDTO } from "./ModelGroupDto";
 
 export class ModelRouterQueryModelGroupsByApiKeyResponseBodyData extends $dara.Model {
   /**
+   * @example
+   * department
+   */
+  bindType?: string;
+  /**
    * @remarks
-   * The ID of the department to which the key belongs.
+   * The department ID to which the key belongs.
    * 
    * @example
    * 1001
@@ -30,6 +35,7 @@ export class ModelRouterQueryModelGroupsByApiKeyResponseBodyData extends $dara.M
   standaloneModelList?: number[];
   static names(): { [key: string]: string } {
     return {
+      bindType: 'bindType',
       clientId: 'clientId',
       groups: 'groups',
       standaloneModelList: 'standaloneModelList',
@@ -38,6 +44,7 @@ export class ModelRouterQueryModelGroupsByApiKeyResponseBodyData extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      bindType: 'string',
       clientId: 'number',
       groups: { 'type': 'array', 'itemType': ModelGroupDTO },
       standaloneModelList: { 'type': 'array', 'itemType': 'number' },

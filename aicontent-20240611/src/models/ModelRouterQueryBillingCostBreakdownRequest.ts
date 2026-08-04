@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   /**
+   * @remarks
+   * Optional. Filters results by API key ID. This parameter is linked with the department. Specify clientId first.
+   * 
    * @example
    * 100
    */
   apiKeyId?: number;
   /**
    * @remarks
-   * The ID of the client to query. If not specified, data for all clients is returned.
+   * Optional. Filters results by department ID.
    * 
    * @example
    * 5
@@ -18,7 +21,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end time for the query, specified as a Unix timestamp in seconds.
+   * The query end time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -28,7 +31,10 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The granularity for data aggregation. Valid values: `hourly` and `daily`.
+   * The aggregation granularity. Valid values:
+   * 
+   * - hourly
+   * - daily
    * 
    * This parameter is required.
    * 
@@ -38,7 +44,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The maximum number of results to return. This parameter is used for pagination along with `nextToken` and is mutually exclusive with `page` and `pageSize`.
+   * The maximum number of results to return.
    * 
    * @example
    * 20
@@ -46,7 +52,15 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the model to query. If not specified, data for all models is returned.
+   * Optional. Filters results by member ID. Separate multiple values with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
+   * Optional. Filters results by model ID.
    * 
    * @example
    * 12
@@ -54,7 +68,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The types of the models to query, separated by commas. For example: `Chat,Embedding`. If not specified, data for all model types is returned.
+   * Optional. Filters results by model type. Separate multiple values with commas.
    * 
    * @example
    * Chat
@@ -62,7 +76,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   modelTypes?: string;
   /**
    * @remarks
-   * The pagination token that is used to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxx-xxx-xxxxx
@@ -70,7 +84,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Default: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -78,7 +92,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Default: 20. Maximum: 500.
+   * The number of entries per page. Default value: 20. Maximum value: 500.
    * 
    * @example
    * 20
@@ -86,7 +100,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for the query, specified as a Unix timestamp in seconds.
+   * The query start time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -101,6 +115,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       modelId: 'modelId',
       modelTypes: 'modelTypes',
       nextToken: 'nextToken',
@@ -117,6 +132,7 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       modelId: 'number',
       modelTypes: 'string',
       nextToken: 'string',

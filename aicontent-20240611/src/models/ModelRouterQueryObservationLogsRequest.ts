@@ -44,6 +44,11 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
    * @remarks
    * The model ID used to filter the results.
    * 
@@ -122,6 +127,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
       endTime: 'endTime',
       groupBy: 'groupBy',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       modelId: 'modelId',
       needTotalCount: 'needTotalCount',
       nextToken: 'nextToken',
@@ -141,6 +147,7 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
       endTime: 'string',
       groupBy: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       modelId: 'number',
       needTotalCount: 'boolean',
       nextToken: 'string',

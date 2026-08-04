@@ -14,7 +14,7 @@ export class ModelRouterQueryUsageBreakdownResponseBody extends $dara.Model {
   data?: UsageBreakdownRespDTO;
   /**
    * @remarks
-   * The fault code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterQueryUsageBreakdownResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Unknown error.
+   * Unknown error
    */
   errMessage?: string;
   /**

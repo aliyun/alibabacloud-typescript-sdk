@@ -21,7 +21,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The query end time, in UNIX timestamp (seconds).
+   * The query end time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -49,6 +49,14 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
+   * Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
    * The pagination token.
    * 
    * @example
@@ -73,7 +81,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query start time, in UNIX timestamp (seconds).
+   * The query start time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -88,6 +96,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       nextToken: 'nextToken',
       page: 'page',
       pageSize: 'pageSize',
@@ -102,6 +111,7 @@ export class ModelRouterQueryUsageBreakdownRequest extends $dara.Model {
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       nextToken: 'string',
       page: 'number',
       pageSize: 'number',

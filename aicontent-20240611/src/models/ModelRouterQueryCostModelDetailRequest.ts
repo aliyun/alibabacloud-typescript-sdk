@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * Optional. Filters by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
+   * 
    * @example
    * 100
    */
   apiKeyId?: number;
   /**
    * @remarks
-   * The department ID by which to filter results.
+   * The department ID used to filter results.
    * 
    * @example
    * 1
@@ -18,7 +21,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end of the time range to query, specified as a Unix timestamp in seconds.
+   * The end time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -28,12 +31,20 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page. This parameter is recommended for pagination.
+   * maxResults
    * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Optional. Filters by member IDs. Separate multiple IDs with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
   /**
    * @remarks
    * The model ID.
@@ -46,7 +57,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. Obtain this token from the `nextToken` field in a previous response.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx
@@ -54,7 +65,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -62,7 +73,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
+   * The page number. This parameter takes priority over the page parameter.
    * 
    * @example
    * 1
@@ -70,7 +81,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The page size. Default: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -78,7 +89,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the time range to query, specified as a Unix timestamp in seconds.
+   * The start time, in UNIX timestamp (seconds).
    * 
    * This parameter is required.
    * 
@@ -92,6 +103,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
       clientId: 'clientId',
       endTime: 'endTime',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       modelId: 'modelId',
       nextToken: 'nextToken',
       page: 'page',
@@ -107,6 +119,7 @@ export class ModelRouterQueryCostModelDetailRequest extends $dara.Model {
       clientId: 'number',
       endTime: 'number',
       maxResults: 'number',
+      memberUserIds: 'string',
       modelId: 'number',
       nextToken: 'string',
       page: 'number',

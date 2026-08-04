@@ -42,6 +42,16 @@ export class ApiKeyDTO extends $dara.Model {
   keyPreview?: string;
   /**
    * @example
+   * 30001
+   */
+  memberUserId?: number;
+  /**
+   * @example
+   * 张三
+   */
+  memberUserName?: string;
+  /**
+   * @example
    * MyApiKey
    */
   name?: string;
@@ -55,6 +65,8 @@ export class ApiKeyDTO extends $dara.Model {
       id: 'id',
       key: 'key',
       keyPreview: 'keyPreview',
+      memberUserId: 'memberUserId',
+      memberUserName: 'memberUserName',
       name: 'name',
     };
   }
@@ -69,6 +81,8 @@ export class ApiKeyDTO extends $dara.Model {
       id: 'number',
       key: 'string',
       keyPreview: 'string',
+      memberUserId: 'number',
+      memberUserName: 'string',
       name: 'string',
     };
   }

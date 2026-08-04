@@ -31,6 +31,16 @@ export class UsageBreakdownRowDTO extends $dara.Model {
    */
   clientName?: string;
   /**
+   * @example
+   * 30001
+   */
+  memberUserId?: number;
+  /**
+   * @example
+   * 张三
+   */
+  memberUserName?: string;
+  /**
    * @remarks
    * Array of usage metrics, containing only entries with non-zero values
    * 
@@ -84,6 +94,8 @@ export class UsageBreakdownRowDTO extends $dara.Model {
       apiKeyName: 'apiKeyName',
       clientId: 'clientId',
       clientName: 'clientName',
+      memberUserId: 'memberUserId',
+      memberUserName: 'memberUserName',
       metrics: 'metrics',
       modelCode: 'modelCode',
       modelId: 'modelId',
@@ -99,6 +111,8 @@ export class UsageBreakdownRowDTO extends $dara.Model {
       apiKeyName: 'string',
       clientId: 'number',
       clientName: 'string',
+      memberUserId: 'number',
+      memberUserName: 'string',
       metrics: { 'type': 'array', 'itemType': MetricKVPairDTO },
       modelCode: 'string',
       modelId: 'number',

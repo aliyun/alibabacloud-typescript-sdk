@@ -6,7 +6,7 @@ import { ClientBalanceDTO } from "./ClientBalanceDto";
 export class ClientTreeDTO extends $dara.Model {
   /**
    * @example
-   * 杭州市
+   * Hangzhou
    */
   address?: string;
   /**
@@ -71,9 +71,14 @@ export class ClientTreeDTO extends $dara.Model {
   main?: number;
   /**
    * @example
-   * 我的客户
+   * My customer
    */
   name?: string;
+  /**
+   * @example
+   * department
+   */
+  nodeType?: string;
   /**
    * @example
    * null
@@ -81,9 +86,14 @@ export class ClientTreeDTO extends $dara.Model {
   parentId?: number;
   /**
    * @example
-   * 备注
+   * Remarks
    */
   remark?: string;
+  /**
+   * @example
+   * 30001
+   */
+  userId?: number;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
@@ -100,8 +110,10 @@ export class ClientTreeDTO extends $dara.Model {
       level: 'level',
       main: 'main',
       name: 'name',
+      nodeType: 'nodeType',
       parentId: 'parentId',
       remark: 'remark',
+      userId: 'userId',
     };
   }
 
@@ -121,8 +133,10 @@ export class ClientTreeDTO extends $dara.Model {
       level: 'number',
       main: 'number',
       name: 'string',
+      nodeType: 'string',
       parentId: 'number',
       remark: 'string',
+      userId: 'number',
     };
   }
 

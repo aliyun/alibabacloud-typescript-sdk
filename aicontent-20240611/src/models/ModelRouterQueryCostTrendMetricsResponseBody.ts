@@ -6,7 +6,7 @@ import { CostQueryTrendDTO } from "./CostQueryTrendDto";
 export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object containing the cost trend metrics.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   data?: CostQueryTrendDTO;
   /**
    * @remarks
-   * The error code returned when the request fails.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -22,10 +22,10 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results returned per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -46,7 +46,7 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A token to retrieve the next page of results. If no token is returned, all results have been retrieved.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx
@@ -54,7 +54,7 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique request ID. If you encounter a problem, provide this ID to technical support for troubleshooting.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
@@ -62,7 +62,7 @@ export class ModelRouterQueryCostTrendMetricsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of `true` indicates success, and `false` indicates failure.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

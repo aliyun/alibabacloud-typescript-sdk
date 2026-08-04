@@ -14,7 +14,7 @@ export class ModelRouterCreateApiKeyResponseBody extends $dara.Model {
   data?: ApiKeyDTO;
   /**
    * @remarks
-   * The fault code.
+   * The fault message code.
    * 
    * @example
    * UNKNOWN_ERROR

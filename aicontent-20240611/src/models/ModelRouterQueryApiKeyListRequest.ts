@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by the specified client ID.
+   * The client ID used to filter the results.
    * 
    * @example
    * 1
@@ -13,12 +13,20 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The grouping field.
+   * The field by which to group the results.
    * 
    * @example
    * resourceId
    */
   groupBy?: string;
+  /**
+   * @remarks
+   * Optional. If set to true, the keys of members under the department are also included when filtering by department.
+   * 
+   * @example
+   * true
+   */
+  includeMemberKeys?: boolean;
   /**
    * @remarks
    * The search keyword.
@@ -37,7 +45,15 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether to return the total count of results.
+   * Optional. Filters by member IDs. Separate multiple member IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the total count.
    * 
    * @example
    * true
@@ -45,7 +61,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   needTotalCount?: boolean;
   /**
    * @remarks
-   * The token for retrieving the next page of results. An empty value indicates that all results have been returned.
+   * The pagination token. An empty value indicates that no more pages are available.
    * 
    * @example
    * 1
@@ -53,7 +69,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort field.
+   * The field by which to sort the results.
    * 
    * @example
    * resourceId
@@ -61,7 +77,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The sort order.
+   * The sort direction.
    * 
    * @example
    * DESC
@@ -69,7 +85,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The page number to retrieve.
+   * The page number.
    * 
    * @example
    * 1
@@ -77,7 +93,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of results per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -85,7 +101,7 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters the results by the specified status.
+   * The status used to filter the results.
    * 
    * @example
    * 1
@@ -95,8 +111,10 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
     return {
       clientId: 'clientId',
       groupBy: 'groupBy',
+      includeMemberKeys: 'includeMemberKeys',
       keyword: 'keyword',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       needTotalCount: 'needTotalCount',
       nextToken: 'nextToken',
       orderBy: 'orderBy',
@@ -111,8 +129,10 @@ export class ModelRouterQueryApiKeyListRequest extends $dara.Model {
     return {
       clientId: 'number',
       groupBy: 'string',
+      includeMemberKeys: 'boolean',
       keyword: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       needTotalCount: 'boolean',
       nextToken: 'string',
       orderBy: 'string',

@@ -6,7 +6,7 @@ import { ObservationChartsDTO } from "./ObservationChartsDto";
 export class ModelRouterQueryObservationChartsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned for the request.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterQueryObservationChartsResponseBody extends $dara.Model {
   data?: ObservationChartsDTO;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -22,15 +22,15 @@ export class ModelRouterQueryObservationChartsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code of the response.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -38,7 +38,7 @@ export class ModelRouterQueryObservationChartsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx

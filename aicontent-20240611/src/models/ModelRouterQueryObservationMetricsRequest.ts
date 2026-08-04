@@ -45,6 +45,14 @@ export class ModelRouterQueryObservationMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
+   * Optional. Filters by member IDs. Separate multiple IDs with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
    * The model ID used to filter the results.
    * 
    * @example
@@ -109,7 +117,7 @@ export class ModelRouterQueryObservationMetricsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
+   * The time range for the query. Valid values: 1h, 6h, 24h, 7d, 30d.
    * 
    * @example
    * 24h
@@ -122,6 +130,7 @@ export class ModelRouterQueryObservationMetricsRequest extends $dara.Model {
       endTime: 'endTime',
       groupBy: 'groupBy',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       modelId: 'modelId',
       needTotalCount: 'needTotalCount',
       nextToken: 'nextToken',
@@ -141,6 +150,7 @@ export class ModelRouterQueryObservationMetricsRequest extends $dara.Model {
       endTime: 'string',
       groupBy: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       modelId: 'number',
       needTotalCount: 'boolean',
       nextToken: 'string',

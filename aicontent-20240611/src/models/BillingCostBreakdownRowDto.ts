@@ -44,6 +44,16 @@ export class BillingCostBreakdownRowDTO extends $dara.Model {
    */
   dimValues?: string;
   /**
+   * @example
+   * 30001
+   */
+  memberUserId?: number;
+  /**
+   * @example
+   * 张三
+   */
+  memberUserName?: string;
+  /**
    * @remarks
    * Model identifier
    * 
@@ -68,6 +78,11 @@ export class BillingCostBreakdownRowDTO extends $dara.Model {
    */
   modelName?: string;
   /**
+   * @example
+   * qwen
+   */
+  modelSymbol?: string;
+  /**
    * @remarks
    * Statistics category
    * 
@@ -75,6 +90,11 @@ export class BillingCostBreakdownRowDTO extends $dara.Model {
    * llm
    */
   modelType?: string;
+  /**
+   * @example
+   * 1
+   */
+  modelVersion?: number;
   /**
    * @remarks
    * Payable amount, rounded to 8 decimal places
@@ -109,10 +129,14 @@ export class BillingCostBreakdownRowDTO extends $dara.Model {
       clientId: 'clientId',
       clientName: 'clientName',
       dimValues: 'dimValues',
+      memberUserId: 'memberUserId',
+      memberUserName: 'memberUserName',
       modelCode: 'modelCode',
       modelId: 'modelId',
       modelName: 'modelName',
+      modelSymbol: 'modelSymbol',
       modelType: 'modelType',
+      modelVersion: 'modelVersion',
       payableAmount: 'payableAmount',
       summaryTime: 'summaryTime',
       tiers: 'tiers',
@@ -128,10 +152,14 @@ export class BillingCostBreakdownRowDTO extends $dara.Model {
       clientId: 'number',
       clientName: 'string',
       dimValues: 'string',
+      memberUserId: 'number',
+      memberUserName: 'string',
       modelCode: 'string',
       modelId: 'number',
       modelName: 'string',
+      modelSymbol: 'string',
       modelType: 'string',
+      modelVersion: 'number',
       payableAmount: 'number',
       summaryTime: 'number',
       tiers: { 'type': 'array', 'itemType': BillingBillTierDTO },

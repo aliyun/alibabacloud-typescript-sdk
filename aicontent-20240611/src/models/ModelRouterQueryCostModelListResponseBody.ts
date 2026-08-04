@@ -14,7 +14,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   data?: CostQueryModelsDTO;
   /**
    * @remarks
-   * The error code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The number of results returned on the current page.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -46,7 +46,7 @@ export class ModelRouterQueryCostModelListResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for retrieving the next page of results. If this parameter is not returned, all results have been returned.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx

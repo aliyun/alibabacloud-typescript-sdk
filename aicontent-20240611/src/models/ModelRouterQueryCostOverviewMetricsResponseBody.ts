@@ -6,7 +6,7 @@ import { MetricValueDTO } from "./MetricValueDto";
 export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object that contains the returned metrics.
+   * The data object.
    * 
    * @example
    * []
@@ -14,7 +14,7 @@ export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model
   data?: MetricValueDTO[];
   /**
    * @remarks
-   * The error code that is returned if the request fails.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -22,10 +22,10 @@ export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model
   errCode?: string;
   /**
    * @remarks
-   * The error message that is returned if the request fails.
+   * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of entries returned on each page.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -46,7 +46,7 @@ export class ModelRouterQueryCostOverviewMetricsResponseBody extends $dara.Model
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx

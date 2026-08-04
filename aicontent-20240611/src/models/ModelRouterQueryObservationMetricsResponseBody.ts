@@ -14,7 +14,7 @@ export class ModelRouterQueryObservationMetricsResponseBody extends $dara.Model 
   data?: ModelMetricsDTO;
   /**
    * @remarks
-   * The fault code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR

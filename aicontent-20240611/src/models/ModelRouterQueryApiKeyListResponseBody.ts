@@ -63,7 +63,7 @@ export class ModelRouterQueryApiKeyListResponseBodyData extends $dara.Model {
 export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of API key objects.
+   * The data object.
    * 
    * @example
    * []
@@ -71,7 +71,7 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   data?: ModelRouterQueryApiKeyListResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -82,7 +82,7 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -95,7 +95,7 @@ export class ModelRouterQueryApiKeyListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results per page.
+   * maxResults
    * 
    * @example
    * 10

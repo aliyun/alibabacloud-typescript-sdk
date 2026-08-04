@@ -2505,6 +2505,255 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Batch creates API keys for members under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchCreateMemberApiKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchCreateMemberApiKeysResponse
+   */
+  async modelRouterBatchCreateMemberApiKeysWithOptions(id: string, request: $_model.ModelRouterBatchCreateMemberApiKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchCreateMemberApiKeysResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireAt)) {
+      body["expireAt"] = request.expireAt;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.userIds)) {
+      body["userIds"] = request.userIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchCreateMemberApiKeys",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/member-apikeys`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchCreateMemberApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchCreateMemberApiKeysResponse({}));
+  }
+
+  /**
+   * Batch creates API keys for members under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchCreateMemberApiKeysRequest
+   * @returns ModelRouterBatchCreateMemberApiKeysResponse
+   */
+  async modelRouterBatchCreateMemberApiKeys(id: string, request: $_model.ModelRouterBatchCreateMemberApiKeysRequest): Promise<$_model.ModelRouterBatchCreateMemberApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchCreateMemberApiKeysWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Manages models by performing batch model creation.
+   * 
+   * @param request - ModelRouterBatchCreateModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchCreateModelResponse
+   */
+  async modelRouterBatchCreateModelWithOptions(request: $_model.ModelRouterBatchCreateModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchCreateModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      body["baseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.models)) {
+      body["models"] = request.models;
+    }
+
+    if (!$dara.isNull(request.symbol)) {
+      body["symbol"] = request.symbol;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchCreateModel",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/models/batch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchCreateModelResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchCreateModelResponse({}));
+  }
+
+  /**
+   * Manages models by performing batch model creation.
+   * 
+   * @param request - ModelRouterBatchCreateModelRequest
+   * @returns ModelRouterBatchCreateModelResponse
+   */
+  async modelRouterBatchCreateModel(request: $_model.ModelRouterBatchCreateModelRequest): Promise<$_model.ModelRouterBatchCreateModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchCreateModelWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disables API keys in batches for members under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchDisableMemberApiKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchDisableMemberApiKeysResponse
+   */
+  async modelRouterBatchDisableMemberApiKeysWithOptions(id: string, request: $_model.ModelRouterBatchDisableMemberApiKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchDisableMemberApiKeysResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userIds)) {
+      body["userIds"] = request.userIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchDisableMemberApiKeys",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/member-apikeys/disable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchDisableMemberApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchDisableMemberApiKeysResponse({}));
+  }
+
+  /**
+   * Disables API keys in batches for members under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchDisableMemberApiKeysRequest
+   * @returns ModelRouterBatchDisableMemberApiKeysResponse
+   */
+  async modelRouterBatchDisableMemberApiKeys(id: string, request: $_model.ModelRouterBatchDisableMemberApiKeysRequest): Promise<$_model.ModelRouterBatchDisableMemberApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchDisableMemberApiKeysWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Batch resets member authorizations to inherit under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchResetMemberAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchResetMemberAuthorizationResponse
+   */
+  async modelRouterBatchResetMemberAuthorizationWithOptions(id: string, request: $_model.ModelRouterBatchResetMemberAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchResetMemberAuthorizationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userIds)) {
+      body["userIds"] = request.userIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchResetMemberAuthorization",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/member-authorizations/reset`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchResetMemberAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchResetMemberAuthorizationResponse({}));
+  }
+
+  /**
+   * Batch resets member authorizations to inherit under a department in organization management.
+   * 
+   * @param request - ModelRouterBatchResetMemberAuthorizationRequest
+   * @returns ModelRouterBatchResetMemberAuthorizationResponse
+   */
+  async modelRouterBatchResetMemberAuthorization(id: string, request: $_model.ModelRouterBatchResetMemberAuthorizationRequest): Promise<$_model.ModelRouterBatchResetMemberAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchResetMemberAuthorizationWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Sets authorization for multiple members under a department in batch.
+   * 
+   * @param request - ModelRouterBatchSetMemberAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBatchSetMemberAuthorizationResponse
+   */
+  async modelRouterBatchSetMemberAuthorizationWithOptions(id: string, request: $_model.ModelRouterBatchSetMemberAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBatchSetMemberAuthorizationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedModelGroupConfig)) {
+      body["allowedModelGroupConfig"] = request.allowedModelGroupConfig;
+    }
+
+    if (!$dara.isNull(request.userIdList)) {
+      body["userIdList"] = request.userIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBatchSetMemberAuthorization",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/member-authorizations`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBatchSetMemberAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBatchSetMemberAuthorizationResponse({}));
+  }
+
+  /**
+   * Sets authorization for multiple members under a department in batch.
+   * 
+   * @param request - ModelRouterBatchSetMemberAuthorizationRequest
+   * @returns ModelRouterBatchSetMemberAuthorizationResponse
+   */
+  async modelRouterBatchSetMemberAuthorization(id: string, request: $_model.ModelRouterBatchSetMemberAuthorizationRequest): Promise<$_model.ModelRouterBatchSetMemberAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBatchSetMemberAuthorizationWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the usage monitoring tab configuration.
    * 
    * @param request - ModelRouterBillingCostTabsRequest
@@ -2686,6 +2935,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterConfigureClientBalanceWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/配置成员子钱包余额
+   * 
+   * @param request - ModelRouterConfigureMemberBalanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterConfigureMemberBalanceResponse
+   */
+  async modelRouterConfigureMemberBalanceWithOptions(clientId: string, id: string, request: $_model.ModelRouterConfigureMemberBalanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterConfigureMemberBalanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.enableBalance)) {
+      body["enableBalance"] = request.enableBalance;
+    }
+
+    if (!$dara.isNull(request.initialBalance)) {
+      body["initialBalance"] = request.initialBalance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterConfigureMemberBalance",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterConfigureMemberBalanceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterConfigureMemberBalanceResponse({}));
+  }
+
+  /**
+   * 组织管理/配置成员子钱包余额
+   * 
+   * @param request - ModelRouterConfigureMemberBalanceRequest
+   * @returns ModelRouterConfigureMemberBalanceResponse
+   */
+  async modelRouterConfigureMemberBalance(clientId: string, id: string, request: $_model.ModelRouterConfigureMemberBalanceRequest): Promise<$_model.ModelRouterConfigureMemberBalanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterConfigureMemberBalanceWithOptions(clientId, id, request, headers, runtime);
   }
 
   /**
@@ -3021,6 +3323,173 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an API key for a member in the organization.
+   * 
+   * @param request - ModelRouterCreateMemberApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateMemberApiKeyResponse
+   */
+  async modelRouterCreateMemberApiKeyWithOptions(clientId: string, id: string, request: $_model.ModelRouterCreateMemberApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateMemberApiKeyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expireAt)) {
+      body["expireAt"] = request.expireAt;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateMemberApiKey",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/apikeys`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateMemberApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateMemberApiKeyResponse({}));
+  }
+
+  /**
+   * Creates an API key for a member in the organization.
+   * 
+   * @param request - ModelRouterCreateMemberApiKeyRequest
+   * @returns ModelRouterCreateMemberApiKeyResponse
+   */
+  async modelRouterCreateMemberApiKey(clientId: string, id: string, request: $_model.ModelRouterCreateMemberApiKeyRequest): Promise<$_model.ModelRouterCreateMemberApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateMemberApiKeyWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * Performs a balance transaction on a member sub-wallet in organization management.
+   * 
+   * @param request - ModelRouterCreateMemberBalanceTransactionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateMemberBalanceTransactionResponse
+   */
+  async modelRouterCreateMemberBalanceTransactionWithOptions(clientId: string, id: string, request: $_model.ModelRouterCreateMemberBalanceTransactionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateMemberBalanceTransactionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.idempotencyKey)) {
+      body["idempotencyKey"] = request.idempotencyKey;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateMemberBalanceTransaction",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/transactions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateMemberBalanceTransactionResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateMemberBalanceTransactionResponse({}));
+  }
+
+  /**
+   * Performs a balance transaction on a member sub-wallet in organization management.
+   * 
+   * @param request - ModelRouterCreateMemberBalanceTransactionRequest
+   * @returns ModelRouterCreateMemberBalanceTransactionResponse
+   */
+  async modelRouterCreateMemberBalanceTransaction(clientId: string, id: string, request: $_model.ModelRouterCreateMemberBalanceTransactionRequest): Promise<$_model.ModelRouterCreateMemberBalanceTransactionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateMemberBalanceTransactionWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * Creates a balance subscription for a member in an organization.
+   * 
+   * @param request - ModelRouterCreateMemberSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateMemberSubscriptionResponse
+   */
+  async modelRouterCreateMemberSubscriptionWithOptions(clientId: string, id: string, request: $_model.ModelRouterCreateMemberSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateMemberSubscriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.effectiveTime)) {
+      body["effectiveTime"] = request.effectiveTime;
+    }
+
+    if (!$dara.isNull(request.idempotencyKey)) {
+      body["idempotencyKey"] = request.idempotencyKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateMemberSubscription",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/subscription`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateMemberSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateMemberSubscriptionResponse({}));
+  }
+
+  /**
+   * Creates a balance subscription for a member in an organization.
+   * 
+   * @param request - ModelRouterCreateMemberSubscriptionRequest
+   * @returns ModelRouterCreateMemberSubscriptionResponse
+   */
+  async modelRouterCreateMemberSubscription(clientId: string, id: string, request: $_model.ModelRouterCreateMemberSubscriptionRequest): Promise<$_model.ModelRouterCreateMemberSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateMemberSubscriptionWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
    * Performs model creation.
    * 
    * @param request - ModelRouterCreateModelRequest
@@ -3222,6 +3691,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a user.
+   * 
+   * @remarks
+   * Creates a user.
+   * 
+   * @param request - ModelRouterCreateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateUserResponse
+   */
+  async modelRouterCreateUserWithOptions(request: $_model.ModelRouterCreateUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.departmentRoles)) {
+      body["departmentRoles"] = request.departmentRoles;
+    }
+
+    if (!$dara.isNull(request.loginName)) {
+      body["loginName"] = request.loginName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateUser",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateUserResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateUserResponse({}));
+  }
+
+  /**
+   * Creates a user.
+   * 
+   * @remarks
+   * Creates a user.
+   * 
+   * @param request - ModelRouterCreateUserRequest
+   * @returns ModelRouterCreateUserResponse
+   */
+  async modelRouterCreateUser(request: $_model.ModelRouterCreateUserRequest): Promise<$_model.ModelRouterCreateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateUserWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes an API key.
    * 
    * @param headers - map
@@ -3407,6 +3939,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a user.
+   * 
+   * @param request - ModelRouterDeleteUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterDeleteUserResponse
+   */
+  async modelRouterDeleteUserWithOptions(id: string, request: $_model.ModelRouterDeleteUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterDeleteUserResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterDeleteUser",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users/${$dara.URL.percentEncode(id)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterDeleteUserResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterDeleteUserResponse({}));
+  }
+
+  /**
+   * Deletes a user.
+   * 
+   * @param request - ModelRouterDeleteUserRequest
+   * @returns ModelRouterDeleteUserResponse
+   */
+  async modelRouterDeleteUser(id: string, request: $_model.ModelRouterDeleteUserRequest): Promise<$_model.ModelRouterDeleteUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterDeleteUserWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Exports the balance change records of a member in the organization.
+   * 
+   * @param request - ModelRouterExportMemberBalanceOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterExportMemberBalanceOrdersResponse
+   */
+  async modelRouterExportMemberBalanceOrdersWithOptions(clientId: string, id: string, request: $_model.ModelRouterExportMemberBalanceOrdersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterExportMemberBalanceOrdersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      query["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterExportMemberBalanceOrders",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/orders/export`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterExportMemberBalanceOrdersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterExportMemberBalanceOrdersResponse({}));
+  }
+
+  /**
+   * Exports the balance change records of a member in the organization.
+   * 
+   * @param request - ModelRouterExportMemberBalanceOrdersRequest
+   * @returns ModelRouterExportMemberBalanceOrdersResponse
+   */
+  async modelRouterExportMemberBalanceOrders(clientId: string, id: string, request: $_model.ModelRouterExportMemberBalanceOrdersRequest): Promise<$_model.ModelRouterExportMemberBalanceOrdersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterExportMemberBalanceOrdersWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
    * Client Management/Get department balance
    * 
    * @param request - ModelRouterGetClientBalanceRequest
@@ -3507,6 +4127,239 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 组织管理/获取部门余额概览
+   * 
+   * @param request - ModelRouterGetDeptBalanceSummaryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetDeptBalanceSummaryResponse
+   */
+  async modelRouterGetDeptBalanceSummaryWithOptions(id: string, request: $_model.ModelRouterGetDeptBalanceSummaryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetDeptBalanceSummaryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetDeptBalanceSummary",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance-summary`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetDeptBalanceSummaryResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetDeptBalanceSummaryResponse({}));
+  }
+
+  /**
+   * 组织管理/获取部门余额概览
+   * 
+   * @param request - ModelRouterGetDeptBalanceSummaryRequest
+   * @returns ModelRouterGetDeptBalanceSummaryResponse
+   */
+  async modelRouterGetDeptBalanceSummary(id: string, request: $_model.ModelRouterGetDeptBalanceSummaryRequest): Promise<$_model.ModelRouterGetDeptBalanceSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetDeptBalanceSummaryWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the list of API keys for a member in the organization.
+   * 
+   * @param request - ModelRouterGetMemberApiKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetMemberApiKeysResponse
+   */
+  async modelRouterGetMemberApiKeysWithOptions(clientId: string, id: string, request: $_model.ModelRouterGetMemberApiKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetMemberApiKeysResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetMemberApiKeys",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/apikeys`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetMemberApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetMemberApiKeysResponse({}));
+  }
+
+  /**
+   * Retrieves the list of API keys for a member in the organization.
+   * 
+   * @param request - ModelRouterGetMemberApiKeysRequest
+   * @returns ModelRouterGetMemberApiKeysResponse
+   */
+  async modelRouterGetMemberApiKeys(clientId: string, id: string, request: $_model.ModelRouterGetMemberApiKeysRequest): Promise<$_model.ModelRouterGetMemberApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetMemberApiKeysWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/获取成员子钱包余额
+   * 
+   * @param request - ModelRouterGetMemberBalanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetMemberBalanceResponse
+   */
+  async modelRouterGetMemberBalanceWithOptions(clientId: string, id: string, request: $_model.ModelRouterGetMemberBalanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetMemberBalanceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetMemberBalance",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetMemberBalanceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetMemberBalanceResponse({}));
+  }
+
+  /**
+   * 组织管理/获取成员子钱包余额
+   * 
+   * @param request - ModelRouterGetMemberBalanceRequest
+   * @returns ModelRouterGetMemberBalanceResponse
+   */
+  async modelRouterGetMemberBalance(clientId: string, id: string, request: $_model.ModelRouterGetMemberBalanceRequest): Promise<$_model.ModelRouterGetMemberBalanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetMemberBalanceWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/获取成员余额变更日志
+   * 
+   * @param request - ModelRouterGetMemberBalanceLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetMemberBalanceLogsResponse
+   */
+  async modelRouterGetMemberBalanceLogsWithOptions(clientId: string, id: string, request: $_model.ModelRouterGetMemberBalanceLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetMemberBalanceLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.changeType)) {
+      query["changeType"] = request.changeType;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.skipTotal)) {
+      query["skipTotal"] = request.skipTotal;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetMemberBalanceLogs",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetMemberBalanceLogsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetMemberBalanceLogsResponse({}));
+  }
+
+  /**
+   * 组织管理/获取成员余额变更日志
+   * 
+   * @param request - ModelRouterGetMemberBalanceLogsRequest
+   * @returns ModelRouterGetMemberBalanceLogsResponse
+   */
+  async modelRouterGetMemberBalanceLogs(clientId: string, id: string, request: $_model.ModelRouterGetMemberBalanceLogsRequest): Promise<$_model.ModelRouterGetMemberBalanceLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetMemberBalanceLogsWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * Queries the cross-department role assignments of a user.
+   * 
+   * @remarks
+   * Queries the role assignments of a user.
+   * 
+   * @param request - ModelRouterGetUserRolesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetUserRolesResponse
+   */
+  async modelRouterGetUserRolesWithOptions(id: string, request: $_model.ModelRouterGetUserRolesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetUserRolesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetUserRoles",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users/${$dara.URL.percentEncode(id)}/roles`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetUserRolesResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetUserRolesResponse({}));
+  }
+
+  /**
+   * Queries the cross-department role assignments of a user.
+   * 
+   * @remarks
+   * Queries the role assignments of a user.
+   * 
+   * @param request - ModelRouterGetUserRolesRequest
+   * @returns ModelRouterGetUserRolesResponse
+   */
+  async modelRouterGetUserRoles(id: string, request: $_model.ModelRouterGetUserRolesRequest): Promise<$_model.ModelRouterGetUserRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetUserRolesWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * Queries balance change records.
    * 
    * @remarks
@@ -3579,6 +4432,175 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterListBalanceOrdersWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/获取部门成员列表
+   * 
+   * @param request - ModelRouterListDeptMembersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterListDeptMembersResponse
+   */
+  async modelRouterListDeptMembersWithOptions(id: string, request: $_model.ModelRouterListDeptMembersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterListDeptMembersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authConfig)) {
+      query["authConfig"] = request.authConfig;
+    }
+
+    if (!$dara.isNull(request.includeAuthorization)) {
+      query["includeAuthorization"] = request.includeAuthorization;
+    }
+
+    if (!$dara.isNull(request.includeBalance)) {
+      query["includeBalance"] = request.includeBalance;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterListDeptMembers",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterListDeptMembersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterListDeptMembersResponse({}));
+  }
+
+  /**
+   * 组织管理/获取部门成员列表
+   * 
+   * @param request - ModelRouterListDeptMembersRequest
+   * @returns ModelRouterListDeptMembersResponse
+   */
+  async modelRouterListDeptMembers(id: string, request: $_model.ModelRouterListDeptMembersRequest): Promise<$_model.ModelRouterListDeptMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterListDeptMembersWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/获取成员余额变更记录
+   * 
+   * @param request - ModelRouterListMemberBalanceOrdersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterListMemberBalanceOrdersResponse
+   */
+  async modelRouterListMemberBalanceOrdersWithOptions(clientId: string, id: string, request: $_model.ModelRouterListMemberBalanceOrdersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterListMemberBalanceOrdersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      query["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["orderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterListMemberBalanceOrders",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/orders`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterListMemberBalanceOrdersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterListMemberBalanceOrdersResponse({}));
+  }
+
+  /**
+   * 组织管理/获取成员余额变更记录
+   * 
+   * @param request - ModelRouterListMemberBalanceOrdersRequest
+   * @returns ModelRouterListMemberBalanceOrdersResponse
+   */
+  async modelRouterListMemberBalanceOrders(clientId: string, id: string, request: $_model.ModelRouterListMemberBalanceOrdersRequest): Promise<$_model.ModelRouterListMemberBalanceOrdersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterListMemberBalanceOrdersWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/获取成员订阅列表
+   * 
+   * @param request - ModelRouterListMemberSubscriptionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterListMemberSubscriptionsResponse
+   */
+  async modelRouterListMemberSubscriptionsWithOptions(clientId: string, id: string, request: $_model.ModelRouterListMemberSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterListMemberSubscriptionsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterListMemberSubscriptions",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/subscription`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterListMemberSubscriptionsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterListMemberSubscriptionsResponse({}));
+  }
+
+  /**
+   * 组织管理/获取成员订阅列表
+   * 
+   * @param request - ModelRouterListMemberSubscriptionsRequest
+   * @returns ModelRouterListMemberSubscriptionsResponse
+   */
+  async modelRouterListMemberSubscriptions(clientId: string, id: string, request: $_model.ModelRouterListMemberSubscriptionsRequest): Promise<$_model.ModelRouterListMemberSubscriptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterListMemberSubscriptionsWithOptions(clientId, id, request, headers, runtime);
   }
 
   /**
@@ -3698,12 +4720,20 @@ export default class Client extends OpenApi {
       query["groupBy"] = request.groupBy;
     }
 
+    if (!$dara.isNull(request.includeMemberKeys)) {
+      query["includeMemberKeys"] = request.includeMemberKeys;
+    }
+
     if (!$dara.isNull(request.keyword)) {
       query["keyword"] = request.keyword;
     }
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.needTotalCount)) {
@@ -3765,7 +4795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Billing > Query billing cost breakdown
+   * Queries billing details in batches.
    * 
    * @param request - ModelRouterQueryBillingCostBreakdownRequest
    * @param headers - map
@@ -3793,6 +4823,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -3838,7 +4872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Billing > Query billing cost breakdown
+   * Queries billing details in batches.
    * 
    * @param request - ModelRouterQueryBillingCostBreakdownRequest
    * @returns ModelRouterQueryBillingCostBreakdownResponse
@@ -4020,6 +5054,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentId)) {
+      query["parentId"] = request.parentId;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -4222,7 +5260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Model details
+   * Retrieves the usage details of a model for billing management.
    * 
    * @param request - ModelRouterQueryCostModelDetailRequest
    * @param headers - map
@@ -4246,6 +5284,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -4291,7 +5333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Model details
+   * Retrieves the usage details of a model for billing management.
    * 
    * @param request - ModelRouterQueryCostModelDetailRequest
    * @returns ModelRouterQueryCostModelDetailResponse
@@ -4303,7 +5345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Retrieves a list of invoked models
+   * Retrieves the list of models called for billing management.
    * 
    * @param request - ModelRouterQueryCostModelListRequest
    * @param headers - map
@@ -4331,6 +5373,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelTypes)) {
@@ -4368,7 +5414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Retrieves a list of invoked models
+   * Retrieves the list of models called for billing management.
    * 
    * @param request - ModelRouterQueryCostModelListRequest
    * @returns ModelRouterQueryCostModelListResponse
@@ -4380,7 +5426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Get cost overview metrics
+   * Retrieves cost overview metrics for billing management.
    * 
    * @param request - ModelRouterQueryCostOverviewMetricsRequest
    * @param headers - map
@@ -4408,6 +5454,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelTypes)) {
@@ -4441,7 +5491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Get cost overview metrics
+   * Retrieves cost overview metrics for billing management.
    * 
    * @param request - ModelRouterQueryCostOverviewMetricsRequest
    * @returns ModelRouterQueryCostOverviewMetricsResponse
@@ -4453,7 +5503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Cost trends
+   * Retrieves usage cost trends.
    * 
    * @param request - ModelRouterQueryCostTrendMetricsRequest
    * @param headers - map
@@ -4481,6 +5531,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelTypes)) {
@@ -4514,7 +5568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * billing management / Cost trends
+   * Retrieves usage cost trends.
    * 
    * @param request - ModelRouterQueryCostTrendMetricsRequest
    * @returns ModelRouterQueryCostTrendMetricsResponse
@@ -4807,10 +5861,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the model groups and models bound to a specified API key.
+   * Queries the users attached to a model group by paging.
    * 
    * @remarks
-   * Queries the groups and models bound to a specified API key.
+   * Queries the users attached to a model group by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupUsersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryModelGroupUsersResponse
+   */
+  async modelRouterQueryModelGroupUsersWithOptions(groupId: string, request: $_model.ModelRouterQueryModelGroupUsersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryModelGroupUsersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryModelGroupUsers",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/model-groups/${$dara.URL.percentEncode(groupId)}/users`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryModelGroupUsersResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryModelGroupUsersResponse({}));
+  }
+
+  /**
+   * Queries the users attached to a model group by paging.
+   * 
+   * @remarks
+   * Queries the users attached to a model group by paging.
+   * 
+   * @param request - ModelRouterQueryModelGroupUsersRequest
+   * @returns ModelRouterQueryModelGroupUsersResponse
+   */
+  async modelRouterQueryModelGroupUsers(groupId: string, request: $_model.ModelRouterQueryModelGroupUsersRequest): Promise<$_model.ModelRouterQueryModelGroupUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryModelGroupUsersWithOptions(groupId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the bound groups and models by API key.
+   * 
+   * @remarks
+   * Queries the bound groups and models by API key.
    * 
    * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
    * @param headers - map
@@ -4837,10 +5954,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the model groups and models bound to a specified API key.
+   * Queries the bound groups and models by API key.
    * 
    * @remarks
-   * Queries the groups and models bound to a specified API key.
+   * Queries the bound groups and models by API key.
    * 
    * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
    * @returns ModelRouterQueryModelGroupsByApiKeyResponse
@@ -5087,7 +6204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves chart data for model observation.
+   * Retrieves observation chart data for model monitoring.
    * 
    * @param request - ModelRouterQueryObservationChartsRequest
    * @param headers - map
@@ -5107,6 +6224,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -5140,7 +6261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves chart data for model observation.
+   * Retrieves observation chart data for model monitoring.
    * 
    * @param request - ModelRouterQueryObservationChartsRequest
    * @returns ModelRouterQueryObservationChartsResponse
@@ -5180,6 +6301,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
     }
 
     if (!$dara.isNull(request.modelId)) {
@@ -5279,6 +6404,10 @@ export default class Client extends OpenApi {
       query["maxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
+    }
+
     if (!$dara.isNull(request.modelId)) {
       query["modelId"] = request.modelId;
     }
@@ -5376,6 +6505,10 @@ export default class Client extends OpenApi {
       query["maxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.memberUserIds)) {
+      query["memberUserIds"] = request.memberUserIds;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
@@ -5420,6 +6553,104 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryUsageBreakdownWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of users.
+   * 
+   * @remarks
+   * Queries the list of users.
+   * 
+   * @param request - ModelRouterQueryUserListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryUserListResponse
+   */
+  async modelRouterQueryUserListWithOptions(request: $_model.ModelRouterQueryUserListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryUserListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryUserList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryUserListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryUserListResponse({}));
+  }
+
+  /**
+   * Queries the list of users.
+   * 
+   * @remarks
+   * Queries the list of users.
+   * 
+   * @param request - ModelRouterQueryUserListRequest
+   * @returns ModelRouterQueryUserListResponse
+   */
+  async modelRouterQueryUserList(request: $_model.ModelRouterQueryUserListRequest): Promise<$_model.ModelRouterQueryUserListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryUserListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Resets the authorization of a member to inherit from the organization.
+   * 
+   * @param request - ModelRouterResetMemberAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterResetMemberAuthorizationResponse
+   */
+  async modelRouterResetMemberAuthorizationWithOptions(clientId: string, id: string, request: $_model.ModelRouterResetMemberAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterResetMemberAuthorizationResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterResetMemberAuthorization",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/authorization`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterResetMemberAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterResetMemberAuthorizationResponse({}));
+  }
+
+  /**
+   * Resets the authorization of a member to inherit from the organization.
+   * 
+   * @param request - ModelRouterResetMemberAuthorizationRequest
+   * @returns ModelRouterResetMemberAuthorizationResponse
+   */
+  async modelRouterResetMemberAuthorization(clientId: string, id: string, request: $_model.ModelRouterResetMemberAuthorizationRequest): Promise<$_model.ModelRouterResetMemberAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterResetMemberAuthorizationWithOptions(clientId, id, request, headers, runtime);
   }
 
   /**
@@ -5480,6 +6711,196 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 组织管理/部门树搜索定位
+   * 
+   * @param request - ModelRouterSearchClientTreeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterSearchClientTreeResponse
+   */
+  async modelRouterSearchClientTreeWithOptions(request: $_model.ModelRouterSearchClientTreeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterSearchClientTreeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterSearchClientTree",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/tree/search`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterSearchClientTreeResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterSearchClientTreeResponse({}));
+  }
+
+  /**
+   * 组织管理/部门树搜索定位
+   * 
+   * @param request - ModelRouterSearchClientTreeRequest
+   * @returns ModelRouterSearchClientTreeResponse
+   */
+  async modelRouterSearchClientTree(request: $_model.ModelRouterSearchClientTreeRequest): Promise<$_model.ModelRouterSearchClientTreeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterSearchClientTreeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Sets the member authorization model for an organization.
+   * 
+   * @param request - ModelRouterSetMemberAuthorizationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterSetMemberAuthorizationResponse
+   */
+  async modelRouterSetMemberAuthorizationWithOptions(clientId: string, id: string, request: $_model.ModelRouterSetMemberAuthorizationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterSetMemberAuthorizationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowedModelGroupConfig)) {
+      body["allowedModelGroupConfig"] = request.allowedModelGroupConfig;
+    }
+
+    if (!$dara.isNull(request.allowedModels)) {
+      body["allowedModels"] = request.allowedModels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterSetMemberAuthorization",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/authorization`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterSetMemberAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterSetMemberAuthorizationResponse({}));
+  }
+
+  /**
+   * Sets the member authorization model for an organization.
+   * 
+   * @param request - ModelRouterSetMemberAuthorizationRequest
+   * @returns ModelRouterSetMemberAuthorizationResponse
+   */
+  async modelRouterSetMemberAuthorization(clientId: string, id: string, request: $_model.ModelRouterSetMemberAuthorizationRequest): Promise<$_model.ModelRouterSetMemberAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterSetMemberAuthorizationWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
+   * Sets user roles or changes the department to which a user belongs.
+   * 
+   * @remarks
+   * Sets user roles or changes the department to which a user belongs.
+   * 
+   * @param request - ModelRouterSetUserRolesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterSetUserRolesResponse
+   */
+  async modelRouterSetUserRolesWithOptions(id: string, request: $_model.ModelRouterSetUserRolesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterSetUserRolesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.departmentRoles)) {
+      body["departmentRoles"] = request.departmentRoles;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterSetUserRoles",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users/${$dara.URL.percentEncode(id)}/roles`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterSetUserRolesResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterSetUserRolesResponse({}));
+  }
+
+  /**
+   * Sets user roles or changes the department to which a user belongs.
+   * 
+   * @remarks
+   * Sets user roles or changes the department to which a user belongs.
+   * 
+   * @param request - ModelRouterSetUserRolesRequest
+   * @returns ModelRouterSetUserRolesResponse
+   */
+  async modelRouterSetUserRoles(id: string, request: $_model.ModelRouterSetUserRolesRequest): Promise<$_model.ModelRouterSetUserRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterSetUserRolesWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/停止成员订阅
+   * 
+   * @param request - ModelRouterStopMemberSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterStopMemberSubscriptionResponse
+   */
+  async modelRouterStopMemberSubscriptionWithOptions(clientId: string, id: string, request: $_model.ModelRouterStopMemberSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterStopMemberSubscriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterStopMemberSubscription",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/balance/subscription/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterStopMemberSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterStopMemberSubscriptionResponse({}));
+  }
+
+  /**
+   * 组织管理/停止成员订阅
+   * 
+   * @param request - ModelRouterStopMemberSubscriptionRequest
+   * @returns ModelRouterStopMemberSubscriptionResponse
+   */
+  async modelRouterStopMemberSubscription(clientId: string, id: string, request: $_model.ModelRouterStopMemberSubscriptionRequest): Promise<$_model.ModelRouterStopMemberSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterStopMemberSubscriptionWithOptions(clientId, id, request, headers, runtime);
+  }
+
+  /**
    * Stops a periodic recharge subscription for customer management.
    * 
    * @param request - ModelRouterStopSubscriptionRequest
@@ -5522,6 +6943,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterStopSubscriptionWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 组织管理/部门向成员转账
+   * 
+   * @param request - ModelRouterTransferToMemberRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterTransferToMemberResponse
+   */
+  async modelRouterTransferToMemberWithOptions(clientId: string, id: string, request: $_model.ModelRouterTransferToMemberRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterTransferToMemberResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.idempotencyKey)) {
+      body["idempotencyKey"] = request.idempotencyKey;
+    }
+
+    if (!$dara.isNull(request.monthlyQuota)) {
+      body["monthlyQuota"] = request.monthlyQuota;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterTransferToMember",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(clientId)}/members/${$dara.URL.percentEncode(id)}/transfer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterTransferToMemberResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterTransferToMemberResponse({}));
+  }
+
+  /**
+   * 组织管理/部门向成员转账
+   * 
+   * @param request - ModelRouterTransferToMemberRequest
+   * @returns ModelRouterTransferToMemberResponse
+   */
+  async modelRouterTransferToMember(clientId: string, id: string, request: $_model.ModelRouterTransferToMemberRequest): Promise<$_model.ModelRouterTransferToMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterTransferToMemberWithOptions(clientId, id, request, headers, runtime);
   }
 
   /**
@@ -5857,6 +7339,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterUpdateModelGroupWithOptions(groupId, request, headers, runtime);
+  }
+
+  /**
+   * Updates user information.
+   * 
+   * @remarks
+   * Updates user information.
+   * 
+   * @param request - ModelRouterUpdateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateUserResponse
+   */
+  async modelRouterUpdateUserWithOptions(id: string, request: $_model.ModelRouterUpdateUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      body["phone"] = request.phone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateUser",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/users/${$dara.URL.percentEncode(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateUserResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateUserResponse({}));
+  }
+
+  /**
+   * Updates user information.
+   * 
+   * @remarks
+   * Updates user information.
+   * 
+   * @param request - ModelRouterUpdateUserRequest
+   * @returns ModelRouterUpdateUserResponse
+   */
+  async modelRouterUpdateUser(id: string, request: $_model.ModelRouterUpdateUserRequest): Promise<$_model.ModelRouterUpdateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateUserWithOptions(id, request, headers, runtime);
   }
 
   /**

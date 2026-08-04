@@ -6,7 +6,7 @@ import { BillingCostBreakdownRespDTO } from "./BillingCostBreakdownRespDto";
 export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data object containing the billing breakdown. For details, see the response example.
+   * The data object.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Mode
   data?: BillingCostBreakdownRespDTO;
   /**
    * @remarks
-   * The error code.
+   * The error message code.
    * 
    * @example
    * UNKNOWN_ERROR
@@ -25,7 +25,7 @@ export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Mode
    * The error message.
    * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
@@ -38,7 +38,7 @@ export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Mode
   httpStatusCode?: number;
   /**
    * @remarks
-   * The maximum number of results returned.
+   * The maximum number of results to return.
    * 
    * @example
    * 20
@@ -46,7 +46,7 @@ export class ModelRouterQueryBillingCostBreakdownResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If this parameter is not empty, pass its value in a subsequent request to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * xxxx-xxx-xxxxx

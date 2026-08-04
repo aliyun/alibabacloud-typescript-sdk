@@ -76,6 +76,11 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * 1
+   */
+  parentId?: number;
+  /**
    * @remarks
    * Filters the results by status.
    * 
@@ -94,6 +99,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
       orderDirection: 'orderDirection',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
+      parentId: 'parentId',
       status: 'status',
     };
   }
@@ -109,6 +115,7 @@ export class ModelRouterQueryClientListRequest extends $dara.Model {
       orderDirection: 'string',
       pageIndex: 'number',
       pageSize: 'number',
+      parentId: 'number',
       status: 'number',
     };
   }

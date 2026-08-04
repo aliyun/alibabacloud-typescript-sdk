@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Optional. Filters results by API Key ID. This parameter works in conjunction with the department and requires clientId to be specified first.
+   * 
    * @example
    * 100
    */
   apiKeyId?: number;
   /**
    * @remarks
-   * Filters the results by department ID.
+   * Filters results by department ID.
    * 
    * @example
    * 1
@@ -18,7 +21,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end time of the query, specified as a Unix timestamp in seconds.
+   * The end time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -28,7 +31,12 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The granularity of the data. Valid values: `hourly` and `daily`. Default: `hourly`.
+   * The time granularity. Valid values:
+   * 
+   * - hourly
+   * - daily
+   * 
+   * Default value: hourly.
    * 
    * @example
    * hourly
@@ -36,7 +44,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of results to return.
    * 
    * @example
    * 10
@@ -44,7 +52,15 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The model types to query, separated by commas.
+   * Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
+   * The model types, separated by commas.
    * 
    * @example
    * LLM,VL
@@ -52,7 +68,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   modelTypes?: string;
   /**
    * @remarks
-   * The pagination token from a previous response to retrieve the next page of results. If this parameter is omitted, the first page of results is returned.
+   * nextToken
    * 
    * @example
    * xxxx-xxx-xxxxx
@@ -60,7 +76,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The start time of the query, specified as a Unix timestamp in seconds.
+   * The start time, in UNIX timestamp format (seconds).
    * 
    * This parameter is required.
    * 
@@ -75,6 +91,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
+      memberUserIds: 'memberUserIds',
       modelTypes: 'modelTypes',
       nextToken: 'nextToken',
       startTime: 'startTime',
@@ -88,6 +105,7 @@ export class ModelRouterQueryCostTrendMetricsRequest extends $dara.Model {
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',
+      memberUserIds: 'string',
       modelTypes: 'string',
       nextToken: 'string',
       startTime: 'number',

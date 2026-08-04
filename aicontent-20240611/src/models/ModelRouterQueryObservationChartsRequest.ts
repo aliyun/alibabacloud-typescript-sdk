@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key ID to use as a filter.
+   * The API key ID used to filter results.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   apiKeyId?: number;
   /**
    * @remarks
-   * The client ID to use as a filter.
+   * The client ID used to filter results.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   clientId?: number;
   /**
    * @remarks
-   * The end time of the custom time range, in ISO 8601 UTC format. If specified, `startTime` must also be provided.
+   * The custom end time.
    * 
    * @example
    * 2024-01-02T00:00:00Z
@@ -29,7 +29,15 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The model ID to use as a filter.
+   * Optional. Filters by member IDs. Separate multiple IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+   * 
+   * @example
+   * 30001,30002
+   */
+  memberUserIds?: string;
+  /**
+   * @remarks
+   * The model ID used to filter results.
    * 
    * @example
    * 1
@@ -37,7 +45,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The start time of the custom time range, in ISO 8601 UTC format. If specified, `endTime` must also be provided.
+   * The custom start time.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -45,7 +53,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The time range for the query. Valid values are `1h`, `6h`, `24h`, `7d`, and `30d`. This parameter is mutually exclusive with `startTime` and `endTime`.
+   * The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
    * 
    * @example
    * 24h
@@ -56,6 +64,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
       apiKeyId: 'apiKeyId',
       clientId: 'clientId',
       endTime: 'endTime',
+      memberUserIds: 'memberUserIds',
       modelId: 'modelId',
       startTime: 'startTime',
       timeRange: 'timeRange',
@@ -67,6 +76,7 @@ export class ModelRouterQueryObservationChartsRequest extends $dara.Model {
       apiKeyId: 'number',
       clientId: 'number',
       endTime: 'string',
+      memberUserIds: 'string',
       modelId: 'number',
       startTime: 'string',
       timeRange: 'string',
