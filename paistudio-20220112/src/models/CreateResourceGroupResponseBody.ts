@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
    */
   requestId?: string;
   /**
    * @remarks
-   * ResourceGroup ID。
+   * Resource group ID.
    * 
    * @example
    * rgf0zhfqn1d4ity2

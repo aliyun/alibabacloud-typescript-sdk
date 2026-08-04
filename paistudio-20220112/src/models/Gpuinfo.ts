@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GPUInfo extends $dara.Model {
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * Type
+   * 
    * @example
    * T4
    */

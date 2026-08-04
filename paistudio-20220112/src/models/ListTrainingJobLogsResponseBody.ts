@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrainingJobLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of logs.
+   */
   logs?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBF05F13-B24C-5129-9048-4FA684DCD579
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of logs that match the filter condition.
+   * 
    * @example
    * 23
    */

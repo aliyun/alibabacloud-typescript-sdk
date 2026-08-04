@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * UTC time in ISO 8601 format.
+   * 
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   time?: string;
+  /**
+   * @remarks
+   * Metric value.
+   * 
+   * @example
+   * 1
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +43,26 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics ex
 }
 
 export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * @example
+   * trainkxen7qjyg6y-master-0
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * List of instance monitoring metrics.
+   */
   metrics?: ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics[];
+  /**
+   * @remarks
+   * Node name.
+   * 
+   * @example
+   * trains930928remn-master-0
+   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,8 +93,15 @@ export class ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics extends $
 }
 
 export class ListTrainingJobInstanceMetricsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of all monitoring metrics that match the filter condition.
+   */
   instanceMetrics?: ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * F082BD0D-21E1-5F9B-81A0-AB07485B03CD
    */

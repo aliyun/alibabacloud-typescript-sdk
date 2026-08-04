@@ -2,31 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 import { AlgorithmSpec } from "./AlgorithmSpec";
 import { AssignNodeSpec } from "./AssignNodeSpec";
+import { CredentialConfig } from "./CredentialConfig";
 import { JobSettings } from "./JobSettings";
 
 
 export class GetTrainingJobResponseBodyComputeResourceInstanceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores of the instance.
+   * 
    * @example
    * 8
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs of the instance.
+   * 
    * @example
    * 1
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU type of the instance.
+   * 
    * @example
    * V100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The memory size of the instance, in GiB.
+   * 
    * @example
    * 32
    */
   memory?: string;
   /**
+   * @remarks
+   * The shared memory size of the instance, in GiB.
+   * 
    * @example
    * 32
    */
@@ -62,11 +78,17 @@ export class GetTrainingJobResponseBodyComputeResourceInstanceSpec extends $dara
 
 export class GetTrainingJobResponseBodyComputeResourceSpotSpec extends $dara.Model {
   /**
+   * @remarks
+   * The maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+   * 
    * @example
    * 0.9
    */
   spotDiscountLimit?: number;
   /**
+   * @remarks
+   * SpotStrategy: The bidding policy of the instance. Valid values:
+   * 
    * @example
    * SpotWithPriceLimit
    */
@@ -96,29 +118,59 @@ export class GetTrainingJobResponseBodyComputeResourceSpotSpec extends $dara.Mod
 
 export class GetTrainingJobResponseBodyComputeResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of ECS instances.
+   * 
    * @example
    * 1
    */
   ecsCount?: number;
   /**
+   * @remarks
+   * The ECS instance type.
+   * 
    * @example
    * ecs.gn5-c8g1.2xlarge
    */
   ecsSpec?: string;
   /**
+   * @remarks
+   * The number of instances used by the resource quota.
+   * 
    * @example
    * 1
    */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The instance specification of the resource quota.
+   */
   instanceSpec?: GetTrainingJobResponseBodyComputeResourceInstanceSpec;
   /**
+   * @remarks
+   * The resource quota ID.
+   * 
    * @example
    * quotam670lixikcl
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource quota name.
+   * 
+   * @example
+   * quota
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The spot instance configuration.
+   */
   spotSpec?: GetTrainingJobResponseBodyComputeResourceSpotSpec;
   /**
+   * @remarks
+   * Indicates whether spot instances are used.
+   * 
    * @example
    * true
    */
@@ -166,11 +218,17 @@ export class GetTrainingJobResponseBodyComputeResource extends $dara.Model {
 
 export class GetTrainingJobResponseBodyExperimentConfig extends $dara.Model {
   /**
+   * @remarks
+   * The experiment ID associated with the training job.
+   * 
    * @example
    * exp-ds9aefia90v
    */
   experimentId?: string;
   /**
+   * @remarks
+   * The experiment name associated with the training job.
+   * 
    * @example
    * large_language_model_train
    */
@@ -200,11 +258,17 @@ export class GetTrainingJobResponseBodyExperimentConfig extends $dara.Model {
 
 export class GetTrainingJobResponseBodyHyperParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * learning_rate
    */
   name?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * 0.0001
    */
@@ -234,21 +298,45 @@ export class GetTrainingJobResponseBodyHyperParameters extends $dara.Model {
 
 export class GetTrainingJobResponseBodyInputChannels extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-475megosidivjfgfq6
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The URI of the input data.
+   * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/input/model/
    */
   inputUri?: string;
   /**
+   * @remarks
+   * The name of the input data.
+   * 
    * @example
    * model
    */
   name?: string;
+  /**
+   * @remarks
+   * The file system parameters of the input data.
+   * 
+   * @example
+   * ossAppendable=true
+   */
   options?: string;
+  roleArn?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -256,6 +344,7 @@ export class GetTrainingJobResponseBodyInputChannels extends $dara.Model {
       inputUri: 'InputUri',
       name: 'Name',
       options: 'Options',
+      roleArn: 'RoleArn',
       versionName: 'VersionName',
     };
   }
@@ -266,6 +355,7 @@ export class GetTrainingJobResponseBodyInputChannels extends $dara.Model {
       inputUri: 'string',
       name: 'string',
       options: 'string',
+      roleArn: 'string',
       versionName: 'string',
     };
   }
@@ -281,16 +371,25 @@ export class GetTrainingJobResponseBodyInputChannels extends $dara.Model {
 
 export class GetTrainingJobResponseBodyInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * train1oug3yehan4-master-0
    */
   name?: string;
   /**
+   * @remarks
+   * The instance role.
+   * 
    * @example
    * master
    */
   role?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * Succeeded
    */
@@ -322,11 +421,17 @@ export class GetTrainingJobResponseBodyInstances extends $dara.Model {
 
 export class GetTrainingJobResponseBodyLabels extends $dara.Model {
   /**
+   * @remarks
+   * The label name.
+   * 
    * @example
    * CreatedBy
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * QuickStart
    */
@@ -356,16 +461,25 @@ export class GetTrainingJobResponseBodyLabels extends $dara.Model {
 
 export class GetTrainingJobResponseBodyLatestMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The metric name.
+   * 
    * @example
    * loss
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the metric was collected.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   timestamp?: string;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 0.11
    */
@@ -397,11 +511,17 @@ export class GetTrainingJobResponseBodyLatestMetrics extends $dara.Model {
 
 export class GetTrainingJobResponseBodyLatestProgressOverallProgress extends $dara.Model {
   /**
+   * @remarks
+   * The progress timestamp.
+   * 
    * @example
    * 2023-07-04T13:20:18Z
    */
   timestamp?: string;
   /**
+   * @remarks
+   * The progress value.
+   * 
    * @example
    * 0.75
    */
@@ -431,11 +551,17 @@ export class GetTrainingJobResponseBodyLatestProgressOverallProgress extends $da
 
 export class GetTrainingJobResponseBodyLatestProgressRemainingTime extends $dara.Model {
   /**
+   * @remarks
+   * The progress timestamp.
+   * 
    * @example
    * 2023-07-04T13:20:18Z
    */
   timestamp?: string;
   /**
+   * @remarks
+   * The remaining time, in seconds.
+   * 
    * @example
    * 3600
    */
@@ -464,7 +590,15 @@ export class GetTrainingJobResponseBodyLatestProgressRemainingTime extends $dara
 }
 
 export class GetTrainingJobResponseBodyLatestProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The overall progress of the training job execution.
+   */
   overallProgress?: GetTrainingJobResponseBodyLatestProgressOverallProgress;
+  /**
+   * @remarks
+   * The estimated remaining time for the training job execution, in seconds.
+   */
   remainingTime?: GetTrainingJobResponseBodyLatestProgressRemainingTime;
   static names(): { [key: string]: string } {
     return {
@@ -497,26 +631,44 @@ export class GetTrainingJobResponseBodyLatestProgress extends $dara.Model {
 
 export class GetTrainingJobResponseBodyOutputChannels extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-8o0hh35po15ejcdq2p
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The name of the output data.
+   * 
    * @example
    * model
    */
   name?: string;
   /**
+   * @remarks
+   * The URI of the output data.
+   * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/output/model/
    */
   outputUri?: string;
+  roleArn?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       name: 'Name',
       outputUri: 'OutputUri',
+      roleArn: 'RoleArn',
       versionName: 'VersionName',
     };
   }
@@ -526,6 +678,7 @@ export class GetTrainingJobResponseBodyOutputChannels extends $dara.Model {
       datasetId: 'string',
       name: 'string',
       outputUri: 'string',
+      roleArn: 'string',
       versionName: 'string',
     };
   }
@@ -541,11 +694,17 @@ export class GetTrainingJobResponseBodyOutputChannels extends $dara.Model {
 
 export class GetTrainingJobResponseBodyOutputModel extends $dara.Model {
   /**
+   * @remarks
+   * The OutputChannel name corresponding to the model.
+   * 
    * @example
    * model
    */
   outputChannelName?: string;
   /**
+   * @remarks
+   * The model URI.
+   * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/model/output/
    */
@@ -574,8 +733,18 @@ export class GetTrainingJobResponseBodyOutputModel extends $dara.Model {
 }
 
 export class GetTrainingJobResponseBodyScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum runtime in minutes.
+   * 
+   * @example
+   * 100
+   */
   maxRunningTimeInMinutes?: string;
   /**
+   * @remarks
+   * The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
+   * 
    * @example
    * 0
    */
@@ -605,26 +774,41 @@ export class GetTrainingJobResponseBodyScheduler extends $dara.Model {
 
 export class GetTrainingJobResponseBodyStatusTransitions extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the status.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * TrainingJobSucceed
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The status update message.
+   * 
    * @example
    * KubeDL job runs successfully
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The start time of the status.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The training job status.
+   * 
    * @example
    * Creating
    */
@@ -659,13 +843,23 @@ export class GetTrainingJobResponseBodyStatusTransitions extends $dara.Model {
 }
 
 export class GetTrainingJobResponseBodyUserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The extended CIDR block configuration.
+   */
   extendedCIDRs?: string[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-abcdef****
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vs-abcdef****
    */
@@ -710,111 +904,248 @@ export class GetTrainingJobResponseBodyUserVpc extends $dara.Model {
 
 export class GetTrainingJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The training algorithm ID.
+   * 
    * @example
    * algo-xsldfvu1334
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * The algorithm name.
+   * 
    * @example
    * llm_training
    */
   algorithmName?: string;
   /**
+   * @remarks
+   * The algorithm provider.
+   * 
    * @example
    * pai
    */
   algorithmProvider?: string;
+  /**
+   * @remarks
+   * The temporary algorithm definition.
+   */
   algorithmSpec?: AlgorithmSpec;
   /**
+   * @remarks
+   * The algorithm version.
+   * 
    * @example
    * v0.0.1
    */
   algorithmVersion?: string;
   assignNodeSpec?: AssignNodeSpec;
-  computeResource?: GetTrainingJobResponseBodyComputeResource;
   /**
+   * @remarks
+   * The compute resource configuration.
+   */
+  computeResource?: GetTrainingJobResponseBodyComputeResource;
+  credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The running duration of the training job. Unit: seconds.
+   * 
    * @example
    * 7200
    */
   duration?: number;
+  /**
+   * @remarks
+   * The environment variables of the training job.
+   */
   environments?: { [key: string]: string };
+  /**
+   * @remarks
+   * The experiment configuration associated with the training job.
+   */
   experimentConfig?: GetTrainingJobResponseBodyExperimentConfig;
   /**
+   * @remarks
+   * The time when the training job was created.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the training job status was last updated.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The training hyperparameter settings.
+   */
   hyperParameters?: GetTrainingJobResponseBodyHyperParameters[];
+  /**
+   * @remarks
+   * The training input data configurations.
+   */
   inputChannels?: GetTrainingJobResponseBodyInputChannels[];
+  /**
+   * @remarks
+   * The list of training job instances.
+   */
   instances?: GetTrainingJobResponseBodyInstances[];
   /**
+   * @remarks
+   * Indicates whether a temporary algorithm is used.
+   * 
    * @example
    * true
    */
   isTempAlgo?: boolean;
+  /**
+   * @remarks
+   * The list of training job labels.
+   */
   labels?: GetTrainingJobResponseBodyLabels[];
+  /**
+   * @remarks
+   * The list of training job metrics.
+   */
   latestMetrics?: GetTrainingJobResponseBodyLatestMetrics[];
+  /**
+   * @remarks
+   * The latest progress of the training job.
+   */
   latestProgress?: GetTrainingJobResponseBodyLatestProgress;
+  /**
+   * @remarks
+   * The training output data configurations.
+   */
   outputChannels?: GetTrainingJobResponseBodyOutputChannels[];
+  /**
+   * @remarks
+   * The model produced by the training job.
+   */
   outputModel?: GetTrainingJobResponseBodyOutputModel;
+  /**
+   * @remarks
+   * The job priority.
+   * 
+   * @example
+   * 0
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The Python package configuration for the training job.
+   */
   pythonRequirements?: string[];
   /**
+   * @remarks
+   * The status code of the training job.
+   * 
    * @example
    * TrainingJobSucceed
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The error message of the training job.
+   * 
    * @example
    * None
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ARN of the RAM role used for proxy authorization.
+   * 
    * @example
    * acs:ram::{accountID}:role/{roleName}
    */
   roleArn?: string;
+  /**
+   * @remarks
+   * The scheduling configuration of the training job.
+   */
   scheduler?: GetTrainingJobResponseBodyScheduler;
+  /**
+   * @remarks
+   * The additional parameter settings for the training node.
+   */
   settings?: JobSettings;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of training job status transitions.
+   */
   statusTransitions?: GetTrainingJobResponseBodyStatusTransitions[];
+  /**
+   * @remarks
+   * The description of the training job.
+   * 
+   * @example
+   * Qwen2 large language model training.
+   */
   trainingJobDescription?: string;
   /**
+   * @remarks
+   * The training job ID.
+   * 
    * @example
    * traini6hhxiq69eo
    */
   trainingJobId?: string;
   /**
+   * @remarks
+   * The name of the training job.
+   * 
    * @example
    * qwen_llm
    */
   trainingJobName?: string;
   /**
+   * @remarks
+   * The URL of the training job details page.
+   * 
    * @example
    * https://pai.console.aliyun.com/?regionId=cn-hangzhou&workspaceId=1234#/training/jobs/train1ouyadsl8n4
    */
   trainingJobUrl?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 123456789
    */
   userId?: string;
+  /**
+   * @remarks
+   * The user VPC configuration.
+   */
   userVpc?: GetTrainingJobResponseBodyUserVpc;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 86995
    */
@@ -828,6 +1159,7 @@ export class GetTrainingJobResponseBody extends $dara.Model {
       algorithmVersion: 'AlgorithmVersion',
       assignNodeSpec: 'AssignNodeSpec',
       computeResource: 'ComputeResource',
+      credentialConfig: 'CredentialConfig',
       duration: 'Duration',
       environments: 'Environments',
       experimentConfig: 'ExperimentConfig',
@@ -871,6 +1203,7 @@ export class GetTrainingJobResponseBody extends $dara.Model {
       algorithmVersion: 'string',
       assignNodeSpec: AssignNodeSpec,
       computeResource: GetTrainingJobResponseBodyComputeResource,
+      credentialConfig: CredentialConfig,
       duration: 'number',
       environments: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       experimentConfig: GetTrainingJobResponseBodyExperimentConfig,
@@ -914,6 +1247,9 @@ export class GetTrainingJobResponseBody extends $dara.Model {
     }
     if(this.computeResource && typeof (this.computeResource as any).validate === 'function') {
       (this.computeResource as any).validate();
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
     }
     if(this.environments) {
       $dara.Model.validateMap(this.environments);

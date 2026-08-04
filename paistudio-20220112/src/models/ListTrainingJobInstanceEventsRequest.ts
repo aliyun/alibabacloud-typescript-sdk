@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrainingJobInstanceEventsRequest extends $dara.Model {
   /**
    * @remarks
+   * End time in UTC, in ISO 8601 format. If empty, defaults to the current time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -12,17 +14,25 @@ export class ListTrainingJobInstanceEventsRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
+   * Start time in UTC, in ISO 8601 format. If empty, defaults to the training job start time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example

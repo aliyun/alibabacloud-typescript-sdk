@@ -4,53 +4,91 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The provider of the compute resources.
+   * 
    * @example
    * Ecs
    */
   computingResourceProvider?: string;
   hasResource?: boolean;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * rgf0zhfqn1d4ity2
    */
   name?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - `desc`: descending.
+   * 
+   * - `asc`: ascending.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 2
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   resourceGroupIDs?: string;
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - `ECS`: ECS.
+   * 
+   * - `Lingjun`: Lingjun intelligent computing resources.
+   * 
    * @example
    * Lingjun
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Specifies whether to return all results.
+   * 
    * @example
    * false
    */
   showAll?: boolean;
   /**
+   * @remarks
+   * The field to sort by. Valid values include: `DisplayName`, `GmtCreated`, `GmtModified`, `RegionID`, `Duration`, `PricingCycle`, and `PayType`.
+   * 
    * @example
    * DisplayName
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The status of the resource group.
+   * 
    * @example
    * Creating
    */
   status?: string;
   /**
+   * @remarks
+   * The version to filter by.
+   * 
    * @example
    * 1.0
    */

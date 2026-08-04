@@ -5,12 +5,22 @@ import { SpotPriceItem } from "./SpotPriceItem";
 
 export class GetSpotPriceHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8BDA4440-DD3C-5F4B-BBDD-94A9CE1E75C7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of historical spot instance price details
+   */
   spotPriceHistory?: SpotPriceItem[];
   /**
+   * @remarks
+   * The total number of historical spot instance prices
+   * 
    * @example
    * 194
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Common parameter. Each request has a unique ID. Use this ID to troubleshoot and locate issues.
+   * 
    * @example
    * F082BD0D-21E1-5F9B-81A0-AB07485B03CD
    */

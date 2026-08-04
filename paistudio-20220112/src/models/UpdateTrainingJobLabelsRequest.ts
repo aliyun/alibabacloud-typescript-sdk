@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTrainingJobLabelsRequestLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * RootModelID
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * model-ad8cv770kl
    */
@@ -37,6 +43,10 @@ export class UpdateTrainingJobLabelsRequestLabels extends $dara.Model {
 }
 
 export class UpdateTrainingJobLabelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of labels.
+   */
   labels?: UpdateTrainingJobLabelsRequestLabels[];
   static names(): { [key: string]: string } {
     return {

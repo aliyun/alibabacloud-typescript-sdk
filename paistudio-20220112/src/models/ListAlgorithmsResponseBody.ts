@@ -3,43 +3,74 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
+  /**
+   * @remarks
+   * Algorithm description.
+   * 
+   * @example
+   * Large language model training.
+   */
   algorithmDescription?: string;
   /**
+   * @remarks
+   * Algorithm ID.
+   * 
    * @example
    * algo-sidjc8134hv
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * Algorithm name.
+   * 
    * @example
    * llm_train
    */
   algorithmName?: string;
   /**
+   * @remarks
+   * Algorithm provider.
+   * 
    * @example
    * pai
    */
   algorithmProvider?: string;
   /**
+   * @remarks
+   * Algorithm display name.
+   * 
    * @example
    * LLM Train
    */
   displayName?: string;
   /**
+   * @remarks
+   * Algorithm creation time.
+   * 
    * @example
    * 2023-07-21T03:35:24Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * Algorithm update time.
+   * 
    * @example
    * 2023-07-25T02:15:40Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Algorithm owner ID.
+   * 
    * @example
    * 123456789
    */
   userId?: string;
   /**
+   * @remarks
+   * Workspace ID.
+   * 
    * @example
    * 12345
    */
@@ -82,13 +113,23 @@ export class ListAlgorithmsResponseBodyAlgorithms extends $dara.Model {
 }
 
 export class ListAlgorithmsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Algorithm list.
+   */
   algorithms?: ListAlgorithmsResponseBodyAlgorithms[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total algorithms.
+   * 
    * @example
    * 4
    */

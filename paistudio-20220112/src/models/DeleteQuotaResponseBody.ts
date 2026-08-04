@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Quota Id
+   * Quota ID.
    * 
    * @example
    * quotamtl37ge7gkvdz
    */
   quotaId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

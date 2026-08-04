@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * Time-to-live (TTL) of the share link in seconds. Default is 604800. Minimum is 0.
+   * 
    * @example
    * 60
    */
   expireTime?: number;
   /**
    * @remarks
+   * ID of the training task.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTrainingJobEventsRequest extends $dara.Model {
   /**
    * @remarks
+   * End UTC time (ISO8601 format). If empty, it is the current time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -12,17 +14,25 @@ export class ListTrainingJobEventsRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * Page number (default is 1).
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size (default is 100).
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
+   * Start UTC time (ISO8601 format). If empty, it is the task start time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example

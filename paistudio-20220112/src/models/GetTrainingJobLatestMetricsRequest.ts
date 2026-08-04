@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTrainingJobLatestMetricsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * loss
    */

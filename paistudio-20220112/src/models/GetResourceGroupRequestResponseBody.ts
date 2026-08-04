@@ -5,17 +5,30 @@ import { GPUInfo } from "./Gpuinfo";
 
 export class GetResourceGroupRequestResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of allocated CPUs.
+   * 
    * @example
    * 1
    */
   requestCPU?: number;
   /**
+   * @remarks
+   * The total number of allocated GPUs.
+   * 
    * @example
    * 8
    */
   requestGPU?: number;
+  /**
+   * @remarks
+   * The allocated GPU resources counted separately by card type.
+   */
   requestGPUInfos?: GPUInfo[];
   /**
+   * @remarks
+   * The total amount of allocated memory.
+   * 
    * @example
    * 2
    */

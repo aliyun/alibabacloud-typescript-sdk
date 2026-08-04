@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTrainingJobErrorInfoResponseBodyErrorInfo extends $dara.Model {
   /**
+   * @remarks
+   * The additional information.
+   * 
    * @example
    * additional info
    */
   additionalInfo?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The fault error message.
+   * 
    * @example
    * success
    */
@@ -44,8 +53,15 @@ export class GetTrainingJobErrorInfoResponseBodyErrorInfo extends $dara.Model {
 }
 
 export class GetTrainingJobErrorInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The fault error message.
+   */
   errorInfo?: GetTrainingJobErrorInfoResponseBodyErrorInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

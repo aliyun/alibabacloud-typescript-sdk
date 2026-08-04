@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUserViewMetricsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * - asc: ascending order.
+   * - desc: descending order.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class GetUserViewMetricsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
+   * The page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,21 +34,41 @@ export class GetUserViewMetricsRequest extends $dara.Model {
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The sorting criterion.
+   * 
    * @example
    * GmtModified
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The time step. Default value: 5m. Valid values for the time unit:
+   * 
+   * - h: hours.
+   * 
+   * - m: minutes.
+   * 
+   * - s: seconds.
+   * 
+   * If no unit is specified, the default unit s (seconds) is used.
+   * 
    * @example
    * 1h
    */
   timeStep?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 123456
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 86995
    */

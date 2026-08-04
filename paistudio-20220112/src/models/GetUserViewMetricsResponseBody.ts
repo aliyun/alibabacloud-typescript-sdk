@@ -5,16 +5,30 @@ import { UserViewMetric } from "./UserViewMetric";
 
 export class GetUserViewMetricsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * 资源组ID
+   * 
    * @example
    * rgf0zhfqn1d4ity2
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * 用户监控数据。
+   */
   summary?: UserViewMetric;
   /**
+   * @remarks
+   * 总条数
+   * 
    * @example
    * 2
    */
   total?: number;
+  /**
+   * @remarks
+   * 按照用户维度统计的指标
+   */
   userMetrics?: UserViewMetric[];
   static names(): { [key: string]: string } {
     return {

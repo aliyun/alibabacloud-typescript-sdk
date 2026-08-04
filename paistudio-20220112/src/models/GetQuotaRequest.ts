@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetQuotaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return detailed information.
+   * 
+   * @example
+   * true
+   */
   verbose?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the metadata of nodes that are attached to the resource quota.
+   */
   withNodeMeta?: boolean;
   static names(): { [key: string]: string } {
     return {

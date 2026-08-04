@@ -6,21 +6,42 @@ import { UserInfo } from "./UserInfo";
 
 export class Node extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type of the resource node instance, such as CPU or GPU.
+   * 
    * @example
    * CPU
    */
   acceleratorType?: string;
+  /**
+   * @remarks
+   * The number of allocatable CPU cores.
+   */
   allocatableCPU?: string;
+  /**
+   * @remarks
+   * The amount of allocatable memory in GiB.
+   */
   allocatableMemory?: string;
   ancestorQuotaWorkloadNum?: number;
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The list of quotas that are bound to the node.
+   */
   boundQuotas?: QuotaIdName[];
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 4
    */
   CPU?: string;
   /**
+   * @remarks
+   * The ID of the user who created the resource node.
+   * 
    * @example
    * 281044699048527748
    */
@@ -29,17 +50,30 @@ export class Node extends $dara.Model {
   diskCapacity?: number;
   diskPL?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 0
    */
   GPU?: string;
+  /**
+   * @remarks
+   * The GPU memory size in GiB.
+   */
   GPUMemory?: string;
   /**
+   * @remarks
+   * The GPU model.
+   * 
    * @example
    * ""
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The time when the resource node was created.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    * 
@@ -48,112 +82,187 @@ export class Node extends $dara.Model {
   gmtCreateTime?: string;
   gmtCreatedTime?: string;
   /**
+   * @remarks
+   * The time when the resource node expires.
+   * 
    * @example
    * 2025-06-22T00:00:00Z
    */
   gmtExpiredTime?: string;
   /**
+   * @remarks
+   * The time when the resource node was last modified.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtModifiedTime?: string;
   hyperZone?: string;
   /**
+   * @remarks
+   * Indicates whether the node is bound to a quota.
+   * 
    * @example
    * false
    */
   isBound?: boolean;
   /**
+   * @remarks
+   * The maximum number of CPU cores.
+   * 
    * @example
    * 4
    */
   limitCPU?: string;
   /**
+   * @remarks
+   * The maximum number of GPUs.
+   * 
    * @example
    * 0
    */
   limitGPU?: string;
   /**
+   * @remarks
+   * The maximum memory size in GiB.
+   * 
    * @example
    * 8
    */
   limitMemory?: string;
   /**
+   * @remarks
+   * The ID of the machine group to which the resource node belongs.
+   * 
    * @example
    * mg1234456
    */
   machineGroupId?: string;
   /**
+   * @remarks
+   * The memory size in GiB.
+   * 
    * @example
    * 8
    */
   memory?: string;
   /**
+   * @remarks
+   * The name of the resource node.
+   * 
    * @example
    * lingjxxxx
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The status of the resource node.
+   * 
    * @example
    * Ready
    */
   nodeStatus?: string;
   /**
+   * @remarks
+   * The instance type of the resource node.
+   * 
    * @example
    * ecs.c8i.xlarge
    */
   nodeType?: string;
   /**
+   * @remarks
+   * The order status of the resource node.
+   * 
    * @example
    * Ready
    */
   orderStatus?: string;
   /**
+   * @remarks
+   * The number of pods on the node.
+   * 
    * @example
    * 2
    */
   podNum?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * ""
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * ""
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The number of requested CPU cores.
+   * 
    * @example
    * 4
    */
   requestCPU?: string;
   /**
+   * @remarks
+   * The number of requested GPUs.
+   * 
    * @example
    * 0
    */
   requestGPU?: string;
   /**
+   * @remarks
+   * The requested memory size in GiB.
+   * 
    * @example
    * 8
    */
   requestMemory?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the resource node belongs.
+   * 
    * @example
    * rgf0zhfqn1d4ity2
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The name of the resource group to which the resource node belongs.
+   * 
    * @example
    * test
    */
   resourceGroupName?: string;
   selfQuotaWorkloadNum?: number;
   subNodes?: string[];
+  /**
+   * @remarks
+   * The number of CPU cores that are reserved for the system.
+   */
   systemReservedCPU?: string;
+  /**
+   * @remarks
+   * The amount of memory that is reserved for the system in GiB.
+   */
   systemReservedMemory?: string;
+  /**
+   * @remarks
+   * The user information.
+   */
   users?: UserInfo[];
   /**
+   * @remarks
+   * The number of workloads on the node.
+   * 
    * @example
    * 2
    */

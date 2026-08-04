@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Location extends $dara.Model {
   /**
+   * @remarks
+   * The code location type. Valid values: OSS and NAS.
+   * 
    * @example
    * OSS
    */
   locationType?: string;
   /**
+   * @remarks
+   * The code path.
+   * 
    * @example
    * oss://${bucket_name}.oss-${region}.aliyuncs.com/oss/location/path/
    */

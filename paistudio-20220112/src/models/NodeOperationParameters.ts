@@ -6,8 +6,20 @@ import { NodeUncordonParameters } from "./NodeUncordonParameters";
 
 
 export class NodeOperationParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Node cordon parameter settings
+   */
   cordonParameters?: NodeCordonParameters;
+  /**
+   * @remarks
+   * Node drain task instance parameter settings
+   */
   drainParameters?: NodeDrainParameters;
+  /**
+   * @remarks
+   * Node uncordon parameter settings
+   */
   uncordonParameters?: NodeUncordonParameters;
   static names(): { [key: string]: string } {
     return {

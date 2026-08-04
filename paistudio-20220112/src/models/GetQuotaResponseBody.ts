@@ -11,96 +11,183 @@ import { WorkspaceIdName } from "./WorkspaceIdName";
 
 export class GetQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The resource allocation policy.
+   * 
    * @example
    * ByNodeSpec
    */
   allocateStrategy?: string;
   /**
+   * @remarks
+   * The ID of the user who created the resource quota.
+   * 
    * @example
-   * 18846926616
+   * 1884692****
    */
   creatorId?: string;
   /**
+   * @remarks
+   * The description of the resource quota.
+   * 
    * @example
    * this is a test quota
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the resource quota was created.
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtCreatedTime?: string;
   /**
+   * @remarks
+   * The time when the resource quota was last modified.
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * A list of high-performance network zones.
+   */
   hyperZones?: string[];
+  /**
+   * @remarks
+   * The labels of the resource quota.
+   */
   labels?: Label[];
   /**
+   * @remarks
+   * The ID of the most recent change to the resource quota.
+   * 
    * @example
-   * operation1234
+   * operation****
    */
   latestOperationId?: string;
+  /**
+   * @remarks
+   * The configuration of the minimum quota.
+   */
   min?: ResourceSpec;
   /**
+   * @remarks
+   * The ID of the parent resource quota.
+   * 
    * @example
-   * quota1ci8g793pgm
+   * quota1ci8g79****
    */
   parentQuotaId?: string;
   /**
+   * @remarks
+   * The queuing policy for tasks in the resource quota.
+   * 
    * @example
    * PaiStrategyIntelligent
    */
   queueStrategy?: string;
+  /**
+   * @remarks
+   * The specifications and status of the cluster that is composed of resources within the quota.
+   */
   quotaCluster?: QuotaCluster;
+  /**
+   * @remarks
+   * The configurations of the resource quota:
+   * 
+   * - VPC information
+   * 
+   * - Whether Remote Direct Memory Access (RDMA) is supported
+   * 
+   * - ACS configurations, which take effect if the resource type is ACS
+   */
   quotaConfig?: QuotaConfig;
+  /**
+   * @remarks
+   * The details of the resource quota.
+   */
   quotaDetails?: QuotaDetails;
   /**
    * @remarks
-   * Quota Id
+   * The ID of the resource quota.
    * 
    * @example
-   * quotajradxh43rgb
+   * quotajradxh4****
    */
   quotaId?: string;
   /**
+   * @remarks
+   * The name of the resource quota.
+   * 
    * @example
    * test-quota
    */
   quotaName?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * “”
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The cause of the error.
+   * 
    * @example
    * “”
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 18D5A1C6-14B8-545E-8408-0A7DDB4C6B5E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource groups that are associated with the resource quota.
+   */
   resourceGroupIds?: string[];
   /**
+   * @remarks
+   * The resource type of the quota.
+   * 
    * @example
    * ECS
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The status of the resource quota.
+   * 
    * @example
    * Ready
    */
   status?: string;
+  /**
+   * @remarks
+   * A list of sub-quotas of the resource quota.
+   */
   subQuotas?: QuotaIdName[];
   /**
+   * @remarks
+   * The version information. This parameter takes effect when ResourceType is set to ECS.
+   * 
    * @example
    * 1.0
    */
   version?: string;
+  /**
+   * @remarks
+   * The workspaces that are associated with the resource quota.
+   */
   workspaces?: WorkspaceIdName[];
   static names(): { [key: string]: string } {
     return {

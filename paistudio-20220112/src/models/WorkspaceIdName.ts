@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class WorkspaceIdName extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
-   * ws123456
+   * ws123***
    */
   workspaceId?: string;
+  /**
+   * @remarks
+   * The workspace name.
+   */
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {

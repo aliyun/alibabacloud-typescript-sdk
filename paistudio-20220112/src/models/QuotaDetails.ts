@@ -5,17 +5,57 @@ import { QuotaNodeStatistics } from "./QuotaNodeStatistics";
 
 
 export class QuotaDetails extends $dara.Model {
+  /**
+   * @remarks
+   * Total MinQuota amount actually assigned
+   */
   actualMinQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Quota amount assignable by the User
+   */
   allocatableQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Total Quota usage information
+   */
   allocatedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Quota usage information of ancestors
+   */
   ancestorsAllocatedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Quota usage information of descendants
+   */
   descendantsAllocatedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Total MinQuota amount requested by the User
+   */
   desiredMinQuota?: ResourceAmount;
   nodeStatistics?: QuotaNodeStatistics;
+  /**
+   * @remarks
+   * Quota request amount
+   */
   requestedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Quota usage information at the current level
+   */
   selfAllocatedQuota?: ResourceAmount;
   selfSubmittedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * System-reserved Quota amount
+   */
   systemReservedQuota?: ResourceAmount;
+  /**
+   * @remarks
+   * Quota usage amount
+   */
   usedQuota?: ResourceAmount;
   static names(): { [key: string]: string } {
     return {

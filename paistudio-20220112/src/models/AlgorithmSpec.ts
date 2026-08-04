@@ -12,16 +12,18 @@ import { ConditionExpression } from "./ConditionExpression";
 export class AlgorithmSpecComputeResourcePolicy extends $dara.Model {
   /**
    * @remarks
-   * Policy Value
+   * Policy content, serialized from a JSON array.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0
+   * [{\\"MinTotalCount\\":1,\\"MaxTotalCount\\":4,\\"RolePolicies\\":{\\"chief\\":{\\"Count\\":1},\\"ps\\":{\\"Count\\":1},\\"worker\\":{\\"Percentage\\":100}}},{\\"MinTotalCount\\":5,\\"MaxTotalCount\\":10,\\"RolePolicies\\":{\\"chief\\":{\\"Count\\":1},\\"ps\\":{\\"Percentage\\":20},\\"worker\\":{\\"Percentage\\":80}}},{\\"MinTotalCount\\":11,\\"RolePolicies\\":{\\"chief\\":{\\"Count\\":1},\\"ps\\":{\\"Percentage\\":40},\\"worker\\":{\\"Percentage\\":60}}}]
    */
   value?: string;
   /**
    * @remarks
+   * Policy version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +56,8 @@ export class AlgorithmSpecComputeResourcePolicy extends $dara.Model {
 export class AlgorithmSpecComputeResource extends $dara.Model {
   /**
    * @remarks
+   * Computing resource configuration policy for the algorithm.
+   * 
    * This parameter is required.
    */
   policy?: AlgorithmSpecComputeResourcePolicy;
@@ -83,6 +87,9 @@ export class AlgorithmSpecComputeResource extends $dara.Model {
 
 export class AlgorithmSpecCustomization extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether custom-mounted code is used.
+   * 
    * @example
    * true
    */
@@ -110,11 +117,17 @@ export class AlgorithmSpecCustomization extends $dara.Model {
 
 export class AlgorithmSpecProgressDefinitionsOverallProgress extends $dara.Model {
   /**
+   * @remarks
+   * The description of the monitoring definition.
+   * 
    * @example
    * training progress
    */
   description?: string;
   /**
+   * @remarks
+   * The regular expression for monitoring.
+   * 
    * @example
    * ^[0-9]+([.][0-9]+){0,1}$
    */
@@ -144,11 +157,17 @@ export class AlgorithmSpecProgressDefinitionsOverallProgress extends $dara.Model
 
 export class AlgorithmSpecProgressDefinitionsRemainingTime extends $dara.Model {
   /**
+   * @remarks
+   * The description of the monitoring definition.
+   * 
    * @example
    * training remaining time
    */
   description?: string;
   /**
+   * @remarks
+   * The regular expression for monitoring.
+   * 
    * @example
    * ^[0-9]+([.][0-9]+){0,1}$
    */
@@ -177,7 +196,15 @@ export class AlgorithmSpecProgressDefinitionsRemainingTime extends $dara.Model {
 }
 
 export class AlgorithmSpecProgressDefinitions extends $dara.Model {
+  /**
+   * @remarks
+   * Monitors training progress.
+   */
   overallProgress?: AlgorithmSpecProgressDefinitionsOverallProgress;
+  /**
+   * @remarks
+   * The definition for monitoring the remaining training time.
+   */
   remainingTime?: AlgorithmSpecProgressDefinitionsRemainingTime;
   static names(): { [key: string]: string } {
     return {
@@ -209,38 +236,87 @@ export class AlgorithmSpecProgressDefinitions extends $dara.Model {
 }
 
 export class AlgorithmSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The custom code configuration.
+   */
   codeDir?: Location;
   /**
    * @remarks
+   * The list of commands to run the training task.
+   * 
    * This parameter is required.
    */
   command?: string[];
+  /**
+   * @remarks
+   * The compute resource definition.
+   */
   computeResource?: AlgorithmSpecComputeResource;
+  /**
+   * @remarks
+   * The custom configuration.
+   */
   customization?: AlgorithmSpecCustomization;
+  /**
+   * @remarks
+   * The list of hyperparameter definitions.
+   */
   hyperParameters?: HyperParameterDefinition[];
   /**
    * @remarks
+   * The training runtime image.
+   * 
    * This parameter is required.
    * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai-training/kmeans:v1.0.0
    */
   image?: string;
+  /**
+   * @remarks
+   * The list of input channels for the algorithm.
+   */
   inputChannels?: Channel[];
   /**
    * @remarks
+   * The job type.
+   * 
    * This parameter is required.
    * 
    * @example
    * TFJob
    */
   jobType?: string;
+  /**
+   * @remarks
+   * The list of metric definitions for the training task.
+   */
   metricDefinitions?: MetricDefinition[];
+  /**
+   * @remarks
+   * The list of output channels for the algorithm.
+   */
   outputChannels?: Channel[];
+  /**
+   * @remarks
+   * You can use this feature to monitor the training progress.
+   */
   progressDefinitions?: AlgorithmSpecProgressDefinitions;
+  /**
+   * @remarks
+   * The resource requirements.
+   */
   resourceRequirements?: ConditionExpression[];
+  /**
+   * @remarks
+   * The list of supported elastic computing instance types for training.
+   */
   supportedInstanceTypes?: string[];
   /**
+   * @remarks
+   * Indicates whether distributed training is supported.
+   * 
    * @example
    * true
    */

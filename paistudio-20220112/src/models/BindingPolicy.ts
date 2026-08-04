@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BindingPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * A list of node IDs to exclude from scheduling.
+   */
   excludeNodes?: string[];
+  /**
+   * @remarks
+   * A list of node IDs to include in the scheduling.
+   */
   includeNodes?: string[];
   /**
+   * @remarks
+   * The number of nodes to be selected by the scheduler.
+   * 
    * @example
    * 5
    */

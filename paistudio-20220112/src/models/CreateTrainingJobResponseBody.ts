@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTrainingJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7C42CC7-2E85-508A-84F4-923B605FD10F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The training job ID.
+   * 
    * @example
    * traineyfz0m2hsfv
    */

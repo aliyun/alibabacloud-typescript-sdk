@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupRequestRequest extends $dara.Model {
   /**
+   * @remarks
+   * The container status. Valid values:
+   * 
+   * - Waiting
+   * - Running
+   * - Terminated
+   * 
    * @example
    * Running
    * 
@@ -13,6 +20,8 @@ export class GetResourceGroupRequestRequest extends $dara.Model {
   podStatus?: string;
   /**
    * @remarks
+   * The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to obtain information about the resource group.
+   * 
    * This parameter is required.
    * 
    * @example

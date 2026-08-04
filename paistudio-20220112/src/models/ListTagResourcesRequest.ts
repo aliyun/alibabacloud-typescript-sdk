@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * TestValue
    */
@@ -38,27 +44,42 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 
 export class ListTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Pagination token for the next page of results
+   * 
    * @example
    * ad31d453a1f3f23ce0b5e8707e68181f
    */
   nextToken?: string;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource IDs. Maximum: 50 items.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example
    * ResourceGroup
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * Tags to filter by. Maximum: 20 items.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

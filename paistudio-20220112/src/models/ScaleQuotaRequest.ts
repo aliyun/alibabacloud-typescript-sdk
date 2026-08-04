@@ -4,7 +4,16 @@ import { ResourceSpec } from "./ResourceSpec";
 
 
 export class ScaleQuotaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Scaling Min Quota.
+   * >Notice: NodeSpecs specifies the post-scaling specifications and quantity. If the Count in NodeSpecs is less than the current Quota\\"s Count, it indicates scale-in. Otherwise, it indicates scale-out.
+   */
   min?: ResourceSpec;
+  /**
+   * @remarks
+   * Resource group IDs.
+   */
   resourceGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {

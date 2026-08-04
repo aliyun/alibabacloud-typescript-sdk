@@ -5,12 +5,22 @@ import { WorkspaceSpec } from "./WorkspaceSpec";
 
 export class WorkspaceSpecs extends $dara.Model {
   /**
+   * @remarks
+   * Applicable product (DLC, DSW, EAS, ...)
+   * 
    * @example
    * DLC
    */
   product?: string;
+  /**
+   * @remarks
+   * List of resource specifications
+   */
   specs?: WorkspaceSpec[];
   /**
+   * @remarks
+   * Workspace ID
+   * 
    * @example
    * 122421
    */

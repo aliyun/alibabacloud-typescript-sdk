@@ -3,48 +3,174 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserViewMetric extends $dara.Model {
+  /**
+   * @remarks
+   * Number of CPU nodes.
+   * 
+   * @example
+   * 2
+   */
   CPUNodeNumber?: number;
+  /**
+   * @remarks
+   * CPU usage rate.
+   * 
+   * @example
+   * 59
+   */
   CPUUsageRate?: string;
+  /**
+   * @remarks
+   * CPU jobs.
+   */
   cpuJobNames?: string[];
+  /**
+   * @remarks
+   * List of CPU nodes.
+   */
   cpuNodeNames?: string[];
+  /**
+   * @remarks
+   * Disk read rate.
+   * 
+   * @example
+   * 22
+   */
   diskReadRate?: string;
+  /**
+   * @remarks
+   * Disk write rate.
+   * 
+   * @example
+   * 22
+   */
   diskWriteRate?: string;
+  /**
+   * @remarks
+   * Number of GPU nodes.
+   * 
+   * @example
+   * 1
+   */
   GPUNodeNumber?: number;
+  /**
+   * @remarks
+   * GPU usage rate.
+   * 
+   * @example
+   * 10
+   */
   GPUUsageRate?: string;
+  /**
+   * @remarks
+   * GPU jobs.
+   */
   gpuJobNames?: string[];
+  /**
+   * @remarks
+   * List of GPU nodes.
+   */
   gpuNodeNames?: string[];
+  /**
+   * @remarks
+   * Job type.
+   * 
+   * @example
+   * PyTorch
+   */
   jobType?: string;
+  /**
+   * @remarks
+   * Memory usage rate.
+   * 
+   * @example
+   * 20
+   */
   memoryUsageRate?: string;
+  /**
+   * @remarks
+   * The network input rate.
+   * 
+   * @example
+   * 1
+   */
   networkInputRate?: string;
+  /**
+   * @remarks
+   * Network output rate.
+   * 
+   * @example
+   * 1
+   */
   networkOutputRate?: string;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodeNames?: string[];
   /**
+   * @remarks
+   * Number of CPU cores allocated.
+   * 
    * @example
    * 100
    */
   requestCPU?: number;
   /**
+   * @remarks
+   * Number of GPU cores allocated.
+   * 
    * @example
    * 10
    */
   requestGPU?: number;
   /**
+   * @remarks
+   * Allocated memory, in KB.
+   * 
    * @example
    * 102400000
    */
   requestMemory?: number;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
-   * rg17tmvwiokhzaxg
+   * rg17tmvwiokh****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Total number of CPU cores.
+   * 
    * @example
    * 1000
    */
   totalCPU?: number;
+  /**
+   * @remarks
+   * Total number of GPU cards.
+   * 
+   * @example
+   * 1
+   */
   totalGPU?: number;
+  /**
+   * @remarks
+   * Total memory, in KB.
+   * 
+   * @example
+   * 10240
+   */
   totalMemory?: number;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 16111111****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

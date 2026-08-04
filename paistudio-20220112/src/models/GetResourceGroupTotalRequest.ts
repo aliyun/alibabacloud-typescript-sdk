@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupTotalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Resource Group.
+   * 
    * @example
    * rgf0zhfqn1d4ity2
    */

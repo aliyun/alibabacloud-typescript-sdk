@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MetricDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the metric.
+   * 
+   * @example
+   * 训练损失函数。
+   */
   description?: string;
   /**
    * @remarks
+   * The name of the metric.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class MetricDefinition extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The regular expression to collect metrics from logs.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTrainingJobMetricsResponseBodyMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * accuracy
    */
   name?: string;
   /**
    * @remarks
+   * The timestamp when the metric was collected.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -17,6 +22,9 @@ export class ListTrainingJobMetricsResponseBodyMetrics extends $dara.Model {
    */
   timestamp?: string;
   /**
+   * @remarks
+   * The value of the metric.
+   * 
    * @example
    * 0.97
    */
@@ -47,8 +55,15 @@ export class ListTrainingJobMetricsResponseBodyMetrics extends $dara.Model {
 }
 
 export class ListTrainingJobMetricsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of metrics.
+   */
   metrics?: ListTrainingJobMetricsResponseBodyMetrics[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

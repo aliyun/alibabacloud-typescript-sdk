@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupMachineGroupRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * TestValue
    */
@@ -37,6 +43,10 @@ export class GetResourceGroupMachineGroupRequestTag extends $dara.Model {
 }
 
 export class GetResourceGroupMachineGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of up to 20 tags.
+   */
   tag?: GetResourceGroupMachineGroupRequestTag[];
   static names(): { [key: string]: string } {
     return {

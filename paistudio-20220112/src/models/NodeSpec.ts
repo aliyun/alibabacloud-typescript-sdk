@@ -4,14 +4,28 @@ import { BindingPolicy } from "./BindingPolicy";
 
 
 export class NodeSpec extends $dara.Model {
+  /**
+   * @remarks
+   * Rule for attaching resource nodes.
+   */
   bindingPolicy?: BindingPolicy;
   /**
+   * @remarks
+   * Number of resource nodes with this specification.
+   * 
    * @example
    * 10
    */
   count?: number;
+  /**
+   * @remarks
+   * Type of supernode to use. You cannot specify both a node specification and a supernode type.
+   */
   hyperType?: string;
   /**
+   * @remarks
+   * Type of the resource node specification.
+   * 
    * @example
    * ecs.g6.4xlarge
    */

@@ -5,30 +5,57 @@ import { TimeRangeFilter } from "./TimeRangeFilter";
 
 export class ListQuotaWorkloadsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Retrieves workloads that precede the specified workload ID in the queue.
+   * 
    * @example
-   * dsw65443322
+   * dsw654433**
    */
   beforeWorkloadId?: string;
+  /**
+   * @remarks
+   * Filters workloads by their dequeue time range.
+   */
   gmtDequeuedTimeRange?: TimeRangeFilter;
+  /**
+   * @remarks
+   * Filters workloads by their enqueue time range.
+   */
   gmtEnqueuedTimeRange?: TimeRangeFilter;
+  /**
+   * @remarks
+   * Filters workloads by the time range of their last queue position change.
+   */
   gmtPositionModifiedTimeRange?: TimeRangeFilter;
   instanceId?: string;
   /**
+   * @remarks
+   * Filters workloads by node name.
+   * 
    * @example
-   * lrn48278127617
+   * lrn482781276**
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The sort order for the results. Valid values are `asc` for ascending and `desc` for descending.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The number of the page to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The maximum number of entries to return on a single page.
+   * 
    * @example
    * 10
    */
@@ -36,52 +63,87 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
   position?: number;
   priority?: number;
   /**
+   * @remarks
+   * Specifies whether to return only workloads that belong to the specified quota.
+   * 
    * @example
    * true
    */
   showOwn?: boolean;
   /**
+   * @remarks
+   * The field to use for sorting the results.
+   * 
    * @example
    * GmtCreatedTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Filters workloads by their status in the queue.
+   * 
    * @example
    * Enqueued
    */
   status?: string;
   /**
+   * @remarks
+   * Filters workloads by sub-quota ID. You can specify multiple IDs, separated by commas.
+   * 
    * @example
-   * quota12344666,quota64432233
+   * quota123446**,quota644322**
    */
   subQuotaIds?: string;
   useOversoldResource?: boolean;
   /**
+   * @remarks
+   * Filters workloads by user ID. You can specify multiple IDs, separated by commas.
+   * 
    * @example
-   * 29043893812,23829093093
+   * 290438938**,238290930**
    */
   userIds?: string;
+  /**
+   * @remarks
+   * Specifies whether to include historical data in the query results.
+   */
   withHistoricalData?: boolean;
+  /**
+   * @remarks
+   * Filters workloads based on their creation time range.
+   */
   workloadCreatedTimeRange?: TimeRangeFilter;
   /**
+   * @remarks
+   * Filters workloads by workload ID. You can specify multiple IDs, separated by commas.
+   * 
    * @example
-   * dlc12344556
+   * dlc123445**
    */
   workloadIds?: string;
   workloadNames?: string;
   /**
+   * @remarks
+   * Filters workloads by status. You can specify multiple statuses, separated by commas.
+   * 
    * @example
    * Pending
    */
   workloadStatuses?: string;
   /**
+   * @remarks
+   * Filters workloads by the sub-product type of the instance.
+   * 
    * @example
    * dlc
    */
   workloadType?: string;
   /**
+   * @remarks
+   * Filters workloads by workspace ID. You can specify multiple IDs, separated by commas.
+   * 
    * @example
-   * 186692
+   * 1866**
    */
   workspaceIds?: string;
   static names(): { [key: string]: string } {

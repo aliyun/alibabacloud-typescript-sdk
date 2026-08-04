@@ -3,53 +3,90 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAlgorithmResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Algorithm description.
+   * 
+   * @example
+   * Large language model training.
+   */
   algorithmDescription?: string;
   /**
+   * @remarks
+   * Algorithm ID.
+   * 
    * @example
    * algo-xsldfvu1334
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * Algorithm name.
+   * 
    * @example
    * llm_training
    */
   algorithmName?: string;
   /**
+   * @remarks
+   * Algorithm provider.
+   * 
    * @example
    * pai
    */
   algorithmProvider?: string;
   /**
+   * @remarks
+   * Display name of the algorithm.
+   * 
    * @example
    * llm_training
    */
   displayName?: string;
   /**
+   * @remarks
+   * Time when the algorithm was created.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * Time when the algorithm was last updated.
+   * 
    * @example
    * 2024-07-10T11:49:47Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Tenant ID of the algorithm owner.
+   * 
    * @example
    * 123456789
    */
   tenantId?: string;
   /**
+   * @remarks
+   * User ID of the algorithm owner.
+   * 
    * @example
    * 123456789
    */
   userId?: string;
   /**
+   * @remarks
+   * Workspace ID.
+   * 
    * @example
    * 12345
    */

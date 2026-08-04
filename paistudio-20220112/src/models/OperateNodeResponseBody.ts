@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateNodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * lingjunxxxx-mgxxx-xxxx
    */
   nodeId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 96496E6E-00B4-5F55-80F6-1844FA9E92DC

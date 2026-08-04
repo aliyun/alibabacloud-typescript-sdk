@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrainingJobInstanceEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of events.
+   */
   events?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of events.
+   * 
    * @example
    * 1
    */

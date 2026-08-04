@@ -11,36 +11,82 @@ import { UserVpc } from "./UserVpc";
 
 
 export class QuotaConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ACS-related configurations.
+   */
   ACS?: ACS;
   /**
+   * @remarks
+   * The ID of the cluster where the quota resides.
+   * 
    * @example
-   * ceeb3724255364664
+   * ceeb3724255364***
    */
   clusterId?: string;
   controlPlaneClusterId?: string;
   /**
+   * @remarks
+   * The default GPU driver version for the resource quota.
+   * 
    * @example
    * 470.199.02
    */
   defaultGPUDriver?: string;
   enableGPUShare?: boolean;
+  /**
+   * @remarks
+   * Specifies whether workloads in sub-quotas can be preempted.
+   * 
+   * @example
+   * false
+   */
   enablePreemptSubquotaWorkloads?: boolean;
+  /**
+   * @remarks
+   * Specifies whether guaranteed resources within this quota can be preempted.
+   */
   enableSelfQuotaPreemption?: boolean;
+  /**
+   * @remarks
+   * Specifies whether resources in sub-quotas can be preempted.
+   */
   enableSubQuotaPreemption?: boolean;
   eniCacheConfig?: EniCacheConfig;
+  isEncryptedResource?: boolean;
   oversoldUsageConfig?: OversoldUsageConfig;
+  /**
+   * @remarks
+   * The resource specification templates.
+   */
   resourceSpecs?: WorkspaceSpecs[];
   sandboxCacheConfig?: SandboxCacheConfig;
   selfQuotaPreemptionConfig?: SelfQuotaPreemptionConfig;
+  /**
+   * @remarks
+   * The configuration for the sub-quota preemption task.
+   */
   subQuotaPreemptionConfig?: SubQuotaPreemptionConfig;
+  /**
+   * @remarks
+   * The GPU driver versions supported by the resource quota.
+   */
   supportGPUDrivers?: string[];
   /**
+   * @remarks
+   * Specifies whether RDMA is supported.
+   * 
    * @example
    * false
    */
   supportRDMA?: boolean;
   useCase?: string;
+  /**
+   * @remarks
+   * The user VPC information.
+   */
   userVpc?: UserVpc;
+  workloadTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       ACS: 'ACS',
@@ -52,6 +98,7 @@ export class QuotaConfig extends $dara.Model {
       enableSelfQuotaPreemption: 'EnableSelfQuotaPreemption',
       enableSubQuotaPreemption: 'EnableSubQuotaPreemption',
       eniCacheConfig: 'EniCacheConfig',
+      isEncryptedResource: 'IsEncryptedResource',
       oversoldUsageConfig: 'OversoldUsageConfig',
       resourceSpecs: 'ResourceSpecs',
       sandboxCacheConfig: 'SandboxCacheConfig',
@@ -61,6 +108,7 @@ export class QuotaConfig extends $dara.Model {
       supportRDMA: 'SupportRDMA',
       useCase: 'UseCase',
       userVpc: 'UserVpc',
+      workloadTypes: 'WorkloadTypes',
     };
   }
 
@@ -75,6 +123,7 @@ export class QuotaConfig extends $dara.Model {
       enableSelfQuotaPreemption: 'boolean',
       enableSubQuotaPreemption: 'boolean',
       eniCacheConfig: EniCacheConfig,
+      isEncryptedResource: 'boolean',
       oversoldUsageConfig: OversoldUsageConfig,
       resourceSpecs: { 'type': 'array', 'itemType': WorkspaceSpecs },
       sandboxCacheConfig: SandboxCacheConfig,
@@ -84,6 +133,7 @@ export class QuotaConfig extends $dara.Model {
       supportRDMA: 'boolean',
       useCase: 'string',
       userVpc: UserVpc,
+      workloadTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -114,6 +164,9 @@ export class QuotaConfig extends $dara.Model {
     }
     if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
       (this.userVpc as any).validate();
+    }
+    if(Array.isArray(this.workloadTypes)) {
+      $dara.Model.validateArray(this.workloadTypes);
     }
     super.validate();
   }

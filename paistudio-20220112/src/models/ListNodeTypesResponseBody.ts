@@ -5,12 +5,23 @@ import { NodeTypeStatistic } from "./NodeTypeStatistic";
 
 
 export class ListNodeTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of node types.
+   */
   nodeTypes?: NodeType[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Statistics for the node types that match the filter criteria.
+   */
   statistics?: NodeTypeStatistic[];
   static names(): { [key: string]: string } {
     return {

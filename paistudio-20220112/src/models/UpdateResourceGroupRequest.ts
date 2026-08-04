@@ -5,20 +5,33 @@ import { UserVpc } from "./UserVpc";
 
 export class UpdateResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the resource group.
+   * 
    * @example
    * test_new_havpn_tf
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * prophet
    */
   name?: string;
   /**
+   * @remarks
+   * Whether to detach the resource group from the currently connected VPC.
+   * 
    * @example
    * true
    */
   unbind?: boolean;
+  /**
+   * @remarks
+   * Information about the VPC connected to the resource group.
+   */
   userVpc?: UserVpc;
   static names(): { [key: string]: string } {
     return {

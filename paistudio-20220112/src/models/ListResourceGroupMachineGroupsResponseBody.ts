@@ -4,13 +4,23 @@ import { MachineGroup } from "./MachineGroup";
 
 
 export class ListResourceGroupMachineGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of machine groups.
+   */
   machineGroups?: MachineGroup[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7C42CC7-2E85-508A-84F4-923B605FD10F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of machine groups.
+   * 
    * @example
    * 4
    */

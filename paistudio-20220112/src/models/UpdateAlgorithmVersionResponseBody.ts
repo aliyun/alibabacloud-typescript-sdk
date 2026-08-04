@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAlgorithmVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The algorithm ID.
+   * 
    * @example
    * algo-sidjc8134hv
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * The algorithm version.
+   * 
    * @example
    * v0.1.0
    */

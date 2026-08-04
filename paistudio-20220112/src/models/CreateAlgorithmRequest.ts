@@ -3,14 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAlgorithmRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the algorithm.
+   * 
+   * @example
+   * Tongyi Qwen large language model training algorithm.
+   */
   algorithmDescription?: string;
   /**
+   * @remarks
+   * The name of the algorithm.
+   * 
    * @example
    * llm_training
    */
   algorithmName?: string;
+  /**
+   * @remarks
+   * The display name of the algorithm.
+   * 
+   * @example
+   * Large language model training
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 12345
    */

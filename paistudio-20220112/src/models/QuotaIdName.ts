@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QuotaIdName extends $dara.Model {
   /**
+   * @remarks
+   * Resource quota ID
+   * 
    * @example
    * quota12345
    */
   quotaId?: string;
   /**
+   * @remarks
+   * Resource quota name
+   * 
    * @example
    * dlc-quota
    */

@@ -4,6 +4,10 @@ import { NodeSpec } from "./NodeSpec";
 
 
 export class ResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The resource node specifications.
+   */
   nodeSpecs?: NodeSpec[];
   static names(): { [key: string]: string } {
     return {

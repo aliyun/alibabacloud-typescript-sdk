@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Metric extends $dara.Model {
   /**
+   * @remarks
+   * The UNIX timestamp.
+   * 
    * @example
-   * rg17tmvwiokhzaxg
+   * rg17tmvwiokh****
    */
   time?: number;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 23000
    */

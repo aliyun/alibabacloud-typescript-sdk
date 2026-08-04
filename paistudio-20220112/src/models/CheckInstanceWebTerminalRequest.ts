@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckInstanceWebTerminalRequest extends $dara.Model {
   /**
+   * @remarks
+   * The check information.
+   * 
    * @example
    * wss://pai-dlc-proxy-cn-shanghai.aliyun.com/terminal/t1157703270994901/dlcmjzjt1dxbmx4h/dlcmjzjt1dxbmx4h-worker-0?Token=******
    */

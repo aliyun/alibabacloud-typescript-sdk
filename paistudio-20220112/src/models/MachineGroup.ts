@@ -7,11 +7,17 @@ export class MachineGroup extends $dara.Model {
   allocatableMemory?: number;
   cpu?: number;
   /**
+   * @remarks
+   * Machine group creator ID
+   * 
    * @example
    * 1612285282502324
    */
   creatorID?: string;
   /**
+   * @remarks
+   * Default driver supported by the machine group
+   * 
    * @example
    * 470.199.02
    */
@@ -19,31 +25,49 @@ export class MachineGroup extends $dara.Model {
   diskCapacity?: number;
   diskPL?: string;
   /**
+   * @remarks
+   * Resource count
+   * 
    * @example
    * 1
    */
   ecsCount?: number;
   /**
+   * @remarks
+   * ECS specification
+   * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtCreatedTime?: string;
   /**
+   * @remarks
+   * Expiration Time
+   * 
    * @example
    * 2023-08-22T00:00:00Z
    */
   gmtExpiredTime?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Start At
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
@@ -52,55 +76,83 @@ export class MachineGroup extends $dara.Model {
   gpuMemory?: number;
   gpuType?: string;
   /**
+   * @remarks
+   * Machine Group ID
+   * 
    * @example
    * mg1
    */
   machineGroupID?: string;
   memory?: number;
   /**
+   * @remarks
+   * Order ID
+   * 
    * @example
    * “”
    */
   orderInstanceId?: string;
   /**
+   * @remarks
+   * Duration
+   * 
    * @example
    * 2
    */
   paymentDuration?: string;
   /**
    * @remarks
-   * region ID
+   * Region ID
    * 
    * @example
    * Monthly
    */
   paymentDurationUnit?: string;
   /**
+   * @remarks
+   * Payment type
+   * 
    * @example
    * PREPAY
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Machine group error code
+   * 
    * @example
    * “”
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * Machine group fault message
+   * 
    * @example
    * “”
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rgf0zhfqn1d4ity2
    */
   resourceGroupID?: string;
   resourceType?: string;
   /**
+   * @remarks
+   * Machine group status
+   * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * List of NVIDIA GPU driver versions supported by the machine group
+   */
   supportedDrivers?: string[];
   systemReservedCpu?: number;
   systemReservedMemory?: number;

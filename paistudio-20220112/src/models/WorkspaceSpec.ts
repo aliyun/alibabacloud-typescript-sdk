@@ -5,32 +5,54 @@ import { ResourceAmount } from "./ResourceAmount";
 
 export class WorkspaceSpec extends $dara.Model {
   /**
+   * @remarks
+   * Invalidity reason code when using guaranteed resources is invalid
+   * 
    * @example
    * ""
    */
   code?: string;
   /**
+   * @remarks
+   * Type of invalidity reason when using guaranteed resources is invalid
+   * 
    * @example
    * ""
    */
   codeType?: string;
   /**
+   * @remarks
+   * Indicates whether the use of guaranteed resources is valid.
+   * 
    * @example
    * true
    */
   isGuaranteedValid?: boolean;
   /**
+   * @remarks
+   * Indicates whether the use of oversold resources is valid.
+   * 
    * @example
    * true
    */
   isOverSoldValid?: boolean;
   /**
+   * @remarks
+   * Invalidity reason content when using guaranteed resources is invalid
+   * 
    * @example
    * ""
    */
   reason?: string;
+  /**
+   * @remarks
+   * Specification resource information
+   */
   spec?: ResourceAmount;
   /**
+   * @remarks
+   * Template Name
+   * 
    * @example
    * spec_test
    */

@@ -4,10 +4,16 @@ import { ForwardInfo } from "./ForwardInfo";
 
 
 export class UserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The default public gateway information.
+   */
   defaultForwardInfo?: ForwardInfo;
   /**
    * @remarks
-   * DefaultRoute
+   * The default routing. Valid values:
+   * - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+   * - eth1: uses the user\\"s elastic network interfaces (ENIs) to access external networks through the private gateway.
    * 
    * @example
    * eth0
@@ -15,12 +21,12 @@ export class UserVpc extends $dara.Model {
   defaultRoute?: string;
   /**
    * @remarks
-   * ExtendedCIDRs
+   * The secondary CIDR blocks.
    */
   extendedCIDRs?: string[];
   /**
    * @remarks
-   * RoleArn
+   * The OSS access authorization information.
    * 
    * @example
    * acs:ram::25xxxx:role/AliyunPAIDLCDefaultRole
@@ -28,7 +34,7 @@ export class UserVpc extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * SecurityGroupID
+   * The security group ID.
    * 
    * @example
    * sg-abcdef****
@@ -36,7 +42,7 @@ export class UserVpc extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * VSW ID
+   * The vSwitch ID.
    * 
    * @example
    * vs-abcdef****
@@ -44,7 +50,7 @@ export class UserVpc extends $dara.Model {
   switchId?: string;
   /**
    * @remarks
-   * VPC ID
+   * VPC ID。
    * 
    * @example
    * vpc-abcdef****

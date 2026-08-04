@@ -4,6 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNodesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type. Valid values:
+   * 
+   * - CPU
+   * 
+   * - GPU
+   * 
+   * If omitted, this operation returns nodes of all accelerator types.
+   * 
    * @example
    * CPU
    */
@@ -12,16 +21,25 @@ export class ListNodesShrinkRequest extends $dara.Model {
   cliqueID?: string;
   diskPL?: string;
   /**
+   * @remarks
+   * When used with `ResourceGroupIds`, this parameter further filters the results to include only nodes from the specified resource quota.
+   * 
    * @example
    * quotamtl37ge7gkvdz
    */
   filterByQuotaId?: string;
   /**
+   * @remarks
+   * When used with `QuotaId`, this parameter further filters the results to include only nodes from the specified resource groups.
+   * 
    * @example
    * rg69rj0leslwdnbe
    */
   filterByResourceGroupIds?: string;
   /**
+   * @remarks
+   * The GPU type. Fuzzy matching is supported.
+   * 
    * @example
    * T4
    */
@@ -33,41 +51,69 @@ export class ListNodesShrinkRequest extends $dara.Model {
   layoutMode?: string;
   machineGroupIds?: string;
   /**
+   * @remarks
+   * A comma-separated list of node names. Only nodes with names that match this list are returned.
+   * 
    * @example
    * lingjxxxx
    */
   nodeNames?: string;
   /**
+   * @remarks
+   * A comma-separated list of node statuses. If this parameter is omitted, this operation returns nodes of all statuses.
+   * 
    * @example
    * Ready
    */
   nodeStatuses?: string;
   /**
+   * @remarks
+   * A comma-separated list of node specifications. If this parameter is omitted, this operation returns nodes of all specifications.
+   * 
    * @example
    * ecs.c6.xlarge
    */
   nodeTypes?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - `desc`: Descending
+   * 
+   * - `asc`: Ascending
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * A comma-separated list of order IDs.
+   * 
    * @example
    * 260590501560397
    */
   orderInstanceIds?: string;
   /**
+   * @remarks
+   * A comma-separated list of order statuses.
+   * 
    * @example
    * Ready
    */
   orderStatuses?: string;
   /**
+   * @remarks
+   * The page number. The first page is 1.
+   * 
    * @example
    * 2
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
    * @example
    * 10
    */
@@ -75,23 +121,42 @@ export class ListNodesShrinkRequest extends $dara.Model {
   paymentType?: string;
   podNum?: number;
   /**
+   * @remarks
+   * The ID of the resource quota that contains the nodes.
+   * 
    * @example
    * quotamtl37ge7gkvdz
    */
   quotaId?: string;
   reasonCodes?: string;
   /**
+   * @remarks
+   * A comma-separated list of resource group IDs. You must specify either this parameter or `QuotaId`.
+   * Constraints:
+   * 
+   * 1. The user ID of the request must match the user ID associated with the specified resource groups.
+   * 
+   * 2. All specified resource groups must be of the same type.
+   * 
+   * 3. All specified resource groups must be in the same VPC.
+   * 
    * @example
    * rg69rj0leslwdnbe
    */
   resourceGroupIds?: string;
   resourceGroupName?: string;
   /**
+   * @remarks
+   * The field by which to sort the results.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Specifies whether to return resource usage information. This parameter applies only when `QuotaId` is specified.
+   * 
    * @example
    * false
    */

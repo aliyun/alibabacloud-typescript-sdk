@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlgorithmVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size for paging.
+   * 
    * @example
    * 10
    */

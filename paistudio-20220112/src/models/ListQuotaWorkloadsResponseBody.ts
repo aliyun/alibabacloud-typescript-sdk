@@ -6,17 +6,24 @@ import { QueueInfo } from "./QueueInfo";
 export class ListQuotaWorkloadsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 42F23B58-3684-5443-848A-8DA81FF99712
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of workloads that match the filter criteria.
+   * 
    * @example
    * 23
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * A list of workloads.
+   */
   workloads?: QueueInfo[];
   static names(): { [key: string]: string } {
     return {

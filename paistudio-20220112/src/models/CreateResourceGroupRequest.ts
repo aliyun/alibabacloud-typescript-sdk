@@ -5,11 +5,17 @@ import { UserVpc } from "./UserVpc";
 
 export class CreateResourceGroupRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the instance. N ranges from 1 to 20.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value for the resource group. N ranges from 1 to 20.
+   * 
    * @example
    * TestValue
    */
@@ -39,28 +45,55 @@ export class CreateResourceGroupRequestTag extends $dara.Model {
 
 export class CreateResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Compute resource type for the resource group.
+   * 
    * @example
    * Ecs
    */
   computingResourceProvider?: string;
   /**
+   * @remarks
+   * Resource group description.
+   * 
    * @example
    * test_api_report
    */
   description?: string;
   /**
+   * @remarks
+   * Resource group name.
+   * 
    * @example
    * testResourceGroup
    */
   name?: string;
   /**
+   * @remarks
+   * Resource type. Valid values:
+   * 
+   * - Ecs: general computing resources
+   * 
+   * - Lingjun: Lingjun resources
+   * 
    * @example
    * Ecs
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * List of tags to add. Maximum 20 items.
+   */
   tag?: CreateResourceGroupRequestTag[];
+  /**
+   * @remarks
+   * VPC connectivity information for the resource group.
+   */
   userVpc?: UserVpc;
   /**
+   * @remarks
+   * Resource group version. This parameter takes effect only when the resource type is ECS.
+   * 
    * @example
    * 1.0
    */

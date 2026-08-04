@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlgorithmResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the algorithm.
+   * 
    * @example
    * algo-xsldfvu1334
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7C42CC7-2E85-508A-84F4-923B605FD10F
    */

@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrainingJobOutputModelsResponseBodyOutputModelsLabels extends $dara.Model {
+  /**
+   * @remarks
+   * Tag name.
+   * 
+   * @example
+   * RootModelName
+   */
   key?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
-   * StableDiffusion
+   * qwen2-0.5
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -33,47 +43,96 @@ export class ListTrainingJobOutputModelsResponseBodyOutputModelsLabels extends $
 }
 
 export class ListTrainingJobOutputModelsResponseBodyOutputModels extends $dara.Model {
+  /**
+   * @remarks
+   * Model compression configuration.
+   * 
+   * @example
+   * {}
+   */
   compressionSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * Model evaluation configuration.
+   * 
    * @example
    * {}
    */
   evaluationSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * Model inference configuration.
+   * 
    * @example
    * {}
    */
   inferenceSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * List of tags.
+   */
   labels?: ListTrainingJobOutputModelsResponseBodyOutputModelsLabels[];
   /**
+   * @remarks
+   * Training job metrics.
+   * 
    * @example
    * {
-   *       "lr": 0.000001,
-   *       "train_loss": 2.6345
+   *         "Results": [
+   *           {
+   *             "Dataset": {
+   *               "Train": "oss://somebucket.oss-cn-hangzhou.aliyuncs.com/datasets/Chinese-medical-dialogue-data/chinese_medical_train_sampled.json"
+   *             },
+   *             "Metrics": {
+   *               "loss": 2.1276
+   *             }
+   *           }
+   *         ]
    * }
    */
   metrics?: { [key: string]: any };
   /**
+   * @remarks
+   * Name of the training output data.
+   * 
    * @example
    * model
    */
   outputChannelName?: string;
   /**
+   * @remarks
+   * Source ID (optional):
+   * 
+   * - If the source is Custom, there are no format requirements.
+   * 
+   * - If the source is PAIFlow, use the format: region=cn-shanghai,workspaceId=1345,kind=PipelineRun,id=run-sakdbaskjdf.
+   * 
+   * - If the source is TrainingService, use the format: region=cn-shanghai,workspaceId=1345,kind=TrainingJob,id=job-sakdbaskjdf.
+   * 
    * @example
    * region=cn-shanghai,workspaceId=1345,kind=PipelineRun,id=run-sakdbaskjdf
    */
   sourceId?: string;
   /**
+   * @remarks
+   * Source (the type of job that produced the model). Default: Custom.
+   * 
    * @example
    * PAIFlow
    */
   sourceType?: string;
   /**
+   * @remarks
+   * Model training configuration.
+   * 
    * @example
    * {}
    */
   trainingSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * Link to the training output data.
+   * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/path/to/output/channel/
    */
@@ -136,6 +195,10 @@ export class ListTrainingJobOutputModelsResponseBodyOutputModels extends $dara.M
 }
 
 export class ListTrainingJobOutputModelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of models produced by training.
+   */
   outputModels?: ListTrainingJobOutputModelsResponseBodyOutputModels[];
   static names(): { [key: string]: string } {
     return {

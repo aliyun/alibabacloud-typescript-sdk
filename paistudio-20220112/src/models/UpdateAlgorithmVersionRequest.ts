@@ -4,6 +4,10 @@ import { AlgorithmSpec } from "./AlgorithmSpec";
 
 
 export class UpdateAlgorithmVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the algorithm.
+   */
   algorithmSpec?: AlgorithmSpec;
   static names(): { [key: string]: string } {
     return {

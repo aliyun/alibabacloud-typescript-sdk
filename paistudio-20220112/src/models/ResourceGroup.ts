@@ -6,15 +6,15 @@ import { UserVpc } from "./UserVpc";
 export class ResourceGroup extends $dara.Model {
   /**
    * @remarks
-   * CreatorID
+   * The user ID of the creator.
    * 
    * @example
-   * 1612285282502324
+   * 161228528250****
    */
   creatorID?: string;
   /**
    * @remarks
-   * pai resource created time
+   * The time the PAI resource group was created.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -22,7 +22,7 @@ export class ResourceGroup extends $dara.Model {
   gmtCreatedTime?: string;
   /**
    * @remarks
-   * GmtModified
+   * The time the PAI resource group was last modified.
    * 
    * @example
    * 2023-06-22T00:00:00Z
@@ -30,7 +30,7 @@ export class ResourceGroup extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * pai resource group name
+   * The name of the PAI resource group.
    * 
    * @example
    * RG1
@@ -38,7 +38,7 @@ export class ResourceGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * NodeCount
+   * The number of nodes.
    * 
    * @example
    * 3
@@ -46,23 +46,23 @@ export class ResourceGroup extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * pai resource group id
+   * The ID of the PAI resource group.
    * 
    * @example
-   * rg17tmvwiokhzaxg
+   * rg17tmvwiokh****
    */
   resourceGroupID?: string;
   resourceType?: string;
   status?: string;
   /**
    * @remarks
-   * UserVpc
+   * The VPC configuration.
    */
   userVpc?: UserVpc;
   version?: string;
   /**
    * @remarks
-   * pworkspace id
+   * The workspace ID.
    * 
    * @example
    * 23000

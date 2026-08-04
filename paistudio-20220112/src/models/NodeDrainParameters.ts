@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NodeDrainParameters extends $dara.Model {
+  force?: boolean;
+  /**
+   * @remarks
+   * Delete pods of the specified job types
+   */
   podFromSubProducts?: string[];
+  /**
+   * @remarks
+   * Delete specified pods
+   */
   podNames?: string[];
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       podFromSubProducts: 'PodFromSubProducts',
       podNames: 'PodNames',
     };
@@ -14,6 +24,7 @@ export class NodeDrainParameters extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       podFromSubProducts: { 'type': 'array', 'itemType': 'string' },
       podNames: { 'type': 'array', 'itemType': 'string' },
     };

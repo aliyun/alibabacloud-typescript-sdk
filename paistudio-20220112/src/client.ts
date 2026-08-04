@@ -32,6 +32,11 @@ export default class Client extends OpenApi {
       'cn-shanghai-finance-1': "pai.cn-shanghai-finance-1.aliyuncs.com",
       'cn-wulanchabu': "pai.cn-wulanchabu.aliyuncs.com",
       'cn-zhangjiakou': "pai.cn-zhangjiakou.aliyuncs.com",
+      'us-southeast-1': "pai.us-southeast-1.aliyuncs.com",
+      'cn-zhongwei': "pai.cn-zhongwei.aliyuncs.com",
+      'cn-guangzhou': "pai.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-8': "pai.ap-southeast-8.aliyuncs.com",
+      'ap-northeast-2': "pai.ap-northeast-2.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("paistudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -51,7 +56,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查WebTerminal
+   * Checks the connection to the instance container.
    * 
    * @param request - CheckInstanceWebTerminalRequest
    * @param headers - map
@@ -84,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查WebTerminal
+   * Checks the connection to the instance container.
    * 
    * @param request - CheckInstanceWebTerminalRequest
    * @returns CheckInstanceWebTerminalResponse
@@ -96,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的算法
+   * Creates an algorithm.
    * 
    * @param request - CreateAlgorithmRequest
    * @param headers - map
@@ -141,7 +146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建新的算法
+   * Creates an algorithm.
    * 
    * @param request - CreateAlgorithmRequest
    * @returns CreateAlgorithmResponse
@@ -153,7 +158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的算法版本
+   * Creates a version of an algorithm.
    * 
    * @param tmpReq - CreateAlgorithmVersionRequest
    * @param headers - map
@@ -192,7 +197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的算法版本
+   * Creates a version of an algorithm.
    * 
    * @param request - CreateAlgorithmVersionRequest
    * @returns CreateAlgorithmVersionResponse
@@ -204,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WebTerminal
+   * You can create a link to access the container of the instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -229,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WebTerminal
+   * You can create a link to access the container of the instance.
    * @returns CreateInstanceWebTerminalResponse
    */
   async createInstanceWebTerminal(TrainingJobId: string, InstanceId: string): Promise<$_model.CreateInstanceWebTerminalResponse> {
@@ -239,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Quota
+   * Call the `CreateQuota` operation to create a quota.
    * 
    * @param request - CreateQuotaRequest
    * @param headers - map
@@ -312,7 +317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Quota
+   * Call the `CreateQuota` operation to create a quota.
    * 
    * @param request - CreateQuotaRequest
    * @returns CreateQuotaResponse
@@ -324,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * Use the CreateResourceGroup operation to create a resource group.
    * 
    * @param request - CreateResourceGroupRequest
    * @param headers - map
@@ -381,7 +386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * Use the CreateResourceGroup operation to create a resource group.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -393,7 +398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建TrainingJob
+   * Creates a training job.
    * 
    * @param request - CreateTrainingJobRequest
    * @param headers - map
@@ -429,6 +434,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.computeResource)) {
       body["ComputeResource"] = request.computeResource;
+    }
+
+    if (!$dara.isNull(request.credentialConfig)) {
+      body["CredentialConfig"] = request.credentialConfig;
     }
 
     if (!$dara.isNull(request.environments)) {
@@ -510,7 +519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建TrainingJob
+   * Creates a training job.
    * 
    * @param request - CreateTrainingJobRequest
    * @returns CreateTrainingJobResponse
@@ -522,7 +531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除算法
+   * Deletes an algorithm.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -547,7 +556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除算法
+   * Deletes an algorithm.
    * @returns DeleteAlgorithmResponse
    */
   async deleteAlgorithm(AlgorithmId: string): Promise<$_model.DeleteAlgorithmResponse> {
@@ -557,7 +566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除算法版本
+   * Deletes an algorithm version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -582,7 +591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除算法版本
+   * Deletes an algorithm version.
    * @returns DeleteAlgorithmVersionResponse
    */
   async deleteAlgorithmVersion(AlgorithmId: string, AlgorithmVersion: string): Promise<$_model.DeleteAlgorithmVersionResponse> {
@@ -592,7 +601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete machine group
+   * Deletes a machine group.
    * 
    * @deprecated OpenAPI DeleteMachineGroup is deprecated
    * 
@@ -619,7 +628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete machine group
+   * Deletes a machine group.
    * 
    * @deprecated OpenAPI DeleteMachineGroup is deprecated
    * @returns DeleteMachineGroupResponse
@@ -632,7 +641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Quota
+   * You can delete a resource quota by using DeleteQuota.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -657,7 +666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Quota
+   * You can delete a resource quota by using DeleteQuota.
    * @returns DeleteQuotaResponse
    */
   async deleteQuota(QuotaId: string): Promise<$_model.DeleteQuotaResponse> {
@@ -667,7 +676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组
+   * Deletes a resource group.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组
+   * Deletes a resource group.
    * @returns DeleteResourceGroupResponse
    */
   async deleteResourceGroup(ResourceGroupID: string): Promise<$_model.DeleteResourceGroupResponse> {
@@ -702,7 +711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete machine group
+   * Deletes the specified machine group from a resource group.
    * 
    * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
    * 
@@ -729,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * delete machine group
+   * Deletes the specified machine group from a resource group.
    * 
    * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
    * @returns DeleteResourceGroupMachineGroupResponse
@@ -742,7 +751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个TrainingJob
+   * Deletes a training task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -767,7 +776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个TrainingJob
+   * Deletes a training task.
    * @returns DeleteTrainingJobResponse
    */
   async deleteTrainingJob(TrainingJobId: string): Promise<$_model.DeleteTrainingJobResponse> {
@@ -777,7 +786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除TrainingJob的Labels
+   * Deletes the labels of a training task.
    * 
    * @param request - DeleteTrainingJobLabelsRequest
    * @param headers - map
@@ -810,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除TrainingJob的Labels
+   * Deletes the labels of a training task.
    * 
    * @param request - DeleteTrainingJobLabelsRequest
    * @returns DeleteTrainingJobLabelsResponse
@@ -822,7 +831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个算法信息
+   * Retrieves algorithm details.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -847,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个算法信息
+   * Retrieves algorithm details.
    * @returns GetAlgorithmResponse
    */
   async getAlgorithm(AlgorithmId: string): Promise<$_model.GetAlgorithmResponse> {
@@ -857,7 +866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的算法版本
+   * Retrieve details about an algorithm version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -882,7 +891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的算法版本
+   * Retrieve details about an algorithm version.
    * @returns GetAlgorithmVersionResponse
    */
   async getAlgorithmVersion(AlgorithmId: string, AlgorithmVersion: string): Promise<$_model.GetAlgorithmVersionResponse> {
@@ -892,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get machine group
+   * Retrieves the details of a specific machine group.
    * 
    * @deprecated OpenAPI GetMachineGroup is deprecated
    * 
@@ -919,7 +928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get machine group
+   * Retrieves the details of a specific machine group.
    * 
    * @deprecated OpenAPI GetMachineGroup is deprecated
    * @returns GetMachineGroupResponse
@@ -932,7 +941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group node metrics
+   * You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
    * 
    * @deprecated OpenAPI GetNodeMetrics is deprecated
    * 
@@ -983,7 +992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group node metrics
+   * You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
    * 
    * @deprecated OpenAPI GetNodeMetrics is deprecated
    * 
@@ -998,7 +1007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Quota
+   * Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
    * 
    * @param request - GetQuotaRequest
    * @param headers - map
@@ -1035,7 +1044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Quota
+   * Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
    * 
    * @param request - GetQuotaRequest
    * @returns GetQuotaResponse
@@ -1047,7 +1056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group by group id
+   * `GetResourceGroup` retrieves details for a resource group.
    * 
    * @param tmpReq - GetResourceGroupRequest
    * @param headers - map
@@ -1090,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group by group id
+   * `GetResourceGroup` retrieves details for a resource group.
    * 
    * @param request - GetResourceGroupRequest
    * @returns GetResourceGroupResponse
@@ -1102,7 +1111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get machine group
+   * Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
    * 
    * @param tmpReq - GetResourceGroupMachineGroupRequest
    * @param headers - map
@@ -1141,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get machine group
+   * Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
    * 
    * @param request - GetResourceGroupMachineGroupRequest
    * @returns GetResourceGroupMachineGroupResponse
@@ -1153,7 +1162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group requested resource by resource group id
+   * You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
    * 
    * @deprecated OpenAPI GetResourceGroupRequest is deprecated
    * 
@@ -1192,7 +1201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group requested resource by resource group id
+   * You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
    * 
    * @deprecated OpenAPI GetResourceGroupRequest is deprecated
    * 
@@ -1207,7 +1216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group total resource by group id
+   * You can call GetResourceGroupTotal to get the total resources of a Resource Group.
    * 
    * @param request - GetResourceGroupTotalRequest
    * @param headers - map
@@ -1240,7 +1249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get resource group total resource by group id
+   * You can call GetResourceGroupTotal to get the total resources of a Resource Group.
    * 
    * @param request - GetResourceGroupTotalRequest
    * @returns GetResourceGroupTotalResponse
@@ -1252,7 +1261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取抢占式实例历史价格
+   * Retrieves the historical prices of spot instances.
    * 
    * @param request - GetSpotPriceHistoryRequest
    * @param headers - map
@@ -1309,7 +1318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取抢占式实例历史价格
+   * Retrieves the historical prices of spot instances.
    * 
    * @param request - GetSpotPriceHistoryRequest
    * @returns GetSpotPriceHistoryResponse
@@ -1321,7 +1330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用GetToken获取临时鉴权信息
+   * Obtains a share token for a training task.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -1358,7 +1367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用GetToken获取临时鉴权信息
+   * Obtains a share token for a training task.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -1370,7 +1379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob的详情
+   * Retrieves the details of a training job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1395,7 +1404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob的详情
+   * Retrieves the details of a training job.
    * @returns GetTrainingJobResponse
    */
   async getTrainingJob(TrainingJobId: string): Promise<$_model.GetTrainingJobResponse> {
@@ -1405,7 +1414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的算法错误信息
+   * Retrieves the runtime fault error message of a training node.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1430,7 +1439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的算法错误信息
+   * Retrieves the runtime fault error message of a training node.
    * @returns GetTrainingJobErrorInfoResponse
    */
   async getTrainingJobErrorInfo(TrainingJobId: string): Promise<$_model.GetTrainingJobErrorInfoResponse> {
@@ -1440,7 +1449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob最近的Metrics
+   * Retrieves the latest metrics for a training task.
    * 
    * @param request - GetTrainingJobLatestMetricsRequest
    * @param headers - map
@@ -1473,7 +1482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob最近的Metrics
+   * Retrieves the latest metrics for a training task.
    * 
    * @param request - GetTrainingJobLatestMetricsRequest
    * @returns GetTrainingJobLatestMetricsResponse
@@ -1485,7 +1494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get user view  metrics
+   * Retrieves metric data at the user dimension.
    * 
    * @deprecated OpenAPI GetUserViewMetrics is deprecated
    * 
@@ -1544,7 +1553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * get user view  metrics
+   * Retrieves metric data at the user dimension.
    * 
    * @deprecated OpenAPI GetUserViewMetrics is deprecated
    * 
@@ -1559,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法的所有版本信息
+   * Retrieve a list of algorithm version details.
    * 
    * @param request - ListAlgorithmVersionsRequest
    * @param headers - map
@@ -1596,7 +1605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法的所有版本信息
+   * Retrieve a list of algorithm version details.
    * 
    * @param request - ListAlgorithmVersionsRequest
    * @returns ListAlgorithmVersionsResponse
@@ -1608,7 +1617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法列表
+   * Lists algorithm details.
    * 
    * @param request - ListAlgorithmsRequest
    * @param headers - map
@@ -1661,7 +1670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取算法列表
+   * Lists algorithm details.
    * 
    * @param request - ListAlgorithmsRequest
    * @returns ListAlgorithmsResponse
@@ -1673,7 +1682,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点规格列表
+   * Retrieves detailed information about all pods on a specified node.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
+   * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+   * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+   * 
+   * @param request - ListNodePodsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodePodsResponse
+   */
+  async listNodePodsWithOptions(NodeId: string, request: $_model.ListNodePodsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodePodsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.GPUIndexes)) {
+      query["GPUIndexes"] = request.GPUIndexes;
+    }
+
+    if (!$dara.isNull(request.oversoldTypes)) {
+      query["OversoldTypes"] = request.oversoldTypes;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodePods",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/nodes/${$dara.URL.percentEncode(NodeId)}/Pods`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodePodsResponse>(await this.callApi(params, req, runtime), new $_model.ListNodePodsResponse({}));
+  }
+
+  /**
+   * Retrieves detailed information about all pods on a specified node.
+   * 
+   * @remarks
+   * ## Operation description
+   * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
+   * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+   * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+   * 
+   * @param request - ListNodePodsRequest
+   * @returns ListNodePodsResponse
+   */
+  async listNodePods(NodeId: string, request: $_model.ListNodePodsRequest): Promise<$_model.ListNodePodsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNodePodsWithOptions(NodeId, request, headers, runtime);
+  }
+
+  /**
+   * Lists the available node types.
+   * 
+   * @remarks
+   * ## Description
+   * - Lists the node types that match the specified filter criteria.
+   * - You must specify either the `ResourceGroupIds` or `QuotaId` parameter. The specified resource group IDs or quota ID must belong to the requesting user.
+   * - You can filter the results by using parameters such as accelerator type and GPU type.
+   * - The response includes details and statistics for each node type, indicating the availability of your resources.
    * 
    * @param request - ListNodeTypesRequest
    * @param headers - map
@@ -1722,7 +1803,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点规格列表
+   * Lists the available node types.
+   * 
+   * @remarks
+   * ## Description
+   * - Lists the node types that match the specified filter criteria.
+   * - You must specify either the `ResourceGroupIds` or `QuotaId` parameter. The specified resource group IDs or quota ID must belong to the requesting user.
+   * - You can filter the results by using parameters such as accelerator type and GPU type.
+   * - The response includes details and statistics for each node type, indicating the availability of your resources.
    * 
    * @param request - ListNodeTypesRequest
    * @returns ListNodeTypesResponse
@@ -1734,7 +1822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源节点列表
+   * Returns a list of resource nodes.
+   * 
+   * @remarks
+   * ListNodes retrieves resource nodes that match specified filter conditions.
    * 
    * @param tmpReq - ListNodesRequest
    * @param headers - map
@@ -1897,7 +1988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源节点列表
+   * Returns a list of resource nodes.
+   * 
+   * @remarks
+   * ListNodes retrieves resource nodes that match specified filter conditions.
    * 
    * @param request - ListNodesRequest
    * @returns ListNodesResponse
@@ -1909,7 +2003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前资源配额用户列表和其所使用的资源
+   * Lists users within a quota and their resource usage.
+   * 
+   * @remarks
+   * Retrieves the resource usage of users in a specified quota.
    * 
    * @param request - ListQuotaActiveUserUsagesRequest
    * @param headers - map
@@ -1974,7 +2071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前资源配额用户列表和其所使用的资源
+   * Lists users within a quota and their resource usage.
+   * 
+   * @remarks
+   * Retrieves the resource usage of users in a specified quota.
    * 
    * @param request - ListQuotaActiveUserUsagesRequest
    * @returns ListQuotaActiveUserUsagesResponse
@@ -1986,7 +2086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 您可以通过此API获取Quota上的任务信息列表
+   * Retrieves a list of workloads associated with a specific quota.
    * 
    * @param request - ListQuotaWorkloadsRequest
    * @param headers - map
@@ -2111,7 +2211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 您可以通过此API获取Quota上的任务信息列表
+   * Retrieves a list of workloads associated with a specific quota.
    * 
    * @param request - ListQuotaWorkloadsRequest
    * @returns ListQuotaWorkloadsResponse
@@ -2123,7 +2223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Quota列表
+   * Lists quotas.
    * 
    * @param request - ListQuotasRequest
    * @param headers - map
@@ -2224,7 +2324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Quota列表
+   * Lists quotas.
    * 
    * @param request - ListQuotasRequest
    * @returns ListQuotasResponse
@@ -2236,7 +2336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list machine groups
+   * Retrieves a list of machine groups in a specified resource group.
    * 
    * @param request - ListResourceGroupMachineGroupsRequest
    * @param headers - map
@@ -2321,7 +2421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list machine groups
+   * Retrieves a list of machine groups in a specified resource group.
    * 
    * @param request - ListResourceGroupMachineGroupsRequest
    * @returns ListResourceGroupMachineGroupsResponse
@@ -2333,7 +2433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list resource group
+   * Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+   * 
+   * @remarks
+   * Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
    * 
    * @param request - ListResourceGroupsRequest
    * @param headers - map
@@ -2410,7 +2513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * list resource group
+   * Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+   * 
+   * @remarks
+   * Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
    * 
    * @param request - ListResourceGroupsRequest
    * @returns ListResourceGroupsResponse
@@ -2422,7 +2528,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Tag query API.
+   * 
+   * @remarks
+   * Specify at least one of the following parameters to query for resources.
+   * - ResourceId.N
+   * - Tag.N (Tag.N.Key and Tag.N.Value)
+   * If you specify both parameters, the operation returns only resources that match both criteria.
+   * - Tag.N and ResourceId.N
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param headers - map
@@ -2481,7 +2594,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Tag query API.
+   * 
+   * @remarks
+   * Specify at least one of the following parameters to query for resources.
+   * - ResourceId.N
+   * - Tag.N (Tag.N.Key and Tag.N.Value)
+   * If you specify both parameters, the operation returns only resources that match both criteria.
+   * - Tag.N and ResourceId.N
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2493,7 +2613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定TrainingJob的事件。
+   * Retrieve events for a specific training task to gain detailed insight into the training process.
    * 
    * @param request - ListTrainingJobEventsRequest
    * @param headers - map
@@ -2538,7 +2658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定TrainingJob的事件。
+   * Retrieve events for a specific training task to gain detailed insight into the training process.
    * 
    * @param request - ListTrainingJobEventsRequest
    * @returns ListTrainingJobEventsResponse
@@ -2550,7 +2670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定Instance（TrainingJob的运行单元）的日志。
+   * Retrieve events for a training job instance.
    * 
    * @param request - ListTrainingJobInstanceEventsRequest
    * @param headers - map
@@ -2595,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定Instance（TrainingJob的运行单元）的日志。
+   * Retrieve events for a training job instance.
    * 
    * @param request - ListTrainingJobInstanceEventsRequest
    * @returns ListTrainingJobInstanceEventsResponse
@@ -2607,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job实例的Metrics
+   * Retrieve monitoring metrics for training job instances.
    * 
    * @param request - ListTrainingJobInstanceMetricsRequest
    * @param headers - map
@@ -2656,7 +2776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job实例的Metrics
+   * Retrieve monitoring metrics for training job instances.
    * 
    * @param request - ListTrainingJobInstanceMetricsRequest
    * @returns ListTrainingJobInstanceMetricsResponse
@@ -2668,7 +2788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的日志
+   * Retrieves the logs for a training task.
    * 
    * @param request - ListTrainingJobLogsRequest
    * @param headers - map
@@ -2721,7 +2841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的日志
+   * Retrieves the logs for a training task.
    * 
    * @param request - ListTrainingJobLogsRequest
    * @returns ListTrainingJobLogsResponse
@@ -2733,7 +2853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的Metrics
+   * Retrieve monitoring data for a training task.
    * 
    * @param request - ListTrainingJobMetricsRequest
    * @param headers - map
@@ -2786,7 +2906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job的Metrics
+   * Retrieve monitoring data for a training task.
    * 
    * @param request - ListTrainingJobMetricsRequest
    * @returns ListTrainingJobMetricsResponse
@@ -2798,7 +2918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job 产出的所有模型信息
+   * Retrieves information about the output models of a training job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2823,7 +2943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Training Job 产出的所有模型信息
+   * Retrieves information about the output models of a training job.
    * @returns ListTrainingJobOutputModelsResponse
    */
   async listTrainingJobOutputModels(TrainingJobId: string): Promise<$_model.ListTrainingJobOutputModelsResponse> {
@@ -2833,7 +2953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob的列表
+   * Retrieves a list of training jobs.
    * 
    * @param tmpReq - ListTrainingJobsRequest
    * @param headers - map
@@ -2924,7 +3044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取TrainingJob的列表
+   * Retrieves a list of training jobs.
    * 
    * @param request - ListTrainingJobsRequest
    * @returns ListTrainingJobsResponse
@@ -2936,7 +3056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 您可以通过OperateNode对节点进行操作
+   * Use OperateNode to manage nodes.
+   * 
+   * @remarks
+   * Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
    * 
    * @param request - OperateNodeRequest
    * @param headers - map
@@ -2977,7 +3100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 您可以通过OperateNode对节点进行操作
+   * Use OperateNode to manage nodes.
+   * 
+   * @remarks
+   * Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
    * 
    * @param request - OperateNodeRequest
    * @returns OperateNodeResponse
@@ -2989,7 +3115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 扩缩容Quota
+   * Use ScaleQuota to scale resource quotas.
    * 
    * @param request - ScaleQuotaRequest
    * @param headers - map
@@ -3026,7 +3152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 扩缩容Quota
+   * Use ScaleQuota to scale resource quotas.
    * 
    * @param request - ScaleQuotaRequest
    * @returns ScaleQuotaResponse
@@ -3038,7 +3164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个TrainingJob
+   * Stops a training task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3063,7 +3189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个TrainingJob
+   * Stops a training task.
    * @returns StopTrainingJobResponse
    */
   async stopTrainingJob(TrainingJobId: string): Promise<$_model.StopTrainingJobResponse> {
@@ -3073,7 +3199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Attaches tags to resources.
+   * 
+   * @remarks
+   * Alibaba Cloud checks the number of existing tags on the resource before attaching a new tag. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -3118,7 +3247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Attaches tags to resources.
+   * 
+   * @remarks
+   * Alibaba Cloud checks the number of existing tags on the resource before attaching a new tag. If the limit is exceeded, an error message is returned.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -3130,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Detach tags from a list of specified resources. If a tag is no longer attached to any resource after detachment, Alibaba Cloud deletes it automatically.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -3189,7 +3321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Detach tags from a list of specified resources. If a tag is no longer attached to any resource after detachment, Alibaba Cloud deletes it automatically.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -3201,7 +3333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新算法
+   * Updates an algorithm.
    * 
    * @param request - UpdateAlgorithmRequest
    * @param headers - map
@@ -3238,7 +3370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新算法
+   * Updates an algorithm.
    * 
    * @param request - UpdateAlgorithmRequest
    * @returns UpdateAlgorithmResponse
@@ -3250,7 +3382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新算法
+   * Updates an algorithm version.
    * 
    * @param tmpReq - UpdateAlgorithmVersionRequest
    * @param headers - map
@@ -3289,7 +3421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新算法
+   * Updates an algorithm version.
    * 
    * @param request - UpdateAlgorithmVersionRequest
    * @returns UpdateAlgorithmVersionResponse
@@ -3301,7 +3433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Quota
+   * Updates the information of a resource quota.
    * 
    * @param request - UpdateQuotaRequest
    * @param headers - map
@@ -3317,6 +3449,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.propagateDefaultGPUDriver)) {
+      body["PropagateDefaultGPUDriver"] = request.propagateDefaultGPUDriver;
     }
 
     if (!$dara.isNull(request.queueStrategy)) {
@@ -3350,7 +3486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Quota
+   * Updates the information of a resource quota.
    * 
    * @param request - UpdateQuotaRequest
    * @returns UpdateQuotaResponse
@@ -3362,7 +3498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Resource Group
+   * Use UpdateResourceGroup to update resource group information.
    * 
    * @param request - UpdateResourceGroupRequest
    * @param headers - map
@@ -3407,7 +3543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Resource Group
+   * Use UpdateResourceGroup to update resource group information.
    * 
    * @param request - UpdateResourceGroupRequest
    * @returns UpdateResourceGroupResponse
@@ -3419,7 +3555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个TrainingJob的Labels
+   * Updates the labels of a training task.
    * 
    * @param request - UpdateTrainingJobLabelsRequest
    * @param headers - map
@@ -3452,7 +3588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个TrainingJob的Labels
+   * Updates the labels of a training task.
    * 
    * @param request - UpdateTrainingJobLabelsRequest
    * @returns UpdateTrainingJobLabelsResponse

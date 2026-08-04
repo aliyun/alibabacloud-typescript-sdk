@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetResourceGroupShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Optional. Defaults to `true`.
+   * 
    * @example
    * true
    */
   isAIWorkspaceDataEnabled?: boolean;
+  /**
+   * @remarks
+   * A list of up to 20 tags to add to the instance.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {

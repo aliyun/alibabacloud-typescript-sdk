@@ -5,18 +5,27 @@ import { Metric } from "./Metric";
 
 export class NodeMetric extends $dara.Model {
   /**
+   * @remarks
+   * The type of GPU.
+   * 
    * @example
    * GU108
    */
   GPUType?: string;
   /**
+   * @remarks
+   * Performance Metrics.
+   * 
    * @example
    * 23000
    */
   metrics?: Metric[];
   /**
+   * @remarks
+   * Edge zone ID.
+   * 
    * @example
-   * -i121212node
+   * -i12****node
    */
   nodeID?: string;
   static names(): { [key: string]: string } {

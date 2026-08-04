@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAlgorithmVersionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the algorithm.
+   */
   algorithmSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {

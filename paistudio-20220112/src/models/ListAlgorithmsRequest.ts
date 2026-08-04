@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAlgorithmsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Algorithm ID.
+   * 
    * @example
    * algo-xsldfvu1334
    */
   algorithmId?: string;
   /**
+   * @remarks
+   * Algorithm name.
+   * 
    * @example
    * llm_training
    */
   algorithmName?: string;
   /**
+   * @remarks
+   * Algorithm provider.
+   * 
    * @example
    * pai
    */
   algorithmProvider?: string;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Workspace ID.
+   * 
    * @example
    * 12345
    */

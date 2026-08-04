@@ -4,11 +4,35 @@ import { AllocatedHyperNodeDetail } from "./AllocatedHyperNodeDetail";
 
 
 export class QuotaNodeStatistics extends $dara.Model {
+  /**
+   * @remarks
+   * The guaranteed minimum number of hyper nodes available in the quota.
+   */
   actualMinHyperNodeNum?: number;
+  /**
+   * @remarks
+   * The guaranteed minimum number of nodes available in the quota.
+   */
   actualMinNodeNum?: number;
+  /**
+   * @remarks
+   * The details of an allocated hyper node.
+   */
   allocatedHyperNodeDetails?: AllocatedHyperNodeDetail[];
+  /**
+   * @remarks
+   * The number of hyper nodes currently allocated from the quota.
+   */
   allocatedHyperNodeNum?: number;
+  /**
+   * @remarks
+   * The number of nodes currently allocated from the quota.
+   */
   allocatedNodeNum?: number;
+  /**
+   * @remarks
+   * The number of allocated nodes currently idle.
+   */
   emptyNodeNum?: number;
   static names(): { [key: string]: string } {
     return {

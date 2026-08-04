@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConditionExpression extends $dara.Model {
   /**
    * @remarks
+   * The type of required resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ConditionExpression extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The criterion for evaluation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ConditionExpression extends $dara.Model {
   operator?: string;
   /**
    * @remarks
+   * List of resource values.
+   * 
    * This parameter is required.
    */
   values?: string[];

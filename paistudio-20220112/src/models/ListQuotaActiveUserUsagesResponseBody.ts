@@ -4,17 +4,24 @@ import { QuotaUser } from "./QuotaUser";
 
 
 export class ListQuotaActiveUserUsagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of user resource usage details.
+   */
   quotaUserUsage?: QuotaUser[];
   quotaUserUsages?: QuotaUser[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E7C42CC7-2E85-508A-84F4-923B605FD10F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that meet the filter criteria.
+   * 
    * @example
    * 1
    */

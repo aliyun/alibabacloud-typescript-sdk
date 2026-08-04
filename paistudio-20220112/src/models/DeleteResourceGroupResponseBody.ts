@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F082BD0D-21E1-5F9B-81A0-AB07485B03CD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The globally unique ID of the resource group.
+   * 
    * @example
    * rgvl9d6utwcscukh
    */

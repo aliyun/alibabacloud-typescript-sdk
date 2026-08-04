@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TimeRangeFilter extends $dara.Model {
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2023-06-22T00:00:00Z
    */

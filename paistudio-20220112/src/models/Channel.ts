@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Channel extends $dara.Model {
+  /**
+   * @remarks
+   * Channel description.
+   * 
+   * @example
+   * 模型输出。
+   */
   description?: string;
   /**
    * @remarks
+   * Channel name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +22,25 @@ export class Channel extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Storage configuration of the channel.
+   * 
    * @example
    * {}
    */
   properties?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the channel must be configured.
+   * 
    * @example
    * true
    */
   required?: boolean;
+  /**
+   * @remarks
+   * List of storage classes supported by the channel.
+   */
   supportedChannelTypes?: string[];
   static names(): { [key: string]: string } {
     return {
