@@ -11,6 +11,7 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
    * normal
    */
   caInstanceStatus?: string;
+  caType?: string;
   /**
    * @remarks
    * The cron expression.
@@ -46,6 +47,7 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       caInstanceStatus: 'CaInstanceStatus',
+      caType: 'CaType',
       crlUrl: 'CrlUrl',
       hashCode: 'HashCode',
       nextUpdateTime: 'NextUpdateTime',
@@ -56,6 +58,7 @@ export class GetCaInstanceCrlAddressResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       caInstanceStatus: 'string',
+      caType: 'string',
       crlUrl: 'string',
       hashCode: 'string',
       nextUpdateTime: 'string',

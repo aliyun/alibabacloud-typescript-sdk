@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCACertificateResponseBodyCertificateTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
-   * 使用状态
+   * Usage status
    */
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * BMS
@@ -45,7 +45,7 @@ export class DescribeCACertificateResponseBodyCertificateTags extends $dara.Mode
 export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   /**
    * @remarks
-   * The date when the CA certificate expires. This is a UNIX timestamp. Unit: milliseconds.
+   * The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1665819958000
@@ -53,13 +53,11 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The type of the encryption algorithm of the CA certificate. Valid values:
+   * The encryption algorithm type of the CA certificate. Valid values:
    * 
-   * - **RSA**: The RSA algorithm.
-   * 
-   * - **ECC**: The ECC algorithm.
-   * 
-   * - **SM2**: The SM2 algorithm.
+   * - **RSA**: RSA algorithm.
+   * - **ECC**: ECC algorithm.
+   * - **SM2**: SM2 (Chinese national cryptographic) algorithm.
    * 
    * @example
    * RSA
@@ -67,7 +65,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The date when the CA certificate was issued. This is a UNIX timestamp. Unit: milliseconds.
+   * The issuance date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1634283958000
@@ -90,16 +88,23 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   caCertChain?: string;
   /**
    * @remarks
-   * The number of certificates that the private CA instance has issued.
+   * The number of certificates issued by the private CA instance.
    * 
    * @example
    * 10
    */
   certIssuedCount?: number;
+  /**
+   * @remarks
+   * The maximum validity period for certificates issued by the CA, as specified by the certMaxTime of the CA.
+   * 
+   * @example
+   * 30
+   */
   certMaxTime?: number;
   /**
    * @remarks
-   * The number of remaining certificates that can be issued.
+   * The number of remaining certificate quotas that can be allocated.
    * 
    * @example
    * 30
@@ -107,7 +112,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   certRemainingCount?: number;
   /**
    * @remarks
-   * The total certificate quota you purchased.
+   * The total number of purchased certificate quotas.
    * 
    * @example
    * 40
@@ -117,9 +122,8 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * @remarks
    * The type of the CA certificate. Valid values:
    * 
-   * - **ROOT**: A root CA certificate.
-   * 
-   * - **SUB_ROOT**: A subordinate CA certificate.
+   * - **ROOT**: root CA certificate.
+   * - **SUB_ROOT**: sub-CA certificate.
    * 
    * @example
    * SUB_ROOT
@@ -127,7 +131,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The ID of the hardware security module (HSM) cluster. This parameter is available when the CA is enabled using an HSM.
+   * The identifier of the hardware security module (HSM) cluster. (The CA is enabled through an HSM.)
    * 
    * @example
    * XXX-id
@@ -135,7 +139,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The common name or abbreviation of the organization that is associated with the CA certificate.
+   * The common name or abbreviation of the organization associated with the CA certificate.
    * 
    * @example
    * Aliyun
@@ -143,7 +147,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The country code of the organization that is associated with the CA certificate.
+   * The country code of the organization associated with the CA certificate.
    * 
    * For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
    * 
@@ -153,7 +157,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * The validity period of the CRL. Valid values: 1 to 365. Unit: days.
+   * The validity period of the CRL, ranging from 1 to 365 days.
    * 
    * @example
    * 90
@@ -161,7 +165,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   crlDay?: number;
   /**
    * @remarks
-   * The status of the Certificate Revocation List (CRL).
+   * The certificate revocation list (CRL) status (enabled or disabled).
    * 
    * @example
    * ACTIVE
@@ -177,7 +181,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   crlUrl?: string;
   /**
    * @remarks
-   * The algorithm and its key length.
+   * The algorithm with key length.
    * 
    * @example
    * RSA_2048
@@ -193,13 +197,11 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   identifier?: string;
   /**
    * @remarks
-   * The issuer of the CA. Valid values:
+   * The issuing authority of the CA. Valid values:
    * 
-   * - local: A private certificate.
-   * 
-   * - iTrusChina: A compliance CA.
-   * 
-   * - external: An imported certificate.
+   * - local: private certificate.
+   * - iTrusChina: compliant CA.
+   * - external: externally imported.
    * 
    * @example
    * local
@@ -207,7 +209,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   issuerType?: string;
   /**
    * @remarks
-   * The index of the key in the HSM. This parameter is available when the CA is enabled using an HSM.
+   * The key index position in the HSM. (The CA is enabled through an HSM.)
    * 
    * @example
    * 8
@@ -239,7 +241,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The name of the organization that is associated with the CA certificate.
+   * The name of the organization associated with the CA certificate.
    * 
    * @example
    * aliyun
@@ -247,7 +249,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   organization?: string;
   /**
    * @remarks
-   * The name of the department in the organization that is associated with the CA certificate.
+   * The name of the department in the organization associated with the CA certificate.
    * 
    * @example
    * Security
@@ -255,9 +257,9 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the root CA certificate that issued the CA certificate.
+   * The unique identifier of the root CA certificate that issued this CA certificate.
    * 
-   * > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates a subordinate CA certificate.
+   * > This parameter is returned only when **CertificateType** is **SUB_ROOT** (sub-CA certificate).
    * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
@@ -316,9 +318,8 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * @remarks
    * The status of the CA certificate. Valid values:
    * 
-   * - **ISSUE**: The certificate is issued.
-   * 
-   * - **REVOKE**: The certificate is revoked.
+   * - **ISSUE**: issued.
+   * - **REVOKE**: revoked.
    * 
    * @example
    * ISSUE
@@ -326,31 +327,15 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The subject of the CA certificate. It contains the following information:
+   * The subject attributes of the CA certificate, which include the following information:
    * 
-   * - **C**: The country code of the organization.
-   * 
-   * - **O**: The name of the organization.
-   * 
-   * - **OU**: The department of the organization.
-   * 
-   * - **L**: The city where the organization is located.
-   * 
-   * <props="china">
-   * 
-   * - **ST**: The province, municipality, or autonomous region where the organization is located.
-   * 
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * - **ST**: The province or state where the organization is located.
-   * 
-   * 
-   * 
-   * 
-   * - **CN**: The common name or abbreviation of the organization.
+   * - **C**: the country code of the organization.
+   * - **O**: the name of the organization.
+   * - **OU**: the department of the organization.
+   * - **L**: the city where the organization is located.
+   * <props="china">- **ST**: the province, municipality, or autonomous region where the organization is located.
+   * <props="intl">- **ST**: the province or state where the organization is located.
+   * - **CN**: the common name or abbreviation of the organization.
    * 
    * @example
    * C=CN,O=aliyun,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
@@ -479,7 +464,7 @@ export class DescribeCACertificateResponseBody extends $dara.Model {
   certificate?: DescribeCACertificateResponseBodyCertificate;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
