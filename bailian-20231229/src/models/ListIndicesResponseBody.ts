@@ -2,10 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListIndicesResponseBodyDataIndicesStructuredIndexConfig extends $dara.Model {
+  isRecall?: boolean;
+  isSearch?: boolean;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isRecall: 'IsRecall',
+      isSearch: 'IsSearch',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isRecall: 'boolean',
+      isSearch: 'boolean',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   /**
    * @remarks
-   * The estimated chunk length. Valid values: 1 to 2048.
+   * The estimated chunk size. Valid values: 1 to 2048.
    * 
    * @example
    * 5
@@ -23,10 +55,10 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   confgModel?: string;
   /**
    * @remarks
-   * The description of the knowledge base.
+   * The knowledge base description.
    * 
    * @example
-   * 清单中产品主要面向海外客户。
+   * Products in this list are mainly for overseas customers
    */
   description?: string;
   /**
@@ -36,21 +68,19 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   documentIds?: string[];
   /**
    * @remarks
-   * The name of the embedding model. Valid values:
+   * The embedding model name. Valid values:
    * 
    * <props="china">
    * 
-   * - text-embedding-v4: the text-embedding-v4 model.
-   * - text-embedding-v3: the text-embedding-v3 model.
-   * - text-embedding-v2: the text-embedding-v2 model.
+   * - text-embedding-v4: text-embedding-v4 model.
+   * - text-embedding-v3: text-embedding-v3 model.
+   * - text-embedding-v2: text-embedding-v2 model.
    * 
    * 
    * 
    * <props="intl">
    * 
-   * - text-embedding-v2: the text-embedding-v2 model.
-   * 
-   * .
+   * - text-embedding-v2: text-embedding-v2 model.
    * 
    * @example
    * text-embedding-v2
@@ -76,15 +106,15 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the knowledge base.
+   * The knowledge base name.
    * 
    * @example
-   * XXXX产品清单
+   * XXXX Product List
    */
   name?: string;
   /**
    * @remarks
-   * The chunk overlap length. Valid values: 0 to 1024.
+   * The chunk overlap size. Valid values: 0 to 1024.
    * 
    * @example
    * 10
@@ -100,7 +130,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   rerankMinScore?: string;
   /**
    * @remarks
-   * The name of the rerank model. Valid values:
+   * The rerank model name. Valid values:
    * 
    * <props="china">
    * 
@@ -115,8 +145,6 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * 
    * - gte-rerank-hybrid: official reranking.
    * - gte-rerank: gte-rerank reranking.
-   * 
-   * .
    * 
    * @example
    * gte-rerank-hybrid
@@ -136,7 +164,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * - ；: Chinese semicolon
    * - ;: English semicolon
    * - ？: Chinese question mark
-   * - ?: English question mark.
+   * - ?: English question mark
    * 
    * @example
    * \\n
@@ -171,7 +199,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   sinkType?: string;
   /**
    * @remarks
-   * The data type of Alibaba Cloud Model Studio <props="china">[application data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[application data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
+   * The data type in Alibaba Cloud Model Studio <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
    * 
    * 
    * For document search<props="china">/audio and video search knowledge bases, valid values:
@@ -187,7 +215,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The type of the knowledge base. Valid values:
+   * The knowledge base type. Valid values:
    * 
    * - UNSTRUCTURED: document search.
    * 
@@ -195,6 +223,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
    * UNSTRUCTURED
    */
   structureType?: string;
+  structuredIndexConfig?: ListIndicesResponseBodyDataIndicesStructuredIndexConfig[];
   static names(): { [key: string]: string } {
     return {
       chunkSize: 'ChunkSize',
@@ -214,6 +243,7 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
       sinkType: 'SinkType',
       sourceType: 'SourceType',
       structureType: 'StructureType',
+      structuredIndexConfig: 'StructuredIndexConfig',
     };
   }
 
@@ -236,12 +266,16 @@ export class ListIndicesResponseBodyDataIndices extends $dara.Model {
       sinkType: 'string',
       sourceType: 'string',
       structureType: 'string',
+      structuredIndexConfig: { 'type': 'array', 'itemType': ListIndicesResponseBodyDataIndicesStructuredIndexConfig },
     };
   }
 
   validate() {
     if(Array.isArray(this.documentIds)) {
       $dara.Model.validateArray(this.documentIds);
+    }
+    if(Array.isArray(this.structuredIndexConfig)) {
+      $dara.Model.validateArray(this.structuredIndexConfig);
     }
     super.validate();
   }
@@ -259,7 +293,7 @@ export class ListIndicesResponseBodyData extends $dara.Model {
   indices?: ListIndicesResponseBodyDataIndices[];
   /**
    * @remarks
-   * The page number returned.
+   * The specified page number.
    * 
    * @example
    * 1
@@ -267,7 +301,7 @@ export class ListIndicesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page returned.
+   * The specified number of entries per page.
    * 
    * @example
    * 10
@@ -314,7 +348,7 @@ export class ListIndicesResponseBodyData extends $dara.Model {
 export class ListIndicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error status code.
    * 
    * @example
    * Index.InvalidParameter

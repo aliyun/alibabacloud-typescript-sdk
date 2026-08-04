@@ -45,7 +45,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
   enableHeaders?: string;
   /**
    * @remarks
-   * The time when the file was imported to the knowledge base, in Unix timestamp format.
+   * The time when the file was imported to the knowledge base, in UNIX timestamp format.
    * 
    * @example
    * 1744856423000
@@ -67,6 +67,16 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
    * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
    */
   message?: string;
+  /**
+   * @remarks
+   * The metadata extracted from the document.
+   * 
+   * @example
+   * {
+   *   "doc_summary": ["Example 1."],
+   *   "health_rule": ["Example 2"]
+   * }
+   */
   metaExtractInfo?: string;
   /**
    * @remarks
@@ -173,7 +183,7 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
 export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
+   * The list of files in the knowledge base, sorted in descending order by file import time (consistent with the console).
    */
   documents?: ListIndexFileDetailsResponseBodyDataDocuments[];
   /**
@@ -186,7 +196,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   indexId?: string;
   /**
    * @remarks
-   * The specified page number.
+   * The returned page number.
    * 
    * @example
    * 1
@@ -194,7 +204,7 @@ export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The specified number of entries per page.
+   * The returned number of items per page.
    * 
    * @example
    * 10

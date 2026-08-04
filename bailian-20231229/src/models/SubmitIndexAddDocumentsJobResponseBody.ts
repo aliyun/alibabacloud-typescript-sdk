@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitIndexAddDocumentsJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The job ID, also known as `JobId`.
+   * The task ID, also known as `JobId`.
    * 
    * @example
    * 42687eb254a34802bed398357f5498ae
@@ -35,7 +35,7 @@ export class SubmitIndexAddDocumentsJobResponseBodyData extends $dara.Model {
 export class SubmitIndexAddDocumentsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned on failure.
+   * The error code.
    * 
    * @example
    * Index.InvalidParameter
@@ -43,12 +43,12 @@ export class SubmitIndexAddDocumentsJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data.
+   * The business data returned by the operation.
    */
   data?: SubmitIndexAddDocumentsJobResponseBodyData;
   /**
    * @remarks
-   * The error message returned on failure.
+   * The error message.
    * 
    * @example
    * Required parameter(%s) missing or invalid, please check the request parameters.
@@ -64,7 +64,7 @@ export class SubmitIndexAddDocumentsJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The status code returned by the operation.
    * 
    * @example
    * 200
@@ -72,11 +72,10 @@ export class SubmitIndexAddDocumentsJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

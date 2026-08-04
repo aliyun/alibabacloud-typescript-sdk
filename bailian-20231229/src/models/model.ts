@@ -65,6 +65,7 @@ export { ListIndexDocumentsResponseBodyDataDocuments } from './ListIndexDocument
 export { ListIndexDocumentsResponseBodyData } from './ListIndexDocumentsResponseBody';
 export { ListIndexFileDetailsResponseBodyDataDocuments } from './ListIndexFileDetailsResponseBody';
 export { ListIndexFileDetailsResponseBodyData } from './ListIndexFileDetailsResponseBody';
+export { ListIndicesResponseBodyDataIndicesStructuredIndexConfig } from './ListIndicesResponseBody';
 export { ListIndicesResponseBodyDataIndices } from './ListIndicesResponseBody';
 export { ListIndicesResponseBodyData } from './ListIndicesResponseBody';
 export { ListMemoriesResponseBodyMemories } from './ListMemoriesResponseBody';
