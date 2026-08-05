@@ -126,6 +126,38 @@ export class ListCustomAgentResponseBodyDataContentKnowledgeConfigList extends $
   }
 }
 
+export class ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList extends $dara.Model {
+  dbId?: string;
+  instanceId?: string;
+  knowledgeUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      instanceId: 'InstanceId',
+      knowledgeUuid: 'KnowledgeUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'string',
+      instanceId: 'string',
+      knowledgeUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomAgentResponseBodyDataContentScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
@@ -307,6 +339,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
    */
   knowledge?: string;
   knowledgeConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeConfigList[];
+  knowledgeSemanticConfigList?: ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList[];
   /**
    * @remarks
    * The user who last modified the agent.
@@ -421,6 +454,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       isScheduleTask: 'IsScheduleTask',
       knowledge: 'Knowledge',
       knowledgeConfigList: 'KnowledgeConfigList',
+      knowledgeSemanticConfigList: 'KnowledgeSemanticConfigList',
       modifier: 'Modifier',
       modifierUserName: 'ModifierUserName',
       name: 'Name',
@@ -457,6 +491,7 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
       isScheduleTask: 'boolean',
       knowledge: 'string',
       knowledgeConfigList: { 'type': 'array', 'itemType': ListCustomAgentResponseBodyDataContentKnowledgeConfigList },
+      knowledgeSemanticConfigList: { 'type': 'array', 'itemType': ListCustomAgentResponseBodyDataContentKnowledgeSemanticConfigList },
       modifier: 'string',
       modifierUserName: 'string',
       name: 'string',
@@ -483,6 +518,9 @@ export class ListCustomAgentResponseBodyDataContent extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeConfigList)) {
       $dara.Model.validateArray(this.knowledgeConfigList);
+    }
+    if(Array.isArray(this.knowledgeSemanticConfigList)) {
+      $dara.Model.validateArray(this.knowledgeSemanticConfigList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();

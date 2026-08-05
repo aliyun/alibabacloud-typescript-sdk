@@ -656,6 +656,10 @@ export default class Client extends OpenApi {
       request.knowledgeConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeConfigList, "KnowledgeConfigList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.knowledgeSemanticConfigList)) {
+      request.knowledgeSemanticConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeSemanticConfigList, "KnowledgeSemanticConfigList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
       request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
     }
@@ -691,6 +695,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.knowledgeConfigListShrink)) {
       query["KnowledgeConfigList"] = request.knowledgeConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeSemanticConfigListShrink)) {
+      query["KnowledgeSemanticConfigList"] = request.knowledgeSemanticConfigListShrink;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -2148,7 +2156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by custom agent ID.
+   * Retrieves the details of a custom agent by its ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2183,7 +2191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by custom agent ID.
+   * Retrieves the details of a custom agent by its ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -5622,6 +5630,10 @@ export default class Client extends OpenApi {
       request.knowledgeConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeConfigList, "KnowledgeConfigList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.knowledgeSemanticConfigList)) {
+      request.knowledgeSemanticConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeSemanticConfigList, "KnowledgeSemanticConfigList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.scheduleTaskConfig)) {
       request.scheduleTaskConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleTaskConfig, "ScheduleTaskConfig", "json");
     }
@@ -5661,6 +5673,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.knowledgeConfigListShrink)) {
       query["KnowledgeConfigList"] = request.knowledgeConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeSemanticConfigListShrink)) {
+      query["KnowledgeSemanticConfigList"] = request.knowledgeSemanticConfigListShrink;
     }
 
     if (!$dara.isNull(request.name)) {

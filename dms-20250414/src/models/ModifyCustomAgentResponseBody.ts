@@ -109,7 +109,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   kbUuid?: string;
   /**
    * @remarks
-   * The ID of the MCP Server.
+   * The ID of the MCP server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -140,10 +140,42 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   }
 }
 
+export class ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList extends $dara.Model {
+  dbId?: string;
+  instanceId?: string;
+  knowledgeUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      instanceId: 'InstanceId',
+      knowledgeUuid: 'KnowledgeUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'string',
+      instanceId: 'string',
+      knowledgeUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for time-based scheduling.
+   * The cron expression for the time-based scheduling.
    * 
    * @example
    * 0 0 0 ? * 1-7
@@ -154,7 +186,7 @@ export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
    * The query for the scheduled task.
    * 
    * @example
-   * Analyze this data and provide a brief report.
+   * Analyze this data and provide a brief report
    */
   query?: string;
   /**
@@ -226,7 +258,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -238,6 +270,17 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * {
+   *   "tableFlag" : true,
+   *   "scope" : "personal",
+   *   "personal" : {
+   *     "DataSourceType" : "remote_data_center",
+   *     "FileId" : "f-5qlrwaw10********s3gpw1z",
+   *     "Database" : "TestTable******.xlsx",
+   *     "Tables" : [ "Sheet1" ],
+   *     "TableIds" : [ "******" ],
+   *     "RegionId" : "cn-hangzhou"
+   *   }
+   * }
    */
   dataJson?: string;
   /**
@@ -245,12 +288,12 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * AgentTestDescription.
+   * AgentTestDescription
    */
   description?: string;
   /**
    * @remarks
-   * The current DMS unit.
+   * The current Data Management unit.
    * 
    * @example
    * cn-hangzhou
@@ -283,6 +326,9 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Analysis framework:
+   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis, analyze trends and year-over-year/month-over-month fluctuations;
+   * 2. Segment by new/existing customers, channels, and regions to identify growth drivers and weaknesses;
+   * 3. Conduct funnel analysis based on user behavior paths (browsing → add to cart → payment) to pinpoint drop-off stages;
    */
   instruction?: string;
   /**
@@ -299,6 +345,10 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders;
+   * 2. Order volume is the number of valid orders placed per day;
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
    */
   knowledge?: string;
   /**
@@ -306,6 +356,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The external knowledge bases.
    */
   knowledgeConfigList?: ModifyCustomAgentResponseBodyDataKnowledgeConfigList[];
+  knowledgeSemanticConfigList?: ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList[];
   /**
    * @remarks
    * The modifier.
@@ -327,7 +378,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * AgentTestName.
+   * AgentTestName
    */
   name?: string;
   /**
@@ -354,6 +405,10 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the referenced historical session.
+   */
   relatedSessionId?: string;
   /**
    * @remarks
@@ -381,7 +436,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals.
+   * The text report requires that all numbers use Chinese numerals instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -389,7 +444,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals.
+   * The web report requires that all numbers use Chinese numerals instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -419,6 +474,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       isScheduleTask: 'IsScheduleTask',
       knowledge: 'Knowledge',
       knowledgeConfigList: 'KnowledgeConfigList',
+      knowledgeSemanticConfigList: 'KnowledgeSemanticConfigList',
       modifier: 'Modifier',
       modifierUserName: 'ModifierUserName',
       name: 'Name',
@@ -454,6 +510,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       isScheduleTask: 'boolean',
       knowledge: 'string',
       knowledgeConfigList: { 'type': 'array', 'itemType': ModifyCustomAgentResponseBodyDataKnowledgeConfigList },
+      knowledgeSemanticConfigList: { 'type': 'array', 'itemType': ModifyCustomAgentResponseBodyDataKnowledgeSemanticConfigList },
       modifier: 'string',
       modifierUserName: 'string',
       name: 'string',
@@ -480,6 +537,9 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeConfigList)) {
       $dara.Model.validateArray(this.knowledgeConfigList);
+    }
+    if(Array.isArray(this.knowledgeSemanticConfigList)) {
+      $dara.Model.validateArray(this.knowledgeSemanticConfigList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();

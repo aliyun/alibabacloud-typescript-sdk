@@ -64,7 +64,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report rendering confirmation.
+   * Specifies whether to skip the web report drawing confirmation.
    * 
    * @example
    * false
@@ -126,6 +126,38 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dar
   }
 }
 
+export class DescribeCustomAgentResponseBodyDataKnowledgeSemanticConfigList extends $dara.Model {
+  dbId?: string;
+  instanceId?: string;
+  knowledgeUuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      instanceId: 'InstanceId',
+      knowledgeUuid: 'KnowledgeUuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'string',
+      instanceId: 'string',
+      knowledgeUuid: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.Model {
   /**
    * @remarks
@@ -140,7 +172,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
    * The query of the periodic task.
    * 
    * @example
-   * Analyze this data and provide a brief report.
+   * Analyze this data and provide a brief report
    */
   query?: string;
   /**
@@ -211,6 +243,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -226,7 +261,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "TestTable******.xlsx",
+   *     "Database" : "Test spreadsheet******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "ap-southeast-1"
@@ -240,7 +275,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent test description.
+   * Agent test description
    */
   description?: string;
   /**
@@ -280,7 +315,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * Analysis framework:
    * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) by day, week, and month dimensions, and analyze trends and year-over-year/month-over-month fluctuations;
    * 2. Segment by new/existing customers, channels, and regions to identify growth sources and weaknesses;
-   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to locate drop-off points;
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to identify drop-off points;
    */
   instruction?: string;
   /**
@@ -304,6 +339,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    */
   knowledge?: string;
   knowledgeConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeConfigList[];
+  knowledgeSemanticConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeSemanticConfigList[];
   /**
    * @remarks
    * The modifier.
@@ -325,7 +361,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent test name.
+   * Agent test name
    */
   name?: string;
   /**
@@ -353,6 +389,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    */
   region?: string;
   /**
+   * @remarks
+   * The referenced historical session ID.
+   * 
    * @example
    * 5xyz...
    */
@@ -365,6 +404,10 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * 2025-12-11T14:04:32.000+00:00
    */
   releaseTime?: string;
+  /**
+   * @remarks
+   * The periodic task configuration.
+   */
   scheduleTaskConfig?: DescribeCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
    * @remarks
@@ -379,7 +422,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be converted from Arabic numerals to Chinese numerals.
+   * The text report requires all numbers to be converted from Arabic numerals to Chinese numerals
    */
   textReportConfig?: string;
   /**
@@ -387,7 +430,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be converted from Arabic numerals to Chinese numerals.
+   * The web report requires all numbers to be converted from Arabic numerals to Chinese numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -418,6 +461,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       isScheduleTask: 'IsScheduleTask',
       knowledge: 'Knowledge',
       knowledgeConfigList: 'KnowledgeConfigList',
+      knowledgeSemanticConfigList: 'KnowledgeSemanticConfigList',
       modifier: 'Modifier',
       modifierUserName: 'ModifierUserName',
       name: 'Name',
@@ -454,6 +498,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
       isScheduleTask: 'boolean',
       knowledge: 'string',
       knowledgeConfigList: { 'type': 'array', 'itemType': DescribeCustomAgentResponseBodyDataKnowledgeConfigList },
+      knowledgeSemanticConfigList: { 'type': 'array', 'itemType': DescribeCustomAgentResponseBodyDataKnowledgeSemanticConfigList },
       modifier: 'string',
       modifierUserName: 'string',
       name: 'string',
@@ -480,6 +525,9 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.knowledgeConfigList)) {
       $dara.Model.validateArray(this.knowledgeConfigList);
+    }
+    if(Array.isArray(this.knowledgeSemanticConfigList)) {
+      $dara.Model.validateArray(this.knowledgeSemanticConfigList);
     }
     if(this.scheduleTaskConfig && typeof (this.scheduleTaskConfig as any).validate === 'function') {
       (this.scheduleTaskConfig as any).validate();
@@ -508,7 +556,7 @@ export class DescribeCustomAgentResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned if the request failed.
    * 
    * @example
    * Specified parameter Tid is not valid.
