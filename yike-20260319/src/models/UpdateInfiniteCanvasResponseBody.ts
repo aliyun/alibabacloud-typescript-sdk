@@ -2,26 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetYikeJobCreditRequest extends $dara.Model {
+export class UpdateInfiniteCanvasResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The task ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * ag_12412424****
+   * canvas_gesad*
    */
-  jobId?: string;
+  canvasId?: string;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      canvasId: 'CanvasId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      canvasId: 'string',
+      requestId: 'string',
     };
   }
 

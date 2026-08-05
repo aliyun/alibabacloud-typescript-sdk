@@ -21,7 +21,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned when the task is in the Failed state.
+   * The error message. This parameter is returned only when the task is in the Failed state.
    * 
    * @example
    * Input file not found.
@@ -32,7 +32,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
    * The task input.
    * 
    * @example
-   * {"Prompt":"图1在篮球场上，用图2来了个灌篮","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
+   * {"Prompt":"Person in image 1 is on a basketball court, dunking with image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
    */
   input?: string;
   /**
@@ -45,7 +45,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The task feature configuration. You do not need to set this parameter.
+   * The task feature configuration. No configuration is required at this time.
    * 
    * @example
    * {}
@@ -118,7 +118,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The custom business information.
+   * The user business information.
    * 
    * @example
    * {}

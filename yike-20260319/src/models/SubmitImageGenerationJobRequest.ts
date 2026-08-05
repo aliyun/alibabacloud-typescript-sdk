@@ -24,7 +24,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
    * The task input, in JSON string format. The following fields are included:
    * - Prompt: String. Required. The prompt.
    * - Medias: the media list. Required when the task type is `image_to_image`. A maximum of 9 items are supported.
-   * > The Media struct contains: Type, the media type, String, valid value: image. URL, the media download URL, String.
+   * > The Media structure contains: Type, the media type, String, valid value: image; URL, the media download URL, String.
    * >
    * 
    * @example
@@ -33,7 +33,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * The task feature parameters, in JSON string format. No configuration is required at this time.
+   * The task function parameters, in JSON string format. No configuration is required at this time.
    * 
    * @example
    * {}
@@ -76,7 +76,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   resolution?: string;
   /**
    * @remarks
-   * The scene. This is an enumeration type. Currently, only `general` is supported.
+   * The scene. This is an enumeration type. Currently only `general` is supported.
    * 
    * @example
    * general
@@ -84,7 +84,7 @@ export class SubmitImageGenerationJobRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The user business data, in JSON format.
+   * The user business data in JSON format.
    * 
    * @example
    * {"env":"prd"}

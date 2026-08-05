@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetYikeJobCreditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The credit deduction status.
+   * 
    * @example
    * success
    */
   creditStatus?: string;
   /**
+   * @remarks
+   * The actual credits consumed.
+   * 
    * @example
    * 20
    */
   jobCreditCost?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ag_12412424****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

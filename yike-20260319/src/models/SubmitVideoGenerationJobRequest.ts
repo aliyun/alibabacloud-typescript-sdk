@@ -13,7 +13,7 @@ export class SubmitVideoGenerationJobRequest extends $dara.Model {
   aspectRatio?: string;
   /**
    * @remarks
-   * The idempotence parameter.
+   * The idempotency token.
    * 
    * @example
    * ****3e761e9d11edba640c42a1b7****
@@ -31,16 +31,16 @@ export class SubmitVideoGenerationJobRequest extends $dara.Model {
    * @remarks
    * The task input in JSON string format. The following fields are included:
    * 
-   * - Prompt: String. Required. The prompt.
-   * - Medias: The list of media items.
-   *   - When JobType is set to image_to_video, this field is required. Only 1 Media item is needed.
-   *   - When JobType is set to first_last_frame, this field is required. Only 2 Media items are needed.
-   *   - When JobType is set to reference_to_video, this field is required. A maximum of 9 Media items are supported.
-   * > The Media struct contains: Type, the media type, String, valid values are `image`/`video`/`audio`. URL, the media download URL, String.
+   * - Prompt: String. Required. The prompt text.
+   * - Medias: The media list.
+   *   - When JobType is image_to_video, this field is required. Only 1 Media item is needed.
+   *   - When JobType is first_last_frame, this field is required. Only 2 Media items are needed.
+   *   - When JobType is reference_to_video, this field is required. A maximum of 9 Media items are supported.
+   * > The Media structure contains: Type, the media type, String, valid values are `image`/`video`/`audio`. URL, the media download URL, String.
    * >
    * 
    * @example
-   * {"Prompt":"图1在篮球场上，用图2来了个灌篮","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
+   * {"Prompt":"Person in image 1 dunks a basketball on the court using image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
    */
   input?: string;
   /**

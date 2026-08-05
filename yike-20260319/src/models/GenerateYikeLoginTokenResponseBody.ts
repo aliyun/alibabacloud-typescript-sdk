@@ -2,34 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetYikeAgentJobEstimatedCreditResponseBody extends $dara.Model {
+export class GenerateYikeLoginTokenResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The estimated credits to be deducted.
-   * 
    * @example
-   * 20.1
+   * 1782008128000
    */
-  estimatedCreditCost?: number;
+  expiresAt?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  /**
+   * @example
+   * ******d6931ff7e89b5eb19484*****
+   */
+  token?: string;
+  /**
+   * @example
+   * 23253**
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      estimatedCreditCost: 'EstimatedCreditCost',
+      expiresAt: 'ExpiresAt',
       requestId: 'RequestId',
+      token: 'Token',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      estimatedCreditCost: 'number',
+      expiresAt: 'string',
       requestId: 'string',
+      token: 'string',
+      userId: 'string',
     };
   }
 

@@ -210,6 +210,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建无限画布
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于查询媒资内容理解作业。
+   * 
+   * @param request - CreateInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInfiniteCanvasResponse
+   */
+  async createInfiniteCanvasWithOptions(request: $_model.CreateInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInfiniteCanvas",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.CreateInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * 创建无限画布
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于查询媒资内容理解作业。
+   * 
+   * @param request - CreateInfiniteCanvasRequest
+   * @returns CreateInfiniteCanvasResponse
+   */
+  async createInfiniteCanvas(request: $_model.CreateInfiniteCanvasRequest): Promise<$_model.CreateInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInfiniteCanvasWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the upload credential for a media asset.
    * 
    * @param request - CreateYikeAssetUploadRequest
@@ -462,6 +524,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除无限画布
+   * 
+   * @param request - DeleteInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInfiniteCanvasResponse
+   */
+  async deleteInfiniteCanvasWithOptions(request: $_model.DeleteInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInfiniteCanvas",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * 删除无限画布
+   * 
+   * @param request - DeleteInfiniteCanvasRequest
+   * @returns DeleteInfiniteCanvasResponse
+   */
+  async deleteInfiniteCanvas(request: $_model.DeleteInfiniteCanvasRequest): Promise<$_model.DeleteInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInfiniteCanvasWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes media asset information.
    * 
    * @param request - DeleteYikeAssetMediaInfosRequest
@@ -508,10 +612,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取企业账号登录Token
+   * 
+   * @param request - GenerateYikeLoginTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateYikeLoginTokenResponse
+   */
+  async generateYikeLoginTokenWithOptions(request: $_model.GenerateYikeLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateYikeLoginTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoCreateProduction)) {
+      query["AutoCreateProduction"] = request.autoCreateProduction;
+    }
+
+    if (!$dara.isNull(request.expires)) {
+      query["Expires"] = request.expires;
+    }
+
+    if (!$dara.isNull(request.nickName)) {
+      query["NickName"] = request.nickName;
+    }
+
+    if (!$dara.isNull(request.productionAuth)) {
+      query["ProductionAuth"] = request.productionAuth;
+    }
+
+    if (!$dara.isNull(request.subUserCredit)) {
+      query["SubUserCredit"] = request.subUserCredit;
+    }
+
+    if (!$dara.isNull(request.tenant)) {
+      query["Tenant"] = request.tenant;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateYikeLoginToken",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateYikeLoginTokenResponse>(await this.callApi(params, req, runtime), new $_model.GenerateYikeLoginTokenResponse({}));
+  }
+
+  /**
+   * 获取企业账号登录Token
+   * 
+   * @param request - GenerateYikeLoginTokenRequest
+   * @returns GenerateYikeLoginTokenResponse
+   */
+  async generateYikeLoginToken(request: $_model.GenerateYikeLoginTokenRequest): Promise<$_model.GenerateYikeLoginTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateYikeLoginTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Queries an image generation task.
    * 
    * @remarks
-   * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - GetImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -545,7 +719,7 @@ export default class Client extends OpenApi {
    * Queries an image generation task.
    * 
    * @remarks
-   * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - GetImageGenerationJobRequest
    * @returns GetImageGenerationJobResponse
@@ -556,10 +730,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询无限画布
+   * 
+   * @param request - GetInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInfiniteCanvasResponse
+   */
+  async getInfiniteCanvasWithOptions(request: $_model.GetInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInfiniteCanvas",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.GetInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * 查询无限画布
+   * 
+   * @param request - GetInfiniteCanvasRequest
+   * @returns GetInfiniteCanvasResponse
+   */
+  async getInfiniteCanvas(request: $_model.GetInfiniteCanvasRequest): Promise<$_model.GetInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInfiniteCanvasWithOptions(request, runtime);
+  }
+
+  /**
    * Queries an AI video generation task.
    * 
    * @remarks
-   * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +809,7 @@ export default class Client extends OpenApi {
    * Queries an AI video generation task.
    * 
    * @remarks
-   * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -723,7 +939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻口播任务预估积分
+   * Queries the estimated credits for a digital human oral broadcasting task.
    * 
    * @param request - GetYikeAgentJobEstimatedCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -758,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻口播任务预估积分
+   * Queries the estimated credits for a digital human oral broadcasting task.
    * 
    * @param request - GetYikeAgentJobEstimatedCreditRequest
    * @returns GetYikeAgentJobEstimatedCreditResponse
@@ -811,7 +1027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻任务实际消耗积分
+   * Queries the actual credit consumption of a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -842,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一刻任务实际消耗积分
+   * Queries the actual credit consumption of a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @returns GetYikeJobCreditResponse
@@ -1102,6 +1318,64 @@ export default class Client extends OpenApi {
   async getYikeVoiceNarratorJob(request: $_model.GetYikeVoiceNarratorJobRequest): Promise<$_model.GetYikeVoiceNarratorJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getYikeVoiceNarratorJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询无限画布列表
+   * 
+   * @param request - ListInfiniteCanvasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInfiniteCanvasesResponse
+   */
+  async listInfiniteCanvasesWithOptions(request: $_model.ListInfiniteCanvasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInfiniteCanvasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInfiniteCanvases",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInfiniteCanvasesResponse>(await this.callApi(params, req, runtime), new $_model.ListInfiniteCanvasesResponse({}));
+  }
+
+  /**
+   * 查询无限画布列表
+   * 
+   * @param request - ListInfiniteCanvasesRequest
+   * @returns ListInfiniteCanvasesResponse
+   */
+  async listInfiniteCanvases(request: $_model.ListInfiniteCanvasesRequest): Promise<$_model.ListInfiniteCanvasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInfiniteCanvasesWithOptions(request, runtime);
   }
 
   /**
@@ -1542,7 +1816,7 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,7 +1886,7 @@ export default class Client extends OpenApi {
    * Submits an image generation task.
    * 
    * @remarks
-   * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -1623,10 +1897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an AI video generation task.
+   * Submits a video generation task.
    * 
    * @remarks
-   * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1697,10 +1971,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an AI video generation task.
+   * Submits a video generation task.
    * 
    * @remarks
-   * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+   * >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
    * 
    * @param request - SubmitVideoGenerationJobRequest
    * @returns SubmitVideoGenerationJobResponse
@@ -2120,6 +2394,56 @@ export default class Client extends OpenApi {
   async submitYikeVoiceNarratorJob(request: $_model.SubmitYikeVoiceNarratorJobRequest): Promise<$_model.SubmitYikeVoiceNarratorJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitYikeVoiceNarratorJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新无限画布信息
+   * 
+   * @param request - UpdateInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInfiniteCanvasResponse
+   */
+  async updateInfiniteCanvasWithOptions(request: $_model.UpdateInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    if (!$dara.isNull(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInfiniteCanvas",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * 更新无限画布信息
+   * 
+   * @param request - UpdateInfiniteCanvasRequest
+   * @returns UpdateInfiniteCanvasResponse
+   */
+  async updateInfiniteCanvas(request: $_model.UpdateInfiniteCanvasRequest): Promise<$_model.UpdateInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInfiniteCanvasWithOptions(request, runtime);
   }
 
   /**
