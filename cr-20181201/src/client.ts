@@ -2985,13 +2985,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary account and temporary password for logging on to an instance.
+   * Retrieves a temporary username and password for logging on to an instance.
    * 
    * @remarks
    * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-   * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
-   * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+   * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
    * 
    * @param request - GetAuthorizationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3000,6 +3000,10 @@ export default class Client extends OpenApi {
   async getAuthorizationTokenWithOptions(request: $_model.GetAuthorizationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthorizationTokenResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.expiresInHours)) {
+      query["ExpiresInHours"] = request.expiresInHours;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -3022,13 +3026,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary account and temporary password for logging on to an instance.
+   * Retrieves a temporary username and password for logging on to an instance.
    * 
    * @remarks
    * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-   * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
-   * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+   * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+   * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+   * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
    * 
    * @param request - GetAuthorizationTokenRequest
    * @returns GetAuthorizationTokenResponse

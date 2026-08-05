@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The validity period of the temporary credential, in hours. Valid values: 1 to 24.
+   * 
+   * @example
+   * 1
+   */
+  expiresInHours?: number;
+  /**
+   * @remarks
    * The repository instance ID.
    * 
    * This parameter is required.
@@ -15,12 +23,14 @@ export class GetAuthorizationTokenRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      expiresInHours: 'ExpiresInHours',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      expiresInHours: 'number',
       instanceId: 'string',
     };
   }

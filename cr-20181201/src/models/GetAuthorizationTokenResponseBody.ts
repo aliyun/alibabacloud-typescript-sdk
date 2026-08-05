@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password used to log on to the Registry.
+   * The password used to log on to the registry.
    * 
    * @example
    * shaunadadakks:uuczxnjcyeyhdjadkkajsjdjadhyucb
@@ -45,7 +45,7 @@ export class GetAuthorizationTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The username used to log on to the Registry.
+   * The username used to log on to the registry.
    * 
    * @example
    * temp_user_cr
