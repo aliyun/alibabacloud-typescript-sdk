@@ -1,0 +1,56 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetTableFieldsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 58113A95-1858-5674-87E5-192AEE6FD9DD
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * {
+   *         "classic": "VARCHAR",
+   *         "address": "CHAR",
+   *         "string": "STRING",
+   *         "price": "DECIMAL",
+   *         "name": "STRING",
+   *         "id": "INT",
+   *         "tint": "TINYINT",
+   *         "home": "DECIMAL"
+   *     }
+   */
+  result?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.result) {
+      $dara.Model.validateMap(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
