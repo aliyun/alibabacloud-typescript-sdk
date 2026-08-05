@@ -14,7 +14,7 @@ export class DescribePolarFsAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The PolarLakebase instance ID.
+   * The Polarlakebase instance ID.
    * 
    * This parameter is required.
    * 

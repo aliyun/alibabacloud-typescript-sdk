@@ -81,13 +81,23 @@ export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems exten
 }
 
 export class DescribePolarFsAttributeResponseBodyEndpointItems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of addresses.
+   */
   addressItems?: DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems[];
   /**
+   * @remarks
+   * The endpoint ID.
+   * 
    * @example
    * ep-xxxxxxxxx
    */
   DBEndpointId?: string;
   /**
+   * @remarks
+   * The endpoint type, such as Nas or S3Gateway.
+   * 
    * @example
    * S3Gateway
    */
@@ -181,7 +191,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The acceleration storage space. Unit: GB.
+   * The acceleration space. Unit: GB.
    * 
    * @example
    * 1000
@@ -189,7 +199,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   acceleratedStorageSpace?: number;
   /**
    * @remarks
-   * Specifies whether the acceleration cache is enabled. Valid values:
+   * Indicates whether the acceleration cache is enabled. Valid values:
    * - **ON**: Enabled.
    * - **OFF**: Disabled.
    * 
@@ -197,6 +207,22 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * ON
    */
   acceleratingEnable?: string;
+  /**
+   * @remarks
+   * The list of authorized RAM role ARNs, separated by commas.
+   * 
+   * @example
+   * arn:sts::123456:assumed-role/myrole/*
+   */
+  authorizedUserArnIds?: string;
+  /**
+   * @remarks
+   * The list of authorized UIDs, separated by commas.
+   * 
+   * @example
+   * 1234567890,9876543210
+   */
+  authorizedUserIds?: string;
   /**
    * @remarks
    * The bandwidth. Unit: MB/s.
@@ -223,7 +249,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   bucketId?: string;
   /**
    * @remarks
-   * The PolarLakebase edition. Valid values:
+   * The Polarlakebase edition. Valid values:
    * 
    * - **high_performance**: High-performance Edition.
    * 
@@ -275,12 +301,16 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * MySQL
    */
   DBType?: string;
+  /**
+   * @remarks
+   * The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
+   */
   endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
    * @remarks
    * The expiration time of the cluster.
    * 
-   * > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method. An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
    * 
    * @example
    * 2025-10-10T16:00:00Z
@@ -289,7 +319,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cluster has expired.
-   * > This parameter is returned only for clusters that use the **Prepaid** (subscription) billing method.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
    * 
    * @example
    * false
@@ -318,6 +348,9 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   maxscaleEndpointId?: string;
   metaConnString?: string;
   /**
+   * @remarks
+   * The metadata instance name.
+   * 
    * @example
    * pc-xxxxxxxxxxxxxxxxx
    */
@@ -325,7 +358,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaMxsConnString?: string;
   /**
    * @remarks
-   * The encrypted metadata URL for Fuse mounting.
+   * The metadata URL for Fuse mounting (encrypted).
    * 
    * @example
    * e6cc1d2e2a6fa292038d999fda6501*****
@@ -357,7 +390,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The description of the PolarLakebase instance.
+   * The description of the Polarlakebase instance.
    * 
    * @example
    * pfs-xxx
@@ -365,7 +398,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   polarFsInstanceDescription?: string;
   /**
    * @remarks
-   * The PolarLakebase instance ID.
+   * The Polarlakebase instance ID.
    * 
    * @example
    * pfs-2ze0i74ka607*****
@@ -373,7 +406,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The PolarLakebase instance status.
+   * The Polarlakebase instance status.
    * 
    * @example
    * Running
@@ -415,7 +448,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   relativeDbClusterId?: string;
   /**
    * @remarks
-   * The instance ID of the associated PolarLakebase instance.
+   * The instance ID of the associated Polarlakebase instance.
    * 
    * @example
    * pfs-**********
@@ -467,11 +500,17 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    */
   storageUsed?: number;
   /**
+   * @remarks
+   * The default user account name for S3 Gateway.
+   * 
    * @example
    * lakebase_acc
    */
   userDefaultAccName?: string;
   /**
+   * @remarks
+   * The default user account key for S3 Gateway (encrypted ciphertext).
+   * 
    * @example
    * EncryptedSecretKey==
    */
@@ -505,6 +544,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       accelerateType: 'AccelerateType',
       acceleratedStorageSpace: 'AcceleratedStorageSpace',
       acceleratingEnable: 'AcceleratingEnable',
+      authorizedUserArnIds: 'AuthorizedUserArnIds',
+      authorizedUserIds: 'AuthorizedUserIds',
       bandwidth: 'Bandwidth',
       bandwidthBaseLine: 'BandwidthBaseLine',
       bucketId: 'BucketId',
@@ -554,6 +595,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       accelerateType: 'string',
       acceleratedStorageSpace: 'number',
       acceleratingEnable: 'string',
+      authorizedUserArnIds: 'string',
+      authorizedUserIds: 'string',
       bandwidth: 'number',
       bandwidthBaseLine: 'number',
       bucketId: 'string',

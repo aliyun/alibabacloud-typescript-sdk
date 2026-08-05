@@ -18725,7 +18725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a PolarLakebase instance.
+   * Retrieves the details of a Polarlakebase instance.
    * 
    * @param request - DescribePolarFsAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18764,7 +18764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a PolarLakebase instance.
+   * Retrieves the details of a Polarlakebase instance.
    * 
    * @param request - DescribePolarFsAttributeRequest
    * @returns DescribePolarFsAttributeResponse
