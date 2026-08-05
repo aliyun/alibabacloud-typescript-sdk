@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TlsCipherSuitesConfigTlsCipherSuite extends $dara.Model {
   /**
    * @remarks
-   * The suite name.
+   * The TLS cipher suite name, such as ECDHE-ECDSA-AES256-GCM-SHA384.
    * 
    * @example
    * ECDHE-ECDSA-AES256-GCM-SHA384

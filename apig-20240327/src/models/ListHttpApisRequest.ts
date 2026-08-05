@@ -13,7 +13,9 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The gateway type filter. Valid values: **AI** and **API**.
+   * The gateway type associated with the HTTP API. Valid values:
+   * - API: cloud-native API gateway.
+   * - AI: AI gateway.
    * 
    * @example
    * API
@@ -29,7 +31,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The exact name to search for.
+   * Searches by exact name match.
    * 
    * @example
    * login
@@ -45,7 +47,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The page size. Valid range: [1, 100]. Default value: 10.
    * 
    * @example
    * 10
@@ -53,7 +55,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -73,7 +75,7 @@ export class ListHttpApisRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * Specifies whether to return information about APIs published to the specified environment.
+   * Specifies whether to return API information that has been published to the specified environment.
    * 
    * @example
    * true
@@ -81,7 +83,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
+   * Specifies the environment ID. The response includes consumer authentication policy information for each API in the specified environment.
    * 
    * @example
    * env-xxx
@@ -89,7 +91,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyInEnvironmentId?: string;
   /**
    * @remarks
-   * Specifies whether authentication policies are enabled.
+   * Specifies whether permission authentication policies are enabled.
    * 
    * @example
    * true
@@ -97,7 +99,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * The consumer ID. If specified, the response includes the authorization rule list for the specified consumer for each API.
+   * Specifies the consumer ID. The response includes the authorization rule list for the specified consumer for each API.
    * 
    * @example
    * cs-xxx
@@ -129,7 +131,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The plug-in ID. If specified, the response includes the plug-in publishing information for the specified plug-in.
+   * The plug-in ID. Used to retrieve plug-in publishing information based on this plug-in ID.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0

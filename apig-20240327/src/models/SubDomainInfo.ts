@@ -21,12 +21,7 @@ export class SubDomainInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network type. Valid values:
-   * 
-   * Valid values:
-   * 
-   * *   Intranet
-   * *   Internet
+   * The network type.
    * 
    * @example
    * Intranet
@@ -34,12 +29,7 @@ export class SubDomainInfo extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The protocol.
-   * 
-   * Valid values:
-   * 
-   * *   HTTPS
-   * *   HTTP
+   * The protocol type supported by the subdomain. Valid values: HTTP, HTTPS.
    * 
    * @example
    * HTTP

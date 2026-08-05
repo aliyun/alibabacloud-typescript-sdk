@@ -1055,6 +1055,10 @@ export default class Client extends OpenApi {
       body["gatewayEdition"] = request.gatewayEdition;
     }
 
+    if (!$dara.isNull(request.gatewayMode)) {
+      body["gatewayMode"] = request.gatewayMode;
+    }
+
     if (!$dara.isNull(request.gatewayType)) {
       body["gatewayType"] = request.gatewayType;
     }
@@ -3342,7 +3346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+   * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3367,7 +3371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+   * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
    * @returns GetGatewayResponse
    */
   async getGateway(gatewayId: string): Promise<$_model.GetGatewayResponse> {
@@ -6399,7 +6403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds labels to resources.
+   * Tags resources.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -6440,7 +6444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds labels to resources.
+   * Tags resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -6829,7 +6833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an API consumer.
+   * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @param headers - map
@@ -6878,7 +6882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an API consumer.
+   * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @returns UpdateConsumerResponse

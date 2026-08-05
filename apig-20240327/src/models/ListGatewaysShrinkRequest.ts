@@ -21,7 +21,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The keyword for full match search. The search is case-insensitive.
+   * The keyword for full match search. Case-insensitive.
    * 
    * @example
    * dev
@@ -66,7 +66,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-2zeqrgx6jrlb063y06yjo

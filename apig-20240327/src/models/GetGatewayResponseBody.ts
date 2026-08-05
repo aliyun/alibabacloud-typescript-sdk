@@ -8,7 +8,7 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
    * The environment alias.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   alias?: string;
   /**
@@ -64,8 +64,6 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * - TCP
-   * - UDP
    * 
    * @example
    * TCP
@@ -106,8 +104,6 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The protocol version. Valid values:
-   * - ipv4: IPv4.
-   * - ipv6: IPv6.
    * 
    * @example
    * ipv4
@@ -116,8 +112,6 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The load balancing address type. Valid values:
-   * - Internet: public network.
-   * - Intranet: private network.
    * 
    * @example
    * Internet
@@ -151,8 +145,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The load balancing provisioning mode of the gateway. Valid values:
-   * - Managed: Managed by the cloud-native API gateway.
+   * The load balancing mode of the gateway. Valid values:
    * 
    * @example
    * Managed
@@ -165,9 +158,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
    * @remarks
-   * The load balancing status. Valid values:
-   * - Ready: Active.
-   * - NotCreate: No associated instance.
+   * The status of load balancing. Valid values:
    * 
    * @example
    * Ready
@@ -175,9 +166,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The load balancing type. Valid values:
-   * - NLB: Network Load Balancer (NLB).
-   * - CLB: Classic Load Balancer (CLB).
+   * The load balancing type.
    * 
    * @example
    * NLB
@@ -359,7 +348,7 @@ export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
    * The vSwitch name.
    * 
    * @example
-   * 杭州VPC虚拟交换机
+   * Hangzhou VPC vSwitch
    */
   name?: string;
   /**
@@ -399,7 +388,7 @@ export class GetGatewayResponseBodyDataVpc extends $dara.Model {
    * The VPC name.
    * 
    * @example
-   * 杭州VPC
+   * Hangzhou VPC
    */
   name?: string;
   /**
@@ -439,7 +428,7 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
    * The vSwitch name.
    * 
    * @example
-   * 杭州VPC虚拟交换机
+   * Hangzhou VPC vSwitch
    */
   name?: string;
   /**
@@ -479,7 +468,7 @@ export class GetGatewayResponseBodyDataZones extends $dara.Model {
    * The zone name.
    * 
    * @example
-   * 杭州可用区E
+   * Hangzhou Zone E
    */
   name?: string;
   /**
@@ -526,9 +515,7 @@ export class GetGatewayResponseBodyDataZones extends $dara.Model {
 export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The billing type. Valid values:
-   * - POSTPAY: pay-as-you-go
-   * - PREPAY: subscription
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -537,7 +524,6 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
-   * - Console: The gateway was created from the console.
    * 
    * @example
    * Console
@@ -568,10 +554,6 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * @remarks
    * The gateway instance edition. Valid values:
    * 
-   * - Professional: Standard instance.
-   * 
-   * - Serverless: Serverless instance.
-   * 
    * @example
    * Serverless
    */
@@ -584,11 +566,10 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  gatewayMode?: string;
   /**
    * @remarks
    * The gateway type. Valid values:
-   * - API: API gateway.
-   * - AI: AI gateway.
    * 
    * @example
    * API
@@ -596,7 +577,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The network ISP type.
+   * The type of the network service provider.
    * 
    * @example
    * BGP
@@ -644,7 +625,6 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway specification. Valid values:
-   * - apigw.small.x1: Small specification.
    * 
    * @example
    * apigw.small.x1
@@ -653,15 +633,6 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway status. Valid values:
-   * - Running: The gateway is running.
-   * - Creating: The gateway is being created.
-   * - CreateFailed: The gateway failed to be created.
-   * - Upgrading: The gateway is being upgraded.
-   * - UpgradeFailed: The gateway failed to be upgraded.
-   * - Restarting: The gateway is being restarted.
-   * - RestartFailed: The gateway failed to be restarted.
-   * - Deleting: The gateway is being released.
-   * - DeleteFailed: The gateway failed to be released.
    * 
    * @example
    * Running
@@ -674,12 +645,13 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * The target version of the gateway. If this value differs from version, a version upgrade can be performed.
+   * The target version of the gateway. When this value differs from version, a version upgrade can be performed.
    * 
    * @example
    * 2.0.2
    */
   targetVersion?: string;
+  tenantId?: string;
   /**
    * @remarks
    * The update timestamp. Unit: milliseconds.
@@ -720,6 +692,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       expireTimestamp: 'expireTimestamp',
       gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
+      gatewayMode: 'gatewayMode',
       gatewayType: 'gatewayType',
       isp: 'isp',
       loadBalancers: 'loadBalancers',
@@ -732,6 +705,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       status: 'status',
       tags: 'tags',
       targetVersion: 'targetVersion',
+      tenantId: 'tenantId',
       updateTimestamp: 'updateTimestamp',
       vSwitch: 'vSwitch',
       version: 'version',
@@ -749,6 +723,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       expireTimestamp: 'number',
       gatewayEdition: 'string',
       gatewayId: 'string',
+      gatewayMode: 'string',
       gatewayType: 'string',
       isp: 'string',
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
@@ -761,6 +736,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataTags },
       targetVersion: 'string',
+      tenantId: 'string',
       updateTimestamp: 'number',
       vSwitch: GetGatewayResponseBodyDataVSwitch,
       version: 'string',

@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
   /**
    * @remarks
-   * The source of the API key.
-   * 
-   * Valid values:
-   * 
-   * *   Header
-   * *   QueryString
-   * *   Default
+   * The API key source.
    * 
    * @example
    * Default
@@ -19,10 +13,44 @@ export class ApiKeyIdentityConfigApikeySource extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The value of the API key.
+   * The API key value.
    * 
    * @example
    * xxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      source: 'source',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      source: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiKeyIdentityConfigApikeySources extends $dara.Model {
+  /**
+   * @remarks
+   * The credential source type.
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The field name of the HTTP header or query string.
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +87,7 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
   apikey?: string;
   /**
    * @remarks
-   * The production mode.
+   * The generation mode.
    * 
    * @example
    * System
@@ -91,12 +119,17 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
 export class ApiKeyIdentityConfig extends $dara.Model {
   /**
    * @remarks
-   * The source configuration of the API key.
+   * The API key source configuration.
    */
   apikeySource?: ApiKeyIdentityConfigApikeySource;
   /**
    * @remarks
-   * The list of certificates.
+   * The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to the AI gateway Header mode. Query String and non-AI gateway scenarios allow only a single source. If submitted together with apikeySource, the latter must be consistent with the compatible projection.
+   */
+  apikeySources?: ApiKeyIdentityConfigApikeySources[];
+  /**
+   * @remarks
+   * The list of credentials.
    */
   credentials?: ApiKeyIdentityConfigCredentials[];
   /**
@@ -110,6 +143,7 @@ export class ApiKeyIdentityConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apikeySource: 'apikeySource',
+      apikeySources: 'apikeySources',
       credentials: 'credentials',
       type: 'type',
     };
@@ -118,6 +152,7 @@ export class ApiKeyIdentityConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apikeySource: ApiKeyIdentityConfigApikeySource,
+      apikeySources: { 'type': 'array', 'itemType': ApiKeyIdentityConfigApikeySources },
       credentials: { 'type': 'array', 'itemType': ApiKeyIdentityConfigCredentials },
       type: 'string',
     };
@@ -126,6 +161,9 @@ export class ApiKeyIdentityConfig extends $dara.Model {
   validate() {
     if(this.apikeySource && typeof (this.apikeySource as any).validate === 'function') {
       (this.apikeySource as any).validate();
+    }
+    if(Array.isArray(this.apikeySources)) {
+      $dara.Model.validateArray(this.apikeySources);
     }
     if(Array.isArray(this.credentials)) {
       $dara.Model.validateArray(this.credentials);

@@ -109,7 +109,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
    * @remarks
-   * The load balancing status. Valid values:
+   * The status of the load balancing instance.
    * 
    * @example
    * Ready
@@ -423,6 +423,11 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    */
   gatewayId?: string;
   /**
+   * @example
+   * ENTERPRISE
+   */
+  gatewayMode?: string;
+  /**
    * @remarks
    * The gateway type.
    * 
@@ -500,7 +505,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   tags?: ListGatewaysResponseBodyDataItemsTags[];
   /**
    * @remarks
-   * The target version of the gateway. When this value differs from version, a version upgrade can be performed.
+   * The target version of the gateway. If this value differs from the version, a version upgrade can be performed.
    * 
    * @example
    * 2.0.2
@@ -545,6 +550,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
       expireTimestamp: 'expireTimestamp',
       gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
+      gatewayMode: 'gatewayMode',
       gatewayType: 'gatewayType',
       legacy: 'legacy',
       loadBalancers: 'loadBalancers',
@@ -573,6 +579,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
       expireTimestamp: 'number',
       gatewayEdition: 'string',
       gatewayId: 'string',
+      gatewayMode: 'string',
       gatewayType: 'string',
       legacy: 'boolean',
       loadBalancers: { 'type': 'array', 'itemType': ListGatewaysResponseBodyDataItemsLoadBalancers },
@@ -694,7 +701,7 @@ export class ListGatewaysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The gateway list query result.
+   * The query result of the gateway list.
    */
   data?: ListGatewaysResponseBodyData;
   /**

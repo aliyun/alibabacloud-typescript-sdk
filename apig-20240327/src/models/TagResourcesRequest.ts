@@ -50,7 +50,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
+   * The resource type used for the tagging operation. Set this to Gateway.
    * 
    * @example
    * gateway

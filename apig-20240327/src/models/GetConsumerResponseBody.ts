@@ -19,12 +19,12 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
    * The consumer group description.
    * 
    * @example
-   * 用于线上 API 调用方分组
+   * Used for grouping online API callers
    */
   description?: string;
   /**
    * @remarks
-   * The time when the API consumer joined the consumer group. The value is a UNIX timestamp in milliseconds.
+   * The time when the API consumer joined the consumer group, in Unix milliseconds timestamp.
    * 
    * @example
    * 1715769600000
@@ -68,7 +68,7 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey identity authentication configurations.
+   * The AK/SK identity authentication configuration.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
@@ -99,7 +99,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The publish status of the API in the current environment.
    * 
    * @example
    * ""
@@ -110,7 +110,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试专用消费者
+   * Test-dedicated consumer
    */
   description?: string;
   /**

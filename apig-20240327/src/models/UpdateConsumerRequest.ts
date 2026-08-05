@@ -21,12 +21,12 @@ export class UpdateConsumerRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试消费者
+   * Test consumer
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the API consumer.
+   * Specifies whether to enable the consumer.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable SLS logging.
+   * Specifies whether to enable SLS log collection.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class CreateGatewayRequestLogConfigSls extends $dara.Model {
 export class CreateGatewayRequestLogConfig extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service (SLS) log configuration.
+   * The Simple Log Service (SLS) configuration, which controls gateway log collection.
    */
   sls?: CreateGatewayRequestLogConfigSls;
   static names(): { [key: string]: string } {
@@ -65,10 +65,7 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The network access type. Valid values:
-   * - InternetAndIntranet: public and internal network.
-   * - Intranet: internal network.
-   * - Internet: public network.
+   * The network access type.
    * 
    * @example
    * Internet
@@ -178,9 +175,7 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
 export class CreateGatewayRequestZoneConfig extends $dara.Model {
   /**
    * @remarks
-   * The zone selection option. Valid values:
-   * - Auto: automatic.
-   * - Manual: manual.
+   * The zone selection option.
    * 
    * @example
    * Manual
@@ -230,9 +225,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid values:
-   * - POSTPAY: subscription.
-   * - PREPAY: pay-as-you-go.
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -254,11 +247,10 @@ export class CreateGatewayRequest extends $dara.Model {
    * Professional
    */
   gatewayEdition?: string;
+  gatewayMode?: string;
   /**
    * @remarks
-   * The gateway type. Valid values:
-   * - AI: AI gateway.
-   * - API: cloud-native API gateway.
+   * The gateway type.
    * 
    * @example
    * API
@@ -320,6 +312,7 @@ export class CreateGatewayRequest extends $dara.Model {
     return {
       chargeType: 'chargeType',
       gatewayEdition: 'gatewayEdition',
+      gatewayMode: 'gatewayMode',
       gatewayType: 'gatewayType',
       logConfig: 'logConfig',
       name: 'name',
@@ -336,6 +329,7 @@ export class CreateGatewayRequest extends $dara.Model {
     return {
       chargeType: 'string',
       gatewayEdition: 'string',
+      gatewayMode: 'string',
       gatewayType: 'string',
       logConfig: CreateGatewayRequestLogConfig,
       name: 'string',
