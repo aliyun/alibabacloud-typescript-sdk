@@ -7,21 +7,19 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1 (default)**: access logs.
-   * - **dcdn_log_er**: edge function logs.
-   * - **dcdn_log_waf**: security protection logs.
-   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
+   * - **dcdn_log_er_pod**: edge container logs.
+   * - **dcdn_log_dns**: edge DNS logs.
    * 
    * This parameter is required.
    * 
    * @example
-   * dcdn_log_access_l1
+   * dcdn_log_er_pod
    */
   businessType?: string;
   /**
    * @remarks
    * The data center. Valid values:
-   * - **cn**: Chinese mainland.
+   * - **cn**: the Chinese mainland.
    * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
@@ -45,6 +43,13 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
    * sls
    */
   deliveryType?: string;
+  /**
+   * @remarks
+   * The list of Edge Routine (ER) pods to configure.
+   * 
+   * @example
+   * xxx,xxx
+   */
   details?: string;
   /**
    * @remarks
@@ -56,14 +61,23 @@ export class CreateUserDeliveryTaskShrinkRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The fields to be selected, separated by commas (,).
+   * The fields to deliver, separated by commas (,).
    * 
    * This parameter is required.
    * 
    * @example
-   * user_agent,ip_address,ip_port
+   * ClientIP,ClientRequestURI,EdgeResponseStatusCode
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The version of the filter rule.
+   * 
+   * > This parameter is used for backward compatibility with legacy filter rules. The default value is v1. New tasks use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
   /**
    * @remarks

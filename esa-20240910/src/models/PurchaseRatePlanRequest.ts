@@ -23,7 +23,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * - true: Auto-renewal is enabled.
-   * - false: Auto-renewal is not enabled.
+   * - false: Auto-renewal is disabled.
    * 
    * @example
    * true
@@ -60,6 +60,13 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * domestic
    */
   coverage?: string;
+  /**
+   * @remarks
+   * The overage policy.
+   * 
+   * @example
+   * limit_speed
+   */
   overagePolicy?: string;
   /**
    * @remarks
@@ -73,7 +80,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * The plan code.
    * 
-   * Chinese site
+   * China site
    * 
    * - Free Edition: entranceplan
    * - Basic: basicplan
@@ -94,7 +101,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * @remarks
    * The plan name.
    * 
-   * Chinese site
+   * China site
    * 
    * - Free Edition: entranceplan
    * - Basic: basic

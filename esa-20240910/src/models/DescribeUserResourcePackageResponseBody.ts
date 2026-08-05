@@ -14,9 +14,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The current remaining capacity of the instance.
-   * - Unit for traffic plans: bytes.
+   * - Unit for data transfer plans: Byte.
    * 
-   * - Unit for request plans: count.
+   * - Unit for request count plans: count.
    * 
    * @example
    * 53661095687
@@ -56,7 +56,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   displayName?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2024-12-02T15:59:59Z
@@ -65,9 +65,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The total capacity of the resource plan.
-   * - Unit for traffic plans: bytes.
+   * - Unit for data transfer plans: Byte.
    * 
-   * - Unit for request plans: count.
+   * - Unit for request count plans: count.
    * 
    * @example
    * 107374182400
@@ -99,7 +99,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   initCapacityShowValue?: string;
   /**
    * @remarks
-   * The resource plan instance ID.
+   * The instance ID of the resource plan.
    * 
    * @example
    * ****_ResourcePack-cn-****
@@ -115,7 +115,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   region?: string;
   /**
    * @remarks
-   * The effective period.
+   * The effective period in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2024-03-20T16:00:00Z

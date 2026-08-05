@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserLogDeliveryQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The log type of real-time Mitigation Logs. Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1 (default)**: access logs.
+   * - **dcdn_log_er**: Edge Routine logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_access_l1
@@ -18,7 +18,7 @@ export class GetUserLogDeliveryQuotaResponseBody extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The remaining quota.
+   * The remaining available quota.
    * 
    * @example
    * 3

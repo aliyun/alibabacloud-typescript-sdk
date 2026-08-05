@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for retrieving logs.
+   * The end time for log retrieval.
    * 
    * The date is in ISO 8601 format and uses UTC+0 time in the format of yyyy-MM-ddTHH:mm:ssZ.
    * 
@@ -43,7 +43,7 @@ export class DescribeSiteLogsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The start time for retrieving logs.
+   * The start time for log retrieval.
    * 
    * The date is in ISO 8601 format and uses UTC+0 time in the format of yyyy-MM-ddTHH:mm:ssZ.
    * 

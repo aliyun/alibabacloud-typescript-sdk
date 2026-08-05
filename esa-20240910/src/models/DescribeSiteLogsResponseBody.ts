@@ -7,6 +7,8 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
    * @remarks
    * The end time.
    * 
+   * > Date format example: yyyy-MM-ddTHH:mm:ssZ
+   * 
    * @example
    * 2022-11-06T17:00:00Z
    */
@@ -24,7 +26,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
    * The log path.
    * 
    * 
-   * > Pay attention to the Expires field (expiration timestamp) in the LogPath response parameter. After the expiration time, the log download link becomes invalid and must be obtained again.
+   * > Note the Expires field (expiration timestamp) in the LogPath response parameter. After the expiration time, the log download link becomes invalid and must be obtained again.
    * 
    * @example
    * example.aliyundoc.com /v1.l1cache/105252530/example.com/2022_11_07/example.com_2022_11_07_000000_020000.gz.xxxxxx?Expires=1636963354&OSSAccessKeyId=LTAIviCc6zy8****&Signature=u0V6foRfZniHE8i%2BHUdxGOhZsK****
@@ -41,6 +43,8 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsLogInfos extends $dara.Mo
   /**
    * @remarks
    * The start time.
+   * 
+   * > Date format example: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
    * 2022-11-06T16:00:00Z
@@ -128,7 +132,7 @@ export class DescribeSiteLogsResponseBodySiteLogDetailsPageInfos extends $dara.M
 export class DescribeSiteLogsResponseBodySiteLogDetails extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned on the current page.
+   * The total number of entries returned on this page.
    * 
    * @example
    * 300

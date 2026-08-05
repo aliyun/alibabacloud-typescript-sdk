@@ -7,22 +7,26 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1 (default)**: access log.
-   * 
-   * - **dcdn_log_er**: edge function log.
-   * 
-   * - **dcdn_log_waf**: WAF log.
-   * 
-   * - **dcdn_log_ipa**: layer 4 acceleration log.
+   * - **dcdn_log_access_l1 (default)**: access logs.
+   * - **dcdn_log_er**: Edge Routine function logs.
+   * - **dcdn_log_waf**: security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_er
    */
   businessType?: string;
+  /**
+   * @remarks
+   * The list of ER PODs to configure.
+   * 
+   * @example
+   * xxx,xxx
+   */
   details?: string;
   /**
    * @remarks
-   * The default value is 0.
+   * The discard rate. If not specified, the default value is 0.
    * 
    * @example
    * 0
@@ -30,7 +34,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The selected fields. Separate multiple fields with a comma.
+   * The selected fields, separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -38,6 +42,15 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
    * ClientRequestID,ClientRequestHost
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The version of the filter rule.
+   * 
+   * > Compatible with legacy filter rules. The default value is v1. Newly created tasks use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
   /**
    * @remarks

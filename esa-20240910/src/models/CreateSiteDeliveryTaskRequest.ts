@@ -9,7 +9,7 @@ export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends 
    * @remarks
    * The encryption timeout period.
    * 
-   * > The value must be greater than 0. A value of 300 or greater is recommended.
+   * > The value must be greater than 0. A value of 300 or greater is recommended. Unit: seconds.
    * 
    * @example
    * 300
@@ -83,12 +83,12 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
    * The trailing separator.
    * 
    * @example
-   * \\n
+   * true
    */
   lastLogSplit?: boolean;
   /**
    * @remarks
-   * The log delivery packet prefix.
+   * The log delivery body prefix.
    * 
    * @example
    * cdnVersion:1.0
@@ -96,7 +96,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logBodyPrefix?: string;
   /**
    * @remarks
-   * The log delivery packet suffix.
+   * The log delivery body suffix.
    * 
    * @example
    * cdnVersion:1.0
@@ -120,7 +120,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logSplitWords?: string;
   /**
    * @remarks
-   * The maximum size per delivery, in MB.
+   * The maximum size per delivery. Unit: MB.
    * 
    * @example
    * 5
@@ -162,7 +162,7 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
   standardAuthParam?: CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam;
   /**
    * @remarks
-   * The timeout period, in seconds.
+   * The timeout period. Unit: seconds.
    * 
    * @example
    * 10
@@ -237,7 +237,7 @@ export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   balancer?: string;
   /**
    * @remarks
-   * The server array.
+   * The array of servers.
    */
   brokers?: string[];
   /**
@@ -274,7 +274,7 @@ export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * Specifies whether to enable SASL encrypted transmission for Kafka delivery.
+   * Specifies whether to enable SASL-encrypted transmission for Kafka delivery.
    * 
    * > The delivery address must be configured with a public certificate. Self-signed certificate verification will fail.
    * 
@@ -419,7 +419,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
    * @remarks
    * The server endpoint. This parameter is required when S3Cmpt is set to true.
    * 
-   * > For S3-compatible services, configure DNS resolution by concatenating the Bucket and Endpoint addresses. For example, if Endpoint is example.com and Bucket is demo, the actual delivery address is demo.example.com.
+   * > For S3-compatible services, configure domain name resolution by concatenating the Bucket and Endpoint addresses. For example, if Endpoint is example.com and Bucket is demo, the actual delivery address is demo.example.com.
    * 
    * @example
    * https://s3.oss-cn-hangzhou.aliyuncs.com
@@ -435,7 +435,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   prefixPath?: string;
   /**
    * @remarks
-   * The region where the service is located.
+   * The region where the service resides.
    * 
    * @example
    * cn-beijing
@@ -469,7 +469,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
   serverSideEncryption?: boolean;
   /**
    * @remarks
-   * The key verification method for S3 delivery.
+   * The verification method for S3 delivery keys.
    * 
    * > The key configuration comes from the console or SDK. Keys from the console are encrypted during transmission. Keys from the SDK do not require encryption.
    * 
@@ -517,7 +517,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
 export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   /**
    * @remarks
-   * The SLS real-time log Logstore name.
+   * The SLS Logstore name.
    * 
    * @example
    * accesslog-test
@@ -525,7 +525,7 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSLogStore?: string;
   /**
    * @remarks
-   * The SLS real-time log project name.
+   * The SLS project name.
    * 
    * @example
    * dcdn-test20240417
@@ -533,7 +533,7 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
   SLSProject?: string;
   /**
    * @remarks
-   * The region name of the SLS real-time log.
+   * The SLS real-time log region name.
    * 
    * @example
    * cn-hangzhou
@@ -593,10 +593,10 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The delivery type. Valid values:
-   * - **sls**: Alibaba Cloud Simple Log Service.
+   * - **sls**: Simple Log Service.
    * - **http**: HTTP service.
    * - **aws3**: Amazon S3 service.
-   * - **oss**: Alibaba Cloud Object Storage Service.
+   * - **oss**: Object Storage Service (OSS).
    * - **kafka**: Kafka service.
    * - **aws3cmpt**: Amazon S3-compatible service.
    * 
@@ -618,17 +618,19 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The selected log fields, separated by commas (,).
    * 
+   * > The field names must come from the FieldName values returned by the GetRealtimeDeliveryField operation, and the corresponding BusinessType must be specified.
+   * 
    * This parameter is required.
    * 
    * @example
-   * user_agent,ip_adress,ip_port
+   * ClientIP,ClientRequestURI,EdgeResponseStatusCode
    */
   fieldName?: string;
   /**
    * @remarks
    * The filter rule version.
    * 
-   * > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
+   * > For backward compatibility with legacy filter rules, the default value is v1. Newly created tasks use v2.
    * 
    * @example
    * v2
@@ -651,7 +653,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   ossDelivery?: CreateSiteDeliveryTaskRequestOssDelivery;
   /**
    * @remarks
-   * The S3/S3-compatible delivery configuration parameters.
+   * The S3 or S3-compatible delivery configuration parameters.
    */
   s3Delivery?: CreateSiteDeliveryTaskRequestS3Delivery;
   /**
@@ -666,7 +668,7 @@ export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The SLS delivery configuration.
+   * The Simple Log Service (SLS) delivery configuration.
    */
   slsDelivery?: CreateSiteDeliveryTaskRequestSlsDelivery;
   /**

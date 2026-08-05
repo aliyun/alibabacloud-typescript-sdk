@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserResourcePackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource plan instance ID.
+   * The instance ID of the resource plan.
    * 
    * @example
    * ****_ResourcePack-cn-****
@@ -40,7 +40,7 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sorting collation. Default value: desc. Valid values:
+   * The collation. Default value: desc. Valid values:
    * - asc
    * - desc
    * 

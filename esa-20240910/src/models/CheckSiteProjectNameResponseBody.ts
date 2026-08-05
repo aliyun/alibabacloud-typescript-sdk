@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteProjectNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the task name is valid. Valid values:
+   * Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Can be added.
+   * - **false**: Cannot be added.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class CheckSiteProjectNameResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the real-time log delivery task.
+   * The real-time log project name.
    * 
    * @example
    * dcdn_waf_userAccount_log

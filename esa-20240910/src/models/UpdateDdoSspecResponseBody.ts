@@ -2,26 +2,44 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetReleaseTimeRequest extends $dara.Model {
+export class UpdateDDoSSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security instance. The value must be a DDoS security instance ID in the format of esa-ddos-. You can obtain the ID by calling the ListDDoSInstances operation. Site instance IDs in the format of esa-site- are not supported.
-   * 
-   * This parameter is required.
+   * The instance ID.
    * 
    * @example
-   * esa-ddos-2sdj**3s
+   * esa-ddos-9tuv*********
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 31223****11
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
     };
   }
 

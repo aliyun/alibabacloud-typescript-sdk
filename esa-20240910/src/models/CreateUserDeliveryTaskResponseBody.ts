@@ -6,7 +6,7 @@ export class CreateUserDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * - **cn**: Chinese mainland.
+   * - **cn**: the Chinese mainland.
    * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example

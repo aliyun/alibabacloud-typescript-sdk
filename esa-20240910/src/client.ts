@@ -1365,7 +1365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task.
+   * Checks the project name of a real-time log delivery task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1392,7 +1392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task.
+   * Checks the project name of a real-time log delivery task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @returns CheckSiteProjectNameResponse
@@ -4549,6 +4549,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a real-time log delivery task.
    * 
+   * @remarks
+   * The site plan associated with SiteId must support real-time log delivery (such as the Standard plan). Call GetSiteLogDeliveryQuota to perform a pre-check, or verify the plan level by checking the PlanName field returned by ListSites.
+   * 
    * @param tmpReq - CreateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSiteDeliveryTaskResponse
@@ -4649,6 +4652,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a real-time log delivery task.
+   * 
+   * @remarks
+   * The site plan associated with SiteId must support real-time log delivery (such as the Standard plan). Call GetSiteLogDeliveryQuota to perform a pre-check, or verify the plan level by checking the PlanName field returned by ListSites.
    * 
    * @param request - CreateSiteDeliveryTaskRequest
    * @returns CreateSiteDeliveryTaskResponse
@@ -4822,18 +4828,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
+   * Creates a custom log delivery task to deliver logs to destinations such as SLS, HTTP, OSS, S3, or Kafka.
    * 
    * @remarks
-   * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
-   * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
-   * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
-   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
-   * ## Usage notes
-   * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
-   * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
-   * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
-   * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
+   * This operation allows you to create a delivery node for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to Simple Log Service (SLS), HTTP services, Alibaba Cloud Object Storage Service (OSS), S3-compatible storage, and Kafka MSMQ. You can customize the node name, select log fields, specify a data center, set the discard rate, select a delivery type, and configure the corresponding delivery details based on the selected type.
+   * - **Field selection**: Use `FieldName` to specify the log fields to deliver.
+   * - **Filter rules**: Use `FilterRules` to implement pre-processing and filtering of log data.
+   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka delivery methods, each with its own specific configuration parameters.
+   * ## Before you begin
+   * - Ensure that the provided credentials (such as AccessKey and SecretKey) have sufficient permissions to perform the delivery operation.
+   * - When you select a delivery method that requires encryption or authentication, correctly configure the related security parameters.
+   * - Verify the syntax of `FilterRules` to ensure that the filtering logic meets your expectations.
+   * - Adjust advanced parameters such as the maximum number of retries and timeout period as needed to optimize delivery efficiency and stability.
    * 
    * @param tmpReq - CreateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4934,18 +4940,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
+   * Creates a custom log delivery task to deliver logs to destinations such as SLS, HTTP, OSS, S3, or Kafka.
    * 
    * @remarks
-   * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
-   * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
-   * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
-   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
-   * ## Usage notes
-   * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
-   * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
-   * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
-   * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
+   * This operation allows you to create a delivery node for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to Simple Log Service (SLS), HTTP services, Alibaba Cloud Object Storage Service (OSS), S3-compatible storage, and Kafka MSMQ. You can customize the node name, select log fields, specify a data center, set the discard rate, select a delivery type, and configure the corresponding delivery details based on the selected type.
+   * - **Field selection**: Use `FieldName` to specify the log fields to deliver.
+   * - **Filter rules**: Use `FilterRules` to implement pre-processing and filtering of log data.
+   * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka delivery methods, each with its own specific configuration parameters.
+   * ## Before you begin
+   * - Ensure that the provided credentials (such as AccessKey and SecretKey) have sufficient permissions to perform the delivery operation.
+   * - When you select a delivery method that requires encryption or authentication, correctly configure the related security parameters.
+   * - Verify the syntax of `FilterRules` to ensure that the filtering logic meets your expectations.
+   * - Adjust advanced parameters such as the maximum number of retries and timeout period as needed to optimize delivery efficiency and stability.
    * 
    * @param request - CreateUserDeliveryTaskRequest
    * @returns CreateUserDeliveryTaskResponse
@@ -9901,7 +9907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+   * Queries the resource plan information of the current user.
    * 
    * @param request - DescribeUserResourcePackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9956,7 +9962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+   * Queries the resource plan information of the current user.
    * 
    * @param request - DescribeUserResourcePackageRequest
    * @returns DescribeUserResourcePackageResponse
@@ -12899,7 +12905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled automatic release time.
+   * Queries the scheduled release time.
    * 
    * @param request - GetReleaseTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12930,7 +12936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled automatic release time.
+   * Queries the scheduled release time.
    * 
    * @param request - GetReleaseTimeRequest
    * @returns GetReleaseTimeResponse
@@ -14069,10 +14075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining log delivery quota of each log category in your account.
+   * Queries the remaining log delivery quota for each business type of a specified user.
    * 
    * @remarks
-   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14099,10 +14105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining log delivery quota of each log category in your account.
+   * Queries the remaining log delivery quota for each business type of a specified user.
    * 
    * @remarks
-   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+   * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @returns GetUserLogDeliveryQuotaResponse
@@ -20771,6 +20777,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Trace站点
+   * 
+   * @remarks
+   * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+   * 
+   * @param tmpReq - TraceSiteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TraceSiteResponse
+   */
+  async traceSiteWithOptions(tmpReq: $_model.TraceSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TraceSiteResponse> {
+    tmpReq.validate();
+    let request = new $_model.TraceSiteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.cookies)) {
+      request.cookiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cookies, "Cookies", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.headers)) {
+      request.headersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.headers, "Headers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["Body"] = request.bodyShrink;
+    }
+
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.cookiesShrink)) {
+      body["Cookies"] = request.cookiesShrink;
+    }
+
+    if (!$dara.isNull(request.headersShrink)) {
+      body["Headers"] = request.headersShrink;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      body["Method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TraceSite",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TraceSiteResponse>(await this.callApi(params, req, runtime), new $_model.TraceSiteResponse({}));
+  }
+
+  /**
+   * Trace站点
+   * 
+   * @remarks
+   * >Notice: 请确保在使用该接口前，站点已接入ESA平台并启用。
+   * 
+   * @param request - TraceSiteRequest
+   * @returns TraceSiteResponse
+   */
+  async traceSite(request: $_model.TraceSiteRequest): Promise<$_model.TraceSiteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.traceSiteWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a resource tag based on a specified resource ID.
    * 
    * @param request - UntagResourcesRequest
@@ -20830,6 +20926,52 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the specifications of a bot instance.
+   * 
+   * @param request - UpdateBotSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBotSpecResponse
+   */
+  async updateBotSpecWithOptions(request: $_model.UpdateBotSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBotSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.botInstanceLevel)) {
+      query["BotInstanceLevel"] = request.botInstanceLevel;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBotSpec",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBotSpecResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBotSpecResponse({}));
+  }
+
+  /**
+   * Changes the specifications of a bot instance.
+   * 
+   * @param request - UpdateBotSpecRequest
+   * @returns UpdateBotSpecResponse
+   */
+  async updateBotSpec(request: $_model.UpdateBotSpecRequest): Promise<$_model.UpdateBotSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBotSpecWithOptions(request, runtime);
   }
 
   /**
@@ -21576,6 +21718,60 @@ export default class Client extends OpenApi {
   async updateCustomScenePolicy(request: $_model.UpdateCustomScenePolicyRequest): Promise<$_model.UpdateCustomScenePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomScenePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the specifications of an Anti-DDoS instance.
+   * 
+   * @param request - UpdateDDoSSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDDoSSpecResponse
+   */
+  async updateDDoSSpecWithOptions(request: $_model.UpdateDDoSSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDDoSSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DDoSBillingMode)) {
+      query["DDoSBillingMode"] = request.DDoSBillingMode;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableDomesticProtection)) {
+      query["DDoSBurstableDomesticProtection"] = request.DDoSBurstableDomesticProtection;
+    }
+
+    if (!$dara.isNull(request.DDoSBurstableOverseasProtection)) {
+      query["DDoSBurstableOverseasProtection"] = request.DDoSBurstableOverseasProtection;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDDoSSpec",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDDoSSpecResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDDoSSpecResponse({}));
+  }
+
+  /**
+   * Modifies the specifications of an Anti-DDoS instance.
+   * 
+   * @param request - UpdateDDoSSpecRequest
+   * @returns UpdateDDoSSpecResponse
+   */
+  async updateDDoSSpec(request: $_model.UpdateDDoSSpecRequest): Promise<$_model.UpdateDDoSSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDDoSSpecWithOptions(request, runtime);
   }
 
   /**
@@ -24509,7 +24705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a delivery task configuration. You can modify the task name, selected fields, real-time log type, and discard rate.
+   * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+   * 
+   * @remarks
+   * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24560,7 +24759,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a delivery task configuration. You can modify the task name, selected fields, real-time log type, and discard rate.
+   * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+   * 
+   * @remarks
+   * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @returns UpdateUserDeliveryTaskResponse

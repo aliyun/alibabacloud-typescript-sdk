@@ -2,25 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetReleaseTimeRequest extends $dara.Model {
+export class UpdateBotSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security instance. The value must be a DDoS security instance ID in the format of esa-ddos-. You can obtain the ID by calling the ListDDoSInstances operation. Site instance IDs in the format of esa-site- are not supported.
+   * The bot instance specifications.
    * 
    * This parameter is required.
    * 
    * @example
-   * esa-ddos-2sdj**3s
+   * enterprise_bot
+   */
+  botInstanceLevel?: string;
+  /**
+   * @remarks
+   * The bot instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esa-bot-9tuv*********
    */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      botInstanceLevel: 'BotInstanceLevel',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      botInstanceLevel: 'string',
       instanceId: 'string',
     };
   }

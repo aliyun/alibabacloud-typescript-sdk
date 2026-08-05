@@ -31,10 +31,10 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The delivery type. Valid values:
-   * - **sls**: Alibaba Cloud Simple Log Service.
+   * - **sls**: Simple Log Service.
    * - **http**: HTTP service.
    * - **aws3**: Amazon S3 service.
-   * - **oss**: Alibaba Cloud Object Storage Service.
+   * - **oss**: Object Storage Service (OSS).
    * - **kafka**: Kafka service.
    * - **aws3cmpt**: Amazon S3-compatible service.
    * 
@@ -56,17 +56,19 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The selected log fields, separated by commas (,).
    * 
+   * > The field names must come from the FieldName values returned by the GetRealtimeDeliveryField operation, and the corresponding BusinessType must be specified.
+   * 
    * This parameter is required.
    * 
    * @example
-   * user_agent,ip_adress,ip_port
+   * ClientIP,ClientRequestURI,EdgeResponseStatusCode
    */
   fieldName?: string;
   /**
    * @remarks
    * The filter rule version.
    * 
-   * > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
+   * > For backward compatibility with legacy filter rules, the default value is v1. Newly created tasks use v2.
    * 
    * @example
    * v2
@@ -89,7 +91,7 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   ossDeliveryShrink?: string;
   /**
    * @remarks
-   * The S3/S3-compatible delivery configuration parameters.
+   * The S3 or S3-compatible delivery configuration parameters.
    */
   s3DeliveryShrink?: string;
   /**
@@ -104,7 +106,7 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The SLS delivery configuration.
+   * The Simple Log Service (SLS) delivery configuration.
    */
   slsDeliveryShrink?: string;
   /**

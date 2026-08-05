@@ -7,7 +7,8 @@ import { HttpDeliveryQueryParamValue } from "./HttpDeliveryQueryParamValue";
 export class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $dara.Model {
   /**
    * @remarks
-   * The expiration time.
+   * The encryption timeout period.
+   * > The value must be greater than 0. A value of 300 or greater is recommended. Unit: seconds.
    * 
    * @example
    * 300
@@ -65,7 +66,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   compress?: string;
   /**
    * @remarks
-   * The HTTP server delivery URL.
+   * The HTTP server delivery address.
    * 
    * @example
    * http://xxx.aliyun.com/v1/log/upload
@@ -73,12 +74,12 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   destUrl?: string;
   /**
    * @remarks
-   * The custom headers.
+   * The Custom Header.
    */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
   /**
    * @remarks
-   * The trailing delimiter.
+   * The trailing separator.
    * 
    * @example
    * \\n
@@ -102,7 +103,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logBodySuffix?: string;
   /**
    * @remarks
-   * Specifies whether to enable log splitting. Default value: true.
+   * Specifies whether to enable log segmentation. Default value: true.
    * 
    * @example
    * true
@@ -110,7 +111,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logSplit?: boolean;
   /**
    * @remarks
-   * The log delimiter.
+   * The log separator.
    * 
    * @example
    * \\n
@@ -118,7 +119,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   logSplitWords?: string;
   /**
    * @remarks
-   * The maximum number of bytes per delivery. Unit: MB.
+   * The maximum size of a single delivery batch. Unit: MB.
    * 
    * @example
    * 5
@@ -126,7 +127,7 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $dara.Model {
   maxBatchMB?: number;
   /**
    * @remarks
-   * The maximum number of entries per delivery.
+   * The maximum number of log entries per delivery batch.
    * 
    * @example
    * 1000
@@ -240,7 +241,7 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
   brokers?: string[];
   /**
    * @remarks
-   * The compression method. By default, no compression is used.
+   * The compression method. By default, no compression is applied.
    * 
    * @example
    * lz4
@@ -270,6 +271,15 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $dara.Model {
    * dqc_test2
    */
   topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable SASL-encrypted transmission for Kafka delivery.
+   * 
+   * > The delivery address must be configured with a public certificate. Verification with a self-signed certificate will fail.
+   * 
+   * @example
+   * false
+   */
   useTLS?: boolean;
   /**
    * @remarks
@@ -406,7 +416,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   bucketPath?: string;
   /**
    * @remarks
-   * The S3 endpoint URL.
+   * The S3 endpoint address.
    * 
    * @example
    * https://s3.oss-cn-hangzhou.aliyuncs.com
@@ -430,7 +440,7 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether the service is S3-compatible.
+   * Specifies whether the storage is S3-compatible.
    * 
    * @example
    * true
@@ -444,7 +454,25 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $dara.Model {
    * ***
    */
   secretKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable S3 server-side encryption.
+   * 
+   * To configure server-side encryption for the S3 bucket, refer to OSS [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
+   * 
+   * @example
+   * false
+   */
   serverSideEncryption?: boolean;
+  /**
+   * @remarks
+   * The key verification method for S3 delivery.
+   * 
+   * > The key configuration comes from the console or SDK. Keys from the console are encrypted during transmission. Keys from the SDK do not require encryption.
+   * 
+   * @example
+   * console
+   */
   vertifyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -538,21 +566,19 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1 (default)**: access logs.
-   * - **dcdn_log_er**: edge function logs.
-   * - **dcdn_log_waf**: security protection logs.
-   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
+   * - **dcdn_log_er_pod**: edge container logs.
+   * - **dcdn_log_dns**: edge DNS logs.
    * 
    * This parameter is required.
    * 
    * @example
-   * dcdn_log_access_l1
+   * dcdn_log_er_pod
    */
   businessType?: string;
   /**
    * @remarks
    * The data center. Valid values:
-   * - **cn**: Chinese mainland.
+   * - **cn**: the Chinese mainland.
    * - **sg**: global (excluding the Chinese mainland).
    * 
    * @example
@@ -576,6 +602,13 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
    * sls
    */
   deliveryType?: string;
+  /**
+   * @remarks
+   * The list of Edge Routine (ER) pods to configure.
+   * 
+   * @example
+   * xxx,xxx
+   */
   details?: string;
   /**
    * @remarks
@@ -587,14 +620,23 @@ export class CreateUserDeliveryTaskRequest extends $dara.Model {
   discardRate?: number;
   /**
    * @remarks
-   * The fields to be selected, separated by commas (,).
+   * The fields to deliver, separated by commas (,).
    * 
    * This parameter is required.
    * 
    * @example
-   * user_agent,ip_address,ip_port
+   * ClientIP,ClientRequestURI,EdgeResponseStatusCode
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The version of the filter rule.
+   * 
+   * > This parameter is used for backward compatibility with legacy filter rules. The default value is v1. New tasks use v2.
+   * 
+   * @example
+   * v2
+   */
   filterVer?: string;
   /**
    * @remarks
