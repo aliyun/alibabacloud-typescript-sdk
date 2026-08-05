@@ -255,6 +255,10 @@ export class CreateTaskRequest extends $dara.Model {
    * The node backend configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
    */
   taskBackend?: CreateTaskRequestTaskBackend;
+  /**
+   * @example
+   * 1.248.0
+   */
   terraformProviderVersion?: string;
   /**
    * @remarks
