@@ -5323,6 +5323,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a PolarFS S3 account.
+   * 
+   * @param request - CreateLakebaseS3AccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLakebaseS3AccountResponse
+   */
+  async createLakebaseS3AccountWithOptions(request: $_model.CreateLakebaseS3AccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLakebaseS3AccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userAccAk)) {
+      query["UserAccAk"] = request.userAccAk;
+    }
+
+    if (!$dara.isNull(request.userAccPolicy)) {
+      query["UserAccPolicy"] = request.userAccPolicy;
+    }
+
+    if (!$dara.isNull(request.userAccSk)) {
+      query["UserAccSk"] = request.userAccSk;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLakebaseS3Account",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLakebaseS3AccountResponse>(await this.callApi(params, req, runtime), new $_model.CreateLakebaseS3AccountResponse({}));
+  }
+
+  /**
+   * Creates a PolarFS S3 account.
+   * 
+   * @param request - CreateLakebaseS3AccountRequest
+   * @returns CreateLakebaseS3AccountResponse
+   */
+  async createLakebaseS3Account(request: $_model.CreateLakebaseS3AccountRequest): Promise<$_model.CreateLakebaseS3AccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLakebaseS3AccountWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a model API.
    * 
    * @param request - CreateModelApiRequest
@@ -5990,6 +6048,140 @@ export default class Client extends OpenApi {
   async createPolarClawCronJob(request: $_model.CreatePolarClawCronJobRequest): Promise<$_model.CreatePolarClawCronJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolarClawCronJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables PolarFS support.
+   * 
+   * @param request - CreatePolarFsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolarFsResponse
+   */
+  async createPolarFsWithOptions(request: $_model.CreatePolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolarFsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accelerateStorageSize)) {
+      query["AccelerateStorageSize"] = request.accelerateStorageSize;
+    }
+
+    if (!$dara.isNull(request.accelerateSwitch)) {
+      query["AccelerateSwitch"] = request.accelerateSwitch;
+    }
+
+    if (!$dara.isNull(request.accelerateType)) {
+      query["AccelerateType"] = request.accelerateType;
+    }
+
+    if (!$dara.isNull(request.authorizedUserIds)) {
+      query["AuthorizedUserIds"] = request.authorizedUserIds;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!$dara.isNull(request.creationCategory)) {
+      query["CreationCategory"] = request.creationCategory;
+    }
+
+    if (!$dara.isNull(request.customBucketCount)) {
+      query["CustomBucketCount"] = request.customBucketCount;
+    }
+
+    if (!$dara.isNull(request.customBucketPath)) {
+      query["CustomBucketPath"] = request.customBucketPath;
+    }
+
+    if (!$dara.isNull(request.customBucketPathList)) {
+      query["CustomBucketPathList"] = request.customBucketPathList;
+    }
+
+    if (!$dara.isNull(request.customOssAk)) {
+      query["CustomOssAk"] = request.customOssAk;
+    }
+
+    if (!$dara.isNull(request.customOssSk)) {
+      query["CustomOssSk"] = request.customOssSk;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePolarFs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePolarFsResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolarFsResponse({}));
+  }
+
+  /**
+   * Enables PolarFS support.
+   * 
+   * @param request - CreatePolarFsRequest
+   * @returns CreatePolarFsResponse
+   */
+  async createPolarFs(request: $_model.CreatePolarFsRequest): Promise<$_model.CreatePolarFsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPolarFsWithOptions(request, runtime);
   }
 
   /**
@@ -8351,6 +8543,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a PolarFS S3 account.
+   * 
+   * @param request - DeleteLakebaseS3AccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLakebaseS3AccountResponse
+   */
+  async deleteLakebaseS3AccountWithOptions(request: $_model.DeleteLakebaseS3AccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLakebaseS3AccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userAccAk)) {
+      query["UserAccAk"] = request.userAccAk;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLakebaseS3Account",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLakebaseS3AccountResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLakebaseS3AccountResponse({}));
+  }
+
+  /**
+   * Deletes a PolarFS S3 account.
+   * 
+   * @param request - DeleteLakebaseS3AccountRequest
+   * @returns DeleteLakebaseS3AccountResponse
+   */
+  async deleteLakebaseS3Account(request: $_model.DeleteLakebaseS3AccountRequest): Promise<$_model.DeleteLakebaseS3AccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLakebaseS3AccountWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes the specified data masking rules.
    * 
    * @param request - DeleteMaskingRulesRequest
@@ -8836,6 +9078,52 @@ export default class Client extends OpenApi {
   async deletePolarClawCronJob(request: $_model.DeletePolarClawCronJobRequest): Promise<$_model.DeletePolarClawCronJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolarClawCronJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases a pay-as-you-go PolarFs instance.
+   * 
+   * @param request - DeletePolarFsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarFsResponse
+   */
+  async deletePolarFsWithOptions(request: $_model.DeletePolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarFsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarFs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarFsResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarFsResponse({}));
+  }
+
+  /**
+   * Releases a pay-as-you-go PolarFs instance.
+   * 
+   * @param request - DeletePolarFsRequest
+   * @returns DeletePolarFsResponse
+   */
+  async deletePolarFs(request: $_model.DeletePolarFsRequest): Promise<$_model.DeletePolarFsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarFsWithOptions(request, runtime);
   }
 
   /**
@@ -16641,6 +16929,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a PolarFS S3 account.
+   * 
+   * @param request - DescribeLakebaseS3AccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakebaseS3AccountResponse
+   */
+  async describeLakebaseS3AccountWithOptions(request: $_model.DescribeLakebaseS3AccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLakebaseS3AccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userAccAk)) {
+      query["UserAccAk"] = request.userAccAk;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLakebaseS3Account",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLakebaseS3AccountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLakebaseS3AccountResponse({}));
+  }
+
+  /**
+   * Queries the details of a PolarFS S3 account.
+   * 
+   * @param request - DescribeLakebaseS3AccountRequest
+   * @returns DescribeLakebaseS3AccountResponse
+   */
+  async describeLakebaseS3Account(request: $_model.DescribeLakebaseS3AccountRequest): Promise<$_model.DescribeLakebaseS3AccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLakebaseS3AccountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a license order.
    * 
    * @param request - DescribeLicenseOrderDetailsRequest
@@ -18434,6 +18772,60 @@ export default class Client extends OpenApi {
   async describePolarFsAttribute(request: $_model.DescribePolarFsAttributeRequest): Promise<$_model.DescribePolarFsAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePolarFsAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of PolarFS path mappings.
+   * 
+   * @param request - DescribePolarFsMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsMappingResponse
+   */
+  async describePolarFsMappingWithOptions(request: $_model.DescribePolarFsMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsMappingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFsMapping",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsMappingResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsMappingResponse({}));
+  }
+
+  /**
+   * Queries the list of PolarFS path mappings.
+   * 
+   * @param request - DescribePolarFsMappingRequest
+   * @returns DescribePolarFsMappingResponse
+   */
+  async describePolarFsMapping(request: $_model.DescribePolarFsMappingRequest): Promise<$_model.DescribePolarFsMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsMappingWithOptions(request, runtime);
   }
 
   /**
@@ -21658,6 +22050,60 @@ export default class Client extends OpenApi {
   async installPolarClawSkill(request: $_model.InstallPolarClawSkillRequest): Promise<$_model.InstallPolarClawSkillResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.installPolarClawSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists PolarFS S3 accounts.
+   * 
+   * @param request - ListLakebaseS3AccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLakebaseS3AccountsResponse
+   */
+  async listLakebaseS3AccountsWithOptions(request: $_model.ListLakebaseS3AccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLakebaseS3AccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLakebaseS3Accounts",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLakebaseS3AccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListLakebaseS3AccountsResponse({}));
+  }
+
+  /**
+   * Lists PolarFS S3 accounts.
+   * 
+   * @param request - ListLakebaseS3AccountsRequest
+   * @returns ListLakebaseS3AccountsResponse
+   */
+  async listLakebaseS3Accounts(request: $_model.ListLakebaseS3AccountsRequest): Promise<$_model.ListLakebaseS3AccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLakebaseS3AccountsWithOptions(request, runtime);
   }
 
   /**
@@ -27110,6 +27556,68 @@ export default class Client extends OpenApi {
   async modifyPendingMaintenanceAction(request: $_model.ModifyPendingMaintenanceActionRequest): Promise<$_model.ModifyPendingMaintenanceActionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPendingMaintenanceActionWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the bucket credentials for a PolarFS path mapping.
+   * 
+   * @param request - ModifyPolarFsMappingAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolarFsMappingAuthResponse
+   */
+  async modifyPolarFsMappingAuthWithOptions(request: $_model.ModifyPolarFsMappingAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolarFsMappingAuthResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!$dara.isNull(request.bucketAccessKeyId)) {
+      query["BucketAccessKeyId"] = request.bucketAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.bucketAccessKeySecret)) {
+      query["BucketAccessKeySecret"] = request.bucketAccessKeySecret;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPolarFsMappingAuth",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPolarFsMappingAuthResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolarFsMappingAuthResponse({}));
+  }
+
+  /**
+   * Modifies the bucket credentials for a PolarFS path mapping.
+   * 
+   * @param request - ModifyPolarFsMappingAuthRequest
+   * @returns ModifyPolarFsMappingAuthResponse
+   */
+  async modifyPolarFsMappingAuth(request: $_model.ModifyPolarFsMappingAuthRequest): Promise<$_model.ModifyPolarFsMappingAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPolarFsMappingAuthWithOptions(request, runtime);
   }
 
   /**
