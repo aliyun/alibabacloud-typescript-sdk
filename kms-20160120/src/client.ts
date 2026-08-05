@@ -19,6 +19,7 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'us-west-1': "kms.us-west-1.aliyuncs.com",
       'us-east-1': "kms.us-east-1.aliyuncs.com",
+      'na-south-1': "kms.na-south-1.aliyuncs.com",
       'me-east-1': "kms.me-east-1.aliyuncs.com",
       'me-central-1': "kms.me-central-1.aliyuncs.com",
       'eu-west-1': "kms.eu-west-1.aliyuncs.com",
@@ -34,6 +35,7 @@ export default class Client extends OpenApi {
       'cn-qingdao': "kms.cn-qingdao.aliyuncs.com",
       'cn-huhehaote': "kms.cn-huhehaote.aliyuncs.com",
       'cn-hongkong': "kms.cn-hongkong.aliyuncs.com",
+      'cn-heyuan-acdr-1': "kms.cn-heyuan-acdr-1.aliyuncs.com",
       'cn-heyuan': "kms.cn-heyuan.aliyuncs.com",
       'cn-hangzhou-finance': "kms.cn-hangzhou-finance.aliyuncs.com",
       'cn-hangzhou': "kms.cn-hangzhou.aliyuncs.com",
@@ -473,6 +475,68 @@ export default class Client extends OpenApi {
   async asymmetricVerify(request: $_model.AsymmetricVerifyRequest): Promise<$_model.AsymmetricVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.asymmetricVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves secret values in batches.
+   * 
+   * @remarks
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+   * - The caller must have the `kms:GetSecretValue` permission on all secrets in the batch.
+   * - If a secret uses a customer master key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+   * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
+   * 
+   * @param tmpReq - BatchGetSecretValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetSecretValueResponse
+   */
+  async batchGetSecretValueWithOptions(tmpReq: $_model.BatchGetSecretValueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetSecretValueResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchGetSecretValueShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.secretsList)) {
+      request.secretsListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.secretsList, "SecretsList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.secretsListShrink)) {
+      query["SecretsList"] = request.secretsListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetSecretValue",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetSecretValueResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetSecretValueResponse({}));
+  }
+
+  /**
+   * Retrieves secret values in batches.
+   * 
+   * @remarks
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+   * - The caller must have the `kms:GetSecretValue` permission on all secrets in the batch.
+   * - If a secret uses a customer master key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+   * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
+   * 
+   * @param request - BatchGetSecretValueRequest
+   * @returns BatchGetSecretValueResponse
+   */
+  async batchGetSecretValue(request: $_model.BatchGetSecretValueRequest): Promise<$_model.BatchGetSecretValueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchGetSecretValueWithOptions(request, runtime);
   }
 
   /**
@@ -3923,11 +3987,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all version IDs and stage labels of a specified secret.
+   * Queries all version information of a secret.
    * 
    * @remarks
-   * - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-   * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, refer to [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - Version information does not include secret values. By default, only secret versions that have version stages are returned.
    * 
    * @param request - ListSecretVersionIdsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3970,11 +4034,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all version IDs and stage labels of a specified secret.
+   * Queries all version information of a secret.
    * 
    * @remarks
-   * - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-   * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
+   * - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, refer to [Access control](https://help.aliyun.com/document_detail/2767210.html).
+   * - Version information does not include secret values. By default, only secret versions that have version stages are returned.
    * 
    * @param request - ListSecretVersionIdsRequest
    * @returns ListSecretVersionIdsResponse

@@ -1,3 +1,7 @@
+export { BatchGetSecretValueRequestSecretsList } from './BatchGetSecretValueRequest';
+export { BatchGetSecretValueResponseBodyErrors } from './BatchGetSecretValueResponseBody';
+export { BatchGetSecretValueResponseBodySecretValuesVersionStages } from './BatchGetSecretValueResponseBody';
+export { BatchGetSecretValueResponseBodySecretValues } from './BatchGetSecretValueResponseBody';
 export { CreateKeyResponseBodyKeyMetadata } from './CreateKeyResponseBody';
 export { CreateKeyVersionResponseBodyKeyVersion } from './CreateKeyVersionResponseBody';
 export { DescribeKeyResponseBodyKeyMetadata } from './DescribeKeyResponseBody';
@@ -58,6 +62,10 @@ export { AsymmetricSignResponse } from './AsymmetricSignResponse';
 export { AsymmetricVerifyRequest } from './AsymmetricVerifyRequest';
 export { AsymmetricVerifyResponseBody } from './AsymmetricVerifyResponseBody';
 export { AsymmetricVerifyResponse } from './AsymmetricVerifyResponse';
+export { BatchGetSecretValueRequest } from './BatchGetSecretValueRequest';
+export { BatchGetSecretValueShrinkRequest } from './BatchGetSecretValueShrinkRequest';
+export { BatchGetSecretValueResponseBody } from './BatchGetSecretValueResponseBody';
+export { BatchGetSecretValueResponse } from './BatchGetSecretValueResponse';
 export { CancelKeyDeletionRequest } from './CancelKeyDeletionRequest';
 export { CancelKeyDeletionResponseBody } from './CancelKeyDeletionResponseBody';
 export { CancelKeyDeletionResponse } from './CancelKeyDeletionResponse';
