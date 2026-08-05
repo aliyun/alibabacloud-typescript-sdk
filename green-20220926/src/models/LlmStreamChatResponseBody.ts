@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class LlmStreamChatResponseBodyChoicesDelta extends $dara.Model {
   /**
    * @remarks
-   * Real-time generated text content
+   * The text content generated in real time.
    * 
    * @example
-   * 我是Deepseek-V3，有什么可以帮你
+   * I am Deepseek-V3. How can I help you?
    */
   content?: string;
   /**
    * @remarks
-   * Role identifier
+   * The role identifier.
    * 
    * @example
    * assistant
@@ -45,12 +45,12 @@ export class LlmStreamChatResponseBodyChoicesDelta extends $dara.Model {
 export class LlmStreamChatResponseBodyChoices extends $dara.Model {
   /**
    * @remarks
-   * Incremental content object
+   * The incremental content object.
    */
   delta?: LlmStreamChatResponseBodyChoicesDelta;
   /**
    * @remarks
-   * For streaming output, it is null while generating and becomes \\"stop\\" if the generation ends due to a stop token.
+   * During streaming output, this value is null while content is being generated. When generation is complete, the value is stop if the generation ended due to a stop token.
    * 
    * @example
    * stop
@@ -58,7 +58,7 @@ export class LlmStreamChatResponseBodyChoices extends $dara.Model {
   finishReason?: string;
   /**
    * @remarks
-   * Stream sequence number
+   * The stream sequence number.
    * 
    * @example
    * 0
@@ -66,7 +66,7 @@ export class LlmStreamChatResponseBodyChoices extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Token probability information
+   * The token probability information.
    * 
    * @example
    * null
@@ -105,7 +105,7 @@ export class LlmStreamChatResponseBodyChoices extends $dara.Model {
 export class LlmStreamChatResponseBodyError extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code.
    * 
    * @example
    * data_inspection_failed
@@ -113,7 +113,7 @@ export class LlmStreamChatResponseBodyError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * Input data may contain inappropriate content.
@@ -121,7 +121,7 @@ export class LlmStreamChatResponseBodyError extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Parameter that caused the error
+   * The parameter that caused the error.
    * 
    * @example
    * null
@@ -129,7 +129,7 @@ export class LlmStreamChatResponseBodyError extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * Error type
+   * The error type.
    * 
    * @example
    * data_inspection_failed
@@ -165,12 +165,12 @@ export class LlmStreamChatResponseBodyError extends $dara.Model {
 export class LlmStreamChatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of model generation results
+   * The list of model generation results.
    */
   choices?: LlmStreamChatResponseBodyChoices[];
   /**
    * @remarks
-   * Timestamp of session creation
+   * The timestamp when the session was created.
    * 
    * @example
    * 1750990728
@@ -178,12 +178,12 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * Streaming response error information content
+   * The fault information content in the streaming response.
    */
   error?: LlmStreamChatResponseBodyError;
   /**
    * @remarks
-   * Unique ID for this session
+   * The unique ID of this session.
    * 
    * @example
    * chatcmpl-777bce52-93d3-9f8c-89c3-e99884f4f57f
@@ -191,7 +191,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Model identifier
+   * The model identifier.
    * 
    * @example
    * deepseek-v3
@@ -199,7 +199,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Response type
+   * The response type.
    * 
    * @example
    * chat.completion.chunk
@@ -207,7 +207,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   object?: string;
   /**
    * @remarks
-   * Unique request ID
+   * The unique request ID.
    * 
    * @example
    * 21d296d6-594e-97de-812f-925ec6e05673
@@ -215,7 +215,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * System fingerprint
+   * The system fingerprint.
    * 
    * @example
    * null
@@ -223,7 +223,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   systemFingerprint?: string;
   /**
    * @remarks
-   * Token usage
+   * The token usage information.
    * 
    * @example
    * null

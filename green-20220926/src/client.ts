@@ -109,6 +109,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds an agent configuration to an app.
+   * 
+   * @param request - AddAppAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAppAgentResponse
+   */
+  async addAppAgentWithOptions(request: $_model.AddAppAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAppAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAppAgent",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAppAgentResponse>(await this.callApi(params, req, runtime), new $_model.AddAppAgentResponse({}));
+  }
+
+  /**
+   * Adds an agent configuration to an app.
+   * 
+   * @param request - AddAppAgentRequest
+   * @returns AddAppAgentResponse
+   */
+  async addAppAgent(request: $_model.AddAppAgentRequest): Promise<$_model.AddAppAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAppAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an image library.
    * 
    * @param request - AddImageLibRequest
@@ -493,6 +555,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Copies an App configuration.
+   * 
+   * @param request - CopyAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyAppConfigResponse
+   */
+  async copyAppConfigWithOptions(request: $_model.CopyAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CopyAppConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CopyAppConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CopyAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.CopyAppConfigResponse({}));
+  }
+
+  /**
+   * Copies an App configuration.
+   * 
+   * @param request - CopyAppConfigRequest
+   * @returns CopyAppConfigResponse
+   */
+  async copyAppConfig(request: $_model.CopyAppConfigRequest): Promise<$_model.CopyAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.copyAppConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Copies a service.
    * 
    * @param request - CopyServiceConfigRequest
@@ -767,6 +883,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an app configuration.
+   * 
+   * @param request - CreateAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppConfigResponse
+   */
+  async createAppConfigWithOptions(request: $_model.CreateAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.sysAppId)) {
+      query["SysAppId"] = request.sysAppId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppConfigResponse({}));
+  }
+
+  /**
+   * Creates an app configuration.
+   * 
+   * @param request - CreateAppConfigRequest
+   * @returns CreateAppConfigResponse
+   */
+  async createAppConfig(request: $_model.CreateAppConfigRequest): Promise<$_model.CreateAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a message notification.
    * 
    * @param request - CreateCallbackRequest
@@ -891,7 +1065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Online Test
+   * Creates an online detection task.
    * 
    * @param request - CreateOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -934,7 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Online Test
+   * Creates an online detection task.
    * 
    * @param request - CreateOnlineTestRequest
    * @returns CreateOnlineTestResponse
@@ -1140,6 +1314,60 @@ export default class Client extends OpenApi {
   async deleteAnswerSample(request: $_model.DeleteAnswerSampleRequest): Promise<$_model.DeleteAnswerSampleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAnswerSampleWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an agent configuration.
+   * 
+   * @param request - DeleteAppAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppAgentResponse
+   */
+  async deleteAppAgentWithOptions(request: $_model.DeleteAppAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppAgent",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppAgentResponse({}));
+  }
+
+  /**
+   * Deletes an agent configuration.
+   * 
+   * @param request - DeleteAppAgentRequest
+   * @returns DeleteAppAgentResponse
+   */
+  async deleteAppAgent(request: $_model.DeleteAppAgentRequest): Promise<$_model.DeleteAppAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppAgentWithOptions(request, runtime);
   }
 
   /**
@@ -1415,7 +1643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete online test
+   * Deletes an online detection task.
    * 
    * @param request - DeleteOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1450,7 +1678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete online test
+   * Deletes an online detection task.
    * 
    * @param request - DeleteOnlineTestRequest
    * @returns DeleteOnlineTestResponse
@@ -2082,6 +2310,64 @@ export default class Client extends OpenApi {
   async getAnswerImportProgress(request: $_model.GetAnswerImportProgressRequest): Promise<$_model.GetAnswerImportProgressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAnswerImportProgressWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an App configuration.
+   * 
+   * @param request - GetAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppConfigResponse
+   */
+  async getAppConfigWithOptions(request: $_model.GetAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      query["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetAppConfigResponse({}));
+  }
+
+  /**
+   * Queries the details of an App configuration.
+   * 
+   * @param request - GetAppConfigRequest
+   * @returns GetAppConfigResponse
+   */
+  async getAppConfig(request: $_model.GetAppConfigRequest): Promise<$_model.GetAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppConfigWithOptions(request, runtime);
   }
 
   /**
@@ -2901,7 +3187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the OSS detection status of a user.
+   * Retrieves the OSS detection user status.
    * 
    * @param request - GetOssCheckStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2932,7 +3218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the OSS detection status of a user.
+   * Retrieves the OSS detection user status.
    * 
    * @param request - GetOssCheckStatusRequest
    * @returns GetOssCheckStatusResponse
@@ -3599,7 +3885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain an upload link
+   * Retrieves an upload URL.
    * 
    * @param request - GetUploadLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3630,7 +3916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain an upload link
+   * Retrieves an upload URL.
    * 
    * @param request - GetUploadLinkRequest
    * @returns GetUploadLinkResponse
@@ -3728,6 +4014,106 @@ export default class Client extends OpenApi {
   async listAnswerLib(request: $_model.ListAnswerLibRequest): Promise<$_model.ListAnswerLibResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the historical versions of an app.
+   * 
+   * @param request - ListAppConfigHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppConfigHistoryResponse
+   */
+  async listAppConfigHistoryWithOptions(request: $_model.ListAppConfigHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppConfigHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppConfigHistory",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppConfigHistoryResponse>(await this.callApi(params, req, runtime), new $_model.ListAppConfigHistoryResponse({}));
+  }
+
+  /**
+   * Retrieves the historical versions of an app.
+   * 
+   * @param request - ListAppConfigHistoryRequest
+   * @returns ListAppConfigHistoryResponse
+   */
+  async listAppConfigHistory(request: $_model.ListAppConfigHistoryRequest): Promise<$_model.ListAppConfigHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppConfigHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of app configurations.
+   * 
+   * @param request - ListAppConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppConfigsResponse
+   */
+  async listAppConfigsWithOptions(request: $_model.ListAppConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classify)) {
+      query["Classify"] = request.classify;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppConfigs",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListAppConfigsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of app configurations.
+   * 
+   * @param request - ListAppConfigsRequest
+   * @returns ListAppConfigsResponse
+   */
+  async listAppConfigs(request: $_model.ListAppConfigsRequest): Promise<$_model.ListAppConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppConfigsWithOptions(request, runtime);
   }
 
   /**
@@ -4159,7 +4545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use SSE interface to stream large model calls
+   * Calls a large language model in streaming mode using the SSE interface.
    * 
    * @param request - LlmStreamChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4220,7 +4606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use SSE interface to stream large model calls
+   * Calls a large language model in streaming mode using the SSE interface.
    * 
    * @param request - LlmStreamChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,7 +4653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use SSE interface to stream large model calls
+   * Calls a large language model in streaming mode using the SSE interface.
    * 
    * @param request - LlmStreamChatRequest
    * @returns LlmStreamChatResponse
@@ -4387,6 +4773,126 @@ export default class Client extends OpenApi {
   async modifyAnswerLib(request: $_model.ModifyAnswerLibRequest): Promise<$_model.ModifyAnswerLibResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the agent configuration.
+   * 
+   * @param request - ModifyAppAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppAgentResponse
+   */
+  async modifyAppAgentWithOptions(request: $_model.ModifyAppAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppAgent",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppAgentResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppAgentResponse({}));
+  }
+
+  /**
+   * Modifies the agent configuration.
+   * 
+   * @param request - ModifyAppAgentRequest
+   * @returns ModifyAppAgentResponse
+   */
+  async modifyAppAgent(request: $_model.ModifyAppAgentRequest): Promise<$_model.ModifyAppAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies app information.
+   * 
+   * @param request - ModifyAppInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppInfoResponse
+   */
+  async modifyAppInfoWithOptions(request: $_model.ModifyAppInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppInfo",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppInfoResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppInfoResponse({}));
+  }
+
+  /**
+   * Modifies app information.
+   * 
+   * @param request - ModifyAppInfoRequest
+   * @returns ModifyAppInfoResponse
+   */
+  async modifyAppInfo(request: $_model.ModifyAppInfoRequest): Promise<$_model.ModifyAppInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppInfoWithOptions(request, runtime);
   }
 
   /**
@@ -4662,6 +5168,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves and publishes app configurations.
+   * 
+   * @param request - PublishAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishAppConfigResponse
+   */
+  async publishAppConfigWithOptions(request: $_model.PublishAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishAppConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishAppConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.PublishAppConfigResponse({}));
+  }
+
+  /**
+   * Saves and publishes app configurations.
+   * 
+   * @param request - PublishAppConfigRequest
+   * @returns PublishAppConfigResponse
+   */
+  async publishAppConfig(request: $_model.PublishAppConfigRequest): Promise<$_model.PublishAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishAppConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries proxy answer samples by paging.
    * 
    * @param tmpReq - QueryAnswerSampleByPageRequest
@@ -4834,7 +5406,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Abort an online Detection Job
+   * Reverts an app to a historical version.
+   * 
+   * @param request - RecoverAppConfigHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverAppConfigHistoryResponse
+   */
+  async recoverAppConfigHistoryWithOptions(request: $_model.RecoverAppConfigHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverAppConfigHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      query["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecoverAppConfigHistory",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecoverAppConfigHistoryResponse>(await this.callApi(params, req, runtime), new $_model.RecoverAppConfigHistoryResponse({}));
+  }
+
+  /**
+   * Reverts an app to a historical version.
+   * 
+   * @param request - RecoverAppConfigHistoryRequest
+   * @returns RecoverAppConfigHistoryResponse
+   */
+  async recoverAppConfigHistory(request: $_model.RecoverAppConfigHistoryRequest): Promise<$_model.RecoverAppConfigHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recoverAppConfigHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Aborts an online detection task.
    * 
    * @param request - StopOnlineTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4873,7 +5499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Abort an online Detection Job
+   * Aborts an online detection task.
    * 
    * @param request - StopOnlineTestRequest
    * @returns StopOnlineTestResponse
@@ -5112,7 +5738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch update OSS detection result feedback
+   * Updates OSS detection result feedback in batches.
    * 
    * @param request - UpdateOssCheckResultsBatchFeedbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5151,7 +5777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch update OSS detection result feedback
+   * Updates OSS detection result feedback in batches.
    * 
    * @param request - UpdateOssCheckResultsBatchFeedbackRequest
    * @returns UpdateOssCheckResultsBatchFeedbackResponse
@@ -5162,7 +5788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update OSS detection result feedback
+   * Updates the feedback for OSS detection results.
    * 
    * @param request - UpdateOssCheckResultsFeedBackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5209,7 +5835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update OSS detection result feedback
+   * Updates the feedback for OSS detection results.
    * 
    * @param request - UpdateOssCheckResultsFeedBackRequest
    * @returns UpdateOssCheckResultsFeedBackResponse

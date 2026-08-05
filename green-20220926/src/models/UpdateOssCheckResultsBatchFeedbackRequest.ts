@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOssCheckResultsBatchFeedbackRequest extends $dara.Model {
   /**
    * @remarks
-   * Feedback.
+   * The feedback.
    * 
    * @example
    * misreport
@@ -13,7 +13,7 @@ export class UpdateOssCheckResultsBatchFeedbackRequest extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * Result items.
+   * The result items.
    * 
    * @example
    * []
@@ -21,7 +21,7 @@ export class UpdateOssCheckResultsBatchFeedbackRequest extends $dara.Model {
   items?: string;
   /**
    * @remarks
-   * Parent job ID.
+   * The ID of the parent task.
    * 
    * @example
    * P_XHDUS

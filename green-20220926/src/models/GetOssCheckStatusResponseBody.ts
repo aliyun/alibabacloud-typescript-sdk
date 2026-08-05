@@ -13,7 +13,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   bid?: string;
   /**
    * @remarks
-   * Indicates whether the service is activated on Alibaba Cloud.
+   * Indicates whether the commodity is activated on Alibaba Cloud.
    * 
    * @example
    * True
@@ -29,7 +29,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Indicates whether the account has an overdue payment.
+   * Indicates whether there is an overdue payment.
    * 
    * @example
    * False
@@ -45,7 +45,7 @@ export class GetOssCheckStatusResponseBody extends $dara.Model {
   ramStatus?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

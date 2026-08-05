@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopOnlineTestRequest extends $dara.Model {
   /**
    * @remarks
-   * Resource type
+   * The resource type.
    * 
    * @example
    * image
@@ -13,7 +13,7 @@ export class StopOnlineTestRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service encoding
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -21,7 +21,7 @@ export class StopOnlineTestRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Detection TaskId
+   * The ID of the detection task.
    * 
    * @example
    * xxxxx-xxxxx

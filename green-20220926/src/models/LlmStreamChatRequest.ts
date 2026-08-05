@@ -13,15 +13,15 @@ export class LlmStreamChatRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * Conversation information
+   * The conversation messages.
    * 
    * @example
-   * [{\\"content\\":\\"你好\\",\\"role\\":\\"user\\"}]
+   * [{"content":"Hello","role":"user"}]
    */
   messages?: any;
   /**
    * @remarks
-   * Temperature value for the large model
+   * The temperature value of the large language model.
    * 
    * @example
    * 0.5
@@ -29,7 +29,7 @@ export class LlmStreamChatRequest extends $dara.Model {
   temperature?: number;
   /**
    * @remarks
-   * Top p parameter controlling the randomness of the large model\\"s output.
+   * The top_p parameter that controls the randomness of the large language model output.
    * 
    * @example
    * 0.5
@@ -37,7 +37,7 @@ export class LlmStreamChatRequest extends $dara.Model {
   topP?: number;
   /**
    * @remarks
-   * Type of conversation
+   * The conversation type.
    * 
    * @example
    * image

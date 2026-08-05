@@ -32,7 +32,7 @@ export class ListAnswerLibResponseBodyData extends $dara.Model {
    * The name of the library.
    * 
    * @example
-   * 代答库名称
+   * ProxyAnswerLibraryName
    */
   libName?: string;
   /**

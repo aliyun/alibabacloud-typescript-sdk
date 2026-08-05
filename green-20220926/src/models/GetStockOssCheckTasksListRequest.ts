@@ -32,7 +32,7 @@ export class GetStockOssCheckTasksListRequest extends $dara.Model {
    * The media asset type.
    * 
    * @example
-   * image
+   * 1
    */
   mediaType?: number;
   /**

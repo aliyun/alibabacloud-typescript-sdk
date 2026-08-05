@@ -13,7 +13,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * The error code, consistent with the HTTP status code.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Unit: seconds.
+   * The expiration time. Unit: seconds.
    * 
    * @example
    * 900
@@ -53,7 +53,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The key used for file upload.
+   * The key used for uploading the file.
    * 
    * @example
    * image/upload/xxx
@@ -69,15 +69,15 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Used for frontend image upload.
+   * Used by the frontend for image upload.
    * 
    * @example
-   * 测试
+   * Test.
    */
   name?: string;
   /**
    * @remarks
-   * The OSS file upload policy.
+   * The policy for uploading files to OSS.
    * 
    * @example
    * xxxx
@@ -85,16 +85,23 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * STS token
+   * 
+   * @example
+   * ***
+   */
   securityToken?: string;
   /**
    * @remarks
-   * The upload signature information.
+   * The signature information for the upload.
    * 
    * @example
    * iyu7VHblYj+mEF9p46cdGOlNPAw=

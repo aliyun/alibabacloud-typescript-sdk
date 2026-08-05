@@ -13,7 +13,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
   copyFrom?: string;
   /**
    * @remarks
-   * Indicates whether the service is a copy.
+   * Indicates whether the service is copied.
    * 
    * @example
    * false
@@ -32,7 +32,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfigScanServiceInfos ex
    * The service name.
    * 
    * @example
-   * 通用基线检测
+   * General baseline detection.
    */
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -129,7 +129,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   endTime?: string;
   /**
    * @remarks
-   * The execution date of the scheduled task.
+   * The scheduled execution date of the task. An integer value, such as 1.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   executeDate?: number;
   /**
    * @remarks
-   * The expected execution time of the scheduled task. Format: HH:mm:ss.
+   * The scheduled execution time of the task. Format: HH:mm:ss.
    * 
    * @example
    * 02:00:00
@@ -145,7 +145,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   executeTime?: string;
   /**
    * @remarks
-   * Specifies whether to freeze files.
+   * Specifies whether to freeze.
    * 
    * @example
    * false
@@ -230,7 +230,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   referer?: string;
   /**
    * @remarks
-   * The maximum number of files to scan.
+   * The scan limit.
    * 
    * @example
    * 10
@@ -238,7 +238,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   scanLimit?: number;
   /**
    * @remarks
-   * Specifies whether to scan images without file name extensions.
+   * Specifies whether to scan images without file extensions.
    * 
    * @example
    * true
@@ -272,7 +272,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * The scheduling date.
+   * The scheduling cycle. An integer value, such as 1.
    * 
    * @example
    * 0
@@ -365,7 +365,7 @@ export class GetStockOssCheckTasksListResponseBodyItemsConfig extends $dara.Mode
 export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The storage space.
    * 
    * @example
    * tmp
@@ -469,7 +469,7 @@ export class GetStockOssCheckTasksListResponseBodyItems extends $dara.Model {
    * The task name.
    * 
    * @example
-   * 图片定时任务20231205135716797
+   * ImageScheduledTask20231205135716797
    */
   taskName?: string;
   /**
@@ -556,7 +556,7 @@ export class GetStockOssCheckTasksListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

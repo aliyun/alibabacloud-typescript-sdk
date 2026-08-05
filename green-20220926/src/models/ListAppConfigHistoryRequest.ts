@@ -2,23 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateKeywordLibRequest extends $dara.Model {
+export class ListAppConfigHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword library ID.
+   * App ID。
    * 
    * @example
-   * custom_6.2193748597
+   * txt_check_agent_01
    */
-  libId?: string;
-  /**
-   * @remarks
-   * The keyword library name.
-   * 
-   * @example
-   * TestLibrary.
-   */
-  libName?: string;
+  appId?: string;
   /**
    * @remarks
    * The region ID.
@@ -29,29 +21,25 @@ export class UpdateKeywordLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keyword library code.
-   * 
-   * - desensitize: desensitization keyword library
+   * The resource type.
    * 
    * @example
-   * desensitize
+   * agent_text
    */
-  tenantCode?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      libId: 'LibId',
-      libName: 'LibName',
+      appId: 'AppId',
       regionId: 'RegionId',
-      tenantCode: 'TenantCode',
+      resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      libId: 'string',
-      libName: 'string',
+      appId: 'string',
       regionId: 'string',
-      tenantCode: 'string',
+      resourceType: 'string',
     };
   }
 

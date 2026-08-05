@@ -2,23 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateKeywordLibRequest extends $dara.Model {
+export class CreateAppConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword library ID.
+   * The name.
    * 
    * @example
-   * custom_6.2193748597
+   * CustomReview
    */
-  libId?: string;
-  /**
-   * @remarks
-   * The keyword library name.
-   * 
-   * @example
-   * TestLibrary.
-   */
-  libName?: string;
+  name?: string;
   /**
    * @remarks
    * The region ID.
@@ -29,29 +21,45 @@ export class UpdateKeywordLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keyword library code.
-   * 
-   * - desensitize: desensitization keyword library
+   * The resource type.
    * 
    * @example
-   * desensitize
+   * agent_text
    */
-  tenantCode?: string;
+  resourceType?: string;
+  /**
+   * @remarks
+   * The system app ID.
+   * 
+   * @example
+   * txt_check_agent
+   */
+  sysAppId?: string;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * plus
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      libId: 'LibId',
-      libName: 'LibName',
+      name: 'Name',
       regionId: 'RegionId',
-      tenantCode: 'TenantCode',
+      resourceType: 'ResourceType',
+      sysAppId: 'SysAppId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      libId: 'string',
-      libName: 'string',
+      name: 'string',
       regionId: 'string',
-      tenantCode: 'string',
+      resourceType: 'string',
+      sysAppId: 'string',
+      type: 'string',
     };
   }
 

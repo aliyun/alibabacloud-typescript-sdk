@@ -2,23 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateKeywordLibRequest extends $dara.Model {
+export class CopyAppConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the source App to copy from.
    * 
    * @example
-   * custom_6.2193748597
+   * txt_check_agent_01
    */
-  libId?: string;
+  appId?: string;
   /**
    * @remarks
-   * The keyword library name.
+   * The name of the new App to be created from the copy.
    * 
    * @example
-   * TestLibrary.
+   * CustomTextModeration
    */
-  libName?: string;
+  name?: string;
   /**
    * @remarks
    * The region ID.
@@ -29,29 +29,27 @@ export class UpdateKeywordLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keyword library code.
-   * 
-   * - desensitize: desensitization keyword library
+   * The resource type.
    * 
    * @example
-   * desensitize
+   * agent_text
    */
-  tenantCode?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      libId: 'LibId',
-      libName: 'LibName',
+      appId: 'AppId',
+      name: 'Name',
       regionId: 'RegionId',
-      tenantCode: 'TenantCode',
+      resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      libId: 'string',
-      libName: 'string',
+      appId: 'string',
+      name: 'string',
       regionId: 'string',
-      tenantCode: 'string',
+      resourceType: 'string',
     };
   }
 

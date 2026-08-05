@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOnlineTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -13,7 +13,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service Code
+   * The service code.
    * 
    * @example
    * VideoModeration
@@ -21,7 +21,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Detection Task ID
+   * The ID of the detection task.
    * 
    * @example
    * xxxxx-xxxxx
@@ -29,7 +29,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Detection Status
+   * The detection status.
    * 
    * @example
    * SUCCESS
@@ -37,7 +37,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * Detection URL
+   * The URL to be detected.
    * 
    * @example
    * https://xxxxxxxxxx.com/data/data.png

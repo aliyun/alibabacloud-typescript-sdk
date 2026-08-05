@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The region ID. This parameter is required.
    * 
    * @example
    * cn-shanghai

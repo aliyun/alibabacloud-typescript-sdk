@@ -14,7 +14,7 @@ export class GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos extends $dara
   copyFrom?: string;
   /**
    * @remarks
-   * Indicates whether the service is a copy.
+   * Indicates whether the service is copied.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class GetOssCheckTaskInfoResponseBodyConfigScanServiceInfos extends $dara
    * The service name.
    * 
    * @example
-   * 内容检测
+   * Content moderation.
    */
   serviceName?: string;
   static names(): { [key: string]: string } {
@@ -106,7 +106,7 @@ export class GetOssCheckTaskInfoResponseBodyConfigUserFreezeConfig extends $dara
 export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix and suffix filters and filter character lists.
+   * The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and filter character lists.
    */
   bucketPrefixFilterConfig?: { [key: string]: ConfigBucketPrefixFilterConfigValue };
   /**
@@ -119,7 +119,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   callbackId?: number;
   /**
    * @remarks
-   * Indicates whether to deduplicate historically scanned tasks.
+   * Indicates whether to deduplicate previously scanned tasks.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The execution date of the scheduled task. The value is an integer.
+   * The execution date of the scheduled task. The value is an integer in the format of a single digit, such as 1.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   executeDate?: number;
   /**
    * @remarks
-   * The estimated execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+   * The expected execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-07-09 10:30:00
@@ -151,7 +151,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * Indicates whether freezing is enabled.
+   * Indicates whether to freeze.
    * 
    * @example
    * true
@@ -159,7 +159,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   freeze?: boolean;
   /**
    * @remarks
-   * Indicates whether to freeze high-risk images.
+   * Specifies whether to freeze high-risk images.
    * 
    * @example
    * true
@@ -167,7 +167,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   freezeHighRisk1?: boolean;
   /**
    * @remarks
-   * Indicates whether to freeze high-risk audio and text.
+   * Specifies whether to freeze high-risk audio and text.
    * 
    * @example
    * true
@@ -175,7 +175,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   freezeHighRisk2?: boolean;
   /**
    * @remarks
-   * Indicates whether to freeze medium-risk images.
+   * Specifies whether to freeze medium-risk images.
    * 
    * @example
    * true
@@ -183,7 +183,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   freezeMediumRisk1?: boolean;
   /**
    * @remarks
-   * Indicates whether to freeze medium-risk audio and text.
+   * Specifies whether to freeze medium-risk audio and text.
    * 
    * @example
    * false
@@ -236,7 +236,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   referer?: string;
   /**
    * @remarks
-   * The scan limit.
+   * The scan limit quantity.
    * 
    * @example
    * 100
@@ -252,7 +252,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
   scanNoFileType?: boolean;
   /**
    * @remarks
-   * The type of files to scan.
+   * The file type to scan.
    * 
    * @example
    * 0
@@ -376,7 +376,7 @@ export class GetOssCheckTaskInfoResponseBodyConfig extends $dara.Model {
 export class GetOssCheckTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The OSS buckets.
+   * The storage buckets.
    * 
    * @example
    * [{\\"Bucket\\":\\"aileshijie\\",\\"Region\\":\\"cn-hangzhou\\"}]
@@ -429,7 +429,7 @@ export class GetOssCheckTaskInfoResponseBody extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * The previous execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+   * The last execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-07-08 10:30:00
@@ -488,7 +488,7 @@ export class GetOssCheckTaskInfoResponseBody extends $dara.Model {
    * The task name.
    * 
    * @example
-   * 文档存量任务 20240914100517757
+   * Document stock task 20240914100517757
    */
   taskName?: string;
   /**

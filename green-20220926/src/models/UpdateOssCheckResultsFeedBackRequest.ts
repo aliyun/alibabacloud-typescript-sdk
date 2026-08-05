@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   /**
    * @remarks
-   * Feedback.
+   * The feedback.
    * 
    * @example
    * misreport
@@ -13,7 +13,7 @@ export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * The request ID to query.
+   * The request ID of the query.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -21,7 +21,7 @@ export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   queryRequestId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -29,7 +29,7 @@ export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service code.
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -37,7 +37,7 @@ export class UpdateOssCheckResultsFeedBackRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Job ID.
+   * The task ID.
    * 
    * @example
    * P_7SCUK8

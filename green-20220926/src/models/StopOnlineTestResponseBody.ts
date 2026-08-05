@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopOnlineTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend-assigned ID used as the UUID of a Request. It can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -13,7 +13,7 @@ export class StopOnlineTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service encoding
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -21,7 +21,7 @@ export class StopOnlineTestResponseBody extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Detection Job ID
+   * The ID of the detection task.
    * 
    * @example
    * xxxxx-xxxxx
@@ -29,7 +29,7 @@ export class StopOnlineTestResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Detection Status
+   * The detection status.
    * 
    * @example
    * SUCCESS
@@ -37,7 +37,7 @@ export class StopOnlineTestResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * Detection URL
+   * The detection URL.
    * 
    * @example
    * https://xxxxxxxx.com/data/data.png

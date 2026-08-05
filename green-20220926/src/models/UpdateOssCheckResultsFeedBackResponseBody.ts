@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOssCheckResultsFeedBackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return Result.
+   * The returned result.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class UpdateOssCheckResultsFeedBackResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

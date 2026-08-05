@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Quantity of invalid items.
+   * The number of invalid items.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   invalidCount?: number;
   /**
    * @remarks
-   * Quantity of duplicates.
+   * The number of duplicate items.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   repeatCount?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -29,7 +29,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Number of succeeded items.
+   * The number of successful items.
    * 
    * @example
    * 8
@@ -37,7 +37,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   successCount?: number;
   /**
    * @remarks
-   * Tips message.
+   * The prompt information.
    * 
    * @example
    * xxxxx
@@ -45,7 +45,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   tips?: string;
   /**
    * @remarks
-   * Total quantity.
+   * The total count.
    * 
    * @example
    * 10

@@ -2,44 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetUploadInfoRequest extends $dara.Model {
+export class ModifyAppAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The upload name.
+   * The returned data.
    * 
    * @example
-   * Test.
+   * true
    */
-  name?: string;
+  data?: boolean;
   /**
    * @remarks
-   * The region ID.
+   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
    * 
    * @example
-   * cn-shanghai
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * image
-   */
-  resourceType?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
+      data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      regionId: 'string',
-      resourceType: 'string',
+      data: 'boolean',
+      requestId: 'string',
     };
   }
 

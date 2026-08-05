@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Upload Link address
+   * The upload URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
