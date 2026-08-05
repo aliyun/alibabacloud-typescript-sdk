@@ -7,8 +7,9 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
    * @remarks
    * Indicates whether the user is muted. Valid values:
    * 
-   * *   true: The user is muted.
-   * *   false: The user is not muted.
+   * - true: Muted.
+   * 
+   * - false: Not muted.
    * 
    * @example
    * true
@@ -16,15 +17,16 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
   isMute?: boolean;
   /**
    * @remarks
-   * The type of the mute. Valid values:
+   * Mute type. Valid values:
    * 
-   * *   group: All members in the message group are muted.
-   * *   user: Specific members in the message group are muted.
+   * - group: All members in the message group are muted.
+   * 
+   * - user: Individual user is muted.
    */
   muteBy?: string[];
   /**
    * @remarks
-   * The URL of the profile picture of the user.
+   * Profile picture URL.
    * 
    * @example
    * "http://www.aliyundoc.com/xxyy.png"
@@ -32,7 +34,7 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
   userAvatar?: string;
   /**
    * @remarks
-   * The custom information about the user.
+   * Custom user information content.
    * 
    * @example
    * 12e
@@ -40,7 +42,7 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
   userExtension?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * User ID.
    * 
    * @example
    * ad***
@@ -48,7 +50,7 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
   userId?: string;
   /**
    * @remarks
-   * The nickname of the user.
+   * User nickname.
    * 
    * @example
    * xxyy
@@ -91,10 +93,11 @@ export class ListMessageGroupUserByIdResponseBodyResultUserList extends $dara.Mo
 export class ListMessageGroupUserByIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: There is a next page.
+   * 
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -102,7 +105,7 @@ export class ListMessageGroupUserByIdResponseBodyResult extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The total number of users returned.
+   * Total number of users queried.
    * 
    * @example
    * 3
@@ -110,7 +113,7 @@ export class ListMessageGroupUserByIdResponseBodyResult extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The list of users.
+   * User list information.
    */
   userList?: ListMessageGroupUserByIdResponseBodyResultUserList[];
   static names(): { [key: string]: string } {
@@ -144,7 +147,7 @@ export class ListMessageGroupUserByIdResponseBodyResult extends $dara.Model {
 export class ListMessageGroupUserByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -152,7 +155,7 @@ export class ListMessageGroupUserByIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * Return result.
    */
   result?: ListMessageGroupUserByIdResponseBodyResult;
   static names(): { [key: string]: string } {

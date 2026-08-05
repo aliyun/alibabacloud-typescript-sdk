@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
   appName?: string;
   /**
    * @remarks
-   * The description of the result. A value of success indicates that the request is successful. If the request fails, an error message is returned.
+   * The result description. The value is success if the callback was successful. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
   description?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer\\"s streaming domain.
    * 
    * @example
    * example.com
@@ -29,20 +29,37 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
   domainName?: string;
   /**
    * @remarks
-   * The callback content.
+   * The specific content of the callback.
    * 
    * @example
-   * July 26,  16:14{"domain":"al.xxxx.com","stream":"livestream01","pull _stream_result":true,"cdn":"al"}
+   * 7月26日 16:14{"domain":"al.xxxx.com","stream":"livestream01","pull _stream_result":true,"cdn":"al"}
    */
   notifyContent?: string;
+  /**
+   * @remarks
+   * The callback request header.
+   * 
+   * @example
+   * {
+   *   "Content-Type": [
+   *     "application/json; charset=utf-8"
+   *   ]
+   * }
+   */
   notifyHeader?: string;
+  /**
+   * @remarks
+   * The response returned by the user after receiving the callback.
+   * 
+   * @example
+   * {"Code":0,"Msg":"Success"}
+   */
   notifyResponse?: string;
   /**
    * @remarks
    * The callback result. Valid values:
-   * 
-   * *   success
-   * *   failed
+   * - success: The callback was successful.
+   * - failed: The callback failed.
    * 
    * @example
    * success
@@ -50,7 +67,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
   notifyResult?: string;
   /**
    * @remarks
-   * The time when the callback was returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The callback time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2022-10-19T19:09:28Z
@@ -59,14 +76,13 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
   /**
    * @remarks
    * The callback type. Valid values:
-   * 
-   * *   file_created: The recording file is created.
-   * *   record_error: A recording error occurs.
-   * *   record_started: Recording is started.
-   * *   record_paused: Recording is paused.
-   * *   record_resumed: Recording is resumed.
-   * *   record_force_transcode_fail: The recording task fails to trigger transcoding.
-   * *   transformat_error: An error occurs when the live stream is parsed.
+   * - file_created: The recording was created.
+   * - record_error: A recording error occurred.
+   * - record_started: The recording started.
+   * - record_paused: The recording was paused.
+   * - record_resumed: The recording was resumed.
+   * - record_force_transcode_fail: The recording task failed to trigger transcoding.
+   * - transformat_error: An error occurred while parsing the live stream content.
    * 
    * @example
    * record_started
@@ -80,10 +96,21 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
    * http://learn.aliyundoc.com/examplecallback.action
    */
   notifyUrl?: string;
+  /**
+   * @remarks
+   * The recording storage type. Valid values:
+   * 
+   * - oss: recorded to OSS
+   * - vod: recorded to ApsaraVideo VOD
+   * - all: all storage types
+   * 
+   * @example
+   * oss
+   */
   storageType?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * @example
    * liveStream****
@@ -148,7 +175,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The prompt message.
    * 
    * @example
    * ok
@@ -180,7 +207,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the specified conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 20

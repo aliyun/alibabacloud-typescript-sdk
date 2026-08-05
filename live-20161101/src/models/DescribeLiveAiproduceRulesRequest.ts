@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveAIProduceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * AppName
@@ -13,7 +13,7 @@ export class DescribeLiveAIProduceRulesRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary playback domain name.
    * 
    * @example
    * demo.aliyundoc.com
@@ -22,7 +22,7 @@ export class DescribeLiveAIProduceRulesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: [1,100].
+   * The page number. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -30,16 +30,23 @@ export class DescribeLiveAIProduceRulesRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: [1,100].
+   * The number of entries per page. Valid values: 1 to 100.
    * 
    * @example
    * 100
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the subtitle rule.
+   * The ID of the caption rule.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec****
@@ -47,9 +54,9 @@ export class DescribeLiveAIProduceRulesRequest extends $dara.Model {
   rulesId?: string;
   /**
    * @remarks
-   * The suffix of the subtitle rule.
+   * The caption suffix.
    * 
-   * > Set the value to the name of the subtitle template.
+   * > Set this parameter to the value of SubtitleName that is specified for the caption template.
    * 
    * @example
    * sub01

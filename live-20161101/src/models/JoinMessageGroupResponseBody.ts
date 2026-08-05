@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class JoinMessageGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the users successfully joined the message group. Valid values:
+   * Indicates whether joining the message group was successful. Valid values:
    * 
-   * *   true: The users successfully joined the message group.
-   * *   false: The users failed to join the message group.
+   * - true: Successful.
+   * - false: Unsuccessful.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class JoinMessageGroupResponseBodyResult extends $dara.Model {
 export class JoinMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class JoinMessageGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: JoinMessageGroupResponseBodyResult;
   static names(): { [key: string]: string } {

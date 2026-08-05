@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMessageGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The interactive message application ID.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class UpdateMessageGroupShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The extended field.
+   * The extension field.
    */
   extensionShrink?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * The message group ID.
    * 
    * This parameter is required.
    * 

@@ -64,7 +64,7 @@ export class DescribeLiveDomainBpsDataResponseBody extends $dara.Model {
   bpsDataPerInterval?: DescribeLiveDomainBpsDataResponseBodyBpsDataPerInterval;
   /**
    * @remarks
-   * The time granularity of the query. Unit: seconds.
+   * The time granularity of the queried data. Unit: seconds.
    * 
    * @example
    * 300
@@ -80,7 +80,7 @@ export class DescribeLiveDomainBpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-12-10T09:00:00Z
@@ -96,7 +96,7 @@ export class DescribeLiveDomainBpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2017-12-10T08:00:00Z

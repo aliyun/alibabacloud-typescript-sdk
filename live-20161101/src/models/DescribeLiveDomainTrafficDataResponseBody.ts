@@ -63,7 +63,7 @@ export class DescribeLiveDomainTrafficDataResponseBodyTrafficDataPerInterval ext
 export class DescribeLiveDomainTrafficDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of the query.
+   * The time granularity for querying data.
    * 
    * @example
    * 300
@@ -79,7 +79,7 @@ export class DescribeLiveDomainTrafficDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2017-12-10T15:00:00Z
@@ -95,7 +95,7 @@ export class DescribeLiveDomainTrafficDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * @example
    * 2017-12-10T14:00:00Z

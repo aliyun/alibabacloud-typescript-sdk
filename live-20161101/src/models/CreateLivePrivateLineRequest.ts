@@ -17,8 +17,8 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
    * @remarks
    * The acceleration type. Valid values:
    * 
-   * *   play: streaming acceleration
-   * *   publish: stream ingest acceleration
+   * - play: streaming acceleration.
+   * - publish: stream ingest acceleration.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   accelerationType?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer streaming domain.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The acceleration channel that you want to reuse. This parameter is required if Reuse is set to yes.
+   * The ID of the acceleration channel to reuse. This parameter is required when Reuse is set to yes.
    * 
    * @example
    * ga-bp1iovsdpf01ym9su****
@@ -56,20 +56,26 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The accelerated bandwidth. Unit: Mbit/s. This parameter is required if Reuse is set to no.
+   * The acceleration bandwidth. Unit: Mbit/s. This parameter is required when Reuse is set to no.
    * 
    * @example
    * 200
    */
   maxBandwidth?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
    * Specifies whether to reuse an existing acceleration channel. Valid values:
-   * 
-   * *   yes: reuses an existing acceleration channel.
-   * *   no: creates a new acceleration channel.
+   * - yes: Reuse an existing acceleration channel.
+   * - no: Create a new acceleration channel.
    * 
    * This parameter is required.
    * 
@@ -79,7 +85,7 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   reuse?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The live stream name.
    * 
    * This parameter is required.
    * 
@@ -89,7 +95,7 @@ export class CreateLivePrivateLineRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, and ap-southeast-1, which indicate China (Beijing), China (Shanghai), China (Shenzhen), China (Qingdao), Japan (Tokyo), Indonesia (Jakarta), Germany (Frankfurt), and Singapore, respectively.
+   * The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, ap-southeast-1, and ap-south-1, which represent the live centers in Beijing, Shanghai, Shenzhen, Qingdao, Japan, Indonesia, Germany, and Singapore respectively.
    * 
    * This parameter is required.
    * 

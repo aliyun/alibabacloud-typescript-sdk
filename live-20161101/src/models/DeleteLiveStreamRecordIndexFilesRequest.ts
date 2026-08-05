@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveStreamRecordIndexFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLiveStreamRecordIndexFilesRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The name of the main streaming domain.
+   * The main streaming domain.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DeleteLiveStreamRecordIndexFilesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The index file IDs.
+   * The array of index file IDs.
    * 
    * This parameter is required.
    * 
@@ -34,13 +34,21 @@ export class DeleteLiveStreamRecordIndexFilesRequest extends $dara.Model {
    * c4d7f0a4-b506-43f9-8de3-07732c3f****
    */
   recordId?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to delete the corresponding file in Object Storage Service (OSS) synchronously. Valid values:
+   * Specifies whether to delete the associated OSS objects at the same time. Valid values:
    * 
-   * *   **true**: The corresponding file in OSS is deleted.
-   * *   **false**: The corresponding file in OSS is not deleted.
+   * - **true**: Deletes.
+   * 
+   * - **false**: Does not delete.
    * 
    * This parameter is required.
    * 
@@ -50,7 +58,7 @@ export class DeleteLiveStreamRecordIndexFilesRequest extends $dara.Model {
   removeFile?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * This parameter is required.
    * 

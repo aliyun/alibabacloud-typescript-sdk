@@ -13,7 +13,7 @@ export class DescribeLiveStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConf
   domainName?: string;
   /**
    * @remarks
-   * Exception event callback URL.
+   * The callback URL for receiving notifications about exception events.
    * 
    * @example
    * https://4a7e5f08.r37.cpolar.top/live/Record/call-back/streamException
@@ -29,10 +29,11 @@ export class DescribeLiveStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConf
   notifyAuthKey?: string;
   /**
    * @remarks
-   * Indicates whether callback authentication is enabled. Valid values:
+   * Indicates whether authentication is enabled. Valid values:
    * 
-   * *   yes
-   * *   no
+   * - **yes**
+   * 
+   * - **no**
    * 
    * @example
    * yes
@@ -40,7 +41,7 @@ export class DescribeLiveStreamsNotifyUrlConfigResponseBodyLiveStreamsNotifyConf
   notifyReqAuth?: string;
   /**
    * @remarks
-   * The callback URL.
+   * The callback URL for receiving live stream information.
    * 
    * @example
    * http://guide.aliyundoc.com/notify

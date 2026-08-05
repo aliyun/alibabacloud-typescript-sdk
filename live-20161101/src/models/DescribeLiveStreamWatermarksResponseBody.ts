@@ -90,7 +90,7 @@ export class DescribeLiveStreamWatermarksResponseBodyWatermarkList extends $dara
 export class DescribeLiveStreamWatermarksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5c6a2a0df228-4a64- af62-20e91b9676b3
@@ -98,7 +98,7 @@ export class DescribeLiveStreamWatermarksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of watermark templates that meet the specified conditions.
+   * The total number of matching entries.
    * 
    * @example
    * 100

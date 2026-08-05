@@ -81,7 +81,7 @@ export class DescribeLiveStreamWatermarkRulesResponseBody extends $dara.Model {
   ruleInfoList?: DescribeLiveStreamWatermarkRulesResponseBodyRuleInfoList;
   /**
    * @remarks
-   * The total number of entries that meet the specified conditions.
+   * The total number of matching entries.
    * 
    * @example
    * 100

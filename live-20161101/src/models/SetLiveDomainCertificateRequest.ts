@@ -15,9 +15,9 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
    * @remarks
    * The certificate type. Valid values:
    * 
-   * *   **upload**: a custom certificate
-   * *   **cas**: a certificate that is purchased from Certificate Management Service
-   * *   **free**: a free certificate (for testing)
+   * - **upload**: an uploaded certificate.
+   * - **cas**: a certificate from SSL Certificates Service.
+   * - **free**: a personal test certificate (Free Edition).
    * 
    * @example
    * free
@@ -25,7 +25,7 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The domain name that is secured by the certificate. The domain name uses `HTTPS`-based acceleration.
+   * The accelerated domain name to which the certificate belongs. The domain name is of the `https` acceleration type.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,17 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to check the certificate name for duplicates. A value of 1 indicates that the system does not perform the check and overwrites the information about the certificate that has the same name. Set the value to **1**.
+   * Specifies whether to perform only a dry run, without actually executing the operation. Valid values:
+   * 
+   * - true: sends a dry run request. If the request passes the check, the operation is not actually executed.
+   * - false (default): sends a normal request. If the request passes the check, the operation is actually executed.
+   * 
+   * The dry run checks parameter validity, RAM permissions, and resource status. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the operation is not actually executed.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * Ignores the check for duplicate certificate names and overwrites the existing certificate information with the same name. Fixed value: **1**.
    * 
    * @example
    * 1
@@ -44,9 +54,9 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The private key.
+   * The private key content.
    * 
-   * >  This parameter is required only if you set the SSLProtocol parameter to on.
+   * > This parameter is required only when SSLProtocol is set to on.
    * 
    * @example
    * ****
@@ -54,10 +64,9 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
   SSLPri?: string;
   /**
    * @remarks
-   * Specifies whether to enable the HTTPS certificate. Valid values:
-   * 
-   * *   **on**. If you set this parameter to **on**, you must also specify the SSLPub and SSLPri parameters.
-   * *   **off**. This is the default value.
+   * Specifies whether to enable the HTTPS certificate. Valid values: 
+   * - **on**: enabled. If the value is **on**, you must also set the SSLPub and SSLPri request parameters.
+   * - **off** (default): disabled.
    * 
    * This parameter is required.
    * 
@@ -67,9 +76,9 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
   SSLProtocol?: string;
   /**
    * @remarks
-   * The public key.
+   * The public key content.
    * 
-   * >  This parameter is required only if you set the SSLProtocol parameter to on.
+   * > This parameter is required only when SSLProtocol is set to on.
    * 
    * @example
    * ****
@@ -81,6 +90,7 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
       certName: 'CertName',
       certType: 'CertType',
       domainName: 'DomainName',
+      dryRun: 'DryRun',
       forceSet: 'ForceSet',
       ownerId: 'OwnerId',
       SSLPri: 'SSLPri',
@@ -95,6 +105,7 @@ export class SetLiveDomainCertificateRequest extends $dara.Model {
       certName: 'string',
       certType: 'string',
       domainName: 'string',
+      dryRun: 'boolean',
       forceSet: 'string',
       ownerId: 'number',
       SSLPri: 'string',

@@ -10,7 +10,7 @@ export class KickLiveMessageGroupUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * coims-****
+   * demo
    */
   appId?: string;
   /**

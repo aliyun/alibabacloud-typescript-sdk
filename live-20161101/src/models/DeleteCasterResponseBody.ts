@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCasterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio. You can use the ID as a request parameter in the API operation that is used to add input sources, layouts, components, or an episode list to the production studio or query the layouts of the production studio.
+   * The ID of the production studio. This ID is used as a request parameter to add video resources, layouts, components, and program lists, or to query the layout list.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
@@ -13,7 +13,7 @@ export class DeleteCasterResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8

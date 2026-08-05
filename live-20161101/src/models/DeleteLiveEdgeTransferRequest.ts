@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveEdgeTransferRequest extends $dara.Model {
   /**
    * @remarks
-   * The ingest domain. You can set only one stream relay configuration for an ingest domain.
+   * The ingest domain. Each domain name has only one live stream relay configuration.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DeleteLiveEdgeTransferRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

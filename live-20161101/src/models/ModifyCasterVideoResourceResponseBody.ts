@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCasterVideoResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio. This parameter is used in the requests of the following operations: DescribeCasterVideoResources, AddCasterLayout, and DescribeCasterLayouts.
+   * The ID of the production studio. You can use this ID to query video sources, add layouts, or query layout lists for the production studio.
    * 
    * @example
    * LIVEPRODUCER_POST-cn-0pp1czt****
@@ -13,7 +13,7 @@ export class ModifyCasterVideoResourceResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CF60DB6A-7FD6-426E-9288-122CC1A52FA7
@@ -21,7 +21,7 @@ export class ModifyCasterVideoResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 98461064-1c94-4dc1-85ce-94098764****

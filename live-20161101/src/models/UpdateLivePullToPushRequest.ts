@@ -5,17 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePullToPushRequest extends $dara.Model {
   /**
    * @remarks
-   * The callback URL. By default, this parameter is left empty.
-   * 
-   * > 
-   * 
-   * *   The URL is used to receive callbacks related to the task.
-   * 
-   * *   The URL can be up to 2,000 characters in length.
-   * 
-   * *   If you do not specify this parameter, no callbacks are returned for events related to the task.
-   * 
-   * *   The update takes effect for subsequent events that occur.
+   * The callback URL. Default value: empty.
+   * > - The URL that receives task-related callbacks.
+   * > - Maximum length: 2000 characters.
+   * > - If this parameter is not specified, task events are not sent as callbacks.
+   * > - The update takes effect when the next event is triggered.
    * 
    * @example
    * https://callback*****.com
@@ -24,18 +18,10 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the task.
-   * 
-   * > 
-   * 
-   * *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-   * 
-   * *   The end time must be later than the start time.
-   * 
-   * *   The end time must be later than the current time.
-   * 
-   * *   If the task has ended, the update does not take effect.
+   * > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * > - EndTime must be later than StartTime.
+   * > - EndTime must be later than the current time.
+   * > - If the task has already ended, this update does not take effect.
    * 
    * @example
    * 2024-08-27T14:30:00Z
@@ -43,9 +29,8 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The file index. Default value: 0.
-   * 
-   * >  You can modify this parameter only if the task is stopped. The update takes effect after you restart the task.
+   * The video index. Default value: 0.
+   * > Update this parameter while the task is stopped. The update takes effect after the task is restarted.
    * 
    * @example
    * 0
@@ -53,17 +38,11 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   fileIndex?: number;
   /**
    * @remarks
-   * The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
-   * 
-   * > 
-   * 
-   * *   This parameter indicates an offset from the first frame.
-   * 
-   * *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-   * 
-   * *   The update takes effect only for the first video in a video list.
-   * 
-   * *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
+   * The start offset of the video file, in seconds. The value must be greater than 0.
+   * > - Specifies the position relative to the first frame from which to start reading.
+   * > - This parameter applies only to video-on-demand or third-party video streams.
+   * > - This parameter takes effect only when the first video in the playlist is played.
+   * > - Update this parameter while the task is stopped. The update takes effect after the task is restarted.
    * 
    * @example
    * 2
@@ -72,12 +51,12 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the task is started. Valid values:
+   * The region where the task is launched. Valid values:
    * 
-   * *   ap-southeast-1: Singapore
-   * *   ap-southeast-5: Indonesia (Jakarta)
-   * *   cn-beijing: China (Beijing)
-   * *   cn-shanghai: China (Shanghai)
+   * - ap-southeast-1 (Singapore)
+   * - ap-southeast-5 (Indonesia)
+   * - cn-beijing (Beijing)
+   * - cn-shanghai (Shanghai).
    * 
    * This parameter is required.
    * 
@@ -85,20 +64,24 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   /**
    * @remarks
-   * The number of playbacks after the first playback is complete. Valid values:
+   * The number of times playback repeats after the playlist finishes. Valid values:
    * 
-   * *   0 (default): specifies that the video list is played only once.
-   * *   \\-1: specifies that the video list is played in loop mode.
-   * *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
+   * - 0 (default): no repeat.
+   * - -1: loop indefinitely.
+   * - Other positive integers: the number of times playback repeats after the playlist finishes.
    * 
-   * > 
-   * 
-   * *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-   * 
-   * *   The update can take effect immediately.
+   * > - This parameter applies only to video-on-demand or third-party video streams.
+   * > - The update takes effect immediately.
    * 
    * @example
    * 0
@@ -106,23 +89,15 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   repeatNumber?: number;
   /**
    * @remarks
-   * The source URLs.
+   * The list of source stream URLs.
    * 
-   * > 
-   * 
-   * *   If SourceType is set to live, you can specify only one streaming URL.
-   * 
-   * *   If SourceType is set to vod or url, you can specify up to 30 IDs or URLs.
-   * 
-   * *   If SourceType is set to live, the supported protocols for URLs are Real-Time Messaging Protocol (RTMP), Real-Time Streaming Protocol (RTSP), Secure Reliable Transport Protocol (SRT), and HTTP-FLV.
-   * 
-   * *   If SourceType is set to vod, specify the IDs of media assets from ApsaraVideo VOD.
-   * 
-   * *   If SourceType is set to url, the supported protocols for URLs are MP4 and HTTP-FLV.
-   * 
-   * *   If the source is a live stream, the update takes effect immediately. If the source is a list of video resources from ApsaraVideo VOD or a third party, the update does not take effect until the playback of the current video ends. After the update takes effect, the video list starts to play from the beginning.
-   * 
-   * *   You can modify this parameter only if the task is stopped. The update takes effect immediately.
+   * > - For the live type, only one complete live streaming URL is supported.
+   * > - For the vod and url types, up to 30 URLs can be specified.
+   * > - The live type supports RTMP, SRT, and HTTP-FLV protocols.
+   * > - For the vod type, specify ApsaraVideo VOD media asset IDs.
+   * > - The url type supports MP4 and HTTP-FLV protocols.
+   * > - For live source streams, the update takes effect immediately. For video file source streams, the update takes effect after the currently playing video ends, and playback restarts from the beginning of the updated video list.
+   * > - Update this parameter while the task is stopped. The update takes effect after the task is restarted.
    * 
    * @example
    * changedtesturl
@@ -131,14 +106,8 @@ export class UpdateLivePullToPushRequest extends $dara.Model {
   /**
    * @remarks
    * The start time of the task.
-   * 
-   * > 
-   * 
-   * *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-   * 
-   * *   If the task has already started, the update does not take effect.
+   * > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+   * > - If the task has already started running, this update does not take effect.
    * 
    * @example
    * 2024-08-23T15:30:00Z

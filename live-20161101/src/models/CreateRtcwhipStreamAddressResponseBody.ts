@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRTCWhipStreamAddressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 58E7**D4-xxxx-xxxx-xxxx-6B5**6Cxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The WHIP protocol URL.
+   * 
    * @example
    * https://xxxxxx.media-sh.xxxxx.com/xxxxxxxxxxxx/3723a3xxxxxxxxx223c606b***5f7a2bc7c56ea5cdd0xxxxe?auth_key=17495xxxxx-xxxx-0-f013003067c78c4053f9cd0xxxxxxx&qqzr=H4sIAAAAAAAC_6pWSlayUkrOMxxxxxxrPyCxQ0lFKQTCLlKyUjM2Nj**NDQ1TEy2Mjc3xxxxxxxxxxqRYAAAD__xxxxx__xxxxxxxx
    */

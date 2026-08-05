@@ -5,15 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoShowListTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio for which you want to query scheduled tasks.
+   * The ID of the production studio whose scheduled tasks you want to query.
    * 
-   * >  If the scheduled tasks were created by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, check the value of the response parameter CasterId to obtain the ID. If you do not specify this parameter, the system queries all the scheduled tasks that belong to the user specified by the OwnerId parameter.
+   * > If you create a scheduled task by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, use the CasterId value returned by that operation. If you leave this parameter empty, all scheduled tasks under your account are queried by default.
    * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97****
    */
   casterId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

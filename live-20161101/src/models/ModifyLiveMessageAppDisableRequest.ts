@@ -10,7 +10,7 @@ export class ModifyLiveMessageAppDisableRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ab6b5740****
+   * demo
    */
   appId?: string;
   /**

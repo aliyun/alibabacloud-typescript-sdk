@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyLiveDomainOwnerRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which you want to verify the ownership. You can specify only one domain name in each request.
+   * The domain name to verify. Only one domain name can be verified at a time.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,21 @@ export class VerifyLiveDomainOwnerRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
    * The verification method. Valid values:
    * 
-   * *   dnsCheck: DNS record verification
-   * *   fileCheck: file verification
+   * - dnsCheck: DNS record verification
+   * 
+   * - fileCheck: file verification
    * 
    * This parameter is required.
    * 

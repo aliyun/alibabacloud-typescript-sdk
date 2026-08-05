@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartCasterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EBD1AC4-C34D-4AE1-963E-B688A228BE31

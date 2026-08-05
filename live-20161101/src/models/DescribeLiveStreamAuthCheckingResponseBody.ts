@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamAuthCheckingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error message for failed authentication.
+   * The error message returned if authentication failed.
    * 
    * @example
    * INVALID AUTH_KEY
@@ -21,10 +21,11 @@ export class DescribeLiveStreamAuthCheckingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the signed URL is valid. Valid values:
+   * Indicates whether the authentication is passed.
    * 
-   * *   pass: valid.
-   * *   false: invalid.
+   * - pass: The authentication is passed.
+   * 
+   * - false: The authentication failed.
    * 
    * @example
    * pass

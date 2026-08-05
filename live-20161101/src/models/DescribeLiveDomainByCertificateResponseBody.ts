@@ -79,7 +79,7 @@ export class DescribeLiveDomainByCertificateResponseBody extends $dara.Model {
   certInfos?: DescribeLiveDomainByCertificateResponseBodyCertInfos;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ASAF2FDS-12SADSA-DDSAE3D-DSADCD4C-CDADS2D

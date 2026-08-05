@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddCasterEpisodeGroupContentRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A client-generated token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * > The client generates this value. Make sure that the value is unique among different requests. The value can be up to 64 ASCII characters in length.
    * 
    * This parameter is required.
    * 
@@ -17,30 +17,40 @@ export class AddCasterEpisodeGroupContentRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The information about the episode list. The value is a JSON string. Use upper camel case for fields of the string. This parameter contains the following fields:
+   * The properties of the episode in the production studio. This parameter is a JSON string. The parameter names are in upper camel case. The properties are described as follows:
    * 
-   * *   **CallbackUrl**: the callback URL.
+   * - **CallbackUrl**: The webhook address.
    * 
-   * *   **SideOutputUrl**: the custom standby URL.
+   * - **SideOutputUrl**: The custom bypass output URL.
    * 
-   * *   **RepeatNum**: the number of times the episode list repeats after the first playback is complete. A value of 0 indicates that the episode list is played only once. A value of -1 indicates that the episode list is played in loop mode.
+   * - **RepeatNum**: The number of times to loop the episode. A value of 0 means the episode does not loop. A value of -1 means the episode loops indefinitely.
    * 
-   * *   **DomainName**: the domain name.
+   * - **StartTime**: The start time in UTC. The format is *yyyy-MM-dd*T*HH:mm:ss*Z.
    * 
-   * *   **StartTime**: the time when the episode list starts to play. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * - **DomainName**: The domain name.
    * 
-   * *   **Items**: the information about the episode list. It is an array of ItemName and VodUrl.
+   * - **Items**
    * 
-   *     *   **ItemName**: the name of the episode.
-   *     *   **VodUrl**: the URL of the VOD file. This field takes effect only when the video resource is a video file that is not from the media library. The video file must be in the MP4, FLV, or TS format.
+   *   : The list of items in the episode.
+   * 
+   *   - **ItemName**: The item name.
+   * 
+   *   - **VodUrl**: The URL of the video-on-demand (VOD) file. This parameter is required only when the resource is a video file that has not been imported to the Material Library. The MP4, FLV, and TS formats are supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * CallbackUrl
+   * {"CallbackUrl":"http://example.aliyundoc.com/callBackLive","SideOutputUrl":"rtmp://guide.aliyundoc.com/caster/4a82a3d1b7f0462ea37348366201****?auth_key=1608953344-0-0-ac8c628078541d7055a170ec59a5****","DomainName":"developer.aliyundoc.com ","StartTime":"2018-03-26T16:00:00Z","RepeatNum":-1,"Items":[{"ItemName":"program1","VodUrl":"http://learn.aliyundoc.com"},{"ItemName":"program2","VodUrl":"http://demo.aliyundoc.com"}]}
    */
   content?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

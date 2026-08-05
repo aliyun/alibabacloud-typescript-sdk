@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRecordConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeLiveRecordConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The name of the main streaming domain.
+   * The streamer\\"s streaming domain.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,9 @@ export class DescribeLiveRecordConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted based on creation time. Valid values:
-   * 
-   * *   **asc** (default): ascending order
-   * *   **desc**: descending order
+   * The order in which entries are sorted by creation time. Valid values:
+   * - **asc** (default): ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * asc
@@ -43,7 +42,7 @@ export class DescribeLiveRecordConfigRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **5 to 30**. Default value: **10**.
+   * The number of entries per page. Default value: **10**. Valid values: **5 to 30**.
    * 
    * @example
    * 5
@@ -52,7 +51,7 @@ export class DescribeLiveRecordConfigRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * @example
    * liveStream****

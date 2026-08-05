@@ -15,9 +15,9 @@ export class SetLiveStreamDelayConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The latency of FLV-based playback. Unit: seconds.
+   * The FLV playback latency. Unit: seconds.
    * 
-   * >  If this parameter is left empty, the latency is set to a value corresponding to the FlvLevel parameter.
+   * > If this parameter is left empty, the latency is set based on the value of FlvLevel.
    * 
    * @example
    * 8
@@ -25,15 +25,17 @@ export class SetLiveStreamDelayConfigRequest extends $dara.Model {
   flvDelay?: number;
   /**
    * @remarks
-   * The latency level of FLV-based playback. Ignore this parameter if the FlvDelay parameter is configured.
+   * The FLV latency level. This parameter is ignored if FlvDelay is set.
    * 
    * Valid values:
    * 
-   * *   **short** (default): The latency is 4 seconds.
-   * *   **medium**: The latency is 8 seconds.
-   * *   **long**: The latency is 16 seconds.
+   * - **short** (default): 2 seconds.
    * 
-   * >  If both the FlvDelay and FlvLevel parameters are left empty, FlvLevel is set to **short** by default.
+   * - **medium**: 4 seconds.
+   * 
+   * - **long**: more than 4 seconds.
+   * 
+   * > If both FlvDelay and FlvLevel are left empty, the default value **short** is used.
    * 
    * @example
    * medium
@@ -41,9 +43,9 @@ export class SetLiveStreamDelayConfigRequest extends $dara.Model {
   flvLevel?: string;
   /**
    * @remarks
-   * The latency of HLS-based playback. Unit: seconds.
+   * The HLS playback latency. Unit: seconds.
    * 
-   * >  If this parameter is left empty, the latency is set to a value corresponding to the HlsLevel parameter.
+   * > If this parameter is left empty, the latency is set based on the value of HlsLevel.
    * 
    * @example
    * 4
@@ -51,27 +53,36 @@ export class SetLiveStreamDelayConfigRequest extends $dara.Model {
   hlsDelay?: number;
   /**
    * @remarks
-   * The latency level of HLS-based playback. Ignore this parameter if the HlsDelay parameter is configured.
+   * The HLS latency level. This parameter is ignored if HlsDelay is set.
    * 
    * Valid values:
    * 
-   * *   **short**: The latency is 3 seconds. This is the default value.
-   * *   **medium**: The latency is 6 seconds.
-   * *   **long**: The latency is 15 seconds.
+   * - **short** (default): 3 seconds.
    * 
-   * >  If both the HlsDelay and HlsLevel parameters are left empty, HlsLevel is set to **short** by default.
+   * - **medium**: 6 seconds.
+   * 
+   * - **long**: 15 seconds.
+   * 
+   * > If both HlsDelay and HlsLevel are left empty, the default value **short** is used.
    * 
    * @example
    * short
    */
   hlsLevel?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The latency of RTMP-based playback. Unit: seconds.
+   * The RTMP playback latency. Unit: seconds.
    * 
-   * >  If this parameter is left empty, the latency is set to a value corresponding to the RtmpLevel parameter.
+   * > If this parameter is left empty, the latency is set based on the value of RtmpLevel.
    * 
    * @example
    * 4
@@ -79,15 +90,17 @@ export class SetLiveStreamDelayConfigRequest extends $dara.Model {
   rtmpDelay?: number;
   /**
    * @remarks
-   * The latency level of RTMP-based playback. Ignore this parameter if the RtmpDelay parameter is configured.
+   * The RTMP latency level. This parameter is ignored if RtmpDelay is set.
    * 
    * Valid values:
    * 
-   * *   **short** (default): The latency is 4 seconds.
-   * *   **medium**: The latency is 8 seconds.
-   * *   **long**: The latency is 16 seconds.
+   * - **short** (default): 2 seconds.
    * 
-   * >  If both the RtmpDelay and RtmpLevel parameters are left empty, RtmpLevel is set to **short** by default.
+   * - **medium**: 4 seconds.
+   * 
+   * - **long**: more than 4 seconds.
+   * 
+   * > If both RtmpDelay and RtmpLevel are left empty, the default value **short** is used.
    * 
    * @example
    * short

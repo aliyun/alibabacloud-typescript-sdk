@@ -6,9 +6,8 @@ export class DeleteLivePrivateLineRequest extends $dara.Model {
   /**
    * @remarks
    * The acceleration type. Valid values:
-   * 
-   * *   play: streaming acceleration
-   * *   publish: stream ingest acceleration
+   * - play: streaming acceleration.
+   * - publish: stream ingest acceleration.
    * 
    * This parameter is required.
    * 
@@ -18,7 +17,7 @@ export class DeleteLivePrivateLineRequest extends $dara.Model {
   accelerationType?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -37,10 +36,17 @@ export class DeleteLivePrivateLineRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The live stream name.
    * 
    * This parameter is required.
    * 

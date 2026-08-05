@@ -69,7 +69,7 @@ export class DescribeLiveDomainRecordUsageDataResponseBodyRecordUsageData extend
 export class DescribeLiveDomainRecordUsageDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which data was queried.
+   * The end time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-05-10T21:00:00Z
@@ -86,7 +86,7 @@ export class DescribeLiveDomainRecordUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which data was queried.
+   * The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2021-05-10T20:00:00Z

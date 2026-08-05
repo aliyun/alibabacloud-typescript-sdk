@@ -13,10 +13,10 @@ export class CreateLiveStreamMonitorResponseBody extends $dara.Model {
   monitorId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 5c6a2a0d-f228-4a64-af62-20e91b9676b3
+   * 5c6a2a0d-f228-4a64-af62-20e91b96****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

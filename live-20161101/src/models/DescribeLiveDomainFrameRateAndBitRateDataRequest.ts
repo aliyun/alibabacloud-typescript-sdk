@@ -7,6 +7,8 @@ export class DescribeLiveDomainFrameRateAndBitRateDataRequest extends $dara.Mode
    * @remarks
    * The ingest domain.
    * 
+   * > Make sure that the domain name added to ApsaraVideo Live and that you have the permissions to manage the domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,7 +18,7 @@ export class DescribeLiveDomainFrameRateAndBitRateDataRequest extends $dara.Mode
   ownerId?: number;
   /**
    * @remarks
-   * The point of time to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The time to query. The time is in UTC. Format: *yyyy-MM-dd*T*HH:mm:ss*Z.
    * 
    * This parameter is required.
    * 
@@ -24,6 +26,13 @@ export class DescribeLiveDomainFrameRateAndBitRateDataRequest extends $dara.Mode
    * 2019-02-21T08:00:00Z
    */
   queryTime?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -116,10 +116,11 @@ export class DescribeCasterProgramResponseBody extends $dara.Model {
   episodes?: DescribeCasterProgramResponseBodyEpisodes;
   /**
    * @remarks
-   * Indicates whether carousel playback is enabled.
+   * Indicates whether the program list is enabled.
    * 
-   * *   **0**: Carousel playback is disabled.
-   * *   **1**: Carousel playback is enabled.
+   * - **0**: disabled
+   * 
+   * - **1**: enabled
    * 
    * @example
    * 1
@@ -127,7 +128,7 @@ export class DescribeCasterProgramResponseBody extends $dara.Model {
   programEffect?: number;
   /**
    * @remarks
-   * The name of the episode list.
+   * The name of the program list.
    * 
    * @example
    * programs_name
@@ -143,7 +144,7 @@ export class DescribeCasterProgramResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

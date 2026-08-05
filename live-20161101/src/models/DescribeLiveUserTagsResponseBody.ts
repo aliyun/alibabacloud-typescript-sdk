@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveUserTagsResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class DescribeLiveUserTagsResponseBodyTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeLiveUserTagsResponseBodyTags extends $dara.Model {
 export class DescribeLiveUserTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6B0256B6-2442-5BEF-B8D6-A0C28A801DFC

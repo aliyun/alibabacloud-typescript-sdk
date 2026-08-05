@@ -13,12 +13,13 @@ export class InitializeAutoShowListTaskRequest extends $dara.Model {
   callBackUrl?: string;
   /**
    * @remarks
-   * The configurations of the production studio. The following configurations are involved:
+   * The production studio configuration. This includes:
    * 
-   * *   CasterTemplate: required. The output resolution.
-   * *   LiveTemplate: optional. The templates to be used for transcoding.
+   * - (Required) CasterTemplate: the output resolution of the production studio.
    * 
-   * >  Set the value to a JSON string. Use upper camel case for fields of the string.
+   * - (Optional) LiveTemplate: the list of output transcoding tasks.
+   * 
+   * >A JSON-formatted string. Use upper camel case (PascalCase) for the field names within the struct.
    * 
    * This parameter is required.
    * 
@@ -47,14 +48,20 @@ export class InitializeAutoShowListTaskRequest extends $dara.Model {
    */
   endTime?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The IDs of on-demand media asset files in the playlist. Only on-demand video files are supported. You can specify up to three video files in the playlist. The video files in the playlist are automatically played in sequence. The playback stops at the point in time specified by the EndTime parameter.
+   * The list of video-on-demand media asset file IDs in the playlist. Currently, only MP4 video files from the video-on-demand platform are supported.
    * 
-   * > 
-   * 
-   * *   You can obtain the ID of a video file in the ApsaraVideo Live console or by calling an API operation. For more information, see [Media asset management](https://help.aliyun.com/document_detail/86057.html) or [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html). - If the video files are all played before the time specified by EndTime, the final frame of the final video file is played until the time specified by EndTime arrives.
+   * A maximum of three programs are supported. Each program is played in the order of the list until EndTime, at which point playback automatically ends. This parameter is required. If it is missing, a MissingParameter error is returned.
+   * >- You can obtain the video file ID from the console or from the response parameters of an API operation. For more information, see [Media asset management](https://help.aliyun.com/document_detail/86057.html) or [Obtain the upload URL and credential for audio and video files](https://help.aliyun.com/document_detail/55407.html).- If all programs finish playing before EndTime, the last frame of the last program is displayed until the scheduled end time.
    * 
    * @example
    * ["89e02xxxxfb349axxxxa0c350d****  ","6ae0xxxxxb349axxxxa0c350a****"]

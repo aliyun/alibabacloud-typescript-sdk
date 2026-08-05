@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLiveStreamWatermarkRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
    * The ID of the watermark template.
    * 
-   * >  You can obtain the template ID by checking the value of the TemplateId parameter that is returned by the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/410759.html) operation.
+   * > The template ID is returned in the response of the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData extends $dara.Model {
   /**
    * @remarks
-   * The time elapsed from initialization to connection establishment.
+   * The time elapsed from successful initialization to successful connection establishment.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData ex
   connected?: string;
   /**
    * @remarks
-   * The time elapsed from connection establishment to subscription.
+   * The time elapsed from successful connection establishment to successful subscription.
    * 
    * @example
    * 89
@@ -21,7 +21,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData ex
   finishGetStreamInfo?: string;
   /**
    * @remarks
-   * The time elapsed from first packet processing to display of the first frame.
+   * The time elapsed from receiving the first packet to rendering the first frame.
    * 
    * @example
    * 32
@@ -29,7 +29,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData ex
   firstFrameComplete?: string;
   /**
    * @remarks
-   * The time elapsed from subscription to first packet processing.
+   * The time elapsed from successful subscription to receiving the first packet.
    * 
    * @example
    * 132
@@ -37,7 +37,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData ex
   firstPacket?: string;
   /**
    * @remarks
-   * The time consumed by initialization.
+   * The initialization duration.
    * 
    * @example
    * 1100
@@ -45,7 +45,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData ex
   initialized?: string;
   /**
    * @remarks
-   * The timestamp of the returned data.
+   * The start time of the time interval. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z
@@ -93,7 +93,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBody extends $dara.Model 
   dataInterval?: string;
   /**
    * @remarks
-   * The end of the time range for which the data was queried.
+   * The end time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T21:00:00Z
@@ -101,12 +101,12 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBody extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The average latency of first frames at each interval. Unit: milliseconds.
+   * The average first frame latency composition for each time interval. Unit: milliseconds.
    */
   firstFrameCostData?: DescribeRTSNativeSDKFirstFrameCostResponseBodyFirstFrameCostData[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id
    * 
    * @example
    * BC858082-736F-4A25-867B-E5B67C85ACF7
@@ -114,7 +114,7 @@ export class DescribeRTSNativeSDKFirstFrameCostResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for which the data was queried.
+   * The start time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z

@@ -15,7 +15,7 @@ export class CreateEdgeTranscodeJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The task name. The name can contain letters, digits, hyphens (-), and underscores (_). The name must be 255 characters in length.
+   * The job name. The name can contain Chinese characters, letters, digits, hyphens (-), and underscores (_). The name can be up to 255 characters in length.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class CreateEdgeTranscodeJobRequest extends $dara.Model {
    */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

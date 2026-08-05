@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamTranscodeMetricDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * app
@@ -13,7 +13,7 @@ export class DescribeLiveStreamTranscodeMetricDataRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The domain name. You can specify only one domain name in each request.
+   * The domain name. Only a single domain name can be queried at a time.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeLiveStreamTranscodeMetricDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -33,19 +33,26 @@ export class DescribeLiveStreamTranscodeMetricDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * A pagination token. When you call this operation, up to 5,000 rows of data can be returned per query. If the number of rows exceeds 5,000, the response includes a pagination token that is used in the next request to retrieve a new page of results.
+   * The paged query token. Each query returns a maximum of 5,000 rows of data. If the data to be queried exceeds 5,000 rows, the response provides the start index for the next query.
    * 
-   * When you specify the token in the next query, data continues to be obtained from the end of the previous query.
+   * Pass this token in the request to continue querying data from the row after the last row returned in the previous query. This token is used for paging.
    * 
    * @example
    * UjsM9x3aVcJi9a0-ArwJUTTC67C***37C0=
    */
   nextPageToken?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * This parameter is required.
    * 
@@ -55,7 +62,7 @@ export class DescribeLiveStreamTranscodeMetricDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the stream.
+   * The stream name.
    * 
    * @example
    * stream

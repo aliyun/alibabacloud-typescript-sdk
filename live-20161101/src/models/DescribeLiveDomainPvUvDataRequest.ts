@@ -7,6 +7,8 @@ export class DescribeLiveDomainPvUvDataRequest extends $dara.Model {
    * @remarks
    * The streaming domain.
    * 
+   * > - Make sure that the specified domain name is a streaming domain and that you have the required permissions to operate on it.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,17 +17,24 @@ export class DescribeLiveDomainPvUvDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+   * The end time. The time must be later than the start time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
    * 
    * @example
    * 2018-03-20T16:00:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ssZ* format. The time must be in UTC.
+   * The start time. The format is *yyyy-MM-dd*T*HH:mm:ssZ* (UTC).
    * 
    * @example
    * 2018-03-17T16:00:00Z

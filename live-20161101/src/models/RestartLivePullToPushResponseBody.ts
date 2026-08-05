@@ -13,7 +13,7 @@ export class RestartLivePullToPushResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The new task ID.
+   * The node ID returned when you create task.
    * 
    * @example
    * fb0d4ac7-c7e3-4978-9743-0bf2f6e8****

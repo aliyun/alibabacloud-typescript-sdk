@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCasterEpisodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio. You can specify the ID as a parameter in the request to modify the episode in the production studio.
+   * The production studio ID. You can use this ID as a request parameter to modify the episode.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
@@ -13,7 +13,7 @@ export class DeleteCasterEpisodeResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The ID of the episode. You can specify the ID as a parameter in the request to modify the episode in the production studio.
+   * The episode ID. You can use this ID as a request parameter to modify the episode.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf932738****

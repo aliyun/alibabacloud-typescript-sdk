@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveAISubtitleRequest extends $dara.Model {
   /**
    * @remarks
-   * The background color of the subtitles. Color format: RGBA.
+   * The background color of the subtitle. The value is in RGBA format.
    * 
    * @example
    * 0xFF0000
@@ -13,7 +13,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   bgColor?: string;
   /**
    * @remarks
-   * The size of the background box. Valid values: [0,1].
+   * The background size of the subtitle. Valid values: [0, 1].
    * 
    * @example
    * 0.09
@@ -21,7 +21,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   bgWidthNormalized?: number;
   /**
    * @remarks
-   * The font weight. Valid values: [0,1].
+   * The font weight. Valid values: [0, 1].
    * 
    * @example
    * 0.05
@@ -29,7 +29,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   borderWidthNormalized?: number;
   /**
    * @remarks
-   * The description of the subtitle template. The description can be up to 128 characters in length and can contain letters, digits, and special characters.
+   * The custom description of the subtitle. The description can contain Chinese characters, letters, digits, and special characters, and cannot exceed 128 characters in length.
    * 
    * @example
    * live AI subtitle template
@@ -37,12 +37,11 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The target language. Valid values:
-   * 
-   * *   en-US: English
-   * *   zh-CN: Chinese
-   * *   es-ES: Spanish
-   * *   ru-RU: Russian
+   * The target language for translation. Valid values:
+   * - en-US: English
+   * - zh-CN: Chinese
+   * - es-ES: Spanish
+   * - ru-RU: Russian.
    * 
    * @example
    * zh-CN
@@ -50,7 +49,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   dstLanguage?: string;
   /**
    * @remarks
-   * The font color. Color format: RGBA.
+   * The font color. The value is in RGBA format.
    * 
    * @example
    * 0xFFFFFF
@@ -59,14 +58,13 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   /**
    * @remarks
    * The font. Valid values:
-   * 
-   * *   KaiTi (default)
-   * *   AlibabaPuHuiTi-Regular
-   * *   AlibabaPuHuiTi-Bold
-   * *   AlibabaPuHuiTi-Light
-   * *   NotoSansHans-Regular
-   * *   NotoSansHans-Bold
-   * *   NotoSansHans-Light
+   * - KaiTi: KaiTi (default)
+   * - AlibabaPuHuiTi-Regular: Alibaba PuHuiTi Regular
+   * - AlibabaPuHuiTi-Bold: Alibaba PuHuiTi Bold
+   * - AlibabaPuHuiTi-Light: Alibaba PuHuiTi Light
+   * - NotoSansHans-Regular: Noto Sans Hans Regular
+   * - NotoSansHans-Bold: Noto Sans Hans Bold
+   * - NotoSansHans-Light: Noto Sans Hans Light.
    * 
    * @example
    * KaiTi
@@ -74,7 +72,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   fontName?: string;
   /**
    * @remarks
-   * The font size. Valid values: [0,1].
+   * The font size. Valid values: [0, 1].
    * 
    * @example
    * 0.037
@@ -82,18 +80,17 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   fontSizeNormalized?: number;
   /**
    * @remarks
-   * The height of the preview. Unit: pixels.
+   * The height of the preview screen. Unit: px.
    * 
-   * The following preview specifications (width x height) are supported:
-   * 
-   * *   360p (640 x 360)
-   * *   360p (360 x 640)
-   * *   480p (854 x 480)
-   * *   480p (480 x 854)
-   * *   720p (1280 x 720)
-   * *   720p (720 x 1280)
-   * *   1080p (1920 x 1080)
-   * *   1080p (1080 x 1920)
+   * The width × height of the preview screen supports only the following specifications:
+   * - Landscape low definition 360P: 640×360
+   * - Portrait low definition 360P: 360×640
+   * - Landscape standard definition 480P: 854×480
+   * - Portrait standard definition 480P: 480×854
+   * - Landscape high definition 720P: 1280×720
+   * - Portrait high definition 720P: 720×1280
+   * - Landscape ultra-high definition 1080P: 1920×1080
+   * - Portrait ultra-high definition 1080P: 1080×1920.
    * 
    * @example
    * 720
@@ -101,7 +98,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   height?: string;
   /**
    * @remarks
-   * The number of displayed lines.
+   * The number of lines to display.
    * 
    * @example
    * 2
@@ -110,13 +107,23 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The position of the subtitles relative to the lower-left corner of the screen. The value is a pair of coordinates.
+   * The position of the subtitle, specified as x and y coordinates with the bottom-left corner of the screen as the origin.
+   * 
+   * @example
+   * [0.32,0.27]
    */
   positionNormalized?: number[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to display the source language. Valid values: true and false. Default value: false.
+   * Specifies whether to display the source language. Default value: false.
    * 
    * @example
    * true
@@ -125,10 +132,9 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   /**
    * @remarks
    * The source language. Valid values:
-   * 
-   * *   en-US: English
-   * *   zh-CN: Chinese
-   * *   ru-RU: Russian
+   * - en-US: English
+   * - zh-CN: Chinese
+   * - ru-RU: Russian.
    * 
    * @example
    * zh-CN
@@ -146,7 +152,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   subtitleId?: string;
   /**
    * @remarks
-   * The name of the subtitle template. The name can contain digits, letters, and hyphens (-) but cannot start with a hyphen (-).
+   * The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
    * 
    * @example
    * live AI subtitle template
@@ -154,7 +160,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   subtitleName?: string;
   /**
    * @remarks
-   * The width of the preview. Unit: pixels.
+   * The width of the preview screen. Unit: px.
    * 
    * @example
    * 1280
@@ -162,7 +168,7 @@ export class UpdateLiveAISubtitleRequest extends $dara.Model {
   width?: string;
   /**
    * @remarks
-   * The number of characters per line. Valid values: 1 to 500.
+   * The number of characters per line. Valid values: integers in the range of [1, 500].
    * 
    * @example
    * 20

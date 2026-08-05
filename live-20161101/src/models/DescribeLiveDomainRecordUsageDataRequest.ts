@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainRecordUsageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain to query.
+   * The streaming domain name to query.
    * 
-   * *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-   * *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * - Supports single or batch domain queries. Separate multiple domain names with commas (,).
+   * - If this parameter is left empty, the merged data of all live streaming domain names is returned by default.
+   * - When you specify DomainName, make sure that the specified domain name is a live streaming domain name and that the caller has the required permissions on the domain name.
    * 
    * @example
    * example.com
@@ -16,10 +17,10 @@ export class DescribeLiveDomainRecordUsageDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. Value requirements:
+   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC. Requirements:
    * 
-   * *   The end time is later than the start time.
-   * *   The time range between the start time and end time is up to 31 days. If the time range is more than 31 days, the request fails and an error is reported.
+   * - The end time must be later than the start time (StartTime).
+   * - The maximum time span between the end time and the start time is 31 days. Requests that exceed 31 days fail and return an error.
    * 
    * @example
    * 2021-05-10T21:00:00Z
@@ -27,14 +28,17 @@ export class DescribeLiveDomainRecordUsageDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity of the query. Unit: seconds. Valid values:
+   * The time granularity of the queried data. Unit: seconds. Valid values:
    * 
-   * *   60
-   * *   300
-   * *   3600
-   * *   86400
+   * - 60.
    * 
-   * > If you do not specify this parameter or specify an invalid value: The time granularity of the query for a time range that is less than or equal to 31 days is 300 seconds by default. The time granularity of the query for a time range that is more than 31 days is 86400 seconds by default.
+   * - 300.
+   * 
+   * - 3600.
+   * 
+   * - 86400.
+   * 
+   * >If this parameter is not specified or an unsupported value is specified, the default time granularity is 300 seconds for query spans within 31 days and 86400 seconds for query spans longer than 31 days.
    * 
    * @example
    * 300
@@ -43,30 +47,44 @@ export class DescribeLiveDomainRecordUsageDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. Valid values:
+   * The region. Valid values:
    * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-qingdao**: China (Qingdao)
-   * *   **ap-southeast-1**: Singapore
-   * *   **eu-central-1**: Germany (Frankfurt)
-   * *   **ap-northeast-1**: Japan (Tokyo)
-   * *   **ap-southeast-5**: Indonesia (Jakarta)
+   * - **cn-beijing**: Beijing.
+   * 
+   * - **cn-shanghai**: Shanghai.
+   * 
+   * - **cn-shenzhen**: Shenzhen.
+   * 
+   * - **cn-qingdao**: Qingdao.
+   * 
+   * - **ap-southeast-1**: Singapore.
+   * 
+   * - **eu-central-1**: Germany.
+   * 
+   * - **ap-northeast-1**: Tokyo.
+   * 
+   * - **ap-southeast-5**: Jakarta.
    * 
    * @example
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The key that is used to group data. Valid values:
+   * The grouping key. Valid values:
    * 
-   * *   **domain**: groups results by domain name.
-   * *   **record_fmt**: groups results by recording type.
+   * - **domain**: groups query results by domain name.
+   * - **record_fmt**: groups query results by recording type.
    * 
-   * >  You can select one option or both. If you want to select both options, separate them with a comma (,). The default value is `domain,record_fmt`. If you leave this parameter empty or set the value to `null`, this parameter is ignored.
+   * > You can specify one or more values. Separate multiple values with commas (,). Default value: `domain,record_fmt`. If this parameter is set to empty or `null`, the results are not grouped by the preceding keys.
    * 
    * @example
    * domain,record_fmt
@@ -74,12 +92,12 @@ export class DescribeLiveDomainRecordUsageDataRequest extends $dara.Model {
   splitBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
-   * *   The minimum data granularity is 5 minutes.
-   * *   If you do not specify this parameter, the data in the last 24 hours is returned.
+   * - The minimum data granularity is 5 minutes.
+   * - If this parameter is not specified, data of the last 24 hours is returned by default.
    * 
-   * > The earliest start time that you can specify is 90 days back from the current time, accurate to seconds.
+   * >The start time can be set to a point in time within the last 90 days from the current time, accurate to the second.
    * 
    * @example
    * 2021-05-10T20:00:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveVerifyContentRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name. You can specify only one domain name.
+   * The domain name. Only one domain name is supported.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DescribeLiveVerifyContentRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

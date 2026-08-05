@@ -57,7 +57,7 @@ export class DescribeLiveDomainRealTimeTrafficDataResponseBodyRealTimeTrafficDat
 export class DescribeLiveDomainRealTimeTrafficDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between the entries returned. Unit: seconds
+   * The time interval between data points. Unit: second.
    * 
    * @example
    * 60
@@ -65,7 +65,7 @@ export class DescribeLiveDomainRealTimeTrafficDataResponseBody extends $dara.Mod
   dataInterval?: string;
   /**
    * @remarks
-   * The streaming domain.
+   * The streaming domain name.
    * 
    * @example
    * example.com,example.aliyundoc.com
@@ -73,7 +73,7 @@ export class DescribeLiveDomainRealTimeTrafficDataResponseBody extends $dara.Mod
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end of the time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
    * 
    * @example
    * 2015-12-10T15:01:00Z
@@ -90,7 +90,7 @@ export class DescribeLiveDomainRealTimeTrafficDataResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start of the time range. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is in UTC.
    * 
    * @example
    * 2015-12-10T15:00:00Z

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain of the production studio.
+   * The streaming domain name of the cloud producer studio.
    * 
-   * *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-   * *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * - Supports single or batch domain name queries. Separate multiple domain names with commas (,) for batch queries.
+   * - If this parameter is left empty, merged data of all live streaming domain names is returned by default.
    * 
    * @example
    * example.com
@@ -16,9 +16,9 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * >  The end time must be later than the start time.
+   * > The end time must be later than the start time.
    * 
    * @example
    * 2018-10-31T15:59:59Z
@@ -26,9 +26,9 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The production studio instance that you want to query. You can specify one or more production studio instances. Separate multiple instances with commas (,).
+   * The instance to query. Batch query is supported. Separate multiple instances with commas (,).
    * 
-   * >  If you do not set this parameter, the usage data of all production studio instances is returned.
+   * > If this parameter is left empty, merged data of all instances is returned by default.
    * 
    * @example
    * a17d0184-462d-4630-b2a6-8c26dde2****
@@ -36,7 +36,7 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The time granularity for a query. Valid values: 3600 and 86400. Unit: seconds.
+   * The time granularity of the queried data. Valid values: 3600 (1 hour) and 86400 (1 day). Unit: seconds.
    * 
    * @example
    * 3600
@@ -45,18 +45,26 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region in which the domain name resides. If you leave this parameter empty, the data of all regions is returned. You can specify multiple regions by separating them with commas (,).
+   * The region to which the domain name belongs. If this parameter is left empty, merged data of all regions is returned by default. Batch query is supported. Separate multiple regions with commas (,).
    * 
    * @example
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The key that is used to group data. You can specify one or more keys. Separate multiple keys with commas (,). Valid values: domain, region, instance, and type. The data for a key that you specify by using the SplitBy parameter is returned by group.
+   * The grouping key. You can specify one or more of the following: domain, region, instance, or type. Separate multiple values with commas (,). The specified fields will be grouped in the output.
    * 
-   * >  If you do not set this parameter, the aggregated data is returned.
+   * 
+   * > If this parameter is left empty, only aggregated data is returned.
    * 
    * @example
    * type
@@ -64,7 +72,7 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   splitBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2018-09-30T16:00:00Z
@@ -72,12 +80,13 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The type of the production studio. You can specify one or more production studio types. Separate multiple types with commas (,). Valid values:
+   * The producer type. Batch query is supported. Separate multiple types with commas (,). Valid values:
    * 
-   * *   **slidelive**: playlist-mode studio.
-   * *   **universal**: general studio.
+   * - **slidelive**: playlist-based.
    * 
-   * >  If you do not set this parameter, the usage data of all types of production studios is returned.
+   * - **universal**: general-purpose.
+   * 
+   * > If this parameter is left empty, merged data of all producer types is returned by default.
    * 
    * @example
    * slidelive
@@ -85,7 +94,7 @@ export class DescribeLiveProducerUsageDataRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****

@@ -8,7 +8,7 @@ export class DescribeLiveIpInfoResponseBody extends $dara.Model {
    * The Chinese name of the ISP.
    * 
    * @example
-   * ChinaTelecom
+   * 电信
    */
   ISP?: string;
   /**
@@ -21,15 +21,15 @@ export class DescribeLiveIpInfoResponseBody extends $dara.Model {
   ispEname?: string;
   /**
    * @remarks
-   * The Chinese name of the region.
+   * The Chinese name of the IP region.
    * 
    * @example
-   * China-Guizhou-guiyang
+   * 中国-贵州省-贵阳市
    */
   region?: string;
   /**
    * @remarks
-   * The English name of the region.
+   * The English name of the IP region.
    * 
    * @example
    * China-Guizhou-guiyang
@@ -37,7 +37,7 @@ export class DescribeLiveIpInfoResponseBody extends $dara.Model {
   regionEname?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1B1D0EE7-9559-489D-BC4E-279495EB8FB8

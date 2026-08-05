@@ -101,7 +101,7 @@ export class DescribeShowListResponseBodyShowListInfoShowList extends $dara.Mode
 export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   /**
    * @remarks
-   * The background of the episode list.
+   * The background of the playlist.
    * 
    * @example
    * {\\"MaterialId\\":\\"a2b8e671-2fe5-4642-a2ec-bf93880e****\\",\\"resourceType\\":\\"VOD\\"}
@@ -109,7 +109,7 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   background?: string;
   /**
    * @remarks
-   * The ID of the episode that is playing.
+   * The ID of the show that is being played.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
@@ -117,9 +117,9 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   currentShowId?: string;
   /**
    * @remarks
-   * The episode of the highest priority.
+   * The highest-priority show.
    * 
-   * > You can configure this parameter only before the episode list starts playing.
+   * > You can configure this parameter only before the playlist starts.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
@@ -127,9 +127,9 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   highPriorityShowId?: string;
   /**
    * @remarks
-   * The time at which the episode of the highest priority is played. Format: yyyy-MM-dd\\"T\\"HH:mm:ss.
+   * The time when the highest-priority show is played. The format is yyyy-MM-dd\\"T\\"HH:mm:ss.
    * 
-   * > You can configure this parameter only before the episode list starts playing. After you configure this parameter, when the specified point in time is reached, any episode that is playing stops and the episode of the highest priority in the episode list starts to play.
+   * > You can configure this parameter only before the playlist starts. After the configuration is complete, the system switches to the highest-priority show at the specified time.
    * 
    * @example
    * 2021-11-23T12:30:00
@@ -138,7 +138,7 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   showList?: DescribeShowListResponseBodyShowListInfoShowList;
   /**
    * @remarks
-   * The number of additional times the episode list is played by default. The value is 0.
+   * The default number of loops for the playlist. This value is always 0.
    * 
    * @example
    * 0
@@ -146,7 +146,7 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
   showListRepeatTimes?: number;
   /**
    * @remarks
-   * The number of additional times the episode list is played.
+   * The number of times the entire playlist is looped.
    * 
    * @example
    * 1
@@ -191,7 +191,7 @@ export class DescribeShowListResponseBodyShowListInfo extends $dara.Model {
 export class DescribeShowListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
@@ -199,9 +199,7 @@ export class DescribeShowListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ****Details of the episode list.
-   * 
-   * Show indicates the information about a specific episode. For more information, see the **Show** parameter.
+   * The details of the playlist. `Show` contains the details of a show in the playlist.
    * 
    * @example
    * ShowList[Show1, Show2, Show3...]
@@ -209,7 +207,7 @@ export class DescribeShowListResponseBody extends $dara.Model {
   showList?: string;
   /**
    * @remarks
-   * The information about the episode list.
+   * The playlist.
    */
   showListInfo?: DescribeShowListResponseBodyShowListInfo;
   static names(): { [key: string]: string } {

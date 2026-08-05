@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveAIProduceRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the live stream application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLiveAIProduceRulesRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DeleteLiveAIProduceRulesRequest extends $dara.Model {
    */
   domain?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the subtitle rule.
+   * The subtitle rule ID.
    * 
    * @example
    * 445409ec-7eaa-461d -8f29-4bec2eb9****
@@ -35,9 +42,8 @@ export class DeleteLiveAIProduceRulesRequest extends $dara.Model {
   rulesId?: string;
   /**
    * @remarks
-   * The suffix of the subtitle rule.
-   * 
-   * >  Set the value to the name of the subtitle template.
+   * The subtitle suffix. This parameter is required. Otherwise, the InvalidParameter error is returned.
+   * > Set this parameter to the value of SubtitleName that is specified in the subtitle template.
    * 
    * @example
    * et

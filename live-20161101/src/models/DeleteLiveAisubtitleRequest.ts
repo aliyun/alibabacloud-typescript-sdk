@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLiveAISubtitleRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the subtitle template.
+   * The ID of the caption template.
    * 
    * This parameter is required.
    * 
@@ -17,7 +24,7 @@ export class DeleteLiveAISubtitleRequest extends $dara.Model {
   subtitleId?: string;
   /**
    * @remarks
-   * The name of the subtitle template. The name can contain only digits, letters, and hyphens (-). The name cannot start with a hyphen.
+   * The name of the caption template. The name can contain only digits, letters, and hyphens (-). A hyphen cannot be the first character.
    * 
    * @example
    * sub01

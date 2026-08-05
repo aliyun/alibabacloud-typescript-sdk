@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveDelayConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,12 +24,19 @@ export class ListLiveDelayConfigRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 5 to 30. Default value: 10.
+   * The number of entries to return on each page. Valid values: 5 to 30. Default value: 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

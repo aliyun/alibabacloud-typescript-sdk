@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the application.
+   * The application configuration.
    */
   appConfig?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The ID of the interactive message application.
    * 
    * @example
    * VKL3***
@@ -18,7 +18,7 @@ export class GetMessageAppResponseBodyResult extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the interactive messaging application.
+   * The name of the interactive message application.
    * 
    * @example
    * testApp
@@ -26,7 +26,7 @@ export class GetMessageAppResponseBodyResult extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The time when the interactive messaging application was created. The time is displayed in UTC.
+   * The UTC timestamp when the application was created.
    * 
    * @example
    * 502280113
@@ -39,7 +39,7 @@ export class GetMessageAppResponseBodyResult extends $dara.Model {
   extension?: { [key: string]: string };
   /**
    * @remarks
-   * The status of the interactive message application. A value of 1 indicates that the application is normal.
+   * The status of the interactive message application. A value of 1 indicates that the application is in a normal state.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class GetMessageAppResponseBodyResult extends $dara.Model {
 export class GetMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -93,7 +93,7 @@ export class GetMessageAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result of the request.
    */
   result?: GetMessageAppResponseBodyResult;
   static names(): { [key: string]: string } {

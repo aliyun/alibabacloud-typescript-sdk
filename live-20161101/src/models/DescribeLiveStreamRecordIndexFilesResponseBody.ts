@@ -96,7 +96,7 @@ export class DescribeLiveStreamRecordIndexFilesResponseBodyRecordIndexInfoList e
 export class DescribeLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The sort order.
+   * The sorting order.
    * 
    * @example
    * asc

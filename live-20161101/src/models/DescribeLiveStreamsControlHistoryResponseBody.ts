@@ -64,7 +64,7 @@ export class DescribeLiveStreamsControlHistoryResponseBody extends $dara.Model {
   controlInfo?: DescribeLiveStreamsControlHistoryResponseBodyControlInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C31856F-386D-4DB3-BE79-A0AA493D702A

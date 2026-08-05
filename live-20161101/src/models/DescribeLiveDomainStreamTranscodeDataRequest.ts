@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainStreamTranscodeDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain to query.
+   * The streaming domain of the streamer to query.
    * 
-   * *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-   * *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * - You can query a single domain name or multiple domain names at a time. Separate multiple domain names with commas (,).
+   * - If this parameter is left empty, the merged data of all live streaming domain names is returned by default.
+   * - When you specify DomainName, make sure that the specified domain name is a live streaming domain name and that the user calling this operation has the permissions to operate on the specified domain name.
    * 
    * @example
    * example.com
@@ -16,7 +17,7 @@ export class DescribeLiveDomainStreamTranscodeDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * This parameter is required.
    * 
@@ -28,10 +29,10 @@ export class DescribeLiveDomainStreamTranscodeDataRequest extends $dara.Model {
    * @remarks
    * The time granularity of the query. Unit: seconds. Valid values:
    * 
-   * *   **3600**: 1 hour
-   * *   **86400**: 1 day
+   * - **3600**: by hour.
+   * - **86400**: by day.
    * 
-   * >  If you do not specify this parameter, the time granularity of 1 hour is used by default.
+   * > If this parameter is left empty, the default granularity is by hour.
    * 
    * @example
    * 3600
@@ -41,28 +42,34 @@ export class DescribeLiveDomainStreamTranscodeDataRequest extends $dara.Model {
   /**
    * @remarks
    * The time precision of the query. Valid values:
-   * 
-   * *   **min** (default): in minutes.
-   * *   **sec**: in seconds.
+   * - **min** (default): in minutes.
+   * - **sec**: in seconds.
    * 
    * @example
    * min
    */
   precision?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The key that is used to group data. Valid values:
+   * The grouping key. Valid values:
    * 
-   * *   **domain**: The DomainName parameter is available in the response only if Split is set to domain.
-   * *   **region**: The Region parameter is available in the response only if Split is set to region.
-   * *   **transcode_type**: The TanscodeType parameter is available in the response only if Split is set to transcode_type.
-   * *   **resolution**: The Resolution parameter is available in the response only if Split is set to resolution.
-   * *   **fps**: The Fps parameter is available in the response only if Split is set to fps.
+   * - **domain**: domain name. If the Split (grouping key) parameter is set to domain, the Domain response parameter takes effect.
+   * - **region**: live center region. If the Split (grouping key) parameter is set to region, the Region response parameter takes effect.
+   * - **transcode_type**: transcoding type. If the Split (grouping key) parameter is set to transcode_type, the TanscodeType response parameter takes effect.
+   * - **resolution**: resolution. If the Split (grouping key) parameter is set to resolution, the Resolution response parameter takes effect.
+   * - **fps**: frame rate. If the Split (grouping key) parameter is set to fps, the Fps response parameter takes effect.
    * 
-   * You can specify one or more keys. If you specify multiple keys, separate them with commas (,).
+   * You can specify one or more values. Separate multiple values with commas (,).
    * 
-   * Default value: `domain,region,transcode_type,resolution,fps`.
+   * Default value: `domain,region,transcode_type,resolution,fps`, which means all grouping keys are applied.
    * 
    * @example
    * domain
@@ -70,10 +77,10 @@ export class DescribeLiveDomainStreamTranscodeDataRequest extends $dara.Model {
   split?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
-   * *   The minimum query interval is 1 hour.
-   * *   If you do not set this parameter, the transcoding length for the last 24 hours is returned.
+   * - The minimum data time granularity is 1 hour.
+   * - If this parameter is left empty, data from the last 24 hours is read by default.
    * 
    * This parameter is required.
    * 

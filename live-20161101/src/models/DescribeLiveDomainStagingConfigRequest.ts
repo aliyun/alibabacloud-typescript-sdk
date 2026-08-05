@@ -15,7 +15,7 @@ export class DescribeLiveDomainStagingConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The feature that you want to query. Separate multiple features with commas (,).
+   * The names of the features. Separate multiple feature names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class DescribeLiveDomainStagingConfigRequest extends $dara.Model {
    */
   functionNames?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

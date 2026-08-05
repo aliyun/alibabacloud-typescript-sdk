@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveStreamWatermarkRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the custom rule.
+   * The custom description of the rule.
    * 
    * @example
    * my rule
@@ -13,19 +13,26 @@ export class UpdateLiveStreamWatermarkRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the custom rule.
+   * The custom name of the rule.
    * 
    * @example
    * WatermarkRule****
    */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
    * The ID of the watermark rule.
    * 
-   * >  You can obtain the rule ID by checking the value of the RuleId parameter that is returned by the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
+   * > Get the rule ID from the response of the [AddLiveStreamWatermarkRule](https://help.aliyun.com/document_detail/2848100.html) operation.
    * 
    * This parameter is required.
    * 
@@ -37,7 +44,7 @@ export class UpdateLiveStreamWatermarkRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the watermark template.
    * 
-   * >  You can obtain the template ID by checking the value of the TemplateId parameter that is returned by the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
+   * > Get the template ID from the response of the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9 ****

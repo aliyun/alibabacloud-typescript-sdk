@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMuteGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The ID of the interactive message application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListMuteGroupUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the messaging group.
+   * The ID of the message group.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListMuteGroupUserRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the user who performs the operation.
+   * The user ID of the operator. This user must be the creator of the group.
    * 
    * @example
    * de1**a0
@@ -43,7 +43,7 @@ export class ListMuteGroupUserRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Valid values: 1 to 50.
+   * The number of users to display on each page. Default value: 20. Valid values: 1 to 50.
    * 
    * This parameter is required.
    * 

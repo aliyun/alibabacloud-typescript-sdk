@@ -15,7 +15,7 @@ export class DeleteLiveMessageUserMessageRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The data center where the interactive messaging application is deployed. Set this parameter to the value of DataCenter that you specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2593195.html) operation. Valid values: cn-shanghai (Shanghai) and ap-southeast-1 (Singapore).
+   * The data center, which must be the same as the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Currently, Shanghai (cn-shanghai) and Singapore (ap-southeast-1) are supported.
    * 
    * @example
    * cn-shanghai
@@ -23,7 +23,7 @@ export class DeleteLiveMessageUserMessageRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The ID of the user who performs the deletion operation. The ID can contain only letters and digits and can be up to 64 bytes in length.
+   * The ID of the user who initiates the message deletion. The value consists of uppercase and lowercase letters and digits, and cannot exceed 64 bytes in length. This parameter is required in practice. If not specified, InputInvalid is returned.
    * 
    * @example
    * 169830****
@@ -31,7 +31,7 @@ export class DeleteLiveMessageUserMessageRequest extends $dara.Model {
   deleterId?: string;
   /**
    * @remarks
-   * The additional information about the user who performs the deletion operation. The value can be up to 512 bytes in length.
+   * The extended information of the user who initiates the message deletion. The value cannot exceed 512 bytes in length.
    * 
    * @example
    * username
@@ -39,7 +39,7 @@ export class DeleteLiveMessageUserMessageRequest extends $dara.Model {
   deleterInfo?: string;
   /**
    * @remarks
-   * The ID of the message that you want to delete. Set this parameter to the value of MsgTid that you specified when you called the SendLiveMessageUser operation. The ID can contain only letters and digits and can be up to 64 bytes in length.
+   * The ID of the message to be deleted, which corresponds to the MsgTid in the send message operation. The value consists of uppercase and lowercase letters and digits, and cannot exceed 64 bytes in length.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DeleteLiveMessageUserMessageRequest extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The ID of the user who received the message to delete. The ID can contain only letters and digits and can be up to 64 bytes in length.
+   * The ID of the user who receives the delete message notification. The value consists of uppercase and lowercase letters and digits, and cannot exceed 64 bytes in length.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigsFunctionArgs extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter.
+   * The name of the configuration parameter.
    * 
    * @example
    * auth_type
@@ -13,7 +13,7 @@ export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigsFunctionArg
   argName?: string;
   /**
    * @remarks
-   * The configured value.
+   * The value of the configuration parameter.
    * 
    * @example
    * req_auth
@@ -45,7 +45,7 @@ export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigsFunctionArg
 export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 6295
@@ -66,12 +66,15 @@ export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigs extends $d
   functionName?: string;
   /**
    * @remarks
-   * The configuration status. Valid values:
+   * The status of the configuration. Valid values:
    * 
-   * *   **success**
-   * *   **testing**
-   * *   **failed**
-   * *   **configuring**
+   * - **success**: Successful.
+   * 
+   * - **testing**: The configuration is being verified.
+   * 
+   * - **failed**: Failed.
+   * 
+   * - **configuring**: The configuration is in progress.
    * 
    * @example
    * success
@@ -110,12 +113,12 @@ export class DescribeLiveDomainStagingConfigResponseBodyDomainConfigs extends $d
 export class DescribeLiveDomainStagingConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The feature configurations of the accelerated domain name.
+   * The domain name configurations.
    */
   domainConfigs?: DescribeLiveDomainStagingConfigResponseBodyDomainConfigs[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C80705BF-0F76-41FA-BAD1-5B59296A4E59

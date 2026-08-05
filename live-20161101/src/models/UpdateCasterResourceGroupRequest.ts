@@ -24,6 +24,13 @@ export class UpdateCasterResourceGroupRequest extends $dara.Model {
    */
   newResourceGroupId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

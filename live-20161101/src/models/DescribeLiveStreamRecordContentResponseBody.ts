@@ -70,7 +70,7 @@ export class DescribeLiveStreamRecordContentResponseBody extends $dara.Model {
   recordContentInfoList?: DescribeLiveStreamRecordContentResponseBodyRecordContentInfoList;
   /**
    * @remarks
-   * The end of the time range to query. The time range that is specified by the StartTime and EndTime parameters cannot exceed 4 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The request ID.
    * 
    * @example
    * 62136AE6-7793-45ED-B14A-60D19A9486D3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveAIStudioRequestMattingLayout extends $dara.Model {
   /**
    * @remarks
-   * The normalized value of the height. The value indicates the ratio of the material height to the height of the background. Valid values: **0 to 1**.
+   * Normalized height value, which is the height ratio of the matted portrait to the background. Value range: **0~1**.
    * 
    * @example
    * 0.5
@@ -13,7 +13,7 @@ export class ModifyLiveAIStudioRequestMattingLayout extends $dara.Model {
   heightNormalized?: number;
   /**
    * @remarks
-   * The x-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * Position parameter, X coordinate. Value range: **0~1**. The material position uses the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class ModifyLiveAIStudioRequestMattingLayout extends $dara.Model {
   positionX?: number;
   /**
    * @remarks
-   * The y-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * Position parameter, Y coordinate. Value range: **0~1**. The material position uses the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class ModifyLiveAIStudioRequestMattingLayout extends $dara.Model {
 export class ModifyLiveAIStudioRequestMediaLayout extends $dara.Model {
   /**
    * @remarks
-   * The normalized value of the material height. The value indicates the ratio of the material height to the height of the background. Valid values: **0 to 1**.
+   * Normalized height value of the material, which is the height ratio of the material to the background. Value range: **0~1**.
    * 
    * @example
    * 0.5
@@ -63,7 +63,7 @@ export class ModifyLiveAIStudioRequestMediaLayout extends $dara.Model {
   heightNormalized?: number;
   /**
    * @remarks
-   * The x-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * Position parameter, X coordinate. Value range: **0~1**. The material position uses the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -71,7 +71,7 @@ export class ModifyLiveAIStudioRequestMediaLayout extends $dara.Model {
   positionX?: number;
   /**
    * @remarks
-   * The y-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * Position parameter, Y coordinate. Value range: **0~1**. The material position uses the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -105,7 +105,7 @@ export class ModifyLiveAIStudioRequestMediaLayout extends $dara.Model {
 export class ModifyLiveAIStudioRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the background material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
+   * VOD resource ID of the background material, obtained from the VOD console.
    * 
    * @example
    * d0eb493192c771efba644531858c0102
@@ -113,7 +113,7 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   backgroundResourceId?: string;
   /**
    * @remarks
-   * The URL of the background material.
+   * Resource access URL of the background material.
    * 
    * @example
    * https://xxx.com/2.mp4
@@ -121,11 +121,10 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   backgroundResourceUrl?: string;
   /**
    * @remarks
-   * The type of the background material. Valid values:
-   * 
-   * *   VOD: a video in ApsaraVideo VOD
-   * *   PIC: an image
-   * *   LIVE: a live stream
+   * Background material type:
+   * - VOD: Video on demand
+   * - PIC: Image
+   * - LIVE: Live stream
    * 
    * @example
    * VOD
@@ -133,7 +132,7 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   backgroundType?: string;
   /**
    * @remarks
-   * The custom description.
+   * Custom description.
    * 
    * @example
    * custom
@@ -141,18 +140,18 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The preview height. Unit: pixels.
+   * Preview screen height, unit: px.
    * 
-   * The following preview specifications (width × height) are supported:
+   * The preview screen width x height only supports the following specifications:
    * 
-   * *   Landscape low definition 360p (640×360)
-   * *   Portrait low definition 360p (360×640)
-   * *   Landscape standard definition 480p (854×480)
-   * *   Portrait standard definition 480p (480×854)
-   * *   Landscape high definition 720p (1280×720)
-   * *   Portrait high definition 720p (720×1280)
-   * *   Landscape ultra-high definition 1080p (1920×1080)
-   * *   Portrait ultra-high definition 1080p (1080×1920)
+   * - Landscape Smooth 360P 640x360
+   * - Portrait Smooth 360P 360x640
+   * - Landscape Standard Definition 480P 854x480
+   * - Portrait Standard Definition 480P 480x854
+   * - Landscape HD 720P 1280x720
+   * - Portrait HD 720P 720x1280
+   * - Landscape Full HD 1080P 1920x1080
+   * - Portrait Full HD 1080P 1080x1920
    * 
    * @example
    * 1080
@@ -160,18 +159,17 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The layout information of the chroma-keyed material.
+   * Layout position information of the source stream after matting.
    * 
    * This parameter is required.
    */
   mattingLayout?: ModifyLiveAIStudioRequestMattingLayout;
   /**
    * @remarks
-   * The type of chroma key. Valid values:
-   * 
-   * *   green: green-screen chroma key
-   * *   blue: blue-screen chroma key
-   * *   complex: background replacement
+   * Matting type:
+   * - green: Green screen matting
+   * - blue: Blue screen matting
+   * - complex: Real-scene matting
    * 
    * This parameter is required.
    * 
@@ -181,12 +179,12 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   mattingType?: string;
   /**
    * @remarks
-   * The layout information of the multimedia material.
+   * Layout position information of the multimedia material.
    */
   mediaLayout?: ModifyLiveAIStudioRequestMediaLayout;
   /**
    * @remarks
-   * The ID of the multimedia material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
+   * VOD resource ID of the multimedia material, obtained from the VOD console.
    * 
    * @example
    * d0eb493192c771efba644531858c01102
@@ -194,7 +192,7 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   mediaResourceId?: string;
   /**
    * @remarks
-   * The URL of the multimedia material. Specify either this parameter or the MediaResourceId parameter.
+   * Resource access URL of the multimedia material. Either this or the resource ID should be provided.
    * 
    * @example
    * https://xxx.com/1.mp4
@@ -202,21 +200,27 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   mediaResourceUrl?: string;
   /**
    * @remarks
-   * The type of the multimedia material. Valid values:
-   * 
-   * *   VOD: a video in ApsaraVideo VOD
-   * *   PIC: an image
-   * *   LIVE: a live stream
+   * Multimedia material type:
+   * - VOD: Video on demand
+   * - PIC: Image
+   * - LIVE: Live stream
    * 
    * @example
    * VOD
    */
   mediaType?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the virtual studio template. The name is the same as the value of the StudioName parameter that was specified when you called the CreateLiveAIStudio operation to create the virtual studio template.
+   * Virtual studio template name, same as the StudioName parameter in the create API.
    * 
    * This parameter is required.
    * 
@@ -226,7 +230,7 @@ export class ModifyLiveAIStudioRequest extends $dara.Model {
   studioName?: string;
   /**
    * @remarks
-   * The preview width. Unit: pixels.
+   * Preview screen width, unit: px.
    * 
    * @example
    * 1920

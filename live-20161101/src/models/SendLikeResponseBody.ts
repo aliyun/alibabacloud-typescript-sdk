@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendLikeResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The number of likes.
+   * Number of likes.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class SendLikeResponseBodyResult extends $dara.Model {
 export class SendLikeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -43,7 +43,7 @@ export class SendLikeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: SendLikeResponseBodyResult;
   static names(): { [key: string]: string } {

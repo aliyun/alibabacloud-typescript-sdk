@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application.
    * 
-   * >  If you want to configure triggered stream pulling for all applications, set the value to **ali_all_app**.
+   * > To trigger origin fetch for all applications, set this parameter to **ali_all_app**.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain name.
    * 
    * This parameter is required.
    * 
@@ -28,9 +28,9 @@ export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the application for back-to-origin stream pulling.
+   * The source application name.
    * 
-   * >  If you want to use the application specified in the streaming URL, leave this parameter empty.
+   * > Leave this parameter empty to use the application name from the playback URL of the source stream.
    * 
    * @example
    * livePullApp****
@@ -38,7 +38,7 @@ export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   pullAppName?: string;
   /**
    * @remarks
-   * The origin server address of the live stream. Separate multiple addresses with semicolons (;).
+   * The origin server that hosts the live stream. To specify multiple origin servers, separate them with semicolons (;).
    * 
    * This parameter is required.
    * 
@@ -48,11 +48,13 @@ export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   pullDomainName?: string;
   /**
    * @remarks
-   * The protocol for back-to-origin stream pulling. Valid values:
+   * The protocol to use for pulling the stream from the source. Valid values:
    * 
-   * *   **rtmp**
-   * *   **httpflv**
-   * *   **hls**
+   * - **rtmp**
+   * 
+   * - **httpflv**
+   * 
+   * - **hls**
    * 
    * This parameter is required.
    * 
@@ -60,13 +62,21 @@ export class SetLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
    * rtmp
    */
   pullProtocol?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to trigger stream pulling when the transcoded stream is played. The default value is **no**. Valid values:
+   * Specifies whether to trigger stream pulling when a request for a transcoded stream is made. Default value: **no**. Valid values:
    * 
-   * *   **yes**
-   * *   **no**
+   * - **yes**
+   * 
+   * - **no**
    * 
    * @example
    * no

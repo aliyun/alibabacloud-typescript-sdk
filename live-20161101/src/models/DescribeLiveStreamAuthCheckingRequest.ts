@@ -14,10 +14,17 @@ export class DescribeLiveStreamAuthCheckingRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The complete ingest URL or streaming URL. You can use the [URL generator](https://help.aliyun.com/document_detail/197400.html) to generate a URL.
+   * The complete ingest or streaming URL. You can use the [URL generator](https://help.aliyun.com/document_detail/197400.html) to generate a URL.
    * 
    * This parameter is required.
    * 

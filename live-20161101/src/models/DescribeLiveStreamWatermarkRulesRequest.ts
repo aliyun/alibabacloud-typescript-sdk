@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamWatermarkRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * live.yourdomain.com
@@ -14,7 +14,7 @@ export class DescribeLiveStreamWatermarkRulesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. If you do not specify this parameter, the default value 1 is used.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -22,12 +22,19 @@ export class DescribeLiveStreamWatermarkRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. If you do not specify this parameter, the default value 100 is used.
+   * The number of entries to return on each page. The default value is 100.
    * 
    * @example
    * 100
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

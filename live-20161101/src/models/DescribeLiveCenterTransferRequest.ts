@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveCenterTransferRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name for the live stream that you want to relay. Otherwise, the configuration does not take effect. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream application. The AppName you enter must match the AppName of the live stream to be relayed for the configuration to take effect. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * testapp
@@ -23,17 +23,24 @@ export class DescribeLiveCenterTransferRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The third-party URL to which the live stream is relayed.
+   * The third-party live streaming URL to which the stream is relayed.
    * 
    * @example
    * rtmp://push.example2.aliyunlive.com/testapp1/teststream2
    */
   dstUrl?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * teststream

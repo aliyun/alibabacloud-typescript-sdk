@@ -178,7 +178,7 @@ export class DescribeLiveRecordVodConfigsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 1
@@ -194,7 +194,7 @@ export class DescribeLiveRecordVodConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

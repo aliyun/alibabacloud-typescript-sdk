@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain. You can specify multiple domain names by separating them with commas (,). If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * The streaming domain. You can specify multiple domain names separated by commas (,). If this parameter is left empty, the aggregated data of all domain names is returned by default.
    * 
    * @example
    * pull.aliyundoc.com
@@ -13,7 +13,7 @@ export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be displayed in UTC.
+   * The end of the time range to query, in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC). The end time must be later than the start time.
    * 
    * @example
    * 2022-03-16T16:59:59Z
@@ -21,21 +21,17 @@ export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity of the query. Unit: seconds. Valid values:
+   * The time granularity of the data to query. Unit: seconds. Valid values:
    * 
-   * *   **300**
-   * *   **3600**
-   * *   **86400**
+   * - **300**
    * 
-   * > 
+   * - **3600**
    * 
-   * *   If the time range specified by the StartTime and EndTime parameters is smaller than or equal to 3 days, the supported time granularities include 300, 3,600, and 86,400 seconds.
-   * 
-   * *   If the time range is larger than 3 days but smaller than or equal to 31 days, the supported time granularities include 3,600 and 86,400 seconds.
-   * 
-   * *   If the time range is larger than 31 days, the supported time granularity is 86,400 seconds.
-   * 
-   * *   If you specify an invalid value or do not specify this parameter, the default time granularity of 300 seconds is used.
+   * - **86400**
+   * > - Time range ≤ 3 days: Valid data timestamp granularity values are 300, 3600, and 86400.
+   * > - 3 days < time range ≤ 31 days: Valid data timestamp granularity values are 3600 and 86400.
+   * > - Time range > 31 days: The only valid value is 86400.
+   * > - If this parameter is not specified or the specified value is not supported, the default value 300 is used.
    * 
    * @example
    * 300
@@ -43,9 +39,8 @@ export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The name of the Internet service provider (ISP). If you do not specify this parameter, the data of all ISPs is returned.
-   * 
-   * >  You can call the [DescribeLiveRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query available regions and ISPs.
+   * The name of the Internet service provider (ISP) in English. If this parameter is not specified, data for all ISPs is returned.
+   * >You can call the [DescribeLiveRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the English names of regions and ISPs.
    * 
    * @example
    * tele***
@@ -53,11 +48,15 @@ export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   ispNameEn?: string;
   /**
    * @remarks
-   * The layer at which you want to query the data. Valid values:
+   * The query dimension. Valid values:
    * 
-   * *   IPv4 and IPv6 (network layer)
-   * *   http, https, and quic (application layer)
-   * *   all (default)
+   * - Network layer (IPv4, IPv6)
+   * 
+   * - Application layer (http, https, quic)
+   * 
+   * - all (default)
+   * 
+   * Valid values: all | IPv4 | IPv6 | http | https | quic (case-sensitive).
    * 
    * @example
    * all
@@ -65,21 +64,26 @@ export class DescribeLiveDomainBpsDataByLayerRequest extends $dara.Model {
   layer?: string;
   /**
    * @remarks
-   * The name of the region. If you do not specify this parameter, the data of all regions is returned.
-   * 
-   * >  You can call the [DescribeLiveRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query available regions and ISPs.
+   * The name of the region in English. If this parameter is not specified, data for all regions is returned.
+   * >You can call the [DescribeLiveRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the English names of regions and ISPs.
    * 
    * @example
    * hangzhou
    */
   locationNameEn?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be displayed in UTC.
-   * 
-   * >  If you do not specify this parameter, the data of the last 24 hours is returned by default. The minimum time granularity is 5 minutes.
+   * The beginning of the time range to query, in the format of <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
+   * >If this parameter is not specified, data for the last 24 hours is returned by default. The minimum data granularity is 5 minutes.
    * 
    * @example
    * 2022-03-15T16:00:00Z

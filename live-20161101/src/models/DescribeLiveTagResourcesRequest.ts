@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. Valid values of N: **1 to 20**.
+   * The tag key. You can specify up to 20 tag keys.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class DescribeLiveTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. Valid values of N: **1 to 20**.
+   * The tag value. You can specify up to 20 tag values.
    * 
    * @example
    * product
@@ -44,10 +44,17 @@ export class DescribeLiveTagResourcesRequestTag extends $dara.Model {
 
 export class DescribeLiveTagResourcesRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The N resources. The resources are domain names in this operation. Valid values of N: **1 to 50**.
+   * The resource IDs. The resources are domain names for live streaming. You can query up to 50 resource IDs at a time.
    * 
    * This parameter is required.
    * 
@@ -57,7 +64,7 @@ export class DescribeLiveTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resources. Set the value to **DOMAIN**.
+   * The type of the resource.
    * 
    * This parameter is required.
    * 
@@ -67,7 +74,7 @@ export class DescribeLiveTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The N tags.
+   * A list of tags.
    */
   tag?: DescribeLiveTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

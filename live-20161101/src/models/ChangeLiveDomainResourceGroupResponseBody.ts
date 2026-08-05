@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeLiveDomainResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******8F-F82F-10E2-BAE1-A036FD******

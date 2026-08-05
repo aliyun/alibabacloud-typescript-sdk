@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivePullToPushResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the custom rule.
+   * Error description.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class CreateLivePullToPushResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68*****
@@ -21,13 +21,10 @@ export class CreateLivePullToPushResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The code that is returned for the request.
+   * Return code.
    * 
-   * > 
-   * 
-   * *   0 is returned if the request is normal.
-   * 
-   * *   For information about codes that are returned when exceptions occur, see the following Error codes table.
+   * > - "0" is returned under normal conditions.
+   * > - For abnormal conditions, refer to the error code list below.
    * 
    * @example
    * 0
@@ -35,7 +32,7 @@ export class CreateLivePullToPushResponseBody extends $dara.Model {
   retCode?: number;
   /**
    * @remarks
-   * The task ID.
+   * Task ID.
    * 
    * @example
    * fd245384-4067-4f91-9d75-9666a6bc9****

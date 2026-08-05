@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveMessageGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of administrators after your change.
+   * The updated list of administrators. Separate multiple administrators with commas (,). You can specify up to three administrators.
    */
   adminListShrink?: string;
   /**
@@ -20,7 +20,7 @@ export class ModifyLiveMessageGroupShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+   * The data center. It must be the same as the data center specified in the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) call. Valid values: cn-shanghai (Shanghai) and ap-southeast-1 (Singapore).
    * 
    * @example
    * cn-shanghai
@@ -38,7 +38,7 @@ export class ModifyLiveMessageGroupShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The additional information about the group after the modification. The value can be up to 32 KB in length.
+   * The updated extended information of the group. The information can be up to 32 KB in length.
    * 
    * @example
    * newmeta
@@ -46,7 +46,7 @@ export class ModifyLiveMessageGroupShrinkRequest extends $dara.Model {
   groupInfo?: string;
   /**
    * @remarks
-   * Specifies whether to change the group administrators.
+   * Specifies whether to modify the group administrators.
    * 
    * @example
    * true
@@ -54,7 +54,7 @@ export class ModifyLiveMessageGroupShrinkRequest extends $dara.Model {
   modifyAdmin?: boolean;
   /**
    * @remarks
-   * Specifies whether to modify the additional information about the group.
+   * Specifies whether to modify the extended information of the group.
    * 
    * @example
    * true

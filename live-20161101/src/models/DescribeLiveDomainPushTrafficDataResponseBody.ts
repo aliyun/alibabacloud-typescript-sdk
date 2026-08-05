@@ -57,7 +57,7 @@ export class DescribeLiveDomainPushTrafficDataResponseBodyTrafficDataPerInterval
 export class DescribeLiveDomainPushTrafficDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time granularity.
+   * The data time granularity.
    * 
    * @example
    * 300
@@ -73,7 +73,7 @@ export class DescribeLiveDomainPushTrafficDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried.
+   * The end time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-12-10T21:00:00Z
@@ -89,7 +89,7 @@ export class DescribeLiveDomainPushTrafficDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried.
+   * The start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-12-10T20:00:00Z

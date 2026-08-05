@@ -13,7 +13,7 @@ export class DeleteMixStreamResponseBody extends $dara.Model {
   mixStreamId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BE9407FF-F897-4DBD-338D-98A750AD805F

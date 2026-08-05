@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveTagResourcesResponseBodyTagResourcesTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class DescribeLiveTagResourcesResponseBodyTagResourcesTag extends $dara.M
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * product
@@ -45,7 +45,7 @@ export class DescribeLiveTagResourcesResponseBodyTagResourcesTag extends $dara.M
 export class DescribeLiveTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The resource.
+   * The resource ID.
    * 
    * @example
    * example.com
@@ -53,7 +53,7 @@ export class DescribeLiveTagResourcesResponseBodyTagResources extends $dara.Mode
   resourceId?: string;
   /**
    * @remarks
-   * The key-value pair of the tag.
+   * The tags bound to the resource.
    */
   tag?: DescribeLiveTagResourcesResponseBodyTagResourcesTag[];
   static names(): { [key: string]: string } {
@@ -85,15 +85,15 @@ export class DescribeLiveTagResourcesResponseBodyTagResources extends $dara.Mode
 export class DescribeLiveTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
+   * ****41F1-04A5-496F-8C8D-634BDBE6****
    */
   requestId?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * A list of resources and their associated tags.
    */
   tagResources?: DescribeLiveTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

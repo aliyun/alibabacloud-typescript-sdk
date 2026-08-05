@@ -13,7 +13,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   callbackURL?: string;
   /**
    * @remarks
-   * The destination URL to which the stream is relayed.
+   * The push stream destination address.
    * 
    * @example
    * rtmp://pushtest.********.aliyunlive.com/pulltest493/pulltest-w434
@@ -21,7 +21,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   dstUrl?: string;
   /**
    * @remarks
-   * The end time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The task end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
    * 
    * @example
    * 2024-08-27T14:30:00Z
@@ -29,7 +29,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The file index, which indicates the sequence of the file where the playback starts.
+   * The file index, starting playback from the nth file.
    * 
    * @example
    * 0
@@ -37,27 +37,22 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   fileIndex?: number;
   /**
    * @remarks
-   * The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
-   * 
-   * > 
-   * 
-   * *   This parameter indicates an offset from the first frame.
-   * 
-   * *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+   * The start offset, which is the starting offset value for the video file. Unit: seconds. Value: greater than 0.
+   * > - Indicates starting to read from a position offset relative to the first frame.
+   * > - Only valid for VOD resources or video files.
    * 
    * @example
-   * 2
+   * 0
    */
   offset?: number;
   /**
    * @remarks
-   * The number of playbacks after the first playback is complete. Valid values:
+   * The number of times to repeat playback after completion. Valid values:
+   * - 0 (default): No repeat playback.
+   * - -1: Loop indefinitely.
+   * - Other positive integers: The number of times to repeat playback after completion.
    * 
-   * *   0 (default): specifies that the video list is played only once.
-   * *   \\-1: specifies that the video list is played in loop mode.
-   * *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
-   * 
-   * >  This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+   * > This parameter only applies to VOD or third-party video streams.
    * 
    * @example
    * 0
@@ -65,7 +60,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   repeatNumber?: number;
   /**
    * @remarks
-   * The number of retries allowed.
+   * The number of retries.
    * 
    * @example
    * 3
@@ -73,7 +68,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   retryCount?: number;
   /**
    * @remarks
-   * The retry interval. Unit: seconds.
+   * The retry interval, in seconds.
    * 
    * @example
    * 60
@@ -81,7 +76,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   retryInterval?: number;
   /**
    * @remarks
-   * The protocol of the source stream.
+   * The source stream protocol name.
    * 
    * @example
    * RTMP
@@ -89,19 +84,19 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   sourceProtocol?: string;
   /**
    * @remarks
-   * The type of the source stream. Valid values:
+   * The source stream type. Valid values:
    * 
-   * *   live: a live stream
-   * *   vod: a list of ApsaraVideo VOD resources
-   * *   url: a list of video resources from a third party
+   * - live: Live stream.
+   * - vod: Alibaba Cloud VOD resource.
+   * - url: Third-party video file resource.
    * 
    * @example
-   * live
+   * vod
    */
   sourceType?: string;
   /**
    * @remarks
-   * The source URLs.
+   * The source stream URL addresses.
    * 
    * @example
    * rtmp://pulltest.****.aliyunlive.com/pulltest493/pulltest-w434
@@ -109,7 +104,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
   sourceUrls?: string[];
   /**
    * @remarks
-   * The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The task start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
    * 
    * @example
    * 2024-08-26T10:30:00Z
@@ -184,7 +179,7 @@ export class DescribeLivePullToPushResponseBodyTaskInfo extends $dara.Model {
 export class DescribeLivePullToPushResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current file index.
+   * The currently effective playlist sequence offset.
    * 
    * @example
    * 0
@@ -192,7 +187,7 @@ export class DescribeLivePullToPushResponseBody extends $dara.Model {
   currentFileIndex?: number;
   /**
    * @remarks
-   * The current offset for video playback.
+   * The currently effective video playback offset.
    * 
    * @example
    * 0
@@ -211,18 +206,14 @@ export class DescribeLivePullToPushResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3271ACD2-F143-1204-AFDB-9A87C131****
+   * a05e6b15-15af-405b-a4a2-0152245d****
    */
   requestId?: string;
   /**
    * @remarks
-   * The code that is returned for the request.
-   * 
-   * > 
-   * 
-   * *   0 is returned if the request is normal.
-   * 
-   * *   For information about codes that are returned when exceptions occur, see the following Error codes table.
+   * The return code.
+   * > - "0" is returned under normal circumstances.
+   * > - For abnormal cases, refer to the error code list below.
    * 
    * @example
    * 0
@@ -230,12 +221,12 @@ export class DescribeLivePullToPushResponseBody extends $dara.Model {
   retCode?: number;
   /**
    * @remarks
-   * The reason why the task is stopped.
+   * The reason for task exit:
    * 
-   * *   TriggerByUser: You proactively stopped the task.
-   * *   OverEndTime: The specified end time was exceeded.
+   * - TriggerByUser: Actively ended by the user.
+   * - OverEndTime: Exceeded the preset end time.
    * 
-   * >  This parameter is returned only if the task is stopped.
+   * > Only returned when the task is in exited state.
    * 
    * @example
    * TriggerByUser
@@ -243,53 +234,51 @@ export class DescribeLivePullToPushResponseBody extends $dara.Model {
   taskExitReason?: string;
   /**
    * @remarks
-   * The time when the task was exited. The value is a Unix timestamp in seconds.
-   * 
-   * >  This parameter is returned only if the task status is exited.
+   * The task exit time, in Unix seconds timestamp.
+   * > Only returned when the task is in exited state.
    * 
    * @example
-   * 1724740200
+   * 1726354625
    */
   taskExitTime?: number;
   /**
    * @remarks
-   * The task ID.
+   * The newly created task ID.
    * 
    * @example
-   * fd245384-4067-4f91-9d75-9666a6bc9****
+   * fb0d4ac7-c7e3-4978-9743-0bf2f6e8****
    */
   taskId?: string;
   /**
    * @remarks
-   * The information about the task.
+   * The task information.
    */
   taskInfo?: DescribeLivePullToPushResponseBodyTaskInfo;
   /**
    * @remarks
-   * The reason why the task was stopped.
+   * The reason why the task stopped running:
    * 
-   * *   PullStreamFailed: An exception occurred while pulling the source stream. A retry is in progress.
-   * *   PushStreamFailed: An exception occurred while ingesting the stream. A retry is in progress.
-   * *   UnknownError: An unknown exception occurred.
+   * - PullStreamFailed: Source stream pull exception, retrying.
+   * - PushStreamFailed: Destination stream push exception, retrying.
+   * - UnknownError: Unknown exception.
    * 
-   * >  This parameter is returned only if the task status is stopped.
+   * > Only returned when the task is in stopped state.
    * 
    * @example
-   * UnknownError
+   * PullStreamFailed
    */
   taskInvalidReason?: string;
   /**
    * @remarks
-   * The current status of the task.
-   * 
-   * *   0: not started.
-   * *   1: running. Stream pulling and stream relay are normal.
-   * *   2: abnormal.
-   * *   3: stopped. It may be because exceptions occur during stream pulling or stream relay or you proactively call the StopLivePullToPush operation.
-   * *   \\-1: exited.
+   * The current task status:
+   * - 0: Not started (the start time has not been reached).
+   * - 1: Running normally (pull streaming and push streaming are normal).
+   * - 2: Running abnormally.
+   * - 3: Stopped (pull streaming or push streaming is abnormal, or the task was actively stopped by calling the API).
+   * - -1: Exited.
    * 
    * @example
-   * 1
+   * 0
    */
   taskStatus?: number;
   static names(): { [key: string]: string } {

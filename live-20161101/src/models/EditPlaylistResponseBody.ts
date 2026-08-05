@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditPlaylistResponseBodyItemsFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode.
+   * The ID of the playlist item.
    * 
    * @example
    * c09f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -13,7 +13,7 @@ export class EditPlaylistResponseBodyItemsFailedItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The name of the episode.
+   * The name of the playlist item.
    * 
    * @example
    * item2
@@ -45,7 +45,7 @@ export class EditPlaylistResponseBodyItemsFailedItems extends $dara.Model {
 export class EditPlaylistResponseBodyItemsSuccessItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode.
+   * The ID of the playlist item.
    * 
    * @example
    * c09f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -53,7 +53,7 @@ export class EditPlaylistResponseBodyItemsSuccessItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The name of the episode.
+   * The name of the playlist item.
    * 
    * @example
    * item1
@@ -85,12 +85,12 @@ export class EditPlaylistResponseBodyItemsSuccessItems extends $dara.Model {
 export class EditPlaylistResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The episodes that failed to be added.
+   * The list of playlist items that failed to be added.
    */
   failedItems?: EditPlaylistResponseBodyItemsFailedItems[];
   /**
    * @remarks
-   * The episodes that were added.
+   * The list of playlist items that were successfully added.
    */
   successItems?: EditPlaylistResponseBodyItemsSuccessItems[];
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class EditPlaylistResponseBodyItems extends $dara.Model {
 export class EditPlaylistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio. You can use the ID as a request parameter in the API operation that is used to configure callbacks or add a virtual studio layout.
+   * The ID of the production studio. Use this ID as a request parameter to add a callback or a virtual studio layout.
    * 
    * @example
    * 0e94d1f4-1a65-445c-9dcf-de8b3b8d****
@@ -133,12 +133,12 @@ export class EditPlaylistResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The information about the episodes.
+   * The list of added playlist items.
    */
   items?: EditPlaylistResponseBodyItems;
   /**
    * @remarks
-   * The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to delete the episode list, query the information about the episode list, start the episode list, or stop the episode list.
+   * The playlist ID. Use this ID as a request parameter to delete, query, start, or stop the playlist.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****

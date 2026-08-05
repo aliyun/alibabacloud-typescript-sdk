@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeAutoShowListTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio.
-   * 
-   * >  The value of this parameter can be used as the value of a request parameter to query the streaming URL of the production studio, start the production studio, add video resources to the production studio, add a production studio layout, query production studio layouts, add a production studio component, and add a production studio playlist.
+   * The production studio ID.
+   * >This ID can be used as a request parameter for querying production studio stream URLs, starting the production studio, adding video resources to the production studio, adding layouts to the production studio, querying the layout list of the production studio, adding components to the production studio, and adding programs to the production studio.
    * 
    * @example
    * b4810848-bcf9-4aef-bd4a-e6bba2d9****
@@ -23,11 +22,13 @@ export class InitializeAutoShowListTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of output video streams.
+   * The list of output addresses of the production studio.
    * 
-   * *   videoFormat: the format of the streaming URL.
-   * *   outputStreamUrl: the source URL.
-   * *   transcodeConfig: the output resolution specified for video transcoding of the source URL.
+   * - videoFormat: the streaming URL format.
+   * 
+   * - outputStreamUrl: the stream pulling URL.
+   * 
+   * - transcodeConfig: the transcoding resolution description of the stream pulling URL.
    * 
    * @example
    * [{"videoFormat":"flv","outputStreamUrl":"http://example.aliyundoc.com","transcodeConfig":"original"}]

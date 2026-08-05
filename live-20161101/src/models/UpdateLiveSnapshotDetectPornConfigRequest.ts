@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all applications.
+   * The name of the application to which the stream belongs. The AppName value must match the AppName in the ingest URL for the template to take effect. The value can be up to 255 characters in length and can contain digits, uppercase and lowercase letters, hyphens (-), and underscores (_). Hyphens and underscores cannot be the first character. The value can also be a single asterisk (*) to match all AppName values.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain of the streamer.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The interval at which snapshots are captured from the live stream. Valid values: **5 to 3600**. Unit: seconds.
+   * The sampling interval. Valid values: **5 to 3600**. Unit: seconds.
    * 
    * @example
    * 5
@@ -41,7 +41,7 @@ export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The endpoint of the Object Storage Service (OSS) bucket.
+   * The endpoint of the OSS bucket.
    * 
    * @example
    * cn-oss-****.aliyuncs.com
@@ -49,7 +49,7 @@ export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * The name of the snapshot that stores violations such as pornographic content and politically sensitive content.
+   * The name of the stored image that contains violations such as pornography or politically sensitive content.
    * 
    * @example
    * {liveApp****}/{liveStream****}/{Date}/{Hour}/{Minute}_{Second}.jpg
@@ -58,7 +58,7 @@ export class UpdateLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The moderation scenario array.
+   * The array of detection scenarios.
    * 
    * @example
    * porn

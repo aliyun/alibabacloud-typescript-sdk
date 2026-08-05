@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartRtcCloudTranscodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the cloud transcoding job.
+   * 
    * @example
    * ******73-8501-****-8ac1-72295a******
    */

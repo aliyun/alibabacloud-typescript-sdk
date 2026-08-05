@@ -8,10 +8,10 @@ export class DeleteLivePullToPushRequest extends $dara.Model {
    * @remarks
    * The region where the task is started. Valid values:
    * 
-   * *   ap-southeast-1: Singapore
-   * *   ap-southeast-5: Indonesia (Jakarta)
-   * *   cn-beijing: China (Beijing)
-   * *   cn-shanghai: China (Shanghai)
+   * - ap-southeast-1 (Singapore)
+   * - ap-southeast-5 (Indonesia)
+   * - cn-beijing (Beijing)
+   * - cn-shanghai (Shanghai).
    * 
    * This parameter is required.
    * 
@@ -19,6 +19,13 @@ export class DeleteLivePullToPushRequest extends $dara.Model {
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

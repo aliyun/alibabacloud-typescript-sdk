@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMessageAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the application.
+   * Application configuration.
    */
   appConfig?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive message application ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateMessageAppRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the interactive messaging application.
+   * Interactive message application name.
    * 
    * @example
    * testApp
@@ -28,7 +28,7 @@ export class UpdateMessageAppRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The extended field.
+   * Extension field.
    */
   extension?: { [key: string]: string };
   static names(): { [key: string]: string } {

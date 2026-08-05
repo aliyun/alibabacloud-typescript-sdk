@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The bitrate of the output audio. Unit: Kbit/s. Valid values: **1 to 1000**.
+   * The output audio bitrate. Unit: kbps. Valid values: 1 to **1000**.
    * 
    * @example
    * 512
@@ -23,10 +23,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   audioBitrate?: number;
   /**
    * @remarks
-   * The number of sound channels. Valid values:
+   * The number of audio channels. Valid values:
    * 
-   * *   **1**: mono.
-   * *   **2**: binaural.
+   * - **1**: mono.
+   * 
+   * - **2**: stereo.
    * 
    * @example
    * 2
@@ -34,10 +35,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   audioChannelNum?: number;
   /**
    * @remarks
-   * The audio encoding format. Valid values:
+   * The audio codec. Valid values:
    * 
-   * *   **AAC**
-   * *   **MP3**
+   * - **AAC**
+   * 
+   * - **MP3**
    * 
    * @example
    * AAC
@@ -45,12 +47,15 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   audioCodec?: string;
   /**
    * @remarks
-   * The audio encoding profile. Valid values:
+   * The audio profile. Valid values:
    * 
-   * *   **aac_low**
-   * *   **aac_he**
-   * *   **aac_he_v2**
-   * *   **aac_ld**
+   * - **aac_low**
+   * 
+   * - **aac_he**
+   * 
+   * - **aac_he_v2**
+   * 
+   * - **aac_ld**
    * 
    * @example
    * aac_low
@@ -58,10 +63,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   audioProfile?: string;
   /**
    * @remarks
-   * The audio sampling rate. Valid values: **22050 to 96000**.
+   * The audio sample rate. Valid values: **22050** to **96000**.
    * 
+   * >Notice: 
    * 
-   * >Notice: If you set AudioProfile to **aac_ld**, the audio sampling rate cannot exceed 44100.
+   * If you set AudioProfile to **aac_ld**, the sample rate cannot exceed 44100.
    * 
    * @example
    * 96000
@@ -69,20 +75,33 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   audioRate?: number;
   /**
    * @remarks
-   * The source-based bitrate settings. This parameter takes precedence over other bitrate settings. The following fields must be included:
+   * The adaptive bitrate settings. If specified, it overrides the VideoBitrate parameter. Fields:
    * 
-   * *   **UpLimit**: the maximum bitrate limit. Valid values: an integer from 128 to 10000. The value must be greater than the minimum bitrate.
-   * *   **LowerLimit int** : the minimum bitrate rate. Valid values: an integer from 128 to 10000. The value must be smaller than the maximum bitrate.
-   * *   **Factor**: The ratio of the output bitrate to the source bitrate. Valid values: 0.1 to 1. The value is accurate to one decimal place. A value of 1 indicates that the output video has the same bitrate as the source video.
+   * - **UpLimit (integer):** Required. The upper limit of the bitrate. This must be an integer from 128 to 10000 and greater than the lower limit.
+   * 
+   * - **LowerLimit (integer):** Required. The lower limit of the bitrate. This must be an integer from 128 to 10000 and less than the upper limit.
+   * 
+   * - **Factor (float):** Required: The factor by which the source bitrate is multiplied to calculate the output bitrate. Valid values: 0.1 to 1. The value can be accurate to one decimal place. A value of 1 indicates that the output bitrate is the same as the source bitrate.
    * 
    * @example
    * {"UpLimit":2500,"LowerLimit":800,"Factor":1}
    */
   bitrateWithSource?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically detect and remove interlacing during transcoding. Deinterlacing converts interlaced video into progressive video.
+   * 
+   * - true: enables deinterlacing.
+   * 
+   * - false: keeps the source format. This is the default value.
+   * 
+   * @example
+   * false
+   */
   deInterlaced?: boolean;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -92,11 +111,15 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Encryption configuration. In JSON format, the fields are explained as follows:
-   * - **EncryptType**: Encryption type. Fixed value is aliyun.
-   * - **KmsKeyID**: User KMS master key ID.
-   * - **KmsKeyExpireInterval**: Key rotation period. Range: 60~3600, unit: seconds.
-   * > If the EncryptParameters is configured, the KmsKeyID, KmsUID, and KmsKeyExpireInterval parameters cannot be empty
+   * The encryption settings, formatted as a JSON string.
+   * 
+   * - **EncryptType**: The encryption type. Set the value to aliyun.
+   * 
+   * - **KmsKeyID**: The ID of the customer master key (CMK) in Key Management Service (KMS).
+   * 
+   * - **KmsKeyExpireInterval**: The key rotation period. Unit: seconds. Valid values: **60 to 3600.**
+   * 
+   * > If set, its internal fields cannot be empty.
    * 
    * @example
    * {"EncryptType": "aliyun", "KmsKeyID":"afce5722-81d2-43c3-9930-7601da11****","KmsKeyExpireInterval":"3600"}
@@ -104,11 +127,13 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   encryptParameters?: string;
   /**
    * @remarks
-   * Other source-based settings, including the following fields:
+   * Other adaptive settings that align the transcoded stream with the source stream. Fields:
    * 
-   * *   **KeyFrameOpen**: specifies whether to use the key frames of the source video. Valid values: yes or no.
-   * *   **Copyts**: specifies whether to use the presentation time stamp (PTS) of the source video. Valid values: yes or no.
-   * *   **SeiMode**: specifies whether to pass through supplemental enhancement information (SEI) messages. Valid values: 0, 1, and 2, where 0 specifies that no SEI messages are passed through, 1 specifies that part of SEI messages are passed through, and 2 specifies that all SEI messages are passed through.
+   * - **KeyFrameOpen**: Specifies whether to align keyframes with the source stream. Valid values: yes and no.
+   * 
+   * - **Copyts (string)**: Specifies whether to align the presentation timestamp (PTS) with the source stream. Valid values: yes and no.
+   * 
+   * - **SeiMode**: The pass-through mode for Supplemental Enhancement Information (SEI). Valid values: 0 (disabled) and 1 (enabled).
    * 
    * @example
    * {"KeyFrameOpen":"yes","Copyts":"yes","SeiMode":1}
@@ -116,7 +141,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   extWithSource?: string;
   /**
    * @remarks
-   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: **1 to 60**.
+   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to **60**.
    * 
    * @example
    * 30
@@ -124,10 +149,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   FPS?: number;
   /**
    * @remarks
-   * The source-based frame rate settings. This parameter takes precedence over other frame rate settings. The following fields must be included:
+   * Adapts the output frame rate based on the source\\"s frame rate, while keeping it within a specified range. If specified, it overrides the FPS parameter. Fields:
    * 
-   * *   **UpLimit**: the maximum frame rate. Valid values: an integer from 1 to 60. The value must be greater than the minimum frame rate.
-   * *   **LowerLimit**: the minimum frame rate. Valid values: an integer from 1 to 60. The value must be smaller than the maximum frame rate.
+   * - **UpLimit (integer):** Required. The upper limit of the frame rate. This must be an integer from 1 to 60 and greater than the lower limit.
+   * 
+   * - **LowerLimit (integer):** Required. The lower limit of the frame rate. This must be an integer from 1 to 60 and less than the upper limit.
    * 
    * @example
    * {"UpLimit":60,"LowerLimit":1}
@@ -135,10 +161,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   fpsWithSource?: string;
   /**
    * @remarks
-   * The Group of Picture (GOP) size of the video. Unit: frames or seconds.
+   * The Group of Pictures (GOP) size. The unit can be frame or second. Valid values:
    * 
-   * *   Unit: frames. Valid values: **1 to 3000**.
-   * *   Unit: seconds. Valid value: **1 to 20**.
+   * - By frames: 1 to 3000.
+   * 
+   * - By seconds: 1s to 20s.
    * 
    * @example
    * 1
@@ -146,15 +173,15 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   gop?: string;
   /**
    * @remarks
-   * The height of the output video. Unit: pixel. Valid values:
+   * Output video height in pixels. Requirements:
    * 
-   * The value must comply with all the following rules:
+   * - **Height ≥ 100**
    * 
-   * *   **Height ≥ 100**: The height of the video is greater than or equal to 100 pixels.
-   * *   **max(Height,Width) ≤ 2560**: The width or height of the video, whichever is greater, cannot exceed 2,560 pixels.
-   * *   **min(Height,Width) ≤ 1440**: The width or height of the video, whichever is smaller, cannot exceed 1,440 pixels.
+   * - **max(Height, Width) ≤ 2560**
    * 
-   * > The resolution of the output video that is transcoded by using the H.265 Narrowband HD™ transcoding template cannot exceed 1280 × 720 pixels.
+   * - **min(Height, Width) ≤ 1440**
+   * 
+   * > For h265-nbhd, it cannot exceed 720.
    * 
    * @example
    * 720
@@ -162,7 +189,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The rotation period of the CMK. Valid values: 60 to 3600. Unit: seconds.
+   * The key rotation period. Unit: seconds. Valid values: 60 to 3600.
    * 
    * @example
    * 3600
@@ -170,7 +197,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   kmsKeyExpireInterval?: string;
   /**
    * @remarks
-   * The ID of the customer master key (CMK) that you created in Key Management Service (KMS).
+   * The ID of the customer master key (CMK) in Key Management Service (KMS).
    * 
    * @example
    * afce5722-81d2-43c3-9930-7601da11****
@@ -178,7 +205,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   kmsKeyID?: string;
   /**
    * @remarks
-   * The ID of your KMS account.
+   * The ID of the KMS account.
    * 
    * @example
    * 25346073170691****
@@ -186,7 +213,11 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   kmsUID?: string;
   /**
    * @remarks
-   * Specifies whether to use the load-on-demand mechanism for transcoding. Valid values: yes and no. Default value: **yes**.
+   * Specifies whether to enable on-demand transcoding. Valid values:
+   * 
+   * - **yes**: Transcoding only starts when the first viewer requests this transcoded stream.
+   * 
+   * - **no**: Transcoding starts immediately after the stream is published.
    * 
    * @example
    * yes
@@ -195,28 +226,45 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The video encoding profile. The profile defines a set of parameters that are used to encode a video. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values:
+   * The video codec profile. A larger value indicates better video quality and higher resource consumption for encoding and decoding. Valid values:
    * 
-   * *   **1**: baseline. This value is suitable for mobile devices.
-   * *   **2**: main. This value is suitable for standard-definition devices.
-   * *   **3**: high. This value is suitable for high-definition devices.
+   * - **1**: baseline (for mobile devices).
+   * 
+   * - **2**: main (for SD devices).
+   * 
+   * - **3**: high (for HD devices).
    * 
    * @example
    * 2
    */
   profile?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The source-based resolution settings. This parameter takes precedence over other resolution settings. The following fields must be included:
+   * The adaptive resolution settings. If specified, it overrides the Height and Width parameters. Fieds:
    * 
-   * *   **Type**: You can set this field to short, long, or screen. short specifies that the resolution of the output video is adapted to the shorter side, long specifies that the resolution of the output video is adapted to the longer side, and screen specifies that the output video has an adaptive resolution.
+   * - **Type (string):** Required. Valid values:
    * 
-   * *   **Value**:
+   *   - **short**: sets the shorter edge of the video to the specified value and scales the other edge to maintain the original aspect ratio.
    * 
-   *     *   Set this field to 360, 480, 540, 720, or 1080 if the Type field is set to short.
-   *     *   Set this field to 640, 848, 960, 1280, or 1920 if the Type field is set to long.
-   *     *   Set this field to 640\\*360, 848\\*480, 960\\*540, 1280\\*720, or 1920\\*1080 if the Type field is set to screen.
+   *   - **long**: sets the longer edge of the video to the specified value and scales the other edge to maintain the original aspect ratio.
+   * 
+   *   - **screen**: Matches the output to a standard resolution, automatically flipping the dimensions based on the source\\"s orientation.
+   * 
+   * - **Value (string):** Required. Valid values:
+   * 
+   *   - For short: 360, 480, 540, 720, and 1080.
+   * 
+   *   - For long: 640, 848, 960, 1280, and 1920.
+   * 
+   *   - For screen: 640×360, 848×480, 960×540, 1280×720, and 1920×1080.
    * 
    * @example
    * {"Type":"short","Value":"1080"}
@@ -224,9 +272,9 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   resWithSource?: string;
   /**
    * @remarks
-   * The name of the custom transcoding template.
+   * The custom name of the transcoding template.
    * 
-   * > The name can contain digits, letters, and hyphens (-), and must start with a letter or digit. The name must be different from the names of any default transcoding templates.
+   * > The name can contain digits, letters, and hyphens (-). It must start with a digit or a letter. It cannot be the same as the name of a standard transcoding template.
    * 
    * This parameter is required.
    * 
@@ -238,13 +286,17 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
    * @remarks
    * The type of the custom transcoding template. Valid values:
    * 
-   * *   **h264**: custom H.264 standard transcoding.
-   * *   **h264-nbhd**: custom H.264 Narrowband HD™ transcoding.
-   * *   **h265**: custom H.265 standard transcoding.
-   * *   **h265-nbhd**: custom H.265 Narrowband HD™ transcoding.
-   * *   **audio**: audio-only transcoding.
+   * - **h264**: custom H.264 standard transcoding.
    * 
-   * > If you set **TemplateType** to **h264**, **h264-nbhd**, **h265**, or **h265-nbhd**, the **Height**, **Width**, **FPS**, and **VideoBitrate** parameters are required.
+   * - **h264-nbhd**: custom H.264 Narrowband HD™ transcoding.
+   * 
+   * - **h265**: custom H.265 standard transcoding.
+   * 
+   * - **h265-nbhd**: custom H.265 Narrowband HD™ transcoding.
+   * 
+   * - **audio**: audio-only transcoding.
+   * 
+   * > For video types, Height, Width, FPS, and VideoBitrate are required.
    * 
    * This parameter is required.
    * 
@@ -254,9 +306,9 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The bitrate of the output video. Unit: Kbit/s. Valid values: **1 to 6000**.
+   * The output video bitrate. Unit: kbps. Valid values: 1 to **6000**.
    * 
-   * > The bitrate of the output video may not be the same as the value that you specify, but is as close to the value as possible, especially when the value is excessively large or small.
+   * > The system tries to transcode the video at the specified bitrate. However, the actual bitrate may not be the same as the specified value, especially when the specified value is too high or too low.
    * 
    * @example
    * 720
@@ -264,15 +316,17 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
   videoBitrate?: number;
   /**
    * @remarks
-   * The width of the output video. Unit: pixel. Valid values:
+   * Output video width in pixels.
    * 
-   * The value must comply with all the following rules:
+   * Requirements:
    * 
-   * *   **Width ≥ 100**: The width of the video is greater than or equal to 100 pixels.
-   * *   **max(Height,Width) ≤ 2560**: The width or height of the video, whichever is greater, cannot exceed 2,560 pixels.
-   * *   **min(Height,Width) ≤ 1440**: The width or height of the video, whichever is smaller, cannot exceed 1,440 pixels.
+   * - **Width ≥ 100**
    * 
-   * > The resolution of the output video that is transcoded by using the H.265 Narrowband HD™ transcoding template cannot exceed 1280 × 720 pixels.
+   * - **max(Height, Width) ≤ 2560**
+   * 
+   * - **min(Height, Width) ≤ 1440**
+   * 
+   * > For h265-nbhd, it cannot exceed 1280.
    * 
    * @example
    * 576

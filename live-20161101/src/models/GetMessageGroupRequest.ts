@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive Messages application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMessageGroupRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * This parameter is required.
    * 

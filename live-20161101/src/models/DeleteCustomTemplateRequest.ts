@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCustomTemplateRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the template that you want to delete. The value is a string.
+   * The name of the template to delete.
    * 
    * This parameter is required.
    * 

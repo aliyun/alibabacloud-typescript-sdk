@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
+   * 
+   * > Make sure that the domain name is added to ApsaraVideo Live and that you have the permissions to operate on it.
    * 
    * This parameter is required.
    * 
@@ -14,6 +16,13 @@ export class DescribeLiveStreamCountRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

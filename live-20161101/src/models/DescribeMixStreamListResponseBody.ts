@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The app name.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   domainName?: string;
   /**
    * @remarks
-   * The time when the stream mixing task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the stream mixing task was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2020-09-17T08:39:14Z
@@ -29,7 +29,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the stream mixing task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the stream mixing task was last modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2020-09-17T08:39:15Z
@@ -37,7 +37,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   gmtModified?: string;
   /**
    * @remarks
-   * The number of input streams.
+   * The number of input sources.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   inputStreamNumber?: number;
   /**
    * @remarks
-   * The ID of the layout.
+   * The layout ID.
    * 
    * @example
    * USERDEFINED
@@ -61,7 +61,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   mixStreamTemplate?: string;
   /**
    * @remarks
-   * The ID of the stream mixing task. You can specify this parameter in a request to delete the steam mixing task.
+   * The ID of the stream mixing task. You can use this ID to delete the task.
    * 
    * @example
    * aaf9a50f-c460-3a9b-f180-38dd8f05****
@@ -69,7 +69,7 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
   mixstreamId?: string;
   /**
    * @remarks
-   * The name of the output stream.
+   * The stream name of the stream mixing task.
    * 
    * @example
    * liveStream****
@@ -115,12 +115,12 @@ export class DescribeMixStreamListResponseBodyMixStreamList extends $dara.Model 
 export class DescribeMixStreamListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the stream mixing tasks.
+   * The list of stream mixing tasks.
    */
   mixStreamList?: DescribeMixStreamListResponseBodyMixStreamList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BC1E78D3-FA8B-4457-DEE2-6093E1232254

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLivePushProxyUsageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain to query.
-   * 
-   * *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-   * *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * The ingest domain name of the streamer to query.
+   * - You can specify a single domain name or multiple domain names separated by commas (,).
+   * - If this parameter is left empty, the aggregated data of all live streaming domain names is returned by default.
    * 
    * @example
    * example.com
@@ -16,7 +15,7 @@ export class DescribeLivePushProxyUsageDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The end time must be later than the start time.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-10-10T21:00:00Z
@@ -25,30 +24,35 @@ export class DescribeLivePushProxyUsageDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. Separate multiple region IDs with commas (,). Valid values:
+   * The live center to query. You can specify multiple regions separated by commas (,). Valid values:
+   * - cn-beijing: Beijing
+   * - cn-shanghai: Shanghai
+   * - cn-shenzhen: Shenzhen
+   * - cn-qingdao: Qingdao
+   * - ap-southeast-1: Singapore
+   * - eu-central-1: Germany
+   * - ap-northeast-1: Tokyo
+   * - ap-southeast-5: Jakarta
    * 
-   * *   cn-beijing: China (Beijing)
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-shenzhen: China (Shenzhen)
-   * *   cn-qingdao: China (Qingdao)
-   * *   ap-southeast-1: Singapore
-   * *   eu-central-1: Germany (Frankfurt)
-   * *   ap-northeast-1: Japan (Tokyo)
-   * *   ap-southeast-5: Indonesia (Jakarta)
-   * 
-   * If you do not specify this parameter, data of all regions is aggregated and returned by default.
+   * If this parameter is left empty, the aggregated data of all regions is returned by default.
    * 
    * @example
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The key that is used to group data. If you do not specify this parameter, the default value region is used. Data is aggregated and returned. Separate multiple keys with commas (,). Valid values:
-   * 
-   * *   domain: The value of DomainName in the response takes effect only if SplitBy is set to domain.
-   * *   region: This is the default value. The value of Region in the response takes effect only if SplitBy is set to region.
+   * The grouping key. If this parameter is left empty, the default value is region, and the aggregated data is returned. You can specify multiple values separated by commas (,). Valid values:
+   * - domain: the domain name. If SplitBy is set to domain, the Domain field in the response takes effect.
+   * - region (default): the live center region. If SplitBy is set to region, the Region field in the response takes effect.
    * 
    * @example
    * region
@@ -56,7 +60,7 @@ export class DescribeLivePushProxyUsageDataRequest extends $dara.Model {
   splitBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. By default, data in the last seven days is returned.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC. By default, data from the last seven days is returned.
    * 
    * @example
    * 2022-10-10T20:00:00Z

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class LeaveMessageGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user left the message group. Valid values:
+   * Indicates whether the user successfully left the message group. Valid values:
    * 
-   * *   true: The user left the message group.
-   * *   false: The user failed to leave the message group.
+   * - true: Successful.
+   * - false: Unsuccessful.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class LeaveMessageGroupResponseBodyResult extends $dara.Model {
 export class LeaveMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class LeaveMessageGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: LeaveMessageGroupResponseBodyResult;
   static names(): { [key: string]: string } {

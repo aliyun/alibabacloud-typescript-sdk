@@ -6,7 +6,7 @@ export class DescribeLiveAIStudioRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The current page number. The default value is **1**.
    * 
    * @example
    * 1
@@ -14,16 +14,23 @@ export class DescribeLiveAIStudioRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 50.
+   * The number of entries to return on each page. Default value: 10. Valid values: 1 to 50.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the virtual studio template that you want to query. This parameter is optional.
+   * The ID of the template to filter. This parameter is optional.
    * 
    * @example
    * dbe61b87-db9a-448f-8757-a875edb3f944

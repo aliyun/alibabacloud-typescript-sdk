@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The audio-only duration. Audio-only is a basic specification. Unit: minutes.
+   * The audio-only duration at the basic specification. Unit: minutes.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   audioDuration?: number;
   /**
    * @remarks
-   * The single-stream relay duration for audio. Unit: minutes.
+   * The single-stream relay audio duration. Unit: minutes.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   singleAudio?: number;
   /**
    * @remarks
-   * The single-stream relay duration for video. Unit: minutes.
+   * The single-stream relay video duration. Unit: minutes.
    * 
    * @example
    * 30
@@ -29,7 +29,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   singleVideo?: number;
   /**
    * @remarks
-   * The timestamp of the data returned.
+   * The start time of the time segment. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format in UTC+0.
    * 
    * @example
    * 2022-10-10T20:00:00Z
@@ -37,7 +37,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   timestamp?: string;
   /**
    * @remarks
-   * The duration. Unit: minutes.
+   * The total duration. Unit: minutes.
    * 
    * @example
    * 150
@@ -45,7 +45,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   totalDuration?: number;
   /**
    * @remarks
-   * The Full HD duration. The video resolution is 1920 × 1080 or lower. Unit: minutes.
+   * The full high definition duration, with a video resolution of 1920 × 1080 or lower. Unit: minutes.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   v1080Duration?: number;
   /**
    * @remarks
-   * The SD duration. The video resolution is 640 × 480 or lower. Unit: minutes.
+   * The standard definition duration, with a video resolution of 640 × 480 or lower. Unit: minutes.
    * 
    * @example
    * 30
@@ -61,7 +61,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
   v480Duration?: number;
   /**
    * @remarks
-   * The HD duration. The video resolution is 1280 × 720 or lower. Unit: minutes.
+   * The high definition duration, with a video resolution of 1280 × 720 or lower. Unit: minutes.
    * 
    * @example
    * 40
@@ -105,7 +105,7 @@ export class DescribeMeterLiveBypassDurationResponseBodyData extends $dara.Model
 export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total audio-only duration. Audio-only is a basic specification. Unit: minutes.
+   * The total audio-only duration at the basic specification. Unit: minutes.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   audioSummaryDuration?: number;
   /**
    * @remarks
-   * The usage statistics for each time granularity.
+   * The usage statistics information.
    */
   data?: DescribeMeterLiveBypassDurationResponseBodyData[];
   /**
@@ -126,7 +126,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total single-stream relay duration for audio. Unit: minutes.
+   * The total single-stream relay audio duration. Unit: minutes.
    * 
    * @example
    * 20
@@ -134,7 +134,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   singleAudioSummaryDuration?: number;
   /**
    * @remarks
-   * The total single-stream relay duration for video. Unit: minutes.
+   * The total single-stream relay video duration. Unit: minutes.
    * 
    * @example
    * 30
@@ -150,7 +150,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   totalSummaryDuration?: number;
   /**
    * @remarks
-   * The total Full HD duration. The video resolution is 1920 × 1080 or lower. Unit: minutes.
+   * The total full high definition duration, with a video resolution of 1920 × 1080 or lower. Unit: minutes.
    * 
    * @example
    * 10
@@ -158,7 +158,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   v1080SummaryDuration?: number;
   /**
    * @remarks
-   * The total standard definition (SD) duration. The video resolution is 640 × 480 or lower. Unit: minutes.
+   * The total standard definition duration, with a video resolution of 640 × 480 or lower. Unit: minutes.
    * 
    * @example
    * 30
@@ -166,7 +166,7 @@ export class DescribeMeterLiveBypassDurationResponseBody extends $dara.Model {
   v480SummaryDuration?: number;
   /**
    * @remarks
-   * The total high definition (HD) duration. The video resolution is 1280 × 720 or lower. Unit: minutes.
+   * The total high definition duration, with a video resolution of 1280 × 720 or lower. Unit: minutes.
    * 
    * @example
    * 40

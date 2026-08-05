@@ -13,7 +13,7 @@ export class DescribeLiveSnapshotConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -25,8 +25,8 @@ export class DescribeLiveSnapshotConfigRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * *   **asc** (default): ascending order
-   * *   **desc**: descending order
+   * - **asc** (default): ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * asc

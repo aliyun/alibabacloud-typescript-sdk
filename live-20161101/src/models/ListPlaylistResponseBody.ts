@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio to which the episode list belongs. You can use the ID as a request parameter in the API operation that is used to add a layout to the virtual studio, delete a layout in the virtual studio, modify a layout of the virtual studio, or query layouts of the virtual studio.
+   * The ID of the production studio to which the playlist belongs. Use this ID as a request parameter to add, delete, modify, or query the layout of a virtual studio.
    * 
    * @example
    * casdfasdfasfdasdflkasjdflaj****
@@ -13,7 +13,7 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the episode list.
+   * The ID of the playlist.
    * 
    * @example
    * c09f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -29,7 +29,7 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   programId?: string;
   /**
    * @remarks
-   * The name of the episode list.
+   * The name of the playlist.
    * 
    * @example
    * playlist1
@@ -37,11 +37,13 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   programName?: string;
   /**
    * @remarks
-   * The number of playbacks after the first playback is complete. Valid values:
+   * The number of times the playlist repeats after the first playback. Valid values:
    * 
-   * *   **0** (default): specifies that the episode list is played only once.
-   * *   **-1**: specifies that the episode list is played in loop mode.
-   * *   Positive integer: specifies the number of times the episode list repeats after the first playback is complete.
+   * - **0** (default): The playlist does not repeat.
+   * 
+   * - **-1**: The playlist plays in a loop.
+   * 
+   * - Other positive integers: The number of times the playlist repeats.
    * 
    * @example
    * 1
@@ -49,10 +51,11 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
   repeatNumber?: number;
   /**
    * @remarks
-   * The status of the episode list. Valid values:
+   * The status of the playlist. Valid values:
    * 
-   * *   **0**: stopped
-   * *   **1**: running
+   * - **0**: stopped.
+   * 
+   * - **1**: running.
    * 
    * @example
    * 1
@@ -92,7 +95,7 @@ export class ListPlaylistResponseBodyProgramList extends $dara.Model {
 export class ListPlaylistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The episode lists.
+   * The list of playlists.
    */
   programList?: ListPlaylistResponseBodyProgramList[];
   /**
@@ -105,7 +108,7 @@ export class ListPlaylistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of episode lists returned.
+   * The total number of playlists.
    * 
    * @example
    * 1

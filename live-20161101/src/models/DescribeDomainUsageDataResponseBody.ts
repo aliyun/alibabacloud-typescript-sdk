@@ -57,7 +57,7 @@ export class DescribeDomainUsageDataResponseBodyUsageDataPerInterval extends $da
 export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billable region where the resource usage data was generated.
+   * The usage region.
    * 
    * @example
    * CN
@@ -65,7 +65,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   area?: string;
   /**
    * @remarks
-   * The time interval between the returned entries. Unit: seconds.
+   * The time interval of each record. Unit: seconds.
    * 
    * @example
    * 300
@@ -73,7 +73,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The domain name.
+   * The streaming domain.
    * 
    * @example
    * example.com
@@ -81,7 +81,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2015-12-10T21:00Z
@@ -89,7 +89,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B955107D-E658-4E77-B913-E0AC3D31693E
@@ -97,7 +97,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for which the resource usage data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2015-12-10T20:00Z
@@ -105,7 +105,7 @@ export class DescribeDomainUsageDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The type of the resource usage data.
+   * The usage type.
    * 
    * @example
    * all

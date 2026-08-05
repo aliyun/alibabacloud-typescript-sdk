@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRtcMPUEventSubResponseBodySubInfo extends $dara.Model {
   /**
    * @remarks
-   * The application ID. You can specify only one application ID.
+   * The ID of the subscribed application.
    * 
    * @example
    * yourAppId
@@ -21,7 +21,7 @@ export class DescribeRtcMPUEventSubResponseBodySubInfo extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The ID of the channel to which mixed-stream relay event callbacks are sent. Multiple channel IDs are separated by commas (,). If this parameter is not returned, mixed-stream relay event callbacks are sent to all channels.
+   * The channel IDs of stream mixing tasks that receive callbacks, separated by commas (,). If this field is empty, all channels receive callbacks.
    * 
    * @example
    * yourCh1,yourCh2
@@ -29,7 +29,7 @@ export class DescribeRtcMPUEventSubResponseBodySubInfo extends $dara.Model {
   channelIds?: string;
   /**
    * @remarks
-   * The time when the event callback was fired. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The creation time of the event callback, in the format of yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2024-04-09 18:00:00Z
@@ -37,7 +37,7 @@ export class DescribeRtcMPUEventSubResponseBodySubInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the subscription.
+   * The event callback ID.
    * 
    * @example
    * Sub-******9799B2C4500******
@@ -83,7 +83,7 @@ export class DescribeRtcMPUEventSubResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the subscription.
+   * The event callback information.
    */
   subInfo?: DescribeRtcMPUEventSubResponseBodySubInfo;
   static names(): { [key: string]: string } {

@@ -125,7 +125,7 @@ export class DescribeLiveAIStudioResponseBodyStudioConfigs extends $dara.Model {
 export class DescribeLiveAIStudioResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class DescribeLiveAIStudioResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 50.
+   * The number of entries returned on each page. Default value: 10. Valid values: 1 to 50.
    * 
    * @example
    * 10
@@ -141,7 +141,7 @@ export class DescribeLiveAIStudioResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8

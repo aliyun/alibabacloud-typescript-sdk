@@ -158,12 +158,12 @@ export class DescribeCastersResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 5c6a2a0df228-4a64- af62-20e91b9676b3
+   * 5c6a2a0df228-4a64- af62-20e91b******
    */
   requestId?: string;
   /**
    * @remarks
-   * The number of production studios.
+   * The total number of production studios.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class DescribeLivePrivateLineAvailGARequest extends $dara.Model {
   accelerationArea?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * live
@@ -21,7 +21,7 @@ export class DescribeLivePrivateLineAvailGARequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer\\"s streaming domain.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,9 @@ export class DescribeLivePrivateLineAvailGARequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to query Global Accelerator (GA) instances. Valid values:
-   * 
-   * *   yes: queries the status of GA instances.
-   * *   no: queries the binding information between GA instances and acceleration circuits.
+   * Specifies whether to query the Alibaba Cloud Global Accelerator (GA) instance. Valid values:
+   * - yes: Queries the GA instance status.
+   * - no: Queries the attachment details between the GA instance and the live streaming link.
    * 
    * This parameter is required.
    * 
@@ -43,10 +42,17 @@ export class DescribeLivePrivateLineAvailGARequest extends $dara.Model {
    */
   isGaInstance?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The live stream name.
    * 
    * @example
    * testStream
@@ -54,7 +60,7 @@ export class DescribeLivePrivateLineAvailGARequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, ap-southeast-1, and ap-south-1. cn-beijing indicates China (Beijing). cn-shanghai indicates China (Shanghai). cn-shenzhen indicates China (Shenzhen). cn-qingdao indicates China (Qingdao). ap-northeast-1 indicates Japan (Tokyo). ap-southeast-5 indicates Indonesia (Jakarta). eu-central-1 indicates Germany (Frankfurt). ap-southeast-1 indicates Singapore.
+   * The live center. Valid values: cn-beijing, cn-shanghai, cn-shenzhen, cn-qingdao, ap-northeast-1, ap-southeast-5, eu-central-1, and ap-southeast-1, ap-south-1, which represent the live centers located in Beijing, Shanghai, Shenzhen, Qingdao, Japan, Indonesia, Germany, and Singapore.
    * 
    * @example
    * cn-shanghai

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLivePackageConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * App name, `*` matches all names.
+   * The AppName of all live streams. An asterisk (\\*) matches all AppNames.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLivePackageConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Live streaming domain (primary playback domain).
+   * The main streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DeleteLivePackageConfigRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * Live stream name, `*` matches all streams under AppName.
+   * The stream name. An asterisk (\\*) matches all streams under the specified AppName.
    * 
    * This parameter is required.
    * 

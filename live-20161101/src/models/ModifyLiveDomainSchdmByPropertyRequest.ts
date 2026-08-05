@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveDomainSchdmByPropertyRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which you want to modify the acceleration region.
+   * The live streaming domain for which you want to modify the acceleration region.
    * 
    * This parameter is required.
    * 
@@ -16,11 +16,13 @@ export class ModifyLiveDomainSchdmByPropertyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The acceleration region that you want to set. {"coverage":"overseas"} specifies regions outside the Chinese mainland. Valid values of coverage:
+   * The acceleration region. A value of {"coverage":"overseas"} specifies that the configuration is for regions outside mainland China. The following list describes the valid values for coverage:
    * 
-   * *   domestic: regions in the Chinese mainland.
-   * *   overseas: regions outside the Chinese mainland.
-   * *   global: regions in and outside the Chinese mainland.
+   * - domestic: mainland China.
+   * 
+   * - overseas: regions outside mainland China.
+   * 
+   * - global: regions in and outside mainland China.
    * 
    * This parameter is required.
    * 
@@ -28,6 +30,13 @@ export class ModifyLiveDomainSchdmByPropertyRequest extends $dara.Model {
    * {"coverage":"global"}
    */
   property?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

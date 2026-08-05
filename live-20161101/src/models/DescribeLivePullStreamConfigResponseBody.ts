@@ -73,7 +73,7 @@ export class DescribeLivePullStreamConfigResponseBody extends $dara.Model {
   liveAppRecordList?: DescribeLivePullStreamConfigResponseBodyLiveAppRecordList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A3136B58-5876-4168-83CA-B562781981A0

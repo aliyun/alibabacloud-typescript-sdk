@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRTSNativeSDKVvDataResponseBodyVvData extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the returned data.
+   * The start time of the time interval. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z
@@ -13,7 +13,7 @@ export class DescribeRTSNativeSDKVvDataResponseBodyVvData extends $dara.Model {
   timeStamp?: string;
   /**
    * @remarks
-   * The number of successful playbacks within the period of time.
+   * The total number of successful playbacks within the specified time period.
    * 
    * @example
    * 99
@@ -21,7 +21,7 @@ export class DescribeRTSNativeSDKVvDataResponseBodyVvData extends $dara.Model {
   vvSuccess?: string;
   /**
    * @remarks
-   * The total number of playbacks within the period of time.
+   * The total number of playbacks within the specified time period.
    * 
    * @example
    * 100
@@ -63,7 +63,7 @@ export class DescribeRTSNativeSDKVvDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The end of the time range for which the data was queried.
+   * The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T21:00:00Z
@@ -71,7 +71,7 @@ export class DescribeRTSNativeSDKVvDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
@@ -79,7 +79,7 @@ export class DescribeRTSNativeSDKVvDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for which the data was queried.
+   * The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z
@@ -87,7 +87,7 @@ export class DescribeRTSNativeSDKVvDataResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The total number of playbacks and the number of successful playbacks at each interval.
+   * The total playback count and total successful playback count for each time interval. Unit: count.
    */
   vvData?: DescribeRTSNativeSDKVvDataResponseBodyVvData[];
   static names(): { [key: string]: string } {

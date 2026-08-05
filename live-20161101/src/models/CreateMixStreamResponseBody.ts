@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMixStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the stream mixing task. You can specify this parameter in a request to delete the stream mixing task or query stream mixing tasks.
+   * The ID of the stream mix task. Use this ID to query or delete the task.
    * 
    * @example
    * 5b2a046e-74d7-385e-253f-8a5b87e4****
@@ -13,7 +13,7 @@ export class CreateMixStreamResponseBody extends $dara.Model {
   mixStreamId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0D715397-2E66-4AE1-694h-C546628AD145

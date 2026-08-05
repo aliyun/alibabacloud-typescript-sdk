@@ -6,7 +6,7 @@ export class EditPlaylistRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The configurations of the episode list. For more information, see the **ProgramConfig** section of this topic.
+   * The playlist configuration. For more information, see **ProgramConfig**.
    * 
    * @example
    * [{"RepeatNumber":"0","ProgramName":"my program"}]
@@ -14,7 +14,7 @@ export class EditPlaylistRequest extends $dara.Model {
   programConfig?: string;
   /**
    * @remarks
-   * The ID of the episode list. If the episode list was created by calling the [AddPlaylistItems](https://help.aliyun.com/document_detail/2848078.html) operation, check the value of the response parameter ProgramId to obtain the ID.
+   * The playlist ID. If you add playlist items by calling the [AddPlaylistItems](https://help.aliyun.com/document_detail/2848078.html) operation, use the ProgramId value returned by the call.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class EditPlaylistRequest extends $dara.Model {
   programId?: string;
   /**
    * @remarks
-   * The episodes that you want to add to the production studio. The value is a JSON string. For more information, see the **InputProgramItem** section of this topic.
+   * The list of playlist items. This is a JSON string. For more information, see **InputProgramItem**.
    * 
    * This parameter is required.
    * 
@@ -32,6 +32,13 @@ export class EditPlaylistRequest extends $dara.Model {
    * [{"ItemName":"item1","ResourceType":"vod","ResourceValue":"5f8809f2-3352-4d1f-a8f7-86f9429f****"}, {"ItemName": "item2","ResourceType": "vod","ResourceValue": "e7411c0b-dd98-4c61-a545-f8bfba6c****"}]
    */
   programItems?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

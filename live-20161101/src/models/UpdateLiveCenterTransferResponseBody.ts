@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveCenterTransferResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7908F2FF-44F8-120F-9FD6-85AE4B6C19EC

@@ -47,7 +47,7 @@ export class DescribeLiveStreamsBlockListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -64,7 +64,7 @@ export class DescribeLiveStreamsBlockListResponseBody extends $dara.Model {
   streamUrls?: DescribeLiveStreamsBlockListResponseBodyStreamUrls;
   /**
    * @remarks
-   * The total number of live stream URLs that meet the specified conditions.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 11
@@ -72,7 +72,7 @@ export class DescribeLiveStreamsBlockListResponseBody extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * The total number of returned pages.
+   * The total number of pages.
    * 
    * @example
    * 2

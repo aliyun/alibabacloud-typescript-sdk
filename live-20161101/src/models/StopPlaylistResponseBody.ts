@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopPlaylistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode list.
+   * The playlist ID.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****

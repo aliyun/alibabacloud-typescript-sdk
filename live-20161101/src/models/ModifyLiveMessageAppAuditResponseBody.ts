@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveMessageAppAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The ID of the interactive messaging application to modify.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class ModifyLiveMessageAppAuditResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The signature of the interactive messaging application. It is required by the interactive messaging SDK.
+   * The signature of the interactive messaging application. This information is required by the interactive messaging service SDK.
    * 
    * @example
    * **************************************************************************
@@ -21,7 +21,7 @@ export class ModifyLiveMessageAppAuditResponseBody extends $dara.Model {
   appSign?: string;
   /**
    * @remarks
-   * Indicates whether authentication is enabled. If custom content moderation is used, the value of this parameter is true by default.
+   * Indicates whether call authentication is enabled. If custom security audit is used, this parameter is set to true by default to enable call authentication.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ModifyLiveMessageAppAuditResponseBody extends $dara.Model {
   auditNeedAuthentication?: boolean;
   /**
    * @remarks
-   * The content moderation method.
+   * The security audit method.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ModifyLiveMessageAppAuditResponseBody extends $dara.Model {
   auditType?: number;
   /**
    * @remarks
-   * The URL for content moderation. This parameter is returned when the value of AuditType is 2.
+   * The security audit URL provided when AuditType is set to 2.
    * 
    * @example
    * http: //example.aliyundoc.com/exampleaudit

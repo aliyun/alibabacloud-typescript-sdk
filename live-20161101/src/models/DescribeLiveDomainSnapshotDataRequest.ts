@@ -5,18 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainSnapshotDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain to query.
-   * 
-   * *   You can query one or more domain names. If you specify multiple domain names, separate them with commas (,).
-   * *   If you leave this parameter empty, the data of all domain names within your Alibaba Cloud account is returned.
+   * The ingest domain name to query.
+   * - You can specify a single domain name or multiple domain names. Separate multiple domain names with commas (,).
+   * - If this parameter is left empty, the merged data of all live streaming domain names is returned by default.
    * 
    * @example
-   * example.com
+   * example.aliyundoc.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
    * 
    * This parameter is required.
    * 
@@ -25,12 +24,18 @@ export class DescribeLiveDomainSnapshotDataRequest extends $dara.Model {
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * >  You can query data in the last **90** days.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+   * >You can query data from the last **90** days.
    * 
    * This parameter is required.
    * 

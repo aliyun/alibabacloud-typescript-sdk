@@ -75,7 +75,7 @@ export class ListLiveDelayConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of stream delay configurations.
+   * The total number of stream delay configurations.
    * 
    * @example
    * 1

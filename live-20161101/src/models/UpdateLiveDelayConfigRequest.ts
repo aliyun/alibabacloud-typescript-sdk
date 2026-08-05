@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveDelayConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications that belong to the domain name.
+   * The AppName of the live stream. You can specify an asterisk (\\*) to match all AppNames under the domain name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateLiveDelayConfigRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The duration for which the playback of the live stream is delayed. The value must be an integer. Valid values: 16 to 3600. Unit: seconds.
+   * The duration for which the playback is delayed. The value must be an integer. Valid values: 16 to 3600. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -34,10 +34,17 @@ export class UpdateLiveDelayConfigRequest extends $dara.Model {
    */
   domain?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can use the wildcard (\\*) to specify all streams of the application.
+   * The name of the live stream. You can use the wildcard (\\*) to specify all StreamNames under the AppName.
    * 
    * This parameter is required.
    * 
@@ -47,11 +54,13 @@ export class UpdateLiveDelayConfigRequest extends $dara.Model {
   stream?: string;
   /**
    * @remarks
-   * The trigger mode. Valid values:
+   * The trigger mode for the task. Valid values:
    * 
-   * *   **PUBLISH_ONLY**: Stream delay can be triggered only by specifying the stream delay parameter in the ingest URL.
-   * *   **CONFIG_ONLY**: Stream delay can be triggered only by the stream delay configuration.
-   * *   **PUBLISH_CONFIG**: Stream delay can be triggered by the stream delay parameter in the ingest URL or the stream delay configuration. The stream delay parameter takes precedence over the stream delay configuration.
+   * - **PUBLISH_ONLY**: Stream delay is triggered only by relevant parameters in the ingest URL.
+   * 
+   * - **CONFIG_ONLY**: Stream delay is triggered only by the configuration. Parameters in the ingest URL are ignored.
+   * 
+   * - **PUBLISH_CONFIG**: Stream delay is triggered by both the configuration and parameters in the ingest URL. Parameters in the ingest URL have a higher priority than the configuration.
    * 
    * @example
    * PUBLISH_ONLY

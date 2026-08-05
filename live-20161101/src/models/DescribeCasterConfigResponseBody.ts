@@ -63,11 +63,15 @@ export class DescribeCasterConfigResponseBodyRecordConfigRecordFormat extends $d
 export class DescribeCasterConfigResponseBodyRecordConfig extends $dara.Model {
   /**
    * @remarks
-   * On-demand recording. Values:
-   * - 0: Off. 
-   * - 1: Via HTTP callback. 
-   * - 2: Parse streaming parameters for on-demand recording. 
-   * - 7: Default to not record.
+   * The on-demand recording mode. Valid values:
+   * 
+   * - 0: Disabled.
+   * 
+   * - 1: HTTP callback-based.
+   * 
+   * - 2: On-demand recording by parsing stream ingest parameters.
+   * 
+   * - 7: Not recorded by default.
    * 
    * @example
    * 0
@@ -75,7 +79,7 @@ export class DescribeCasterConfigResponseBodyRecordConfig extends $dara.Model {
   onDemand?: number;
   /**
    * @remarks
-   * The OSS bucket for storage.
+   * The storage location.
    * 
    * @example
    * liveBucket****
@@ -83,7 +87,7 @@ export class DescribeCasterConfigResponseBodyRecordConfig extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) endpoint.
+   * The OSS endpoint of the storage location.
    * 
    * @example
    * oss-cn-shanghai.aliyundoc.com
@@ -223,7 +227,7 @@ export class DescribeCasterConfigResponseBodyTranscodeConfigCustomParamsVideo ex
   fps?: number;
   /**
    * @remarks
-   * The video height. Unit: pixels.
+   * The video height. Unit: pixels (px).
    * 
    * @example
    * 720
@@ -231,7 +235,7 @@ export class DescribeCasterConfigResponseBodyTranscodeConfigCustomParamsVideo ex
   height?: number;
   /**
    * @remarks
-   * The video width. Unit: pixels.
+   * The video width. Unit: pixels (px).
    * 
    * @example
    * 1080
@@ -323,16 +327,16 @@ export class DescribeCasterConfigResponseBodyTranscodeConfigLiveTemplateIds exte
 export class DescribeCasterConfigResponseBodyTranscodeConfig extends $dara.Model {
   /**
    * @remarks
-   * The transcoding template of the production studio. Valid values:
+   * The production studio transcoding template. Valid values:
    * 
-   * *   **lp_ld**: low definition
-   * *   **lp_sd**: standard definition
-   * *   **lp_hd**: high definition
-   * *   **lp_ud**: ultra high definition
-   * *   **lp_ld_v**: low definition (portrait mode)
-   * *   **lp_sd_v**: standard definition (portrait mode)
-   * *   **lp_hd_v**: high definition (portrait mode)
-   * *   **lp_ud_v**: ultra high definition (portrait mode)
+   * - **lp_ld**: low definition.
+   * - **lp_sd**: standard definition.
+   * - **lp_hd**: high definition.
+   * - **lp_ud**: ultra-high definition.
+   * - **lp_ld_v**: portrait low definition.
+   * - **lp_sd_v**: portrait standard definition.
+   * - **lp_hd_v**: portrait high definition.
+   * - **lp_ud_v**: portrait ultra-high definition.
    * 
    * @example
    * lp_hd
@@ -340,7 +344,7 @@ export class DescribeCasterConfigResponseBodyTranscodeConfig extends $dara.Model
   casterTemplate?: string;
   /**
    * @remarks
-   * The custom settings.
+   * The custom configuration.
    */
   customParams?: DescribeCasterConfigResponseBodyTranscodeConfigCustomParams;
   liveTemplateIds?: DescribeCasterConfigResponseBodyTranscodeConfigLiveTemplateIds;
@@ -376,9 +380,10 @@ export class DescribeCasterConfigResponseBodyTranscodeConfig extends $dara.Model
 }
 
 export class DescribeCasterConfigResponseBody extends $dara.Model {
+  audioMixerMode?: string;
   /**
    * @remarks
-   * The configuration for automatic switchover to the standby resource. The `eofThres` field specifies the duration after which the production studio automatically switches to the standby resource if a stream interruption occurs. Unit: seconds.
+   * The automatic standby video switching configuration. `eofThres`: specifies the duration of stream interruption before automatically switching to the standby video. Unit: seconds.
    * 
    * @example
    * {"eofThres":3}
@@ -386,10 +391,9 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   autoSwitchUrgentConfig?: string;
   /**
    * @remarks
-   * Indicates whether the production studio automatically switches to the standby resource in case of a stream interruption.
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether automatic switchover to the standby video upon stream interruption is enabled.
+   * - **true**: Enabled.
+   * - **false**: Shutdown.
    * 
    * @example
    * true
@@ -397,7 +401,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   autoSwitchUrgentOn?: string;
   /**
    * @remarks
-   * The callback URL.
+   * The user callback URL.
    * 
    * @example
    * http://learn.aliyundoc.com/callBackLive
@@ -405,7 +409,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The ID of the production studio.
+   * The production studio ID.
    * 
    * @example
    * LIVEPRODUCER_POST-cn-0pp1czt****
@@ -413,7 +417,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The name of the production studio.
+   * The production studio name.
    * 
    * @example
    * coco-caster10
@@ -421,10 +425,10 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   casterName?: string;
   /**
    * @remarks
-   * Indicates whether channels are enabled for the production studio. Valid values:
-   * 
-   * *   **0**: Channels are disabled.
-   * *   **1**: Channels are enabled.
+   * Indicates whether Channel is enabled. Valid values:
+   *          
+   * - **0**: Disabled.
+   * - **1**: Enabled.
    * 
    * @example
    * 1
@@ -432,10 +436,10 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   channelEnable?: number;
   /**
    * @remarks
-   * Indicates whether stream delay is enabled. Unit: seconds.
-   * 
-   * *   **0**: Stream delay is disabled.
-   * *   **A value greater than 0**: Stream delay is enabled.
+   * The stream delay. Unit: seconds. 
+   *          
+   * - **0**: Stream delay is disabled.
+   * - Greater than **0**: Stream delay is enabled.
    * 
    * @example
    * 0
@@ -443,7 +447,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   delay?: number;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary streaming domain.
    * 
    * @example
    * example.com
@@ -451,10 +455,10 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether the carousel playback feature is enabled. Valid values:
-   * 
-   * *   **0**: The carousel playback feature is disabled.
-   * *   **1**: The carousel playback feature is enabled.
+   * The playlist effective flag. Valid values:
+   *          
+   * - **0**: Not effective.
+   * - **1**: Effective.
    * 
    * @example
    * 0
@@ -462,7 +466,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   programEffect?: number;
   /**
    * @remarks
-   * The name of the playlist for carousel playback.
+   * The playlist name.
    * 
    * @example
    * program_name
@@ -470,12 +474,12 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   programName?: string;
   /**
    * @remarks
-   * The recording configuration. If this parameter is empty, the recording feature is disabled.
+   * The recording configuration. If this parameter is empty, the recording feature is not enabled.
    */
   recordConfig?: DescribeCasterConfigResponseBodyRecordConfig;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 97df6b7f-3490-47d2-ac50-8833e1b64597
@@ -483,7 +487,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The custom stream redirect URL.
+   * The custom side output URL of the production studio.
    * 
    * @example
    * rtmp://sophon-developer.aliyundoc.com/caster/4a82a3d1b7f0462ea37348366201****?auth_key=1608953344-0-0-ac8c628078541d7055a170ec59a5****
@@ -491,10 +495,10 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   sideOutputUrl?: string;
   /**
    * @remarks
-   * The list of custom stream redirect URLs.
+   * The list of custom side output URLs of the production studio.
    * 
    * @example
-   * rtmp://sophon-developer.aliyundoc.com/caster/4a82a3d1b7f0462ea37348366201****?auth_key=1608953344-0-0-ac8c628078541d7055a170ec59a5****
+   * ["rtmp://domain/app1/stream1","rtmp://domain/app2/stream2"]
    */
   sideOutputUrlList?: string;
   syncGroupsConfig?: DescribeCasterConfigResponseBodySyncGroupsConfig;
@@ -505,7 +509,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   transcodeConfig?: DescribeCasterConfigResponseBodyTranscodeConfig;
   /**
    * @remarks
-   * Prepared broadcast image media asset ID.
+   * The media library asset ID of the standby image.
    * 
    * @example
    * a089175eb5f4427684fc0715159a****
@@ -513,7 +517,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   urgentImageId?: string;
   /**
    * @remarks
-   * URL of the standby image material.
+   * The URL of the standby image.
    * 
    * @example
    * http://learn.aliyundoc.com/AppName/image.jpg
@@ -529,7 +533,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   urgentLiveStreamUrl?: string;
   /**
    * @remarks
-   * The ID of the material that is used as the standby video from the media library.
+   * The media library asset ID of the standby video.
    * 
    * @example
    * 98646538-bcf9-4aef-bd4a-e6bb76588****
@@ -537,6 +541,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
   urgentMaterialId?: string;
   static names(): { [key: string]: string } {
     return {
+      audioMixerMode: 'AudioMixerMode',
       autoSwitchUrgentConfig: 'AutoSwitchUrgentConfig',
       autoSwitchUrgentOn: 'AutoSwitchUrgentOn',
       callbackUrl: 'CallbackUrl',
@@ -562,6 +567,7 @@ export class DescribeCasterConfigResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioMixerMode: 'string',
       autoSwitchUrgentConfig: 'string',
       autoSwitchUrgentOn: 'string',
       callbackUrl: 'string',

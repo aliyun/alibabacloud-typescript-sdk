@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageGroupUserResponseBodyResultUserList extends $dara.Model {
   /**
    * @remarks
-   * The time when the user joined the message group. The value is a UTC timestamp.
+   * UTC timestamp when the user joined the message group.
    * 
    * @example
    * 12**45
@@ -13,7 +13,7 @@ export class ListMessageGroupUserResponseBodyResultUserList extends $dara.Model 
   joinTime?: number;
   /**
    * @remarks
-   * The ID of the user.
+   * User ID.
    * 
    * @example
    * de1**a0,hu**9
@@ -45,10 +45,10 @@ export class ListMessageGroupUserResponseBodyResultUserList extends $dara.Model 
 export class ListMessageGroupUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true: The current page is followed by another page.
-   * *   false: The current page is not followed by another page.
+   * - true: There is a next page.
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -56,7 +56,7 @@ export class ListMessageGroupUserResponseBodyResult extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The total number of users in the message group.
+   * Total number of message group users.
    * 
    * @example
    * 2
@@ -64,7 +64,7 @@ export class ListMessageGroupUserResponseBodyResult extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * Details about the users.
+   * User list.
    */
   userList?: ListMessageGroupUserResponseBodyResultUserList[];
   static names(): { [key: string]: string } {
@@ -98,7 +98,7 @@ export class ListMessageGroupUserResponseBodyResult extends $dara.Model {
 export class ListMessageGroupUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -106,7 +106,7 @@ export class ListMessageGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return results.
    */
   result?: ListMessageGroupUserResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CreateLiveAIStudioResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the virtual studio template.
+   * The studio template ID.
    * 
    * @example
    * 369ced1f-c33a-49e5-91da-bdaae3d6c1c2

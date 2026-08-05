@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveStreamMergeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application that generates the output stream. You can view the application name on the [Primary/Secondary Stream Mixing](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+   * The AppName for the merged stream. View the AppName on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DeleteLiveStreamMergeRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the output stream. You can view the stream name on the [Primary/Secondary Stream Mixing](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+   * The StreamName for the merged stream. View the StreamName on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page.
    * 
    * This parameter is required.
    * 

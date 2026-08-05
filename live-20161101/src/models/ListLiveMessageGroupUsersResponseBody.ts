@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveMessageGroupUsersResponseBodyUserList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * uid1
@@ -13,7 +13,7 @@ export class ListLiveMessageGroupUsersResponseBodyUserList extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The additional information about the user.
+   * The extended information of the user.
    * 
    * @example
    * info1
@@ -45,7 +45,7 @@ export class ListLiveMessageGroupUsersResponseBodyUserList extends $dara.Model {
 export class ListLiveMessageGroupUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group queried.
+   * The group ID of the group to query.
    * 
    * @example
    * grouptest
@@ -53,7 +53,7 @@ export class ListLiveMessageGroupUsersResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class ListLiveMessageGroupUsersResponseBody extends $dara.Model {
   hasmore?: boolean;
   /**
    * @remarks
-   * The starting page number for the next query. A value of 0 indicates that no further pages can be queried.
+   * The start position of the next page. A value of 0 indicates that there is no next page.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class ListLiveMessageGroupUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details about the users.
+   * The array of objects.
    */
   userList?: ListLiveMessageGroupUsersResponseBodyUserList[];
   static names(): { [key: string]: string } {

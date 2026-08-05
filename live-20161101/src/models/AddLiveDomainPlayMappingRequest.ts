@@ -24,6 +24,13 @@ export class AddLiveDomainPlayMappingRequest extends $dara.Model {
    * example.com
    */
   pullDomain?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

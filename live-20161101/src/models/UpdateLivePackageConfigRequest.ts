@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name. The value of this parameter must be the same as the application name that is specified in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all applications.
+   * The application name. The template applies only when this AppName matches the application name in the ingest URL. The AppName can be up to 255 characters and can contain digits, letters, hyphens (-), and underscores (_). It cannot start with a hyphen or an underscore. Set this parameter to an asterisk (\\*) to match all application names.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary domain name for live streaming playback.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,11 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to ignore the transcoded stream. Valid values:
+   * Specifies whether to ignore transcoded streams. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): Ignore transcoded streams.
+   * 
+   * - **false**: Do not ignore transcoded streams.
    * 
    * @example
    * true
@@ -37,12 +38,13 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The part length. Unit: milliseconds.
+   * The duration of a part segment in milliseconds.
    * 
-   * >  This parameter is required if Protocol is set to LLHLS_TS or LLHLS_CMAF.
+   * > This parameter is required if you set \\`Protocol\\` to \\`LLHLS_\\*\\`.
    * 
-   * *   If the value of SegmentDuration is 1, the valid values of this parameter are 100 to 500.
-   * *   If the value of SegmentDuration is 2, the valid values of this parameter are 100 to 1000.
+   * - If SegmentDuration is 1 s, the value can range from 100 to 500 ms.
+   * 
+   * - If SegmentDuration is 2 s, the value can range from 100 to 1000 ms.
    * 
    * @example
    * 350
@@ -50,13 +52,17 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   partDuration?: number;
   /**
    * @remarks
-   * The streaming protocol and encapsulation format. Valid values:
+   * The protocol and container format for live streaming. Valid values:
    * 
-   * *   **HLS_CMAF**
-   * *   **LLHLS_TS** (low latency)
-   * *   **LLHLS_CMAF** (low latency)
-   * *   **DASH_CMAF**
-   * *   **HLSDASH_CMAF**
+   * - **HLS_CMAF**
+   * 
+   * - **LLHLS_TS** (low latency)
+   * 
+   * - **LLHLS_CMAF** (low latency)
+   * 
+   * - **DASH_CMAF**
+   * 
+   * - **HLSDASH_CMAF**
    * 
    * This parameter is required.
    * 
@@ -64,13 +70,21 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
    * HLS_CMAF
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The segment length. Unit: seconds.
+   * The segment duration in seconds.
    * 
-   * *   If Protocol is set to HLS_CMAF, the valid values of this parameter are 1 to 10.
-   * *   If Protocol is set to LLHLS_TS or LLHLS_CMAF, the valid values of this parameter are 1 to 2.
+   * - If you set Protocol to HLS_CMAF, the value can range from 1 to 10 s.
+   * 
+   * - If you set Protocol to LLHLS_\\*, the value can range from 1 to 2 s.
    * 
    * This parameter is required.
    * 
@@ -80,7 +94,7 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   segmentDuration?: number;
   /**
    * @remarks
-   * The number of segments. Valid values: 3 to 10.
+   * The number of M3U8 segments. The value must be an integer from 3 to 10.
    * 
    * This parameter is required.
    * 
@@ -90,7 +104,7 @@ export class UpdateLivePackageConfigRequest extends $dara.Model {
   segmentNum?: number;
   /**
    * @remarks
-   * The stream name. The value of this parameter must be the same as the stream name that is specified in the ingest URL. Otherwise, the configuration does not take effect. The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name cannot start with a hyphen (-) or underscore (_). You can also specify an asterisk (\\*) as the value to match all streams.
+   * The stream name. The template applies only when this StreamName matches the stream name in the ingest URL. The StreamName can be up to 255 characters and can contain digits, letters, hyphens (-), and underscores (_). It cannot start with a hyphen or an underscore. Set this parameter to an asterisk (\\*) to match all stream names.
    * 
    * This parameter is required.
    * 

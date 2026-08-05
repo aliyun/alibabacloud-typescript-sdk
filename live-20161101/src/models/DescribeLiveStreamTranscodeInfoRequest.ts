@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamTranscodeInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * @example
    * myapp
@@ -22,6 +22,13 @@ export class DescribeLiveStreamTranscodeInfoRequest extends $dara.Model {
    */
   domainTranscodeName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

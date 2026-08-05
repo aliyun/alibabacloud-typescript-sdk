@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenLiveShiftRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications under the domain name. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the application. The wildcard character (\\*) is supported. An asterisk (\\*) represents all applications under the specified domain name. For more information, see [Stream management](https://help.aliyun.com/document_detail/197397.html).
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class OpenLiveShiftRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The streaming domain.
+   * The streaming domain name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class OpenLiveShiftRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The length of a TS segment for HTTP Live Streaming (HLS). Unit: seconds.
+   * The duration of an HTTP Live Streaming (HLS) transport stream (TS) segment. Unit: seconds.
    * 
    * @example
    * 3
@@ -31,10 +31,11 @@ export class OpenLiveShiftRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Specifies whether to disable time shifting for the transcoded stream. Valid values:
+   * Specifies whether to enable time shifting for transcoded streams. Valid values:
    * 
-   * *   **true**: disables time shifting for the transcoded stream.
-   * *   **false**: enables time shifting for the transcoded stream.
+   * - **true**: Time shifting is disabled for transcoded streams.
+   * 
+   * - **false**: Time shifting is enabled for transcoded streams.
    * 
    * Default value: true.
    * 
@@ -43,10 +44,17 @@ export class OpenLiveShiftRequest extends $dara.Model {
    */
   ignoreTranscode?: boolean;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can specify an asterisk (\\*) as the value to match all streams in the application. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the stream. The wildcard character (\\*) is supported. An asterisk (\\*) represents all streams under the specified application. For more information, see [Stream management](https://help.aliyun.com/document_detail/197397.html).
    * 
    * @example
    * liveStream****
@@ -54,7 +62,7 @@ export class OpenLiveShiftRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The duration for which data is retained. Default value: 7. Unit: day.
+   * The data retention period. The default value is 7. Unit: days.
    * 
    * @example
    * 10

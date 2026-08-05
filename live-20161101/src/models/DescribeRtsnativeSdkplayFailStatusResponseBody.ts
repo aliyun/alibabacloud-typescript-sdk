@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the returned data.
+   * The beginning of the time interval. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z
@@ -13,7 +13,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   timeStamp?: string;
   /**
    * @remarks
-   * The status code that indicates failed DNS resolution.
+   * DNS resolution failure.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   v20001?: string;
   /**
    * @remarks
-   * The status code that indicates failed authentication.
+   * Authentication failure.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   v20002?: string;
   /**
    * @remarks
-   * The status code that indicates a connection signaling timeout.
+   * Connection signaling timeout.
    * 
    * @example
    * 3
@@ -37,7 +37,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   v20011?: string;
   /**
    * @remarks
-   * The status code that indicates a subscription signaling error.
+   * Subscription signaling error.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   v20012?: string;
   /**
    * @remarks
-   * The status code indicating that the stream to subscribe to does not exist.
+   * Subscribed stream does not exist.
    * 
    * @example
    * 5
@@ -53,7 +53,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus extend
   v20013?: string;
   /**
    * @remarks
-   * The status code that indicates a media packet collection timeout.
+   * Media packet receiving timeout.
    * 
    * @example
    * 6
@@ -103,7 +103,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBody extends $dara.Model 
   dataInterval?: string;
   /**
    * @remarks
-   * The end of the time range for which the data was queried.
+   * The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T21:00:00Z
@@ -111,12 +111,12 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBody extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The number of error status codes at each interval.
+   * The total number of error status codes for each time interval.
    */
   playFailStatus?: DescribeRTSNativeSDKPlayFailStatusResponseBodyPlayFailStatus[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
@@ -124,7 +124,7 @@ export class DescribeRTSNativeSDKPlayFailStatusResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for which the data was queried.
+   * The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-12-10T20:00:00Z

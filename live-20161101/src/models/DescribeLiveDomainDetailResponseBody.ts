@@ -13,9 +13,9 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   certName?: string;
   /**
    * @remarks
-   * The CNAME that is assigned to the domain name. You must add a CNAME record in the system of your Domain Name System (DNS) service provider to map the domain name to the CNAME.
+   * The canonical name (CNAME). A CNAME is generated for the live streaming domain. You must add a CNAME record at your DNS provider to map the live streaming domain to this CNAME.
    * 
-   * >  A time-to-live (TTL) value is specified in the CNAME record of a domain name to indicate how long the CNAME record can be cached on the DNS resolver. If you modify the CNAME record of the domain name, the new settings take effect after the cache expires, which takes about 10 minutes. For more information, see [CNAME resolution](https://help.aliyun.com/document_detail/362010.html).
+   * > Local DNS records are cached. After you add the CNAME record, it may take up to 10 minutes to take effect. For more information, see [FAQ about CNAME records](https://help.aliyun.com/document_detail/362010.html).
    * 
    * @example
    * learn.developer.aliyundoc.com
@@ -31,7 +31,7 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The streaming domain or ingest domain.
+   * The ingest domain or streaming domain.
    * 
    * @example
    * demo.aliyundoc.com
@@ -39,11 +39,13 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   domainName?: string;
   /**
    * @remarks
-   * The status of the domain name. Valid values:
+   * The status of the domain. Valid values:
    * 
-   * *   **online**: The domain name is enabled.
-   * *   **offline**: The domain name is disabled.
-   * *   **configuring**: The domain is being configured.
+   * - **online**: enabled.
+   * 
+   * - **offline**: disabled.
+   * 
+   * - **configuring**: being configured.
    * 
    * @example
    * online
@@ -51,7 +53,7 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   domainStatus?: string;
   /**
    * @remarks
-   * The time when the domain name was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the domain was added. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
    * 2018-07-27T06:51:25Z
@@ -59,7 +61,7 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the domain name was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The time when the domain was last modified. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
    * 
    * @example
    * 2018-08-07T06:51Z
@@ -69,8 +71,9 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
    * @remarks
    * The type of the domain name. Valid values:
    * 
-   * *   **liveVideo**: streaming domain
-   * *   **liveEdge**: ingest domain
+   * - **liveVideo**: streaming domain.
+   * 
+   * - **liveEdge**: ingest domain.
    * 
    * @example
    * liveVideo
@@ -78,7 +81,7 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
   liveDomainType?: string;
   /**
    * @remarks
-   * The ID of the region where the domain name resides.
+   * The region where the domain name is added.
    * 
    * @example
    * cn-shanghai
@@ -89,15 +92,16 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
    * The ID of the resource group.
    * 
    * @example
-   * rg-aek2ogvt4nwmi7i
+   * rg-**k3bpq2yjw22**
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the SSL certificate is enabled. Valid values:
+   * Indicates whether SSL is enabled. Valid values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: enabled.
+   * 
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -115,9 +119,11 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
    * @remarks
    * The acceleration region. Valid values:
    * 
-   * *   **domestic**: regions in the Chinese mainland.
-   * *   **overseas**: regions outside the Chinese mainland.
-   * *   **global**: regions in and outside the Chinese mainland.
+   * - **domestic**: the Chinese mainland.
+   * 
+   * - **overseas**: regions outside the Chinese mainland.
+   * 
+   * - **global**: global.
    * 
    * @example
    * domestic
@@ -171,7 +177,7 @@ export class DescribeLiveDomainDetailResponseBodyDomainDetail extends $dara.Mode
 export class DescribeLiveDomainDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration details of the domain name.
+   * The details of the domain configuration.
    */
   domainDetail?: DescribeLiveDomainDetailResponseBodyDomainDetail;
   /**

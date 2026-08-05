@@ -63,7 +63,7 @@ export class StartPlaylistResponseBodyStreamInfoStreams extends $dara.Model {
 export class StartPlaylistResponseBodyStreamInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * liveApp****
@@ -71,7 +71,7 @@ export class StartPlaylistResponseBodyStreamInfo extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * example.com
@@ -79,7 +79,7 @@ export class StartPlaylistResponseBodyStreamInfo extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * @example
    * liveStream****
@@ -119,7 +119,7 @@ export class StartPlaylistResponseBodyStreamInfo extends $dara.Model {
 export class StartPlaylistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to stop playing the episode list.
+   * The ID of the playlist. You can use this ID as a request parameter to stop the playlist.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****
@@ -135,7 +135,7 @@ export class StartPlaylistResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the live stream.
+   * The information about the stream.
    */
   streamInfo?: StartPlaylistResponseBodyStreamInfo;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeLiveStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the application to which the ingest stream belongs. You can set this parameter to * to indicate all AppName values (no restriction on AppName). You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ResumeLiveStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether the live stream is ingested by a streamer or played by a client. Set the value to **publisher**, which specifies that the live stream is ingested by a streamer.
+   * Specifies whether the stream is a streamer ingest stream or a client playback stream. Currently supported value: **publisher** (streamer ingest).
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ResumeLiveStreamRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The name of the ingested stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the ingest stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 

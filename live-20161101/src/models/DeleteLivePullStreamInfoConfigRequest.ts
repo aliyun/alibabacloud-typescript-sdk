@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLivePullStreamInfoConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the application name.
+   * The name of the application to which the live stream belongs. Call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.html) to query the application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLivePullStreamInfoConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DeleteLivePullStreamInfoConfigRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.htmll) operation to query the stream name.
+   * The name of the stream. Call [DescribeLivePullStreamConfig](https://help.aliyun.com/document_detail/2847818.html) to query the stream name.
    * 
    * This parameter is required.
    * 

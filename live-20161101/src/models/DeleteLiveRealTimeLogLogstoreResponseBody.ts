@@ -8,7 +8,7 @@ export class DeleteLiveRealTimeLogLogstoreResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 9732E117-8A37-49FD-A36F-ABBB87556CA7
+   * 9732E117-8A37-49FD-A36F-ABBB*******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamRecordIndexFileRequest extends $dara.Model {
   /**
    * @remarks
-   * System-defined parameter. Value: **DescribeLiveStreamRecordIndexFile**.
+   * The AppName of the live stream.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,7 @@ export class DescribeLiveStreamRecordIndexFileRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * ## [](#)Usage notes
-   * 
-   * ApsaraVideo Live stores the configuration information of an M3U8 index file for six months. You can query only index files created in the previous six months. M3U8 index files are stored in Object Storage Service (OSS) buckets. The retention period is determined by the storage configuration of the OSS buckets.
-   * 
-   * ## [](#qps-)QPS limit
-   * 
-   * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/343507.html).
+   * The main streaming domain.
    * 
    * This parameter is required.
    * 
@@ -32,9 +26,9 @@ export class DescribeLiveStreamRecordIndexFileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the index file.
+   * The manifest ID.
    * 
-   * >  You can call the [DescribeLiveStreamRecordIndexFiles](https://help.aliyun.com/document_detail/2847890.html) operation to query the ID.
+   * > Call the [DescribeLiveStreamRecordIndexFiles](https://help.aliyun.com/document_detail/2847890.html) API to query the ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +39,7 @@ export class DescribeLiveStreamRecordIndexFileRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The main domain of the live stream.
+   * The name of the live stream.
    * 
    * This parameter is required.
    * 

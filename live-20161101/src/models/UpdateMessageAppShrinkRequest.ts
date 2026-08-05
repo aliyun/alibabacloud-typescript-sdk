@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMessageAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the application.
+   * Application configuration.
    */
   appConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive message application ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateMessageAppShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the interactive messaging application.
+   * Interactive message application name.
    * 
    * @example
    * testApp
@@ -28,7 +28,7 @@ export class UpdateMessageAppShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The extended field.
+   * Extension field.
    */
   extensionShrink?: string;
   static names(): { [key: string]: string } {

@@ -62,11 +62,17 @@ export class ListLiveTagResourcesResponseBodyTagResources extends $dara.Model {
 
 export class ListLiveTagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 6a5e8f4fae643e70d1a2ff1827cd91bd
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

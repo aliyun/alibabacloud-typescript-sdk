@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CancelMuteAllGroupUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the cancellation was successful, with values:
-   * - true: Success. 
-   * - false: Not successful.
+   * Indicates whether the cancellation was successful. Valid values:
+   * 
+   * - true: Successful.
+   * 
+   * - false: Unsuccessful.
    * 
    * @example
    * true
@@ -37,7 +39,7 @@ export class CancelMuteAllGroupUserResponseBodyResult extends $dara.Model {
 export class CancelMuteAllGroupUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -45,7 +47,7 @@ export class CancelMuteAllGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Actual return result of the service
    */
   result?: CancelMuteAllGroupUserResponseBodyResult;
   static names(): { [key: string]: string } {

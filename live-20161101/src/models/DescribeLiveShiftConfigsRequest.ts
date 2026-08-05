@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveShiftConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain.
+   * The streaming domain name.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeLiveShiftConfigsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the streaming domain resides.
+   * The ID of the region.
    * 
    * @example
    * cn-shanghai

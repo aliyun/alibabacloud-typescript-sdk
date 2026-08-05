@@ -13,10 +13,11 @@ export class DescribeLiveStreamStateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the stream. Valid values:
+   * The state of the stream. Valid values:
    * 
-   * *   online: The stream is being ingested.
-   * *   offline: The stream is offline. This may be caused by failed or completed stream ingest. For the specific reason, check the stream ingest callback. This operation does not provide detailed information.
+   * - online: The stream is active.
+   * 
+   * - offline: The stream is offline. This may mean the stream ingest has failed or ended. For specific details, use the data returned by the stream ingest callback. This operation does not provide a detailed breakdown of the offline status.
    * 
    * @example
    * online
@@ -24,10 +25,11 @@ export class DescribeLiveStreamStateResponseBody extends $dara.Model {
   streamState?: string;
   /**
    * @remarks
-   * The mode of the stream. Valid values:
+   * The stream ingest method. Valid values:
    * 
-   * *   push: stream ingest
-   * *   pull: triggered stream pulling
+   * - push
+   * 
+   * - pull
    * 
    * @example
    * push

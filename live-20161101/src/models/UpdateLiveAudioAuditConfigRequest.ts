@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveAudioAuditConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name in the ingest URL. Otherwise, the configuration does not take effect. The application name is case-sensitive.
+   * The name of the application to which the stream belongs. The template takes effect only if the AppName value matches the AppName in the ingest URL. The value is case-sensitive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateLiveAudioAuditConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The business type. You can specify a model. The default value is the domain name.
+   * The business type. This parameter can be used to select a model. Default value: the domain name.
    * 
    * @example
    * example.edu
@@ -23,7 +23,7 @@ export class UpdateLiveAudioAuditConfigRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer streaming domain.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateLiveAudioAuditConfigRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket.
+   * The name of the OSS endpoint.
    * 
    * @example
    * cn-oss-****.aliyuncs.com
@@ -49,17 +49,24 @@ export class UpdateLiveAudioAuditConfigRequest extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * The name of the recording that is stored in OSS.
+   * The name of the recording stored in OSS.
    * 
    * @example
    * liveObject****
    */
   ossObject?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. The value of this parameter must be the same as the stream name in the ingest URL. Otherwise, the configuration does not take effect. The stream name is case-sensitive.
+   * The stream name. The template takes effect only if the StreamName value matches the StreamName in the ingest URL. The value is case-sensitive.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamLocationBlockRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * @example
    * liveApp****
@@ -13,10 +13,11 @@ export class DescribeStreamLocationBlockRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The blocking type. Valid values:
+   * The blocking method. Valid values:
    * 
-   * *   blacklist
-   * *   whitelist
+   * - blacklist
+   * 
+   * - whitelist
    * 
    * @example
    * blacklist
@@ -35,7 +36,7 @@ export class DescribeStreamLocationBlockRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -43,12 +44,19 @@ export class DescribeStreamLocationBlockRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: integers from 1 to 100.
+   * The number of entries to return on each page. Valid values: integers from 1 to 100.
    * 
    * @example
    * 5
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

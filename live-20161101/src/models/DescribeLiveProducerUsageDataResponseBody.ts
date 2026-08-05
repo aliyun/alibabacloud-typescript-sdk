@@ -85,7 +85,7 @@ export class DescribeLiveProducerUsageDataResponseBody extends $dara.Model {
   billProducerData?: DescribeLiveProducerUsageDataResponseBodyBillProducerData;
   /**
    * @remarks
-   * The end of the time range during which data was queried.
+   * The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2018-09-30T16:00:00Z
@@ -93,7 +93,7 @@ export class DescribeLiveProducerUsageDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D248E
@@ -101,7 +101,7 @@ export class DescribeLiveProducerUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start of the time range for which the data was queried.
+   * The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2018-10-31T15:59:59Z

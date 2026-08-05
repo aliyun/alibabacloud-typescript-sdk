@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRateAndBitRateInfos extends $dara.Model {
   /**
    * @remarks
-   * The audio bitrate of the live stream. Unit: bit/s.
+   * The audio bitrate of the live stream. Unit: Bps.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
   audioFrameRate?: number;
   /**
    * @remarks
-   * The bitrate of the live stream. Unit: bit/s.
+   * The bitrate of the live stream. Unit: Bps.
    * 
    * @example
    * 1420
@@ -37,7 +37,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
   streamUrl?: string;
   /**
    * @remarks
-   * The time when the data was collected. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The timestamp of the data. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
    * @example
    * 2016-09-13T16:04:00Z
@@ -45,7 +45,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
   time?: string;
   /**
    * @remarks
-   * The video bitrate of the live stream. Unit: bit/s.
+   * The video bitrate of the live stream. Unit: Bps.
    * 
    * @example
    * 1200
@@ -53,7 +53,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
   videoBitRate?: number;
   /**
    * @remarks
-   * The video frame rate of the live stream. Unit: frames per second (FPS).
+   * The video frame rate of the live stream. Unit: FPS.
    * 
    * @example
    * 30
@@ -95,7 +95,7 @@ export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRat
 export class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The audio and video frame rates and bitrates at each time granularity.
+   * The detailed audio and video frame rate and bitrate data for each time interval.
    */
   frameRateAndBitRateInfos?: DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBodyFrameRateAndBitRateInfos[];
   /**

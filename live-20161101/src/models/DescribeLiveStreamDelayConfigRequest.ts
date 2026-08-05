@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamDelayConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain.
+   * The playback domain name.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DescribeLiveStreamDelayConfigRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

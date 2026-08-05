@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainRealTimeTrafficDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain.
+   * The streaming domain name.
    * 
-   * Separate multiple streaming domains with commas (,).
+   * To specify multiple domain names, separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeLiveDomainRealTimeTrafficDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
    * @example
    * 2015-12-10T15:01:00Z
@@ -25,9 +25,9 @@ export class DescribeLiveDomainRealTimeTrafficDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the ISP.
+   * The name of the carrier.
    * 
-   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query a list of available ISPs.
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to obtain the carrier name.
    * 
    * @example
    * alibaba
@@ -37,19 +37,26 @@ export class DescribeLiveDomainRealTimeTrafficDataRequest extends $dara.Model {
    * @remarks
    * The name of the region.
    * 
-   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query a list of available regions.
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to obtain the region name.
    * 
    * @example
    * tianjin
    */
   locationNameEn?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * >  If you do not specify this parameter, the data of the last hour is returned.
+   * > If you do not specify this parameter, data in the last hour is queried.
    * 
    * @example
    * 2015-12-10T15:00:00Z

@@ -57,7 +57,7 @@ export class DescribeLiveStreamsTotalCountResponseBodyStreamCountList extends $d
 export class DescribeLiveStreamsTotalCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * String	FCFFE4A4-F34F-4EEF-B401-36A01689AFBC

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCasterComponentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The component ID. The value can be used as the value of a request parameter to query, modify, or delete a production studio.
+   * The component ID. Use this ID to query, modify, or delete the component.
    * 
    * @example
    * 21926b36-7dd2-4fde-ae25-51b5bc8e****

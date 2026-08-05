@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopRtcCloudTranscodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. The ID can be up to 64 characters long and can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopRtcCloudTranscodeRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the cloud transcoding job. The ID can be up to 64 characters long and can contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-).
+   * 
    * This parameter is required.
    * 
    * @example

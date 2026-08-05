@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeLiveDomainResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ingest domain or streaming domain.
+   * The ingest or streaming domain name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ChangeLiveDomainResourceGroupRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the domain name is moved.
+   * The ID of the destination resource group.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class ChangeLiveDomainResourceGroupRequest extends $dara.Model {
    */
   newResourceGroupId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

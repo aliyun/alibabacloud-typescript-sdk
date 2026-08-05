@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopRtcAsrTaskRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * This parameter is required.
    * 

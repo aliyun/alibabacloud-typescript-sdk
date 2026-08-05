@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRealtimeLogAuthorizedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorization status. **true**: authorized **false**: not authorized
+   * The authorization status. Valid values:
+   * 
+   * **true****false**
    * 
    * @example
    * true

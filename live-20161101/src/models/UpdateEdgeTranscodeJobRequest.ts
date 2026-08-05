@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEdgeTranscodeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data center.
+   * The data center ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateEdgeTranscodeJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the edge transcoding task.
+   * The ID of the edge transcoding job.
    * 
    * This parameter is required.
    * 
@@ -25,17 +25,24 @@ export class UpdateEdgeTranscodeJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The task name.
+   * The job name.
    * 
    * @example
    * task1
    */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The URL of the input stream.
+   * The input stream URL.
    * 
    * @example
    * rtmp://mydomain/app/stream1
@@ -43,7 +50,7 @@ export class UpdateEdgeTranscodeJobRequest extends $dara.Model {
   streamInput?: string;
   /**
    * @remarks
-   * The URL of the output stream.
+   * The output stream URL.
    * 
    * @example
    * rtmp://testdomain/app/stream2

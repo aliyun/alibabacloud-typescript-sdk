@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventSubEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the subscribed application.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListEventSubEventRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time, expressed as a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListEventSubEventRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number. Valid values: 1 and greater.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListEventSubEventRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of callback records to return on each page. Valid values: 1 to 100.
+   * The number of records per page. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ListEventSubEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time, expressed as a UNIX timestamp. Unit: seconds.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ListEventSubEventRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The subscription ID. You can obtain the ID from the response to the [CreateEventSub](https://help.aliyun.com/document_detail/2848209.html) operation.
+   * The subscribe ID. You can obtain the subscribe ID from the response parameters of the [CreateEventSub](https://help.aliyun.com/document_detail/2848209.html) operation by using a parameter query.
    * 
    * @example
    * ad53276431c****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The application ID. The ID is used in subsequent operations, such as joining a group.
+   * The application ID, which is used for subsequent operations such as joining groups.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class CreateLiveMessageAppResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The AppKey for authentication of this application.
+   * The AppKey, which is used to generate authentication for various operations related to the AppId.
    * 
    * @example
    * **********************************
@@ -21,7 +21,7 @@ export class CreateLiveMessageAppResponseBody extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The application signature. The signature is required when you use the interactive messaging SDK.
+   * The application signature. The interactive messaging service SDK requires this information.
    * 
    * @example
    * **************************************************************************
@@ -29,7 +29,7 @@ export class CreateLiveMessageAppResponseBody extends $dara.Model {
   appSign?: string;
   /**
    * @remarks
-   * The data center in which the interactive messaging application was created.
+   * The data center.
    * 
    * @example
    * cn-shanghai

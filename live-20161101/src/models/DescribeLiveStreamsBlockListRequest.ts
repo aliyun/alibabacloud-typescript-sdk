@@ -16,7 +16,7 @@ export class DescribeLiveStreamsBlockListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 2

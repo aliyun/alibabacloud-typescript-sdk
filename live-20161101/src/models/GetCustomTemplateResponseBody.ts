@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the template.
+   * The template configuration.
    * 
    * @example
    * {height:1080,scale:[16:9],gop:60,bframes:30,cdesc:h264}
@@ -21,7 +21,7 @@ export class GetCustomTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * TestTemplate

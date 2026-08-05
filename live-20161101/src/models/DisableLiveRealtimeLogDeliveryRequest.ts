@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableLiveRealtimeLogDeliveryRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain for which you want to suspend real-time log delivery. Separate multiple streaming domains with commas (,).
+   * The streaming domain for which to pause real-time log delivery. To specify multiple domain names, separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DisableLiveRealtimeLogDeliveryRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

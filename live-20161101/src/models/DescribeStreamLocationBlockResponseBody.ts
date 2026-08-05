@@ -75,7 +75,7 @@ export class DescribeStreamLocationBlockResponseBodyStreamBlockList extends $dar
 export class DescribeStreamLocationBlockResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries that meet the specified conditions.
+   * The total number of entries that meet the specified criteria.
    * 
    * @example
    * 2
@@ -91,7 +91,7 @@ export class DescribeStreamLocationBlockResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on each page.
    * 
    * @example
    * 5
@@ -108,7 +108,7 @@ export class DescribeStreamLocationBlockResponseBody extends $dara.Model {
   streamBlockList?: DescribeStreamLocationBlockResponseBodyStreamBlockList;
   /**
    * @remarks
-   * The total number of pages.
+   * The total number of pages returned.
    * 
    * @example
    * 1

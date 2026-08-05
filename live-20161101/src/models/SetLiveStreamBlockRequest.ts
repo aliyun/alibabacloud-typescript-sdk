@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLiveStreamBlockRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the application to which the live stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class SetLiveStreamBlockRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The blocking type. Valid values: blacklist and whitelist.
+   * The blocking mode. Valid values:
+   * - blacklist: blacklist.
+   * - whitelist: whitelist.
    * 
    * This parameter is required.
    * 
@@ -35,7 +37,7 @@ export class SetLiveStreamBlockRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The blocked region. If you specify multiple regions, such as CN and AS, separate them with commas (,).
+   * The blocked regions, such as CN and AS. Separate multiple regions with commas (,).
    * 
    * This parameter is required.
    * 
@@ -44,10 +46,17 @@ export class SetLiveStreamBlockRequest extends $dara.Model {
    */
   locationList?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The time when the blocking ends. The time must be in UTC. If you do not specify this parameter, the blocking is valid for 7 days by default.
+   * The end time of the blocking period in UTC. If this parameter is not specified, the blocking lasts for 7 days by default.
    * 
    * @example
    * 2016-06-29T19:00:00Z
@@ -55,7 +64,7 @@ export class SetLiveStreamBlockRequest extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 

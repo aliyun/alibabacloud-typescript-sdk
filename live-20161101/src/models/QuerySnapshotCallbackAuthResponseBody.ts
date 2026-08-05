@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySnapshotCallbackAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The callback authentication key.
+   * The authentication key for callbacks.
    * 
    * @example
    * yourkey
@@ -13,10 +13,11 @@ export class QuerySnapshotCallbackAuthResponseBody extends $dara.Model {
   callbackAuthKey?: string;
   /**
    * @remarks
-   * Indicates whether callback authentication is enabled. Valid values:
+   * Indicates whether authentication for callbacks is enabled. Valid values:
    * 
-   * *   **yes**: Callback authentication is enabled.
-   * *   **no**: Callback authentication is disabled.
+   * - **yes**: enabled.
+   * 
+   * - **no**: disabled.
    * 
    * @example
    * yes
@@ -24,7 +25,7 @@ export class QuerySnapshotCallbackAuthResponseBody extends $dara.Model {
   callbackReqAuth?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * example.aliyundoc.com

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MuteAllGroupUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the mute was successful. Valid values:
+   * Indicates whether the muting was successful. Valid values:
    * 
-   * *   true: The mute was successful.
-   * *   false: The mute failed.
+   * - true: Successful.
+   * - false: Unsuccessful.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class MuteAllGroupUserResponseBodyResult extends $dara.Model {
 export class MuteAllGroupUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class MuteAllGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: MuteAllGroupUserResponseBodyResult;
   static names(): { [key: string]: string } {

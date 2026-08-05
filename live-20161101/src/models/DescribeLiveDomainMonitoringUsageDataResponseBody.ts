@@ -77,7 +77,7 @@ export class DescribeLiveDomainMonitoringUsageDataResponseBody extends $dara.Mod
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range.
+   * The end time of the query. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-12-10T22:00:00Z
@@ -85,7 +85,7 @@ export class DescribeLiveDomainMonitoringUsageDataResponseBody extends $dara.Mod
   endTime?: string;
   /**
    * @remarks
-   * The ID of the monitoring session.
+   * The monitoring session ID.
    * 
    * @example
    * e62af24d-a354-3b0c-9f1f-da592c4b****
@@ -94,7 +94,7 @@ export class DescribeLiveDomainMonitoringUsageDataResponseBody extends $dara.Mod
   monitoringData?: DescribeLiveDomainMonitoringUsageDataResponseBodyMonitoringData;
   /**
    * @remarks
-   * The region of the live center.
+   * The live center region.
    * 
    * @example
    * cn-shanghai
@@ -105,12 +105,12 @@ export class DescribeLiveDomainMonitoringUsageDataResponseBody extends $dara.Mod
    * The request ID.
    * 
    * @example
-   * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
+   * 3C6CCEC4-6B88-4D4A-93E4-D47B3******
    */
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range.
+   * The start time of the query. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-12-10T20:00:00Z

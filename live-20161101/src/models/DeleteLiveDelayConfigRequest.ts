@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveDelayConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications that belong to the domain name.
+   * The AppName of the live stream. You can specify an asterisk (\\*) to match all AppNames under the domain name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteLiveDelayConfigRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DeleteLiveDelayConfigRequest extends $dara.Model {
    */
   domain?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can use the wildcard (\\*) to specify all streams of the application.
+   * The name of the live stream. You can use the wildcard (\\*) to specify all StreamNames under the AppName.
    * 
    * This parameter is required.
    * 

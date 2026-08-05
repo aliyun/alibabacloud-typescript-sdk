@@ -6,9 +6,8 @@ export class SetLiveStreamBlockResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result description.
-   * 
-   * *   If the request was successful, ok is returned.
-   * *   If the request failed, the failure detail is returned.
+   * - Success: ok.
+   * - Failure: failure details.
    * 
    * @example
    * ok
@@ -24,12 +23,11 @@ export class SetLiveStreamBlockResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status. Valid values:
+   * The task status. Valid values:
+   * - ok: succeeded.
+   * - fail: failed.
    * 
-   * *   ok: The request was successful.
-   * *   fail: The request failed.
-   * 
-   * >  If any parameter failed to be configured, the request failed.
+   * > The task is considered failed if any single subtask fails to be created.
    * 
    * @example
    * ok

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageAppResponseBodyResultAppList extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the application.
+   * Application configuration.
    */
   appConfig?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive message application ID.
    * 
    * @example
    * VKL3***
@@ -18,7 +18,7 @@ export class ListMessageAppResponseBodyResultAppList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the interactive messaging application.
+   * Interactive message application name.
    * 
    * @example
    * test
@@ -26,7 +26,7 @@ export class ListMessageAppResponseBodyResultAppList extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The time when the interactive messaging application was created. The time is displayed in UTC.
+   * UTC timestamp when the application was created.
    * 
    * @example
    * 502280113
@@ -34,12 +34,12 @@ export class ListMessageAppResponseBodyResultAppList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The extended field.
+   * Extension field.
    */
   extension?: { [key: string]: string };
   /**
    * @remarks
-   * The status of the interactive message application. A value of **1** indicates that the application is normal.
+   * Interactive message application status. A value of **1** indicates that the application status is Normal.
    * 
    * @example
    * 1
@@ -85,15 +85,15 @@ export class ListMessageAppResponseBodyResultAppList extends $dara.Model {
 export class ListMessageAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Details about the applications.
+   * Application list.
    */
   appList?: ListMessageAppResponseBodyResultAppList[];
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true: The current page is followed by another page.
-   * *   false: The current page is not followed by another page.
+   * - true: There is a next page.
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class ListMessageAppResponseBodyResult extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The total number of interactive message applications.
+   * Total number of interactive message applications.
    * 
    * @example
    * 15
@@ -138,7 +138,7 @@ export class ListMessageAppResponseBodyResult extends $dara.Model {
 export class ListMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -146,7 +146,7 @@ export class ListMessageAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: ListMessageAppResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -15,9 +15,9 @@ export class AddLiveSnapshotNotifyConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The callback authentication key. The key must be 16 to 32 characters in length and can contain only letters and digits.
+   * The authentication key for the callback. The key must be 16 to 32 characters in length and contain only letters and digits.
    * 
-   * > This parameter is required if you set the NotifyReqAuth parameter to **yes**.
+   * > This parameter is required if you set NotifyReqAuth to **yes**.
    * 
    * @example
    * yourkey
@@ -27,10 +27,11 @@ export class AddLiveSnapshotNotifyConfigRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable callback authentication. Valid values:
    * 
-   * *   **yes**
-   * *   **no** (default)
+   * - **yes**: Enables
    * 
-   * > This parameter is required if you set the NotifyAuthKey parameter to yes.
+   * - **no** (Default): Disables
+   * 
+   * > If you set this parameter to yes, NotifyAuthKey is required.
    * 
    * @example
    * yes
@@ -38,7 +39,7 @@ export class AddLiveSnapshotNotifyConfigRequest extends $dara.Model {
   notifyReqAuth?: string;
   /**
    * @remarks
-   * The callback URL. Specify a valid URL that is up to 500 characters in length.
+   * The callback URL. The URL must be valid, with a maximum length of 500 characters.
    * 
    * This parameter is required.
    * 
@@ -47,6 +48,13 @@ export class AddLiveSnapshotNotifyConfigRequest extends $dara.Model {
    */
   notifyUrl?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

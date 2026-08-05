@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRtcMPUEventSubResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
@@ -13,7 +13,7 @@ export class CreateRtcMPUEventSubResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the subscription.
+   * The subscription ID.
    * 
    * @example
    * Sub-******9799B2C4500******

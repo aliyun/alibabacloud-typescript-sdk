@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLiveAIStudioRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the template. You can obtain the ID from the response to the CreateLiveAIStudio operation.
+   * The ID of the template. The ID is returned by the CreateLiveAIStudio operation.
    * 
    * This parameter is required.
    * 

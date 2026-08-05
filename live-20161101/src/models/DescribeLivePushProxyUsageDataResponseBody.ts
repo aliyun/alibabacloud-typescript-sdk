@@ -63,7 +63,7 @@ export class DescribeLivePushProxyUsageDataResponseBodyPushProxyData extends $da
 export class DescribeLivePushProxyUsageDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-10-10T21:00:00Z
@@ -80,7 +80,7 @@ export class DescribeLivePushProxyUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-10-10T20:00:00Z

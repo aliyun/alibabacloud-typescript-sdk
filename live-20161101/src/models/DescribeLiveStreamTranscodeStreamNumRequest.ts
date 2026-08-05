@@ -14,21 +14,22 @@ export class DescribeLiveStreamTranscodeStreamNumRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The grouping method.
-   * 
-   * *   Domain name (default)
-   * *   Template
-   * 
-   * Valid values:
-   * 
-   * *   domain
-   * *   template
+   * The grouping type. Valid values:
+   * * domain (default)
+   * * template.
    * 
    * @example
-   * domain
+   * template
    */
   splitType?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddLiveRecordNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer streaming domain.
    * 
    * This parameter is required.
    * 
@@ -15,22 +15,43 @@ export class AddLiveRecordNotifyConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to enable callbacks for recording status. Valid values:
+   * Specifies whether recording task status callbacks are required. Valid values:
    * 
-   * *   true: enables callbacks for recording status. If you set this parameter to **true**, an example of recording status callback is returned.
-   * *   false (default): disables callbacks for recording status.
+   * - true: Required. If NeedStatusNotify is set to **true**, the response includes a recording status callback example.
+   * - false (default): Not required.
    * 
    * @example
    * false
    */
   needStatusNotify?: boolean;
+  /**
+   * @remarks
+   * The callback authentication key. The key must be 16 to 32 characters in length and can contain only letters and digits.
+   * > This parameter is required when the NotifyReqAuth parameter is set to true.
+   * 
+   * @example
+   * chenhuanxin249088
+   */
   notifyAuthKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable callback authentication. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false (default): Disabled.
+   * 
+   * > When this parameter is set to true, the NotifyAuthKey parameter is required.
+   * 
+   * @example
+   * true
+   */
   notifyReqAuth?: boolean;
   /**
    * @remarks
-   * The callback URL that is used to receive notifications about recording events and status.
+   * The callback URL for recording events and status callbacks.
    * 
-   * >  The URL must start with `http://` or `https://`. For more information, see [Callbacks for live stream recording](https://help.aliyun.com/document_detail/55016.html).
+   * > The URL must start with `http://` or `https://`. For more information, see [Recording event callback](https://help.aliyun.com/document_detail/55016.html).
    * 
    * This parameter is required.
    * 
@@ -40,9 +61,9 @@ export class AddLiveRecordNotifyConfigRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The callback URL for on-demand recordings.
+   * The callback URL for on-demand recording.
    * 
-   * >  The URL must start with `http://` or `https://`. For more information, see [On-demand recording](https://help.aliyun.com/document_detail/85910.html).
+   * > The URL must start with `http://` or `https://`. For more information, see [On-demand recording callback](https://help.aliyun.com/document_detail/85910.html).
    * 
    * @example
    * http://learn.aliyundoc.com/ondemandcallback.action

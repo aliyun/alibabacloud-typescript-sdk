@@ -7,10 +7,11 @@ export class DeleteCasterVideoResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the production studio.
    * 
-   * *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
-   * *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+   * - If you created the production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, use the CasterId value from the response.
    * 
-   * >  You can find the ID of the production studio in the Instance ID/Name column.
+   * - If you created the production studio in the ApsaraVideo Live console, find the ID on the Cloud Production Studio page. The navigation path is **ApsaraVideo Live console** > **Production Studio** > **Cloud Production Studio**.
+   * 
+   * > You can find the ID of the production studio in the Instance ID/Name column.
    * 
    * This parameter is required.
    * 
@@ -19,10 +20,17 @@ export class DeleteCasterVideoResourceRequest extends $dara.Model {
    */
   casterId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The resource ID. If the input source was added by calling the AddCasterVideoResource operation, check the value of the response parameter ResourceId to obtain the ID.
+   * The resource ID. If you added the video resource by calling the [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html) operation, use the ResourceId value from the response.
    * 
    * This parameter is required.
    * 

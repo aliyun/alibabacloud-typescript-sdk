@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the subscribed application.
    * 
    * @example
    * yourAppId
@@ -29,7 +29,7 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * For more information about the callback, see [CreateRtcMPUEventSub](https://help.aliyun.com/document_detail/2804583.html).
+   * The callback content. For more information, see [Create a stream mixing and forwarding event callback](https://help.aliyun.com/document_detail/2804583.html).
    * 
    * @example
    * {\\"EventType\\":1,\\"MsgId\\":\\"42bba8b5-94ab-468c-9dae-9b501dd6c***\\",\\"AppId\\":\\"rtcdev\\",\\"SubId\\":\\"Sub-9799B2C45009799B2C4***\\",\\"TaskId\\":\\"mpucallbacktest\\",\\"CallbackTs\\":1712656430***,\\"Payload\\":{\\"DstUrl\\":\\"rtmp://domain/app/stream?auth\\",\\"EventTs\\":1712656430***,\\"EventCode\\":1,\\"ErrorCode\\":0,\\"ErrorMessage\\":\\"\\"}}
@@ -37,7 +37,7 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The HTTP status code. 200 indicates that the callback is successful.
+   * The error code. A value of 200 indicates that the callback was successful.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   HTTPCode?: string;
   /**
    * @remarks
-   * The ID of the callback record.
+   * The callback record ID.
    * 
    * @example
    * 42bba8b5-********-9b501dd6cb6e
@@ -53,7 +53,7 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   msgId?: string;
   /**
    * @remarks
-   * The ID of the subscription.
+   * The event callback ID.
    * 
    * @example
    * Sub-******9799B2C4500******
@@ -61,7 +61,8 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
   subId?: string;
   /**
    * @remarks
-   * The time when the callback was invoked. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * The time when the callback was invoked.
+   * Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 1970-01-01T00:00:00Z
@@ -105,7 +106,7 @@ export class ListRtcMPUEventSubRecordResponseBodyLogs extends $dara.Model {
 export class ListRtcMPUEventSubRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The total number of callback records returned on the current page.
    * 
    * @example
    * 1
@@ -113,7 +114,7 @@ export class ListRtcMPUEventSubRecordResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * false
@@ -126,7 +127,7 @@ export class ListRtcMPUEventSubRecordResponseBody extends $dara.Model {
   logs?: ListRtcMPUEventSubRecordResponseBodyLogs[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

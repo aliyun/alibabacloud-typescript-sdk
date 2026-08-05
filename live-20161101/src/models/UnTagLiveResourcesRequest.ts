@@ -4,14 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UnTagLiveResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to delete all tags. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
+   * Default value: **false**.
+   * 
    * @example
    * false
    */
   all?: boolean;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
+   * The resource ID. The live streaming domain name. Valid values of N: 1 to 50.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +37,8 @@ export class UnTagLiveResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Enumeration type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +46,9 @@ export class UnTagLiveResourcesRequest extends $dara.Model {
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key. Valid values of N: **1 to 20**.
+   * 
    * @example
    * env
    */

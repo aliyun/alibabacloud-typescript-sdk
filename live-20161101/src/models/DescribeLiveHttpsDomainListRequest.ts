@@ -14,7 +14,7 @@ export class DescribeLiveHttpsDomainListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Valid values: **1 to 10000**.
+   * The page number to return. Valid values: **[1,10000]**.
    * 
    * @example
    * 5
@@ -28,6 +28,13 @@ export class DescribeLiveHttpsDomainListRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

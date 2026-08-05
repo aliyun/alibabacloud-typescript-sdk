@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMessageAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive message application ID.
    * 
    * @example
    * VKL3***
@@ -13,7 +13,7 @@ export class QueryMessageAppRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the interactive messaging application.
+   * Interactive message application name.
    * 
    * @example
    * testApp
@@ -21,7 +21,7 @@ export class QueryMessageAppRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+   * Page number. Default value: 1. Valid values: 1 to 100000.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class QueryMessageAppRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of applications to return on each page. Default value: 20. Valid values: 1 to 50.
+   * Number of applications displayed per page. Default value: 20. Valid values: 1 to 50.
    * 
    * @example
    * 20
@@ -37,10 +37,10 @@ export class QueryMessageAppRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * Sorting method. Valid values:
    * 
-   * *   0: ascending order by time
-   * *   1: descending order by time
+   * - 0: Ascending order by time.
+   * - 1: Descending order by time.
    * 
    * @example
    * 1

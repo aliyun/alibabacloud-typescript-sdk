@@ -13,7 +13,7 @@ export class CreateEventSubResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The subscription ID.
+   * The ID of the created subscription.
    * 
    * @example
    * ad53276431c****

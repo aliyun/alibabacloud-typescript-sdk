@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveAIStudioRequestMattingLayout extends $dara.Model {
   /**
    * @remarks
-   * The normalized value of the material height. The value indicates the ratio of the material height to the height of the background. Valid values: **0 to 1**.
+   * The normalized height of the material, which is the ratio of the material height to the background height. Valid values: **0 to 1**.
    * 
    * @example
    * 0.5
@@ -13,7 +13,7 @@ export class CreateLiveAIStudioRequestMattingLayout extends $dara.Model {
   heightNormalized?: number;
   /**
    * @remarks
-   * The x-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * The x-coordinate of the position. Valid values: **0 to 1**. The position of the material is based on the upper-left corner as the reference point.
    * 
    * @example
    * 0.3
@@ -21,7 +21,7 @@ export class CreateLiveAIStudioRequestMattingLayout extends $dara.Model {
   positionX?: number;
   /**
    * @remarks
-   * The y-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * The y-coordinate of the position. Valid values: **0 to 1**. The position of the material is based on the upper-left corner as the reference point.
    * 
    * @example
    * 0.3
@@ -55,7 +55,7 @@ export class CreateLiveAIStudioRequestMattingLayout extends $dara.Model {
 export class CreateLiveAIStudioRequestMediaLayout extends $dara.Model {
   /**
    * @remarks
-   * The normalized value of the material height. The value indicates the ratio of the material height to the height of the background. Valid values: **0 to 1**.
+   * The normalized height of the material, which is the ratio of the material height to the background height. Valid values: **0 to 1**.
    * 
    * @example
    * 0.5
@@ -63,7 +63,7 @@ export class CreateLiveAIStudioRequestMediaLayout extends $dara.Model {
   heightNormalized?: number;
   /**
    * @remarks
-   * The x-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * The x-coordinate of the position. Valid values: **0 to 1**. The position of the material is based on the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -71,7 +71,7 @@ export class CreateLiveAIStudioRequestMediaLayout extends $dara.Model {
   positionX?: number;
   /**
    * @remarks
-   * The y-coordinate of the material. Valid values: **0 to 1**. The upper-left corner is used as the coordinate origin for the material.
+   * The y-coordinate of the position. Valid values: **0 to 1**. The position of the material is based on the upper-left corner as the reference point.
    * 
    * @example
    * 0
@@ -105,7 +105,7 @@ export class CreateLiveAIStudioRequestMediaLayout extends $dara.Model {
 export class CreateLiveAIStudioRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the background material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
+   * The video-on-demand resource ID of the background material. Obtain this value from the ApsaraVideo VOD console.
    * 
    * @example
    * d0eb493192c771efba644531858c0102
@@ -113,7 +113,7 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   backgroundResourceId?: string;
   /**
    * @remarks
-   * The URL of the background material. Specify either this parameter or the BackgroundResourceId parameter.
+   * The access URL of the background material. Specify either this parameter or the resource ID.
    * 
    * @example
    * https://xxx.com/1.mp4
@@ -122,10 +122,9 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the background material. Valid values:
-   * 
-   * *   VOD: a video in ApsaraVideo VOD
-   * *   PIC: an image
-   * *   LIVE: a live stream
+   * - VOD: video-on-demand video.
+   * - PIC: image.
+   * - LIVE: live stream.
    * 
    * @example
    * VOD
@@ -141,18 +140,18 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The preview height. Unit: pixels.
+   * The height of the preview screen. Unit: px.
    * 
-   * The following preview specifications (width × height) are supported:
+   * The width × height of the preview screen supports only the following specifications:
    * 
-   * *   Landscape low definition 360p (640×360)
-   * *   Portrait low definition 360p (360×640)
-   * *   Landscape standard definition 480p (854×480)
-   * *   Portrait standard definition 480p (480×854)
-   * *   Landscape high definition 720p (1280×720)
-   * *   Portrait high definition 720p (720×1280)
-   * *   Landscape ultra-high definition 1080p (1920×1080)
-   * *   Portrait ultra-high definition 1080p (1080×1920)
+   * - Landscape low definition 360P: 640 × 360
+   * - Portrait low definition 360P: 360 × 640
+   * - Landscape standard definition 480P: 854 × 480
+   * - Portrait standard definition 480P: 480 × 854
+   * - Landscape high definition 720P: 1280 × 720
+   * - Portrait high definition 720P: 720 × 1280
+   * - Landscape ultra-high definition 1080P: 1920 × 1080
+   * - Portrait ultra-high definition 1080P: 1080 × 1920.
    * 
    * @example
    * 1080
@@ -160,18 +159,17 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The layout information of the chroma-keyed material.
+   * The layout position information of the source stream after image matting.
    * 
    * This parameter is required.
    */
   mattingLayout?: CreateLiveAIStudioRequestMattingLayout;
   /**
    * @remarks
-   * The type of chroma key. Valid values:
-   * 
-   * *   green: green-screen chroma key
-   * *   blue: blue-screen chroma key
-   * *   complex: background replacement
+   * The image matting type. Valid values:
+   * - green: green screen matting.
+   * - blue: blue screen matting.
+   * - complex: real-scene matting.
    * 
    * This parameter is required.
    * 
@@ -181,12 +179,12 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   mattingType?: string;
   /**
    * @remarks
-   * The layout information of the multimedia material.
+   * The layout position information of the multimedia material.
    */
   mediaLayout?: CreateLiveAIStudioRequestMediaLayout;
   /**
    * @remarks
-   * The ID of the multimedia material in ApsaraVideo VOD. You can obtain the ID from the ApsaraVideo VOD console.
+   * The video-on-demand resource ID of the multimedia material. Obtain this value from the ApsaraVideo VOD console.
    * 
    * @example
    * d0eb493192c771efba644531858c0102
@@ -194,7 +192,7 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   mediaResourceId?: string;
   /**
    * @remarks
-   * The URL of the multimedia material. Specify either this parameter or the MediaResourceId parameter.
+   * The access URL of the multimedia material. Specify either this parameter or the resource ID.
    * 
    * @example
    * https://xxx.com/2.mp4
@@ -203,16 +201,22 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the multimedia material. Valid values:
-   * 
-   * *   VOD: a video in ApsaraVideo VOD
-   * *   PIC: an image
-   * *   LIVE: a live stream
+   * - VOD: video-on-demand video.
+   * - PIC: image.
+   * - LIVE: live stream.
    * 
    * @example
    * VOD
    */
   mediaType?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
@@ -226,7 +230,7 @@ export class CreateLiveAIStudioRequest extends $dara.Model {
   studioName?: string;
   /**
    * @remarks
-   * The preview width. Unit: pixels.
+   * The width of the preview screen. Unit: px.
    * 
    * @example
    * 1920

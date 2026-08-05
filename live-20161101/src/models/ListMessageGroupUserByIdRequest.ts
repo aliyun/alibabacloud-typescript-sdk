@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageGroupUserByIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive message application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListMessageGroupUserByIdRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListMessageGroupUserByIdRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The list of users.
+   * User list.
    * 
    * This parameter is required.
    */

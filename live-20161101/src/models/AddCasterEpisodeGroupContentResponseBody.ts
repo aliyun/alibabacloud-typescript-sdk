@@ -32,7 +32,7 @@ export class AddCasterEpisodeGroupContentResponseBody extends $dara.Model {
   itemIds?: AddCasterEpisodeGroupContentResponseBodyItemIds;
   /**
    * @remarks
-   * The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to create or add episodes, remove episodes, query episodes, edit an episode list, delete an episode list, query the information about an episode list, start playing an episode list, or stop playing an episode list.
+   * The program ID. You can use this ID as a request parameter when you create, add, delete, or query program items. You can also use this ID to edit, delete, query, start, or stop a program.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68X****
@@ -43,7 +43,7 @@ export class AddCasterEpisodeGroupContentResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 16A96B9A-F203-4EC5-8E43-CB92E68F****
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
   static names(): { [key: string]: string } {

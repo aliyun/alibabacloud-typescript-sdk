@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ARTC application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the query, specified as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,17 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
    * 1698195600000
    */
   beginTs?: number;
+  /**
+   * @remarks
+   * The channel ID.
+   * 
+   * @example
+   * 770513
+   */
   channelId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the query, specified as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -36,12 +43,15 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
   endTs?: number;
   /**
    * @remarks
-   * The metric. Valid values:
+   * The metric type. Valid values:
    * 
-   * *   JoinChannelSucRate: the success rate of joining a channel within 5 seconds.
-   * *   VideoStuckRate: the video stuttering rate.
-   * *   AudioStuckRate: the audio stuttering rate.
-   * *   FirstFrameCost: the time to first frame.
+   * - `JoinChannelSucRate`: the success rate of joining a channel within 5 seconds.
+   * 
+   * - `VideoStuckRate`: the video stuttering rate.
+   * 
+   * - `AudioStuckRate`: the audio stuttering rate.
+   * 
+   * - `FirstFrameCost`: the time to first frame.
    * 
    * This parameter is required.
    * 
@@ -51,7 +61,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The operating system. Valid values: iOS and Android.
+   * The operating system. Valid values: `iOS` and `Android`.
    * 
    * @example
    * Android
@@ -59,7 +69,7 @@ export class DescribeLiveInteractionMetricDataRequest extends $dara.Model {
   os?: string;
   /**
    * @remarks
-   * The terminal type. Valid values: web and mobile.
+   * The terminal type. Valid values: `web` and `mobile`.
    * 
    * @example
    * mobile

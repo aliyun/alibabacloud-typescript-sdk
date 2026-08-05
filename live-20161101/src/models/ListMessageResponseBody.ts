@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageResponseBodyResultMessageList extends $dara.Model {
   /**
    * @remarks
-   * The message body. The value is a JSON string.
+   * The message body, in JSONString format.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListMessageResponseBodyResultMessageList extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * The message group ID.
    * 
    * @example
    * AE35-****-T95F
@@ -21,7 +21,7 @@ export class ListMessageResponseBodyResultMessageList extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the message.
+   * The message ID.
    * 
    * @example
    * qt***
@@ -29,7 +29,7 @@ export class ListMessageResponseBodyResultMessageList extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The ID of the user who sent the message.
+   * The message sender ID.
    * 
    * @example
    * yi***
@@ -37,7 +37,7 @@ export class ListMessageResponseBodyResultMessageList extends $dara.Model {
   senderId?: string;
   /**
    * @remarks
-   * The type of the message.
+   * The message type.
    * 
    * @example
    * 10002
@@ -75,10 +75,11 @@ export class ListMessageResponseBodyResultMessageList extends $dara.Model {
 export class ListMessageResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true: The current page is followed by another page.
-   * *   false: The current page is not followed by another page.
+   * - true: There is a next page.
+   * 
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -86,7 +87,7 @@ export class ListMessageResponseBodyResult extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * Details about the messages.
+   * The message list.
    */
   messageList?: ListMessageResponseBodyResultMessageList[];
   static names(): { [key: string]: string } {
@@ -118,7 +119,7 @@ export class ListMessageResponseBodyResult extends $dara.Model {
 export class ListMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -126,7 +127,7 @@ export class ListMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListMessageResponseBodyResult;
   static names(): { [key: string]: string } {

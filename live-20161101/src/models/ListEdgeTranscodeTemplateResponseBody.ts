@@ -87,7 +87,7 @@ export class ListEdgeTranscodeTemplateResponseBody extends $dara.Model {
   templateList?: ListEdgeTranscodeTemplateResponseBodyTemplateList;
   /**
    * @remarks
-   * The total number of templates returned.
+   * The total number of entries.
    * 
    * @example
    * 100

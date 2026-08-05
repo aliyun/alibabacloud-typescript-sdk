@@ -60,7 +60,7 @@ export class SetLiveStreamPreloadTasksResponseBodyPreloadTasksMessages extends $
 export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of URLs for which the prefetch task configuration failed.
+   * The number of URLs for which the prefetch task failed.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
   preloadTasksMessages?: SetLiveStreamPreloadTasksResponseBodyPreloadTasksMessages;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 36E0E523-E0C6-5D95-A465-A8EA2DCBA2A5
@@ -77,12 +77,11 @@ export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the prefetch task. Valid values:
+   * The task status. Valid values:
+   * - Success: successful.
+   * - Failed: failed.
    * 
-   * *   Success
-   * *   Failed
-   * 
-   * >  Success is returned only if the prefetch task is configured for all specified streaming URLs.
+   * > The status is Failed if any task fails to be created.
    * 
    * @example
    * Success
@@ -90,7 +89,7 @@ export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of URLs for which the prefetch task is successfully configured.
+   * The number of URLs for which the prefetch task succeeded.
    * 
    * @example
    * 1
@@ -98,7 +97,7 @@ export class SetLiveStreamPreloadTasksResponseBody extends $dara.Model {
   successURL?: number;
   /**
    * @remarks
-   * The total number of URLs.
+   * The total number of URLs in the prefetch task.
    * 
    * @example
    * 1

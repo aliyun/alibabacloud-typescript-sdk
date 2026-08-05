@@ -286,7 +286,7 @@ export class DescribeCasterComponentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 3

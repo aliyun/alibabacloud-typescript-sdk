@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMixStreamListRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The app name.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * @example
    * example.com
@@ -21,7 +21,7 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2020-09-20T13:00:00Z
@@ -29,7 +29,7 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the stream mixing task. If the task was created by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, check the value of the response parameter MixStreamId to obtain the ID.
+   * The ID of the stream mixing task. If you create a stream mixing task by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, use the MixStreamId value that is returned in the response.
    * 
    * @example
    * 5b2a046e-74d7-385e-d2d7-8a5b87e4****
@@ -38,7 +38,7 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: an integer that is greater than **0** and does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -46,16 +46,23 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **1000**.
+   * The number of records to display on each page. Default value: **1000**.
    * 
    * @example
    * 1000
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2020-09-11T12:00:00Z
@@ -63,7 +70,7 @@ export class DescribeMixStreamListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the output stream.
+   * The stream name of the stream mixing task.
    * 
    * @example
    * liveStream****

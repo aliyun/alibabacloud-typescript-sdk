@@ -74,7 +74,7 @@ export class DeleteSnapshotFilesResponseBody extends $dara.Model {
   snapshotDeleteInfoList?: DeleteSnapshotFilesResponseBodySnapshotDeleteInfoList;
   /**
    * @remarks
-   * The number of successful screenshot deletions.
+   * The number of snapshots that were deleted.
    * 
    * @example
    * 1

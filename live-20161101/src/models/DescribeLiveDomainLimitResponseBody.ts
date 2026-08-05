@@ -76,7 +76,7 @@ export class DescribeLiveDomainLimitResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * A3136B58-5876-4168-83CA-B562781981A0
+   * A3136B58-5876-4168-83CA-B562********
    */
   requestId?: string;
   static names(): { [key: string]: string } {

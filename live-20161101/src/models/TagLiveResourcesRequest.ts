@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TagLiveResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
+   * The label key. Valid values of N: **1 to 20**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class TagLiveResourcesRequestTag extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The label value. Valid values of N: **1 to 20**.
+   * 
    * @example
    * product
    */
@@ -41,10 +46,18 @@ export class TagLiveResourcesRequestTag extends $dara.Model {
 
 export class TagLiveResourcesRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The type of the resources. Set the value to **DOMAIN**.
+   * The resource ID. Set this parameter to a live streaming domain name.
+   * Valid values of N: **1 to 50**.
    * 
    * This parameter is required.
    * 
@@ -54,6 +67,8 @@ export class TagLiveResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Set this parameter to **DOMAIN**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +77,8 @@ export class TagLiveResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The list of labels.
+   * 
    * This parameter is required.
    */
   tag?: TagLiveResourcesRequestTag[];

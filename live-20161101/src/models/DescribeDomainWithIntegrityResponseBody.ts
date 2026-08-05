@@ -18,7 +18,7 @@ export class DescribeDomainWithIntegrityResponseBodyContent extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The subpoints.
+   * The data points.
    */
   points?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class DescribeDomainWithIntegrityResponseBodyContent extends $dara.Model 
 export class DescribeDomainWithIntegrityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The verification information.
+   * The verification content.
    */
   content?: DescribeDomainWithIntegrityResponseBodyContent[];
   /**

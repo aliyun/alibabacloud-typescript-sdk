@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLiveRtcRecordUsageDataResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The audio-only duration. Unit: seconds.
+   * 
    * @example
    * 20
    */
   audioDuration?: number;
   /**
+   * @remarks
+   * The timestamp of the data point. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+   * 
    * @example
    * 2022-10-10T20:00:00Z
    */
   timestamp?: string;
   /**
+   * @remarks
+   * The total duration. Unit: seconds.
+   * 
    * @example
    * 150
    */
   totalDuration?: number;
   /**
+   * @remarks
+   * The duration of video above 720p. Unit: seconds.
+   * 
    * @example
    * 10
    */
   v1080Duration?: number;
   /**
+   * @remarks
+   * The duration of video at 480p or lower. Unit: seconds.
+   * 
    * @example
    * 30
    */
   v480Duration?: number;
   /**
+   * @remarks
+   * The duration of video at 720p or lower. Unit: seconds.
+   * 
    * @example
    * 40
    */
@@ -66,17 +84,34 @@ export class DescribeLiveRtcRecordUsageDataResponseBodyData extends $dara.Model 
 
 export class DescribeLiveRtcRecordUsageDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Real-time Communication application that was queried.
+   * 
    * @example
    * 7fd341b3-c6fa-43e1-96b8-7295a1dd****
    */
   appId?: string;
   /**
+   * @remarks
+   * The audio-only summary duration. Unit: seconds.
+   * 
    * @example
    * 20
    */
   audioSummaryDuration?: number;
+  /**
+   * @remarks
+   * The usage statistics information.
+   */
   data?: DescribeLiveRtcRecordUsageDataResponseBodyData[];
   /**
+   * @remarks
+   * The recording mode. Valid values:
+   * 
+   * - 0: single-stream recording mode.
+   * 
+   * - 1: stream mixing recording mode.
+   * 
    * @example
    * 0
    */
@@ -90,21 +125,33 @@ export class DescribeLiveRtcRecordUsageDataResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total summary duration. Unit: seconds.
+   * 
    * @example
    * 150
    */
   totalSummaryDuration?: number;
   /**
+   * @remarks
+   * The summary duration of video above 720p (including 1080p). Unit: seconds.
+   * 
    * @example
    * 10
    */
   v1080SummaryDuration?: number;
   /**
+   * @remarks
+   * The summary duration of video at 480p or lower. Unit: seconds.
+   * 
    * @example
    * 30
    */
   v480SummaryDuration?: number;
   /**
+   * @remarks
+   * The summary duration of video at 720p or lower. Unit: seconds.
+   * 
    * @example
    * 40
    */

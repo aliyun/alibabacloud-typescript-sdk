@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive Messages application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListMessageGroupUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListMessageGroupUserRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * Page number. Default value: 1.
    * 
    * Valid values: 1 to 100000.
    * 
@@ -35,7 +35,7 @@ export class ListMessageGroupUserRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of members to return on each page. Default value: 20.
+   * Number of message group members to display per page. Default value: 20.
    * 
    * Valid values: 1 to 50.
    * 
@@ -45,10 +45,10 @@ export class ListMessageGroupUserRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * Sorting method. Valid values:
    * 
-   * *   0: ascending order by time
-   * *   1: descending order by time
+   * - 0: Ascending order by time.
+   * - 1: Descending order by time.
    * 
    * @example
    * 1

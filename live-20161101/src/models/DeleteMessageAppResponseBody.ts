@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMessageAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application was deleted. Valid values:
+   * Indicates whether the deletion was successful. Valid values:
    * 
-   * *   true: The application was deleted.
-   * *   false: The application failed to be deleted.
+   * - true: The deletion was successful.
+   * - false: The deletion failed.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class DeleteMessageAppResponseBodyResult extends $dara.Model {
 export class DeleteMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class DeleteMessageAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: DeleteMessageAppResponseBodyResult;
   static names(): { [key: string]: string } {

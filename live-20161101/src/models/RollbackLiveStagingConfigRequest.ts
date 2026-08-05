@@ -15,7 +15,7 @@ export class RollbackLiveStagingConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The name of the feature. For more information about how to obtain the feature name, see [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html).
+   * The name of the feature. To obtain the feature name, call the [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html) operation.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class RollbackLiveStagingConfigRequest extends $dara.Model {
    */
   functionName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

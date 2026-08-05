@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeLiveStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16BFE188-B193-4C3C-ADC5-79A7E31486EA

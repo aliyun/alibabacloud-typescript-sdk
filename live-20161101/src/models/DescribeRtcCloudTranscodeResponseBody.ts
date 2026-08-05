@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParamSingleSubUserParam extends $dara.Model {
   /**
+   * @remarks
+   * The video input stream type of the subscription.
+   * 
    * @example
    * 0
    */
   sourceType?: number;
   /**
+   * @remarks
+   * The media type of the subscribed user.
+   * 
    * @example
    * 0
    */
   streamType?: number;
   /**
+   * @remarks
+   * The user ID of the subscribed user.
+   * 
    * @example
    * userA
    */
@@ -44,6 +53,10 @@ export class DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParamSingleSubUse
 }
 
 export class DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParam extends $dara.Model {
+  /**
+   * @remarks
+   * The single-stream subscription input parameters.
+   */
   singleSubUserParam?: DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParamSingleSubUserParam;
   static names(): { [key: string]: string } {
     return {
@@ -71,21 +84,33 @@ export class DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParam extends $da
 
 export class DescribeRtcCloudTranscodeResponseBodyTaskInfoOutputParams extends $dara.Model {
   /**
+   * @remarks
+   * The channel ID to which the transcoded stream is relayed.
+   * 
    * @example
    * myChannel
    */
   channelId?: string;
   /**
+   * @remarks
+   * The transcoding template name.
+   * 
    * @example
    * lhd
    */
   transcodeTemplate?: string;
   /**
+   * @remarks
+   * The user ID in the channel to which the transcoded stream is relayed.
+   * 
    * @example
    * userA_360p
    */
   userId?: string;
   /**
+   * @remarks
+   * The user token required to relay the transcoded stream to the channel.
+   * 
    * @example
    * eyJhcHBpZCI********
    */
@@ -119,28 +144,56 @@ export class DescribeRtcCloudTranscodeResponseBodyTaskInfoOutputParams extends $
 
 export class DescribeRtcCloudTranscodeResponseBodyTaskInfo extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * ********-7074-****-9ef5-85c19a4*****
    */
   appId?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * myChannel
    */
   channelId?: string;
+  /**
+   * @remarks
+   * The subscription input parameters.
+   */
   inputParam?: DescribeRtcCloudTranscodeResponseBodyTaskInfoInputParam;
   /**
+   * @remarks
+   * The idle timeout period. If the task remains idle for longer than the MaxIdleTime value, the task is automatically stopped. Unit: seconds. Valid values: 10 to 14400 (maximum of 4 hours). Default value: 300.
+   * 
    * @example
    * 600
    */
   maxIdleTime?: number;
+  /**
+   * @remarks
+   * The transcoding output parameters.
+   */
   outputParams?: DescribeRtcCloudTranscodeResponseBodyTaskInfoOutputParams[];
   /**
+   * @remarks
+   * The status of the cloud transcoding task. Valid values:
+   * 
+   * - STARTING
+   * - RUNNING
+   * - RECOVERING
+   * - STOPPED.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The cloud transcoding task ID.
+   * 
    * @example
    * ******73-8501-****-8ac1-72295a******
    */
@@ -186,10 +239,17 @@ export class DescribeRtcCloudTranscodeResponseBodyTaskInfo extends $dara.Model {
 
 export class DescribeRtcCloudTranscodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the cloud transcoding task.
+   */
   taskInfo?: DescribeRtcCloudTranscodeResponseBodyTaskInfo;
   static names(): { [key: string]: string } {
     return {

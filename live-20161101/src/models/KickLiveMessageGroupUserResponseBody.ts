@@ -8,7 +8,7 @@ export class KickLiveMessageGroupUserResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 97168878-5288-10CE-AE56-E2D1627FB5F4
+   * 97168878-5288-10CE-AE56-E2D1627F****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

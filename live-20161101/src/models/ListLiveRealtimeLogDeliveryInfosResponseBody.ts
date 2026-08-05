@@ -61,7 +61,7 @@ export class ListLiveRealtimeLogDeliveryInfosResponseBody extends $dara.Model {
   content?: ListLiveRealtimeLogDeliveryInfosResponseBodyContent;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 95D5B69F-8AEC-419B-8F3A-612B35032B0D

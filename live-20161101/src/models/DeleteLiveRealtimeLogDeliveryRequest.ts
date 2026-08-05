@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveRealtimeLogDeliveryRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain.
+   * The streaming domain name.
    * 
-   * Separate multiple streaming domains with commas (,).
+   * To specify multiple domain names, separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteLiveRealtimeLogDeliveryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The name of the Logstore to which log entries are delivered.
+   * The name of the SLS Logstore to which logs are delivered in real time.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class DeleteLiveRealtimeLogDeliveryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
+   * The name of the Simple Log Service (SLS) project to which logs are delivered in real time.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class DeleteLiveRealtimeLogDeliveryRequest extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The ID of the region where the Log Service project is deployed.
+   * The region where the SLS project is located.
    * 
    * This parameter is required.
    * 
@@ -46,6 +46,13 @@ export class DeleteLiveRealtimeLogDeliveryRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

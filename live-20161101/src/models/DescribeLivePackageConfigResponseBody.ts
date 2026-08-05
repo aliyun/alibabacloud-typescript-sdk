@@ -76,10 +76,11 @@ export class DescribeLivePackageConfigResponseBody extends $dara.Model {
   livePackageConfigList?: DescribeLivePackageConfigResponseBodyLivePackageConfigList;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   **asc** (default): ascending order
-   * *   **desc**: descending order
+   * - **asc** (default): ascending order.
+   * 
+   * - **desc**: descending order.
    * 
    * @example
    * asc
@@ -87,7 +88,7 @@ export class DescribeLivePackageConfigResponseBody extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -95,7 +96,7 @@ export class DescribeLivePackageConfigResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -111,7 +112,7 @@ export class DescribeLivePackageConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of live stream encapsulation configurations.
+   * The total number of records.
    * 
    * @example
    * 1

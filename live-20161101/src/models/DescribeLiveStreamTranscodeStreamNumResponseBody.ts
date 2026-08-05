@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamTranscodeStreamNumResponseBodyTranscodeStreamCountDetails extends $dara.Model {
   /**
    * @remarks
-   * The number of streams that use the transcoding template.
+   * The number of streams for the transcoding template.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class DescribeLiveStreamTranscodeStreamNumResponseBodyTranscodeStreamCoun
 export class DescribeLiveStreamTranscodeStreamNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of streams for which transcoding is triggered by stream pulling.
+   * The number of streams that triggered transcoding.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeLiveStreamTranscodeStreamNumResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of streams.
+   * The total number of transcoding streams.
    * 
    * @example
    * 57
@@ -69,12 +69,12 @@ export class DescribeLiveStreamTranscodeStreamNumResponseBody extends $dara.Mode
   total?: number;
   /**
    * @remarks
-   * The details about the transcoding templates.
+   * The transcoding template data.
    */
   transcodeStreamCountDetails?: DescribeLiveStreamTranscodeStreamNumResponseBodyTranscodeStreamCountDetails[];
   /**
    * @remarks
-   * The number of streams that are transcoded.
+   * The number of transcoded streams.
    * 
    * @example
    * 30

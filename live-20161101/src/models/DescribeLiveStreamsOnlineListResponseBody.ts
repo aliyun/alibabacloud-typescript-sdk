@@ -103,7 +103,7 @@ export class DescribeLiveStreamsOnlineListResponseBody extends $dara.Model {
   onlineInfo?: DescribeLiveStreamsOnlineListResponseBodyOnlineInfo;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class DescribeLiveStreamsOnlineListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -119,7 +119,7 @@ export class DescribeLiveStreamsOnlineListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5c6a2a0df228-4a64- af62-20e91b9676b3
@@ -127,7 +127,7 @@ export class DescribeLiveStreamsOnlineListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of streams that meet the specified conditions.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 11
@@ -135,7 +135,7 @@ export class DescribeLiveStreamsOnlineListResponseBody extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 2

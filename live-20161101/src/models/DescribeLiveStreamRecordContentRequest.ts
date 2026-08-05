@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamRecordContentRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The AppName of the live stream.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLiveStreamRecordContentRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeLiveStreamRecordContent**.
+   * The main streaming domain.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeLiveStreamRecordContentRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. You can only query the recordings in the last 6 months. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time for the query. The time range between StartTime and EndTime cannot exceed 4 days. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeLiveStreamRecordContentRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The start time for the query. You can query records from the last 6 months. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DescribeLiveStreamRecordContentRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the live stream.
    * 
    * This parameter is required.
    * 

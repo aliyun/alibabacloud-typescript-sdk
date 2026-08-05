@@ -165,13 +165,13 @@ export class DescribeCasterScenesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * The ID of the scene.
+   * CF60DB6A-7FD6-426E-9288-122CC1*****
    */
   requestId?: string;
   sceneList?: DescribeCasterScenesResponseBodySceneList;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 2

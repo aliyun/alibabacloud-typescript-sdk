@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMixStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The name of the app.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DeleteMixStreamRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The domain name of the output stream.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DeleteMixStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the stream mixing task. If the task was created by calling the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation, check the value of the response parameter MixStreamId to obtain the ID.
+   * The ID of the stream mixing task. Obtain this ID from the MixStreamId parameter returned by the [CreateMixStream](https://help.aliyun.com/document_detail/2848087.html) operation.
    * 
    * This parameter is required.
    * 
@@ -32,6 +32,13 @@ export class DeleteMixStreamRequest extends $dara.Model {
    */
   mixStreamId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

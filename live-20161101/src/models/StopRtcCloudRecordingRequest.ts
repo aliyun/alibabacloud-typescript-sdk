@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopRtcCloudRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the task that is returned when you start an RTC cloud recording.
+   * 
    * This parameter is required.
    * 
    * @example

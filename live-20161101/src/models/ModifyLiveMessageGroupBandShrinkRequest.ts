@@ -15,7 +15,7 @@ export class ModifyLiveMessageGroupBandShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Specifies whether to mute all users.
+   * Specifies whether to mute all users in the group.
    * 
    * @example
    * false
@@ -23,12 +23,12 @@ export class ModifyLiveMessageGroupBandShrinkRequest extends $dara.Model {
   bannedAll?: boolean;
   /**
    * @remarks
-   * The ID of the user whom you want to mute. Separate multiple user IDs with commas (,). You can specify up to 30 users IDs.
+   * The list of users to mute. You can specify up to 30 users. Separate multiple user IDs with a comma (,).
    */
   bannnedUsersShrink?: string;
   /**
    * @remarks
-   * The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+   * The data center. This must be the same data center specified in the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) call. Valid values: \\`cn-shanghai\\` (Shanghai) and \\`ap-southeast-1\\` (Singapore).
    * 
    * @example
    * cn-shanghai
@@ -36,7 +36,7 @@ export class ModifyLiveMessageGroupBandShrinkRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The ID of the user whom you do not want to mute when you set the BannedAll parameter to true. Separate multiple user IDs with commas (,). You can specify up to 30 users IDs.
+   * The list of users who are not muted when all users in the group are muted. You can specify up to 30 users. Separate multiple user IDs with a comma (,).
    */
   exceptUsersShrink?: string;
   /**

@@ -7,7 +7,7 @@ export class StartLiveStreamMonitorRequest extends $dara.Model {
    * @remarks
    * The ID of the monitoring session.
    * 
-   * >  You can obtain the monitoring session ID from the response of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
+   * > Obtain the MonitorId value from the response of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
    * 
    * This parameter is required.
    * 
@@ -16,6 +16,13 @@ export class StartLiveStreamMonitorRequest extends $dara.Model {
    */
   monitorId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

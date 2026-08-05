@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLivePushProxyLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ingest domain. You can specify only one domain in each request.
+   * The ingest domain. Multi-domain queries are not supported.
    * 
    * This parameter is required.
    * 
@@ -15,8 +15,9 @@ export class DescribeLivePushProxyLogRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Get the log end time.
-   * Date format follows the ISO8601 representation and uses UTC+0 time, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The end of the time range to query logs.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-09-20T09:00:00Z
@@ -25,7 +26,7 @@ export class DescribeLivePushProxyLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. Default value: 1. Valid values: [1, 9223372036854775807].
    * 
    * @example
    * 2
@@ -33,16 +34,25 @@ export class DescribeLivePushProxyLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: [1,1000]. Default value: 300.
+   * The page size. Valid values: [1, 1000\\]. Default value: 300.
    * 
    * @example
    * 300
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * Get the log start time in ISO8601 format with UTC+0 timezone, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The beginning of the time range to query logs.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-09-20T08:00:00Z

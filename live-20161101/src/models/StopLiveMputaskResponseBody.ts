@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopLiveMPUTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0F72851F-5DC1-1979-9B2C-450040316C3E

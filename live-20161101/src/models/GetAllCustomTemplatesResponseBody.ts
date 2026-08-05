@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAllCustomTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The template names and template configurations returned.
+   * A list of template names and template configurations.
    * 
    * @example
    * [{"templateConfig": "{\\"cdesc\\":\\"H264\\",\\"scale\\":\\"[3:4]\\",\\"gop\\":\\"1\\",\\"bframes\\":\\"1\\",\\"height\\":\\"1080\\"}","templateName": "custom1"},{"templateConfig": "{\\"ar\\":\\"44100\\",\\"cdesc\\":\\"H264\\",\\"scale\\":\\"[3:4]\\",\\"gop\\":\\"1\\",\\"bframes\\":\\"1\\",\\"height\\":\\"1080\\"}","templateName": "cus"}]

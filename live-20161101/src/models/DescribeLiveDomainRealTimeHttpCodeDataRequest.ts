@@ -6,8 +6,8 @@ export class DescribeLiveDomainRealTimeHttpCodeDataRequest extends $dara.Model {
   /**
    * @remarks
    * The streaming domain.
-   * 
-   * Separate multiple domain names with commas (,).
+   * > - When you specify DomainName, make sure that the domain name is a live streaming domain and that the caller has the required permissions on the domain name.
+   * > - Separate multiple domain names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,8 @@ export class DescribeLiveDomainRealTimeHttpCodeDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
+   * The end time. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * > If both StartTime and EndTime are left empty, data within the last **1** hour from the current time is returned by default.
    * 
    * @example
    * 2015-11-30T05:40:00Z
@@ -27,9 +26,9 @@ export class DescribeLiveDomainRealTimeHttpCodeDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the Internet service provider (ISP).
+   * The name of the Internet service provider (ISP) in English.
    * 
-   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available ISPs.
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to obtain the ISP name.
    * 
    * @example
    * alibaba
@@ -37,21 +36,28 @@ export class DescribeLiveDomainRealTimeHttpCodeDataRequest extends $dara.Model {
   ispNameEn?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The name of the region in English.
    * 
-   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available regions.
+   * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to obtain the region name.
    * 
    * @example
    * tianjin
    */
   locationNameEn?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
-   * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
+   * > If both StartTime and EndTime are left empty, data within the last **1** hour from the current time is returned by default.
    * 
    * @example
    * 2015-11-30T05:39:00Z

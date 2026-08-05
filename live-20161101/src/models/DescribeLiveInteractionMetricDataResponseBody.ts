@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveInteractionMetricDataResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
-   * The time when the metric was queried. The value is a UNIX timestamp. Unit: milliseconds.
+   * The timestamp of the data point, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1548670257000
@@ -45,12 +45,12 @@ export class DescribeLiveInteractionMetricDataResponseBodyNodes extends $dara.Mo
 export class DescribeLiveInteractionMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The node data.
+   * An array of data points.
    */
   nodes?: DescribeLiveInteractionMetricDataResponseBodyNodes[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A01C98C5-25AE-124A-83FE-514DF5C5BE36
@@ -58,7 +58,7 @@ export class DescribeLiveInteractionMetricDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The summary data.
+   * The summarized data for the query time range.
    * 
    * @example
    * 2000

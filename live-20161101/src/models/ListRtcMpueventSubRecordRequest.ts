@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListRtcMPUEventSubRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
-   * 
-   * >  The ID can be up to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-).
+   * The ID of the subscribed application. You can view your application IDs by navigating to **ApsaraVideo Live > Live+ > ApsaraVideo Real-time Communication > Application Management**.
+   * > - The application ID consists of uppercase and lowercase letters, digits, underscores, and hyphens (-), with a maximum of 64 characters.
+   * > - You must first call CreateRtcMPUEventSub to create a stream mixing and forwarding event subscription for this application ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,8 @@ export class ListRtcMPUEventSubRecordRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The end time of the query.
+   * Format: yyyy-MM-ddTHH:mm:ssZ (UTC). The value cannot be later than the current time.
    * 
    * This parameter is required.
    * 
@@ -37,7 +38,7 @@ export class ListRtcMPUEventSubRecordRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of records per page. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -47,7 +48,8 @@ export class ListRtcMPUEventSubRecordRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The start time of the query.
+   * Format: yyyy-MM-ddTHH:mm:ssZ (UTC). The value cannot be earlier than seven days before the current time.
    * 
    * This parameter is required.
    * 
@@ -57,7 +59,7 @@ export class ListRtcMPUEventSubRecordRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the subscription.
+   * The callback ID of the subscription.
    * 
    * @example
    * yourSubId

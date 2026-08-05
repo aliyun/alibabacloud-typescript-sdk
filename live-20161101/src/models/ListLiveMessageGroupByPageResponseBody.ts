@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model {
   /**
    * @remarks
-   * The list of administrators.
+   * The list of administrator user IDs.
    */
   adminList?: string[];
   /**
    * @remarks
-   * The time when the group was created. The value is a UNIX timestamp. Unit: seconds.
+   * The creation time, expressed as a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1698299727
@@ -18,7 +18,7 @@ export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model
   createtime?: number;
   /**
    * @remarks
-   * The ID of the user who created the group.
+   * The creator ID.
    * 
    * @example
    * user_77
@@ -34,7 +34,7 @@ export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model
   delete?: boolean;
   /**
    * @remarks
-   * The ID of the interactive messaging group.
+   * The group ID.
    * 
    * @example
    * cU9MeBqf****
@@ -42,7 +42,7 @@ export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model
   groupId?: string;
   /**
    * @remarks
-   * The additional information about the group.
+   * The extended information of the group.
    * 
    * @example
    * testgroupinfo
@@ -50,7 +50,7 @@ export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model
   groupInfo?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The group name.
    * 
    * @example
    * mytestgroup
@@ -95,12 +95,12 @@ export class ListLiveMessageGroupByPageResponseBodyGroupList extends $dara.Model
 export class ListLiveMessageGroupByPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of groups.
+   * The group list.
    */
   groupList?: ListLiveMessageGroupByPageResponseBodyGroupList[];
   /**
    * @remarks
-   * The page number.
+   * The current page number of the returned data.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListLiveMessageGroupByPageResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The page size.
    * 
    * @example
    * 20
@@ -116,7 +116,7 @@ export class ListLiveMessageGroupByPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B5D95365-5A46-1A6A-BBF5-C7B6BDED****
@@ -124,7 +124,7 @@ export class ListLiveMessageGroupByPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 50

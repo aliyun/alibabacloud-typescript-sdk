@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopRtcCloudTranscodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

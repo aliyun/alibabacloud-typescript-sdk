@@ -87,7 +87,7 @@ export class DescribeCasterSceneAudioResponseBody extends $dara.Model {
   audioLayers?: DescribeCasterSceneAudioResponseBodyAudioLayers;
   /**
    * @remarks
-   * The ID of the production studio. You can specify the ID in a request to start a scene in the production studio.
+   * The ID of the production studio. This ID can be used as a request parameter to start the production studio scenario.
    * 
    * @example
    * 97df6b7f-3490-47d2-ac50-88338765****
@@ -95,10 +95,11 @@ export class DescribeCasterSceneAudioResponseBody extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The audio mode. By default, the audio follows video (AFV) mode is used. Valid values:
+   * Specifies whether to enable audio follow. By default, audio follow is enabled.
    * 
-   * *   **0**: the audio mixing mode
-   * *   **1**: the AFV mode
+   * - **0**: mix mode.
+   * 
+   * - **1**: audio-follows-video mode.
    * 
    * @example
    * 1

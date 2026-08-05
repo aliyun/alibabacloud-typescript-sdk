@@ -157,7 +157,7 @@ export class DescribeLivePushProxyLogResponseBody extends $dara.Model {
   domainLogDetails?: DescribeLivePushProxyLogResponseBodyDomainLogDetails;
   /**
    * @remarks
-   * Push domain.
+   * The ingest domain.
    * 
    * @example
    * example.com
@@ -165,7 +165,7 @@ export class DescribeLivePushProxyLogResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CF60DB6A-7FD6-426E-9288-122CC1A52FA7

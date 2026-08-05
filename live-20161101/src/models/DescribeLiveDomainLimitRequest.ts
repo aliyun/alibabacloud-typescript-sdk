@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainLimitRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the main streaming domain.
+   * The main streaming domain
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DescribeLiveDomainLimitRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

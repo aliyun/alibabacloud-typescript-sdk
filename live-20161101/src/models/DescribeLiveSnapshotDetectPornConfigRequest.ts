@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer streaming domain.
    * 
    * This parameter is required.
    * 
@@ -23,15 +23,10 @@ export class DescribeLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The order in which the entries are sorted based on creation time. Valid values:
+   * The order in which entries are sorted by creation time. Valid values:
    * 
-   * *   **Asc** (default): ascending order
-   * *   **Desc**: descending order
-   * 
-   * Enumerated values:
-   * 
-   * *   asc
-   * *   desc
+   * - **Asc** (default): ascending order.
+   * - **Desc**: descending order.
    * 
    * @example
    * Asc
@@ -48,7 +43,7 @@ export class DescribeLiveSnapshotDetectPornConfigRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **5 to 30**. Default value: **10**.
+   * The number of entries per page. Default value: **10**. Valid values: **5 to 30**.
    * 
    * @example
    * 10

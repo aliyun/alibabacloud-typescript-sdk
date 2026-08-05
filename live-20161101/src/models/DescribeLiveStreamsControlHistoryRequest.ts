@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamsControlHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The application name. View AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * liveApp****
@@ -23,9 +23,9 @@ export class DescribeLiveStreamsControlHistoryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * >  The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
+   * > The interval between EndTime and StartTime cannot exceed 7 days.
    * 
    * This parameter is required.
    * 
@@ -34,10 +34,17 @@ export class DescribeLiveStreamsControlHistoryRequest extends $dara.Model {
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

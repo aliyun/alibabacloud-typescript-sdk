@@ -129,7 +129,7 @@ export class DescribeLiveDomainOnlineUserNumResponseBody extends $dara.Model {
   streamCount?: number;
   /**
    * @remarks
-   * The total number of online users at the specified point in time for all the live streams under the main streaming domain.
+   * The total number of online users at the specified point in time on the specified domain.
    * 
    * @example
    * 1

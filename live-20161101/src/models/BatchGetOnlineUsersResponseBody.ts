@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetOnlineUsersResponseBodyResultOnlineUsers extends $dara.Model {
   /**
    * @remarks
-   * The time when the user joined the group. The value is a UTC timestamp. Unit: milliseconds.
+   * The UTC timestamp when the user joined the message group. Unit: milliseconds
    * 
    * @example
    * 12**45
@@ -15,8 +15,9 @@ export class BatchGetOnlineUsersResponseBodyResultOnlineUsers extends $dara.Mode
    * @remarks
    * Indicates whether the user is online. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The user is online.
+   * 
+   * - **false**: The user is offline.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class BatchGetOnlineUsersResponseBodyResultOnlineUsers extends $dara.Mode
   online?: boolean;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * de1**a0
@@ -58,7 +59,7 @@ export class BatchGetOnlineUsersResponseBodyResultOnlineUsers extends $dara.Mode
 export class BatchGetOnlineUsersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The information about users.
+   * The array of objects
    */
   onlineUsers?: BatchGetOnlineUsersResponseBodyResultOnlineUsers[];
   static names(): { [key: string]: string } {
@@ -96,7 +97,7 @@ export class BatchGetOnlineUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result
    */
   result?: BatchGetOnlineUsersResponseBodyResult;
   static names(): { [key: string]: string } {

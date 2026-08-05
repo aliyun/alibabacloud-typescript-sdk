@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which you want to query the mappings. The following types of domain names are supported:
+   * The domain that you want to query. Valid types:
    * 
-   * *   Ingest domain
-   * *   Main streaming domain
-   * *   Sub-streaming domain
+   * - Ingest domain
+   * 
+   * - Main streaming domain
+   * 
+   * - Sub-streaming domain
    * 
    * This parameter is required.
    * 
@@ -18,6 +20,13 @@ export class DescribeLiveDomainMappingRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

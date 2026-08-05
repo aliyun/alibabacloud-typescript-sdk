@@ -123,7 +123,7 @@ export class DescribeLiveUserDomainsRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-aek2egyoep3jp7a
+   * rg-**kzvyjetyjjm**
    */
   resourceGroupId?: string;
   securityToken?: string;

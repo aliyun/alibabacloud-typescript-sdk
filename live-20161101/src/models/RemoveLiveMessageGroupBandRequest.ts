@@ -15,9 +15,9 @@ export class RemoveLiveMessageGroupBandRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application.
+   * The data center. This must be the same data center that you specified when you called [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html).
    * 
-   * >  Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+   * > Valid values: \\`cn-shanghai\\` (Shanghai) and \\`ap-southeast-1\\` (Singapore).
    * 
    * @example
    * cn-shanghai
@@ -35,7 +35,7 @@ export class RemoveLiveMessageGroupBandRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The users whom you want to unmute.
+   * The list of users to unmute. You can specify up to 30 users. Separate multiple user IDs with commas (,).
    * 
    * This parameter is required.
    */

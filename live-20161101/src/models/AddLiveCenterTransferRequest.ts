@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddLiveCenterTransferRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. The value of this parameter must be the same as the application name for the live stream that you want to relay. Otherwise, the configuration does not take effect. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream application. The AppName you enter must be the same as the AppName of the live stream to be relayed for the configuration to take effect. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class AddLiveCenterTransferRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The third-party URL to which the live stream is relayed. You can add only one URL.
+   * The third-party live streaming address for relay. You can add up to one address.
    * 
-   * >  The protocol that the URL uses must be the same as the protocol of the live stream. Only URLs over RTMP and SRT are supported.
+   * >The protocol of the destination address must be the same as the protocol of the live stream to be relayed. Only RTMP and SRT relay addresses are supported.
    * 
    * This parameter is required.
    * 
@@ -37,19 +37,26 @@ export class AddLiveCenterTransferRequest extends $dara.Model {
   dstUrl?: string;
   /**
    * @remarks
-   * The end time of stream relay. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the relay. The date format follows the ISO 8601 notation and uses UTC+0 time. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
-   * >  The end time must be later than the start time.
+   * >The end time must be later than the start time.
    * 
    * @example
    * 2017-12-22T08:00:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The start time of stream relay. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the relay. The date format follows the ISO 8601 notation and uses UTC+0 time. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2017-12-21T10:00:00Z
@@ -57,7 +64,7 @@ export class AddLiveCenterTransferRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 
@@ -67,12 +74,13 @@ export class AddLiveCenterTransferRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The validity period of stream relay. Valid values:
+   * The validity period of the relay. Valid values:
    * 
-   * *   **always**: The stream can always be relayed.
-   * *   **time**: The stream can be relayed in a specified time period.
+   * - **always**: permanently effective.
    * 
-   * >  If you set this parameter to **time**, **StartTime** and **EndTime** are required.
+   * - **time**: effective within the specified time period.
+   * 
+   * >If the value is **time**, **StartTime** and **EndTime** are required.
    * 
    * This parameter is required.
    * 

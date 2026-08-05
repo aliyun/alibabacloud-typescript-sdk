@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+   * The data center. This value must be the same as the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Currently supported data centers are Shanghai (cn-shanghai) and Singapore (ap-southeast-1).
    * 
    * @example
    * cn-shanghai
@@ -23,11 +23,10 @@ export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The status of the groups to query. Default value: 0. Valid values:
-   * 
-   * *   0: all groups
-   * *   1: existing groups
-   * *   2: deleted groups
+   * The group status. Default value: 0. Valid values:
+   * - 0: Queries all groups.
+   * - 1: Queries groups that are not deleted.
+   * - 2: Queries deleted groups.
    * 
    * @example
    * 1
@@ -35,7 +34,7 @@ export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   groupStatus?: number;
   /**
    * @remarks
-   * The page number. Valid values: [1,10000].
+   * The page number. Valid values: [1,10000\\].
    * 
    * Default value: 1.
    * 
@@ -45,7 +44,7 @@ export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:[1,50].
+   * The page size. Valid values: [1,50\\].
    * 
    * Default value: 20.
    * 
@@ -55,10 +54,9 @@ export class ListLiveMessageGroupByPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order based on the time when the groups were created. Valid values:
-   * 
-   * *   1: ascending order
-   * *   2: descending order
+   * The sort order, based on group creation time. Valid values:
+   * - 1: Ascending order.
+   * - 2: Descending order.
    * 
    * This parameter is required.
    * 

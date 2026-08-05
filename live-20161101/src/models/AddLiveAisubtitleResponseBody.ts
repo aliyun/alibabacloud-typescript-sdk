@@ -13,7 +13,7 @@ export class AddLiveAISubtitleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the subtitle template.
+   * The subtitle template ID.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****

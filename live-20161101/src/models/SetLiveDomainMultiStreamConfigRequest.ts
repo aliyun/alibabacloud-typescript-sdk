@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLiveDomainMultiStreamConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary streaming domain.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,9 @@ export class SetLiveDomainMultiStreamConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the dual-stream disaster recovery feature. Valid values:
-   * 
-   * *   **on**: enables the feature.
-   * *   **off**: disables the feature.
+   * The feature switch. Valid values:
+   * - **on**: enabled
+   * - **off**: disabled.
    * 
    * This parameter is required.
    * 

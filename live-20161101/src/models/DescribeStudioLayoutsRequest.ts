@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStudioLayoutsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio instance.
+   * The production studio ID.
    * 
-   * *   If you call the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation to create a production studio instance, you can obtain the instance ID from the CasterId parameter in the response.
-   * *   If you create a production studio instance in the ApsaraVideo Live console, perform the following operations to obtain the instance ID: Log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane. Then, view the instance ID on the **Production Studio Management** page.
+   * - If you created the production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the CasterId parameter value returned by the CreateCaster operation.
    * 
-   * >  The value displayed in the Name column for an instance on the Production Studio Management page is the ID of the instance.
+   * - If you created the production studio in the ApsaraVideo Live console, go to **ApsaraVideo Live console** > **Production Studio** > **Cloud Production Studio** to view the ID.
+   * 
+   * > 
+   * > - The production studio name in the production studio list on the Cloud Production Studio page is the production studio ID.
+   * > - Only virtual studio production studios (NormType=4) are supported. If you pass in a production studio ID of another type, InvalidCaster.NotFound is returned. Call DescribeCasters and filter by NormType=4 to obtain the virtual studio production studio ID.
    * 
    * This parameter is required.
    * 
@@ -20,17 +23,23 @@ export class DescribeStudioLayoutsRequest extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The ID of the layout.
+   * The layout ID.
+   * Separate multiple layout IDs with commas (,). If this parameter is not specified, all layouts under the production studio are returned.
    * 
-   * You can specify multiple layout IDs and separate them with commas (,). If you leave this parameter empty, all layouts of the production studio are returned.
-   * 
-   * If you call the [AddStudioLayout](https://help.aliyun.com/document_detail/215388.html) operation to configure a layout for a virtual studio, you can obtain the ID of the layout from the LayoutId parameter in the response.
+   * If you added virtual studio layout settings by calling the [AddStudioLayout](https://help.aliyun.com/document_detail/2848062.html) operation, check the LayoutId parameter value returned by the AddStudioLayout operation.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****
    */
   layoutId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

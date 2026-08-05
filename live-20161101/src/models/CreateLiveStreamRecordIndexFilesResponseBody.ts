@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   appName?: string;
   /**
    * @remarks
-   * The time when the index file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2016-05-27T09:40:56Z
@@ -21,7 +21,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer streaming domain.
    * 
    * @example
    * example.com
@@ -37,7 +37,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   duration?: number;
   /**
    * @remarks
-   * The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-12-01T07:40:00Z
@@ -45,7 +45,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   endTime?: string;
   /**
    * @remarks
-   * The height of the video.
+   * The video height.
    * 
    * @example
    * 480
@@ -69,7 +69,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   ossEndpoint?: string;
   /**
    * @remarks
-   * The name of the recording that is stored in OSS.
+   * The name of the recording file stored in OSS.
    * 
    * @example
    * liveObject****.m3u8
@@ -85,12 +85,12 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   recordId?: string;
   /**
    * @remarks
-   * The URL of the M3U8 index file.
+   * The URL of the index file.
    */
   recordUrl?: string;
   /**
    * @remarks
-   * The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-12-01T07:36:00Z
@@ -98,7 +98,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   startTime?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * @example
    * liveStream****
@@ -106,7 +106,7 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
   streamName?: string;
   /**
    * @remarks
-   * The width of the video.
+   * The video width.
    * 
    * @example
    * 640
@@ -162,12 +162,12 @@ export class CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo extends $dar
 export class CreateLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The recording configuration.
+   * The recording configuration information.
    */
   recordInfo?: CreateLiveStreamRecordIndexFilesResponseBodyRecordInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 550439A3-F8EC-4CA2-BB62-B9DB43EEEF30

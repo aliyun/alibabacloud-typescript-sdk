@@ -6,7 +6,7 @@ export class DeleteCasterEpisodeGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the episode list. If the episode list was added by calling the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation, check the value of the response parameter ProgramId to obtain the ID.
+   * The ID of the episode list. To obtain the ID, call the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation and find the value of the ProgramId parameter in the response.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DeleteCasterEpisodeGroupRequest extends $dara.Model {
    * a2b8e671-2fe5-4642-a2ec-bf932738****
    */
   programId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

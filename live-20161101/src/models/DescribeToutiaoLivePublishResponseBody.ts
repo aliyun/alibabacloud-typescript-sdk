@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeToutiaoLivePublishResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeToutiaoLivePublishResponseBodyContent extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The bitrate. Unit: bit/s.
+   * The bitrate in bit/s.
    * 
    * @example
    * 261587
@@ -29,7 +29,7 @@ export class DescribeToutiaoLivePublishResponseBodyContent extends $dara.Model {
   bwDiff?: number;
   /**
    * @remarks
-   * The name of the content delivery network (CDN) service.
+   * The CDN name.
    * 
    * @example
    * ali
@@ -61,7 +61,7 @@ export class DescribeToutiaoLivePublishResponseBodyContent extends $dara.Model {
   fps?: number;
   /**
    * @remarks
-   * The name of the ingested stream.
+   * The stream name.
    * 
    * @example
    * liveStream****
@@ -115,7 +115,7 @@ export class DescribeToutiaoLivePublishResponseBodyContent extends $dara.Model {
 export class DescribeToutiaoLivePublishResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The stream ingest details.
+   * The details of the stream ingest information.
    */
   content?: DescribeToutiaoLivePublishResponseBodyContent[];
   /**

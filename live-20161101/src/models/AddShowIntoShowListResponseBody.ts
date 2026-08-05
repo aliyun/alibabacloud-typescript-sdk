@@ -13,7 +13,7 @@ export class AddShowIntoShowListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the episode.
+   * The show ID.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****
@@ -21,7 +21,7 @@ export class AddShowIntoShowListResponseBody extends $dara.Model {
   showId?: string;
   /**
    * @remarks
-   * The list of resources that failed to be added and the reason for failure.
+   * The list of resources that failed to be added and the failure reasons.
    * 
    * @example
    * failedList[Show1, Show2...]
@@ -29,10 +29,10 @@ export class AddShowIntoShowListResponseBody extends $dara.Model {
   failedList?: string;
   /**
    * @remarks
-   * The IDs of the episodes that were added.
+   * The list of show IDs that were successfully added.
    * 
    * @example
-   * f1933f16-5467-4308-b3a9-e8d451a90999,547436b8-c839-4469-a2c0-704c1ce5ce00
+   * f1933f16-5467-4308-b3a9-e8d451a90999，547436b8-c839-4469-a2c0-704c1ce5ce00
    */
   successfulShowIds?: string;
   static names(): { [key: string]: string } {

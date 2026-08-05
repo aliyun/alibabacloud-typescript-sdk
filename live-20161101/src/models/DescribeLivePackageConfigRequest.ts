@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLivePackageConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name. If you leave this parameter empty, all applications are matched.
+   * The app name. Leave empty to match all names.
    * 
    * @example
    * AppName
@@ -13,7 +13,7 @@ export class DescribeLivePackageConfigRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The live streaming domain (primary playback domain).
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,11 @@ export class DescribeLivePackageConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   **asc** (default): ascending order
-   * *   **desc**: descending order
+   * - **asc** (default): ascending order.
+   * 
+   * - **desc**: descending order.
    * 
    * @example
    * asc
@@ -35,7 +36,7 @@ export class DescribeLivePackageConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -43,16 +44,23 @@ export class DescribeLivePackageConfigRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 5 to 30. Default value: 10.
+   * The page size. Default value: 10. Valid values: 5 to 30.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The stream name. If you leave this parameter empty, all streams are matched.
+   * The live stream name. Leave empty to match all stream names.
    * 
    * @example
    * StreamName

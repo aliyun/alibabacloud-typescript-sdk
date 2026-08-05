@@ -47,7 +47,7 @@ export class DescribeChannelUsersResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * AD86847D-1F36-18C8-A995-5EEA340B3202
+   * AD86847D-1F36-18C8-A995-5EEA34******
    */
   requestId?: string;
   /**

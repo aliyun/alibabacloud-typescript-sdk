@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveAIStudioResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0BA6B3C4-525A-5381-A2B0-5351323F31C5

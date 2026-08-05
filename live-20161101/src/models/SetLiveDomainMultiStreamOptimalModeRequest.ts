@@ -15,7 +15,7 @@ export class SetLiveDomainMultiStreamOptimalModeRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary streaming domain.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,9 @@ export class SetLiveDomainMultiStreamOptimalModeRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Specifies whether to enable the auto mode of dual-stream disaster recovery. Valid values:
-   * 
-   * *   **on**: enables the auto mode.
-   * *   **off**: disables the auto mode.
+   * The automatic mode switch. Valid values:
+   * - **on**: enabled
+   * - **off**: disabled.
    * 
    * This parameter is required.
    * 
@@ -39,7 +38,7 @@ export class SetLiveDomainMultiStreamOptimalModeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the live stream.
+   * The live stream name.
    * 
    * This parameter is required.
    * 

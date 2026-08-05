@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application queried.
+   * The ID of the interactive messaging application.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The AppKey of the interactive messaging application. It is used to authorize operations related to the application ID.
+   * The AppKey of the interactive messaging application. This value is required for authentication of related operations on this application.
    * 
    * @example
    * **********************************
@@ -21,7 +21,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * testApp
@@ -29,7 +29,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The signature of the interactive messaging application. It is required by the interactive messaging SDK.
+   * The signature of the interactive messaging application. This value is required by the interactive messaging SDK.
    * 
    * @example
    * **************************************************************************
@@ -37,7 +37,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   appSign?: string;
   /**
    * @remarks
-   * The time when the application was created. The value is a UNIX timestamp. Unit: seconds.
+   * The creation time, represented as a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1698305471
@@ -45,7 +45,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The live center.
+   * The data center.
    * 
    * @example
    * cn-shanghai
@@ -61,7 +61,7 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   disable?: string;
   /**
    * @remarks
-   * The time when the application was last modified. The value is a UNIX timestamp. Unit: seconds.
+   * The modification time, represented as a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1698305471
@@ -69,11 +69,11 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The retention period of group messages in the application. Valid values:
+   * The storage duration tier for group messages within the application. Valid values:
    * 
-   * *   0 (default): 30 days
-   * *   1: 90 days
-   * *   2: 180 days
+   * - 0: Default value. Messages are stored for 30 days.
+   * - 1: Messages are stored for 90 days.
+   * - 2: Messages are stored for 180 days.
    * 
    * @example
    * 1
@@ -119,12 +119,12 @@ export class ListLiveMessageAppsResponseBodyAppList extends $dara.Model {
 export class ListLiveMessageAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The interactive messaging applications.
+   * The list of interactive messaging applications.
    */
   appList?: ListLiveMessageAppsResponseBodyAppList[];
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -132,7 +132,7 @@ export class ListLiveMessageAppsResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The starting page number for the next query. This parameter is returned only if the value of HasMore is true.
+   * The starting position of the next page. This parameter is returned only when HasMore is set to true.
    * 
    * @example
    * 1
@@ -140,7 +140,7 @@ export class ListLiveMessageAppsResponseBody extends $dara.Model {
   nextPageToken?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B8EB4994-1368-1458-B9F3-5B88D76D734C

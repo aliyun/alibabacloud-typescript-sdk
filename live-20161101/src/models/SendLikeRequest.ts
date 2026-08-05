@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendLikeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive Messages application ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class SendLikeRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The mode in which system messages are broadcasted. Valid values:
+   * System message diffusion type. Valid values:
    * 
-   * *   0: specifies that system messages are not broadcasted. This is the default value.
-   * *   1: specifies that system messages are broadcasted to specified users.
-   * *   2: specifies that system messages are broadcasted to the message group.
+   * - 0: No diffusion.
+   * - 1: Diffusion to specified users.
+   * - 2: Diffusion to a group.
    * 
    * @example
    * 2
@@ -27,7 +27,7 @@ export class SendLikeRequest extends $dara.Model {
   broadCastType?: number;
   /**
    * @remarks
-   * The number of likes.
+   * Number of likes.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class SendLikeRequest extends $dara.Model {
   count?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class SendLikeRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the user who performs the operation.
+   * Operator user ID.
    * 
    * @example
    * de1**a0

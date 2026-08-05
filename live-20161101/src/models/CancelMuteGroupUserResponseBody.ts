@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CancelMuteGroupUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the members are unmuted. Valid values:
+   * Whether unmuting is successful, values:
    * 
-   * *   true: The members are unmuted.
-   * *   false: The members failed to be unmuted.
+   * - true: Successful.
+   * - false: Unsuccessful.
    * 
    * @example
    * false
@@ -38,7 +38,7 @@ export class CancelMuteGroupUserResponseBodyResult extends $dara.Model {
 export class CancelMuteGroupUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class CancelMuteGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: CancelMuteGroupUserResponseBodyResult;
   static names(): { [key: string]: string } {

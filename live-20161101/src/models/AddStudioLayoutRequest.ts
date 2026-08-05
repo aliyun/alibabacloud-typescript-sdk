@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddStudioLayoutRequest extends $dara.Model {
   /**
    * @remarks
-   * The background material configurations. The value is a JSON string. For more information, see **BgImageConfig**.
+   * The configuration of the background resource. The value is a JSON string. For more information, see **BgImageConfig**.
    * 
-   * >  This parameter is required only if you set LayoutType to studio.
+   * >Notice: 
+   * 
+   * This parameter is required only when you set LayoutType to studio.
    * 
    * @example
    * { "Id":"k12kj31****", "MaterialId":"f080575eb5f4427684fc0715159a****" }
@@ -17,12 +19,17 @@ export class AddStudioLayoutRequest extends $dara.Model {
    * @remarks
    * The ID of the production studio.
    * 
-   * >  The production studio must be a virtual studio that you create in advance. You can use the ApsaraVideo Live console or call the CreateCaster operation to create a virtual studio.
+   * >Notice: 
    * 
-   * *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-   * *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+   * Create a virtual production studio in advance. You can create a production studio in the console or by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) API operation. The production studio must be a virtual production studio.
    * 
-   * >  You can find the ID of the production studio in the Instance ID/Name column.
+   * 
+   * 
+   * - If you call the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) API operation to create a production studio, use the returned CasterId value.
+   * 
+   * - If you create a production studio in the ApsaraVideo Live console, go to the **ApsaraVideo Live console** > **Production Studio** > **Cloud Production Studio** page. The name of the production studio in the list is its ID.
+   * 
+   * > The name of the production studio in the list on the Cloud Production Studio page is the production studio ID.
    * 
    * This parameter is required.
    * 
@@ -32,9 +39,11 @@ export class AddStudioLayoutRequest extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The common layout configurations. The value is a JSON string. For more information, see **CommonConfig**.
+   * The configuration of the common layout. The value is a JSON string. For more information, see **CommonConfig**.
    * 
-   * >  This parameter is required only if you set LayoutType to common.
+   * >Notice: 
+   * 
+   * This parameter is required only when you set LayoutType to common.
    * 
    * @example
    * {"ChannelId":"RV01" }
@@ -42,7 +51,7 @@ export class AddStudioLayoutRequest extends $dara.Model {
   commonConfig?: string;
   /**
    * @remarks
-   * The layer sorting configurations. The value is a JSON string. For more information, see **layerOrderConfig**. You can sort layers of background and multimedia materials. The chroma key layer cannot be sorted. A layer that is in the front of the code is placed behind other layers in the layout.
+   * The layer order settings. The value is a JSON string. For more information, see **LayerOrderConfig**. You can sort background materials and multimedia materials. Chroma keying layers are not supported. The earlier a material appears in the list, the lower its layer.
    * 
    * @example
    * [ 	{ 	"Type":"media", 	"Id":"k12kj31****" 	}, 	{ 	"Type":"media", 	"Id":"k12kj31****" 	} ]
@@ -50,7 +59,7 @@ export class AddStudioLayoutRequest extends $dara.Model {
   layerOrderConfigList?: string;
   /**
    * @remarks
-   * The name of the layout.
+   * The name of the studio layout.
    * 
    * This parameter is required.
    * 
@@ -60,10 +69,11 @@ export class AddStudioLayoutRequest extends $dara.Model {
   layoutName?: string;
   /**
    * @remarks
-   * The type of the layout. Valid values:
+   * The type of the studio layout. Valid values:
    * 
-   * *   **common**: If you set this parameter to common, you must specify the CommonConfig parameter.
-   * *   **studio**: If you set this parameter to studio, you must specify the BgImageConfig and ScreenInputConfigList parameters. The MediaInputConfigList parameter is optional.
+   * - **common**: A common layout. If you set LayoutType to common, you must also specify CommonConfig.
+   * 
+   * - **studio**: A studio layout. If you set LayoutType to studio, you must also specify BgImageConfig and ScreenInputConfigList. The MediaInputConfigList parameter is optional.
    * 
    * This parameter is required.
    * 
@@ -73,21 +83,32 @@ export class AddStudioLayoutRequest extends $dara.Model {
   layoutType?: string;
   /**
    * @remarks
-   * The multimedia input configurations. The value is a JSON string. For more information, see **MediaInputConfig**.
+   * The settings for the multimedia input resource. The value is a JSON string. For more information, see **MediaInputConfig**.
    * 
-   * >  This parameter is optional and is valid only if you set LayoutType to studio.
+   * >Notice: 
+   * 
+   * This parameter is valid and optional only when you set LayoutType to studio.
    * 
    * @example
    * [ 	{ 	"Id":"k12kj31****", 	"Index":"1", 	"ChannelId":"RV01", 	"FillMode":"none", 	"PositionRefer":"topLeft", 	"WidthNormalized":"0.4", 	"HeightNormalized":"0.4", 	"PositionNormalized":"[0.1, 0.2]" 	},   { 	"Id":"k12kj31****", 	"Index":"2", 	"ImageMaterialId":"lkajsdfsa8fd89asd8****", 	"FillMode":"none", 	"PositionRefer":"topLeft", 	"WidthNormalized":"0.6", 	"HeightNormalized":"0.4", 	"PositionNormalized":"[0.1, 0.2]" 	} ]
    */
   mediaInputConfigList?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The input configurations for chroma key. The value is a JSON string. For more information, see **ScreenInputConfig**.
+   * The settings for the chroma keying input. The value is a JSON string. For more information, see **ScreenInputConfig**.
    * 
-   * >  This parameter is required only if you set LayoutType to studio.
+   * >Notice: 
+   * 
+   * This parameter is required only when you set LayoutType to studio.
    * 
    * @example
    * [ 	{ 	"Index":"1", 	"ChannelId":"RV01", 	"Color":"green", 	"PositionX":"0.1", 	"PositionY":"0.2", 	"HeightNormalized":"0.4" 	} ]

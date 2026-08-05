@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data center.
+   * The data center ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class ListEdgeTranscodeTemplateRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The keyword of the query.
-   * 
-   * *   You can specify a template ID for an exact match.
-   * *   You can also specify a template name for a fuzzy match.
+   * The search keyword. Valid values:
+   * - Template ID. Exact match is supported.
+   * - Template name. Fuzzy match is supported.
    * 
    * @example
    * baseline
@@ -35,19 +34,25 @@ export class ListEdgeTranscodeTemplateRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The sorting order of the templates by creation time. Default value: desc. Valid values:
-   * 
-   * *   desc: descending order.
-   * *   asc: ascending order.
+   * The sorting rule. Templates are sorted by creation time (CreateTime). Default value: desc. Valid values:
+   * - desc: descending order.
+   * - asc: ascending order.
    * 
    * @example
    * desc
@@ -55,13 +60,12 @@ export class ListEdgeTranscodeTemplateRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The type of edge transcoding. Valid values:
+   * The edge transcoding type. Valid values:
+   * - **common**: default transcoding (standard + Narrowband HD 1.0).
+   * - **nbhd-2**: Narrowband HD 2.0.
+   * - **ultra-hd**: ultra-high definition.
    * 
-   * *   **common**: standard transcoding and Narrowband HD™ 1.0 transcoding.
-   * *   **nbhd-2**: Narrowband HD™ 2.0 transcoding.
-   * *   **ultra-hd**: ultra-high definition transcoding.
-   * 
-   * >  If you do not specify this parameter, the query result is filtered based on the type of edge transcoding on which you are granted permissions.
+   * > If this parameter is not specified, the system displays transcoding templates for the transcoding types that the user has permissions to access.
    * 
    * @example
    * nbhd-2
@@ -70,11 +74,10 @@ export class ListEdgeTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The video encoding format. Valid values:
+   * - H.264.
+   * - H.265.
    * 
-   * *   H.264
-   * *   H.265
-   * 
-   * >  If you do not specify this parameter, the query result is filtered based on the video encoding format on which you are granted permissions.
+   * > If this parameter is not specified, the system displays transcoding templates for the video encoding formats that the user has permissions to access.
    * 
    * @example
    * H.264

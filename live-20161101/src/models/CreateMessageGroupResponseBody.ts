@@ -48,7 +48,7 @@ export class CreateMessageGroupResponseBodyResult extends $dara.Model {
 export class CreateMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8

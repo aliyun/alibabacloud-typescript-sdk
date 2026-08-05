@@ -35,10 +35,10 @@ export class ListMuteGroupUserResponseBodyResultUserList extends $dara.Model {
 export class ListMuteGroupUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: There is a next page.
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -96,7 +96,7 @@ export class ListMuteGroupUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   result?: ListMuteGroupUserResponseBodyResult;
   static names(): { [key: string]: string } {

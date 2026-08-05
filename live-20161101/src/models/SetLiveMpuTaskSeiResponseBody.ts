@@ -8,7 +8,7 @@ export class SetLiveMpuTaskSeiResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7BF95F2A-3B24-4CDE-9346-7F6FA86697A1
+   * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

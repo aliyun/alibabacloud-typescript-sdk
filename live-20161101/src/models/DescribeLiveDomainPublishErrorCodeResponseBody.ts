@@ -6,16 +6,15 @@ export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeDataCodeD
   /**
    * @remarks
    * The response code. Valid values:
-   * 
-   * *   3: The data read timed out.
-   * *   4: A data write error occurred.
-   * *   6: The data write timed out.
-   * *   200: The request is successful.
-   * *   500: An unknown internal error occurred.
-   * *   501: The stream ingest failed.
-   * *   502: The signaling operation timed out.
-   * *   401: A stream ingest parameter is invalid.
-   * *   403: The stream ingest authentication failed.
+   * - 3: read data timeout.
+   * - 4: write data error.
+   * - 6: write data timeout.
+   * - 200: success.
+   * - 500: internal system unknown error.
+   * - 501: stream ingest exception.
+   * - 502: signaling took too long.
+   * - 401: stream ingest parameter exception.
+   * - 403: stream ingest authentication failed.
    * 
    * @example
    * 200
@@ -23,7 +22,7 @@ export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeDataCodeD
   code?: string;
   /**
    * @remarks
-   * The number of times the HTTP status code was returned.
+   * The number of responses.
    * 
    * @example
    * 20
@@ -31,7 +30,7 @@ export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeDataCodeD
   count?: string;
   /**
    * @remarks
-   * The proportion of the HTTP status code.
+   * The proportion of responses.
    * 
    * @example
    * 66.04
@@ -65,12 +64,12 @@ export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeDataCodeD
 export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeData extends $dara.Model {
   /**
    * @remarks
-   * The proportions of error codes.
+   * The list of status code distribution data.
    */
   codeData?: DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeDataCodeData[];
   /**
    * @remarks
-   * The timestamp of the data returned.
+   * The start time of the time interval. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2016-06-29T09:01:00Z
@@ -105,7 +104,7 @@ export class DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeData exte
 export class DescribeLiveDomainPublishErrorCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of the query. Unit: seconds. Default value: 60.
+   * The time granularity of the queried data. Unit: seconds. Default value: 60.
    * 
    * @example
    * 60
@@ -116,12 +115,12 @@ export class DescribeLiveDomainPublishErrorCodeResponseBody extends $dara.Model 
    * The ingest domain.
    * 
    * @example
-   * example.com,example.aliyundoc.com
+   * example1.aliyundoc.com,example2.aliyundoc.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2016-06-29T09:10:00Z
@@ -129,7 +128,7 @@ export class DescribeLiveDomainPublishErrorCodeResponseBody extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The proportions of error codes at each time interval.
+   * The status code distribution data for each time interval.
    */
   realTimeCodeData?: DescribeLiveDomainPublishErrorCodeResponseBodyRealTimeCodeData[];
   /**
@@ -137,12 +136,12 @@ export class DescribeLiveDomainPublishErrorCodeResponseBody extends $dara.Model 
    * The request ID.
    * 
    * @example
-   * BC858082-736F-4A25-867B-E5B67C85ACF7
+   * BC858082-736F-4A25-867B-E5B67C******
    */
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2016-06-29T09:00:00Z

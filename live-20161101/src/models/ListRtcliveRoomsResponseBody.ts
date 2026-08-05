@@ -11,8 +11,15 @@ export class ListRTCLiveRoomsResponseBody extends $dara.Model {
    * 5c6a2a0df228-4a64-af62-20e91b96****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of active channels.
+   */
   rooms?: string[];
   /**
+   * @remarks
+   * The total number of query results.
+   * 
    * @example
    * 2
    */

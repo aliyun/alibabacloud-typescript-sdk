@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessageAppResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The ID of the interactive message application.
    * 
    * @example
    * VKL3***
@@ -35,7 +35,7 @@ export class CreateMessageAppResponseBodyResult extends $dara.Model {
 export class CreateMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8

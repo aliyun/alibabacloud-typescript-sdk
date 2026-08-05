@@ -13,10 +13,10 @@ export class DescribeUpPeakPublishStreamDataRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to collect statistics at the domain name level. Valid values:
+   * The domain name statistics switch. Valid values:
    * 
-   * *   on: collects statistics at the domain name level.
-   * *   off (default): collects statistics at the user level.
+   * - on: enables domain name-level statistics.
+   * - off: user-level data. User-level data is collected by default.
    * 
    * @example
    * on
@@ -24,19 +24,26 @@ export class DescribeUpPeakPublishStreamDataRequest extends $dara.Model {
   domainSwitch?: string;
   /**
    * @remarks
-   * The end time of stream pulling. The time must be in UTC. The end time must be later than the start time. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+   * The end time of stream pulling in UTC. The interval between StartTime and EndTime must be within 30 days, and EndTime must be later than the current time.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2017-10-10T21:00:00Z
+   * 2017-10-10T22:00:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The start time of stream pulling. The time must be in UTC. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+   * The start time of stream pulling in UTC. The interval between StartTime and EndTime must be within 30 days.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelMuteAllGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Interactive message application ID.
+   * Interactive Messages application ID.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,13 @@ export class CancelMuteAllGroupUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * 系统消息扩散类型，取值：
+   * System message diffusion type. Valid values:
    * 
-   * - 0：不扩散。
+   * - 0: No diffusion.
    * 
-   * - 1：扩散到指定人。
+   * - 1: Diffusion to specified users.
    * 
-   * - 2：扩散到群组。
+   * - 2: Diffusion to the group.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class CancelMuteAllGroupUserRequest extends $dara.Model {
   broadCastType?: number;
   /**
    * @remarks
-   * Message group ID.
+   * Group ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,9 @@ export class CancelMuteAllGroupUserRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Operator\\"s UserId. > This parameter is required and the user must be the creator of the group.
+   * User ID of the operator.
+   * 
+   * > This parameter is required. The user must be the creator of the group.
    * 
    * @example
    * de1**a0

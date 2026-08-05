@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageToGroupUsersResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the message.
+   * Message ID.
    * 
    * @example
    * hp***
@@ -35,7 +35,7 @@ export class SendMessageToGroupUsersResponseBodyResult extends $dara.Model {
 export class SendMessageToGroupUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -43,7 +43,7 @@ export class SendMessageToGroupUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: SendMessageToGroupUsersResponseBodyResult;
   static names(): { [key: string]: string } {

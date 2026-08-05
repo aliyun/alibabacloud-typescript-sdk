@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamStateRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The AppName of the live stream. View AppNames on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLiveStreamStateRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The streaming domain or ingest domain.
+   * The ingest domain or the streaming domain.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DescribeLiveStreamStateRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the live stream. View StreamNames on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * This parameter is required.
    * 

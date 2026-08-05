@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the episode in the query result.
+   * The orchestration index.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to edit the episode list, delete the episode list, query the information about the episode list, start the episode list, or stop the episode list.
+   * The ID of the playlist. You can use this ID as a request parameter when you edit, delete, query, start, or stop the playlist.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****
@@ -21,7 +21,7 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   programId?: string;
   /**
    * @remarks
-   * The ID of the episode.
+   * The ID of the playlist item.
    * 
    * @example
    * c10f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -29,7 +29,7 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   programItemId?: string;
   /**
    * @remarks
-   * The name of the episode.
+   * The name of the playlist item.
    * 
    * @example
    * playlistItem1
@@ -37,7 +37,7 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   programItemName?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * vod
@@ -45,7 +45,7 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * asdfasdf8as9df8sa9df89****
@@ -85,12 +85,12 @@ export class ListPlaylistItemsResponseBodyProgramItems extends $dara.Model {
 export class ListPlaylistItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The episodes.
+   * The list of playlist items.
    */
   programItems?: ListPlaylistItemsResponseBodyProgramItems[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5c6a2a0d-f228-4a64-af62-20e91b9****
@@ -98,7 +98,7 @@ export class ListPlaylistItemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of episodes.
+   * The number of playlist items.
    * 
    * @example
    * 1

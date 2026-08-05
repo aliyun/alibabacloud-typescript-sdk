@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainRealtimeLogDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the Logstore to which log entries are delivered.
+   * The name of the Logstore in Simple Log Service (SLS) for real-time log delivery.
    * 
    * @example
    * logstore_example
@@ -13,7 +13,7 @@ export class DescribeLiveDomainRealtimeLogDeliveryResponseBody extends $dara.Mod
   logstore?: string;
   /**
    * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
+   * The name of the SLS project for real-time log delivery.
    * 
    * @example
    * project_example
@@ -21,7 +21,7 @@ export class DescribeLiveDomainRealtimeLogDeliveryResponseBody extends $dara.Mod
   project?: string;
   /**
    * @remarks
-   * The ID of the region where the Log Service project is deployed.
+   * The region where the SLS project is located.
    * 
    * @example
    * cn-shanghai
@@ -39,8 +39,9 @@ export class DescribeLiveDomainRealtimeLogDeliveryResponseBody extends $dara.Mod
    * @remarks
    * The status of real-time log delivery. Valid values:
    * 
-   * *   online: Real-time log delivery is enabled.
-   * *   offline: Real-time log delivery is disabled.
+   * - online: Real-time log delivery is enabled.
+   * 
+   * - offline: Real-time log delivery is disabled.
    * 
    * @example
    * online

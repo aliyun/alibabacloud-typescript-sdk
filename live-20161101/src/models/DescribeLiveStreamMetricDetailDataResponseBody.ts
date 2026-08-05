@@ -117,7 +117,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBodyStreamDetailData exte
 export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The accelerated domain name.
+   * The accelerated domain name queried.
    * 
    * @example
    * example.com
@@ -125,7 +125,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which data was queried.
+   * The end time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2015-12-10T21:00:00Z
@@ -133,7 +133,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The token that determines the start point of the next query. This parameter is returned if more data results are available.
+   * The starting index for the next query. This value is returned when the queried data has not been fully retrieved.
    * 
    * @example
    * UjsM9x3aVcJi9a0-ArwJUTTC67C***37C0=
@@ -141,7 +141,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
   nextPageToken?: string;
   /**
    * @remarks
-   * The number of rows returned.
+   * The number of returned data rows.
    * 
    * @example
    * 5000
@@ -149,7 +149,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B955107D-E658-4E77-B913-E0AC3D31693E
@@ -157,7 +157,7 @@ export class DescribeLiveStreamMetricDetailDataResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which data was queried.
+   * The start time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2015-12-10T20:00:00Z

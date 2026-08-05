@@ -6,7 +6,7 @@ export class ListPlaylistItemsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the episode list. If the episode list was created by calling the [AddPlaylistItems](https://help.aliyun.com/document_detail/2848078.html) operation, check the value of the response parameter ProgramId to obtain the ID.
+   * The ID of the playlist. You can obtain the ID from the ProgramId parameter in the response of the [AddPlaylistItems](https://help.aliyun.com/document_detail/2848078.html) operation.
    * 
    * This parameter is required.
    * 
@@ -16,12 +16,19 @@ export class ListPlaylistItemsRequest extends $dara.Model {
   programId?: string;
   /**
    * @remarks
-   * The IDs of the episodes that you want to query. Separate episode IDs with commas (,). If you set this parameter, only the information about the specified episodes is returned. If you do not set this parameter, the information about all episodes in the episode list is returned.
+   * The IDs of the playlist items. Separate multiple IDs with commas (,). If you specify this parameter, only the information about the specified items is returned. If you leave this parameter empty, the information about all items in the playlist is returned.
    * 
    * @example
    * c10f3d63-eacf-4fbf-bd48-a07a6ba7****,c09f3d63-eacf-4fbf-bd48-a07a6ba7****
    */
   programItemIds?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -7,8 +7,8 @@ export class UpdateMessageAppResponseBodyResult extends $dara.Model {
    * @remarks
    * Indicates whether the update is successful. Valid values:
    * 
-   * *   true: The update is successful.
-   * *   false: The update failed.
+   * - true: successful.
+   * - false: unsuccessful.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class UpdateMessageAppResponseBodyResult extends $dara.Model {
 export class UpdateMessageAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -46,7 +46,7 @@ export class UpdateMessageAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: UpdateMessageAppResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLiveRealTimeLogDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
+   * F32C57AA-7BF8-49AE-A2CC-9F42390F****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

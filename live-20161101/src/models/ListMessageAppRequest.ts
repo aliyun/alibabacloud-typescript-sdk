@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: 1. Valid values: 1 to 100000.
+   * Page number. Default value: 1. Valid values: 1 to 100000.
+   * 
+   * > This page number is the current display page.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class ListMessageAppRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of applications to return on each page. Default value: 20. Valid values: 1 to 50.
+   * Number of applications displayed per page. Default value: 20. Valid values: 1 to 50.
    * 
    * This parameter is required.
    * 
@@ -25,10 +27,10 @@ export class ListMessageAppRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * Sorting method. Valid values:
    * 
-   * *   0: ascending order by time
-   * *   1: descending order by time
+   * - 0: Ascending order by time.
+   * - 1: Descending order by time.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveStreamBlockResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result description. If the request was successful, ok is returned. If the request failed, the failure detail is returned.
+   * The description of the request. A value of ok indicates that the request was successful. An error message is returned if the request failed.
    * 
    * @example
    * ok
@@ -21,12 +21,13 @@ export class DeleteLiveStreamBlockResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status. Valid values:
+   * The status of the operation. Valid values:
    * 
-   * *   ok: The request was successful.
-   * *   fail: The request failed.
+   * - ok: Success.
    * 
-   * >  If any parameter failed to be configured, the request failed.
+   * - fail: Failure.
+   * 
+   * > The status is ok only if all tasks succeeded.
    * 
    * @example
    * ok

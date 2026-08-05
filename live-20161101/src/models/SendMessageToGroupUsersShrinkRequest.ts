@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive Messages application
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The message body. The value is a JSON string.
+   * Message body in JSONString format.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the user who performs the operation.
+   * Operator user ID.
    * 
    * This parameter is required.
    * 
@@ -45,15 +45,15 @@ export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   operatorUserId?: string;
   /**
    * @remarks
-   * The list of users to receive the message.
+   * User list.
    */
   receiverIdListShrink?: string;
   /**
    * @remarks
-   * Specifies whether the message requires Alibaba Cloud content moderation. Valid values:
+   * Specifies whether the current message content requires Content Moderation by Alibaba Cloud. Valid values:
    * 
-   * - **true**: does not require content moderation.
-   * - **false**: requires content moderation. This is the default value.
+   * - **true**: Content Moderation is not required.
+   * - **false** (default): Content Moderation is required.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class SendMessageToGroupUsersShrinkRequest extends $dara.Model {
   skipAudit?: boolean;
   /**
    * @remarks
-   * The type of the message. A value that is less than or equal to 10000 specifies a system message. A value that is greater than 10000 specifies a custom message.
+   * Message type. When the type field value is less than or equal to 10000, it indicates a system message. When the value is greater than 10000, it indicates a custom message.
    * 
    * This parameter is required.
    * 

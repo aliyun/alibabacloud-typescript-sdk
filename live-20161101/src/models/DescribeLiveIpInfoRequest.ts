@@ -14,6 +14,13 @@ export class DescribeLiveIpInfoRequest extends $dara.Model {
    */
   IP?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

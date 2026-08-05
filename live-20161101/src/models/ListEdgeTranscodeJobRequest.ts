@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeTranscodeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data center.
+   * The data center ID.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class ListEdgeTranscodeJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The keyword of the query.
-   * 
-   * *   You can specify a task ID for an exact match.
-   * *   You can specify a task name for a fuzzy match.
+   * The search keyword. Valid values:
+   * - Task ID. Exact match is supported.
+   * - Task name. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -41,13 +40,19 @@ export class ListEdgeTranscodeJobRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The sort order of the tasks by creation time. Default value: desc. Valid values:
-   * 
-   * *   desc: descending order
-   * *   asc: ascending order
+   * The collation based on CreateTime. Default value: desc. Valid values:
+   * - desc: descending sorting.
+   * - asc: ascending sorting.
    * 
    * @example
    * desc
@@ -55,10 +60,9 @@ export class ListEdgeTranscodeJobRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * 
-   * *   0: not started
-   * *   1: running
+   * The edge transcoding task status. Valid values:
+   * - 0: not started.
+   * - 1: running.
    * 
    * @example
    * 0
@@ -66,13 +70,12 @@ export class ListEdgeTranscodeJobRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of edge transcoding. Valid values:
+   * The edge transcoding type. Valid values:
+   * - common: default transcoding (standard + Narrowband HD 1.0).
+   * - nbhd-2: Narrowband HD 2.0.
+   * - ultra-hd: ultra-high definition.
    * 
-   * *   common: standard transcoding and Narrowband HD™ 1.0 transcoding.
-   * *   nbhd-2: Narrowband HD™ 2.0 transcoding
-   * *   ultra-hd: ultra-high definition transcoding
-   * 
-   * >  If you do not specify this parameter, the query results are filtered based on the types of edge transcoding on which you are granted permissions.
+   * > If this parameter is not specified, transcoding templates for which the user has the corresponding transcoding type permissions are displayed.
    * 
    * @example
    * common

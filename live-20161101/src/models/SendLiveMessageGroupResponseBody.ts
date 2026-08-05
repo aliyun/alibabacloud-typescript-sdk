@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendLiveMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the message, which is a unique identifier that can be used to delete the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+   * The unique identifier of the message, which can be used to delete the message. The ID can contain only letters and digits and can be up to 64 bytes in length.
    * 
    * @example
    * 169830****
@@ -13,7 +13,7 @@ export class SendLiveMessageGroupResponseBody extends $dara.Model {
   msgTid?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E4C1245F-597B-1BD1-B9BB-9D220E99****

@@ -83,7 +83,7 @@ export class DescribeLiveCenterStreamRateDataResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B6E125BE-E9B8-1103-8684-A3585CB632F1
+   * B6E125BE-E9B8-1103-8684-A35*******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

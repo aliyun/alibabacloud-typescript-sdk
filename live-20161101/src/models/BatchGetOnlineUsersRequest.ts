@@ -15,7 +15,7 @@ export class BatchGetOnlineUsersRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the message group.
+   * The message group ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class BatchGetOnlineUsersRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The list of user IDs. Separate multiple user IDs with commas (,). You can specify a maximum of 20 user IDs.
+   * The list of user IDs. Separate multiple user IDs with commas (,). You can specify up to 20 user IDs.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streamer\\"s streaming domain.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. The end time must be later than the start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 500. Default value: 20.
+   * The number of entries per page. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
    * 
    * This parameter is required.
    * 
@@ -52,12 +52,19 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
-   * >  You can query data within the last seven days.
+   * > You can query data within the last 7 days.
    * 
    * This parameter is required.
    * 
@@ -67,19 +74,31 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Specifies whether the callback is successful. Valid values:
-   * 
-   * *   success
-   * *   failed
+   * Specifies whether the callback was successful. Valid values:
+   * - success: The callback was successful.
+   * - failed: The callback failed.
    * 
    * @example
    * success
    */
   status?: string;
+  /**
+   * @remarks
+   * The storage type of the recording for which to query callback records. Valid values:
+   * 
+   * - oss: recorded to OSS
+   * 
+   * - vod: recorded to ApsaraVideo VOD
+   * 
+   * - all: queries callback records for all storage types
+   * 
+   * @example
+   * oss
+   */
   storageType?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * @example
    * liveStream****

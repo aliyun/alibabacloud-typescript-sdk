@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. Value requirements:
+   * The AppName of the live stream. Requirements:
    * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   We recommend that you specify a name that is more than three characters in length. The name must start with a letter or digit.
+   * - Supports letters, digits, underscores (_), and hyphens (-).
+   * 
+   * - Must start with a letter or a digit. A name longer than three characters is recommended.
    * 
    * This parameter is required.
    * 
@@ -18,9 +19,11 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The bitrate of the output audio. Unit: Kbit/s. Valid values: **1** to **1000**.
+   * The output audio bitrate. Unit: kbps. Valid values: 1 to **1000**.
    * 
-   * >  This parameter is required if you set the TemplateType parameter to audio.
+   * >Notice: 
+   * 
+   * Required if you set TemplateType to audio.
    * 
    * @example
    * 128
@@ -28,10 +31,11 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   audioBitrate?: number;
   /**
    * @remarks
-   * The number of sound channels. Valid values:
+   * The number of audio channels. Valid values:
    * 
-   * *   **1**: mono
-   * *   **2**: stereo
+   * - **1**: mono.
+   * 
+   * - **2**: stereo.
    * 
    * @example
    * 2
@@ -39,12 +43,13 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   audioChannelNum?: number;
   /**
    * @remarks
-   * The audio encoder. Valid values:
+   * The audio codec. Valid values:
    * 
-   * *   **aac**
-   * *   **mp3**
+   * - **aac**
    * 
-   * > If you want to use the Opus encoding format, set the Opus parameter to true.
+   * - **mp3**
+   * 
+   * > To use the Opus codec, set the Opus parameter to true.
    * 
    * @example
    * aac
@@ -54,10 +59,13 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
    * @remarks
    * The audio codec profile. Valid values:
    * 
-   * *   **aac_low**
-   * *   **aac_he**
-   * *   **aac_he_v2**
-   * *   **aac_ld**
+   * - **aac_low**
+   * 
+   * - **aac_he**
+   * 
+   * - **aac_he_v2**
+   * 
+   * - **aac_ld**
    * 
    * @example
    * aac_low
@@ -65,9 +73,9 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   audioProfile?: string;
   /**
    * @remarks
-   * The audio sampling rate. Valid values: **22050 to 96000**. The value 44100 is commonly used. Unit: Hz.
+   * The audio sample rate. Valid values: **22050** to **96000**. Recommended: 44100. Unit: Hz.
    * 
-   * > If you set the AudioProfile parameter to aac_ld, the audio sampling rate cannot exceed 44,100 Hz.
+   * > If AudioProfile is set to aac_ld, the sample rate cannot exceed 44100.
    * 
    * @example
    * 44100
@@ -75,14 +83,17 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   audioRate?: number;
   /**
    * @remarks
-   * Specifies whether to remove B-frames during transcoding. Valid values:
+   * Controls whether to remove B-frames from the transcoded output video. Valid values:
    * 
-   * >  This parameter is required if you set the TemplateType parameter to h264, h264-nbhd, or h264-origin.
+   * >Notice: 
    * 
-   * *   **true**: removes B-frames.
-   * *   **false**: retains B-frames. This is the default value.
+   * Required if you set TemplateType to h264, h264-nbhd, or h264-origin.
    * 
-   * > If you do not specify this parameter, the default value **false** is used.
+   * 
+   * 
+   * - **true**: The transcoded video has no B-frames.
+   * 
+   * - **false**: The transcoded video contains B-frames. This is the default value.
    * 
    * @example
    * false
@@ -90,7 +101,7 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   deleteBframes?: boolean;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain.
    * 
    * This parameter is required.
    * 
@@ -100,9 +111,11 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The frame rate of the output video. Unit: FPS. Valid values: **1** to **60**.
+   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to **60**.
    * 
-   * >  This parameter is required if you set the TemplateType parameter to h264, h264-nbhd, or h264-origin.
+   * >Notice: 
+   * 
+   * Required if you set TemplateType to h264, h264-nbhd, or h264-origin.
    * 
    * @example
    * 30
@@ -110,7 +123,7 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   FPS?: number;
   /**
    * @remarks
-   * The group of pictures (GOP) size of the output video. This parameter is used to specify the keyframe interval. Unit: seconds. Valid values: **1** to **3**.
+   * The Group of Pictures (GOP) size, which specifies the keyframe interval. Unit: seconds. Valid values: **1** to **3**.
    * 
    * @example
    * 2
@@ -118,19 +131,25 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   gop?: string;
   /**
    * @remarks
-   * The height of the output video. Unit: pixels.
+   * Output video height in pixels.
    * 
-   * >  This parameter is required if you set the TemplateType parameter to h264, h264-nbhd, or h264-origin.
+   * >Notice: 
    * 
-   * The value must comply with the following rules:****
+   * Required if you set TemplateType to h264, h264-nbhd, or h264-origin.
    * 
-   * *   **Height ≥ 100**: The height of the video is no less than 100 pixels.
-   * *   **max(Height,Width) ≤ 2560**: The width or height of the video, whichever is greater, cannot exceed 2,560 pixels.
-   * *   **min(Height,Width) ≤ 1440**: The width or height of the video, whichever is smaller, cannot exceed 1,440 pixels.
    * 
-   * For example, a resolution of 1560 × 1560 pixels is invalid.
    * 
-   * > An original quality template needs to retain the source information. Therefore, the video resolution cannot exceed 4K.
+   * Requirements:
+   * 
+   * - **Height ≥ 100**
+   * 
+   * - **max(Height, Width) ≤ 2560**
+   * 
+   * - **min(Height, Width) ≤ 1440**
+   * 
+   * For example, a resolution of 1560 × 1560 (a square video) is invalid.
+   * 
+   * > For h264-origin templates, the resolution can be up to 4K to retain the information of the source stream.
    * 
    * @example
    * 1280
@@ -138,10 +157,11 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Specifies whether to trigger transcoding only when a stream is pulled. Valid values:
+   * Specifies whether to enable on-demand transcoding. Valid values:
    * 
-   * *   **yes**: triggers transcoding only when a stream is pulled.
-   * *   **no**: triggers transcoding whenever a stream is ingested, no matter whether the stream is pulled.
+   * - **yes**: Transcoding only starts when the first viewer requests this transcoded stream.
+   * 
+   * - **no**: Transcoding starts immediately after the stream is published.
    * 
    * @example
    * no
@@ -149,12 +169,11 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   lazy?: string;
   /**
    * @remarks
-   * Specifies whether to transcode audio to the Opus format to be compatible with native WebRTC. Valid values:
+   * Specifies whether to use the Opus codec for audio transcoding. This is mainly for compatibility with native WebRTC. Valid values:
    * 
-   * *   **true**: transcodes audio to the Opus format.
-   * *   **false**: does not transcode audio to the Opus format.
+   * - **true**: Transcodes the audio to the Opus format.
    * 
-   * > If you do not specify this parameter, the default value **false** is used.
+   * - **false**: Does not use the Opus format for transcoding. This is the default value.
    * 
    * @example
    * true
@@ -163,25 +182,35 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The codec profile. The video codec profile determines how ApsaraVideo Live performs codec on the video. In normal cases, a greater value indicates a higher image quality and requires more codec resources. Valid values:
+   * The video codec profile. A larger value indicates better video quality and higher resource consumption for encoding and decoding. Valid values:
    * 
-   * *   **1**: baseline, which is suitable for mobile devices.
-   * *   **2**: main, which is suitable for standard-definition devices.
-   * *   **3**: high, which is suitable for high-definition devices.
+   * - **1**: baseline (for mobile devices).
+   * 
+   * - **2**: main (for SD devices).
+   * 
+   * - **3**: high (for HD devices).
    * 
    * @example
    * 2
    */
   profile?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the transcoding template. Value requirements:
+   * The name of the custom transcoding template. Requirements:
    * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   We recommend that you specify a name that is more than three characters in length. The name must start with a letter or digit.
+   * - Supports letters, digits, underscores (_), and hyphens (-).
    * 
-   * > The name cannot be the same as that of a default transcoding template.
+   * - Must start with a letter or a digit. A name longer than three characters is recommended.
+   * 
+   * > The name cannot be the same as that of a standard transcoding template.
    * 
    * This parameter is required.
    * 
@@ -191,14 +220,17 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The type of the transcoding template.
+   * The type of the custom transcoding template. Valid values:
    * 
-   * If you set this parameter to h264, h264-nbhd, or h264-origin, you must also specify the Height, Width, FPS, VideoBitrate, and DeleteBframes parameters. Valid values:
+   * - **h264**: custom H.264 standard transcoding.
    * 
-   * *   **h264**: H.264 standard transcoding template.
-   * *   **h264-nbhd**: H.264 Narrowband HD™ transcoding template.
-   * *   **h264-origin**: H.264 original quality template. If you use this type of template, the same transcoding parameters of the video source are retained by default.
-   * *   **audio**: audio-only transcoding template. If you use this type of template, images are removed from the video source and an audio-only stream is generated. In addition, you must also specify the AudioBitrate parameter.
+   * - **h264-nbhd**: custom H.264 Narrowband HD™ transcoding.
+   * 
+   * - **h264-origin**: original quality H.264 standard transcoding. It preserves the parameters of the source video as closely as possible.
+   * 
+   * - **audio**: audio-only transcoding. The output file contains only audio. If you set this parameter to audio, you must set AudioBitrate.
+   * 
+   * > For video types, Height, Width, FPS, VideoBitrate, and DeleteBframe are required.
    * 
    * This parameter is required.
    * 
@@ -208,11 +240,15 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The bitrate of the output video. Unit: Kbit/s. Valid values: **1** to **6000**.
+   * The output video bitrate. Unit: kbps. Valid values: 1 to **6000**.
    * 
-   * >  This parameter is required if you set the TemplateType parameter to h264, h264-nbhd, or h264-origin.
+   * >Notice: 
    * 
-   * > The bitrate of the output video is as close to the value that you specify as possible, but not exactly the same as the value, especially when the value is excessively large or small.
+   * Required if you set TemplateType to h264, h264-nbhd, or h264-origin.
+   * 
+   * 
+   * 
+   * > The system tries to transcode the video at the specified bitrate. However, the actual bitrate may not be the same as the specified value, especially when the specified value is too high or too low.
    * 
    * @example
    * 2000
@@ -220,19 +256,25 @@ export class AddRtsLiveStreamTranscodeRequest extends $dara.Model {
   videoBitrate?: number;
   /**
    * @remarks
-   * The width of the output video. Unit: pixels.
+   * Output video width in pixels.
    * 
-   * >  This parameter is required if you set the TemplateType parameter to h264, h264-nbhd, or h264-origin.
+   * >Notice: 
    * 
-   * The value must comply with the following rules:
+   * Required if you set TemplateType to h264, h264-nbhd, or h264-origin.
    * 
-   * *   **Width ≥ 100**: The width of the video is no less than 100 pixels.
-   * *   **max(Height,Width) ≤ 2560**: The width or height of the video, whichever is greater, cannot exceed 2,560 pixels.
-   * *   **min(Height,Width) ≤ 1440**: The width or height of the video, whichever is smaller, cannot exceed 1,440 pixels.
    * 
-   * For example, a resolution of 1560 × 1560 pixels is invalid.
    * 
-   * > An original quality template needs to retain the source information. Therefore, the video resolution cannot exceed 4K.
+   * Requirements:
+   * 
+   * - **Width ≥ 100**
+   * 
+   * - **max(Height, Width) ≤ 2560**
+   * 
+   * - **min(Height, Width) ≤ 1440**
+   * 
+   * For example, a resolution of 1560 × 1560 (a square video) is invalid.
+   * 
+   * > For h264-origin templates, the resolution can be up to 4K to retain the information of the source stream.
    * 
    * @example
    * 720

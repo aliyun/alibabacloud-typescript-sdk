@@ -13,7 +13,7 @@ export class DescribeLiveVerifyContentResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F****

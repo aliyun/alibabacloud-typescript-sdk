@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainWithIntegrityRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * The end time must be later than the start time. The date format follows the ISO 8601 standard. Use UTC time.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDomainWithIntegrityRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The integrity.
+   * The integrity value for verification.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DescribeDomainWithIntegrityRequest extends $dara.Model {
    */
   integrity?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * The start time to query data. The date format follows the ISO 8601 standard. Use UTC time.
    * 
    * This parameter is required.
    * 

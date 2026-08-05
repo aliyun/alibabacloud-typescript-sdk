@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLivePackageConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 72ABAD7B-B14C-52DE-B6C6-C639FECAF5AD

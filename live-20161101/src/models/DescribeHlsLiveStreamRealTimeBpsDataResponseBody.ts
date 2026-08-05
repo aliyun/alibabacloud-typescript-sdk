@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfosInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 11440.88
-   */
   downFlow?: number;
-  /**
-   * @remarks
-   * The number of online users.
-   * 
-   * @example
-   * 1
-   */
   online?: number;
-  /**
-   * @remarks
-   * The bitrate.
-   * 
-   * @example
-   * 1028
-   */
   rate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,18 +32,7 @@ export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfo
 }
 
 export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The statistics on the HLS stream.
-   */
   infos?: DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfosInfos[];
-  /**
-   * @remarks
-   * The name of the stream.
-   * 
-   * @example
-   * /live/sport.m3u8
-   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,18 +61,7 @@ export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfo
 }
 
 export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageData extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * Details about the statistics on each HLS stream under the domain name.
-   */
   streamInfos?: DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageDataStreamInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -133,26 +90,8 @@ export class DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageData extends $
 }
 
 export class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 17C16B18-D3EA-4809-9CC3-8A2CBE14BC7B
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The timestamp for which the data was queried.
-   * 
-   * @example
-   * 2018-08-08T00:00:00Z
-   */
   time?: string;
-  /**
-   * @remarks
-   * The usage data.
-   */
   usageData?: DescribeHlsLiveStreamRealTimeBpsDataResponseBodyUsageData[];
   static names(): { [key: string]: string } {
     return {

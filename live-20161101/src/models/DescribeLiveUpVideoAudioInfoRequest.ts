@@ -5,17 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveUpVideoAudioInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time. The format is \\`yyyy-MM-ddTHH:mm:ssZ\\` in UTC.
    * 
    * @example
    * 2015-12-10T15:10:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the stream that you want to query. Specify this parameter in the following format: `rtmp://Ingest domain/Application name/Stream name`.
+   * The start time. The format is \\`yyyy-MM-ddTHH:mm:ssZ\\` in UTC.
    * 
    * @example
    * 2015-12-10T15:00:00Z
@@ -23,7 +30,7 @@ export class DescribeLiveUpVideoAudioInfoRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DescribeLiveUpVideoAudioInfo**.
+   * The full name of the stream to query. The format is `rtmp://<ingest domain>/<AppName>/<StreamName>`
    * 
    * This parameter is required.
    * 

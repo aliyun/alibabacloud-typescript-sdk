@@ -58,7 +58,7 @@ export class DescribeLiveDomainPushBpsDataResponseBody extends $dara.Model {
   bpsDataPerInterval?: DescribeLiveDomainPushBpsDataResponseBodyBpsDataPerInterval;
   /**
    * @remarks
-   * The time granularity of the query.
+   * The time granularity of the queried data.
    * 
    * @example
    * 300
@@ -66,7 +66,7 @@ export class DescribeLiveDomainPushBpsDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The ingest domain.
+   * The ingest domain that was queried.
    * 
    * @example
    * demo.aliyundoc.com
@@ -74,7 +74,7 @@ export class DescribeLiveDomainPushBpsDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried.
+   * The end of the time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-12-10T21:00:00Z
@@ -90,7 +90,7 @@ export class DescribeLiveDomainPushBpsDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried.
+   * The beginning of the time range. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-12-10T20:00:00Z

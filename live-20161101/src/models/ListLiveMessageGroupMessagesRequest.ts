@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application to query.
+   * The ID of the interactive message application to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you leave this parameter empty, the earliest available time is used.
+   * The query start time, expressed as a UNIX timestamp. Unit: seconds. If this parameter is left empty, the earliest time is used by default.
    * 
    * @example
    * 1697783235
@@ -23,7 +23,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
+   * The data center. This value must be consistent with the data center specified in [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html). Currently supported data centers are Shanghai (cn-shanghai) and Singapore (ap-southeast-1).
    * 
    * @example
    * cn-shanghai
@@ -31,7 +31,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you leave this parameter empty, the latest available time is used.
+   * The query end time, expressed as a UNIX timestamp. Unit: seconds. If this parameter is left empty, the latest time is used by default.
    * 
    * @example
    * 1698301635
@@ -39,7 +39,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the group to query.
+   * The group ID of the group to query.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The type of messages that you want to query. If you leave this parameter empty, all types of messages are queried.
+   * The message type to query. If this parameter is left empty, all message types are returned by default.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   msgType?: number;
   /**
    * @remarks
-   * The starting page number for the query. If you leave this parameter empty, the query starts from the first page.
+   * The start position of the query page. If this parameter is left empty, the first page is returned by default.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   nextPageToken?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **10 to 50**.
+   * The number of messages to display at a time. Valid values: **[10,50]**.
    * 
    * This parameter is required.
    * 
@@ -75,10 +75,11 @@ export class ListLiveMessageGroupMessagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order based on the time when the messages were sent. Valid values:
+   * The sort type. Messages are sorted by the time they were sent. Valid values:
    * 
-   * *   1: ascending order
-   * *   2: descending order
+   * - 1: ascending order
+   * 
+   * - 2: descending order
    * 
    * This parameter is required.
    * 

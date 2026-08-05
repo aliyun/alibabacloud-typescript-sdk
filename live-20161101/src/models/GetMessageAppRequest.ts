@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The ID of the interactive message application.
    * 
    * This parameter is required.
    * 

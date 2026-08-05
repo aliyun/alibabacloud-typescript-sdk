@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveAudioAuditNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The callback URL. This URL is used to receive callback notifications about violations in audio.
+   * The webhook URL for receiving callback notifications about audio that contains violations.
    * 
    * @example
    * http://guide.aliyundoc.com/callback
@@ -13,13 +13,17 @@ export class UpdateLiveAudioAuditNotifyConfigRequest extends $dara.Model {
   callback?: string;
   /**
    * @remarks
-   * The callback template. Configure the following fields:
+   * The callback template for automated review. The value can contain the following variables:
    * 
-   * *   **{DomainName}**: the streaming domain.
-   * *   **{AppName}**: the name of the application to which the live stream belongs.
-   * *   **{StreamName}**: the name of the live stream.
-   * *   **{Timestamp}**: the time when the callback is returned. The value of this field is a UNIX timestamp. Unit: seconds.
-   * *   **{Result}**: the moderation results.
+   * - **{DomainName}**: The streaming domain.
+   * 
+   * - **{AppName}**: The AppName of the stream.
+   * 
+   * - **{StreamName}**: The stream name.
+   * 
+   * - **{Timestamp}**: The UNIX timestamp when the callback is generated. Unit: seconds.
+   * 
+   * - **{Result}**: The detection result.
    * 
    * @example
    * {"domain":{DomainName},"app":{AppName},"stream":{StreamName},"timestamp":{Timestamp},"result":{Result}}
@@ -36,6 +40,13 @@ export class UpdateLiveAudioAuditNotifyConfigRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

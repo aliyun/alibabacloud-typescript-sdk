@@ -13,7 +13,7 @@ export class DescribeLiveSnapshotNotifyConfigResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The callback authentication key.
+   * The authentication key for the callback.
    * 
    * @example
    * yourkey
@@ -23,8 +23,9 @@ export class DescribeLiveSnapshotNotifyConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether callback authentication is enabled. Valid values:
    * 
-   * *   **yes**: Callback authentication is enabled.
-   * *   **no**: Callback authentication is disabled.
+   * - **yes**: Enabled.
+   * 
+   * - **no**: Disabled.
    * 
    * @example
    * yes
@@ -40,7 +41,7 @@ export class DescribeLiveSnapshotNotifyConfigResponseBody extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5056369B-D337-499E-B8B7-B761BD37B08A

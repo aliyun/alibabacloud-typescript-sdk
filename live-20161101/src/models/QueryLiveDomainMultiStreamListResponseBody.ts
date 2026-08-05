@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs extends $dara.Model {
   /**
    * @remarks
-   * The reason for the switchover.
-   * 
-   * *   merge cut manually: You proactively switched the stream.
-   * *   master stream no data: No data is available in the active stream.
-   * *   master stream low quality: The quality of the active stream deteriorated.
+   * The reason for stream switching.
+   * * merge cut manually: The user manually switched the stream.
+   * * master stream no data: The primary stream has no data.
+   * * master stream low quality: The primary stream quality degraded.
    * 
    * @example
    * merge cut manually
@@ -17,7 +16,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs e
   changeReason?: string;
   /**
    * @remarks
-   * The switchover time.
+   * The stream switching time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC+0).
    * 
    * @example
    * 2024-11-13T09:20:47Z
@@ -25,7 +24,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs e
   changeTime?: string;
   /**
    * @remarks
-   * The stream used after the switchover.
+   * The stream that is actually used after the switch.
    * 
    * @example
    * rtmp://118.178.168.35:1936/wwMultitest/pull.livetest2.aliyunlive.com_wwMultitest428_AliRewrite_2?vhost=pull.livetest2.aliyunlive.com&live_rtmp_test=on
@@ -33,7 +32,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs e
   masterUpstream?: string;
   /**
    * @remarks
-   * The IP address used after the switchover.
+   * The IP address used after the stream switch.
    * 
    * @example
    * 1.1.1.1
@@ -41,7 +40,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs e
   upstreamIp?: string;
   /**
    * @remarks
-   * The identifier of the stream after the switchover.
+   * The stream identifier after the switch.
    * 
    * @example
    * ***test_AliRewrite_2
@@ -79,14 +78,8 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs e
 export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList extends $dara.Model {
   /**
    * @remarks
-   * The active/standby tag.
-   * 
-   * >  This parameter indicates whether the active or standby stream is being distributed.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * The primary/secondary flag.
+   * > Indicates which stream is currently being used for merged distribution.
    * 
    * @example
    * false
@@ -94,7 +87,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList
   masterFlag?: boolean;
   /**
    * @remarks
-   * The IP address of the stream ingest client.
+   * The IP address of the ingest client.
    * 
    * @example
    * 1.1.1.1
@@ -102,7 +95,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList
   upstreamIp?: string;
   /**
    * @remarks
-   * The unique identifier of the stream ingest.
+   * The unique identifier of the ingest stream.
    * 
    * @example
    * ***test_Alirewrite1
@@ -110,7 +103,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList
   upstreamSequence?: string;
   /**
    * @remarks
-   * The stream ingest time.
+   * The stream ingest time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format (UTC+0).
    * 
    * @example
    * 2024-11-13T09:20:47Z
@@ -146,7 +139,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList
 export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreams extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * apptest
@@ -154,12 +147,12 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreams extends $da
   appName?: string;
   /**
    * @remarks
-   * The switchover records.
+   * The stream switching records.
    */
   changeLogs?: QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsChangeLogs[];
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain of the streamer.
    * 
    * @example
    * play.***.com
@@ -167,10 +160,9 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreams extends $da
   domain?: string;
   /**
    * @remarks
-   * Indicates whether the dual-stream disaster recovery feature is enabled. Valid values:
-   * 
-   * *   **on**: enabled
-   * *   **off**: disabled
+   * The feature switch. Valid values:
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -186,7 +178,7 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreams extends $da
   streamName?: string;
   /**
    * @remarks
-   * The standby streams.
+   * The list of all candidate streams.
    */
   upstreamList?: QueryLiveDomainMultiStreamListResponseBodyOnlineStreamsUpstreamList[];
   static names(): { [key: string]: string } {
@@ -229,12 +221,12 @@ export class QueryLiveDomainMultiStreamListResponseBodyOnlineStreams extends $da
 export class QueryLiveDomainMultiStreamListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The online streams returned.
+   * The number of online records.
    */
   onlineStreams?: QueryLiveDomainMultiStreamListResponseBodyOnlineStreams[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -258,7 +250,7 @@ export class QueryLiveDomainMultiStreamListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 19

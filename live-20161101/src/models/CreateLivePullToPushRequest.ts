@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivePullToPushRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTP callback URL. By default, this parameter is left empty.
+   * HTTP callback URL. Default value: empty.
    * 
-   * > 
-   * 
-   * *   The URL is used to receive callbacks related to the task.
-   * 
-   * *   The URL can be up to 2,000 characters in length.
-   * 
-   * *   If you do not specify this parameter, no callbacks are returned for events related to the task.
+   * > - The URL that receives task-related callbacks.
+   * > - Maximum length is 2000 characters.
+   * > - If this parameter is not specified, no task event callbacks will be sent.
    * 
    * @example
    * https://callback*****.com
@@ -21,13 +17,10 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The destination URL to which the stream is relayed.
+   * Destination URL address for pushing the stream.
    * 
-   * > 
-   * 
-   * *   The supported protocol for the URL is RTMP.
-   * 
-   * *   The URL can be up to 2,000 characters in length.
+   * > - The rtmp protocol is supported.
+   * > - Maximum length is 2000 characters.
    * 
    * This parameter is required.
    * 
@@ -37,17 +30,11 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   dstUrl?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * Task end time.
    * 
-   * > 
-   * 
-   * *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
-   * 
-   * *   The end time must be later than the start time.
-   * 
-   * *   The end time must be later than the current time.
+   * > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+   * > - EndTime must be later than StartTime.
+   * > - EndTime must be later than the current time.
    * 
    * This parameter is required.
    * 
@@ -57,7 +44,7 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The file index, which specifies the sequence of the file where the playback starts.
+   * File index. Starts playback from the nth file.
    * 
    * @example
    * 0
@@ -65,13 +52,10 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   fileIndex?: number;
   /**
    * @remarks
-   * The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
+   * Start offset. The offset value from the beginning of the video file. Unit: seconds. Valid values: greater than 0.
    * 
-   * > 
-   * 
-   * *   This parameter indicates an offset from the first frame of the first video resource in the list.
-   * 
-   * *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+   * > - Indicates the position to start reading from, relative to the first frame (applies to the first video).
+   * > - This parameter applies only to VOD or third-party video streams.
    * 
    * @example
    * 2
@@ -80,12 +64,13 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the task is started. Valid values:
+   * Specifies the region where the task is launched. Valid values:
    * 
-   * *   ap-southeast-1: Singapore
-   * *   ap-southeast-5: Indonesia (Jakarta)
-   * *   cn-beijing: China (Beijing)
-   * *   cn-shanghai: China (Shanghai)
+   * - ap-southeast-1 (Singapore)
+   * - ap-southeast-5 (Indonesia)
+   * - cn-beijing (Beijing)
+   * - cn-shanghai (Shanghai)
+   * - cn-shenzhen (Shenzhen)
    * 
    * This parameter is required.
    * 
@@ -93,16 +78,23 @@ export class CreateLivePullToPushRequest extends $dara.Model {
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   /**
    * @remarks
-   * The number of playbacks after the first playback is complete. Valid values:
+   * Number of times to repeat playback after the initial playback is complete. Valid values:
    * 
-   * *   0 (default): specifies that the video list is played only once.
-   * *   \\-1: specifies that the video list is played in loop mode.
-   * *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
+   * - 0 (default): no repeat playback.
+   * - -1: loop indefinitely.
+   * - Other positive integers: number of times to repeat playback after the initial playback is complete.
    * 
-   * >  This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
+   * > This parameter applies only to VOD or third-party video streams.
    * 
    * @example
    * 0
@@ -110,7 +102,7 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   repeatNumber?: number;
   /**
    * @remarks
-   * The number of retries allowed. Default value: 3.
+   * Number of retries. Default value: 3.
    * 
    * @example
    * 3
@@ -118,7 +110,7 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   retryCount?: number;
   /**
    * @remarks
-   * The retry interval. Unit: seconds. Valid values: [60,300]. Default value: 60.
+   * Retry interval, in seconds. Valid values: [60, 300]. Default value: 60 seconds.
    * 
    * @example
    * 60
@@ -126,17 +118,14 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   retryInterval?: number;
   /**
    * @remarks
-   * The protocol of the source stream.
+   * Source stream protocol name.
    * 
    * Valid values:
-   * 
-   * *   rtmp
-   * *   rtsp
-   * *   srt
-   * *   http-flv
-   * *   flv
-   * 
-   * >  This parameter is required if you set the **SourceType** parameter to live, but does not take effect if you set the SourceType parameter to vod or url.
+   * - rtmp
+   * - srt
+   * - http-flv
+   * - hls
+   * > This parameter is **required only when the SourceType parameter is set to live**, and is invalid when the value is vod or url.
    * 
    * @example
    * rtmp
@@ -144,11 +133,11 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   sourceProtocol?: string;
   /**
    * @remarks
-   * The type of the source stream. Valid values:
+   * Source stream type. Valid values:
    * 
-   * *   live: a live stream
-   * *   vod: a list of ApsaraVideo VOD resources
-   * *   url: a list of video resources from a third party
+   * - live: live stream.
+   * - vod: ApsaraVideo VOD resource.
+   * - url: third-party video file resource.
    * 
    * This parameter is required.
    * 
@@ -158,35 +147,22 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The source URLs.
+   * List of source stream URL addresses.
    * 
-   * > 
-   * 
-   * *   If SourceType is set to live, you can specify only one streaming URL.
-   * 
-   * *   If SourceType is set to vod or url, you can specify up to 30 IDs or URLs.
-   * 
-   * *   If SourceType is set to live, the supported protocols for URLs are Real-Time Messaging Protocol (RTMP), Real-Time Streaming Protocol (RTSP), Secure Reliable Transport Protocol (SRT), and HTTP-FLV.
-   * 
-   * *   If SourceType is set to vod, specify the IDs of media assets from ApsaraVideo VOD.
-   * 
-   * *   If SourceType is set to url, the supported protocols for URLs are MP4 and HTTP-FLV.
+   * > - For the live type, only one complete live playback URL is supported.
+   * > - For the vod and url types, a maximum of 30 URLs can be specified.
+   * > - The live type supports: rtmp, srt, and http-flv protocols.
+   * > - For the vod type, specify ApsaraVideo VOD media asset IDs.
+   * > - The url type supports: mp4 and http-flv protocols.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * testurls
    */
   sourceUrls?: string[];
   /**
    * @remarks
-   * The start time of the task.
+   * Task start time.
    * 
-   * > 
-   * 
-   * *   Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-   * 
-   * *   The time range specified by the StartTime and EndTime parameters cannot exceed seven days.
+   * > - Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
    * 
    * This parameter is required.
    * 
@@ -196,7 +172,7 @@ export class CreateLivePullToPushRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the task. Default value: "". Fuzzy search for task names is supported.
+   * Task name, used to support fuzzy query. Default value: "".
    * 
    * @example
    * test

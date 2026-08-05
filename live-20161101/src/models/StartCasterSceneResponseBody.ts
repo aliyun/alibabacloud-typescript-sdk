@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartCasterSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CF60DB6A-7FD6-426E-9288-122CC1A52FA7
@@ -13,7 +13,7 @@ export class StartCasterSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The streaming URL of the scene. It is used for playback, but not for stream relay.
+   * The output stream URL of the current scene. This URL is used for playback in the production studio and is not a bypass output.
    * 
    * @example
    * http://live/caster/example.org

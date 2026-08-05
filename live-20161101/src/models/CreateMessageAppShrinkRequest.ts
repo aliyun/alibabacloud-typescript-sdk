@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessageAppShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the application.
+   * The application configuration.
    */
   appConfigShrink?: string;
   /**
    * @remarks
-   * The name of the interactive message application. The name must be 2 to 16 characters in length.
+   * The name of the interactive message application. The length must be 2 to 16 characters.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class CreateMessageAppShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The extended fields.
+   * The extension field.
    */
   extensionShrink?: string;
   static names(): { [key: string]: string } {

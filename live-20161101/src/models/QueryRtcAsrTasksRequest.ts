@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryRtcAsrTasksRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the task that you want to query. If you do not specify this parameter, all running tasks under your UID are queried.
+   * The ID of the task to query. If you do not specify this parameter, all running tasks under your user ID are queried.
    * 
    * @example
    * asr-a6ac15e0-9118-4b4c-9e64-306163a0****

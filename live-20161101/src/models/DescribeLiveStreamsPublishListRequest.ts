@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs. You can view AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,8 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ingest domain or main streaming domain.
+   * The ingest domain or streamer streaming domain.
+   * > - When you specify DomainName, make sure that the domain name is a live streaming domain name and that the user calling this operation has the permissions to operate on the specified domain name.
    * 
    * This parameter is required.
    * 
@@ -23,9 +24,9 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+   * The end time. The interval between EndTime and StartTime cannot exceed 30 days.
    * 
-   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * This parameter is required.
    * 
@@ -37,10 +38,10 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
    * @remarks
    * The sorting method. Valid values:
    * 
-   * *   **stream_name_desc**: sorts the entries in descending order by stream name.
-   * *   **stream_name_asc**: sorts the entries in ascending order by stream name.
-   * *   **publish_time_desc**: sorts the entries in descending order by stream ingest time.
-   * *   **publish_time_asc** (default): sorts the entries in ascending order by stream ingest time.
+   * - **stream_name_desc**: sorts by live stream name in descending order.
+   * - **stream_name_asc**: sorts by live stream name in ascending order.
+   * - **publish_time_desc**: sorts by stream ingest time in descending order.
+   * - **publish_time_asc** (default): sorts by stream ingest time in ascending order.
    * 
    * @example
    * publish_time_desc
@@ -57,7 +58,7 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 3000**. Default value: **2000**.
+   * The page size. Valid values: **1 to 3000**. Default value: **2000**.
    * 
    * @example
    * 1500
@@ -65,21 +66,27 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The mode in which stream names are matched. Valid values:
-   * 
-   * *   **fuzzy** (default): fuzzy match
-   * *   **strict**: exact match
+   * Specifies whether to use fuzzy match for the stream name. Valid values:
+   * - **fuzzy** (default): fuzzy match.
+   * - **strict**: exact match.
    * 
    * @example
    * fuzzy
    */
   queryType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of stream ingest.
    * 
-   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * This parameter is required.
    * 
@@ -89,7 +96,7 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name. You can view StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * liveStream****
@@ -97,11 +104,11 @@ export class DescribeLiveStreamsPublishListRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The type of the streams to query. Valid values:
+   * The stream type. Valid values:
    * 
-   * *   An empty value****: source streams
-   * *   **all**: all streams
-   * *   **trans**: transcoded streams
+   * - **Not specified**: queries raw streams.
+   * - **all**: queries all streams.
+   * - **trans**: queries transcoded streams.
    * 
    * @example
    * all

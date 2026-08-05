@@ -15,8 +15,8 @@ export class DescribeLiveDomainMultiStreamConfigResponseBody extends $dara.Model
    * @remarks
    * Indicates whether the dual-stream disaster recovery feature is enabled. Valid values:
    * 
-   * *   **on**: enabled
-   * *   **off**: disabled
+   * - **on**: enabled
+   * - **off**: disabled
    * 
    * @example
    * on

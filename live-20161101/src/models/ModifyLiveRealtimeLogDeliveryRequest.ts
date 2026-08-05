@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyLiveRealtimeLogDeliveryRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain for which you want to modify the configuration of real-time log delivery.
+   * The primary streaming domain for which you want to change the real-time log delivery configuration.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyLiveRealtimeLogDeliveryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The name of the Logstore to which log entries are delivered.
+   * The name of the Logstore in SLS to which logs are delivered.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ModifyLiveRealtimeLogDeliveryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
+   * The name of the Simple Log Service (SLS) project to which logs are delivered.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ModifyLiveRealtimeLogDeliveryRequest extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The ID of the region where the Log Service project is deployed.
+   * The region where the SLS project is located.
    * 
    * This parameter is required.
    * 
@@ -44,6 +44,13 @@ export class ModifyLiveRealtimeLogDeliveryRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRecordNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain name.
    * 
    * This parameter is required.
    * 

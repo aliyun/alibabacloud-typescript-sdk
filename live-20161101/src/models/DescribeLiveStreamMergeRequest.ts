@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamMergeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application that generates the output stream. You can view the application name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+   * Merged output App name. You can view this on the [Primary/Backup Stream Merge Configuration](https://help.aliyun.com/document_detail/606583.html) page.
    * 
    * @example
    * app
@@ -13,7 +13,7 @@ export class DescribeLiveStreamMergeRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The streaming domain.
+   * Streaming domain name.
    * 
    * This parameter is required.
    * 
@@ -24,19 +24,27 @@ export class DescribeLiveStreamMergeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The streaming protocol. Valid values:
+   * Streaming protocol. Valid values:
    * 
-   * *   **rtmp**: This is the default value.
-   * *   **rtc**
+   * - **rtmp** (default)
+   * 
+   * - **rtc**
    * 
    * @example
    * rtmp
    */
   protocol?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the output stream. You can view the stream name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
+   * Merged output Stream name. You can view this on the [Primary/Backup Stream Merge Configuration](https://help.aliyun.com/document_detail/606583.html) page.
    * 
    * @example
    * StreamName

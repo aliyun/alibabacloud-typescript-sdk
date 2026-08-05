@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SetCasterSceneConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio.
+   * The production studio ID.
+   * - If you created the production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the CasterId parameter returned by the CreateCaster operation.
    * 
-   * *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
-   * *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+   * - If you created the production studio in the ApsaraVideo Live console, go to **ApsaraVideo Live console** > **Production Studios** > **China Cloud Production Studio** to view the ID.
    * 
-   * >  You can find the ID of the production studio in the Instance ID/Name column.
+   * > The name of the production studio in the production studio list on the China Cloud Production Studio page is the production studio ID.
    * 
    * This parameter is required.
    * 
@@ -20,11 +20,9 @@ export class SetCasterSceneConfigRequest extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The IDs of the components. Components in the scene are listed from the bottom to the top in an array.
+   * The list of component IDs. The components are arranged in bottom-to-top order within the array.
    * 
-   * >  N indicates a sequence number. Examples:\\
-   * ComponentId.1 indicates the ID of the first component.\\
-   * ComponentId.2 indicates the ID of the second component.
+   * >N indicates the sequence number. For example:<br>ComponentId.1 indicates the first component ID.<br>ComponentId.2 indicates the second component ID.
    * 
    * @example
    * [ "a2b8e671-2fe5-4642-a2ec-bf931826****", "a2b8e671-2fe5-4642-a2ec-28374657****"]
@@ -32,17 +30,24 @@ export class SetCasterSceneConfigRequest extends $dara.Model {
   componentId?: string[];
   /**
    * @remarks
-   * The ID of the layout. If you call the [DescribeCasterLayouts](https://help.aliyun.com/document_detail/60260.html) operation to query the layouts of the production studio, check the value of the response parameter LayoutId to obtain the ID.
+   * The layout ID. If you call the [DescribeCasterLayouts](https://help.aliyun.com/document_detail/2848028.html) operation to query the layout list of a production studio, check the LayoutId parameter returned by the DescribeCasterLayouts operation.
    * 
    * @example
    * 0c6da077-f037-49e8-8440-3be13393****
    */
   layoutId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the scene.
+   * The scene ID. The scene must have been started by calling StartCasterScene. Otherwise, the IncorrectSceneStatus error is returned.
    * 
    * This parameter is required.
    * 

@@ -27,8 +27,9 @@ export class UpdateLiveMPUTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The stream mixing mode. Valid values:
    * 
-   * *   **0**: the single-stream relay mode. In this mode, the service only relays the original single stream, but does not transcode mixed streams. You do not need to set parameters for mixed-stream transcoding.
-   * *   **1** (default): the mixed-stream relay mode.
+   * - **0**: the single-stream relay mode. In this mode, the service only relays the original single stream, but does not transcode mixed streams. You do not need to set parameters for mixed-stream transcoding.
+   * 
+   * - **1** (default): the mixed-stream relay mode.
    * 
    * @example
    * 0
@@ -53,11 +54,13 @@ export class UpdateLiveMPUTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The ingest URL. You can specify only one ingest URL in the Real-Time Messaging Protocol (RTMP) format. The URL can be up to 2,048 characters in length. For information about the generation rules of ingest URLs, see [Ingest and streaming URLs](https://help.aliyun.com/document_detail/199339.html).
    * 
-   * > 
+   * >
    * 
-   * *   If the ingest URL is under a domain name for which hotlink protection is enabled, you must include an access token in the URL.
-   * *   You cannot use the same ingest URL in different tasks.
-   * *   You cannot use the same ingest URL within 10 seconds after a task is stopped.
+   * - If the ingest URL is under a domain name for which hotlink protection is enabled, you must include an access token in the URL.
+   * 
+   * - You cannot use the same ingest URL in different tasks.
+   * 
+   * - You cannot use the same ingest URL within 10 seconds after a task is stopped.
    * 
    * @example
    * rtmp://example.com/live/stream

@@ -73,7 +73,7 @@ export class DescribeLiveLazyPullStreamConfigResponseBody extends $dara.Model {
   liveLazyPullConfigList?: DescribeLiveLazyPullStreamConfigResponseBodyLiveLazyPullConfigList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A3136B58-5876-4168-83CA-B562781981A0

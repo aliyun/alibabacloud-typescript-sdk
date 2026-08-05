@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLiveStreamDelayConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4C747C97-7ECD-4C61-8A92-67AD806331FF

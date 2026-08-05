@@ -72,7 +72,7 @@ export class DescribeLiveTopDomainsByFlowResponseBodyTopDomains extends $dara.Mo
 export class DescribeLiveTopDomainsByFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of domain names in your account.
+   * The total number of domain names under the account.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeLiveTopDomainsByFlowResponseBody extends $dara.Model {
   domainCount?: number;
   /**
    * @remarks
-   * The total number of domain names that are in the Enabled state in your account.
+   * The total number of running domain names under the account.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeLiveTopDomainsByFlowResponseBody extends $dara.Model {
   domainOnlineCount?: number;
   /**
    * @remarks
-   * The end of the time range for which data was queried.
+   * The end time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2018-03-20T16:00:00Z
@@ -104,7 +104,7 @@ export class DescribeLiveTopDomainsByFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range for which data was queried.
+   * The start time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2018-03-17T16:00:00Z

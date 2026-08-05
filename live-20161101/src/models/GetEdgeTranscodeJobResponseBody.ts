@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the job was created.
    * 
    * @example
    * 2023-07-24T16:44:55Z
@@ -13,7 +13,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The job ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -21,7 +21,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The time when the task was last started.
+   * The time when the job was last started.
    * 
    * @example
    * 2023-07-25T02:48:58Z
@@ -29,7 +29,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   lastStartAt?: string;
   /**
    * @remarks
-   * The time when the task was last stopped.
+   * The time when the job was last stopped.
    * 
    * @example
    * 2023-07-25T05:48:58Z
@@ -37,7 +37,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   lastStopAt?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The job name.
    * 
    * @example
    * my_job
@@ -45,10 +45,11 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The status of the transcoding job. Valid values:
    * 
-   * *   0: not started
-   * *   1: in progress
+   * - 0: The job is not started.
+   * 
+   * - 1: The job is running.
    * 
    * @example
    * 0
@@ -56,7 +57,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The URL of the input stream.
+   * The input stream URL.
    * 
    * @example
    * rtmp://mydomain/app/stream1
@@ -64,7 +65,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   streamInput?: string;
   /**
    * @remarks
-   * The URL of the output stream.
+   * The output stream URL.
    * 
    * @example
    * rtmp://testdomain/app/stream2
@@ -72,7 +73,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   streamOutput?: string;
   /**
    * @remarks
-   * The ID of the edge transcoding template used by the task.
+   * The ID of the edge transcoding template used by the job.
    * 
    * @example
    * 9b1571b513cb44f7a1ba6ae561ff****
@@ -80,7 +81,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the edge transcoding template used by the task.
+   * The name of the edge transcoding template used by the job.
    * 
    * @example
    * my_template
@@ -90,9 +91,11 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
    * @remarks
    * The type of edge transcoding. Valid values:
    * 
-   * *   common: standard transcoding and Narrowband HD™ 1.0 transcoding
-   * *   nbhd-2: Narrowband HD™ 2.0 transcoding
-   * *   ultra-hd: ultra-high definition transcoding
+   * - common: standard transcoding and Narrowband HD 1.0.
+   * 
+   * - nbhd-2: Narrowband HD 2.0.
+   * 
+   * - ultra-hd: ultra-high definition.
    * 
    * @example
    * common
@@ -142,7 +145,7 @@ export class GetEdgeTranscodeJobResponseBodyJob extends $dara.Model {
 export class GetEdgeTranscodeJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the edge transcoding task.
+   * The edge transcoding job.
    */
   job?: GetEdgeTranscodeJobResponseBodyJob;
   /**

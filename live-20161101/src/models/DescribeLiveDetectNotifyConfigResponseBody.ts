@@ -53,7 +53,7 @@ export class DescribeLiveDetectNotifyConfigResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   * 16A96B9A-F203-4EC5-8E43-CB92E6******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

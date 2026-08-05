@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MuteAllGroupUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * The application ID for interactive messages.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class MuteAllGroupUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The mode in which system messages are broadcasted. Valid values:
+   * The system message diffusion type. Valid values:
    * 
-   * *   0: specifies that system messages are not broadcasted.
-   * *   1: specifies that system messages are broadcasted to specified users.
-   * *   2: specifies that system messages are broadcasted to the message group.
+   * - 0: No diffusion.
+   * - 1: Diffusion to specified users.
+   * - 2: Diffusion to the group.
    * 
    * @example
    * 2
@@ -27,7 +27,7 @@ export class MuteAllGroupUserRequest extends $dara.Model {
   broadCastType?: number;
   /**
    * @remarks
-   * The ID of the message group.
+   * The message group ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class MuteAllGroupUserRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the user who performs the operation.
+   * The user ID of the operator. This user must be the creator of the group.
    * 
    * This parameter is required.
    * 

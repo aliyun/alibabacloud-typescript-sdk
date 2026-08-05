@@ -61,7 +61,7 @@ export class DescribeLiveDomainBpsDataByLayerResponseBody extends $dara.Model {
   bpsDataInterval?: DescribeLiveDomainBpsDataByLayerResponseBodyBpsDataInterval;
   /**
    * @remarks
-   * The time interval between the data entries returned. Unit: seconds.
+   * The time interval between data entries. Unit: seconds.
    * 
    * @example
    * 300

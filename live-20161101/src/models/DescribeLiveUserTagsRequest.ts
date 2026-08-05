@@ -4,6 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeLiveUserTagsRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

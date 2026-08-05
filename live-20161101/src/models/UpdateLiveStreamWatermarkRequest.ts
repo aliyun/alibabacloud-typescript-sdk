@@ -13,7 +13,7 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The height of the watermark. Unit: pixel. The height of the watermark is scaled in proportion to the height of the background video.
+   * The height of the watermark image, in pixels. This value is relative to `RefHeight` and will be scaled proportionally with the actual video resolution.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The name of the watermark.
+   * The name of the watermark template.
    * 
    * @example
    * livewatermark****
@@ -29,12 +29,15 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The position of the watermark. Valid values:
+   * The anchor point for the watermark\\"s position. Valid values:
    * 
-   * *   TopLeft: the upper-left corner.
-   * *   TopRight: the upper-right corner.
-   * *   BottomLeft: the lower-left corner.
-   * *   BottomRight: the lower-right corner.
+   * - TopLeft
+   * 
+   * - TopRight
+   * 
+   * - BottomLeft
+   * 
+   * - BottomRight
    * 
    * @example
    * TopRight
@@ -51,7 +54,7 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   pictureUrl?: string;
   /**
    * @remarks
-   * The height of the background video. Unit: pixel.
+   * The reference height of the video background, in pixels.
    * 
    * @example
    * 1080
@@ -59,18 +62,25 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   refHeight?: number;
   /**
    * @remarks
-   * The width of the background video. Unit: pixel.
+   * The reference width of the video background, in pixels.
    * 
    * @example
    * 1920
    */
   refWidth?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
    * The ID of the watermark template.
    * 
-   * >  You can obtain the template ID by checking the value of the TemplateId parameter that is returned by the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/410759.html) operation.
+   * > You can get the template ID from the response of the [AddLiveStreamWatermark](https://help.aliyun.com/document_detail/2848096.html) operation.
    * 
    * This parameter is required.
    * 
@@ -80,7 +90,7 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The transparency of the watermark. A smaller value indicates a more transparent watermark. Valid values: 0 to 255.
+   * The opacity of the watermark. Value range: `0` (fully transparent) to `255` (fully opaque).
    * 
    * @example
    * 255
@@ -88,9 +98,9 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   transparency?: number;
   /**
    * @remarks
-   * The offset of the watermark along the x-axis. Unit: pixel.
+   * The X-axis offset of the watermark, in pixels.
    * 
-   * >  In this case, the value of the RefWidth parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the XOffset parameter indicates the x-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the x-axis is positive toward the right.
+   * > Relative to RefWidth. If OffsetCorner is TopLeft, XOffset is the horizontal distance between the top‑left corner of the watermark and the top‑left corner of the background video. Positive X points to the right.
    * 
    * @example
    * 50.0
@@ -98,9 +108,9 @@ export class UpdateLiveStreamWatermarkRequest extends $dara.Model {
   XOffset?: number;
   /**
    * @remarks
-   * The offset of the watermark along the y-axis. Unit: pixel.
+   * The Y-axis offset of the watermark, in pixels.
    * 
-   * >  In this case, the value of the RefHeight parameter is used as the reference. If the OffsetCorner parameter is set to TopLeft, the value of the YOffset parameter indicates the y-axis offset of the upper-left corner of the watermark relative to that of the background video. The directions from the coordinate axes to the center of the background video are positive. In other words, the y-axis is positive downward.
+   * > Relative to RefHeight. If OffsetCorner is TopLeft, YOffset is the vertical distance between the top‑left corner of the watermark and the top‑left corner of the background video. Positive Y points downward.
    * 
    * @example
    * 100.0

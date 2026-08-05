@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMixStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The callback URL. The value is a JSON array. If a callback event is triggered, ApsaraVideo Live sends an HTTP POST request to the URL. The content is included in the HTTP request body.
+   * The webhook address. This is a JSON array. When an event occurs, the live service sends an HTTP POST request to this address. The request body contains the event details.
    * 
    * @example
    * {"CallbackUrl":"http://aliyundoc.com"}
@@ -13,9 +13,13 @@ export class CreateMixStreamRequest extends $dara.Model {
   callbackConfig?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The primary streaming domain.
    * 
-   * >  Only domain names that reside in the China (Shanghai) and China (Beijing) regions are supported.
+   * >Notice: 
+   * 
+   * Currently, only domain names in the China (Shanghai) and China (Beijing) regions are supported.
+   * 
+   * </notice>
    * 
    * This parameter is required.
    * 
@@ -25,9 +29,9 @@ export class CreateMixStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The input streams. The value is a JSON array.
+   * The list of input streams. This is a JSON array.
    * 
-   * For more information, see **InputStreamConfig**.
+   * For more information, see **InputStreamConfig** below.
    * 
    * This parameter is required.
    * 
@@ -37,18 +41,18 @@ export class CreateMixStreamRequest extends $dara.Model {
   inputStreamList?: string;
   /**
    * @remarks
-   * The ID of the layout. Valid values:
+   * The layout ID. Valid values:
    * 
-   * *   **MixStreamLayout-1-1**
-   * *   **MixStreamLayout-2-1**
-   * *   **MixStreamLayout-2-2**
-   * *   **MixStreamLayout-2-3**
-   * *   **MixStreamLayout-3-1**
-   * *   **MixStreamLayout-3-2**
-   * *   **MixStreamLayout-4-1**
-   * *   **USERDEFINED**: If you do not use a preset layout, set this parameter to **USERDEFINED**.
+   * - **MixStreamLayout-1-1**
+   * - **MixStreamLayout-2-1**
+   * - **MixStreamLayout-2-2**
+   * - **MixStreamLayout-2-3**
+   * - **MixStreamLayout-3-1**
+   * - **MixStreamLayout-3-2**
+   * - **MixStreamLayout-4-1**
+   * - **USERDEFINED** (If you do not use a preset layout, set this parameter to **USERDEFINED**.)
    * 
-   * >  For more information, see [Preset layouts for stream mixing](https://help.aliyun.com/document_detail/199361.html).
+   * > For more information, see [Preset stream mix layouts](https://help.aliyun.com/document_detail/199359.html).
    * 
    * This parameter is required.
    * 
@@ -58,9 +62,9 @@ export class CreateMixStreamRequest extends $dara.Model {
   layoutId?: string;
   /**
    * @remarks
-   * The configuration of the output stream. The value is a JSON string.
+   * The output configuration. This is a JSON string.
    * 
-   * For more information, see **OutputConfig**.
+   * For more information, see **OutputConfig** below.
    * 
    * This parameter is required.
    * 
@@ -69,6 +73,13 @@ export class CreateMixStreamRequest extends $dara.Model {
    */
   outputConfig?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

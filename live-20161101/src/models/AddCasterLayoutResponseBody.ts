@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCasterLayoutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the layout.
-   * 
-   * Record the ID as it can be used to manage the layout being created.
+   * The ID of the layout. You can use this ID as a request parameter when you call operations to manage layouts, such as deleting, modifying, or querying layouts for a production studio or a virtual studio.
    * 
    * @example
    * 21926b36-7dd2-4fde-ae25-51b5bc8e****
@@ -15,7 +13,7 @@ export class AddCasterLayoutResponseBody extends $dara.Model {
   layoutId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F****

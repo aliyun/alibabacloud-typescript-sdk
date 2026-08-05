@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application.
    * 
-   * >  If you want to delete configurations of triggered stream pulling for all applications, set the value to **ali_all_app**.
+   * > To delete configurations of triggered stream pulling for all applications, set it to **ali_all_app**.
    * 
    * This parameter is required.
    * 
@@ -26,6 +26,13 @@ export class DeleteLiveLazyPullStreamInfoConfigRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

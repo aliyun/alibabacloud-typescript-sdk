@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainPublishErrorCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The application name. The data is aggregated based on the application. If you specify this parameter, the DomainName parameter is required.
+   * Filters and aggregates data by AppName. If you specify AppName, you must set DomainName to a specific ingest domain.
    * 
    * @example
    * AppName
@@ -13,31 +13,38 @@ export class DescribeLiveDomainPublishErrorCodeRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ingest domain. If you want to specify multiple ingest domains, separate them with commas (,).
+   * The ingest domain. You can specify multiple ingest domains. Separate multiple domain names with commas (,).
    * 
-   * >  This parameter is required.
+   * > This parameter is required.
    * 
    * @example
-   * example.com,example.aliyundoc.com
+   * example1.aliyundoc.com,example2.aliyundoc.com
    */
   domainName?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
-   * >  If you do not configure StartTime, the data within the previous hour is queried.
+   * > If you do not set this parameter, data from the last hour is queried by default.
    * 
    * @example
    * 2016-06-29T09:10:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
-   * >  If you do not configure StartTime, the data within the previous hour is queried.
+   * > If you do not set this parameter, data from the last hour is queried by default.
    * 
    * @example
    * 2016-06-29T09:00:00Z

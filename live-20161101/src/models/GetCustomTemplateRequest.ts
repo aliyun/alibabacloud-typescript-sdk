@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomTemplateRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the custom template that you want to query. The value is a string.
+   * The name of the custom template that you want to query.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain name.
    * 
    * @example
    * example.com
@@ -13,20 +13,39 @@ export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig ex
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether recording status callbacks are enabled. Valid values:
+   * Specifies whether to receive callbacks for the status of recording tasks. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Yes.
+   * 
+   * - **false** (default): No.
    * 
    * @example
    * false
    */
   needStatusNotify?: boolean;
+  /**
+   * @remarks
+   * The authentication key for the callback.
+   * 
+   * @example
+   * KbT8mN2pQ9rS4vX7wZ1aB3cE5fG6hJ8kL
+   */
   notifyAuthKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable callback authentication. Valid values:
+   * 
+   * - **yes**: enabled.
+   * 
+   * - **no**: disabled.
+   * 
+   * @example
+   * no
+   */
   notifyReqAuth?: boolean;
   /**
    * @remarks
-   * The recording callback URL.
+   * The webhook address for recording callbacks.
    * 
    * @example
    * http://learn.aliyundoc.com/examplecallback.action
@@ -74,7 +93,7 @@ export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig ex
 export class DescribeLiveRecordNotifyConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration of callbacks for live stream recording.
+   * The recording callback configuration for the domain name.
    */
   liveRecordNotifyConfig?: DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig;
   /**

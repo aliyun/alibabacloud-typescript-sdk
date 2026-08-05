@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data center.
+   * The data center ID.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class GetEdgeTranscodeTemplateRequest extends $dara.Model {
    */
   clusterId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks

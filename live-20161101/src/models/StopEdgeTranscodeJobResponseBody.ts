@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopEdgeTranscodeJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge transcoding task.
+   * The ID of the edge transcoding job.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class StopEdgeTranscodeJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

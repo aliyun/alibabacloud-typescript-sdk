@@ -7,10 +7,11 @@ export class DeleteCasterLayoutRequest extends $dara.Model {
    * @remarks
    * The ID of the production studio.
    * 
-   * *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/69338.html) operation, check the value of the response parameter CasterId to obtain the ID.
-   * *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+   * - If you call the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation to create a production studio, obtain the CasterId from the response.
    * 
-   * >  You can find the ID of the production studio in the Instance ID/Name column.
+   * - If you create a production studio in the ApsaraVideo Live console, go to the **Production Studio** > **Cloud Production Studio** page to view the ID.
+   * 
+   * > The ID of the production studio is its name in the list on the Cloud Production Studio page.
    * 
    * This parameter is required.
    * 
@@ -20,7 +21,7 @@ export class DeleteCasterLayoutRequest extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The ID of the layout. If the layout was added by calling the [AddCasterLayout](https://help.aliyun.com/document_detail/60249.html) operation, check the value of the response parameter LayoutId to obtain the ID.
+   * The layout ID. If you call the [AddCasterLayout](https://help.aliyun.com/document_detail/2848025.html) operation to add a layout to the production studio, obtain the LayoutId from the response.
    * 
    * This parameter is required.
    * 
@@ -29,6 +30,13 @@ export class DeleteCasterLayoutRequest extends $dara.Model {
    */
   layoutId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

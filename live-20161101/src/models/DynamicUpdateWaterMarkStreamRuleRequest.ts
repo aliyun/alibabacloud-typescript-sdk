@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DynamicUpdateWaterMarkStreamRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,17 @@ export class DynamicUpdateWaterMarkStreamRuleRequest extends $dara.Model {
    */
   domain?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the stream that contains the watermark.
+   * The name of the watermarked stream.
    * 
    * This parameter is required.
    * 
@@ -37,9 +44,9 @@ export class DynamicUpdateWaterMarkStreamRuleRequest extends $dara.Model {
   stream?: string;
   /**
    * @remarks
-   * The watermark template ID. You can call the [DescribeLiveStreamWatermarks](https://help.aliyun.com/document_detail/2848102.html) operation to obtain available watermark template IDs.
+   * The ID of the watermark template. Call the [DescribeLiveStreamWatermarks](https://help.aliyun.com/document_detail/2848102.html) operation to get the IDs of available watermark templates.
    * 
-   * >  The TemplateId parameter is used to replace the watermark template ID during live streaming.
+   * > The TemplateId parameter is used to replace the watermark template ID during a live stream.
    * 
    * This parameter is required.
    * 

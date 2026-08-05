@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLiveTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the resource.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value that corresponds to the tag key.
+   * 
    * @example
    * dev
    */
@@ -38,32 +44,54 @@ export class ListLiveTagResourcesRequestTag extends $dara.Model {
 
 export class ListLiveTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * q2j8bLtBdhONLRkgaPBa6A==
    */
   nextToken?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The list of resource IDs. ResourceId and Tag cannot both be empty.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
    * DOMAIN
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of tags. ResourceId and Tag cannot both be empty.
+   */
   tag?: ListLiveTagResourcesRequestTag[];
   /**
+   * @remarks
+   * The Bid of the tag owner.
+   * 
    * @example
    * 26842
    */
   tagOwnerBid?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID to which the tag belongs.
+   * 
    * @example
    * xxx1234xxx
    */

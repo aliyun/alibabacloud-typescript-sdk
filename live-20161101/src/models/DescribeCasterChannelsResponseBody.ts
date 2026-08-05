@@ -75,7 +75,7 @@ export class DescribeCasterChannelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of channels.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageTokenResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The token used to establish a persistent connection.
+   * Token used for establishing persistent connections.
    * 
    * @example
    * oauth_cloud_key:***-b0YY5Gy6Q
@@ -13,7 +13,7 @@ export class GetMessageTokenResponseBodyResult extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * Indicates how long until the token expires. Unit: milliseconds.
+   * Logon token expiration time in milliseconds.
    * 
    * @example
    * 86400000
@@ -21,7 +21,7 @@ export class GetMessageTokenResponseBodyResult extends $dara.Model {
   accessTokenExpiredTime?: number;
   /**
    * @remarks
-   * The updated token. If a token expires, you can call RefreshToken to obtain a new token.
+   * Refresh token. If the AccessToken expires, you can use the RefreshToken to obtain a new token.
    * 
    * @example
    * oauth_cloud_key:****-Q62xggOTdgk3gw=
@@ -55,7 +55,7 @@ export class GetMessageTokenResponseBodyResult extends $dara.Model {
 export class GetMessageTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -63,7 +63,7 @@ export class GetMessageTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return results.
    */
   result?: GetMessageTokenResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -13,10 +13,10 @@ export class DescribeUpBpsPeakOfLineRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to collect statistics at the domain name level. Valid values:
+   * The domain name statistics switch. Valid values:
    * 
-   * *   on: collects statistics at the domain name level.
-   * *   off (default): collects statistics at the user level.
+   * - on: Enables domain name-level statistics.
+   * - off: User-level data. User-level data is collected by default.
    * 
    * @example
    * on
@@ -24,7 +24,7 @@ export class DescribeUpBpsPeakOfLineRequest extends $dara.Model {
   domainSwitch?: string;
   /**
    * @remarks
-   * The end time of stream pulling. The time must be in UTC. The end time must be later than the start time. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+   * The end time of stream pulling. Specify the time in UTC. The time interval between StartTime and EndTime must be within 30 days, and EndTime must be later than the current time.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class DescribeUpBpsPeakOfLineRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The leased line. Valid values: integers from 0 to 9.
+   * The dedicated line. Valid values: integers in the range of [0, 9].
    * 
    * This parameter is required.
    * 
@@ -43,10 +43,17 @@ export class DescribeUpBpsPeakOfLineRequest extends $dara.Model {
    */
   line?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The start time of stream pulling. The time must be in UTC. The maximum time range that can be specified by StartTime and EndTime is 30 days.
+   * The start time of stream pulling. Specify the time in UTC. The time interval between StartTime and EndTime must be within 30 days.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The time when the message group was created. The time is displayed in UTC.
+   * UTC timestamp when the message group was created.
    * 
    * @example
    * 1502280113
@@ -13,7 +13,7 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the creator.
+   * Creator ID.
    * 
    * @example
    * as****hs
@@ -21,7 +21,7 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The extended field.
+   * Extension field.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
   extension?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * @example
    * AE35-****-T95F
@@ -37,10 +37,10 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Indicates whether the message group is muted.
+   * Indicates whether all members in this message group are muted.
    * 
-   * *   true: The message group is muted.
-   * *   false: The message group is not muted.
+   * - true: All members are muted.
+   * - false: All members are not muted.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
   isMuteAll?: boolean;
   /**
    * @remarks
-   * The status of the message group. The default value is **1**, which indicates that the message group is normal.
+   * Message group status. The default value is **1**, which indicates that the message group status is normal.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class GetMessageGroupResponseBodyResult extends $dara.Model {
 export class GetMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -99,7 +99,7 @@ export class GetMessageGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: GetMessageGroupResponseBodyResult;
   static names(): { [key: string]: string } {

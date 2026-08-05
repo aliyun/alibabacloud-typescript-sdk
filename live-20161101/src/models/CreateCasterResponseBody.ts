@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCasterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production studio. You can specify the ID in a request to query the streaming URLs of the production studio, start the production studio, add a video resource, a layout, a component, or a playlist to the production studio, or query layouts of the production studio.
+   * The ID of the production studio. You can use this ID as a request parameter to query stream URLs, start the production studio, add video resources, add layouts, query the layout list, add components, and add playlists.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****

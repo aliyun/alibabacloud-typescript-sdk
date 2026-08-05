@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EffectCasterUrgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CF60DB6A-7FD6-426E-9288-122CC1A52FA7

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamsOnlineListRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The name of the application to which the stream belongs. You can view the AppName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,8 @@ export class DescribeLiveStreamsOnlineListRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain of the streamer.
+   * > - When you specify DomainName, make sure that the domain name is a live streaming domain name and that you have the permissions to manage the domain name.
    * 
    * This parameter is required.
    * 
@@ -23,10 +24,11 @@ export class DescribeLiveStreamsOnlineListRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether to return only specific parameters. Valid values:
+   * Specifies whether to return only specified fields. Valid values:  
    * 
-   * *   **yes**: returns only the DomainName, AppName, StreamName, and PublishTime parameters.
-   * *   **no**: returns all parameters. This is the default value.
+   * - **yes**: Only the DomainName, AppName, StreamName, and PublishTime fields are returned.  
+   * 
+   * - **no** (default): All fields are returned.
    * 
    * @example
    * no
@@ -51,19 +53,27 @@ export class DescribeLiveStreamsOnlineListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The mode in which stream names are matched. Valid values:
+   * Specifies whether to use fuzzy match for the stream name. Valid values:
    * 
-   * *   **fuzzy** (default): fuzzy match
-   * *   **strict**: exact match
+   * - **fuzzy** (default): fuzzy match.
+   * 
+   * - **strict**: exact match.
    * 
    * @example
    * fuzzy
    */
   queryType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream. You can specify only one live stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
+   * The stream name. Only a single StreamName can be specified. You can view the StreamName on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page.
    * 
    * @example
    * liveStream****
@@ -71,11 +81,13 @@ export class DescribeLiveStreamsOnlineListRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The type of the streams to query. Valid values:
+   * The stream type. Valid values:  
    * 
-   * *   **all** (default): all streams
-   * *   **raw**: source streams
-   * *   **trans**: transcoded streams
+   * - **all** (default): all streams.
+   *   
+   * - **raw**: raw streams.
+   *   
+   * - **trans**: transcoded streams.
    * 
    * @example
    * all

@@ -60,7 +60,7 @@ export class DescribeLiveDomainSnapshotDataResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * B955107D-E658-4E77-B913-E0AC3D31693F
+   * B955107D-E658-4E77-B913-E0AC3D*****
    */
   requestId?: string;
   snapshotDataInfos?: DescribeLiveDomainSnapshotDataResponseBodySnapshotDataInfos;

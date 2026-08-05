@@ -15,7 +15,7 @@ export class StartEdgeTranscodeJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the edge transcoding task.
+   * The ID of the edge transcoding job.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class StartEdgeTranscodeJobRequest extends $dara.Model {
    */
   jobId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

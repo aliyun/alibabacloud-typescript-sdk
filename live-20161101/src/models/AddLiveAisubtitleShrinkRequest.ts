@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The background color of the subtitles, which is an RGBA value.
+   * The background color of the subtitle. Specify the value in RGBA format.
    * 
    * @example
    * 0xFF0000
@@ -13,7 +13,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   bgColor?: string;
   /**
    * @remarks
-   * The background size of the subtitles. Valid values: [0,1].
+   * The background size of the subtitle. Valid values: [0, 1].
    * 
    * @example
    * 0.09
@@ -21,7 +21,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   bgWidthNormalized?: number;
   /**
    * @remarks
-   * The font weight. Valid values: [0,1].
+   * The font weight. Valid values: [0, 1].
    * 
    * @example
    * 0.05
@@ -29,7 +29,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   borderWidthNormalized?: number;
   /**
    * @remarks
-   * The subtitle template that you copy. Set the value to the name of the subtitle template.
+   * The subtitle template to copy from. Set this parameter to the value of SubtitleName.
    * 
    * @example
    * sub01
@@ -37,7 +37,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * The custom description of the subtitle template. The description can be up to 128 characters in length and can contain letters, digits, and special characters.
+   * The custom description of the subtitle. The description can contain Chinese characters, letters, digits, and special characters, and can be up to 128 characters in length.
    * 
    * @example
    * live AI subtitle template
@@ -45,11 +45,11 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The target language. Valid values:
-   *  - en-US: English 
-   * - zh-CN: Chinese 
-   * - es-ES: Spanish 
-   * - ru-RU: Russian
+   * The target language for translation. Valid values:
+   * - English: en-US
+   * - Chinese: zh-CN
+   * - Spanish: es-ES
+   * - Russian: ru-RU.
    * 
    * @example
    * zh-CN
@@ -57,7 +57,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   dstLanguage?: string;
   /**
    * @remarks
-   * The font color, which is an RGBA value.
+   * The font color. Specify the value in RGBA format.
    * 
    * @example
    * 0xFFFFFF
@@ -66,13 +66,13 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The font. Valid values:
-   * - KaiTi (default)
-   * - AlibabaPuHuiTi-Regular
-   * - AlibabaPuHuiTi-Bold
-   * - AlibabaPuHuiTi-Light
-   * - NotoSansHans-Regular
-   * - NotoSansHans-Bold
-   * - NotoSansHans-Light
+   * - KaiTi: KaiTi (default)
+   * - AlibabaPuHuiTi-Regular: Alibaba PuHuiTi Regular
+   * - AlibabaPuHuiTi-Bold: Alibaba PuHuiTi Bold
+   * - AlibabaPuHuiTi-Light: Alibaba PuHuiTi Light
+   * - NotoSansHans-Regular: Noto Sans SC Regular
+   * - NotoSansHans-Bold: Noto Sans SC Bold
+   * - NotoSansHans-Light: Noto Sans SC Light.
    * 
    * @example
    * KaiTi
@@ -80,7 +80,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   fontName?: string;
   /**
    * @remarks
-   * The font size. Valid values: [0,1].
+   * The font size. Valid values: [0, 1].
    * 
    * This parameter is required.
    * 
@@ -90,16 +90,17 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   fontSizeNormalized?: number;
   /**
    * @remarks
-   * The preview height. Unit: pixels.
-   * The following specifications of preview width × preview height are supported: 
-   * - Landscape low definition 360p (640×360) 
-   * - Portrait low definition 360p (360×640)
-   * - Landscape standard definition 480p (854×480)
-   * - Portrait standard definition 480p (480×854)
-   * - Landscape high definition 720p (1280×720)
-   * - Portrait high definition 720p (720×1280)
-   * - Landscape ultra-high definition 1080p (1920×1080)
-   * - Portrait ultra-high definition 1080p (1080×1920)
+   * The height of the preview screen. Unit: px.
+   * 
+   * The width × height of the preview screen supports only the following specifications:          
+   * - Landscape low definition 360P: 640 × 360 
+   * - Portrait low definition 360P: 360 × 640
+   * - Landscape standard definition 480P: 854 × 480
+   * - Portrait standard definition 480P: 480 × 854
+   * - Landscape high definition 720P: 1280 × 720
+   * - Portrait high definition 720P: 720 × 1280
+   * - Landscape ultra-high definition 1080P: 1920 × 1080
+   * - Portrait ultra-high definition 1080P: 1080 × 1920.
    * 
    * @example
    * 720
@@ -107,7 +108,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   height?: string;
   /**
    * @remarks
-   * The number of displayed lines.
+   * The number of lines to display.
    * 
    * @example
    * 2
@@ -116,11 +117,23 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The position of the subtitles. The value is a pair of coordinates for which the origin of the x and y axes is the lower-left corner of the screen.
+   * The position of the subtitle. The value is the x,y coordinates with the bottom-left corner of the screen as the origin.
+   * 
+   * > The x and y values must be normalized. The actual values are multiplied by the video height. For example, if the video height is 720p and PositionNormalized is set to [0.1, 0.5], the actual position of the subtitle is x = 72 and y = 360.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * [0.32,0.27]
    */
   positionNormalizedShrink?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
@@ -133,9 +146,9 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The source language. Valid values:
-   *  - en-US: English 
-   * - zh-CN: Chinese 
-   * - ru-RU: Russian
+   * - English: en-US
+   * - Chinese: zh-CN
+   * - Russian: ru-RU.
    * 
    * This parameter is required.
    * 
@@ -155,7 +168,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   subtitleName?: string;
   /**
    * @remarks
-   * The preview width. Unit: pixels.
+   * The width of the preview screen. Unit: px.
    * 
    * @example
    * 1280
@@ -163,7 +176,7 @@ export class AddLiveAISubtitleShrinkRequest extends $dara.Model {
   width?: string;
   /**
    * @remarks
-   * The number of words displayed per line. Valid values: integers from 1 to 500.
+   * The number of characters per line. Valid values: integers in the range of [1, 500].
    * 
    * This parameter is required.
    * 

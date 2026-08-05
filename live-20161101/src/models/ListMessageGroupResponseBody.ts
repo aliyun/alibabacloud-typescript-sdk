@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the interactive messaging application.
+   * Interactive Messages application ID.
    * 
    * @example
    * VKL3***
@@ -13,7 +13,7 @@ export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the message group was created. The time is displayed in UTC.
+   * UTC timestamp when the message group was created.
    * 
    * @example
    * 1502280113
@@ -21,7 +21,7 @@ export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the creator.
+   * Creator ID.
    * 
    * @example
    * as****hs
@@ -29,12 +29,12 @@ export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The extended field.
+   * Extension field.
    */
   extension?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the message group.
+   * Message group ID.
    * 
    * @example
    * AE35-****-T95F
@@ -42,7 +42,7 @@ export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The status of the message group. The default value is **1**, which indicates that the status of the message group is normal.
+   * Message group status. The default value is **1**, indicating that the message group status is normal.
    * 
    * @example
    * 1
@@ -85,15 +85,15 @@ export class ListMessageGroupResponseBodyResultGroupList extends $dara.Model {
 export class ListMessageGroupResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The list of message groups.
+   * Message group list.
    */
   groupList?: ListMessageGroupResponseBodyResultGroupList[];
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page. Valid values:
+   * Indicates whether there is a next page. Valid values:
    * 
-   * *   true: The current page is followed by another page.
-   * *   false: The current page is not followed by another page.
+   * - true: There is a next page.
+   * - false: There is no next page.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class ListMessageGroupResponseBodyResult extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The total number of message groups.
+   * Total number of message groups.
    * 
    * @example
    * 5
@@ -138,7 +138,7 @@ export class ListMessageGroupResponseBodyResult extends $dara.Model {
 export class ListMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 16A96B9A-****-CB92E68F4CD8
@@ -146,7 +146,7 @@ export class ListMessageGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    */
   result?: ListMessageGroupResponseBodyResult;
   static names(): { [key: string]: string } {

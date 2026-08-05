@@ -13,7 +13,7 @@ export class PlayChoosenShowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the episode.
+   * The show ID.
    * 
    * @example
    * a2b8e671-2fe5-4642-a2ec-bf93880e****

@@ -248,7 +248,7 @@ export class DescribeLiveRecordConfigResponseBody extends $dara.Model {
   liveAppRecordList?: DescribeLiveRecordConfigResponseBodyLiveAppRecordList;
   /**
    * @remarks
-   * The sorting order of recording configurations by creation time.
+   * The sort order.
    * 
    * @example
    * desc
@@ -280,7 +280,7 @@ export class DescribeLiveRecordConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of recording configurations that meet the specified conditions.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 12

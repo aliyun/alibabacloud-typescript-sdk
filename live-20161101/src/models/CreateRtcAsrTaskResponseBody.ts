@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRtcAsrTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the request. If success is returned, the request is successful. If an error message is returned, the request failed.
+   * The result description. The value success indicates a successful operation. An error message is returned if a fault occurs.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class CreateRtcAsrTaskResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The gateway request ID.
    * 
    * @example
    * 7FF5417D-06E9-5A2C-9A70-581F6149E6C1
@@ -21,7 +21,7 @@ export class CreateRtcAsrTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned HTTP status code. HTTP status code 2000 indicates that the request is successful. If another HTTP status code is returned, the request failed.
+   * The status code. A value of 2000 indicates success. Other values indicate exceptions.
    * 
    * @example
    * 2000
@@ -29,7 +29,7 @@ export class CreateRtcAsrTaskResponseBody extends $dara.Model {
   retCode?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The generated task ID.
    * 
    * @example
    * asr-a6ac15e0-9118-4b4c-9e64-306163a0****

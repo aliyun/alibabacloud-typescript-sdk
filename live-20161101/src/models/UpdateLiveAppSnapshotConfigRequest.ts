@@ -51,10 +51,13 @@ export class UpdateLiveAppSnapshotConfigRequest extends $dara.Model {
    * @remarks
    * The naming format of snapshots that are stored in the overwrite mode, which means that a new snapshot overwrites the previous snapshot.
    * 
-   * *   The name must be less than 256 bytes in length.
-   * *   Only JPG images are supported.
-   * *   The name can contain variables such as {AppName} and {StreamName}.
-   * *   A value of hyphen (-) indicates that this parameter is deleted.
+   * - The name must be less than 256 bytes in length.
+   * 
+   * - Only JPG images are supported.
+   * 
+   * - The name can contain variables such as {AppName} and {StreamName}.
+   * 
+   * - A value of hyphen (-) indicates that this parameter is deleted.
    * 
    * @example
    * {liveApp****}/{liveStream****}.jpg
@@ -66,10 +69,13 @@ export class UpdateLiveAppSnapshotConfigRequest extends $dara.Model {
    * @remarks
    * The naming format of snapshots that are stored in sequence, which means that a new snapshot does not overwrite the previous snapshot. You can call the [DescribeLiveStreamSnapshotInfo](https://help.aliyun.com/document_detail/2847902.html) operation to query the snapshots that were captured within a specific time period.
    * 
-   * *   The name must be less than 256 bytes in length.
-   * *   Only JPG images are supported.
-   * *   The name can contain variables such as {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}. The name must contain at least one of the {UnixTimestamp} and {Sequence} variables.
-   * *   A value of hyphen (-) indicates that this parameter is deleted.
+   * - The name must be less than 256 bytes in length.
+   * 
+   * - Only JPG images are supported.
+   * 
+   * - The name can contain variables such as {AppName}, {StreamName}, {UnixTimestamp}, and {Sequence}. The name must contain at least one of the {UnixTimestamp} and {Sequence} variables.
+   * 
+   * - A value of hyphen (-) indicates that this parameter is deleted.
    * 
    * @example
    * snapshot/{liveApp****}/{liveStream****}/{UnixTimestamp****}.jpg

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the subscribed application.
    * 
    * @example
    * 9qb1****
@@ -13,7 +13,7 @@ export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates that the callback was successful.
+   * The error code. A value of 200 indicates a successful callback.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * The details about the callback.
+   * The callback content details.
    * 
    * @example
    * {\\"MsgId\\":\\"875d5266cbabb1834cc84a105cf68454\\",\\"MsgTimestamp\\":1697545591,\\"SubscribeId\\":\\"09be0d2254cb5a89f4cbd86403ec5343\\",\\"AppId\\":\\"xxx\\",\\"ChannelId\\":\\"9099\\",\\"Contents\\":[{\\"Event\\":\\"UserEvent\\",\\"UserEvent\\":{\\"UserId\\":\\"linux_test\\",\\"EventTag\\":\\"Leave\\",\\"SessionId\\":\\"je7y2sBZJZQ0VBJZrh4LnBkxvGH2WyVs\\",\\"Timestamp\\":1697545591,\\"ChannelProfile\\":\\"interactive_live\\",\\"US\\":5068748604047364,\\"Reason\\":1,\\"Role\\":1,\\"TerminalType\\":6,\\"UserType\\":2}}]}
@@ -37,7 +37,7 @@ export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The ID of the callback record.
+   * The callback record ID.
    * 
    * @example
    * 875d5266cbabb1834cc84a105cf6****
@@ -45,7 +45,7 @@ export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The subscription ID.
+   * The subscription event ID.
    * 
    * @example
    * ad53276431c****
@@ -53,7 +53,7 @@ export class ListEventSubEventResponseBodyLogs extends $dara.Model {
   subId?: string;
   /**
    * @remarks
-   * The time when the callback was generated.
+   * The time when the callback record was generated. The time is in the UTC+8 time zone. Format: yyyy-MM-dd hh:mm:ss.SSS.
    * 
    * @example
    * 2023-10-17 20:26:31.988
@@ -113,7 +113,7 @@ export class ListEventSubEventResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * Indicates whether the current page is followed by a page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * false

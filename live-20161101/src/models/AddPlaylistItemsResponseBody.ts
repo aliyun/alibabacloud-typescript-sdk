@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPlaylistItemsResponseBodyItemsFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode.
+   * The playlist item ID.
    * 
    * @example
    * c09f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -13,7 +13,7 @@ export class AddPlaylistItemsResponseBodyItemsFailedItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The name of the episode.
+   * The playlist item name.
    * 
    * @example
    * item1
@@ -45,7 +45,7 @@ export class AddPlaylistItemsResponseBodyItemsFailedItems extends $dara.Model {
 export class AddPlaylistItemsResponseBodyItemsSuccessItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the episode.
+   * The playlist item ID.
    * 
    * @example
    * c09f3d63-eacf-4fbf-bd48-a07a6ba7****
@@ -53,7 +53,7 @@ export class AddPlaylistItemsResponseBodyItemsSuccessItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The name of the episode.
+   * The playlist item name.
    * 
    * @example
    * item2
@@ -85,12 +85,12 @@ export class AddPlaylistItemsResponseBodyItemsSuccessItems extends $dara.Model {
 export class AddPlaylistItemsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The episodes that failed to be added.
+   * The list of playlist items that failed to be added.
    */
   failedItems?: AddPlaylistItemsResponseBodyItemsFailedItems[];
   /**
    * @remarks
-   * The episodes that were added.
+   * The list of playlist items that were successfully added.
    */
   successItems?: AddPlaylistItemsResponseBodyItemsSuccessItems[];
   static names(): { [key: string]: string } {
@@ -125,12 +125,12 @@ export class AddPlaylistItemsResponseBodyItems extends $dara.Model {
 export class AddPlaylistItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the episodes.
+   * The list of added playlist items.
    */
   items?: AddPlaylistItemsResponseBodyItems;
   /**
    * @remarks
-   * The ID of the episode list. You can use the ID as a request parameter in the API operation that is used to remove episodes, query episodes, edit an episode list, delete an episode list, query the information about an episode list, start playing an episode list, or stop playing an episode list.
+   * The playlist ID. This value can be used as a request parameter for deleting playlist items, querying playlist items, editing playlists, deleting playlists, querying playlists, starting playlists, and stopping playlists.
    * 
    * @example
    * 445409ec-7eaa-461d-8f29-4bec2eb9****

@@ -13,7 +13,7 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageListSender extends $
   userId?: string;
   /**
    * @remarks
-   * The additional information about the user who sent the message.
+   * The extended information of the user who sent the message.
    * 
    * @example
    * testusermeta2
@@ -53,7 +53,7 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageList extends $dara.M
   body?: string;
   /**
    * @remarks
-   * The ID of the message.
+   * The message identifier.
    * 
    * @example
    * c-1-1-0
@@ -61,7 +61,7 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageList extends $dara.M
   msgTid?: string;
   /**
    * @remarks
-   * The type of the message.
+   * The message type.
    * 
    * @example
    * 2
@@ -69,12 +69,12 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageList extends $dara.M
   msgType?: number;
   /**
    * @remarks
-   * The details about the user who sent the message.
+   * The message sender details.
    */
   sender?: ListLiveMessageGroupMessagesResponseBodyMessageListSender;
   /**
    * @remarks
-   * The sequence number of the message.
+   * The message sequence number.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageList extends $dara.M
   seqNumber?: number;
   /**
    * @remarks
-   * The time when the message was sent. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the message was created, expressed as a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1697081134
@@ -135,7 +135,7 @@ export class ListLiveMessageGroupMessagesResponseBodyMessageList extends $dara.M
 export class ListLiveMessageGroupMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group queried.
+   * The group ID of the group to query.
    * 
    * @example
    * grouptest
@@ -143,7 +143,7 @@ export class ListLiveMessageGroupMessagesResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Indicates whether the current page is followed by another page.
+   * Indicates whether there is a next page.
    * 
    * @example
    * false
@@ -151,12 +151,12 @@ export class ListLiveMessageGroupMessagesResponseBody extends $dara.Model {
   hasmore?: boolean;
   /**
    * @remarks
-   * Details about the messages.
+   * The message list.
    */
   messageList?: ListLiveMessageGroupMessagesResponseBodyMessageList[];
   /**
    * @remarks
-   * The starting page number for the next query. A value of 0 indicates that no further pages can be queried.
+   * The start position of the next page. The value is 0 if there is no next page.
    * 
    * @example
    * 0

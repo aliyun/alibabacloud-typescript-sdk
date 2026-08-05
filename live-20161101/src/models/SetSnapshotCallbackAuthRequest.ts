@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetSnapshotCallbackAuthRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom key that is used for callback authentication.
+   * The authentication key.
    * 
    * This parameter is required.
    * 
@@ -17,8 +17,9 @@ export class SetSnapshotCallbackAuthRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable callback authentication. Valid values:
    * 
-   * *   **yes**: enables callback authentication.
-   * *   **no**: disables callback authentication.
+   * - **yes**: enables
+   * 
+   * - **no**: disables
    * 
    * This parameter is required.
    * 
@@ -37,6 +38,13 @@ export class SetSnapshotCallbackAuthRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

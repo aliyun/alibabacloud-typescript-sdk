@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeToutiaoLivePlayRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The name of the application to which the stream belongs.
    * 
    * This parameter is required.
    * 
@@ -25,19 +25,26 @@ export class DescribeToutiaoLivePlayRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. The time span cannot be greater than 10 hours. If you do not configure StartTime and EndTime, the data within the previous hour is queried. Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time, and the time span cannot exceed 10 hours. If you do not specify StartTime and EndTime, data for the last hour is queried by default. Specify the time in the ISO 8601 standard. Use UTC.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2017-10-10T20:00:00Z
+   * 2017-10-10T21:00:00Z
    */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * The start of the time range to query. Specify the time in the ISO 8601 standard. Use UTC.
    * 
    * This parameter is required.
    * 
@@ -47,7 +54,7 @@ export class DescribeToutiaoLivePlayRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the live stream.
+   * The stream name.
    * 
    * This parameter is required.
    * 

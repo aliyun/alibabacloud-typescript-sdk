@@ -15,7 +15,7 @@ export class SetLiveDomainStagingConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The list of features. You must specify the ConfigId field when you want to modify the configurations. For more information, see **Features specified by the Functions parameter**.
+   * The list of features. Specify ConfigId only when you modify a configuration. For more information, see **Functions format description**.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,13 @@ export class SetLiveDomainStagingConfigRequest extends $dara.Model {
    */
   functions?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HotLiveRtcStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The application name of the live stream to prefetch.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The audio MSID.
+   * The audio Msid.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
   audioMsid?: string;
   /**
    * @remarks
-   * The duration for which the prefetch connection is maintained. Unit: milliseconds. Default value: 0, which specifies that the prefetch connection is always maintained.
+   * The duration to maintain the prefetch connection. Unit: milliseconds. The default value, 0, means the connection is always maintained.
    * 
    * @example
    * 0
@@ -43,7 +43,7 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The custom period after which a timeout event is triggered. Unit: milliseconds.
+   * The custom timeout period for a timeout event. Unit: milliseconds.
    * 
    * @example
    * 100000
@@ -52,9 +52,11 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The code of the region in which the live stream is prefetched. For more information, see the following tables that list available region codes.
+   * The prefetch area. For more information, see the RegionCode lookup table.
    * 
-   * >  Region codes include provincial codes for China and country codes for all countries.
+   * > For regions within China, specify the corresponding code from the "Region codes for China" table. For all other regions, specify the country code.
+   * >
+   * > - If the CodeRegionHasNoNode error is returned after you specify a RegionCode, the corresponding area is not covered by L1 nodes and cannot be prefetched. In this case, specify a different RegionCode.
    * 
    * This parameter is required.
    * 
@@ -62,10 +64,17 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
    * ZHJ
    */
   regionCode?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The name of the live stream that you want to prefetch.
+   * The name of the live stream to prefetch.
    * 
    * This parameter is required.
    * 
@@ -75,7 +84,7 @@ export class HotLiveRtcStreamRequest extends $dara.Model {
   streamName?: string;
   /**
    * @remarks
-   * The video MSID.
+   * The video Msid.
    * 
    * This parameter is required.
    * 

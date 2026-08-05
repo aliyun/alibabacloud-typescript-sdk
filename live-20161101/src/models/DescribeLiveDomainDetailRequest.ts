@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The streaming domain or ingest domain.
+   * The ingest domain or streaming domain.
    * 
    * This parameter is required.
    * 

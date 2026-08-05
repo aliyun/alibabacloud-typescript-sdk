@@ -15,7 +15,7 @@ export class CreateLiveRealTimeLogDeliveryRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The name of the Logstore to which log entries are delivered.
+   * The LogStoreName for real-time log delivery to SLS.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class CreateLiveRealTimeLogDeliveryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the Log Service project that is used for real-time log delivery.
+   * The ProjectName for real-time log delivery to SLS.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class CreateLiveRealTimeLogDeliveryRequest extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The ID of the region where the Log Service project is deployed.
+   * The Region for real-time log delivery to SLS.
    * 
    * This parameter is required.
    * 
@@ -44,6 +44,13 @@ export class CreateLiveRealTimeLogDeliveryRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

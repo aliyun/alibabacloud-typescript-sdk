@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLivePrivateLineAreasRequest extends $dara.Model {
   /**
    * @remarks
-   * The main streaming domain.
+   * The streaming domain for ingest.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,13 @@ export class DescribeLivePrivateLineAreasRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

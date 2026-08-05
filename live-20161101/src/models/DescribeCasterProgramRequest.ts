@@ -7,10 +7,11 @@ export class DescribeCasterProgramRequest extends $dara.Model {
    * @remarks
    * The ID of the production studio.
    * 
-   * *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-   * *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
+   * - If you create a production studio by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, use the CasterId value that is returned in the response.
    * 
-   * >  You can find the ID of the production studio in the Instance ID/Name column.
+   * - If you create a production studio in the LIVE console, find the ID on the Cloud Production Studio page. To go to this page, choose **LIVE** > **Production Studio** > **Cloud Production Studio**.
+   * 
+   * > The name of the production studio in the list on the Cloud Production Studio page is its ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +21,7 @@ export class DescribeCasterProgramRequest extends $dara.Model {
   casterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The end time. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2016-06-29T10:00:00Z
@@ -28,7 +29,7 @@ export class DescribeCasterProgramRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the episode.
+   * The ID of the program.
    * 
    * @example
    * 1872639A-F203-4EC5-8E43-CB92E68F****
@@ -36,10 +37,11 @@ export class DescribeCasterProgramRequest extends $dara.Model {
   episodeId?: string;
   /**
    * @remarks
-   * The type of the episode. Valid values:
+   * The type of the node. Valid values:
    * 
-   * *   **Resource**: a video resource
-   * *   **Component**: a component
+   * - **Resource**: video source.
+   * 
+   * - **Component**: component.
    * 
    * @example
    * Resource
@@ -56,16 +58,23 @@ export class DescribeCasterProgramRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of programs on each page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * The start time. The time must be in the *yyyy-MM-dd*T*HH:mm:ss*Z format and in UTC.
    * 
    * @example
    * 2016-06-29T09:00:00Z
@@ -73,11 +82,13 @@ export class DescribeCasterProgramRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the episode. Valid values:
+   * The status of the program. Valid values:
    * 
-   * *   **0**: The episode is not played.
-   * *   **1**: The episode is being played.
-   * *   **2**: The playback of the episode is complete.
+   * - **0**: not started
+   * 
+   * - **1**: playing
+   * 
+   * - **2**: finished
    * 
    * @example
    * 0

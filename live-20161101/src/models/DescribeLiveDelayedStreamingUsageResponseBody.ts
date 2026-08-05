@@ -67,7 +67,7 @@ export class DescribeLiveDelayedStreamingUsageResponseBody extends $dara.Model {
   delayData?: DescribeLiveDelayedStreamingUsageResponseBodyDelayData;
   /**
    * @remarks
-   * The end of the time range during which the data was queried.
+   * The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-10-10T21:00:00Z
@@ -78,12 +78,12 @@ export class DescribeLiveDelayedStreamingUsageResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 4B460F8B-993C-4F48-B98A-910811DEBFEB
+   * 4B460F8B-993C-4F48-B98A-91081******
    */
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried.
+   * The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-10-10T20:00:00Z

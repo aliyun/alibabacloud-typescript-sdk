@@ -7,7 +7,7 @@ export class EnableLiveRealtimeLogDeliveryRequest extends $dara.Model {
    * @remarks
    * The streaming domain for which you want to enable real-time log delivery.
    * 
-   * Separate multiple streaming domains with commas (,).
+   * Separate multiple domain names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -16,6 +16,13 @@ export class EnableLiveRealtimeLogDeliveryRequest extends $dara.Model {
    */
   domainName?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

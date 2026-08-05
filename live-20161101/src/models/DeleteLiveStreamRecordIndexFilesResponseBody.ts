@@ -57,7 +57,7 @@ export class DeleteLiveStreamRecordIndexFilesResponseBodyRecordDeleteInfoList ex
 export class DeleteLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+   * The status code. If an error occurs, see the error codes.
    * 
    * @example
    * OK
@@ -65,7 +65,7 @@ export class DeleteLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status description. A return value of 500 indicates an error. For details, see the Error codes section of this topic.
+   * The status message. If an error occurs, see the error codes.
    * 
    * @example
    * OK
@@ -74,7 +74,7 @@ export class DeleteLiveStreamRecordIndexFilesResponseBody extends $dara.Model {
   recordDeleteInfoList?: DeleteLiveStreamRecordIndexFilesResponseBodyRecordDeleteInfoList;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 939D19EE-59A0-18E9-B458-*****

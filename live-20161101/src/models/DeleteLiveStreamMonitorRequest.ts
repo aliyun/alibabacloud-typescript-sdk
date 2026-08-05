@@ -7,7 +7,7 @@ export class DeleteLiveStreamMonitorRequest extends $dara.Model {
    * @remarks
    * The ID of the monitoring session.
    * 
-   * >  You can obtain the monitoring session ID from the response parameter **MonitorId** of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
+   * > The **MonitorId** is returned in the response of the [CreateLiveStreamMonitor](https://help.aliyun.com/document_detail/2848129.html) operation.
    * 
    * This parameter is required.
    * 
@@ -16,6 +16,13 @@ export class DeleteLiveStreamMonitorRequest extends $dara.Model {
    */
   monitorId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -98,7 +98,7 @@ export class DescribeLiveStreamPreloadTasksResponseBody extends $dara.Model {
   preloadTasks?: DescribeLiveStreamPreloadTasksResponseBodyPreloadTasks;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E1564CBC-DCFE-5E1B-8B78-8DED9A39F334
@@ -106,7 +106,7 @@ export class DescribeLiveStreamPreloadTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the conditions.
    * 
    * @example
    * 1

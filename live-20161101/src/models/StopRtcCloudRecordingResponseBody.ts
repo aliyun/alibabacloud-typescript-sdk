@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopRtcCloudRecordingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******58-5876-****-83CA-B56278******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ******73-8501-****-8ac1-72295a******
    */

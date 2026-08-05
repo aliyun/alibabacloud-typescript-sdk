@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extends $dara.Model {
   /**
    * @remarks
-   * The name of the application to which the live stream belongs.
+   * The AppName of the live stream.
    * 
    * @example
    * liveApp****
@@ -13,7 +13,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   appName?: string;
   /**
    * @remarks
-   * The time when the index file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2016-05-27T09:40:56Z
@@ -29,7 +29,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   domainName?: string;
   /**
    * @remarks
-   * The recording length. Unit: seconds.
+   * The recording duration. Unit: seconds.
    * 
    * @example
    * 588.849
@@ -37,7 +37,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   duration?: number;
   /**
    * @remarks
-   * The end time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2016-05-25T05:47:11Z
@@ -61,7 +61,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   height?: number;
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket.
+   * The name of the OSS bucket.
    * 
    * @example
    * liveBucket****
@@ -85,7 +85,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   ossObject?: string;
   /**
    * @remarks
-   * The ID of the index file.
+   * The manifest ID.
    * 
    * @example
    * c4d7f0a4-b506-43f9-8de3-07732c3f****
@@ -93,12 +93,12 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
   recordId?: string;
   /**
    * @remarks
-   * The URL of the index file.
+   * The URL of the manifest.
    */
   recordUrl?: string;
   /**
    * @remarks
-   * The start time of the index file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2015-12-01T05:36:00Z
@@ -172,7 +172,7 @@ export class DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo extend
 export class DescribeLiveStreamRecordIndexFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the index file.
+   * Recording configuration.
    */
   recordIndexInfo?: DescribeLiveStreamRecordIndexFileResponseBodyRecordIndexInfo;
   /**

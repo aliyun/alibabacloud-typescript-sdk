@@ -101,7 +101,7 @@ export class DescribeLiveStreamsPublishListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -118,7 +118,7 @@ export class DescribeLiveStreamsPublishListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the specified conditions.
+   * The total number of entries that match the specified conditions.
    * 
    * @example
    * 11

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of the group administrators.
+   * The list of administrators.
    */
   adminList?: string[];
   /**
    * @remarks
-   * The time when the group was created. The value is a UNIX timestamp. Unit: seconds.
+   * The creation time. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1698305471
@@ -18,7 +18,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   createtime?: number;
   /**
    * @remarks
-   * The ID of the group creator.
+   * The creator ID.
    * 
    * @example
    * uid1
@@ -26,7 +26,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The time when the group was deleted. This parameter is returned only if the group was deleted.
+   * The deletion time. This parameter is returned only when the group has been deleted. This value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1698299827
@@ -34,7 +34,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   deletatime?: number;
   /**
    * @remarks
-   * Indicates whether the group was deleted.
+   * Indicates whether the group has been deleted.
    * 
    * @example
    * false
@@ -42,7 +42,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   delete?: boolean;
   /**
    * @remarks
-   * The ID of the user who deleted the group. This parameter is returned only if the group was deleted.
+   * The user who deleted the group. This parameter is returned only when the group has been deleted.
    * 
    * @example
    * uid1
@@ -53,12 +53,12 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
    * The group ID.
    * 
    * @example
-   * grouptest1
+   * grouptest
    */
   groupId?: string;
   /**
    * @remarks
-   * Additional information about the group.
+   * The extended information of the group.
    * 
    * @example
    * testgroupinfo
@@ -66,7 +66,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   groupInfo?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The group name.
    * 
    * @example
    * mytestgroup
@@ -74,12 +74,12 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The categorized message statistics. This parameter is returned only if the group exists.
+   * The message count statistics by category. This parameter is returned only when the group exists.
    */
   msgAmount?: { [key: string]: number };
   /**
    * @remarks
-   * The number of online users in the group. This parameter is returned only if the group exists.
+   * The number of online users in the group. This parameter is returned only when the group exists.
    * 
    * @example
    * 2
@@ -90,15 +90,14 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 1815A27D-BAE2-10E6-89FD-D477951C67C7
+   * 1815A27D-BAE2-10E6-89FD-D477951C****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the group is a super group. Valid values:
-   * 
-   * *   True
-   * *   False
+   * Indicates whether the group is a super large group. Valid values:
+   * - True: The group is a super large group.
+   * - False: The group is not a super large group.
    * 
    * @example
    * False
@@ -106,7 +105,7 @@ export class DescribeLiveMessageGroupResponseBody extends $dara.Model {
   superLargeGroup?: boolean;
   /**
    * @remarks
-   * The total number of sessions. This parameter is returned only if the group exists.
+   * The total number of sessions. This parameter is returned only when the group exists.
    * 
    * @example
    * 50

@@ -5,13 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRealtimeLogDeliveryInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter has no practical significance.
+   * This parameter is reserved.
    * 
    * @example
-   * 1
+   * 无
    */
   liveOpenapiReserve?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -115,7 +115,7 @@ export class DescribeLiveDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeD
 export class DescribeLiveDomainRealTimeHttpCodeDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time interval between the entries returned. Unit: seconds Default value: 60.
+   * The time interval between consecutive data entries. Unit: seconds. Default value: 60.
    * 
    * @example
    * 60
@@ -131,7 +131,7 @@ export class DescribeLiveDomainRealTimeHttpCodeDataResponseBody extends $dara.Mo
   domainName?: string;
   /**
    * @remarks
-   * The end of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The end time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-11-30T05:40:00Z
@@ -148,7 +148,7 @@ export class DescribeLiveDomainRealTimeHttpCodeDataResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range during which the data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The start time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2015-11-30T05:33:00Z

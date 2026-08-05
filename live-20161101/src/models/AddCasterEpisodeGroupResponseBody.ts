@@ -32,7 +32,7 @@ export class AddCasterEpisodeGroupResponseBody extends $dara.Model {
   itemIds?: AddCasterEpisodeGroupResponseBodyItemIds;
   /**
    * @remarks
-   * The ID of the episode list that was added. Record the ID as it can be used to manage the program being added.
+   * The program list ID. This ID can be used as a request parameter for deleting a production studio program list, creating or adding program list items, deleting program list items, querying program list items, editing a program list, deleting a program list, querying a program list, starting a program list, or stopping a program list.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68X****
