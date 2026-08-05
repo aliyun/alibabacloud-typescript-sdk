@@ -8,30 +8,21 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * The new description of the inspection configuration.
    * 
    * @example
-   * 定时RDS实例巡检任务
+   * Scheduled RDS instance inspection task
    */
   description?: string;
   /**
    * @remarks
-   * The new inspection frequency. Separate multiple values with a comma (,). The default value is DAILY. Valid values:
-   * 
-   * - DAILY: Every day
-   * 
-   * - Monday: Every Monday
-   * 
-   * - Tuesday: Every Tuesday
-   * 
-   * - Wednesday: Every Wednesday
-   * 
-   * - Thursday: Every Thursday
-   * 
-   * - Friday: Every Friday
-   * 
-   * - Saturday: Every Saturday
-   * 
-   * - Sunday: Every Sunday
-   * 
-   * ### Note: `DAILY` overrides all other day-of-the-week settings. For example, if you specify `DAILY,Monday`, the system uses `DAILY` as the inspection frequency.
+   * The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+   * * DAILY: every day
+   * * Monday: Monday
+   * * Tuesday: Tuesday
+   * * Wednesday: Wednesday
+   * * Thursday: Thursday
+   * * Friday: Friday
+   * * Saturday: Saturday
+   * * Sunday: Sunday
+   * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
    * 
    * @example
    * Monday
@@ -40,7 +31,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The new instance IDs to associate with the task. Separate multiple IDs with a comma (,).
+   * The new list of associated instance IDs. Separate multiple values with commas (,).
    * 
    * @example
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****
@@ -51,7 +42,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * The new name of the inspection configuration.
    * 
    * @example
-   * RDS巡检任务
+   * RDS inspection task
    */
   name?: string;
   reportLanguage?: string;
@@ -67,15 +58,16 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The new time to run the inspection task. The time must be in the `HH:mm:ssZ` format and in UTC.
+   * The new time to execute the inspection task. Format: HH:mm:ssZ (UTC).
    * 
    * @example
    * 02:00:00Z
    */
   startTime?: string;
+  templateId?: string;
   /**
    * @remarks
-   * The inspection time range in hours. The default is 24, which means data from the last 24 hours is inspected. Valid values: 1 to 168. The maximum supported range is 7 days.
+   * The inspection time range. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
    * 
    * @example
    * 24
@@ -91,6 +83,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
       reportLanguage: 'ReportLanguage',
       scheduledId: 'ScheduledId',
       startTime: 'StartTime',
+      templateId: 'TemplateId',
       timeRange: 'TimeRange',
     };
   }
@@ -105,6 +98,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
       reportLanguage: 'string',
       scheduledId: 'string',
       startTime: 'string',
+      templateId: 'string',
       timeRange: 'string',
     };
   }

@@ -22,6 +22,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
    * zh-cn
    */
   language?: string;
+  modelId?: string;
   /**
    * @remarks
    * The region ID.
@@ -44,6 +45,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
       customAgentId: 'CustomAgentId',
       enableThinking: 'EnableThinking',
       language: 'Language',
+      modelId: 'ModelId',
       regionId: 'RegionId',
       thinkEffort: 'ThinkEffort',
       timezone: 'Timezone',
@@ -55,6 +57,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
       customAgentId: 'string',
       enableThinking: 'string',
       language: 'string',
+      modelId: 'string',
       regionId: 'string',
       thinkEffort: 'string',
       timezone: 'string',
@@ -79,10 +82,14 @@ export class ChatMessagesRequest extends $dara.Model {
    * fea7bdca-e848-44dd-b1ae-852472b8****
    */
   conversationId?: string;
+  /**
+   * @remarks
+   * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+   */
   eventMode?: string;
   /**
    * @remarks
-   * The task inputs.
+   * The task input.
    */
   inputs?: ChatMessagesRequestInputs;
   /**
@@ -100,7 +107,7 @@ export class ChatMessagesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The disk usage of instance rm-bp14as9914vd3****. Is capacity expansion required?
+   * Instance rm-bp14as9914vd3**** disk usage, whether expansion is needed
    */
   query?: string;
   static names(): { [key: string]: string } {

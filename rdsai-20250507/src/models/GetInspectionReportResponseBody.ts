@@ -45,12 +45,12 @@ export class GetInspectionReportResponseBodyDataDataItemsData extends $dara.Mode
 export class GetInspectionReportResponseBodyDataDataItems extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The request result.
    */
   data?: GetInspectionReportResponseBodyDataDataItemsData[];
   /**
    * @remarks
-   * The level of the alert.
+   * The alert level.
    * 
    * @example
    * Normal
@@ -58,15 +58,15 @@ export class GetInspectionReportResponseBodyDataDataItems extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The response message.
+   * The result message.
    * 
    * @example
-   * 实例运行状态正常
+   * Instance running status is normal
    */
   message?: string;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
    * instance_runningstatus
@@ -113,7 +113,7 @@ export class GetInspectionReportResponseBodyDataData extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The items in the result.
+   * The attached resource names.
    */
   items?: GetInspectionReportResponseBodyDataDataItems[];
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class GetInspectionReportResponseBodyDataData extends $dara.Model {
 export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of errors in the report.
+   * The number of error items.
    * 
    * @example
    * 2
@@ -153,7 +153,7 @@ export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model
   error?: number;
   /**
    * @remarks
-   * The number of failures in the report.
+   * The number of failed items.
    * 
    * @example
    * 3
@@ -161,7 +161,7 @@ export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model
   failed?: number;
   /**
    * @remarks
-   * The number of normal records in the report.
+   * The number of normal items.
    * 
    * @example
    * 10
@@ -169,7 +169,7 @@ export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model
   normal?: number;
   /**
    * @remarks
-   * The number of warnings in the report.
+   * The number of warning items.
    * 
    * @example
    * 1
@@ -205,12 +205,12 @@ export class GetInspectionReportResponseBodyDataLevelSummary extends $dara.Model
 export class GetInspectionReportResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned results.
+   * The request result.
    */
   data?: GetInspectionReportResponseBodyDataData[];
   /**
    * @remarks
-   * The end time of the inspection. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The inspection end time in the format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2026-01-31T02:05:04Z
@@ -226,10 +226,10 @@ export class GetInspectionReportResponseBodyData extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
-   * 测试实例
+   * Test instance
    */
   instanceDesc?: string;
   /**
@@ -242,23 +242,22 @@ export class GetInspectionReportResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The hierarchical summary of the report.
+   * The level summary.
    */
   levelSummary?: GetInspectionReportResponseBodyDataLevelSummary;
   /**
    * @remarks
-   * The report text in the markdown format.
-   * 
-   * *   If the InstanceId parameter is not specified, all content of the inspection report is returned. However, the MarkdownText field is empty.
-   * *   If the InstanceId parameter is specified, the content related to the instance is returned in the MarkdownText field.
+   * The Markdown text.
+   * * If the InstanceId parameter is not specified: the reports for all instances in the inspection report are returned, but the MarkdownText field is empty ("").
+   * * If the InstanceId parameter is specified: the report for the specified instance is returned, and the MarkdownText field contains the specific content.
    * 
    * @example
-   * # RDS实例巡检报告\\n\\n**实例ID**: `rm-2zep6e5u6l2yu****`\\n\\n**引擎类型**: MySQL\\n\\n**地域**: cn-beijing\\n\\n**时间范围(UTC)**: 2026-02-04T03:31:00Z ~ 2026-02-05T03:31:00Z\\n\\n> 本次巡检共包含 **60** 项检查，其中 1项警告、57项正常、2项数据获取失败。……
+   * # RDS Instance Inspection Report\\n\\n**Instance ID**: `rm-2zep6e5u6l2yu****`\\n\\n**Engine Type**: MySQL\\n\\n**Region**: cn-beijing\\n\\n**Time Range (UTC)**: 2026-02-04T03:31:00Z ~ 2026-02-05T03:31:00Z\\n\\n> This inspection includes **60** checks, of which 1 warning, 57 normal, and 2 failed to retrieve data.……
    */
   markdownText?: string;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region information.
    * 
    * @example
    * cn-beijing
@@ -266,7 +265,7 @@ export class GetInspectionReportResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The start time of the inspection task. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The inspection start time in the format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-11-06T16:00:00Z
@@ -318,15 +317,15 @@ export class GetInspectionReportResponseBodyData extends $dara.Model {
 export class GetInspectionReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the result.
+   * The result details.
    */
   data?: GetInspectionReportResponseBodyData[];
   /**
    * @remarks
-   * The report text in the markdown format.
+   * The Markdown text.
    * 
    * @example
-   * # RDS批量巡检汇总报告\\n\\n> 本次批量巡检共检查 **1** 个实例；发现 **1** 个实例存在警告（共 1 项警告）……
+   * # RDS Batch Inspection Summary Report\\n\\n> This batch inspection checked **1** instance; found **1** instance with warnings (1 warning item in total)……
    */
   markdownText?: string;
   /**
@@ -345,12 +344,16 @@ export class GetInspectionReportResponseBody extends $dara.Model {
    * 9d246af2-a0cd-4f69-857d-3785048f****
    */
   taskId?: string;
+  templateId?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       markdownText: 'MarkdownText',
       requestId: 'RequestId',
       taskId: 'TaskId',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
     };
   }
 
@@ -360,6 +363,8 @@ export class GetInspectionReportResponseBody extends $dara.Model {
       markdownText: 'string',
       requestId: 'string',
       taskId: 'string',
+      templateId: 'string',
+      templateName: 'string',
     };
   }
 

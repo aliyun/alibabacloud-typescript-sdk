@@ -8,30 +8,21 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * The description of the scheduled inspection task.
    * 
    * @example
-   * 定时RDS实例巡检任务
+   * Scheduled RDS instance inspection task
    */
   description?: string;
   /**
    * @remarks
-   * The inspection frequency. Use commas (,) to separate multiple values. The default is DAILY. Valid values:
-   * 
-   * - DAILY: Every day
-   * 
-   * - Monday: Monday
-   * 
-   * - Tuesday: Tuesday
-   * 
-   * - Wednesday: Wednesday
-   * 
-   * - Thursday: Thursday
-   * 
-   * - Friday: Friday
-   * 
-   * - Saturday: Saturday
-   * 
-   * - Sunday: Sunday
-   * 
-   * ### Note: DAILY overrides weekly values. For example, if you enter DAILY,Monday, the system uses DAILY as the inspection frequency.
+   * The inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+   * * DAILY: every day.
+   * * Monday: Monday.
+   * * Tuesday: Tuesday.
+   * * Wednesday: Wednesday.
+   * * Thursday: Thursday.
+   * * Friday: Friday.
+   * * Saturday: Saturday.
+   * * Sunday: Sunday.
+   * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
    * 
    * @example
    * Monday
@@ -40,7 +31,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The IDs of the instances for the task. Use commas (,) to separate multiple IDs.
+   * The list of associated instance IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * rm-2ze6mk259v322****,rm-2zef3b65430j0****
@@ -48,48 +39,37 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The name of the scheduled inspection task. The maximum length is 64 characters.
+   * The name of the scheduled inspection task. The name can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * RDS巡检
+   * RDS Inspection
    */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   */
   regionId?: string;
   /**
    * @remarks
-   * The report language. The default value is zh-CN. Supported values: zh-CN, zh-TW, ja-JP, and en-US.
+   * The report language. Default value: zh-CN. Valid values: zh-CN, zh-TW, ja-JP, and en-US.
    * 
    * @example
    * zh-CN
    */
   reportLanguage?: string;
-  /**
-   * @remarks
-   * The ID of the region where the report is stored.
-   */
   reportRegionId?: string;
-  /**
-   * @remarks
-   * The type of the report.
-   */
   reportType?: string;
   /**
    * @remarks
-   * The execution time for the scheduled inspection task. Specify the time in the HH:mm:ssZ format (UTC time). The default is 02:00:00Z.
+   * The time to run the inspection task. Format: HH:mm:ssZ (UTC). Default value: 02:00:00Z.
    * 
    * @example
    * 02:00:00Z
    */
   startTime?: string;
+  templateId?: string;
   /**
    * @remarks
-   * The time range of data to inspect, in hours. Valid values are from 1 to 168 (7 days). The default is 24.
+   * The time range for the inspection. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
    * 
    * @example
    * 24
@@ -107,6 +87,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       reportRegionId: 'ReportRegionId',
       reportType: 'ReportType',
       startTime: 'StartTime',
+      templateId: 'TemplateId',
       timeRange: 'TimeRange',
     };
   }
@@ -123,6 +104,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       reportRegionId: 'string',
       reportType: 'string',
       startTime: 'string',
+      templateId: 'string',
       timeRange: 'string',
     };
   }

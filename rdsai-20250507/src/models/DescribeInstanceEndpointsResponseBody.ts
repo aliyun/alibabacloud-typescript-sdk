@@ -64,6 +64,13 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
    * 8.152.XXX.XXX:8000
    */
   connectionString?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * xxx.apsaradb.com
+   */
   domain?: string;
   /**
    * @remarks
@@ -122,15 +129,22 @@ export class DescribeInstanceEndpointsResponseBodyInstanceEndpoints extends $dar
 }
 
 export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks
-   * The endpoints of the database instance.
+   * The list of endpoint information of the database instance.
    */
   DBInstanceEndpoints?: DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints[];
   /**
    * @remarks
-   * The endpoints of the AI application instance.
+   * The list of endpoint information of the AI application instance.
    */
   instanceEndpoints?: DescribeInstanceEndpointsResponseBodyInstanceEndpoints[];
   /**

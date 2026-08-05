@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAppInstanceRequestComponents extends $dara.Model {
   /**
+   * @remarks
+   * The module status.
+   * 
    * @example
    * enable
    */
   status?: string;
   /**
+   * @remarks
+   * The module type.
+   * 
    * @example
    * supabase
    */
@@ -39,19 +45,32 @@ export class ModifyAppInstanceRequestComponents extends $dara.Model {
 export class ModifyAppInstanceRequest extends $dara.Model {
   branchName?: string;
   /**
+   * @remarks
+   * The idempotency parameter.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The list of modules.
+   */
   components?: ModifyAppInstanceRequestComponents[];
   DBInstanceName?: string;
   instanceClass?: string;
   /**
+   * @remarks
+   * The instance ID of the AI application.
+   * 
    * @example
    * ra-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

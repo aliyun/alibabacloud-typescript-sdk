@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The time the inspection task was created.
+   * The creation time.
    * 
    * @example
    * 2026-01-22T08:20:31Z
@@ -13,23 +13,19 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The end time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
+   * The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-01-23T08:20:31Z
    */
   endTime?: string;
   inspectionItems?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   */
   regionId?: string;
   reportLanguage?: string;
   reportType?: string;
   /**
    * @remarks
-   * The start time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
+   * The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-01-23T08:00:31Z
@@ -37,7 +33,7 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the inspection task.
+   * The status.
    * 
    * @example
    * success
@@ -45,12 +41,14 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the inspection task.
+   * The inspection report ID.
    * 
    * @example
    * 0f19210c-7bb8-4e38-a099-f94152df****
    */
   taskId?: string;
+  templateId?: string;
+  templateName?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'CreatedTime',
@@ -62,6 +60,8 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
       startTime: 'StartTime',
       status: 'Status',
       taskId: 'TaskId',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
     };
   }
 
@@ -76,6 +76,8 @@ export class GetStandAloneReportsResponseBodyReports extends $dara.Model {
       startTime: 'string',
       status: 'string',
       taskId: 'string',
+      templateId: 'string',
+      templateName: 'string',
     };
   }
 
@@ -94,12 +96,12 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 获取巡检报告列表成功
+   * Successfully retrieved the inspection report list
    */
   message?: string;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -107,7 +109,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 20 and the maximum value is 100.
+   * The number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10
@@ -115,7 +117,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of inspection reports.
+   * The list of reports.
    */
   reports?: GetStandAloneReportsResponseBodyReports[];
   /**
@@ -128,7 +130,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
@@ -136,7 +138,7 @@ export class GetStandAloneReportsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries across all pages.
+   * The total number of records.
    * 
    * @example
    * 20

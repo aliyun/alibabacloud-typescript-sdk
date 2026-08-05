@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSandboxTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the AI application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DeleteSandboxTemplateRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
+   * The sandbox template ID.
+   * 
    * This parameter is required.
    * 
    * @example

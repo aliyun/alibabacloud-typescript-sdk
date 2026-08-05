@@ -5,19 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceShrinkRequest extends $dara.Model {
   branchName?: string;
   /**
+   * @remarks
+   * The idempotency parameter.
+   * 
    * @example
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The list of modules.
+   */
   componentsShrink?: string;
   DBInstanceName?: string;
   instanceClass?: string;
   /**
+   * @remarks
+   * The instance ID of the AI application.
+   * 
    * @example
    * ra-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

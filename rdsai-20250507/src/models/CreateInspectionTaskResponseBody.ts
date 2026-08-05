@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInspectionTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the inspection task.
+   * The inspection task ID.
    * 
    * @example
    * 9adf8567-b619-4d37-8ff2-01d38a76****
@@ -35,7 +35,7 @@ export class CreateInspectionTaskResponseBodyData extends $dara.Model {
 export class CreateInspectionTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The result.
    */
   data?: CreateInspectionTaskResponseBodyData;
   /**
@@ -43,7 +43,7 @@ export class CreateInspectionTaskResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 任务创建成功
+   * Task created successfully
    */
   message?: string;
   /**
@@ -56,7 +56,7 @@ export class CreateInspectionTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true

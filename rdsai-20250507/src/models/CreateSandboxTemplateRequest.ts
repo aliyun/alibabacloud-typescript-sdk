@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSandboxTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
+   * 
    * @example
    * 1
    */
   defaultCpu?: string;
   /**
+   * @remarks
+   * The memory size for sandboxes created by using this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+   * 
    * @example
    * 1Gi
    */
   defaultMemory?: string;
   /**
+   * @remarks
+   * The description of the sandbox template. The description must be unique within the VPC.
+   * 
    * @example
    * code-interpreter
    */
   description?: string;
   /**
    * @remarks
+   * The instance ID of the AI application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,17 +38,25 @@ export class CreateSandboxTemplateRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The number of prewarmed sandboxes. Valid values: 1 to 1000.
+   * 
    * @example
    * 1
    */
   replicas?: number;
   /**
    * @remarks
+   * The name of the sandbox template.
+   * 
    * This parameter is required.
    * 
    * @example

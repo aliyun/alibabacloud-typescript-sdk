@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   /**
    * @remarks
-   * The time when the report was created, in YYYY-MM-DDTHH:mm:ssZ format.
+   * The creation time.
    * 
    * @example
    * 2025-01-01T22:59:59Z
@@ -13,23 +13,19 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The inspection end time, in YYYY-MM-DDTHH:mm:ssZ format.
+   * The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-01-01T23:59:59Z
    */
   endTime?: string;
   inspectionItems?: string;
-  /**
-   * @remarks
-   * The region ID.
-   */
   regionId?: string;
   reportLanguage?: string;
   reportType?: string;
   /**
    * @remarks
-   * The inspection start time, in YYYY-MM-DDTHH:mm:ssZ format.
+   * The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-01-01T00:00:00Z
@@ -37,7 +33,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the report.
+   * The status.
    * 
    * @example
    * success
@@ -45,7 +41,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The inspection report ID.
    * 
    * @example
    * 65f0053b-f933-49f5-bf65-4e4593e1****
@@ -94,12 +90,12 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 获取巡检报告列表成功
+   * Successfully retrieved the inspection report list
    */
   message?: string;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -107,7 +103,7 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -115,7 +111,7 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of inspection reports.
+   * The report details.
    */
   reports?: GetScheduledReportsResponseBodyReports[];
   /**
@@ -128,7 +124,7 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
@@ -136,7 +132,7 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 20

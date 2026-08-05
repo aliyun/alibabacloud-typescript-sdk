@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Provides details about the request outcome, such as a success message or an error description.
+   * The response message.
    * 
    * @example
-   * 创建定时巡检任务成功
+   * Scheduled inspection task created successfully
    */
   message?: string;
   /**
@@ -21,7 +21,7 @@ export class CreateScheduledTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the scheduled inspection task.
+   * The ID of the scheduled inspection configuration.
    * 
    * @example
    * 847268a4-196f-416b-aa12-bfe0c115****
@@ -29,7 +29,7 @@ export class CreateScheduledTaskResponseBody extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. A value of true indicates success.
+   * The request result.
    * 
    * @example
    * true

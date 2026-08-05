@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   /**
    * @remarks
-   * The time the task was created, in UTC.
+   * The creation time.
    * 
    * @example
    * 2026-02-04T06:51:24Z
@@ -13,33 +13,24 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the inspection.
+   * The inspection description.
    * 
    * @example
-   * 每天凌晨2点自动巡检生产环境RDS实例
+   * Automatically inspect production ApsaraDB RDS instances at 2:00 AM every day
    */
   description?: string;
   /**
    * @remarks
-   * The inspection frequency. Multiple values are separated by commas. The default is DAILY. Valid values:
-   * 
-   * - DAILY: Every day
-   * 
-   * - Monday: Monday
-   * 
-   * - Tuesday: Tuesday
-   * 
-   * - Wednesday: Wednesday
-   * 
-   * - Thursday: Thursday
-   * 
-   * - Friday: Friday
-   * 
-   * - Saturday: Saturday
-   * 
-   * - Sunday: Sunday
-   * 
-   * ### Note: The DAILY setting overrides any specified days of the week. For example, if you specify DAILY,Monday, the inspection runs daily.
+   * The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+   * * DAILY: every day
+   * * Monday: Monday
+   * * Tuesday: Tuesday
+   * * Wednesday: Wednesday
+   * * Thursday: Thursday
+   * * Friday: Friday
+   * * Saturday: Saturday
+   * * Sunday: Sunday
+   * ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
    * 
    * @example
    * Monday
@@ -48,7 +39,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The number of instances in the task.
+   * The number of task instances.
    * 
    * @example
    * 1
@@ -56,10 +47,10 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
-   * 巡检测试
+   * InspectionTest
    */
   name?: string;
   regionId?: string;
@@ -75,18 +66,20 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The task start time, in UTC.
+   * The actual start time of the task.
    * 
    * @example
    * 18:00:00Z
    */
   taskStartTime?: string;
+  templateId?: string;
+  templateName?: string;
   /**
    * @remarks
-   * The inspection time range in hours. Default: 24. Valid values: 1 to 168.
+   * The inspection time range. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
    * 
    * @example
-   * 24小时
+   * 24 hours
    */
   timeRange?: string;
   static names(): { [key: string]: string } {
@@ -102,6 +95,8 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       reportType: 'ReportType',
       scheduledId: 'ScheduledId',
       taskStartTime: 'TaskStartTime',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
       timeRange: 'TimeRange',
     };
   }
@@ -119,6 +114,8 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       reportType: 'string',
       scheduledId: 'string',
       taskStartTime: 'string',
+      templateId: 'string',
+      templateName: 'string',
       timeRange: 'string',
     };
   }
@@ -138,7 +135,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * 任务信息查询成功
+   * Task information queried successfully
    */
   message?: string;
   /**
@@ -167,12 +164,12 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of scheduled inspection tasks.
+   * The list of scheduled inspection tasks.
    */
   schedules?: ListScheduledTasksResponseBodySchedules[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true
@@ -180,7 +177,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 20

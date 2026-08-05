@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAppInstanceResponseBodyComponents extends $dara.Model {
   /**
+   * @remarks
+   * The module status.
+   * 
    * @example
    * enable
    */
   status?: string;
   /**
+   * @remarks
+   * The module type.
+   * 
    * @example
    * supabase
    */
@@ -38,13 +44,23 @@ export class ModifyAppInstanceResponseBodyComponents extends $dara.Model {
 
 export class ModifyAppInstanceResponseBody extends $dara.Model {
   branchName?: string;
+  /**
+   * @remarks
+   * The list of modules.
+   */
   components?: ModifyAppInstanceResponseBodyComponents[];
   /**
+   * @remarks
+   * The instance ID of the AI application.
+   * 
    * @example
    * ra-8moov5lxba****
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
    */

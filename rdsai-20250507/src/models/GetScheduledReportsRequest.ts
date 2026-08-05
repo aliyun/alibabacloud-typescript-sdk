@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range. The time must be in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no end time filter is applied.
    * 
    * @example
    * 2026-01-25T02:02:00Z
@@ -13,7 +13,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The default value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 20, and the maximum value is 100.
+   * The number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the inspection task.
+   * The inspection task ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The start time of the query range. The time must be in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no start time filter is applied.
    * 
    * @example
    * 2026-01-25T01:02:00Z

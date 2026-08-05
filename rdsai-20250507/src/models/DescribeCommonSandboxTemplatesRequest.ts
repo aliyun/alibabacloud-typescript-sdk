@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCommonSandboxTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
    * @example
    * None
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that indicates the position from which the query starts. Set this parameter to empty to start from the beginning.
+   * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
