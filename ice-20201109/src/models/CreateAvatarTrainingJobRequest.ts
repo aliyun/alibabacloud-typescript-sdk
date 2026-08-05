@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAvatarTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * - The description of the digital human.
-   * 
-   * - The description can be up to 1,000 characters in length.
+   * The description of the digital human. The description can be up to 1000 characters in length.
    * 
    * @example
    * This is a digital human used for a specific scenario.
@@ -15,9 +13,7 @@ export class CreateAvatarTrainingJobRequest extends $dara.Model {
   avatarDescription?: string;
   /**
    * @remarks
-   * - The name of the digital human.
-   * 
-   * - The name can be up to seven characters in length.
+   * The name of the digital human. The name can be up to 7 characters in length.
    * 
    * This parameter is required.
    * 
@@ -35,9 +31,9 @@ export class CreateAvatarTrainingJobRequest extends $dara.Model {
   avatarType?: string;
   /**
    * @remarks
-   * - The media asset ID of the portrait image.
-   * 
-   * - The value must be 32 characters in length.
+   * - The media asset ID of the avatar image. The ID is 32 characters in length.
+   * - If you subsequently call SubmitAvatarTrainingJob to submit the training, this field is required.
+   * - The image must have equal width and height.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -45,12 +41,9 @@ export class CreateAvatarTrainingJobRequest extends $dara.Model {
   portrait?: string;
   /**
    * @remarks
-   * - The thumbnail URL.
-   * 
-   * - After the digital human is trained, the thumbnail is uploaded to this URL.
-   * 
-   * - The URL must be a valid public Object Storage Service (OSS) URL.
-   * 
+   * The thumbnail URL.
+   * - After training succeeds, the thumbnail is uploaded to this address.
+   * - The URL must be a valid public OSS URL under the current user.
    * - The URL can be up to 512 characters in length.
    * 
    * @example
@@ -59,11 +52,8 @@ export class CreateAvatarTrainingJobRequest extends $dara.Model {
   thumbnail?: string;
   /**
    * @remarks
-   * - Specifies whether the training video supports alpha channels.
-   * 
-   *   \\*\\*
-   * 
-   *   **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+   * Specifies whether the training video supports a transparent channel.
+   * >Notice: Make sure that this setting is consistent with the submitted training video. Otherwise, the synthesized digital human may be abnormal.</notice>
    * 
    * @example
    * True
@@ -71,15 +61,12 @@ export class CreateAvatarTrainingJobRequest extends $dara.Model {
   transparent?: boolean;
   /**
    * @remarks
-   * - The ID of the video used for training.
-   * 
-   * - The value must be 32 characters in length.
-   * 
-   * - Supported formats: MP4, MOV, and WebM.
-   * 
-   * - The duration of the video must be 5 to 15 minutes.
-   * 
-   * - The resolution of the video must be 1920×1080 or 1080×1920.
+   * The media asset ID of the training video.
+   * - The ID is 32 characters in length.
+   * - Supported formats: mp4, mov, and webm.
+   * - The duration of the material must be between 5 minutes and 15 minutes.
+   * - The resolution of the material must be 1920 × 1080 or 1080 × 1920.
+   * - If you subsequently call SubmitAvatarTrainingJob to submit the training, this field is required.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****

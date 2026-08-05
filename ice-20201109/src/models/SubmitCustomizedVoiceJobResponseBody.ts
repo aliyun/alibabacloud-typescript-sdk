@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCustomizedVoiceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for the voice cloning job.
+   * The voice cloning task ID.
    * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
@@ -13,7 +13,7 @@ export class SubmitCustomizedVoiceJobResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The unique identifier for the voice.
+   * The voice ID.
    * 
    * @example
    * xiaozhuan
@@ -50,7 +50,7 @@ export class SubmitCustomizedVoiceJobResponseBody extends $dara.Model {
   data?: SubmitCustomizedVoiceJobResponseBodyData;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -58,11 +58,9 @@ export class SubmitCustomizedVoiceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.                  
+   * -  false: The call failed.
    * 
    * @example
    * true

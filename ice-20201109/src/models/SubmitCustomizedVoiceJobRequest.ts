@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The OSS URL where the demo audio will be saved.
-   * 
-   * - If specified, the service generates a demo audio file at the provided OSS URL after training completes.
-   * 
-   * - >Notice: 
-   * 
-   *   The URL must be a valid public address for an OSS object in your account.
+   * The audio output address of the sample.  
+   * - If you specify this parameter, a sample audio file is generated at the specified OSS address after training succeeds.  
+   * - If you do not specify this parameter, no sample audio is generated.
+   * >Notice: The address must be a valid public OSS address under your account.
    * 
    * @example
    * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
@@ -19,7 +16,7 @@ export class SubmitCustomizedVoiceJobRequest extends $dara.Model {
   demoAudioMediaURL?: string;
   /**
    * @remarks
-   * The unique identifier for the voice.
+   * The voice ID.
    * 
    * This parameter is required.
    * 

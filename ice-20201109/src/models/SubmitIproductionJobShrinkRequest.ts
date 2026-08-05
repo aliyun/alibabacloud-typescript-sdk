@@ -5,35 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitIProductionJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the algorithm function. Valid values:
+   * The name of the algorithm function to use. Valid values:
    * 
-   * - **Cover**: Generates a smart cover.
-   * 
-   * - **VideoClip**: Creates a video summary.
-   * 
-   * - **VideoDelogo**: Removes logos from a video.
-   * 
-   * - **VideoDetext**: Removes text from a video.
-   * 
-   * - **CaptionExtraction**: Extracts captions from a video.
-   * 
-   * - **VideoGreenScreenMatting**: Performs green screen keying for a video.
-   * 
-   * - **FaceBeauty**: Applies beauty filters to faces in a video.
-   * 
-   * - **VideoH2V**: Converts a horizontal video to a vertical video.
-   * 
-   * - **MusicSegmentDetect**: Detects chorus segments in music.
-   * 
-   * - **AudioBeatDetection**: Detects the beat of an audio track.
-   * 
-   * - **AudioQualityAssessment**: Assesses audio quality.
-   * 
-   * - **SpeechDenoise**: Reduces noise in speech audio.
-   * 
-   * - **AudioMixing**: Mixes audio tracks.
-   * 
-   * - **MusicDemix**: Separates vocals from accompaniment in music.
+   * - **Cover**: intelligent cover
+   * - **VideoClip**: video synopsis
+   * - **VideoDelogo**: video logo removal
+   * - **VideoDetext**: video subtitle removal
+   * - **CaptionExtraction**: caption extraction
+   * - **VideoGreenScreenMatting**: image matting
+   * - **FaceBeauty**: video face beautification
+   * - **VideoH2V**: intelligent landscape-to-portrait
+   * - **MusicSegmentDetect**: chorus detection
+   * - **AudioBeatDetection**: beat detection
+   * - **AudioQualityAssessment**: audio quality assessment
+   * - **SpeechDenoise**: speech denoising
+   * - **AudioMixing**: audio mixing
+   * - **MusicDemix**: vocal and accompaniment separation
    * 
    * This parameter is required.
    * 
@@ -43,16 +30,16 @@ export class SubmitIProductionJobShrinkRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The input media asset. You can specify an OSS file or a media asset ID.
+   * The input media. Object Storage Service (OSS) paths and media asset IDs are supported.
    * 
-   * The requirements for input files vary by algorithm function. For more information, see the supplementary instructions.
+   * Different algorithm functions have different input file requirements. For more information, see the supplementary description below.
    * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The algorithm job parameters, specified as a JSON-formatted string. The content of the JSON object varies by algorithm function. For more information, see the supplementary instructions.
+   * The algorithm job parameters. This is a JSON object. The parameters vary depending on the algorithm. For more information, see the supplementary description.
    * 
    * @example
    * {"Model":"gif"}
@@ -60,18 +47,16 @@ export class SubmitIProductionJobShrinkRequest extends $dara.Model {
   jobParams?: string;
   /**
    * @remarks
-   * The ID of the algorithm model. If you do not specify this parameter, the system uses the default model for the selected function. We recommend leaving this parameter empty unless you need to use a specific alternative model.
+   * The algorithm model ID. If this parameter is left empty, the default model for the corresponding function is used. In most cases, leave this parameter empty to use the default model.
    * 
-   * The following function offers an alternative model:
-   * 
-   * - `VideoDetext`
-   * 
-   *   - Set `ModelId` to `algo-video-detext-new` to use an advanced subtitle removal algorithm. This model provides higher quality results but is slower and more expensive than the default model.
+   * The following algorithm functions have non-default models available:
+   * * VideoDetext
+   *   * ModelId = algo-video-detext-new: a subtitle removal algorithm with better results but slower speed and higher cost than the default algorithm.
    */
   modelId?: string;
   /**
    * @remarks
-   * The name of the job, which can be up to 100 characters long.
+   * The job name. The name can be up to 100 characters in length.
    * 
    * @example
    * Test task
@@ -79,21 +64,21 @@ export class SubmitIProductionJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output destination. You can specify an OSS file path or a media asset ID.
+   * The output media. OSS paths and media asset IDs are supported.
    * 
-   * The output files vary by algorithm function. For more information, see the supplementary instructions.
+   * Different algorithm functions produce different output files. For more information, see the supplementary description below.
    * 
    * This parameter is required.
    */
   outputShrink?: string;
   /**
    * @remarks
-   * The configuration for job scheduling.
+   * The job scheduling configuration.
    */
   scheduleConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -101,7 +86,7 @@ export class SubmitIProductionJobShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * Custom user data. The system passes this data through and returns it as-is in the callback or response. The length cannot exceed 256 characters.
+   * The custom user data, which is returned as-is when you retrieve the result. The value can be up to 256 characters in length.
    * 
    * @example
    * {"test":1}

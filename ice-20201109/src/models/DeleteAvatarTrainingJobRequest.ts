@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAvatarTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human training task.
    * 
    * This parameter is required.
    * 

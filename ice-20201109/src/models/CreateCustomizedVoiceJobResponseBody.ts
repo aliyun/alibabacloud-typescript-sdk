@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomizedVoiceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The voice cloning job ID.
+   * The voice cloning task ID.
    * 
    * @example
    * ****29faef8144638ba42eb8e037****
@@ -58,11 +58,10 @@ export class CreateCustomizedVoiceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

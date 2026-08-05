@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeAIAppJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

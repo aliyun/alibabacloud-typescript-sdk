@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SendLiveSnapshotJobCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation command.
+   * The operation instruction. Valid values:
    * 
-   * Valid values:
-   * 
-   * - stop
-   * 
-   * - restart
-   * 
-   * - start
+   * - start: starts the task.
+   * - stop: stops the task.
+   * - restart: restarts the task.
    * 
    * This parameter is required.
    * 
@@ -23,7 +19,7 @@ export class SendLiveSnapshotJobCommandRequest extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The ID of the snapshot job.
+   * The ID of the snapshot task.
    * 
    * This parameter is required.
    * 

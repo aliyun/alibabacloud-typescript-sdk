@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetDefaultStorageLocationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * ******5A-CAAC-4850-A3AF-B74606******
@@ -13,7 +13,9 @@ export class SetDefaultStorageLocationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values: true: succeeded. false: failed.
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

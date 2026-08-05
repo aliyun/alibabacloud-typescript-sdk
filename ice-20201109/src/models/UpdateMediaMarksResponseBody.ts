@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMediaMarksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 53afdf003a******6a16b5feac6402
@@ -13,7 +13,7 @@ export class UpdateMediaMarksResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The IDs of the successfully modified marks.
+   * The IDs of the marks that were successfully updated.
    * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60

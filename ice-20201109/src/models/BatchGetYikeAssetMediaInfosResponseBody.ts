@@ -21,7 +21,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   auditStatus?: string;
   /**
    * @remarks
-   * The ID of the creation job.
+   * The ID of the creation task.
    * 
    * @example
    * ID
@@ -29,7 +29,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   creationJobId?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * @example
    * pd_0617169475
@@ -37,7 +37,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   folderId?: string;
   /**
    * @remarks
-   * Indicates whether the media asset is a favorite.
+   * Indicates whether the media asset is marked as a favorite.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   isLogicalDeleted?: string;
   /**
    * @remarks
-   * The sub-type of the media asset.
+   * The media asset subtype.
    * 
    * @example
    * Image
@@ -61,7 +61,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   mediaAssetSubType?: string;
   /**
    * @remarks
-   * The type of the media asset.
+   * The media asset type.
    * 
    * @example
    * HistoricalUpload
@@ -69,7 +69,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   mediaAssetType?: string;
   /**
    * @remarks
-   * The ID of the production.
+   * The project ID.
    * 
    * @example
    * pd_0617169475
@@ -153,7 +153,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   bitrate?: string;
   /**
    * @remarks
-   * The duration of the file.
+   * The duration.
    * 
    * @example
    * 200
@@ -161,7 +161,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   duration?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * example.mp4
@@ -169,7 +169,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   fileName?: string;
   /**
    * @remarks
-   * The size of the file, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 191
@@ -177,7 +177,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   fileSize?: string;
   /**
    * @remarks
-   * The status of the file.
+   * The file status.
    * 
    * @example
    * Normal
@@ -185,7 +185,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   fileStatus?: string;
   /**
    * @remarks
-   * The type of the file.
+   * The file type.
    * 
    * @example
    * source_file
@@ -201,7 +201,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   fileUrl?: string;
   /**
    * @remarks
-   * The container format of the file.
+   * The container format.
    * 
    * @example
    * jpg
@@ -217,7 +217,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
   height?: string;
   /**
    * @remarks
-   * The region where the file is stored.
+   * The storage region of the file.
    * 
    * @example
    * cn-shanghai
@@ -275,7 +275,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
 export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic information about the file, including the duration and size.
+   * The basic file information, including duration and size.
    */
   fileBasicInfo?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -313,7 +313,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   biz?: string;
   /**
    * @remarks
-   * The business type.
+   * The business type of the media asset.
    * 
    * @example
    * general
@@ -321,7 +321,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   businessType?: string;
   /**
    * @remarks
-   * The category of the media asset.
+   * The category.
    * 
    * @example
    * category
@@ -329,7 +329,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   category?: string;
   /**
    * @remarks
-   * The URL of the cover image.
+   * The cover URL.
    * 
    * @example
    * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/01e1271d-ff4f-4689-9c20-e1df81486859_open_live_cover.jpg
@@ -353,7 +353,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   deletedTime?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * The content description.
    * 
    * @example
    * sample_description
@@ -361,7 +361,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   description?: string;
   /**
    * @remarks
-   * The source URL of the media asset.
+   * The address of the media asset to be registered in the corresponding system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -369,7 +369,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   inputURL?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * *****64623a94eca8516569c8f*****
@@ -377,7 +377,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   mediaId?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * The tags.
    * 
    * @example
    * tag1，tag2
@@ -385,7 +385,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset.
+   * The media type of the media asset.
    * 
    * @example
    * video
@@ -409,7 +409,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   snapshots?: string;
   /**
    * @remarks
-   * The source of the media asset.
+   * The source.
    * 
    * @example
    * oss
@@ -425,7 +425,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   spriteImages?: string;
   /**
    * @remarks
-   * The status of the media asset.
+   * The resource status.
    * 
    * @example
    * Normal
@@ -433,7 +433,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   status?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * The title.
    * 
    * @example
    * title
@@ -449,7 +449,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   transcodeStatus?: string;
   /**
    * @remarks
-   * The custom user data.
+   * The user data.
    * 
    * @example
    * UserData
@@ -515,12 +515,12 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
 export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * The business data.
+   * The business information.
    */
   bizData?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData;
   /**
    * @remarks
-   * The list of file information.
+   * The file list information.
    */
   fileInfoList?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoList[];
   /**
@@ -530,7 +530,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfos extends $dara.Mod
   mediaBasicInfo?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
@@ -575,12 +575,12 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfos extends $dara.Mod
 export class BatchGetYikeAssetMediaInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of IDs of media assets that failed to be obtained.
+   * The list of IDs that failed to be retrieved.
    */
   ignoredList?: string[];
   /**
    * @remarks
-   * The list of matched media assets.
+   * The collection of media assets that meet the requirements.
    */
   mediaInfos?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfos[];
   /**

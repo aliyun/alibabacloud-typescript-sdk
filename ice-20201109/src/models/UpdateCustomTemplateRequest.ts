@@ -13,7 +13,7 @@ export class UpdateCustomTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The [template parameters](https://help.aliyun.com/document_detail/448291.html).
+   * The [template parameter](https://help.aliyun.com/document_detail/448291.html).
    * 
    * @example
    * {"param": "sample"}

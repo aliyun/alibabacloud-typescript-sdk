@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelIProductionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * Idempotency parameter
+   * The idempotency token.
    * 
    * @example
    * ****12e8864746a0a398****

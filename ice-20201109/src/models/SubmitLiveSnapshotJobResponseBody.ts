@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveSnapshotJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287666****

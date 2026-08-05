@@ -13,7 +13,7 @@ export class GetYikeAIAppJobResponseBodyResultAudioResult extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The OSS URL of the output file.
+   * The downloadable OSS URL.
    * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp3
@@ -53,7 +53,7 @@ export class GetYikeAIAppJobResponseBodyResultImageResult extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The OSS URL of the output file.
+   * The downloadable OSS URL.
    * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.png
@@ -93,7 +93,7 @@ export class GetYikeAIAppJobResponseBodyResultVideoResult extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The OSS URL of the output file.
+   * The downloadable OSS URL.
    * 
    * @example
    * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
@@ -125,17 +125,17 @@ export class GetYikeAIAppJobResponseBodyResultVideoResult extends $dara.Model {
 export class GetYikeAIAppJobResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The audio results.
+   * The audio task result.
    */
   audioResult?: GetYikeAIAppJobResponseBodyResultAudioResult[];
   /**
    * @remarks
-   * The image results.
+   * The image task result.
    */
   imageResult?: GetYikeAIAppJobResponseBodyResultImageResult[];
   /**
    * @remarks
-   * The video results.
+   * The video task result.
    */
   videoResult?: GetYikeAIAppJobResponseBodyResultVideoResult[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class GetYikeAIAppJobResponseBodyResult extends $dara.Model {
 export class GetYikeAIAppJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Yike AI App ID.
+   * The AI application ID.
    * 
    * @example
    * app-****
@@ -183,7 +183,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The input parameters for the Yike AI App, provided as a JSON string.
+   * The input parameters for running the AI application. The value is a string obtained after JSON serialize.
    * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
@@ -191,7 +191,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   appParams?: string;
   /**
    * @remarks
-   * The UTC time when the job finished, in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:18.809+08:00
@@ -199,7 +199,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   executionFinishTime?: string;
   /**
    * @remarks
-   * The UTC time when the job started, in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -215,7 +215,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -239,22 +239,17 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job results.
+   * The task execution result.
    */
   result?: GetYikeAIAppJobResponseBodyResult;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - `Created`: The job is created.
-   * 
-   * - `Queuing`: The job is queued for processing.
-   * 
-   * - `Executing`: The job is running.
-   * 
-   * - `Finished`: The job completed successfully.
-   * 
-   * - `Failed`: The job failed.
+   * The task status. Valid values:
+   * - Created: The task is created.
+   * - Queuing: The task is queuing.
+   * - Executing: The task is being executed.
+   * - Finished: The task is completed.
+   * - Failed: The task failed.
    * 
    * @example
    * Created

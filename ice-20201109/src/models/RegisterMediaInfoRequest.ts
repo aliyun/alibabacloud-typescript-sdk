@@ -8,13 +8,10 @@ export class RegisterMediaInfoRequest extends $dara.Model {
    * The business type of the media asset. Valid values:
    * 
    * - subtitles
-   * 
+   * - font
    * - watermark
-   * 
    * - opening
-   * 
    * - ending
-   * 
    * - general
    * 
    * @example
@@ -31,7 +28,7 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. The value must be a UUID that contains 32 characters.
+   * The client token. A 32-character UUID that ensures the idempotence of the request.
    * 
    * @example
    * ****0311a423d11a5f7dee713535****
@@ -39,11 +36,11 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The thumbnail URL of the media asset.
+   * The cover image URL.
    * 
-   * - The value can be up to 128 bytes in length.
+   * - Maximum length: 128 bytes.
    * 
-   * - The value must be encoded in UTF-8.
+   * - UTF-8 encoded.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
@@ -51,11 +48,11 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * The content description.
    * 
-   * - The value can be up to 1,024 bytes in length.
+   * - Maximum length: 1024 bytes.
    * 
-   * - The value must be encoded in UTF-8.
+   * - UTF-8 encoded.
    * 
    * @example
    * defaultDescription
@@ -63,17 +60,18 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The URL of the media asset in another service. The URL is associated with the ID of the media asset in IMS. The URL cannot be modified once registered. The following types of URLs are supported:
+   * The URL of the media asset to be registered in the corresponding system. Once registered, this URL cannot be changed and is attached to the IMS mediaId.
    * 
-   * - OSS URL in one of the following formats:
+   * - OSS URL. Two formats are supported:
+   *  
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    * 
-   *   - `http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4`
+   * oss://example-bucket/example.mp4
+   *  (This format assumes by default that the OSS region is the same as the service registration area.)
    * 
-   *   - `oss://example-bucket/example.mp4`: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+   * - VOD media asset:
    * 
-   * - URL of an ApsaraVideo VOD media asset
-   * 
-   *   `vod://***20b48fb04483915d4f2cd8ac****`
+   * vod://\\*\\*\\*20b48fb04483915d4f2cd8ac****
    * 
    * This parameter is required.
    * 
@@ -83,15 +81,15 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * The tags.
    * 
-   * - Up to 16 tags are supported.
+   * - Maximum number of tags: 16.
    * 
-   * - Separate multiple tags with commas (,).
+   * - Separate multiple tags with commas.
    * 
-   * - Each tag can be up to 32 bytes in length.
+   * - Maximum length of a single tag: 32 bytes.
    * 
-   * - The value must be encoded in UTF-8.
+   * - UTF-8 encoded.
    * 
    * @example
    * tag1,tag2
@@ -99,17 +97,16 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   mediaTags?: string;
   /**
    * @remarks
-   * The type of the media asset. Valid values:
+   * The media type of the media asset. Valid values:
    * 
    * - image
-   * 
    * - video
-   * 
    * - audio
-   * 
    * - text
    * 
-   * We recommend that you specify this parameter based on your business requirements. If you set InputURL to an OSS URL, the media asset type can be automatically determined based on the file name extension. Refer to [](t2240981.xdita#)for details.
+   * When the value is "text", the businessType must be set to "subtitles" or "font".
+   * 
+   * Specify this field as needed. When the InputURL field is an OSS URL, the media type can also be automatically determined based on the file name extension (only for image, video, and audio file extensions). For the mapping between file extensions and media types, see [File formats](https://help.aliyun.com/document_detail/466207.html).
    * 
    * @example
    * video
@@ -117,11 +114,11 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite the media asset that has been registered by using the same URL. Default value: false. Valid values:
+   * Specifies whether to overwrite an existing registered media asset. Default value: false.
    * 
-   * - true: If a media asset has been registered by using the same URL, the original media asset is deleted and the new media asset is registered.
+   * - true: If the inputUrl is already registered, the existing media asset is deleted and a new media asset is registered.
    * 
-   * - false: If a media asset has been registered by using the same URL, the new media asset is not registered. A URL cannot be used to register multiple media assets.
+   * - false: If the inputUrl is already registered, the new media asset is not registered. Duplicate inputUrl values are not supported.
    * 
    * @example
    * true
@@ -129,7 +126,7 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The custom ID. The ID can be 6 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Make sure that the ID is unique among users.
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens (-), and underscores (_) are supported. The length must be 6 to 64 characters. The ID must be unique for each user.
    * 
    * @example
    * 123-123
@@ -137,11 +134,16 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   referenceId?: string;
   /**
    * @remarks
-   * The registration configurations.
+   * The registration configuration.
    * 
-   * By default, a sprite is generated for the media asset. You can set NeedSprite to false to disable automatic sprite generation.
+   * By default, a sprite image is generated for the media asset. To disable this, set the NeedSprite field to false.
    * 
-   * By default, a snapshot is generated for the media asset. You can set NeedSnapshot to false to disable automatic snapshot generation.
+   * By default, a snapshot is generated. To disable this, set the NeedSnapshot field to false.
+   * 
+   * To specify the time for the cover image, configure CoverConfig, which contains the following field:
+   * - StartTime: The time in seconds at which the cover image is captured from the media asset. Up to four decimal places are supported.
+   * 
+   * After media asset registration, to import the media asset into a custom search library, configure SearchLibName. For information about how to create and use a custom search library, see [Use a custom search library](~~2796619#dd34d8c740yj9~~).
    * 
    * @example
    * {
@@ -155,15 +157,14 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   registerConfig?: string;
   /**
    * @remarks
-   * The ID of the smart tagging template. Valid values:
+   * The intelligent tagging template. Valid values:
+   * - S00000101-300080: A system template that includes NLP content understanding.
+   * - S00000103-000001: A system template that includes NLP content understanding and all [tagging capabilities](~~2804526#93b27f536airj~~).
+   * - S00000103-000002: A system template that includes all [tagging capabilities](~~2804526#93b27f536airj~~) but does not include NLP content understanding.
    * 
-   * - S00000101-300080: the system template that supports natural language processing (NLP) for content recognition.
+   * For more information about tagging capabilities, see the documentation.
    * 
-   * - S00000103-000001: the system template that supports NLP for content recognition and all [tagging capabilities](t2729541.xdita#93b27f536airj).
-   * 
-   * - S00000103-000002: the system template that supports all [tagging capabilities](t2729541.xdita#93b27f536airj) but does not support NLP for content recognition.
-   * 
-   * After you configure this parameter, a smart tag analysis task is automatically initiated after the media asset is registered.
+   * After this field is configured, an intelligent tagging analysis task is automatically initiated upon media asset registration. For billing information, see [Billing of Smart Tag Standard Edition](https://help.aliyun.com/document_detail/600262.html).
    * 
    * @example
    * S00000101-300080
@@ -171,11 +172,11 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   smartTagTemplateId?: string;
   /**
    * @remarks
-   * The title. If you do not specify this parameter, a default title is automatically generated based on the date.
+   * The title. If not provided, a default title is automatically generated based on the date.
    * 
-   * - The value can be up to 128 bytes in length.
+   * - Maximum length: 128 bytes.
    * 
-   * - The value must be encoded in UTF-8.
+   * - UTF-8 encoded.
    * 
    * @example
    * defaultTitle
@@ -183,13 +184,13 @@ export class RegisterMediaInfoRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user data. You can specify a custom callback URL. For more information, see [](t2243473.xdita#).
+   * The user data. Custom callback URL configuration is supported. For configuration instructions, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
    * 
-   * - The value can be up to 1,024 bytes in length.
+   * - Maximum length: 1024 bytes.
    * 
-   * - The value must be encoded in UTF-8.
+   * - UTF-8 encoded.
    * 
-   * - The value must be in the JSON format.
+   * - Json format.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"} or{"NotifyAddress":"https://xx.xx.xxx"} or{"NotifyAddress":"ice-callback-demo"}

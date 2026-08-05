@@ -15,7 +15,7 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The output endpoint of the snapshot.
+   * The snapshot output endpoint.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The storage type of the snapshot. The value can only be oss.
+   * The snapshot storage type. Currently, only oss is supported.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $dara.Model {
 export class SubmitLiveSnapshotJobRequestStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The type of the input stream. The value can only be rtmp.
+   * The stream input type. Currently, only rtmp is supported.
    * 
    * This parameter is required.
    * 
@@ -71,9 +71,8 @@ export class SubmitLiveSnapshotJobRequestStreamInput extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the input stream.
-   * 
-   * - It cannot exceed 255 characters in length.
+   * The stream input URL.
+   * - Maximum length: 255.
    * 
    * This parameter is required.
    * 
@@ -108,10 +107,8 @@ export class SubmitLiveSnapshotJobRequest extends $dara.Model {
   /**
    * @remarks
    * The snapshot callback URL.
-   * 
-   * - It cannot exceed 255 characters in length.
-   * 
-   * - Both HTTP and HTTPS URLs are supported.
+   * - Maximum length: 255.
+   * - HTTP and HTTPS are supported.
    * 
    * @example
    * http://www.aliyun.com/snapshot/callback
@@ -119,9 +116,8 @@ export class SubmitLiveSnapshotJobRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The name of the job.
-   * 
-   * - It cannot exceed 128 characters in length.
+   * The task name.
+   * - Maximum length: 128.
    * 
    * This parameter is required.
    * 
@@ -131,14 +127,14 @@ export class SubmitLiveSnapshotJobRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The information about the output snapshot.
+   * The snapshot output information.
    * 
    * This parameter is required.
    */
   snapshotOutput?: SubmitLiveSnapshotJobRequestSnapshotOutput;
   /**
    * @remarks
-   * The information about the input stream.
+   * The stream input information.
    * 
    * This parameter is required.
    */

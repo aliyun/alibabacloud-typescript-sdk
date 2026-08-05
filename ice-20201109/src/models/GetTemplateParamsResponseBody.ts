@@ -13,12 +13,12 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The thumbnail URL of the original material.
+   * The thumbnail URL of the original media.
    */
   coverUrl?: string;
   /**
    * @remarks
-   * The height of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * The height of the original media in the output video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 300
@@ -34,12 +34,12 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The URL of the original material.
+   * The URL of the original media.
    */
   mediaUrl?: string;
   /**
    * @remarks
-   * In-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+   * The in-point of the original media clip relative to the timeline. Unit: seconds. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 5.5
@@ -47,7 +47,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   timelineIn?: number;
   /**
    * @remarks
-   * Out-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+   * The out-point of the original media clip relative to the timeline. Unit: seconds. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 8.5
@@ -55,15 +55,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   timelineOut?: number;
   /**
    * @remarks
-   * The material type.
-   * 
-   * Valid values:
-   * 
-   * - Video
-   * 
-   * - Text
-   * 
-   * - Image
+   * The media type.
    * 
    * @example
    * Image
@@ -71,7 +63,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The width of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * The width of the original media in the output video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 300
@@ -79,7 +71,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   width?: number;
   /**
    * @remarks
-   * The horizontal distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * The horizontal distance of the original media from the upper-left corner of the video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 100
@@ -87,7 +79,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
   x?: number;
   /**
    * @remarks
-   * The vertical distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+   * The vertical distance of the original media from the upper-left corner of the video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
    * 
    * @example
    * 100
@@ -137,12 +129,12 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
 export class GetTemplateParamsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried parameters.
+   * The parameter list.
    */
   paramList?: GetTemplateParamsResponseBodyParamList[];
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

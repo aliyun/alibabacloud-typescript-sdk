@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AlterSearchIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class AlterSearchIndexResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
@@ -21,11 +21,9 @@ export class AlterSearchIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call was successful. Valid values:
+   * - true: successful.
+   * - false: failed.
    * 
    * @example
    * true

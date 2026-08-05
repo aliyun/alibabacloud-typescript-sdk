@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAvatarTrainingJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human training task.
    * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
@@ -35,7 +35,7 @@ export class CreateAvatarTrainingJobResponseBodyData extends $dara.Model {
 export class CreateAvatarTrainingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: CreateAvatarTrainingJobResponseBodyData;
   /**

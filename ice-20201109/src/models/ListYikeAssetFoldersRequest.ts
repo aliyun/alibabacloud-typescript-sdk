@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListYikeAssetFoldersRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListYikeAssetFoldersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project ID. If this parameter is omitted, folders in the default project are returned.
+   * The project ID. If this parameter is not specified, the default project is queried.
    * 
    * @example
    * ProductionId

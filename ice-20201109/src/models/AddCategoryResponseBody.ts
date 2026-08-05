@@ -21,7 +21,7 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   cateName?: string;
   /**
    * @remarks
-   * The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+   * The category level. The first-level category has a level of **0**, the second-level category has a level of **1**, and the third-level category has a level of **2**.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The ID of the parent category. By default, if ParentId is left empty or less than 1, -1 is returned, which indicates that the created category is the root directory.
+   * The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
    * 
    * @example
    * -1
@@ -37,11 +37,9 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The type of the category. Valid values:
-   * 
-   * - **default**: audio, video, and image files. This is the default value.
-   * 
-   * - **material**: short video materials.
+   * The category type. Valid values:
+   * - **default** (default): audio, video, and image category.
+   * - **material**: short video material category.
    * 
    * @example
    * default
@@ -79,7 +77,7 @@ export class AddCategoryResponseBodyCategory extends $dara.Model {
 export class AddCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the category.
+   * The media asset category information.
    */
   category?: AddCategoryResponseBodyCategory;
   /**

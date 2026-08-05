@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
-   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * The business configuration of the project. This parameter can be ignored for standard editing projects.
    * 
    * @example
    * { "OutputMediaConfig" :    { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path"   }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
@@ -13,17 +13,12 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   businessConfig?: string;
   /**
    * @remarks
-   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
-   * 
-   * - Reserving
-   * 
-   * - ReservationCanceled
-   * 
-   * - BroadCasting
-   * 
-   * - LoadingFailed
-   * 
-   * - LiveFinished
+   * The business status of the project. This parameter can be ignored for standard editing projects.
+   * - Reserving: The live stream is being reserved.
+   * - ReservationCanceled: The reservation is canceled. 
+   * - BroadCasting: The live stream is broadcasting.
+   * - LoadingFailed: Loading failed.
+   * - LiveFinished: The live stream has ended.
    * 
    * @example
    * Reserving
@@ -39,7 +34,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   clipsParam?: string;
   /**
    * @remarks
-   * The thumbnail URL of the online editing project.
+   * The cover URL of the cloud editing project.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -47,17 +42,17 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The method for creating the online editing project. Valid values:
+   * The creation source of the cloud editing project.
    * 
-   * \\- OpenAPI
+   * - OpenAPI
    * 
-   * \\- AliyunConsole
+   * - AliyunConsole
    * 
-   * \\- WebSDK
+   * - WebSDK
    * 
-   * \\- LiveEditingOpenAPI
+   * - LiveEditingOpenAPI 
    * 
-   * \\- LiveEditingConsole
+   * - LiveEditingConsole
    * 
    * @example
    * WebSDK
@@ -65,7 +60,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The time when the online editing project was created.
+   * The creation time of the cloud editing project.
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -73,7 +68,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the online editing project.
+   * The description of the project.
    * 
    * @example
    * example_description
@@ -81,7 +76,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The duration of the online editing project.
+   * The duration of the cloud editing project.
    * 
    * @example
    * 3.4200000
@@ -89,17 +84,13 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The method for editing the online editing project. Valid values:
+   * The modification source of the cloud editing project.
    * 
-   * \\- OpenAPI
-   * 
-   * \\- AliyunConsole
-   * 
-   * \\- WebSDK
-   * 
-   * \\- LiveEditingOpenAPI
-   * 
-   * \\- LiveEditingConsole
+   * - OpenAPI
+   * - AliyunConsole
+   * - WebSDK
+   * - LiveEditingOpenAPI 
+   * - LiveEditingConsole
    * 
    * @example
    * WebSDK
@@ -107,7 +98,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The time when the online editing project was last edited.
+   * The modification time of the cloud editing project.
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -115,7 +106,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
@@ -123,11 +114,11 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The type of the editing project. Default value: EditingProject. Valid values:
+   * The type of the editing project. Default value: EditingProject.
    * 
-   * \\- EditingProject: a regular editing project.
+   * - EditingProject: standard editing project.
    * 
-   * \\- LiveEditingProject: a live stream editing project.
+   * - LiveEditingProject: live editing project.
    * 
    * @example
    * LiveEditingProject
@@ -135,21 +126,21 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   projectType?: string;
   /**
    * @remarks
-   * The status of the online editing project.
+   * The status of the cloud editing project.
    * 
    * Valid values:
    * 
-   * \\- 1: Draft
+   * - 1: Draft.
    * 
-   * \\- 2: Editing
+   * - 2: Editing.
    * 
-   * \\- 3: Producing
+   * - 3: Producing.
    * 
-   * \\- 4: Produced
+   * - 4: Produced.
    * 
-   * \\- 5: ProduceFailed
+   * - 5: ProduceFailed.
    * 
-   * \\- 7: Deleted
+   * - 7: Deleted.
    * 
    * @example
    * 2
@@ -157,7 +148,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The status of the online editing project. For more information, see the status list.
+   * The status name of the cloud editing project, corresponding to the status name in the status list.
    * 
    * @example
    * Editing
@@ -173,11 +164,11 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template type of the online editing project. Valid values:
+   * The template type of the cloud editing project.
    * 
-   * \\- Timeline
+   * - Timeline
    * 
-   * \\- VETemplate
+   * - VETemplate
    * 
    * @example
    * Timeline
@@ -185,7 +176,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+   * The timeline of the cloud editing project in JSON format. For more information about the structure, see [TimeLine](~~198823#topic-2024662~~). If this field is empty, an empty timeline is created and the total duration of the cloud editing project is 0.
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
@@ -193,7 +184,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   timeline?: string;
   /**
    * @remarks
-   * The title of the online editing project.
+   * The title of the cloud editing project.
    * 
    * @example
    * example_title
@@ -257,12 +248,12 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
 export class CreateEditingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the online editing project.
+   * The cloud editing project.
    */
   project?: CreateEditingProjectResponseBodyProject;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

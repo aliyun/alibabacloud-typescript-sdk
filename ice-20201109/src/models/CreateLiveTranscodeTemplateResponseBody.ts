@@ -13,7 +13,7 @@ export class CreateLiveTranscodeTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

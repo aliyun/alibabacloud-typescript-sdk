@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job description. The maximum length is 128 bytes.
+   * The task description. The value can be up to 128 bytes in length.
    * 
    * @example
    * Test description
@@ -13,7 +13,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The duration of the segment to transcribe.
+   * The duration.
    * 
    * @example
    * 00:00:10
@@ -21,9 +21,9 @@ export class SubmitASRJobRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The configuration for speech-to-text conversion:
+   * The audio-to-text recognition configuration:
    * 
-   * - HotwordLibraryIdList: A list of custom vocabulary IDs. Only one custom vocabulary ID is currently supported. Future releases will support multiple IDs.
+   * - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID can be specified. Support for multiple hotword library IDs is planned for the future.
    * 
    * @example
    * {
@@ -33,7 +33,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. Specify either an OSS URL or a media ID from the media library.
+   * The input configuration. OSS URLs and content library material IDs are supported.
    * 
    * @example
    * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or ****20b48fb04483915d4f2cd8ac****
@@ -41,7 +41,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   inputFile?: string;
   /**
    * @remarks
-   * The start time of the segment to be transcribed from the media file.
+   * The start time.
    * 
    * @example
    * 00:00:00
@@ -49,7 +49,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The job title. The maximum length is 128 bytes.
+   * The task title. The value can be up to 128 bytes in length.
    * 
    * @example
    * Test title
@@ -57,7 +57,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * User-defined settings in JSON format. Use this to pass business-related data, such as the operating environment or other job details.
+   * The custom settings. You can pass in business information such as the business environment and task information. The value is a JSON string.
    * 
    * @example
    * {

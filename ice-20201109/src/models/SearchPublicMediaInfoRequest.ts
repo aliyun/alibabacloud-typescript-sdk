@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchPublicMediaInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the User has purchased a resource plan that includes this media asset.
+   * Specifies whether the user has purchased a resource plan that includes this media asset.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   authorized?: boolean;
   /**
    * @remarks
-   * Dynamic metadata search matching conditions.
+   * The dynamic metadata search matching conditions.
    * 
    * @example
    * "ApprovalStatus=\\"Available\\"&amp;MaterialBags=\\"boutiquemusic\\"&amp;Mood=\\"Nervous\\""
@@ -21,9 +21,8 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   dynamicMetaDataMatchFields?: string;
   /**
    * @remarks
-   * Entity ID, used to identify different types of public copyright media assets. Valid values:
-   * 
-   * - Copyright_Music: Public copyright music
+   * The entity ID that identifies different types of public copyright media assets. Valid values:
+   * - Copyright_Music: public copyright music
    * 
    * @example
    * Copyright_Music
@@ -31,7 +30,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * Indicates whether the User has collected this media asset.
+   * Specifies whether the user has added the media asset to favorites.
    * 
    * @example
    * true
@@ -39,9 +38,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   favorite?: boolean;
   /**
    * @remarks
-   * IMS media asset IDs.
-   * 
-   * - Separate multiple IDs with commas.
+   * The IMS media asset IDs. Separate multiple IDs with commas (,).
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
@@ -49,7 +46,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   mediaIds?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -57,7 +54,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of entries per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -65,19 +62,15 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Result sorting method: :. Valid values:
+   * The sorting method for results in the format of <field>:<order>. Valid values:
    * 
    * field:
-   * 
-   * - "UsageCount": usage
-   * 
+   * - "UsageCount": usage count
    * - "UnitPrice": unit price
    * 
    * order:
-   * 
-   * - "Desc": descending
-   * 
-   * - "Asc": ascending
+   * - "Desc": descending order
+   * - "Asc": ascending order
    * 
    * @example
    * UsageCount:Desc,UnitPrice:Asc

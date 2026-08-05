@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchIndexJobRerunRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset. Separate multiple IDs with commas (,).
+   * The media asset IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
   mediaIds?: string;
   /**
    * @remarks
-   * Namespace.
+   * The namespace.
    * 
    * @example
    * name-1
@@ -31,13 +31,10 @@ export class SearchIndexJobRerunRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * The type of the job. Separate multiple types with commas (,).
-   * 
-   * - aiLabel: smart tagging.
-   * 
+   * The task type. Separate multiple types with commas (,). Valid values:
+   * - aiLabel: intelligent tagging.
    * - face: face recognition.
-   * 
-   * - mm: large visual model.
+   * - mm: foundation model.
    * 
    * @example
    * aiLabel,face,mm

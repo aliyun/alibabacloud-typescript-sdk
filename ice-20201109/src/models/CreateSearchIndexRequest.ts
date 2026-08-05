@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSearchIndexRequest extends $dara.Model {
   /**
    * @remarks
-   * Index configuration
+   * The index configuration.
    * 
    * @example
    * {}
@@ -13,11 +13,9 @@ export class CreateSearchIndexRequest extends $dara.Model {
   indexConfig?: string;
   /**
    * @remarks
-   * Index status. Default value is Active. Valid values:
-   * 
-   * - Active: Activated.
-   * 
-   * - Deactive: Deactivated.
+   * The index status. Default value: Active. Valid values:
+   * - Active: activated.
+   * - Deactive: deactivated.
    * 
    * @example
    * Active
@@ -25,15 +23,14 @@ export class CreateSearchIndexRequest extends $dara.Model {
   indexStatus?: string;
   /**
    * @remarks
-   * The category of the index. Valid values:
-   * 
-   * - mm: large visual model. You can use this model to describe complex visual features and identify and search for specific actions, movements, and events in videos, such as when athletes score a goal or get injured.
-   * 
-   * > This feature is in the public preview phase. You can use this feature for free for 1,000 hours of videos.
-   * 
-   * - face: face recognition. You can use the face recognition technology to describe face characteristics and automatically mark or search for faces in videos.
-   * 
-   * - aiLabel: smart tagging. The smart tagging category is used to describe content such as subtitles and audio in videos. You can use the speech recognition technology to automatically extract, mark, and search for subtitles and dialog content from videos. This helps you quickly locate the video content that is related to specific topics or keywords.
+   * The index type. Valid values:
+   * - mm: large model visual state. Used to describe complex visual features and actions in videos. This type helps identify and search for specific actions, movements, and events in videos, such as a soccer player scoring a goal or a basketball player getting injured.
+   * > 
+   * > The shared instance type supports up to 1,000 hours of video. After the limit is exceeded, the system no longer performs large model visual state analysis.
+   * - face: automatic face recognition. Used to describe facial features in videos. Through face recognition technology, faces in videos can be automatically tagged and searched.
+   * > 
+   * > The shared instance type supports up to 1,000,000 face analyses. After the limit is exceeded, the system no longer performs face analysis.
+   * - aiLabel: intelligent tagging. The intelligent tagging index type is used to describe subtitles, speech, and other content in videos. Through text and speech recognition technology, language information such as subtitles and dialogues in videos can be automatically extracted for tagging and searching. This helps users quickly search for and locate content related to specific topics or keywords in videos.
    * 
    * This parameter is required.
    * 
@@ -43,11 +40,10 @@ export class CreateSearchIndexRequest extends $dara.Model {
   indexType?: string;
   /**
    * @remarks
-   * Search library name.
+   * The name of the search library.
    * 
-   * - If no search library name is specified, the search index is created under the default IMS search library by default. The default value is ims-default-search-lib.
-   * 
-   * - You can also use the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API to retrieve information about existing search libraries.
+   * - If you do not specify a search library name, the search index is created in the default IMS search library. Default value: ims-default-search-lib.
+   * - You can call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) operation to query information about existing search libraries.
    * 
    * @example
    * test1

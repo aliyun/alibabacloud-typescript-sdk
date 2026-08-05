@@ -6,10 +6,8 @@ export class CreateCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The gender. Valid values:
-   * 
-   * - female
-   * 
-   * - male
+   * - female: female.
+   * - male: male.
    * 
    * This parameter is required.
    * 
@@ -20,12 +18,9 @@ export class CreateCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The scenario. Valid values:
-   * 
-   * - story
-   * 
-   * - interaction
-   * 
-   * - navigation
+   * - story: story.
+   * - interaction: interaction.
+   * - navigation: navigation.
    * 
    * This parameter is required.
    * 
@@ -36,22 +31,19 @@ export class CreateCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The voice description.
-   * 
-   * - Must be 256 characters or fewer.
+   * - The description cannot exceed 256 characters.
    * 
    * @example
-   * 这是一个个性化声音
+   * This is a personalized voice
    */
   voiceDesc?: string;
   /**
    * @remarks
-   * The custom voice ID. This is typically an English name or Pinyin.
+   * The custom voice ID (English name or pinyin of the voice).
    * 
-   * - Must be unique among your other custom voices.
-   * 
-   * - Must be 32 characters or fewer.
-   * 
-   * - Can contain only letters and numbers.
+   * - The ID cannot be the same as any of your other custom voice IDs.
+   * - The ID cannot exceed 32 characters.
+   * - Only letters and numbers are supported.
    * 
    * This parameter is required.
    * 
@@ -61,9 +53,8 @@ export class CreateCustomizedVoiceJobRequest extends $dara.Model {
   voiceId?: string;
   /**
    * @remarks
-   * The voice name, typically in Chinese.
-   * 
-   * - Must be 32 characters or fewer.
+   * The voice name (generally a Chinese name).
+   * - The name cannot exceed 32 characters.
    * 
    * @example
    * 小专

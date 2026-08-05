@@ -13,7 +13,7 @@ export class StartWorkflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the workflow task.
+   * The workflow task ID.
    * 
    * @example
    * ******22dad741d086a50325f9******

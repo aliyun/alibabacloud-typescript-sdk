@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterYikeAssetMediaInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * @example
    * fd-ABMFfAB2bA
@@ -13,7 +13,7 @@ export class RegisterYikeAssetMediaInfoRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The URL of the media asset. You can use the FileURL value that is returned by the CreateYikeAssetUpload operation.
+   * The URL of the media asset. You can pass in the FileURL returned by the CreateYikeAssetUpload operation.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RegisterYikeAssetMediaInfoRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The ID of the production. If this parameter is omitted, the media asset is uploaded to the default production.
+   * The project ID. If this parameter is not specified, the media asset is uploaded to the default project.
    * 
    * @example
    * ProductionId

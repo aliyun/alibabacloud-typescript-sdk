@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The name of the storage space.
    * 
    * @example
    * imsbucket1
@@ -13,7 +13,7 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The endpoint of the storage service.
+   * The storage service endpoint.
    * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
@@ -57,7 +57,7 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
 export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The type of the live stream URL. The value can only be rtmp.
+   * The type of the live stream address. Currently, only rtmp is supported.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the live stream.
+   * The live stream address.
    * 
    * @example
    * rtmp://example.com/live/stream1
@@ -99,7 +99,7 @@ export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
 export class SubmitLiveRecordJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the recording job.
+   * The name of the recording task.
    * 
    * This parameter is required.
    * 
@@ -117,21 +117,21 @@ export class SubmitLiveRecordJobRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The storage address of the recording.
+   * The recording storage address.
    * 
    * This parameter is required.
    */
   recordOutput?: SubmitLiveRecordJobRequestRecordOutput;
   /**
    * @remarks
-   * The URL of the live stream.
+   * The live stream address.
    * 
    * This parameter is required.
    */
   streamInput?: SubmitLiveRecordJobRequestStreamInput;
   /**
    * @remarks
-   * The ID of the recording template.
+   * The recording template ID.
    * 
    * This parameter is required.
    * 

@@ -6,10 +6,8 @@ export class AddCategoryRequest extends $dara.Model {
   /**
    * @remarks
    * The category name.
-   * 
-   * - The value can be up to 64 bytes in length.
-   * 
-   * - The value must be encoded in UTF-8.
+   * - The maximum length is 64 bytes.
+   * - UTF-8 encoding.
    * 
    * This parameter is required.
    * 
@@ -19,7 +17,7 @@ export class AddCategoryRequest extends $dara.Model {
   cateName?: string;
   /**
    * @remarks
-   * The ID of the parent category.
+   * The parent category ID.
    * 
    * @example
    * 5
@@ -27,11 +25,9 @@ export class AddCategoryRequest extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The type of the category. Valid values:
-   * 
-   * - default: audio, video, and image files. This is the default value.
-   * 
-   * - material: short video materials.
+   * The category type. Valid values:
+   * - default (default): audio, video, and image category.                                 
+   * - material: short video material category.
    * 
    * @example
    * default

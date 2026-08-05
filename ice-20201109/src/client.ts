@@ -227,10 +227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a category.
+   * Creates a media asset category.
    * 
    * @remarks
-   * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
+   * Categories support up to three levels, and each level supports up to 100 subcategories.
    * 
    * @param request - AddCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -269,10 +269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a category.
+   * Creates a media asset category.
    * 
    * @remarks
-   * You can create at most three levels of categories. Each category level can contain a maximum of 100 subcategories.
+   * Categories support up to three levels, and each level supports up to 100 subcategories.
    * 
    * @param request - AddCategoryRequest
    * @returns AddCategoryResponse
@@ -329,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more public Media Assets to your Favorites list by their media IDs.
+   * Adds all media assets to the favorite based on the specified list of media asset IDs.
    * 
    * @param request - AddFavoritePublicMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -360,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more public Media Assets to your Favorites list by their media IDs.
+   * Adds all media assets to the favorite based on the specified list of media asset IDs.
    * 
    * @param request - AddFavoritePublicMediaRequest
    * @returns AddFavoritePublicMediaResponse
@@ -689,12 +689,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a template.
+   * Creates a template. Intelligent Cloud Editor supports the video clip feature based on standard templates and advanced templates. You can invoke AddTemplate to create a template.
    * 
    * @remarks
-   * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-   * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-   * - After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+   * ### Usage notes
+   * - To use standard templates, see [Quick start for standard templates](https://help.aliyun.com/document_detail/445399.html).
+   * - To use advanced templates, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+   * ### Limits
+   * After an advanced template is created, it takes some time to be parsed. During parsing, the template status is Processing and the template is not active. The template becomes active only when its status changes to Available. The parsing time depends on the template file size and typically ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -755,12 +757,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a template.
+   * Creates a template. Intelligent Cloud Editor supports the video clip feature based on standard templates and advanced templates. You can invoke AddTemplate to create a template.
    * 
    * @remarks
-   * - For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
-   * - For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
-   * - After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+   * ### Usage notes
+   * - To use standard templates, see [Quick start for standard templates](https://help.aliyun.com/document_detail/445399.html).
+   * - To use advanced templates, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+   * ### Limits
+   * After an advanced template is created, it takes some time to be parsed. During parsing, the template status is Processing and the template is not active. The template becomes active only when its status changes to Available. The parsing time depends on the template file size and typically ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
    * @returns AddTemplateResponse
@@ -817,7 +821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies search index information including index status and configurations.
+   * Modifies search index information, including the index status or index configuration.
    * 
    * @param request - AlterSearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -860,7 +864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies search index information including index status and configurations.
+   * Modifies search index information, including the index status or index configuration.
    * 
    * @param request - AlterSearchIndexRequest
    * @returns AlterSearchIndexResponse
@@ -969,7 +973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information for multiple media assets in a single request by providing their `mediaId` values.
+   * Retrieves information about multiple media assets by specifying multiple mediaId values.
    * 
    * @param request - BatchGetMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1008,7 +1012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information for multiple media assets in a single request by providing their `mediaId` values.
+   * Retrieves information about multiple media assets by specifying multiple mediaId values.
    * 
    * @param request - BatchGetMediaInfosRequest
    * @returns BatchGetMediaInfosResponse
@@ -1061,7 +1065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves multiple media assets.
+   * Retrieves information about multiple media assets in a batch.
    * 
    * @param request - BatchGetYikeAssetMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1092,7 +1096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves multiple media assets.
+   * Retrieves information about multiple media assets in a batch.
    * 
    * @param request - BatchGetYikeAssetMediaInfosRequest
    * @returns BatchGetYikeAssetMediaInfosResponse
@@ -1169,7 +1173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes all specified media assets from favorites based on the input mediaId list.
+   * Cancels the favorite status of all media assets based on the specified list of media asset IDs.
    * 
    * @param request - CancelFavoritePublicMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1200,7 +1204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes all specified media assets from favorites based on the input mediaId list.
+   * Cancels the favorite status of all media assets based on the specified list of media asset IDs.
    * 
    * @param request - CancelFavoritePublicMediaRequest
    * @returns CancelFavoritePublicMediaResponse
@@ -1211,7 +1215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke CancelIProductionJob to cancel an Intelligent Production job.
+   * Cancels an intelligent production job.
    * 
    * @param request - CancelIProductionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1246,7 +1250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke CancelIProductionJob to cancel an Intelligent Production job.
+   * Cancels an intelligent production job.
    * 
    * @param request - CancelIProductionJobRequest
    * @returns CancelIProductionJobResponse
@@ -1401,7 +1405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits manual review results for media assets.
+   * Submits a manual review for a media asset by calling CreateAudit.
    * 
    * @param request - CreateAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1432,7 +1436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits manual review results for media assets.
+   * Submits a manual review for a media asset by calling CreateAudit.
    * 
    * @param request - CreateAuditRequest
    * @returns CreateAuditResponse
@@ -1443,10 +1447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
+   * Creates a digital human training task and configures the basic information and training material information for the digital human.
    * 
    * @remarks
-   * This API is only used to initialize trainingTaskrelatedInformation,And will not submit training,To officially submit training, you need toCall [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) API.
+   * This operation only initializes the training task information and does not submit the training. To formally submit the training, call the [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) operation.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1501,10 +1505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
+   * Creates a digital human training task and configures the basic information and training material information for the digital human.
    * 
    * @remarks
-   * This API is only used to initialize trainingTaskrelatedInformation,And will not submit training,To officially submit training, you need toCall [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) API.
+   * This operation only initializes the training task information and does not submit the training. To formally submit the training, call the [SubmitAvatarTrainingJob](https://help.aliyun.com/document_detail/2526196.html) operation.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @returns CreateAvatarTrainingJobResponse
@@ -1639,12 +1643,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a voice cloning job and initializes its basic information.
+   * Creates a voice cloning task to initialize the basic configuration information for the task.
    * 
    * @remarks
-   * <props="china">
-   * - Billing for voice cloning is based on customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
-   * - Call this operation to achieve entertainment-grade results. You need to record 20 predefined scripts. The system then extracts key voiceprint features to perform voice cloning quickly and cost-effectively.
+   * <props="china">- Voice cloning billing is divided into two dimensions: customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+   * - To achieve entertainment-level effects, call this operation. When using it, you need to record 20 fixed script texts. The system extracts key voiceprint features, enabling quick and low-cost voice cloning customization.
    * 
    * @param request - CreateCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1691,12 +1694,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a voice cloning job and initializes its basic information.
+   * Creates a voice cloning task to initialize the basic configuration information for the task.
    * 
    * @remarks
-   * <props="china">
-   * - Billing for voice cloning is based on customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
-   * - Call this operation to achieve entertainment-grade results. You need to record 20 predefined scripts. The system then extracts key voiceprint features to perform voice cloning quickly and cost-effectively.
+   * <props="china">- Voice cloning billing is divided into two dimensions: customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+   * - To achieve entertainment-level effects, call this operation. When using it, you need to record 20 fixed script texts. The system extracts key voiceprint features, enabling quick and low-cost voice cloning customization.
    * 
    * @param request - CreateCustomizedVoiceJobRequest
    * @returns CreateCustomizedVoiceJobResponse
@@ -1779,11 +1781,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
+   * Creates a cloud editing project. You can set the title, description, timeline, and project cover.
    * 
    * @remarks
-   * - Billing is based on the duration of the edited video,For more informationPlease referSee[VideoEditing](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [LiveEditing](https://help.aliyun.com/document_detail/2840900.html) .If processing fails,No charge.
-   * - After creating the editing project,You canCall[SubmitMediaProducingJob - SubmitEditingCompositing jobAPI](https://help.aliyun.com/document_detail/441147.html)Submit mediaEditingSynthesisTask.Call[SubmitLiveEditingJob - Submit liveEditingTask](https://help.aliyun.com/document_detail/441148.html)Submit liveEditingTask.
+   * - Billing is based on the duration of the output video produced by editing and compositing. For details, see [Video clip](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [Live editing](https://help.aliyun.com/document_detail/2840900.html). No fees are charged if the processing is failed.
+   * - After you create an editing project, you can invoke [SubmitMediaProducingJob - Submit a media editing and compositing node](https://help.aliyun.com/document_detail/441147.html) to commit a media editing and compositing node. Invoke [SubmitLiveEditingJob - Submit a live editing node](https://help.aliyun.com/document_detail/441148.html) to commit a live editing node.
    * 
    * @param request - CreateEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1852,11 +1854,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an online editing project. You can specify configurations such as the title, description, timeline, and thumbnail for the project.
+   * Creates a cloud editing project. You can set the title, description, timeline, and project cover.
    * 
    * @remarks
-   * - Billing is based on the duration of the edited video,For more informationPlease referSee[VideoEditing](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [LiveEditing](https://help.aliyun.com/document_detail/2840900.html) .If processing fails,No charge.
-   * - After creating the editing project,You canCall[SubmitMediaProducingJob - SubmitEditingCompositing jobAPI](https://help.aliyun.com/document_detail/441147.html)Submit mediaEditingSynthesisTask.Call[SubmitLiveEditingJob - Submit liveEditingTask](https://help.aliyun.com/document_detail/441148.html)Submit liveEditingTask.
+   * - Billing is based on the duration of the output video produced by editing and compositing. For details, see [Video clip](https://help.aliyun.com/document_detail/2840899.html)<props="china"> and [Live editing](https://help.aliyun.com/document_detail/2840900.html). No fees are charged if the processing is failed.
+   * - After you create an editing project, you can invoke [SubmitMediaProducingJob - Submit a media editing and compositing node](https://help.aliyun.com/document_detail/441147.html) to commit a media editing and compositing node. Invoke [SubmitLiveEditingJob - Submit a live editing node](https://help.aliyun.com/document_detail/441148.html) to commit a live editing node.
    * 
    * @param request - CreateEditingProjectRequest
    * @returns CreateEditingProjectResponse
@@ -2235,10 +2237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this operation to create a Live Record Template. You can use the template to submit Live Recording Jobs.
+   * Creates a real-time recording template for submitting real-time recording tasks.
    * 
    * @remarks
-   * Live recording requires a Live Record Template. You can use a template to configure settings such as the recording format (for example, M3U8, MP4, or FLV) and the duration of Recording Files.
+   * Real-time recording requires a recording template. A recording template specifies the output format of recording files (m3u8, mp4, or flv), the recording file duration, and other information.
    * 
    * @param tmpReq - CreateLiveRecordTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2279,10 +2281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this operation to create a Live Record Template. You can use the template to submit Live Recording Jobs.
+   * Creates a real-time recording template for submitting real-time recording tasks.
    * 
    * @remarks
-   * Live recording requires a Live Record Template. You can use a template to configure settings such as the recording format (for example, M3U8, MP4, or FLV) and the duration of Recording Files.
+   * Real-time recording requires a recording template. A recording template specifies the output format of recording files (m3u8, mp4, or flv), the recording file duration, and other information.
    * 
    * @param request - CreateLiveRecordTemplateRequest
    * @returns CreateLiveRecordTemplateResponse
@@ -2293,7 +2295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
+   * Creates a live snapshot template that can be used to create snapshot tasks.
    * 
    * @param request - CreateLiveSnapshotTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2336,7 +2338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
+   * Creates a live snapshot template that can be used to create snapshot tasks.
    * 
    * @param request - CreateLiveSnapshotTemplateRequest
    * @returns CreateLiveSnapshotTemplateResponse
@@ -2347,10 +2349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
+   * Creates a real-time transcoding template for submitting real-time transcoding tasks.
    * 
    * @remarks
-   * Only Shanghai region supports real-time media transcoding.
+   * Real-time media transcoding is supported only in the Shanghai region.
    * 
    * @param tmpReq - CreateLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2395,10 +2397,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
+   * Creates a real-time transcoding template for submitting real-time transcoding tasks.
    * 
    * @remarks
-   * Only Shanghai region supports real-time media transcoding.
+   * Real-time media transcoding is supported only in the Shanghai region.
    * 
    * @param request - CreateLiveTranscodeTemplateRequest
    * @returns CreateLiveTranscodeTemplateResponse
@@ -2681,7 +2683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraVideo Media Processing (MPS) queue.
+   * Creates a media processing pipeline for automated and batch processing of media files.
    * 
    * @param request - CreatePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2720,7 +2722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ApsaraVideo Media Processing (MPS) queue.
+   * Creates a media processing pipeline for automated and batch processing of media files.
    * 
    * @param request - CreatePipelineRequest
    * @returns CreatePipelineResponse
@@ -3037,11 +3039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create a search index under a search library. A search library can contain multiple search indexes of different types.
+   * Creates a search index in a search library. A search library can contain multiple search indexes of different types.
    * 
    * @remarks
-   * <props="china">
-   * Before using this API, ensure that you fully understand the [Intelligent Search billing](https://help.aliyun.com/document_detail/2840897.html) method and pricing.
+   * <props="china">Before using this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/2840897.html) methods and pricing of intelligent retrieval.
    * 
    * @param request - CreateSearchIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3084,11 +3085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can create a search index under a search library. A search library can contain multiple search indexes of different types.
+   * Creates a search index in a search library. A search library can contain multiple search indexes of different types.
    * 
    * @remarks
-   * <props="china">
-   * Before using this API, ensure that you fully understand the [Intelligent Search billing](https://help.aliyun.com/document_detail/2840897.html) method and pricing.
+   * <props="china">Before using this operation, make sure that you fully understand the [billing](https://help.aliyun.com/document_detail/2840897.html) methods and pricing of intelligent retrieval.
    * 
    * @param request - CreateSearchIndexRequest
    * @returns CreateSearchIndexResponse
@@ -3099,7 +3099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a search library to store media assets.
+   * Creates a search media library. You can use the library to store media assets.
    * 
    * @param request - CreateSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3134,7 +3134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a search library to store media assets.
+   * Creates a search media library. You can use the library to store media assets.
    * 
    * @param request - CreateSearchLibRequest
    * @returns CreateSearchLibResponse
@@ -3303,17 +3303,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation retrieves an upload address and upload credential for audio, video, image, and auxiliary media assets, and creates the corresponding media asset.
+   * Retrieves the upload URL and credential for audio, video, image, and auxiliary media assets, and creates media asset information.
    * 
    * @remarks
-   * ### Overview
-   * - Obtaining an upload address and upload credential is a prerequisite for all uploads in Intelligent Media Service.
-   * - If an upload credential expires (the default validity is 3,000 seconds), call the `RefreshUploadMedia` operation to get a new one.
-   * - After an upload is complete, you can confirm its success by either configuring a callback for event notifications or calling the `GetMediaInfo` operation to check the media asset\\"s status.
-   * - Use the returned `MediaId` for media asset lifecycle management or media processing.
-   * ### Limitations
-   * - This operation supports uploads only to VOD storage, not to your own Object Storage Service (OSS) buckets. If you use your own OSS buckets, first upload the files by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS files in your media library.
-   * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * ### Operation description
+   * - Retrieving the upload URL and credential is a core foundation of Intelligent Media Services and a required procedure for every upload operation.
+   * - If the video upload credential expires (the default validity epoch is 3000 seconds), invoke the refresh video upload credential operation to obtain a new upload credential.
+   * - After the upload, you can configure callbacks to accept upload event notifications, or invoke the GetMediaInfo operation to check the returned media asset status to determine whether the upload is successful.
+   * - The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+   * ### Limits
+   * - This operation supports uploads only to VOD storage. Uploads to user-owned OSS storage are not supported. If you use your own OSS storage, upload files to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then invoke the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS file in the media library.
+   * - This operation currently supports only the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3368,17 +3368,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation retrieves an upload address and upload credential for audio, video, image, and auxiliary media assets, and creates the corresponding media asset.
+   * Retrieves the upload URL and credential for audio, video, image, and auxiliary media assets, and creates media asset information.
    * 
    * @remarks
-   * ### Overview
-   * - Obtaining an upload address and upload credential is a prerequisite for all uploads in Intelligent Media Service.
-   * - If an upload credential expires (the default validity is 3,000 seconds), call the `RefreshUploadMedia` operation to get a new one.
-   * - After an upload is complete, you can confirm its success by either configuring a callback for event notifications or calling the `GetMediaInfo` operation to check the media asset\\"s status.
-   * - Use the returned `MediaId` for media asset lifecycle management or media processing.
-   * ### Limitations
-   * - This operation supports uploads only to VOD storage, not to your own Object Storage Service (OSS) buckets. If you use your own OSS buckets, first upload the files by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS files in your media library.
-   * - This operation is available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * ### Operation description
+   * - Retrieving the upload URL and credential is a core foundation of Intelligent Media Services and a required procedure for every upload operation.
+   * - If the video upload credential expires (the default validity epoch is 3000 seconds), invoke the refresh video upload credential operation to obtain a new upload credential.
+   * - After the upload, you can configure callbacks to accept upload event notifications, or invoke the GetMediaInfo operation to check the returned media asset status to determine whether the upload is successful.
+   * - The MediaId parameter returned by this operation can be used for media asset lifecycle management or media processing.
+   * ### Limits
+   * - This operation supports uploads only to VOD storage. Uploads to user-owned OSS storage are not supported. If you use your own OSS storage, upload files to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then invoke the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS file in the media library.
+   * - This operation currently supports only the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
    * 
    * @param request - CreateUploadMediaRequest
    * @returns CreateUploadMediaResponse
@@ -3631,7 +3631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an upload credential for a Yike media asset.
+   * Retrieves the upload credential for a media asset on Yike.
    * 
    * @param request - CreateYikeAssetUploadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3666,7 +3666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains an upload credential for a Yike media asset.
+   * Retrieves the upload credential for a media asset on Yike.
    * 
    * @param request - CreateYikeAssetUploadRequest
    * @returns CreateYikeAssetUploadResponse
@@ -3827,7 +3827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
+   * Performs decryption on the CiphertextBlob ciphertext in a KMS data key (DK).
    * 
    * @param request - DecryptKMSDataKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3858,7 +3858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
+   * Performs decryption on the CiphertextBlob ciphertext in a KMS data key (DK).
    * 
    * @param request - DecryptKMSDataKeyRequest
    * @returns DecryptKMSDataKeyResponse
@@ -3961,7 +3961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a digital human training job that is in the Init or Fail state.
+   * Deletes a digital human training task that is in the init (draft) or training failed status.
    * 
    * @param request - DeleteAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3992,7 +3992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a digital human training job that is in the Init or Fail state.
+   * Deletes a digital human training task that is in the init (draft) or training failed status.
    * 
    * @param request - DeleteAvatarTrainingJobRequest
    * @returns DeleteAvatarTrainingJobResponse
@@ -4006,7 +4006,7 @@ export default class Client extends OpenApi {
    * Deletes a media asset category.
    * 
    * @remarks
-   * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
+   * This operation also deletes all subcategories, including level-2 and level-3 categories. Proceed with caution.
    * 
    * @param request - DeleteCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4040,7 +4040,7 @@ export default class Client extends OpenApi {
    * Deletes a media asset category.
    * 
    * @remarks
-   * This operation also deletes the subcategories, including the level-2 and level-3 categories, of the category.
+   * This operation also deletes all subcategories, including level-2 and level-3 categories. Proceed with caution.
    * 
    * @param request - DeleteCategoryRequest
    * @returns DeleteCategoryResponse
@@ -4693,7 +4693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes live snapshot files. You can delete only the records, or both the records and the original Object Storage Service (OSS) files.
+   * Deletes live snapshot files. You can choose to delete only the records or delete both the records and the original OSS files.
    * 
    * @param tmpReq - DeleteLiveSnapshotFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4738,7 +4738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes live snapshot files. You can delete only the records, or both the records and the original Object Storage Service (OSS) files.
+   * Deletes live snapshot files. You can choose to delete only the records or delete both the records and the original OSS files.
    * 
    * @param request - DeleteLiveSnapshotFilesRequest
    * @returns DeleteLiveSnapshotFilesResponse
@@ -6025,7 +6025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more media assets.
+   * Deletes media asset information.
    * 
    * @param request - DeleteYikeAssetMediaInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6060,7 +6060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more media assets.
+   * Deletes media asset information.
    * 
    * @param request - DeleteYikeAssetMediaInfosRequest
    * @returns DeleteYikeAssetMediaInfosResponse
@@ -6887,11 +6887,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
+   * Generates a random KMS data key (DK) for standard encryption transcoding of videos.
    * 
    * @remarks
-   * ## Prerequisites
-   * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a custom KMS key before you can call this operation.
+   * ## Before you begin
+   * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a customer master key (CMK) in KMS before you call this operation.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateKMSDataKeyResponse
@@ -6913,11 +6913,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
+   * Generates a random KMS data key (DK) for standard encryption transcoding of videos.
    * 
    * @remarks
-   * ## Prerequisites
-   * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a custom KMS key before you can call this operation.
+   * ## Before you begin
+   * You must [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c63.p38356.0.0.583760760aj80E) to create a customer master key (CMK) in KMS before you call this operation.
    * @returns GenerateKMSDataKeyResponse
    */
   async generateKMSDataKey(): Promise<$_model.GenerateKMSDataKeyResponse> {
@@ -8820,10 +8820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves media asset information using an Intelligent Media Services (IMS) `mediaId` or an `InputURL`.
+   * Retrieves media asset information based on an IMS mediaId or media asset InputURL.
    * 
    * @remarks
-   * `MediaId` takes precedence. If `MediaId` is empty, `InputURL` must not be null.
+   * If MediaId is not empty, MediaId takes priority. If MediaId is empty, InputURL must be non-empty.
    * 
    * @param request - GetMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8870,10 +8870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves media asset information using an Intelligent Media Services (IMS) `mediaId` or an `InputURL`.
+   * Retrieves media asset information based on an IMS mediaId or media asset InputURL.
    * 
    * @remarks
-   * `MediaId` takes precedence. If `MediaId` is empty, `InputURL` must not be null.
+   * If MediaId is not empty, MediaId takes priority. If MediaId is empty, InputURL must be non-empty.
    * 
    * @param request - GetMediaInfoRequest
    * @returns GetMediaInfoResponse
@@ -9124,11 +9124,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for an editing and composition job, such as its task status, timeline, template, and data.
+   * Retrieves the details of a media producing job, including the job status, timeline, template, and data.
    * 
    * @remarks
-   * ### Limitations
-   * This API can only retrieve editing job data from the past year.
+   * ### Limits
+   * This operation only supports querying media producing node data from the last year.
    * 
    * @param request - GetMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9159,11 +9159,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for an editing and composition job, such as its task status, timeline, template, and data.
+   * Retrieves the details of a media producing job, including the job status, timeline, template, and data.
    * 
    * @remarks
-   * ### Limitations
-   * This API can only retrieve editing job data from the past year.
+   * ### Limits
+   * This operation only supports querying media producing node data from the last year.
    * 
    * @param request - GetMediaProducingJobRequest
    * @returns GetMediaProducingJobResponse
@@ -9258,7 +9258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the playback URL for a media file (video or audio) using a given audio/video ID. Use this URL for audio/video playback after integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player.
+   * Obtains the playback URL of a media file (video or audio) by audio or video ID. After integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player, you can use the URL for audio and video playback.
    * 
    * @param request - GetPlayInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9297,7 +9297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the playback URL for a media file (video or audio) using a given audio/video ID. Use this URL for audio/video playback after integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player.
+   * Obtains the playback URL of a media file (video or audio) by audio or video ID. After integrating the Alibaba Cloud Player SDK (for URL-based playback) or a third-party player, you can use the URL for audio and video playback.
    * 
    * @param request - GetPlayInfoRequest
    * @returns GetPlayInfoResponse
@@ -9940,7 +9940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the replaceable material parameter information of a template, including the parameter name, default material value, and material thumbnail. Currently, only advanced templates are supported.
+   * Retrieves the replaceable media parameter information of a template, including parameter names, default media values, and media thumbnails. Currently, only advanced templates are supported.
    * 
    * @param request - GetTemplateParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9967,7 +9967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the replaceable material parameter information of a template, including the parameter name, default material value, and material thumbnail. Currently, only advanced templates are supported.
+   * Retrieves the replaceable media parameter information of a template, including parameter names, default media values, and media thumbnails. Currently, only advanced templates are supported.
    * 
    * @param request - GetTemplateParamsRequest
    * @returns GetTemplateParamsResponse
@@ -10322,7 +10322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Yike AI App job.
+   * Retrieves the task result of an AI application.
    * 
    * @param request - GetYikeAIAppJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10353,7 +10353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Yike AI App job.
+   * Retrieves the task result of an AI application.
    * 
    * @param request - GetYikeAIAppJobRequest
    * @returns GetYikeAIAppJobResponse
@@ -10364,7 +10364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets media asset information.
+   * Retrieves the content information of a media asset.
    * 
    * @param request - GetYikeAssetMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10395,7 +10395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets media asset information.
+   * Retrieves the content information of a media asset.
    * 
    * @param request - GetYikeAssetMediaInfoRequest
    * @returns GetYikeAssetMediaInfoResponse
@@ -10406,7 +10406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Yike storyboard job.
+   * Retrieves an AI application task for storyboard generation.
    * 
    * @param request - GetYikeStoryboardJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10437,7 +10437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Yike storyboard job.
+   * Retrieves an AI application task for storyboard generation.
    * 
    * @param request - GetYikeStoryboardJobRequest
    * @returns GetYikeStoryboardJobResponse
@@ -10672,12 +10672,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List AI agent instances. You can retrieve all instances or filter them by specified conditions.
+   * Queries the list of AI agent instances. You can retrieve all instances or filter by specified conditions.
    * 
    * @remarks
-   * This operation lists AI agent instances. Filter results by agent ID (`AIAgentId`). Optionally, specify a time range (`StartTime` and `EndTime`), the number of results per page (`PageSize`), and the page number (`PageNumber`). The response includes each instance’s status, runtime configuration, template configuration, user-defined data, and a download link for the conversation call log.
-   * >Notice: 
-   * Default pagination values: PageSize is 10. PageNumber is 1.
+   * This operation allows you to query the list of AI agent instances based on the specified agent ID (`AIAgentId`), along with optional parameters such as time range (`StartTime` and `EndTime`), page size (`PageSize`), and page number (`PageNumber`). The response includes the status, runtime configuration, template configuration, user-defined data, and download URL for conversation call logs of each instance.
+   * >Notice: Default values for pagination parameters: PageSize is 10, PageNumber is 1.
    * 
    * @param request - ListAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10724,12 +10723,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List AI agent instances. You can retrieve all instances or filter them by specified conditions.
+   * Queries the list of AI agent instances. You can retrieve all instances or filter by specified conditions.
    * 
    * @remarks
-   * This operation lists AI agent instances. Filter results by agent ID (`AIAgentId`). Optionally, specify a time range (`StartTime` and `EndTime`), the number of results per page (`PageSize`), and the page number (`PageNumber`). The response includes each instance’s status, runtime configuration, template configuration, user-defined data, and a download link for the conversation call log.
-   * >Notice: 
-   * Default pagination values: PageSize is 10. PageNumber is 1.
+   * This operation allows you to query the list of AI agent instances based on the specified agent ID (`AIAgentId`), along with optional parameters such as time range (`StartTime` and `EndTime`), page size (`PageSize`), and page number (`PageNumber`). The response includes the status, runtime configuration, template configuration, user-defined data, and download URL for conversation call logs of each instance.
+   * >Notice: Default values for pagination parameters: PageSize is 10, PageNumber is 1.
    * 
    * @param request - ListAIAgentInstanceRequest
    * @returns ListAIAgentInstanceResponse
@@ -12302,7 +12300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of live stream transcoding jobs.
+   * Queries the list of real-time media transcoding tasks by calling ListLiveTranscodeJobs.
    * 
    * @param request - ListLiveTranscodeJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12357,7 +12355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of live stream transcoding jobs.
+   * Queries the list of real-time media transcoding tasks by calling ListLiveTranscodeJobs.
    * 
    * @param request - ListLiveTranscodeJobsRequest
    * @returns ListLiveTranscodeJobsResponse
@@ -12598,7 +12596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of media information analysis jobs.
+   * Queries the list of media information tasks.
    * 
    * @param request - ListMediaInfoJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12653,7 +12651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of media information analysis jobs.
+   * Queries the list of media information tasks.
    * 
    * @param request - ListMediaInfoJobsRequest
    * @returns ListMediaInfoJobsResponse
@@ -14402,7 +14400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Yike folders.
+   * Retrieves the list of folders.
    * 
    * @param request - ListYikeAssetFoldersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14441,7 +14439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Yike folders.
+   * Retrieves the list of folders.
    * 
    * @param request - ListYikeAssetFoldersRequest
    * @returns ListYikeAssetFoldersResponse
@@ -14452,7 +14450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Yike projects.
+   * Retrieves the list of Yike projects.
    * 
    * @param request - ListYikeProductionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14499,7 +14497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Yike projects.
+   * Retrieves the list of Yike projects.
    * 
    * @param request - ListYikeProductionsRequest
    * @returns ListYikeProductionsResponse
@@ -15498,10 +15496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+   * Initiates a media asset registration task and assigns a new IMS mediaId to the media asset. Based on the InputURL, the operation asynchronously calls other media asset information services to retrieve file information about the media asset. You can also set basic information such as the title, tags, and description. The operation synchronously returns a mediaId. You can call the GetMediaInfo operation to retrieve detailed media asset information. Currently, only OSS files and VOD media assets are supported as InputURL values.
    * 
    * @remarks
-   * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) operation at this time, you may fail to obtain the information about the media asset.
+   * Media asset registration is an asynchronous task that typically takes 2 to 3 seconds to complete. When the registration operation returns a mediaId, the media asset may not have been fully registered. In this case, calling [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) may not return the file information of the media asset.
    * 
    * @param request - RegisterMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15588,10 +15586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a media asset with Intelligent Media Services (IMS). IMS assigns an ID to the media asset. This operation asynchronously accesses the media asset service in which the media asset is stored to obtain the file information of the media asset based on the input URL. You can also specify basic information, such as the title, tags, and description, for the media asset. This operation returns the ID of the media asset. You can call the GetMediaInfo operation based on the ID to query the details of the media asset. You can set InputURL only to the URL of an Object Storage Service (OSS) file or an ApsaraVideo VOD media asset.
+   * Initiates a media asset registration task and assigns a new IMS mediaId to the media asset. Based on the InputURL, the operation asynchronously calls other media asset information services to retrieve file information about the media asset. You can also set basic information such as the title, tags, and description. The operation synchronously returns a mediaId. You can call the GetMediaInfo operation to retrieve detailed media asset information. Currently, only OSS files and VOD media assets are supported as InputURL values.
    * 
    * @remarks
-   * Registering a media asset is an asynchronous job that takes 2 to 3 seconds. When the operation returns the ID of the media asset, the registration may have not be completed. If you call the [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) operation at this time, you may fail to obtain the information about the media asset.
+   * Media asset registration is an asynchronous task that typically takes 2 to 3 seconds to complete. When the registration operation returns a mediaId, the media asset may not have been fully registered. In this case, calling [GetMediaInfo](https://help.aliyun.com/document_detail/441155.html) may not return the file information of the media asset.
    * 
    * @param request - RegisterMediaInfoRequest
    * @returns RegisterMediaInfoResponse
@@ -15656,7 +15654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a media asset in the asset library.
+   * Registers a content library resource.
    * 
    * @param request - RegisterYikeAssetMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15699,7 +15697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a media asset in the asset library.
+   * Registers a content library resource.
    * 
    * @param request - RegisterYikeAssetMediaInfoRequest
    * @returns RegisterYikeAssetMediaInfoResponse
@@ -15872,7 +15870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rerun the search index jobs for the specified media assets in batch. You can rerun index jobs for up to 20 media assets per request.
+   * Reanalyzes search index tasks for specified media assets in batches. You can rerun index tasks for up to 20 media assets per request.
    * 
    * @param request - SearchIndexJobRerunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15915,7 +15913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rerun the search index jobs for the specified media assets in batch. You can rerun index jobs for up to 20 media assets per request.
+   * Reanalyzes search index tasks for specified media assets in batches. You can rerun index tasks for up to 20 media assets per request.
    * 
    * @param request - SearchIndexJobRerunRequest
    * @returns SearchIndexJobRerunResponse
@@ -15926,10 +15924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns media assets that match the specified conditions.
+   * Returns media asset information that matches the specified filter conditions.
    * 
    * @remarks
-   * If you have any questions about the multi-modal search feature, join our DingTalk group (ID: 30415005038) for assistance.
+   * To use the multimodal search feature of Alibaba Cloud Intelligent Media Services or to consult about related issues, search for DingTalk group (30415005038) and join the Intelligent Media Services multimodal search customer support group to contact us.
    * 
    * @param request - SearchMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15988,10 +15986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns media assets that match the specified conditions.
+   * Returns media asset information that matches the specified filter conditions.
    * 
    * @remarks
-   * If you have any questions about the multi-modal search feature, join our DingTalk group (ID: 30415005038) for assistance.
+   * To use the multimodal search feature of Alibaba Cloud Intelligent Media Services or to consult about related issues, search for DingTalk group (30415005038) and join the Intelligent Media Services multimodal search customer support group to contact us.
    * 
    * @param request - SearchMediaRequest
    * @returns SearchMediaResponse
@@ -16338,10 +16336,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The API for searching media asset segments by face image (fine search) returns information about relevant character segments in the media asset where the face appears, based on coarse search results.
+   * Searches for media asset clips by face image (precise search). Returns relevant person clip information in the media asset based on the coarse search results.
    * 
    * @remarks
-   * For questions about using or troubleshooting the Intelligent Media Search feature of Alibaba Cloud Intelligent Media Services, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
+   * For questions about the intelligent media asset search feature of Alibaba Cloud Intelligent Media Services, search for DingTalk group (30415005038) to join the Intelligent Media Services multimodal search customer support group.
    * 
    * @param request - SearchMediaClipByFaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16392,10 +16390,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The API for searching media asset segments by face image (fine search) returns information about relevant character segments in the media asset where the face appears, based on coarse search results.
+   * Searches for media asset clips by face image (precise search). Returns relevant person clip information in the media asset based on the coarse search results.
    * 
    * @remarks
-   * For questions about using or troubleshooting the Intelligent Media Search feature of Alibaba Cloud Intelligent Media Services, please search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
+   * For questions about the intelligent media asset search feature of Alibaba Cloud Intelligent Media Services, search for DingTalk group (30415005038) to join the Intelligent Media Services multimodal search customer support group.
    * 
    * @param request - SearchMediaClipByFaceRequest
    * @returns SearchMediaClipByFaceResponse
@@ -16406,7 +16404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for media assets that meet the conditions based on the parameters provided by the User.
+   * Searches for media assets that match the specified conditions.
    * 
    * @param request - SearchPublicMediaInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16465,7 +16463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for media assets that meet the conditions based on the parameters provided by the User.
+   * Searches for media assets that match the specified conditions.
    * 
    * @param request - SearchPublicMediaInfoRequest
    * @returns SearchPublicMediaInfoResponse
@@ -16636,7 +16634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a command to process a live stream snapshot job.
+   * Sends an instruction for a real-time snapshot task.
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16671,7 +16669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sends a command to process a live stream snapshot job.
+   * Sends an instruction for a real-time snapshot task.
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
    * @returns SendLiveSnapshotJobCommandResponse
@@ -16938,14 +16936,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the default storage path for temporary files. The default storage address is used by the ICE online editor and the integrated web SDK to store temporary files generated during video editing, such as audio files generated by Intelligent configurations. Setting a default storage address avoids inconveniencing users who would otherwise need to specify storage paths for various temporary resources during editing. If you integrate ICE editing capabilities through an API, you can flexibly specify the path in the API request, and this default path will not take effect.
+   * Sets the default storage path for temporary files. The default storage address is used for temporary file storage generated during editing when using the ICE online editor or integrated WebSDK, such as audio files generated by intelligent configurations. Setting the default storage address prevents confusion when users are prompted to specify storage paths for various temporary resources during editing. If you access ICE editing capabilities through APIs, you can flexibly set the path in the API request, and this default path does not take effect.
    * 
    * @remarks
-   * - Intelligent Media Services supports storage in either Object Storage Service or ApsaraVideo VOD. Activate the corresponding service based on your required storage type. The differences between the two are as follows:
-   * - **ApsaraVideo VOD storage**: ApsaraVideo VOD provides an all-in-one audio and video solution, including video storage, media asset management, and CDN-based playback. When storing media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and publishing of video applications using VOD-provided APIs.
-   * - **Object Storage**: Object Storage Service (OSS) is Alibaba Cloud’s secure, low-cost, highly durable, and scalable cloud storage service. You can leverage the combined capabilities of Intelligent Media Services and OSS to develop audio and video applications for diverse scenarios.
-   * - You can also configure the storage address in the console. For details, see [Configure Storage Address](https://help.aliyun.com/document_detail/609918.html).
-   * - Storage fees are billed through OSS or ApsaraVideo VOD based on your configured storage address. For details, see [Media Asset Storage Billing](https://help.aliyun.com/document_detail/440701.html).
+   * -Intelligent Media Services can use Object Storage Service (OSS) or ApsaraVideo VOD storage. Activate the corresponding service based on the storage type you need. The differences are as follows:
+   * - ApsaraVideo VOD storage: ApsaraVideo VOD provides a one-stop audio and video Solutions that includes video storage, media asset management, and CDN playback services. When you store media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and launch of video services based on the APIs provided by ApsaraVideo VOD.
+   * - Object Storage Service: OSS is a massive, secure, low-cost, and highly durable cloud storage service provided by Alibaba Cloud. You can develop multi-scenario audio and video services based on the capabilities of Intelligent Media Services and OSS.
+   * -You can also configure the storage address in the console. For details, see [Configure storage address](https://help.aliyun.com/document_detail/609918.html).
+   * -Storage fees are billed in OSS or ApsaraVideo VOD based on the storage address you configure. For details, see [Media asset storage billing](https://help.aliyun.com/document_detail/440701.html).
    * 
    * @param request - SetDefaultStorageLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16984,14 +16982,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the default storage path for temporary files. The default storage address is used by the ICE online editor and the integrated web SDK to store temporary files generated during video editing, such as audio files generated by Intelligent configurations. Setting a default storage address avoids inconveniencing users who would otherwise need to specify storage paths for various temporary resources during editing. If you integrate ICE editing capabilities through an API, you can flexibly specify the path in the API request, and this default path will not take effect.
+   * Sets the default storage path for temporary files. The default storage address is used for temporary file storage generated during editing when using the ICE online editor or integrated WebSDK, such as audio files generated by intelligent configurations. Setting the default storage address prevents confusion when users are prompted to specify storage paths for various temporary resources during editing. If you access ICE editing capabilities through APIs, you can flexibly set the path in the API request, and this default path does not take effect.
    * 
    * @remarks
-   * - Intelligent Media Services supports storage in either Object Storage Service or ApsaraVideo VOD. Activate the corresponding service based on your required storage type. The differences between the two are as follows:
-   * - **ApsaraVideo VOD storage**: ApsaraVideo VOD provides an all-in-one audio and video solution, including video storage, media asset management, and CDN-based playback. When storing media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and publishing of video applications using VOD-provided APIs.
-   * - **Object Storage**: Object Storage Service (OSS) is Alibaba Cloud’s secure, low-cost, highly durable, and scalable cloud storage service. You can leverage the combined capabilities of Intelligent Media Services and OSS to develop audio and video applications for diverse scenarios.
-   * - You can also configure the storage address in the console. For details, see [Configure Storage Address](https://help.aliyun.com/document_detail/609918.html).
-   * - Storage fees are billed through OSS or ApsaraVideo VOD based on your configured storage address. For details, see [Media Asset Storage Billing](https://help.aliyun.com/document_detail/440701.html).
+   * -Intelligent Media Services can use Object Storage Service (OSS) or ApsaraVideo VOD storage. Activate the corresponding service based on the storage type you need. The differences are as follows:
+   * - ApsaraVideo VOD storage: ApsaraVideo VOD provides a one-stop audio and video Solutions that includes video storage, media asset management, and CDN playback services. When you store media assets in ApsaraVideo VOD, Intelligent Media Services enhances VOD capabilities, enabling rapid development and launch of video services based on the APIs provided by ApsaraVideo VOD.
+   * - Object Storage Service: OSS is a massive, secure, low-cost, and highly durable cloud storage service provided by Alibaba Cloud. You can develop multi-scenario audio and video services based on the capabilities of Intelligent Media Services and OSS.
+   * -You can also configure the storage address in the console. For details, see [Configure storage address](https://help.aliyun.com/document_detail/609918.html).
+   * -Storage fees are billed in OSS or ApsaraVideo VOD based on the storage address you configure. For details, see [Media asset storage billing](https://help.aliyun.com/document_detail/440701.html).
    * 
    * @param request - SetDefaultStorageLocationRequest
    * @returns SetDefaultStorageLocationResponse
@@ -17574,11 +17572,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * By invoking the StartWorkflow API, you can submit a media workflow template task to implement an automated media processing flow based on the workflow template.
+   * Submits a workflow template task to implement an automated media processing flow based on a workflow template.
    * 
    * @remarks
-   * - Currently, only media assets from Intelligent Media Services or ApsaraVideo VOD are supported as workflow inputs.
-   * - When submitting a flow task, you must specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a system preset workflow template.
+   * - Currently, only Intelligent Media Services (IMS) media assets and ApsaraVideo VOD media assets are supported as workflow inputs.
+   * - When you initiate a workflow task, specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset template.
    * 
    * @param request - StartWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17621,11 +17619,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * By invoking the StartWorkflow API, you can submit a media workflow template task to implement an automated media processing flow based on the workflow template.
+   * Submits a workflow template task to implement an automated media processing flow based on a workflow template.
    * 
    * @remarks
-   * - Currently, only media assets from Intelligent Media Services or ApsaraVideo VOD are supported as workflow inputs.
-   * - When submitting a flow task, you must specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a system preset workflow template.
+   * - Currently, only Intelligent Media Services (IMS) media assets and ApsaraVideo VOD media assets are supported as workflow inputs.
+   * - When you initiate a workflow task, specify a workflow template. You can create a workflow template in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset template.
    * 
    * @param request - StartWorkflowRequest
    * @returns StartWorkflowResponse
@@ -17636,12 +17634,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop an agent instance.
+   * Stops an agent instance.
    * 
    * @remarks
-   * - **Feature description**: Stops and terminates a running agent instance and release the associated resources.
+   * - **Feature description**: This operation stops and terminates a running agent instance and releases related resources.
    * - **Parameter notes**: You must provide the unique ID (InstanceId) of the instance to be stopped as a query parameter.
-   * - **Common scenarios**: When an agent is no longer needed for a call or job, you can invoke this API to end its execution.
+   * - **Common scenarios**: Invoke this operation to end the running of an agent when the agent is no longer needed for a call or node.
    * 
    * @param request - StopAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17672,12 +17670,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stop an agent instance.
+   * Stops an agent instance.
    * 
    * @remarks
-   * - **Feature description**: Stops and terminates a running agent instance and release the associated resources.
+   * - **Feature description**: This operation stops and terminates a running agent instance and releases related resources.
    * - **Parameter notes**: You must provide the unique ID (InstanceId) of the instance to be stopped as a query parameter.
-   * - **Common scenarios**: When an agent is no longer needed for a call or job, you can invoke this API to end its execution.
+   * - **Common scenarios**: Invoke this operation to end the running of an agent when the agent is no longer needed for a call or node.
    * 
    * @param request - StopAIAgentInstanceRequest
    * @returns StopAIAgentInstanceResponse
@@ -17870,7 +17868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deducts credits from a sub-account.
+   * Deducts user credits.
    * 
    * @param request - SubYikeUserCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17905,7 +17903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deducts credits from a sub-account.
+   * Deducts user credits.
    * 
    * @param request - SubYikeUserCreditRequest
    * @returns SubYikeUserCreditResponse
@@ -17998,10 +17996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transcribes speech from a media file and returns the text with corresponding start and end timestamps.
+   * Extracts time start and end points along with corresponding text information based on video speech.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and processes the job in the background. The results are sent through a callback notification, or you can query the job status by calling the [GetSmartTaskResult](https://help.aliyun.com/document_detail/441172.html) operation.
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. At this point, the task is not yet complete and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitASRJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18056,10 +18054,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transcribes speech from a media file and returns the text with corresponding start and end timestamps.
+   * Extracts time start and end points along with corresponding text information based on video speech.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the API returns a job ID and processes the job in the background. The results are sent through a callback notification, or you can query the job status by calling the [GetSmartTaskResult](https://help.aliyun.com/document_detail/441172.html) operation.
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. At this point, the task is not yet complete and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitASRJobRequest
    * @returns SubmitASRJobResponse
@@ -18070,10 +18068,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API converts text into a high-quality audio file of speech.
+   * Converts provided text content into a high-quality speech audio file.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, you receive a job ID, and the job is processed in the background. You can get the result through a callback notification or by querying the job status with the [GetSmartJobResult API](https://help.aliyun.com/document_detail/441172.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetSmartHandleJob](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18128,10 +18126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API converts text into a high-quality audio file of speech.
+   * Converts provided text content into a high-quality speech audio file.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, you receive a job ID, and the job is processed in the background. You can get the result through a callback notification or by querying the job status with the [GetSmartJobResult API](https://help.aliyun.com/document_detail/441172.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetSmartHandleJob](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @returns SubmitAudioProduceJobResponse
@@ -18264,17 +18262,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently edits and combines multiple video, audio, and image media assets to create videos in batches with a single API call.
+   * Intelligently mixes and edits multiple video, audio, and image materials to batch-produce videos with one click.
    * 
    * @remarks
    * <props="china">
-   * - To use the one-click smart video creation feature, you must first subscribe to the IMS Subscription Service. For more information, see [Subscription Billing](~~439260#3285adfad70dw~~).
+   * - To use intelligent one-click video production, you must first purchase the [IMS subscription service]. For more information, see [Subscription billing](~~439260#3285adfad70dw~~).
    * <props="china">
-   * - For more information about billing for one-click smart video creation, see [One-click Video Creation](https://help.aliyun.com/document_detail/2840901.html).
-   * - The one-click smart video creation feature is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a job ID and queues the job for asynchronous processing. The system delivers the final result through a callback. You can also query the job status by calling the [Get Batch Media Production Job Information](https://help.aliyun.com/document_detail/2693269.html) operation.
-   * - The one-click smart video creation feature offers multiple solutions, including Script-based Automated Video Creation, AI-powered Image-Text Matching Video Creation (General), AI-powered Image-Text Matching Video Creation (Highlights), Sports Highlight Video Creation, and High-Energy Montage Video Creation. For more information about these features, see [One-click Video Creation](https://help.aliyun.com/document_detail/2689046.html).
-   * - Script-based Automated Video Creation and AI-powered Image-Text Matching Video Creation share the same API for submitting jobs. To learn how to differentiate between them using parameters, see [Parameter Differences for One-click Video Creation](https://help.aliyun.com/document_detail/2846101.html).
-   * - After you submit a batch job for one-click smart video creation, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve a list of all matching jobs. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to get detailed information about a job, including its status, the generated media asset ID, and the media asset URL.
+   * - For the billing rules of intelligent one-click video production, see [Intelligent one-click video production](https://help.aliyun.com/document_detail/2840901.html).
+   * - Intelligent one-click video production is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+   * - Intelligent one-click video production provides multiple solutions, including [Scripted automatic video production], [Intelligent text-image matching video production - General scenario], [Intelligent text-image matching video production - Film highlights], [Sports event highlights production], and [High-energy remix production]. For more information about the features, see [Intelligent one-click video production](https://help.aliyun.com/document_detail/2689046.html).
+   * - Scripted automatic video production and intelligent text-image matching video production share the same task submission API. For information about how to distinguish between them by using parameters, see [Parameter differences for intelligent one-click video production](https://help.aliyun.com/document_detail/2846101.html).
+   * - After you submit a batch intelligent one-click video production task, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to obtain a list of all eligible one-click video production tasks. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to obtain detailed task information, including the task status, produced media asset IDs, and URLs.
    * 
    * @param request - SubmitBatchMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18327,17 +18325,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Intelligently edits and combines multiple video, audio, and image media assets to create videos in batches with a single API call.
+   * Intelligently mixes and edits multiple video, audio, and image materials to batch-produce videos with one click.
    * 
    * @remarks
    * <props="china">
-   * - To use the one-click smart video creation feature, you must first subscribe to the IMS Subscription Service. For more information, see [Subscription Billing](~~439260#3285adfad70dw~~).
+   * - To use intelligent one-click video production, you must first purchase the [IMS subscription service]. For more information, see [Subscription billing](~~439260#3285adfad70dw~~).
    * <props="china">
-   * - For more information about billing for one-click smart video creation, see [One-click Video Creation](https://help.aliyun.com/document_detail/2840901.html).
-   * - The one-click smart video creation feature is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a job ID and queues the job for asynchronous processing. The system delivers the final result through a callback. You can also query the job status by calling the [Get Batch Media Production Job Information](https://help.aliyun.com/document_detail/2693269.html) operation.
-   * - The one-click smart video creation feature offers multiple solutions, including Script-based Automated Video Creation, AI-powered Image-Text Matching Video Creation (General), AI-powered Image-Text Matching Video Creation (Highlights), Sports Highlight Video Creation, and High-Energy Montage Video Creation. For more information about these features, see [One-click Video Creation](https://help.aliyun.com/document_detail/2689046.html).
-   * - Script-based Automated Video Creation and AI-powered Image-Text Matching Video Creation share the same API for submitting jobs. To learn how to differentiate between them using parameters, see [Parameter Differences for One-click Video Creation](https://help.aliyun.com/document_detail/2846101.html).
-   * - After you submit a batch job for one-click smart video creation, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to retrieve a list of all matching jobs. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to get detailed information about a job, including its status, the generated media asset ID, and the media asset URL.
+   * - For the billing rules of intelligent one-click video production, see [Intelligent one-click video production](https://help.aliyun.com/document_detail/2840901.html).
+   * - Intelligent one-click video production is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html).
+   * - Intelligent one-click video production provides multiple solutions, including [Scripted automatic video production], [Intelligent text-image matching video production - General scenario], [Intelligent text-image matching video production - Film highlights], [Sports event highlights production], and [High-energy remix production]. For more information about the features, see [Intelligent one-click video production](https://help.aliyun.com/document_detail/2689046.html).
+   * - Scripted automatic video production and intelligent text-image matching video production share the same task submission API. For information about how to distinguish between them by using parameters, see [Parameter differences for intelligent one-click video production](https://help.aliyun.com/document_detail/2846101.html).
+   * - After you submit a batch intelligent one-click video production task, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to obtain a list of all eligible one-click video production tasks. Call [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to obtain detailed task information, including the task status, produced media asset IDs, and URLs.
    * 
    * @param request - SubmitBatchMediaProducingJobRequest
    * @returns SubmitBatchMediaProducingJobResponse
@@ -18574,14 +18572,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a basic voice cloning job.
+   * Submits a voice cloning task of the Basic edition.
    * 
    * @remarks
-   * <props="china">
-   * - Billing for voice cloning is based on customization and usage. For more information, see [voice cloning pricing](~~2399891#section-gy3-80e-clt~~).
-   * - When you submit a voice cloning job, the `VoiceId` must match the one provided during audio detection. The service uses this parameter to locate the staged audio for training.
-   * - While the job is training, you can call the [GetCustomizedVoiceJob - Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation to query the job status.
-   * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After a job is submitted, the API immediately returns a `JobId` and queues the job for background processing. The result is delivered via a callback. Alternatively, you can poll for the job status by using the [Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation.
+   * <props="china">- Voice cloning billing is divided into two dimensions: customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+   * - When submitting a voice cloning task, the VoiceId must be the same as the one used during audio detection. The cloud relies on this parameter to locate the staged audio for training.  
+   * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is completed or to obtain the training status.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned (the task is not yet completed at this point and enters a background queue for asynchronous execution). The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html).
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18616,14 +18613,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a basic voice cloning job.
+   * Submits a voice cloning task of the Basic edition.
    * 
    * @remarks
-   * <props="china">
-   * - Billing for voice cloning is based on customization and usage. For more information, see [voice cloning pricing](~~2399891#section-gy3-80e-clt~~).
-   * - When you submit a voice cloning job, the `VoiceId` must match the one provided during audio detection. The service uses this parameter to locate the staged audio for training.
-   * - While the job is training, you can call the [GetCustomizedVoiceJob - Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation to query the job status.
-   * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After a job is submitted, the API immediately returns a `JobId` and queues the job for background processing. The result is delivered via a callback. Alternatively, you can poll for the job status by using the [Query a voice clone job](https://help.aliyun.com/document_detail/2384473.html) operation.
+   * <props="china">- Voice cloning billing is divided into two dimensions: customization and usage. For more information, see [Voice cloning billing](~~2399891#section-gy3-80e-clt~~).
+   * - When submitting a voice cloning task, the VoiceId must be the same as the one used during audio detection. The cloud relies on this parameter to locate the staged audio for training.  
+   * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is completed or to obtain the training status.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned (the task is not yet completed at this point and enters a background queue for asynchronous execution). The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html).
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @returns SubmitCustomizedVoiceJobResponse
@@ -19002,10 +18998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use the `SubmitIProductionJob` operation to submit an intelligent production job.
+   * Submits an intelligent production job by calling SubmitIProductionJob.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for asynchronous processing. The final result is delivered via a callback. You can also query the task status by calling [QuerySmartProductionTask](https://help.aliyun.com/document_detail/441215.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, a job ID is returned. The job is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the job status by calling [QueryIProductionJob](https://help.aliyun.com/document_detail/441215.html).
    * 
    * @param tmpReq - SubmitIProductionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19082,10 +19078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use the `SubmitIProductionJob` operation to submit an intelligent production job.
+   * Submits an intelligent production job by calling SubmitIProductionJob.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a task, the API returns a task ID and queues the task for asynchronous processing. The final result is delivered via a callback. You can also query the task status by calling [QuerySmartProductionTask](https://help.aliyun.com/document_detail/441215.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, a job ID is returned. The job is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the job status by calling [QueryIProductionJob](https://help.aliyun.com/document_detail/441215.html).
    * 
    * @param request - SubmitIProductionJobRequest
    * @returns SubmitIProductionJobResponse
@@ -19096,11 +19092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Live editing creates an output file by combining one or more segments from live streams. After you submit a live editing job, it is processed asynchronously. You can then call the GetLiveEditingJob operation with the returned JobId to query the job status, or call the GetMediaInfo operation with the MediaId to get details of the generated media asset.
+   * Live editing combines one or more live stream segments into a finished product. After you submit a live editing task, the task enters a background queue and is executed asynchronously. After submission, you can call the GetLiveEditingJob operation to query the job status by jobId. You can also call the GetMediaInfo operation to query information about the generated media asset by MediaId.
    * 
    * @remarks
-   * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a JobId before the job is complete. The job is then queued for asynchronous processing. You will receive a [callback notification](https://help.aliyun.com/document_detail/441150.html) when the job completes. Alternatively, you can query the job status by calling the [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html) operation.
-   * - You can edit live streams that are recorded to either OSS or VOD. When editing multiple live streams together, all streams must be recorded to the same service, either all to OSS or all to VOD.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned (the task is not yet complete and enters a background queue for asynchronous execution). The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html).
+   * - Live editing is supported for live streams recorded to OSS and VOD. When mixing multiple live streams, all streams must be recorded to OSS or all streams must be recorded to VOD.
    * 
    * @param request - SubmitLiveEditingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19155,11 +19151,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Live editing creates an output file by combining one or more segments from live streams. After you submit a live editing job, it is processed asynchronously. You can then call the GetLiveEditingJob operation with the returned JobId to query the job status, or call the GetMediaInfo operation with the MediaId to get details of the generated media asset.
+   * Live editing combines one or more live stream segments into a finished product. After you submit a live editing task, the task enters a background queue and is executed asynchronously. After submission, you can call the GetLiveEditingJob operation to query the job status by jobId. You can also call the GetMediaInfo operation to query information about the generated media asset by MediaId.
    * 
    * @remarks
-   * - This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). When you submit a job, the system returns a JobId before the job is complete. The job is then queued for asynchronous processing. You will receive a [callback notification](https://help.aliyun.com/document_detail/441150.html) when the job completes. Alternatively, you can query the job status by calling the [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html) operation.
-   * - You can edit live streams that are recorded to either OSS or VOD. When editing multiple live streams together, all streams must be recorded to the same service, either all to OSS or all to VOD.
+   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned (the task is not yet complete and enters a background queue for asynchronous execution). The final result is delivered through a callback notification. You can also proactively query the task status by calling [GetLiveEditingJob](https://help.aliyun.com/document_detail/441150.html).
+   * - Live editing is supported for live streams recorded to OSS and VOD. When mixing multiple live streams, all streams must be recorded to OSS or all streams must be recorded to VOD.
    * 
    * @param request - SubmitLiveEditingJobRequest
    * @returns SubmitLiveEditingJobResponse
@@ -19170,12 +19166,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a live stream recording job.
+   * Submits a real-time recording task to record a live stream by calling SubmitLiveRecordJob.
    * 
    * @remarks
-   * Record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
-   * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
-   * If the preset recording template does not meet your requirements, you can create a custom recording template.
+   * This operation supports recording of Alibaba Cloud live streams or third-party RTMP live streams. Start the stream before calling this operation to submit a recording task. If the live stream address cannot be pulled, the task attempts to pull the stream for 3 minutes. After the timeout, the recording service stops recording.
+   * Before submitting a recording task, prepare an Alibaba Cloud OSS or VOD storage space. Use the storage address configured in Intelligent Media Services to facilitate management and processing of recorded files.
+   * If the preset recording templates do not meet your requirements, create a custom recording template.
    * 
    * @param tmpReq - SubmitLiveRecordJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19232,12 +19228,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a live stream recording job.
+   * Submits a real-time recording task to record a live stream by calling SubmitLiveRecordJob.
    * 
    * @remarks
-   * Record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
-   * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
-   * If the preset recording template does not meet your requirements, you can create a custom recording template.
+   * This operation supports recording of Alibaba Cloud live streams or third-party RTMP live streams. Start the stream before calling this operation to submit a recording task. If the live stream address cannot be pulled, the task attempts to pull the stream for 3 minutes. After the timeout, the recording service stops recording.
+   * Before submitting a recording task, prepare an Alibaba Cloud OSS or VOD storage space. Use the storage address configured in Intelligent Media Services to facilitate management and processing of recorded files.
+   * If the preset recording templates do not meet your requirements, create a custom recording template.
    * 
    * @param request - SubmitLiveRecordJobRequest
    * @returns SubmitLiveRecordJobResponse
@@ -19248,7 +19244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
+   * Submits a real-time snapshot task. If submitted during an active stream, the task starts automatically and asynchronously. Otherwise, the task remains in an unstarted state.
    * 
    * @param tmpReq - SubmitLiveSnapshotJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19305,7 +19301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
+   * Submits a real-time snapshot task. If submitted during an active stream, the task starts automatically and asynchronously. Otherwise, the task remains in an unstarted state.
    * 
    * @param request - SubmitLiveSnapshotJobRequest
    * @returns SubmitLiveSnapshotJobResponse
@@ -19544,10 +19540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submit a media processing job
+   * Submits a media processing task.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, the API returns a task ID and queues the task for asynchronous processing. You will receive the final result via a callback notification, or you can poll for the task status by calling the [Query Media Transcoding Task](https://help.aliyun.com/document_detail/2867675.html) operation.
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution in the background. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Query media transcoding task](https://help.aliyun.com/document_detail/2867675.html).
    * 
    * @param request - SubmitMediaConvertJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19590,10 +19586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submit a media processing job
+   * Submits a media processing task.
    * 
    * @remarks
-   * This is an [asynchronous API](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, the API returns a task ID and queues the task for asynchronous processing. You will receive the final result via a callback notification, or you can poll for the task status by calling the [Query Media Transcoding Task](https://help.aliyun.com/document_detail/2867675.html) operation.
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a queue for asynchronous execution in the background. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Query media transcoding task](https://help.aliyun.com/document_detail/2867675.html).
    * 
    * @param request - SubmitMediaConvertJobRequest
    * @returns SubmitMediaConvertJobResponse
@@ -19676,28 +19672,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The `SubmitMediaProducingJob` API submits a media production job. This job provides automated processing for post-production tasks, such as editing and composing video and audio assets.
+   * Commits a media editing and compositing job. When you need to perform editing, compositing, or other forms of post-production on video or audio materials, you can invoke this API operation to automate the processing.
    * 
    * @remarks
-   * - **Billing: Video editing is charged based on the duration of the output video. For more information, see [video editing](https://help.aliyun.com/document_detail/2840899.html). Failed jobs incur no charges.**
-   * - Flexible editing capabilities: Use this operation to arrange and design assets. It supports complex video editing through flexible [timeline](https://help.aliyun.com/document_detail/198823.html) configurations.
-   * - Asset reference rules: Assets referenced in the timeline can be media assets from your asset library or OSS objects. External URLs and CDN URLs are not supported. If an asset is an OSS object, MediaUrl must be an OSS URL, for example: https\\://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
-   * - Asynchronous job execution: This operation creates an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a task ID and queues the job for background processing. The job is not yet complete at this stage. The system delivers the final result via a callback notification. You can also query the job status by [querying the editing and compositing job](https://help.aliyun.com/document_detail/441149.html).
-   * - Job status query:
-   *   1. Call [Query an editing and compositing job](https://help.aliyun.com/document_detail/441149.html) and pass the JobId to query the job status and result.
-   *   2. When you submit an editing and compositing job, you can include a callback URL in the **UserData** parameter of your request. When the job completes or fails, the system sends a notification to this callback URL. You can use the callback data to retrieve the job status.
-   * - Media asset registration and analysis: After video compositing completes, the system automatically registers a new media asset, which is initially in an analyzing state. After the analysis is complete, you can use the MediaId to retrieve the duration and resolution of the output video.
-   * ## Limitations
-   * - The throttling limit for this operation is 30 QPS. Submitted jobs are queued and processed asynchronously.
-   *   > If you exceed this limit, you may encounter a "Throttling.User" error. For more information, see ["Throttling.User" error when submitting editing jobs](https://help.aliyun.com/document_detail/453484.html).
-   * - When you submit a large number of jobs (for example, 1,000 or 10,000), the system scales out automatically, but you may experience queueing delays.
-   * - The maximum number of tracks is 100 for each type: video, image, and subtitle.
-   * - While there is no limit on the number of assets, their total size must not exceed 1 TB.
-   * - The region of the input or output OSS bucket must match the IMS region.
-   * - When the output is a video, the following resolution limits apply:
-   *   - Both the width and height must be at least 128 px.
-   *   - Neither the width nor the height can exceed 4096 px.
-   *   - The shorter side cannot exceed 2160 px.
+   * - **Billing: Video clip editing is billed based on the duration of the produced video. For details, see [Video clip](https://help.aliyun.com/document_detail/2840899.html). No fees are charged for failed jobs.**
+   * - Diverse editing capabilities: When you need to arrange and design materials based on your creative ideas, invoke this operation. This operation supports flexible [Timeline configurations](https://help.aliyun.com/document_detail/198823.html) to meet complex video clip editing requirements.
+   *    
+   * - Material reference rules: Materials referenced in the cloud editing timeline can be media assets in the media library or OSS files. External URLs or CDN URLs are not supported. When the material is an OSS file, MediaUrl supports only OSS URL format, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.   
+   * - Asynchronous task execution: This operation is an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you commit a task, a task ID is returned (the task is not yet completed and enters a background queue for asynchronous execution). The final result is sent through a callback notification. You can also proactively query the task status by calling [GetMediaProducingJob](https://help.aliyun.com/document_detail/441149.html). 
+   * - Task status query:
+   *   1. Invoke [GetMediaProducingJob](https://help.aliyun.com/document_detail/441149.html) and pass in the JobId to query the task status and result.
+   *   1. When committing a media producing job, you can set **UserData** in the request parameters to include a callback URL. When the editing task is completed or fails, the system sends a notification to the callback URL. You can process the callback data to obtain the task status.
+   * - Media asset registration and analysis: After video compositing is completed, the media asset is automatically registered. At this point, the media asset is still in the analyzing state. After the analysis is completed, you can obtain the duration and resolution of the produced video based on the MediaId.
+   * ## Limits
+   * - The throttling limit of this operation is 30 QPS (requests per second for submitting tasks). Submitted tasks enter a background queue and are processed asynchronously.
+   *    >If this limit is exceeded, you may encounter a "Throttling.User" error. For more information, see [Throttling.User error when submitting an editing task](https://help.aliyun.com/document_detail/453484.html).
+   * - When you submit a large number of tasks (such as 1,000 or 10,000), the system dynamically scales up, but there may be some queuing time.
+   * - The maximum number of tracks for video tracks, image tracks, and subtitle tracks is 100 each.    
+   * - There is no limit on the number of materials, but the total file size of all materials cannot exceed 1 TB.  
+   * - The region of the input or output OSS bucket must be the same as the region where IMS is used.   
+   * - When the output is a video, the following resolution limits apply to the produced video:
+   *     - Both width and height must be at least 128 px.
+   *     - Both width and height cannot exceed 4096 px.
+   *     - The short side cannot exceed 2160 px.
    * 
    * @param request - SubmitMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19774,28 +19771,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The `SubmitMediaProducingJob` API submits a media production job. This job provides automated processing for post-production tasks, such as editing and composing video and audio assets.
+   * Commits a media editing and compositing job. When you need to perform editing, compositing, or other forms of post-production on video or audio materials, you can invoke this API operation to automate the processing.
    * 
    * @remarks
-   * - **Billing: Video editing is charged based on the duration of the output video. For more information, see [video editing](https://help.aliyun.com/document_detail/2840899.html). Failed jobs incur no charges.**
-   * - Flexible editing capabilities: Use this operation to arrange and design assets. It supports complex video editing through flexible [timeline](https://help.aliyun.com/document_detail/198823.html) configurations.
-   * - Asset reference rules: Assets referenced in the timeline can be media assets from your asset library or OSS objects. External URLs and CDN URLs are not supported. If an asset is an OSS object, MediaUrl must be an OSS URL, for example: https\\://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
-   * - Asynchronous job execution: This operation creates an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the operation returns a task ID and queues the job for background processing. The job is not yet complete at this stage. The system delivers the final result via a callback notification. You can also query the job status by [querying the editing and compositing job](https://help.aliyun.com/document_detail/441149.html).
-   * - Job status query:
-   *   1. Call [Query an editing and compositing job](https://help.aliyun.com/document_detail/441149.html) and pass the JobId to query the job status and result.
-   *   2. When you submit an editing and compositing job, you can include a callback URL in the **UserData** parameter of your request. When the job completes or fails, the system sends a notification to this callback URL. You can use the callback data to retrieve the job status.
-   * - Media asset registration and analysis: After video compositing completes, the system automatically registers a new media asset, which is initially in an analyzing state. After the analysis is complete, you can use the MediaId to retrieve the duration and resolution of the output video.
-   * ## Limitations
-   * - The throttling limit for this operation is 30 QPS. Submitted jobs are queued and processed asynchronously.
-   *   > If you exceed this limit, you may encounter a "Throttling.User" error. For more information, see ["Throttling.User" error when submitting editing jobs](https://help.aliyun.com/document_detail/453484.html).
-   * - When you submit a large number of jobs (for example, 1,000 or 10,000), the system scales out automatically, but you may experience queueing delays.
-   * - The maximum number of tracks is 100 for each type: video, image, and subtitle.
-   * - While there is no limit on the number of assets, their total size must not exceed 1 TB.
-   * - The region of the input or output OSS bucket must match the IMS region.
-   * - When the output is a video, the following resolution limits apply:
-   *   - Both the width and height must be at least 128 px.
-   *   - Neither the width nor the height can exceed 4096 px.
-   *   - The shorter side cannot exceed 2160 px.
+   * - **Billing: Video clip editing is billed based on the duration of the produced video. For details, see [Video clip](https://help.aliyun.com/document_detail/2840899.html). No fees are charged for failed jobs.**
+   * - Diverse editing capabilities: When you need to arrange and design materials based on your creative ideas, invoke this operation. This operation supports flexible [Timeline configurations](https://help.aliyun.com/document_detail/198823.html) to meet complex video clip editing requirements.
+   *    
+   * - Material reference rules: Materials referenced in the cloud editing timeline can be media assets in the media library or OSS files. External URLs or CDN URLs are not supported. When the material is an OSS file, MediaUrl supports only OSS URL format, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.   
+   * - Asynchronous task execution: This operation is an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After you commit a task, a task ID is returned (the task is not yet completed and enters a background queue for asynchronous execution). The final result is sent through a callback notification. You can also proactively query the task status by calling [GetMediaProducingJob](https://help.aliyun.com/document_detail/441149.html). 
+   * - Task status query:
+   *   1. Invoke [GetMediaProducingJob](https://help.aliyun.com/document_detail/441149.html) and pass in the JobId to query the task status and result.
+   *   1. When committing a media producing job, you can set **UserData** in the request parameters to include a callback URL. When the editing task is completed or fails, the system sends a notification to the callback URL. You can process the callback data to obtain the task status.
+   * - Media asset registration and analysis: After video compositing is completed, the media asset is automatically registered. At this point, the media asset is still in the analyzing state. After the analysis is completed, you can obtain the duration and resolution of the produced video based on the MediaId.
+   * ## Limits
+   * - The throttling limit of this operation is 30 QPS (requests per second for submitting tasks). Submitted tasks enter a background queue and are processed asynchronously.
+   *    >If this limit is exceeded, you may encounter a "Throttling.User" error. For more information, see [Throttling.User error when submitting an editing task](https://help.aliyun.com/document_detail/453484.html).
+   * - When you submit a large number of tasks (such as 1,000 or 10,000), the system dynamically scales up, but there may be some queuing time.
+   * - The maximum number of tracks for video tracks, image tracks, and subtitle tracks is 100 each.    
+   * - There is no limit on the number of materials, but the total file size of all materials cannot exceed 1 TB.  
+   * - The region of the input or output OSS bucket must be the same as the region where IMS is used.   
+   * - When the output is a video, the following resolution limits apply to the produced video:
+   *     - Both width and height must be at least 128 px.
+   *     - Both width and height cannot exceed 4096 px.
+   *     - The short side cannot exceed 2160 px.
    * 
    * @param request - SubmitMediaProducingJobRequest
    * @returns SubmitMediaProducingJobResponse
@@ -20518,7 +20516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+   * Submits a voice cloning task of the basic edition. After you call this operation, a JobId is synchronously returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query whether the current task is completed and obtain the training status.
    * 
    * @param request - SubmitStandardCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20565,7 +20563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+   * Submits a voice cloning task of the basic edition. After you call this operation, a JobId is synchronously returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query whether the current task is completed and obtain the training status.
    * 
    * @param request - SubmitStandardCustomizedVoiceJobRequest
    * @returns SubmitStandardCustomizedVoiceJobResponse
@@ -20940,11 +20938,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the SubmitTranscodeJob operation to submit a video or audio transcoding job to Intelligent Media Services. In the request, you must specify the source file to transcode, the output format, and related parameters.
+   * Submits a transcoding job for a video or audio file to Intelligent Media Services by specifying the source file, output format, and related parameters.
    * 
    * @remarks
-   * - This operation will be discontinued on December 31, 2025. Use [SubmitMediaConvertJob](https://help.aliyun.com/document_detail/2867673.html) instead.
-   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID. The job is not completed immediately but is queued for asynchronous execution in the background. You will receive the final result through a callback notification. You can also call [QueryTranscodeJob](https://help.aliyun.com/document_detail/441206.html) to query the job status.
+   * - <props="intl">This operation will be discontinued on December 31, 2025. Call [SubmitMediaConvertJob - Submit a media transcoding job](https://help.aliyun.com/document_detail/2867673.html) instead.
    * 
    * @param tmpReq - SubmitTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21009,11 +21006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the SubmitTranscodeJob operation to submit a video or audio transcoding job to Intelligent Media Services. In the request, you must specify the source file to transcode, the output format, and related parameters.
+   * Submits a transcoding job for a video or audio file to Intelligent Media Services by specifying the source file, output format, and related parameters.
    * 
    * @remarks
-   * - This operation will be discontinued on December 31, 2025. Use [SubmitMediaConvertJob](https://help.aliyun.com/document_detail/2867673.html) instead.
-   * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a job, the system returns a job ID. The job is not completed immediately but is queued for asynchronous execution in the background. You will receive the final result through a callback notification. You can also call [QueryTranscodeJob](https://help.aliyun.com/document_detail/441206.html) to query the job status.
+   * - <props="intl">This operation will be discontinued on December 31, 2025. Call [SubmitMediaConvertJob - Submit a media transcoding job](https://help.aliyun.com/document_detail/2867673.html) instead.
    * 
    * @param request - SubmitTranscodeJobRequest
    * @returns SubmitTranscodeJobResponse
@@ -21206,7 +21202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Yike AI application job.
+   * Submits an AI application task.
    * 
    * @param request - SubmitYikeAIAppJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21249,7 +21245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Yike AI application job.
+   * Submits an AI application task.
    * 
    * @param request - SubmitYikeAIAppJobRequest
    * @returns SubmitYikeAIAppJobResponse
@@ -21260,7 +21256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Yike AI application job.
+   * Submits a storyboard generation task for the Yike AI application.
    * 
    * @param request - SubmitYikeStoryboardJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21345,7 +21341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a Yike AI application job.
+   * Submits a storyboard generation task for the Yike AI application.
    * 
    * @param request - SubmitYikeStoryboardJobRequest
    * @returns SubmitYikeStoryboardJobResponse
@@ -21616,10 +21612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a category.
+   * Updates a media asset category.
    * 
    * @remarks
-   * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
+   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
    * 
    * @param request - UpdateCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21654,10 +21650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a category.
+   * Updates a media asset category.
    * 
    * @remarks
-   * After you create a media asset category, you can call this operation to find the category based on the category ID and change the name of the category.
+   * After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
    * 
    * @param request - UpdateCategoryRequest
    * @returns UpdateCategoryResponse
@@ -21730,7 +21726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom template.
+   * Modifies the information of a user-defined template for media processing.
    * 
    * @param request - UpdateCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21769,7 +21765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom template.
+   * Modifies the information of a user-defined template for media processing.
    * 
    * @param request - UpdateCustomTemplateRequest
    * @returns UpdateCustomTemplateResponse
@@ -23036,7 +23032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the marks of a media asset.
+   * Updates media asset mark information.
    * 
    * @param request - UpdateMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23071,7 +23067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the marks of a media asset.
+   * Updates media asset mark information.
    * 
    * @param request - UpdateMediaMarksRequest
    * @returns UpdateMediaMarksResponse

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterMediaInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset in IMS.
+   * The IMS media asset ID.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******

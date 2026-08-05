@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddTemplateResponseBodyTemplate extends $dara.Model {
   /**
    * @remarks
-   * The template configurations.
+   * See the Timeline template Config documentation.
    * 
    * @example
-   * 参见Config文档
+   * See the Config documentation
    */
   config?: string;
   /**
    * @remarks
-   * The URL of the template thumbnail.
+   * The template cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
@@ -21,15 +21,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The source from which the template was created.
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole
-   * 
-   * - WebSDK
-   * 
-   * - OpenAPI
+   * The template creation source.
    * 
    * @example
    * OpenAPI
@@ -37,15 +29,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The source from which the template was modified.
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole
-   * 
-   * - WebSDK
-   * 
-   * - OpenAPI
+   * The template modification source.
    * 
    * @example
    * OpenAPI
@@ -61,7 +45,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the preview video.
+   * The media asset ID of the preview video.
    * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
@@ -69,21 +53,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   previewMedia?: string;
   /**
    * @remarks
-   * The template state.
-   * 
-   * Valid values:
-   * 
-   * - UploadFailed: Failed to upload the video.
-   * 
-   * - ProcessFailed: Failed to process the advanced template.
-   * 
-   * - Available: The template is available.
-   * 
-   * - Uploading: The video is being uploaded.
-   * 
-   * - Created: The template is created but not ready for use.
-   * 
-   * - Processing: The advanced template is being processed.
+   * The template status.
    * 
    * @example
    * Available
@@ -99,13 +69,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template type.
-   * 
-   * Valid values:
-   * 
-   * - Timeline: regular template.
-   * 
-   * - VETemplate: advanced template.
+   * The templatetype.
    * 
    * @example
    * Timeline
@@ -151,7 +115,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
 export class AddTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAudioProduceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the job.
-   * 
-   * - Cannot exceed 1,024 bytes.
-   * 
-   * - Must be UTF-8 encoded.
+   * The task description:
+   * - Maximum length: 1024 bytes.
+   * - UTF-8 encoding.
    * 
    * @example
    * Task description, max 1024 bytes, UTF-8 encoded
@@ -18,35 +16,19 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The audio production configuration:
-   * 
-   * - `voice`: The [voice type](https://help.aliyun.com/document_detail/449563.html).
-   * 
-   * - `customizedVoice`: The ID of the custom voice for voice cloning.
-   * 
-   * - `format`: The output file format. Supported formats: `PCM`, `WAV`, and `MP3`.
-   * 
-   * - `volume`: The volume. The value ranges from 0 to 100. Default: 50.
-   * 
-   * - `speech_rate`: The speech rate. The value ranges from -500 to 500. Default: 0.
-   * 
-   *   - Values of -500, 0, and 500 correspond to 0.5x, 1.0x, and 2.0x speed, respectively.
-   * 
-   *   - Calculation method:
-   * 
-   *     - For a 0.8x speed multiplier: (1 - 1/0.8) / 0.002 = -125.
-   * 
-   *     - For a 1.2x speed multiplier: (1 - 1/1.2) / 0.001 = 166.
-   * 
-   *     - For speed multipliers less than 1, use a factor of 0.002.
-   * 
-   *     - For speed multipliers greater than 1, use a factor of 0.001.
-   * 
-   * - `pitch_rate`: The pitch rate. The value ranges from -500 to 500. Default: 0.
-   * 
-   * 
-   *   >Notice: 
-   * 
-   *   If you provide both `voice` and `customizedVoice`, `customizedVoice` takes precedence.
+   * - voice: the [voice type](https://help.aliyun.com/document_detail/449563.html).
+   * - customizedVoice: the VoiceId for voice cloning.
+   * - format: the output file format. Valid values: PCM, WAV, and MP3.
+   * - volume: the volume. Valid values: 0 to 100. Default value: 50.
+   * - speech_rate: the speech rate. Valid values: -500 to 500. Default value: 0.
+   *     - [-500, 0, 500] corresponds to the speed multiplier range of [0.5, 1.0, 2.0].
+   *     - The calculation method is as follows:
+   *         - 0.8x speed: (1-1/0.8)/0.002 = -125
+   *         - 1.2x speed: (1-1/1.2)/0.001 = 166
+   *         - For speeds less than 1x, use the 0.002 coefficient.
+   *         - For speeds greater than 1x, use the 0.001 coefficient.
+   * - pitch_rate: the pitch. Valid values: -500 to 500. Default value: 0.
+   * <notice>If both voice and customizedVoice are specified, customizedVoice takes precedence.
    * 
    * This parameter is required.
    * 
@@ -56,7 +38,7 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The text to synthesize. The maximum length is 10,000 characters. Supports [SSML](https://help.aliyun.com/document_detail/2672807.html).
+   * The text content. A maximum of 10,000 Chinese characters is supported. [SSML markup language](https://help.aliyun.com/document_detail/2672807.html) is supported.
    * 
    * This parameter is required.
    * 
@@ -80,7 +62,7 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing OSS file.
+   * Specifies whether to overwrite existing OSS files.
    * 
    * @example
    * true
@@ -88,11 +70,9 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The title of the job. If you do not provide a title, the system automatically generates one based on the current date.
-   * 
-   * - Cannot exceed 128 bytes.
-   * 
-   * - Must be UTF-8 encoded.
+   * The task title. If not provided, a default title is automatically generated based on the date.
+   * - Maximum length: 128 bytes.
+   * - UTF-8 encoding.
    * 
    * @example
    * China Regional Daily News
@@ -100,7 +80,7 @@ export class SubmitAudioProduceJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Custom settings in JSON format. The maximum length is 512 bytes. This parameter supports [custom callback address configuration](https://help.aliyun.com/document_detail/451631.html).
+   * The custom settings in JSON format. Maximum length: 512 bytes. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}

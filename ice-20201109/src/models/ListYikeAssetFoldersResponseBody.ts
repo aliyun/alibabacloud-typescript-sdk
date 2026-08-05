@@ -90,7 +90,7 @@ export class ListYikeAssetFoldersResponseBody extends $dara.Model {
   folderList?: ListYikeAssetFoldersResponseBodyFolderList[];
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The maximum number of results.
    * 
    * @example
    * 50
@@ -98,7 +98,7 @@ export class ListYikeAssetFoldersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
+   * The token for the next page.
    * 
    * @example
    * Token
@@ -114,7 +114,7 @@ export class ListYikeAssetFoldersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of folders.
+   * The total number of folders.
    * 
    * @example
    * 78

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAvatarTrainingJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human training task.
    * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
@@ -35,7 +35,7 @@ export class DeleteAvatarTrainingJobResponseBodyData extends $dara.Model {
 export class DeleteAvatarTrainingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: DeleteAvatarTrainingJobResponseBodyData;
   /**
@@ -49,10 +49,8 @@ export class DeleteAvatarTrainingJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

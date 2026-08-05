@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The time when the pipeline was created.
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -13,7 +13,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The time when the pipeline was last modified.
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -21,7 +21,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the MPS queue.
+   * The pipeline name.
    * 
    * @example
    * test-pipeline
@@ -29,7 +29,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the MPS queue.
+   * The pipeline ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -37,7 +37,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the MPS queue.
+   * The pipeline priority.
    * 
    * @example
    * 6
@@ -45,15 +45,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of the MPS queue.
-   * 
-   * Valid values:
-   * 
-   * - Boost: MPS queue with transcoding speed boosted.
-   * 
-   * - Standard: standard MPS queue.
-   * 
-   * - NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * The pipeline type.
    * 
    * @example
    * Standard
@@ -61,13 +53,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   speed?: string;
   /**
    * @remarks
-   * The state of the MPS queue.
-   * 
-   * Valid values:
-   * 
-   * - Active
-   * 
-   * - Paused
+   * The pipeline status.
    * 
    * @example
    * Active
@@ -109,7 +95,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
 export class CreatePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the MPS queue.
+   * The pipeline information.
    */
   pipeline?: CreatePipelineResponseBodyPipeline;
   /**

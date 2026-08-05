@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $dara.Model {
   /**
    * @remarks
-   * The value of the media asset:
-   * 
-   * - If type is OSS, this is a URL. Both the OSS and HTTP protocols are supported.
-   * 
-   * - If type is Media, this is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -17,12 +13,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends 
   media?: string;
   /**
    * @remarks
-   * The type of the media object.
-   * Valid values:
-   * 
-   * - OSS: an OSS file.
-   * 
-   * - Media: a media asset ID.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -54,11 +45,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput extends $dara.Model {
   /**
    * @remarks
-   * The value of the media asset:
-   * 
-   * - If type is set to OSS, the value is a URL. The OSS and HTTP protocols are supported.
-   * 
-   * - If type is set to Media, the value is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -67,11 +54,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput e
   /**
    * @remarks
    * The media object type.
-   * Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: A media asset ID.
    * 
    * @example
    * OSS
@@ -103,17 +85,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput e
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs extends $dara.Model {
   /**
    * @remarks
-   * The index of the audio stream.
+   * The audio stream index.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0 或 exclude
+   * 0 or exclude
    */
   audioIndex?: string;
   /**
    * @remarks
-   * The duration of the input stream. By default, this is the duration of the video.
+   * The duration of the input stream. Default value: the video duration.
    * 
    * @example
    * 20.0
@@ -121,7 +103,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   duration?: number;
   /**
    * @remarks
-   * The start time of the input stream. The default value is 0.
+   * The start time of the input stream. Default value: 0.
    * 
    * @example
    * 0.0
@@ -129,12 +111,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   start?: number;
   /**
    * @remarks
-   * The index of the video stream.
+   * The video stream index.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0 或 exclude
+   * 0 or exclude
    */
   videoIndex?: string;
   static names(): { [key: string]: string } {
@@ -167,7 +149,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption extends $dara.Model {
   /**
    * @remarks
-   * The ciphertext of the key for standard encryption.
+   * The key ciphertext for standard encryption.
    * 
    * @example
    * MTYi00NDU0LTg5O****
@@ -175,7 +157,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   cipherText?: string;
   /**
    * @remarks
-   * The decryption endpoint for standard encryption.
+   * The decryption service URL for standard encryption.
    * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
@@ -191,7 +173,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   encryptType?: string;
   /**
    * @remarks
-   * The type of the key service. Only KMS and Base64 are supported.
+   * The key service type. Currently, only KMS and Base64 are supported.
    * 
    * @example
    * KMS
@@ -227,11 +209,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $dara.Model {
   /**
    * @remarks
-   * The value of the media asset:
-   * 
-   * - If type is OSS, the value is a URL that supports the OSS and HTTP protocols.
-   * 
-   * - If type is Media, the value is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -239,12 +217,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   media?: string;
   /**
    * @remarks
-   * The object type of the media asset.
-   * Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: A media asset ID.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -276,11 +249,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $dara.Model {
   /**
    * @remarks
-   * The duration of the watermark.
-   * 
-   * - Valid values: [Number, ToEND]
-   * 
-   * - Default value: ToEND
+   * The duration for which the watermark is displayed.
    * 
    * @example
    * ToEND
@@ -288,13 +257,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   duration?: string;
   /**
    * @remarks
-   * The time when the watermark appears.
-   * 
-   * - Unit: seconds
-   * 
-   * - The value must be numeric.
-   * 
-   * - Default value: 0
+   * The time when the watermark starts to appear.
    * 
    * @example
    * 00:00:05
@@ -327,21 +290,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The horizontal offset of the watermark image relative to the output video.
-   * Default: 0
-   * 
-   * The value can be specified in two formats:
-   * 
-   * - An integer that specifies the offset in pixels.
-   * 
-   *   - Range: [8, 4096]
-   * 
-   *   - Unit: px
-   * 
-   * - A decimal that specifies the ratio of the horizontal offset to the width of the output video.
-   * 
-   *   - Range: (0, 1)
-   * 
-   *   - The value can have up to four decimal places, such as 0.9999. The system automatically discards any digits beyond the fourth decimal place.
    * 
    * @example
    * 10
@@ -350,21 +298,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The vertical offset of the watermark image relative to the output video.
-   * Default value: 0.
-   * 
-   * The value can be in one of the following two formats:
-   * 
-   * - An integer that specifies the offset in pixels.
-   * 
-   *   - Range: [8, 4096].
-   * 
-   *   - Unit: px.
-   * 
-   * - A decimal that specifies the ratio of the vertical offset to the output video height.
-   * 
-   *   - Range: (0, 1).
-   * 
-   *   - The value supports up to four decimal places, such as 0.9999. Any additional digits are automatically discarded.
    * 
    * @example
    * 10
@@ -372,25 +305,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   dy?: string;
   /**
    * @remarks
-   * The image file for the watermark.
+   * The watermark image file.
    */
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
   /**
    * @remarks
-   * The height of the image watermark on the output video.
-   * The value can be specified in two ways:
-   * 
-   * - An integer that represents the watermark height in pixels.
-   * 
-   *   - Range: [8, 4096].
-   * 
-   *   - Unit: px.
-   * 
-   * - A decimal that represents the watermark height as a ratio of the output video\\"s height.
-   * 
-   *   - Range: (0, 1).
-   * 
-   *   - The value supports up to four decimal places, such as 0.9999. Digits beyond the fourth decimal place are automatically discarded.
+   * The height of the watermark image on the output video.
    * 
    * @example
    * 32
@@ -400,35 +320,18 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The position of the watermark.
    * 
-   * - Valid values: TopRight, TopLeft, BottomRight, and BottomLeft.
-   * 
-   * - Default value: TopRight.
-   * 
    * @example
    * TopLeft
    */
   referPos?: string;
   /**
    * @remarks
-   * The display time settings for the dynamic watermark.
+   * The dynamic watermark display time settings.
    */
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
    * @remarks
    * The width of the watermark image on the output video.
-   * The value can be specified in two formats:
-   * 
-   * - An integer that specifies the width of the watermark image in pixels.
-   * 
-   *   - Range: [8, 4096].
-   * 
-   *   - Unit: px.
-   * 
-   * - A decimal that represents the width of the watermark relative to the width of the output video.
-   * 
-   *   - Range: (0, 1).
-   * 
-   *   - The value supports up to four decimal places, such as 0.9999. Digits beyond the fourth decimal place are automatically discarded.
    * 
    * @example
    * 32
@@ -476,7 +379,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks extends $dara.Model {
   /**
    * @remarks
-   * The parameters that, when specified, overwrite the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams;
   /**
@@ -516,7 +419,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $dara.Model {
   /**
    * @remarks
-   * The value of the media asset. If the type is OSS, the value is a URL that supports the OSS and HTTP protocols. If the type is Media, the value is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -524,12 +427,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   media?: string;
   /**
    * @remarks
-   * The type of the media object.
-   * Valid values:
-   * 
-   * - OSS: an OSS file.
-   * 
-   * - Media: a media asset ID.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -574,7 +472,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
   /**
    * @remarks
-   * The caption file format.
+   * The subtitle file format.
    * 
    * @example
    * vtt
@@ -611,7 +509,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles extends $dara.Model {
   /**
    * @remarks
-   * The overwrite parameters. If specified, these parameters overwrite the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams;
   /**
@@ -651,11 +549,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * Adjusts the font size based on the size of the output video.
-   * 
-   * - Valid values: true, false
-   * 
-   * - default: false
+   * Adjusts the font size based on the output video size.
    * 
    * @example
    * false
@@ -663,9 +557,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   adaptive?: string;
   /**
    * @remarks
-   * The outline color.
-   * Default: Black
-   * For more values, see BorderColor.
+   * The border color.
    * 
    * @example
    * #006400
@@ -673,11 +565,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   borderColor?: string;
   /**
    * @remarks
-   * The width of the border.
-   * 
-   * - Default: 0
-   * 
-   * - Range: (0, 4096]
+   * The border width.
    * 
    * @example
    * 0
@@ -685,19 +573,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   borderWidth?: number;
   /**
    * @remarks
-   * The watermark text. The string must be UTF-8 encoded. Base64 encoding is not required.
+   * The watermark text. Base64 encoding is not required. The string must be UTF-8 encoded.
    * 
    * @example
-   * 测试水印
+   * Test watermark
    */
   content?: string;
   /**
    * @remarks
-   * The transparency of the font.
-   * 
-   * - Range: (0, 1].
-   * 
-   * - Default: 1.0.
+   * The font transparency.
    * 
    * @example
    * 1.0
@@ -713,7 +597,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   fontColor?: string;
   /**
    * @remarks
-   * The font. Default: SimSun.
+   * The font. Default value: SimSun.
    * 
    * @example
    * SimSun
@@ -723,10 +607,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The font size.
    * 
-   * - Default value: 16
-   * 
-   * - Range: (4, 120)
-   * 
    * @example
    * 16
    */
@@ -735,10 +615,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The left margin of the text.
    * 
-   * - Default: 0
-   * 
-   * - Range: [0,4096]
-   * 
    * @example
    * 10
    */
@@ -746,10 +622,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The top margin of the text.
-   * 
-   * - Default: 0.
-   * 
-   * - Range: [0,4096].
    * 
    * @example
    * 10
@@ -797,7 +669,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks extends $dara.Model {
   /**
    * @remarks
-   * The overwrite parameters. If specified, these parameters overwrite the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams;
   /**
@@ -837,7 +709,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $dara.Model {
   /**
    * @remarks
-   * The target volume.
+   * The target loudness.
    * 
    * @example
    * -6
@@ -861,7 +733,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   method?: string;
   /**
    * @remarks
-   * The true peak.
+   * The Peak Volume.
    * 
    * @example
    * -1
@@ -899,20 +771,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The audio bitrate of the output file.
    * 
-   * - Value range: [8, 1000]
-   * 
-   * - Unit: Kbps
-   * 
-   * - Default value: 128
-   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
    * @remarks
-   * The number of sound channels.
-   * Default value: 2.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -920,8 +785,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   channels?: string;
   /**
    * @remarks
-   * The audio codec format. Valid values are AAC, MP3, VORBIS, and FLAC.
-   * Default value: AAC
+   * The audio codec format. Valid values: AAC, MP3, VORBIS, and FLAC.
    * 
    * @example
    * AAC
@@ -930,7 +794,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The audio encoding preset.
-   * When Codec is set to AAC, valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
    * 
    * @example
    * aac_low
@@ -947,10 +810,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The sample rate.
-   * 
-   * - Default value: 44100. Valid values: 22050, 32000, 44100, 48000, and 96000.
-   * 
-   * - Unit: Hz
    * 
    * @example
    * 44100
@@ -1030,7 +889,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $dara.Model {
   /**
    * @remarks
-   * The segment length.
+   * The segment duration.
    * 
    * @example
    * 10
@@ -1038,7 +897,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   duration?: string;
   /**
    * @remarks
-   * The time points for forced segmentation.
+   * The forced segment time point.
    * 
    * @example
    * 2,3
@@ -1070,7 +929,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig extends $dara.Model {
   /**
    * @remarks
-   * Segment settings.
+   * The segment settings.
    */
   segment?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
@@ -1100,11 +959,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $dara.Model {
   /**
    * @remarks
-   * The method to adjust the resolution. This setting takes effect only when both Width and Height are specified. It can be used with LongShortMode.
-   * 
-   * Valid values: rescale, crop, pad, and none.
-   * 
-   * Default value: none.
+   * The resolution rewriting method. This parameter takes effect only when both Width and Height are specified. It can be used together with LongShortMode.
    * 
    * @example
    * none
@@ -1112,17 +967,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   adjDarMethod?: string;
   /**
    * @remarks
-   * Specifies whether to check the audio bitrate. You can set either this parameter or IsCheckAudioBitrateFail. IsCheckAudioBitrateFail takes precedence.
-   * 
-   * - true: Checks the audio bitrate. If the input audio bitrate is lower than the configured output bitrate, the service uses the input audio bitrate for transcoding.
-   * 
-   * - false: Does not check the audio bitrate.
-   * 
-   * Default value:
-   * 
-   * - false: If this parameter is empty and the output codec is different from the input codec.
-   * 
-   * - true: If this parameter is empty and the output codec is the same as the input codec.
+   * Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. IsCheckAudioBitrateFail takes higher priority.
    * 
    * @example
    * true
@@ -1130,13 +975,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   isCheckAudioBitrate?: string;
   /**
    * @remarks
-   * Specifies whether to check the audio bitrate. You can set either IsCheckAudioBitrate or IsCheckAudioBitrateFail. This parameter has a higher priority.
-   * 
-   * - true: The transcoding job fails if the input audio bitrate is lower than the output bitrate setting.
-   * 
-   * - false: The audio bitrate is not checked.
-   * 
-   * Default value: false.
+   * Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -1144,13 +983,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   isCheckAudioBitrateFail?: string;
   /**
    * @remarks
-   * Specifies whether to check the video resolution. The IsCheckReso and IsCheckResoFail parameters are mutually exclusive. IsCheckResoFail takes precedence.
-   * 
-   * - true: Enables the resolution check. If the resolution (width or height) of the input video is lower than the output resolution, the transcoding job uses the input resolution.
-   * 
-   * - false: Disables the resolution check.
-   * 
-   * Default value: false.
+   * Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. IsCheckResoFail takes higher priority.
    * 
    * @example
    * true
@@ -1158,13 +991,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   isCheckReso?: string;
   /**
    * @remarks
-   * Specifies whether to check the video resolution. You can use either IsCheckReso or IsCheckResoFail, but not both. This parameter has a higher priority.
-   * 
-   * - true: Checks the resolution. The transcoding job fails if the width or height of the input video is smaller than the output resolution.
-   * 
-   * - false: Does not check the resolution.
-   * 
-   * Default value: false.
+   * Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -1172,13 +999,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   isCheckResoFail?: string;
   /**
    * @remarks
-   * Specifies whether to check the video bitrate. You can set either IsCheckVideoBitrate or IsCheckVideoBitrateFail. IsCheckVideoBitrateFail has a higher priority.
-   * 
-   * - true: Checks the bitrate. If the input video bitrate is lower than the output bitrate, the video is transcoded at the input bitrate.
-   * 
-   * - false: Does not check the bitrate.
-   * 
-   * Default value: false.
+   * Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. IsCheckVideoBitrateFail takes higher priority.
    * 
    * @example
    * true
@@ -1186,13 +1007,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   isCheckVideoBitrate?: string;
   /**
    * @remarks
-   * Specifies whether to check the video bitrate. This parameter and IsCheckVideoBitrate are mutually exclusive. IsCheckVideoBitrateFail has a higher priority.
-   * 
-   * - true: Enables the check. The transcoding job fails if the input video bitrate is lower than the output bitrate setting.
-   * 
-   * - false: Disables the check.
-   * 
-   * Default value: false.
+   * Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -1201,14 +1016,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The video transcoding mode. Valid values:
-   * 
-   * - onepass: Typically used for ABR. The encoding speed is faster than twopass.
-   * 
-   * - twopass: Typically used for VBR. The encoding speed is slower than onepass.
-   * 
-   * - CBR: Constant Bitrate mode.
-   * 
-   * Default value: onepass.
    * 
    * @example
    * onepass
@@ -1252,11 +1059,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $dara.Model {
   /**
    * @remarks
-   * The maximum bitrate for adaptive bitrate (ABR) streaming. This parameter is valid only for Narrowband HD 1.0.
-   * 
-   * - Value range: [10, 50000]
-   * 
-   * - Unit: Kbps
+   * The maximum ABR bitrate. This parameter is valid only for Narrowband HD 1.0.
    * 
    * @example
    * 6000
@@ -1266,10 +1069,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The average video bitrate.
    * 
-   * - Value range: [10, 50000].
-   * 
-   * - Unit: Kbps.
-   * 
    * @example
    * 3000
    */
@@ -1277,12 +1076,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The buffer size.
-   * 
-   * - Value range: [1000, 128000]
-   * 
-   * - Default value: 6000
-   * 
-   * - Unit: Kb
    * 
    * @example
    * 6000
@@ -1298,13 +1091,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   codec?: string;
   /**
    * @remarks
-   * The Constant Rate Factor (CRF).
-   * 
-   * - The value can be from 0 to 51.
-   * 
-   * - The default value is 23 for H264 encoding and 26 for H265 encoding.
-   * 
-   * If Crf is set, the Bitrate setting is ignored.
+   * The bitrate-quality control factor.
    * 
    * @example
    * 23
@@ -1312,13 +1099,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   crf?: string;
   /**
    * @remarks
-   * Crops the video frame.
-   * Two methods are available.
-   * 
-   * - To automatically detect and crop black bars, set the parameter to "border".
-   * 
-   * - To specify a custom crop area, use the width:height:left:top format.
-   *   Example: 1280:800:0:140
+   * The video cropping settings.
    * 
    * @example
    * 1280:800:0:140
@@ -1328,23 +1109,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The frame rate.
    * 
-   * - Valid values: (0, 60].
-   * 
-   * - If the input file has a frame rate greater than 60, the frame rate is capped at 60.
-   * 
-   * - Default: The frame rate of the input file.
-   * 
    * @example
    * 25
    */
   fps?: string;
   /**
    * @remarks
-   * The maximum number of frames between two keyframes.
-   * 
-   * - The value must be in the range of [1, 1080000].
-   * 
-   * - The default value is 250.
+   * The maximum number of frames between keyframes.
    * 
    * @example
    * 250
@@ -1352,13 +1123,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   gop?: string;
   /**
    * @remarks
-   * The height of the video.
-   * 
-   * - Valid values: [128, 4096].
-   * 
-   * - Unit: px.
-   * 
-   * - Default value: The original height of the video.
+   * The height.
    * 
    * @example
    * 1080
@@ -1366,7 +1131,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   height?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic rotation for landscape and portrait orientations (long and short edge pattern).
+   * Specifies whether to enable landscape and portrait auto-adaptation (long-short side mode).
    * 
    * @example
    * false
@@ -1376,21 +1141,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    * @remarks
    * The peak video bitrate.
    * 
-   * - Value range: [10, 50000]
-   * 
-   * - Unit: Kbps
-   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
    * @remarks
-   * Adds black bars to the video.
-   * 
-   * - Format: width:height:left:top
-   * 
-   * - Example: 1280:800:0:140
+   * The video padding (black border) settings.
    * 
    * @example
    * 1280:800:0:140
@@ -1398,7 +1155,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   pad?: string;
   /**
    * @remarks
-   * The pixel format of the video. Valid values include standard formats such as yuv420p and yuvj420p.
+   * The video pixel format.
    * 
    * @example
    * yuv420p
@@ -1406,7 +1163,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   pixFmt?: string;
   /**
    * @remarks
-   * The video algorithm preset. This parameter is supported only for H.264. Supported values are veryfast, fast, medium, slow, and slower. The default value is medium.
+   * The video encoder preset. Only H.264 supports this parameter.
    * 
    * @example
    * medium
@@ -1415,15 +1172,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   /**
    * @remarks
    * The encoding profile.
-   * Supported values are baseline, main, and high.
-   * 
-   * - baseline: For mobile devices.
-   * 
-   * - main: For standard-resolution devices.
-   * 
-   * - high: For high-resolution devices.
-   * 
-   * Default value: high.
    * 
    * @example
    * Main
@@ -1431,7 +1179,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   profile?: string;
   /**
    * @remarks
-   * Specifies whether to remove the video.
+   * Specifies whether to remove the video stream.
    * 
    * @example
    * false
@@ -1439,7 +1187,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   remove?: string;
   /**
    * @remarks
-   * The scan mode. Valid values are interlaced and progressive.
+   * The scan mode.
    * 
    * @example
    * progressive
@@ -1447,13 +1195,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   scanMode?: string;
   /**
    * @remarks
-   * The width of the output video.
-   * 
-   * - Valid values: 128 to 4096.
-   * 
-   * - Unit: px.
-   * 
-   * - Default value: The original width of the video.
+   * The width.
    * 
    * @example
    * 1920
@@ -1517,7 +1259,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * Audio settings.
+   * The audio settings.
    */
   audio?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
   /**
@@ -1527,7 +1269,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
   /**
    * @remarks
-   * The encapsulation settings.
+   * The muxing settings.
    */
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
   /**
@@ -1537,7 +1279,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
   /**
    * @remarks
-   * Video settings
+   * The video settings.
    */
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
@@ -1587,7 +1329,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode extends $dara.Model {
   /**
    * @remarks
-   * The overwrite parameters. If specified, these parameters overwrite the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams;
   /**
@@ -1627,7 +1369,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig extends $dara.Model {
   /**
    * @remarks
-   * The settings for combining multiple input streams.
+   * The multi-input stream merging configuration.
    */
   combineConfigs?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs[];
   /**
@@ -1637,17 +1379,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
   encryption?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption;
   /**
    * @remarks
-   * The image watermark settings.
+   * The image watermark configuration.
    */
   imageWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks[];
   /**
    * @remarks
-   * The caption burn-in configuration.
+   * The subtitle burn-in configuration.
    */
   subtitles?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles[];
   /**
    * @remarks
-   * The text watermark configurations.
+   * The text watermark configuration.
    */
   textWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks[];
   /**
@@ -1712,7 +1454,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends
   output?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput;
   /**
    * @remarks
-   * The job processing configuration.
+   * The task processing configuration.
    */
   processConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig;
   static names(): { [key: string]: string } {
@@ -1755,7 +1497,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig exte
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. A larger value indicates a higher priority. The value can be an integer from 1 to 10.
+   * The task priority. A larger value indicates a higher priority. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -1787,11 +1529,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig exte
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup extends $dara.Model {
   /**
    * @remarks
-   * The input stream path:
-   * 
-   * - This parameter takes effect only when Type is Media. It lets you select a specific file from the media asset as the input.
-   * 
-   * - The system checks whether the input URL exists in the media asset.
+   * The input stream path. This parameter takes effect only when Type is set to Media, which allows you to specify a specific file under the media asset as the input. The system checks whether the specified inputUrl exists under the media asset.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -1799,11 +1537,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInp
   inputUrl?: string;
   /**
    * @remarks
-   * The media value:
-   * 
-   * - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-   * 
-   * - If Type is Media, this is a media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -1811,11 +1545,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInp
   media?: string;
   /**
    * @remarks
-   * The media object type. Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: A media asset ID.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -1865,7 +1595,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   channelLayout?: string;
   /**
    * @remarks
-   * The number of sound channels.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -1873,7 +1603,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   channels?: string;
   /**
    * @remarks
-   * The name of the encoding format.
+   * The codec format name.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -1889,7 +1619,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecName?: string;
   /**
    * @remarks
-   * The encoder tag.
+   * The codec tag.
    * 
    * @example
    * 0x000f
@@ -1897,7 +1627,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecTag?: string;
   /**
    * @remarks
-   * The encoder tag name.
+   * The codec tag string.
    * 
    * @example
    * [15][0][0][0]
@@ -1905,7 +1635,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecTagString?: string;
   /**
    * @remarks
-   * The time base of the encoder.
+   * The codec time base.
    * 
    * @example
    * 1/44100
@@ -1913,7 +1643,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration in seconds.
+   * The duration. Unit: seconds.
    * 
    * @example
    * 403.039989
@@ -1921,7 +1651,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   duration?: string;
   /**
    * @remarks
-   * The index of the stream.
+   * The stream index.
    * 
    * @example
    * 1
@@ -1937,7 +1667,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   lang?: string;
   /**
    * @remarks
-   * The sampling format.
+   * The sample format.
    * 
    * @example
    * fltp
@@ -1945,7 +1675,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   sampleFmt?: string;
   /**
    * @remarks
-   * The sample rate in Hz.
+   * The sample rate. Unit: Hz.
    * 
    * @example
    * 44100
@@ -2027,7 +1757,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   bitrate?: string;
   /**
    * @remarks
-   * The duration of the video in seconds.
+   * The video duration. Unit: seconds.
    * 
    * @example
    * 403.039999
@@ -2035,7 +1765,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   duration?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * file.m3u8
@@ -2043,7 +1773,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fileName?: string;
   /**
    * @remarks
-   * The size of the file in bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 31737
@@ -2051,7 +1781,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fileSize?: string;
   /**
    * @remarks
-   * The status of the file.
+   * The file status.
    * 
    * @example
    * Normal
@@ -2059,7 +1789,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fileStatus?: string;
   /**
    * @remarks
-   * The file type. Valid values: source_file and transcode_file.
+   * The file type. Valid values: source_file, transcode_file.
    * 
    * @example
    * source_file
@@ -2067,7 +1797,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fileType?: string;
   /**
    * @remarks
-   * The URL of the file.
+   * The file URL.
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
@@ -2075,7 +1805,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fileUrl?: string;
   /**
    * @remarks
-   * The name of the video format.
+   * The video format name.
    * 
    * @example
    * hls,applehttp
@@ -2099,7 +1829,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   mediaId?: string;
   /**
    * @remarks
-   * The region where the file is located.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -2107,7 +1837,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   region?: string;
   /**
    * @remarks
-   * The width of the output file.
+   * The width.
    * 
    * @example
    * 848
@@ -2175,7 +1905,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   bitRate?: string;
   /**
    * @remarks
-   * The name of the encoding format.
+   * The codec format name.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -2191,7 +1921,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecName?: string;
   /**
    * @remarks
-   * The encoding format tag.
+   * The codec tag.
    * 
    * @example
    * 0x001b
@@ -2199,7 +1929,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecTag?: string;
   /**
    * @remarks
-   * The text of the encoding format tag.
+   * The codec tag string.
    * 
    * @example
    * [27][0][0][0]
@@ -2215,7 +1945,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio.
+   * The display aspect ratio (DAR).
    * 
    * @example
    * 16:9
@@ -2223,7 +1953,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   dar?: string;
   /**
    * @remarks
-   * The duration in seconds.
+   * The duration. Unit: seconds.
    * 
    * @example
    * 403.039989
@@ -2239,14 +1969,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   fps?: string;
   /**
    * @remarks
-   * Indicates whether B-frames exist.
-   * Valid values:
-   * 
-   * - 0: No B-frames.
-   * 
-   * - 1: One B-frame.
-   * 
-   * - 2: Multiple consecutive B-frames.
+   * Indicates whether the video contains B-frames.
    * 
    * @example
    * 2
@@ -2254,7 +1977,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the output video stream.
+   * The height.
    * 
    * @example
    * 478
@@ -2262,7 +1985,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   height?: string;
   /**
    * @remarks
-   * The index of the stream.
+   * The stream index.
    * 
    * @example
    * 0
@@ -2278,7 +2001,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   lang?: string;
   /**
    * @remarks
-   * The encoding level.
+   * The codec level.
    * 
    * @example
    * 31
@@ -2294,7 +2017,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   numFrames?: string;
   /**
    * @remarks
-   * The color storage format.
+   * The pixel format.
    * 
    * @example
    * yuv420p
@@ -2302,7 +2025,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   pixFmt?: string;
   /**
    * @remarks
-   * The encoder preset.
+   * The codec profile.
    * 
    * @example
    * High
@@ -2310,7 +2033,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   profile?: string;
   /**
    * @remarks
-   * The rotation angle of the video. Valid values: 0, 90, 180, and 270. The default value is 0.
+   * The video rotation angle.
    * 
    * @example
    * 0
@@ -2318,7 +2041,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio.
+   * The sample aspect ratio (SAR).
    * 
    * @example
    * 478:477
@@ -2342,7 +2065,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   timeBase?: string;
   /**
    * @remarks
-   * The video width.
+   * The width.
    * 
    * @example
    * 848
@@ -2421,7 +2144,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   audioStreamInfoList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList[];
   /**
    * @remarks
-   * Basic file information.
+   * The basic file information.
    */
   fileBasicInfo?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo;
   /**
@@ -2466,11 +2189,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput extends $dara.Model {
   /**
    * @remarks
-   * The value of the media asset:
-   * 
-   * - If type is OSS, the value is a URL. The OSS and HTTP protocols are supported.
-   * 
-   * - If type is Media, the value is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -2478,24 +2197,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   media?: string;
   /**
    * @remarks
-   * The path of the output stream.<br>
-   * This parameter is valid only when \\`Type\\` is set to \\`Media\\`. It lets you select a specific file from the media asset for output.<br>
-   * The following placeholders are supported:<br><br>
-   * 
-   * - {MediaId}: The ID of the media asset.
-   * 
-   * - {JobId}: The ID of the transcoding subtask.
-   * 
-   * - {MediaBucket}: The bucket where the media asset is stored.
-   * 
-   * - {ExtName}: The file extension. The value is the output format specified in the transcoding template.
-   * 
-   * - {DestMd5}: The MD5 hash of the output file.<br>
-   *   Note:<br>
-   * 
-   * 1. This parameter must contain the {MediaId} and {JobId} placeholders.
-   * 
-   * 2. The output bucket is the same as the bucket where the media asset is stored.
+   * The output stream path.
    * 
    * @example
    * oss://bucket/path/to/{MediaId}/{JobId}.mp4
@@ -2504,11 +2206,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
   /**
    * @remarks
    * The media object type.
-   * Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: A media asset ID.
    * 
    * @example
    * OSS
@@ -2542,17 +2239,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs extends $dara.Model {
   /**
    * @remarks
-   * The index of the audio stream.
+   * The audio stream index.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0 或 exclude
+   * 0 or exclude
    */
   audioIndex?: string;
   /**
    * @remarks
-   * The duration of the input stream. The default value is the duration of the video.
+   * The duration of the input stream. Default value: the video duration.
    * 
    * @example
    * 20.0
@@ -2560,7 +2257,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   duration?: number;
   /**
    * @remarks
-   * The start time of the input stream. The default value is 0.
+   * The start time of the input stream. Default value: 0.
    * 
    * @example
    * 0.0
@@ -2568,12 +2265,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   start?: number;
   /**
    * @remarks
-   * The index of the video stream.
+   * The video stream index.
    * 
    * This parameter is required.
    * 
    * @example
-   * 0 或 exclude
+   * 0 or exclude
    */
   videoIndex?: string;
   static names(): { [key: string]: string } {
@@ -2606,7 +2303,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption extends $dara.Model {
   /**
    * @remarks
-   * The ciphertext of the key for standard encryption.
+   * The key ciphertext for standard encryption.
    * 
    * @example
    * MTYi00NDU0LTg5O****
@@ -2614,7 +2311,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   cipherText?: string;
   /**
    * @remarks
-   * The decryption service endpoint for standard encryption.
+   * The decryption service URL for standard encryption.
    * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
@@ -2630,7 +2327,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   encryptType?: string;
   /**
    * @remarks
-   * The type of the key service. Only KMS and Base64 are supported.
+   * The key service type. Currently, only KMS and Base64 are supported.
    * 
    * @example
    * KMS
@@ -2666,11 +2363,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile extends $dara.Model {
   /**
    * @remarks
-   * The media value:
-   * 
-   * - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-   * 
-   * - If Type is Media, this is a media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -2678,11 +2371,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   media?: string;
   /**
    * @remarks
-   * The media object type. Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: A media asset ID.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -2714,11 +2403,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline extends $dara.Model {
   /**
    * @remarks
-   * The duration of the watermark.
-   * 
-   * - Valid values: [number, ToEND]
-   * 
-   * - Default value: ToEND
+   * The duration for which the watermark is displayed.
    * 
    * @example
    * ToEND
@@ -2726,13 +2411,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   duration?: string;
   /**
    * @remarks
-   * The start time of the watermark.
-   * 
-   * - Unit: seconds
-   * 
-   * - Valid values: numbers
-   * 
-   * - Default value: 0
+   * The time when the watermark starts to appear.
    * 
    * @example
    * 00:00:05
@@ -2764,21 +2443,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * The horizontal offset of the image watermark relative to the output video. Default value: 0.
-   * 
-   * Values can be one of the following:
-   * 
-   * - Integer: The offset in pixels.
-   * 
-   *   - Valid values: [8, 4096]
-   * 
-   *   - Unit: px
-   * 
-   * - Decimal: The ratio of the horizontal offset to the output video width.
-   * 
-   *   - Valid values: (0, 1)
-   * 
-   *   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+   * The horizontal offset of the watermark image relative to the output video.
    * 
    * @example
    * 10
@@ -2786,21 +2451,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   dx?: string;
   /**
    * @remarks
-   * The vertical offset of the image watermark relative to the output video. Default value: 0.
-   * 
-   * Values can be one of the following:
-   * 
-   * - Integer: The offset in pixels.
-   * 
-   *   - Valid values: [8, 4096]
-   * 
-   *   - Unit: px
-   * 
-   * - Decimal: The ratio of the vertical offset to the output video height.
-   * 
-   *   - Valid values: (0, 1)
-   * 
-   *   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+   * The vertical offset of the watermark image relative to the output video.
    * 
    * @example
    * 10
@@ -2813,19 +2464,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile;
   /**
    * @remarks
-   * The height of the image watermark on the output video. Values can be one of the following:
-   * 
-   * - Integer: The pixel height of the watermark image.
-   * 
-   *   - Valid values: [8, 4096]
-   * 
-   *   - Unit: px
-   * 
-   * - Decimal: The ratio of the watermark height to the output video height.
-   * 
-   *   - Valid values: (0, 1)
-   * 
-   *   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+   * The height of the watermark image on the output video.
    * 
    * @example
    * 32
@@ -2835,34 +2474,18 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The position of the watermark.
    * 
-   * - Valid values: TopRight (top-right), TopLeft (top-left), BottomRight (bottom-right), and BottomLeft (bottom-left).
-   * 
-   * - Default value: TopRight.
-   * 
    * @example
    * TopLeft
    */
   referPos?: string;
   /**
    * @remarks
-   * The display time settings for a dynamic watermark.
+   * The dynamic watermark display time settings.
    */
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
    * @remarks
-   * The width of the image watermark on the output video. Values can be one of the following:
-   * 
-   * - Integer: The pixel width of the watermark image.
-   * 
-   *   - Valid values: [8, 4096]
-   * 
-   *   - Unit: px
-   * 
-   * - Decimal: The ratio of the watermark width to the output video width.
-   * 
-   *   - Valid values: (0, 1)
-   * 
-   *   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+   * The width of the watermark image on the output video.
    * 
    * @example
    * 32
@@ -2910,7 +2533,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks extends $dara.Model {
   /**
    * @remarks
-   * Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams;
   /**
@@ -2950,11 +2573,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile extends $dara.Model {
   /**
    * @remarks
-   * The value of Media:
-   * 
-   * - If type is OSS, the value is a URL. The URL supports the OSS and HTTP protocols.
-   * 
-   * - If type is Media, the value is the media asset ID.
+   * The media value.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -2962,12 +2581,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   media?: string;
   /**
    * @remarks
-   * The type of the media object.
-   * Valid values:
-   * 
-   * - OSS: An OSS file.
-   * 
-   * - Media: The ID of a media asset.
+   * The media object type.
    * 
    * @example
    * OSS
@@ -2999,7 +2613,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * The encoding format of the file.
+   * The file encoding format.
    * 
    * @example
    * UTF-8
@@ -3012,7 +2626,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile;
   /**
    * @remarks
-   * The file format of the caption.
+   * The subtitle file format.
    * 
    * @example
    * vtt
@@ -3049,7 +2663,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles extends $dara.Model {
   /**
    * @remarks
-   * Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams;
   /**
@@ -3089,7 +2703,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * Adjusts the font size based on the output video size. The default is false.
+   * Specifies whether to adjust the font size based on the output video size. true / false, default: false.
    * 
    * @example
    * false
@@ -3097,9 +2711,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   adaptive?: string;
   /**
    * @remarks
-   * The outline color.
-   * Default: Black.
-   * For more values, see BorderColor.
+   * The border color.
    * 
    * @example
    * #006400
@@ -3107,11 +2719,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   borderColor?: string;
   /**
    * @remarks
-   * The outline width.
-   * 
-   * - Default: 0
-   * 
-   * - Range: (0,4096]
+   * The border width.
    * 
    * @example
    * 0
@@ -3119,19 +2727,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   borderWidth?: number;
   /**
    * @remarks
-   * The watermark text. It does not need to be Base64 encoded. The string must be UTF-8 encoded.
+   * The watermark text. Base64 encoding is not required. The string must be UTF-8 encoded.
    * 
    * @example
-   * 测试水印
+   * Test watermark
    */
   content?: string;
   /**
    * @remarks
    * The font transparency.
-   * 
-   * - Valid values: (0, 1]
-   * 
-   * - Default: 1.0
    * 
    * @example
    * 1.0
@@ -3139,7 +2743,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   fontAlpha?: string;
   /**
    * @remarks
-   * The color.
+   * The font color.
    * 
    * @example
    * #006400
@@ -3147,7 +2751,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   fontColor?: string;
   /**
    * @remarks
-   * The font. Default: SimSun.
+   * The font. Default value: SimSun.
    * 
    * @example
    * SimSun
@@ -3157,10 +2761,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The font size.
    * 
-   * - Default value: 16
-   * 
-   * - Valid values: (4, 120)
-   * 
    * @example
    * 16
    */
@@ -3169,10 +2769,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The left margin of the text.
    * 
-   * - Default: 0
-   * 
-   * - Valid values: [0, 4096]
-   * 
    * @example
    * 10
    */
@@ -3180,10 +2776,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   /**
    * @remarks
    * The top margin of the text.
-   * 
-   * - Default: 0
-   * 
-   * - Valid values: [0, 4096]
    * 
    * @example
    * 10
@@ -3231,7 +2823,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks extends $dara.Model {
   /**
    * @remarks
-   * Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters override the corresponding parameters in the template.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams;
   /**
@@ -3271,7 +2863,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume extends $dara.Model {
   /**
    * @remarks
-   * The target loudness level.
+   * The target loudness.
    * 
    * @example
    * -6
@@ -3295,7 +2887,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   method?: string;
   /**
    * @remarks
-   * The true peak level.
+   * The Peak Volume.
    * 
    * @example
    * -1
@@ -3333,19 +2925,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The audio bitrate of the output file.
    * 
-   * - Valid values: [8, 1000]
-   * 
-   * - Unit: Kbps
-   * 
-   * - Default value: 128
-   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
    * @remarks
-   * The number of sound channels. Default value: 2.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -3353,7 +2939,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   channels?: string;
   /**
    * @remarks
-   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * The audio codec format. Valid values: AAC, MP3, VORBIS, and FLAC.
    * 
    * @example
    * AAC
@@ -3361,7 +2947,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   codec?: string;
   /**
    * @remarks
-   * The audio encoding profile. When Codec is AAC, valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * The audio encoding preset.
    * 
    * @example
    * aac_low
@@ -3369,7 +2955,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   profile?: string;
   /**
    * @remarks
-   * Specifies whether to delete the audio stream.
+   * Specifies whether to remove the audio stream.
    * 
    * @example
    * false
@@ -3379,19 +2965,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The sample rate.
    * 
-   * - Default value: 44100
-   * 
-   * - Valid values: 22050, 32000, 44100, 48000, and 96000.
-   * 
-   * - Unit: Hz
-   * 
    * @example
    * 44100
    */
   samplerate?: string;
   /**
    * @remarks
-   * The volume control.
+   * The volume control settings.
    */
   volume?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -3471,7 +3051,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   duration?: string;
   /**
    * @remarks
-   * The forced segment time points.
+   * The forced segment time point.
    * 
    * @example
    * 2,3
@@ -3533,11 +3113,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig extends $dara.Model {
   /**
    * @remarks
-   * The method used to adjust the display aspect ratio. This parameter takes effect only when both Width and Height are specified. You can use it with LongShortMode.
-   * 
-   * Valid values: rescale, crop, pad, and none.
-   * 
-   * Default value: none.
+   * The resolution rewriting method. This parameter takes effect only when both Width and Height are specified. It can be used together with LongShortMode.
    * 
    * @example
    * none
@@ -3545,17 +3121,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   adjDarMethod?: string;
   /**
    * @remarks
-   * Specifies whether to check the audio bitrate. IsCheckAudioBitrate and IsCheckAudioBitrateFail are mutually exclusive. IsCheckAudioBitrateFail has higher priority.
-   * 
-   * - true: Check the bitrate. If the input audio bitrate is lower than the output setting, transcode at the input bitrate.
-   * 
-   * - false: Do not check the bitrate.
-   * 
-   * Default value rules:
-   * 
-   * - Empty and the codec differs from the input source: false.
-   * 
-   * - Empty and the codec matches the input source: true.
+   * Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. IsCheckAudioBitrateFail takes higher priority.
    * 
    * @example
    * true
@@ -3563,11 +3129,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   isCheckAudioBitrate?: string;
   /**
    * @remarks
-   * Specifies whether to check the audio bitrate. IsCheckAudioBitrate and IsCheckAudioBitrateFail are mutually exclusive. This parameter has higher priority.
-   * 
-   * - true: Check the bitrate. If the input audio bitrate is lower than the output setting, return a failure.
-   * 
-   * - false (default): Do not check the bitrate.
+   * Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -3575,11 +3137,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   isCheckAudioBitrateFail?: string;
   /**
    * @remarks
-   * Specifies whether to check the video resolution. IsCheckReso and IsCheckResoFail are mutually exclusive. IsCheckResoFail has higher priority.
-   * 
-   * - true: Check the resolution. If the input video resolution (width or height) is smaller than the output setting, transcode at the input resolution.
-   * 
-   * - false (default): Do not check the resolution.
+   * Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. IsCheckResoFail takes higher priority.
    * 
    * @example
    * true
@@ -3587,11 +3145,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   isCheckReso?: string;
   /**
    * @remarks
-   * Specifies whether to check the video resolution. IsCheckReso and IsCheckResoFail are mutually exclusive. This parameter has higher priority.
-   * 
-   * - true: Check the resolution. If the input video resolution (width or height) is smaller than the output setting, return a failure.
-   * 
-   * - false (default): Do not check the resolution.
+   * Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -3599,11 +3153,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   isCheckResoFail?: string;
   /**
    * @remarks
-   * Specifies whether to check the video bitrate. IsCheckVideoBitrate and IsCheckVideoBitrateFail are mutually exclusive. IsCheckVideoBitrateFail has higher priority.
-   * 
-   * - true: Check the bitrate. If the input video bitrate is lower than the output setting, transcode at the input bitrate.
-   * 
-   * - false (default): Do not check the bitrate.
+   * Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. IsCheckVideoBitrateFail takes higher priority.
    * 
    * @example
    * true
@@ -3611,11 +3161,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   isCheckVideoBitrate?: string;
   /**
    * @remarks
-   * Specifies whether to check the video bitrate. IsCheckVideoBitrate and IsCheckVideoBitrateFail are mutually exclusive. This parameter has higher priority.
-   * 
-   * - true: Check the bitrate. If the input video bitrate is lower than the output setting, return a failure.
-   * 
-   * - false (default): Do not check the bitrate.
+   * Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. This parameter takes higher priority.
    * 
    * @example
    * true
@@ -3624,12 +3170,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   /**
    * @remarks
    * The video transcoding mode. Valid values:
-   * 
-   * - onepass (default): Used for ABR. Encoding is faster than twopass.
-   * 
-   * - twopass: Used for VBR. Encoding is slower than onepass.
-   * 
-   * - CBR: Constant bitrate mode.
    * 
    * @example
    * onepass
@@ -3673,7 +3213,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $dara.Model {
   /**
    * @remarks
-   * The maximum bitrate for adaptive bitrate streaming (ABR). This applies only to narrow-high 1. Valid values: [10, 50000]. Unit: Kbps.
+   * The maximum ABR bitrate. This parameter is valid only for Narrowband HD 1.0.
    * 
    * @example
    * 6000
@@ -3683,10 +3223,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The average video bitrate.
    * 
-   * - Valid values: [10, 50000].
-   * 
-   * - Unit: Kbps.
-   * 
    * @example
    * 3000
    */
@@ -3694,12 +3230,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   /**
    * @remarks
    * The buffer size.
-   * 
-   * - Valid values: [1000, 128000]
-   * 
-   * - Default value: 6000
-   * 
-   * - Unit: Kb
    * 
    * @example
    * 6000
@@ -3715,13 +3245,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   codec?: string;
   /**
    * @remarks
-   * The constant rate factor (CRF), which controls the trade-off between quality and bitrate.
-   * 
-   * - Valid values: [0, 51].
-   * 
-   * - Default values: 23 for H.264 and 26 for H.265.
-   * 
-   * If you set Crf, the Bitrate setting is ignored.
+   * The bitrate-quality control factor.
    * 
    * @example
    * 23
@@ -3729,11 +3253,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   crf?: string;
   /**
    * @remarks
-   * The video cropping method. Two options are available.
-   * 
-   * - Automatically detect and crop black bars. Set this to border.
-   * 
-   * - Custom cropping. Format: width:height:left:top. Example: 1280:800:0:140
+   * The video cropping setting. Two methods are supported.
    * 
    * @example
    * 1280:800:0:140
@@ -3743,12 +3263,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The frame rate.
    * 
-   * - Valid values: (0, 60].
-   * 
-   * - If the frame rate of the input file exceeds 60, the system uses 60.
-   * 
-   * - Default value: The frame rate of the input file.
-   * 
    * @example
    * 25
    */
@@ -3756,10 +3270,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   /**
    * @remarks
    * The maximum number of frames between keyframes.
-   * 
-   * - Valid values: [1, 1080000].
-   * 
-   * - Default value: 250.
    * 
    * @example
    * 250
@@ -3769,19 +3279,13 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    * @remarks
    * The height.
    * 
-   * - Valid values: [128, 4096].
-   * 
-   * - Unit: px.
-   * 
-   * - Default value: The original video height.
-   * 
    * @example
    * 1080
    */
   height?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic rotation for portrait or landscape videos (also known as long-side/short-side mode).
+   * Specifies whether to enable landscape and portrait auto-adaptation (long-short side mode).
    * 
    * @example
    * false
@@ -3789,7 +3293,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   longShortMode?: string;
   /**
    * @remarks
-   * The peak video bitrate. Valid values: [10, 50000]. Unit: Kbps.
+   * The peak video bitrate.
    * 
    * @example
    * 9000
@@ -3797,11 +3301,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   maxrate?: string;
   /**
    * @remarks
-   * The padding configuration for black bars.
-   * 
-   * - Format: width:height:left:top.
-   * 
-   * - Example: 1280:800:0:140
+   * The video padding setting.
    * 
    * @example
    * 1280:800:0:140
@@ -3809,7 +3309,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   pad?: string;
   /**
    * @remarks
-   * The video color format. Valid values include yuv420p and yuvj420p.
+   * The video pixel format.
    * 
    * @example
    * yuv420p
@@ -3817,7 +3317,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   pixFmt?: string;
   /**
    * @remarks
-   * The video encoder preset. Only H.264 supports this parameter. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * The video encoder preset. Only H.264 supports this parameter.
    * 
    * @example
    * medium
@@ -3825,15 +3325,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   preset?: string;
   /**
    * @remarks
-   * The encoding profile. Valid values: baseline, main, and high.
-   * 
-   * - baseline: For mobile devices.
-   * 
-   * - main: For standard-resolution devices.
-   * 
-   * - high: For high-resolution devices.
-   * 
-   * Default value: high.
+   * The encoding profile.
    * 
    * @example
    * Main
@@ -3841,7 +3333,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   profile?: string;
   /**
    * @remarks
-   * Specifies whether to remove the video.
+   * Specifies whether to remove the video stream.
    * 
    * @example
    * false
@@ -3849,7 +3341,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   remove?: string;
   /**
    * @remarks
-   * The scan mode. Valid values: interlaced and progressive.
+   * The scan mode.
    * 
    * @example
    * progressive
@@ -3858,12 +3350,6 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   /**
    * @remarks
    * The width.
-   * 
-   * - Valid values: [128, 4096].
-   * 
-   * - Unit: px.
-   * 
-   * - Default value: The original video width.
    * 
    * @example
    * 1920
@@ -3937,7 +3423,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
   /**
    * @remarks
-   * The multiplexing settings.
+   * The muxing settings.
    */
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
   /**
@@ -3997,7 +3483,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode extends $dara.Model {
   /**
    * @remarks
-   * Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+   * The override parameters. If specified, these parameters overwrite the corresponding template parameters.
    */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams;
   /**
@@ -4037,7 +3523,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig extends $dara.Model {
   /**
    * @remarks
-   * The configuration for mixing multiple input streams.
+   * The multi-input stream merging configuration.
    */
   combineConfigs?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs[];
   /**
@@ -4052,7 +3538,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
   imageWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks[];
   /**
    * @remarks
-   * The configuration for burning in captions.
+   * The subtitle burn-in configuration.
    */
   subtitles?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles[];
   /**
@@ -4117,7 +3603,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the pipeline.
+   * The pipeline ID.
    * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
@@ -4125,7 +3611,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSch
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the task. A larger value indicates a higher priority. The value can be an integer from 1 to 10.
+   * The task priority. A larger value indicates a higher priority. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -4157,7 +3643,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSch
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList extends $dara.Model {
   /**
    * @remarks
-   * The time the job was created.
+   * The time when the task was created.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4165,7 +3651,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   createTime?: string;
   /**
    * @remarks
-   * The time when the job finished.
+   * The job completion time.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4173,12 +3659,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   finishTime?: string;
   /**
    * @remarks
-   * The input group for the job. A single input creates a transcoding job. Multiple inputs create a media merging job.
+   * The job input group. A single input creates a transcoding job. Multiple inputs create an audio and video stream merging job.
    */
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup[];
   /**
    * @remarks
-   * The sub-job ID.
+   * The subtask ID.
    * 
    * @example
    * 7d6a7e0d4db2457a8d45ff5d43e1bf0a
@@ -4186,7 +3672,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   jobId?: string;
   /**
    * @remarks
-   * The index of the sub-job within the entire job.
+   * The index number of the subtask within the entire job.
    * 
    * @example
    * 0
@@ -4194,7 +3680,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   jobIndex?: number;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * transcode-job
@@ -4202,7 +3688,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   name?: string;
   /**
    * @remarks
-   * The media information of the video generated by the job.
+   * The media information of the output video generated by the job.
    */
   outFileMeta?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta;
   /**
@@ -4225,7 +3711,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   processConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig;
   /**
    * @remarks
-   * The ID of the request to submit the job.
+   * The request ID returned when the job was submitted.
    * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
@@ -4233,22 +3719,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   requestId?: string;
   /**
    * @remarks
-   * The scheduling information for the job.
+   * The task scheduling information.
    */
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig;
   /**
    * @remarks
-   * The status of the transcoding job.
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Processing: The job is being transcoded.
-   * 
-   * - Success: The transcoding is successful.
-   * 
-   * - Fail: The transcoding failed.
-   * 
-   * - Deleted: The job is deleted.
+   * The transcoding job status.
    * 
    * @example
    * Init
@@ -4256,7 +3732,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   status?: string;
   /**
    * @remarks
-   * The result of the job submission.
+   * The job submission result.
    * 
    * @example
    * {}
@@ -4264,7 +3740,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   submitResultJson?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The job submission time.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4272,7 +3748,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
   submitTime?: string;
   /**
    * @remarks
-   * User data.
+   * The user data.
    * 
    * @example
    * user-data
@@ -4350,7 +3826,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
 export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The job creation time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4358,7 +3834,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The time when the job finished. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The job completion time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4366,7 +3842,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   finishTime?: string;
   /**
    * @remarks
-   * The input group for the job. A single input creates a transcoding job. Multiple inputs create a job to merge audio and video streams.
+   * The job input group. A single input creates a transcoding job. Multiple inputs create an audio and video stream merging job.
    */
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup[];
   /**
@@ -4379,7 +3855,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   jobCount?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The task name.
    * 
    * @example
    * transcode-job
@@ -4387,12 +3863,12 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The output group of the job.
+   * The task output group.
    */
   outputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup[];
   /**
    * @remarks
-   * The ID of the parent job.
+   * The parent job ID.
    * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
@@ -4400,7 +3876,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   parentJobId?: string;
   /**
    * @remarks
-   * The completion percentage of the job.
+   * The job completion percentage.
    * 
    * @example
    * 0
@@ -4408,7 +3884,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   percent?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID returned when the job was submitted.
    * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
@@ -4416,12 +3892,14 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The job scheduling configuration.
+   * The task scheduling configuration.
    */
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig;
   /**
    * @remarks
-   * The status of the job. Success: At least one sub-job succeeded after all sub-jobs are complete. Fail: All sub-jobs failed.
+   * The job status. Valid values:
+   * - Success: After all sub-jobs are completed, the job is successful if at least one sub-job succeeds.
+   * - Fail: All sub-jobs failed.
    * 
    * @example
    * Success
@@ -4429,7 +3907,7 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The job submission time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -4437,12 +3915,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $dara.Mode
   submitTime?: string;
   /**
    * @remarks
-   * The list of sub-jobs.
+   * The list of subtasks.
    */
   transcodeJobList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList[];
   /**
    * @remarks
-   * The source of the job. Valid values: \\`API\\`, \\`WorkFlow\\`, and \\`Console\\`.
+   * The job source. Valid values:
+   * - API: API.
+   * - WorkFlow: workflow.
+   * - Console: console.
    * 
    * @example
    * API

@@ -6,10 +6,8 @@ export class SubmitLiveSnapshotJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The snapshot callback URL.
-   * 
-   * - It cannot exceed 255 characters in length.
-   * 
-   * - Both HTTP and HTTPS URLs are supported.
+   * - Maximum length: 255.
+   * - HTTP and HTTPS are supported.
    * 
    * @example
    * http://www.aliyun.com/snapshot/callback
@@ -17,9 +15,8 @@ export class SubmitLiveSnapshotJobShrinkRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The name of the job.
-   * 
-   * - It cannot exceed 128 characters in length.
+   * The task name.
+   * - Maximum length: 128.
    * 
    * This parameter is required.
    * 
@@ -29,14 +26,14 @@ export class SubmitLiveSnapshotJobShrinkRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The information about the output snapshot.
+   * The snapshot output information.
    * 
    * This parameter is required.
    */
   snapshotOutputShrink?: string;
   /**
    * @remarks
-   * The information about the input stream.
+   * The stream input information.
    * 
    * This parameter is required.
    */

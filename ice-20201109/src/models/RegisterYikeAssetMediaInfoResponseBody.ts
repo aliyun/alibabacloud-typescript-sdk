@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterYikeAssetMediaInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -13,7 +13,7 @@ export class RegisterYikeAssetMediaInfoResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

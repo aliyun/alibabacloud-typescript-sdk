@@ -13,7 +13,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   auditBlockedLabel?: string;
   /**
    * @remarks
-   * 审核状态。
+   * The audit status.
    * 
    * @example
    * Status
@@ -21,7 +21,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   auditStatus?: string;
   /**
    * @remarks
-   * 创建任务 ID。
+   * The ID of the creation task.
    * 
    * @example
    * ID
@@ -37,7 +37,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   folderId?: string;
   /**
    * @remarks
-   * 是否最喜爱的。
+   * Indicates whether the media asset is marked as a favorite.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   isFavorite?: string;
   /**
    * @remarks
-   * 是否被删除。
+   * Indicates whether the media asset is logically deleted.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   isLogicalDeleted?: string;
   /**
    * @remarks
-   * 媒资子类型。
+   * The media asset subtype.
    * 
    * @example
    * SubType
@@ -61,7 +61,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   mediaAssetSubType?: string;
   /**
    * @remarks
-   * 媒资类型。
+   * The media asset type.
    * 
    * @example
    * Type
@@ -77,15 +77,15 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   productionId?: string;
   /**
    * @remarks
-   * 提示词。
+   * The prompt.
    * 
    * @example
-   * 请为上述内容生成一段摘要，字数必须限制在70字以内包含标点符号
+   * Generate a summary for the above content. The content generation must be limited to 70 characters including punctuation.
    */
   prompt?: string;
   /**
    * @remarks
-   * 源 ID。
+   * The source ID.
    * 
    * @example
    * f4a26390f02371f0a1f4e6e7c758****
@@ -93,7 +93,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   sourceId?: string;
   /**
    * @remarks
-   * 源名称。
+   * The source name.
    * 
    * @example
    * SourceName
@@ -101,7 +101,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoBizData extends $dara.Mod
   sourceName?: string;
   /**
    * @remarks
-   * 源类型。
+   * The source type.
    * 
    * @example
    * MainBody
@@ -179,7 +179,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   channels?: string;
   /**
    * @remarks
-   * The codec\\"s long name.
+   * The long name of the codec.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -187,7 +187,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   codecLongName?: string;
   /**
    * @remarks
-   * The codec\\"s short name.
+   * The short name of the codec.
    * 
    * @example
    * aac
@@ -211,7 +211,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   codecTagString?: string;
   /**
    * @remarks
-   * The codec\\"s time base.
+   * The codec time base.
    * 
    * @example
    * 1/44100
@@ -235,7 +235,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   fps?: string;
   /**
    * @remarks
-   * The audio stream\\"s index.
+   * The audio stream index.
    * 
    * @example
    * 1
@@ -259,7 +259,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamIn
   numFrames?: string;
   /**
    * @remarks
-   * The profile.
+   * The codec profile.
    * 
    * @example
    * High
@@ -363,7 +363,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   bitrate?: string;
   /**
    * @remarks
-   * The file\\"s creation time.
+   * The time when the file was created.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -387,7 +387,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 27007
@@ -435,7 +435,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   height?: string;
   /**
    * @remarks
-   * The file\\"s last modification time.
+   * The time when the file was last modified.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -443,7 +443,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
   modifiedTime?: string;
   /**
    * @remarks
-   * The file\\"s storage region.
+   * The storage region of the file.
    * 
    * @example
    * cn-shanghai
@@ -505,7 +505,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The codec\\"s long name.
+   * The long name of the codec.
    * 
    * @example
    * SubRip Text
@@ -513,7 +513,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStrea
   codecLongName?: string;
   /**
    * @remarks
-   * The codec\\"s short name.
+   * The short name of the codec.
    * 
    * @example
    * srt
@@ -537,7 +537,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStrea
   codecTagString?: string;
   /**
    * @remarks
-   * The codec\\"s time base.
+   * The codec time base.
    * 
    * @example
    * 29.97
@@ -553,7 +553,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStrea
   duration?: string;
   /**
    * @remarks
-   * The subtitle stream\\"s index.
+   * The subtitle stream index.
    * 
    * @example
    * 1
@@ -641,7 +641,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   bitrate?: string;
   /**
    * @remarks
-   * The codec\\"s long name.
+   * The long name of the codec.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -649,7 +649,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   codecLongName?: string;
   /**
    * @remarks
-   * The codec\\"s short name.
+   * The short name of the codec.
    * 
    * @example
    * h264
@@ -673,7 +673,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   codecTagString?: string;
   /**
    * @remarks
-   * The codec\\"s time base.
+   * The codec time base.
    * 
    * @example
    * 1/48
@@ -705,7 +705,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   fps?: string;
   /**
    * @remarks
-   * Indicates whether the video stream contains B-frames.
+   * Indicates whether the video stream has B-frames.
    * 
    * @example
    * 2
@@ -721,7 +721,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   height?: string;
   /**
    * @remarks
-   * The video stream\\"s index.
+   * The video stream index.
    * 
    * @example
    * 0
@@ -737,7 +737,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   lang?: string;
   /**
    * @remarks
-   * The encoding level.
+   * The codec level.
    * 
    * @example
    * 30
@@ -761,7 +761,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
   pixFmt?: string;
   /**
    * @remarks
-   * The profile.
+   * The codec profile.
    * 
    * @example
    * High
@@ -875,22 +875,22 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamIn
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * An array of audio stream objects. A media asset can contain multiple audio streams.
+   * The audio stream information. A media asset may have multiple audio streams.
    */
   audioStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
   /**
    * @remarks
-   * Basic file information, such as duration and size.
+   * The basic file information, including duration and size.
    */
   fileBasicInfo?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * An array of subtitle stream objects. A media asset can contain multiple subtitle streams.
+   * The subtitle stream information. A media asset may have multiple subtitle streams.
    */
   subtitleStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * An array of video stream objects. A media asset can contain multiple video streams.
+   * The video stream information. A media asset may have multiple video streams.
    */
   videoStreamInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -935,7 +935,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList extends $dar
 export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   /**
    * @remarks
-   * The associated business.
+   * The business to which the media asset belongs.
    * 
    * @example
    * AiSaas
@@ -943,7 +943,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   biz?: string;
   /**
    * @remarks
-   * The business type.
+   * The business type of the media asset.
    * 
    * @example
    * general
@@ -983,7 +983,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   coverURL?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the media asset was created.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -991,7 +991,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   createTime?: string;
   /**
    * @remarks
-   * The deletion time.
+   * The time when the media asset was deleted.
    * 
    * @example
    * 2020-12-26T04:11:15Z
@@ -999,7 +999,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   deletedTime?: string;
   /**
    * @remarks
-   * The description.
+   * The content description.
    * 
    * @example
    * description
@@ -1007,7 +1007,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   description?: string;
   /**
    * @remarks
-   * The source URL of the media asset.
+   * The address of the media asset to be registered in the corresponding system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -1023,7 +1023,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   mediaId?: string;
   /**
    * @remarks
-   * The media tags.
+   * The tags.
    * 
    * @example
    * tag1
@@ -1031,7 +1031,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   mediaTags?: string;
   /**
    * @remarks
-   * The media type.
+   * The media type of the media asset.
    * 
    * @example
    * video
@@ -1039,7 +1039,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   mediaType?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The time when the media asset was last modified.
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -1047,7 +1047,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   modifiedTime?: string;
   /**
    * @remarks
-   * A custom ID. It must be 6 to 64 characters long and can contain only lowercase letters, uppercase letters, digits, hyphens (-), and underscores (_). This ID must be unique per user.
+   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The value must be 6 to 64 characters in length and is unique within the user scope.
    * 
    * @example
    * 123-1234
@@ -1055,7 +1055,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   referenceId?: string;
   /**
    * @remarks
-   * The snapshot information.
+   * The snapshots.
    * 
    * @example
    * []
@@ -1079,7 +1079,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   spriteImages?: string;
   /**
    * @remarks
-   * The asset\\"s status.
+   * The resource status.
    * 
    * @example
    * Normal
@@ -1095,7 +1095,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   thumbURL240P?: string;
   /**
    * @remarks
-   * The WebP-encoded thumbnail.
+   * The thumbnail encoded in WebP format.
    * 
    * @example
    * ThumbURLWebp
@@ -1111,7 +1111,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
   title?: string;
   /**
    * @remarks
-   * The upload source.
+   * The upload source of the media asset.
    * 
    * @example
    * general
@@ -1195,7 +1195,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $d
 export class GetYikeAssetMediaInfoResponseBodyMediaInfo extends $dara.Model {
   /**
    * @remarks
-   * Custom business data.
+   * The custom business information.
    */
   bizData?: GetYikeAssetMediaInfoResponseBodyMediaInfoBizData;
   /**
@@ -1205,7 +1205,7 @@ export class GetYikeAssetMediaInfoResponseBodyMediaInfo extends $dara.Model {
   fileInfoList?: GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList[];
   /**
    * @remarks
-   * The basic information about the media asset.
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
   /**

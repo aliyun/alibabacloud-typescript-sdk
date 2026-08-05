@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom filter, specified as a JSON string. Supports the integer field intField1 and the string fields strField1 and strField2. Use only one match type per field. Conditions on different fields are combined with a logical AND.
-   * 
-   * - Exact match: `{"intField1":12,"strField1":"abc"}`
-   * 
-   * - Multi-value match: `{"intField1":[12,13],"strField1":["abc","cd"]}`
-   * 
-   * - Range match: `{"intField1":{"gte":12,"lte":13}}`
+   * The custom filter. This is a JSON string. Supported fields include integer field intField1 and string fields strField1 and strField2. Each field supports only one matching type. Filters on different fields are combined with an AND relationship.
    * 
    * @example
    * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
@@ -27,7 +21,7 @@ export class SearchMediaRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The filter condition for the search. <props="china">For syntax rules, see the [Media Search Protocol](https://help.aliyun.com/document_detail/2584256.html).
+   * The filter condition. <props="china">For syntax rules, see [Media asset search protocol](https://help.aliyun.com/document_detail/2584256.html).
    * 
    * @example
    * Title = \\"China\\" and utcCreate = [\\"1693367158561\\",\\"1693367158562\\"]
@@ -35,7 +29,7 @@ export class SearchMediaRequest extends $dara.Model {
   match?: string;
   /**
    * @remarks
-   * The page number to return. The default value is 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -43,7 +37,7 @@ export class SearchMediaRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of results per page. The default value is 10, and the maximum value is 50.
+   * The number of entries per page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 20
@@ -51,7 +45,7 @@ export class SearchMediaRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scroll token for deep pagination. It is a 32-character string. This parameter is not required for the first search request. If a search is successful, the response includes a `ScrollToken` to mark the current position. Use this token in subsequent requests to retrieve the next page of results. This parameter is required to iterate through all matching results. For optimal performance, use this parameter when the `PageNo` value exceeds 200. You can scroll only forward, up to a maximum of 1,000 media assets.
+   * The pagination token. This is a 32-character field. You do not need to set this parameter for the first search request. When the search request matches data, the server returns this parameter value to record the current position of the search data. Record the returned parameter value and set this parameter in the next search request according to the following requirements or suggestions: This parameter must be set when you need to traverse all data that matches the search conditions. When the PageNo parameter value exceeds 200, set this parameter to optimize search performance. You can only page forward, and the maximum paging distance is 1000 media assets.
    * 
    * @example
    * F8C4F642184DBDA5D93907A70AAE****
@@ -59,7 +53,7 @@ export class SearchMediaRequest extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * The name of the search library.
+   * The search library.
    * 
    * @example
    * test-1
@@ -67,7 +61,7 @@ export class SearchMediaRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * The sort field and sort order. Separate multiple sort criteria with a comma (,).
+   * The sort fields and sort orders, separated by commas (,).
    * 
    * @example
    * utcCreate:Desc

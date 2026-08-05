@@ -15,7 +15,7 @@ export class SubmitYikeAIAppJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The AI application runtime parameters, as a JSON string.
+   * The runtime parameters of the AI application. The value is a JSON-serialized string.
    * 
    * @example
    * {"testKey":"testValue"}
@@ -23,7 +23,7 @@ export class SubmitYikeAIAppJobRequest extends $dara.Model {
   appParams?: string;
   /**
    * @remarks
-   * The ID of the folder. If provided, the output is saved to this folder.
+   * The folder ID. This parameter is used to save results to the specified folder.
    * 
    * @example
    * fd-cReaEcVqQK
@@ -31,7 +31,7 @@ export class SubmitYikeAIAppJobRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The ID of the project. If provided, the output is saved to this project.
+   * The project ID. This parameter is used to save results to the specified project.
    * 
    * @example
    * ProductionId

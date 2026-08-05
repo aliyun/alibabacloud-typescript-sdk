@@ -10,12 +10,12 @@ import { MediaConvertOutput } from "./MediaConvertOutput";
 export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   /**
    * @remarks
-   * The job inputs.
+   * The media transcoding task input list.
    */
   inputs?: MediaConvertInput[];
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * Name
@@ -23,12 +23,12 @@ export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The output group configurations.
+   * The media transcoding task output group configuration list.
    */
   outputGroups?: MediaConvertOutputGroup[];
   /**
    * @remarks
-   * The output configurations.
+   * The media transcoding output configuration list.
    */
   outputs?: MediaConvertOutput[];
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
 export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token for the request.
+   * The idempotency parameter for the media transcoding task creation request.
    * 
    * @example
    * FB7F25E9-AD9B-1603-8AF6-F1E42DF2E706
@@ -78,7 +78,7 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The error code returned if the job fails.
+   * The error code returned when the media transcoding task fails.
    * 
    * @example
    * InvalidParameter.ResourceContentBad
@@ -86,12 +86,12 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The media transcoding task configuration.
    */
   config?: SubmitMediaConvertJobResponseBodyJobConfig;
   /**
    * @remarks
-   * The job ID.
+   * The media transcoding task ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -99,7 +99,7 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The error message returned if the job fails.
+   * The detailed error message returned when the media transcoding task fails.
    * 
    * @example
    * The resource operated InputFile is bad
@@ -107,12 +107,12 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The output details.
+   * The media transcoding output result list.
    */
   outputDetails?: MediaConvertOutputDetail[];
   /**
    * @remarks
-   * The output group details.
+   * The media transcoding output group result list.
    */
   outputGroupDetails?: MediaConvertOutputGroupDetail[];
   /**
@@ -133,17 +133,12 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job status. Valid values:
-   * 
-   * - Inited: The job has been initialized.
-   * 
-   * - Running: The job is running.
-   * 
-   * - Success: The job has completed successfully.
-   * 
-   * - Failed: The job has failed.
-   * 
-   * - Canceled: The job has been canceled.
+   * The media transcoding task status. Valid values:
+   * - Inited: initialized.
+   * - Running: running.
+   * - Success: transcoding succeeded.
+   * - Failed: transcoding failed.
+   * - Cancelled: canceled.
    * 
    * @example
    * Success
@@ -210,7 +205,7 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
 export class SubmitMediaConvertJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The media transcoding job.
+   * The media transcoding task.
    */
   job?: SubmitMediaConvertJobResponseBodyJob;
   /**

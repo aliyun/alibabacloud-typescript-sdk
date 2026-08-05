@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the live editing job.
+   * The ID of the live editing task.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -13,7 +13,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the output media asset.
+   * The media asset ID of the output.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -21,7 +21,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The URL of the output file.
+   * The URL of the output.
    * 
    * @example
    * http://test-bucket.cn-shanghai.aliyuncs.com/test.mp4
@@ -37,7 +37,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
@@ -45,7 +45,7 @@ export class SubmitLiveEditingJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the VOD media asset. This parameter is returned only if the output destination is VOD.
+   * The VOD media asset ID. This parameter is returned when the video output destination is VOD.
    * 
    * @example
    * ****d7578s4h75ci945c14b****

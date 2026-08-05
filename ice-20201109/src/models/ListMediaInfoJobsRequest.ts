@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaInfoJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-15T00:00:00Z
@@ -13,7 +13,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * The job ID.
+   * Filters by jobId.
    * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb1****
@@ -21,7 +21,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The token for the next page in consecutive paging query requests. This parameter is not required for the first page.
    * 
    * @example
    * ab4802364a2e49208c99efab82df****
@@ -29,11 +29,9 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The order that you use to sort the query results. Valid values:
-   * 
-   * - CreateTimeDesc: sorts the query results by creation time in descending order.
-   * 
-   * - CreateTimeAsc: sorts the query results by creation time in ascending order.
+   * The sort order. Valid values:
+   * - CreateTimeDesc: sorts by creation time in descending order.
+   * - CreateTimeAsc: sorts by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -41,7 +39,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The page size. Default value: 10.
    * 
    * @example
    * 10
@@ -49,7 +47,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-01T00:00:00Z
@@ -57,13 +55,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The state of the job. Valid values:
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Success: The job is successful.
-   * 
-   * - Fail: The job failed.
+   * The task status.
    * 
    * @example
    * Success

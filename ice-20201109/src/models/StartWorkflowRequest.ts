@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class StartWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to skip verification of the input path supported by the pipeline. This parameter takes effect only when the pipeline input is an OSS file. We recommend that you do not skip this verification to avoid faults caused by incorrect paths. If this parameter is not specified, verification is performed by default. Valid values:
+   * Specifies whether to skip the input path verification for the workflow. This parameter takes effect only when the workflow input is an OSS file. We recommend that you do not skip the verification to avoid errors caused by incorrect paths. If this parameter is not specified, the default value is false. Valid values:
    * 
-   * - **true**: Skip verification
+   * - **true**: Skip the verification.
    * 
-   * - **false**: Do not skip verification
+   * - **false**: Do not skip the verification.
    * 
    * @example
    * false
@@ -17,30 +17,42 @@ export class StartWorkflowRequest extends $dara.Model {
   skipInputVerification?: boolean;
   /**
    * @remarks
-   * The workflow input. Only media assets are supported.
+   * The workflow input. Currently, media asset types and OSS files are supported.
+   * 
+   * Type: the supported media object type. Valid values:
+   * 
+   * - OSS: an OSS file.
+   * 
+   * - Media: a media asset ID.
+   * 
+   * Media: the media value. Valid values:
+   * 
+   * - If Type is set to OSS, the value is a URL that supports the OSS protocol and HTTP protocol.
+   * 
+   * - If Type is set to Media, the value is a media asset ID.
    * 
    * @example
    * {
-   *       "Type": "Media",
-   *       "Media": "******30706071edbfe290b488******"
+   *       "Type": "Media",
+   *       "Media": "******30706071edbfe290b488******"
    * } or
    * {
-   *       "Type": "OSS",
-   *       "Media": "oss://bucket/path/to/video.mp4"
+   *       "Type": "OSS",
+   *       "Media": "oss://bucket.oss-ap-southeast-1.aliyuncs.com/A/B/C/test1.flv"
    * }
    */
   taskInput?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * The custom settings in JSON format. The maximum length is 512 bytes. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
    * 
    * @example
-   * {"NotifyAddress":"https://xx.xx.xxx"} or{"NotifyAddress":"ice-callback-demo"}
+   * {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   /**
    * @remarks
-   * The ID of the workflow template. To view the template ID, log on to the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) and choose Configurations > Workflow Template.
+   * The workflow template ID. You can view the template ID in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) by navigating to Configuration Management > Workflow Template.
    * 
    * @example
    * ******f0e54971ecbffd472190******

@@ -3,20 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMediaInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The validity period of the signed URL, in seconds.
-   */
   authTimeout?: number;
   /**
    * @remarks
-   * The address of the media asset to query. You must first register the media asset in the IMS media library and bind it to a `mediaId`.
+   * The address of the media asset in the corresponding system. Before use, the media asset must be registered in the IMS content library and bound to an IMS mediaId.
    * 
-   * - Object Storage Service (OSS) URL. Two formats are supported:
+   * - OSS address. Two formats are supported:
    * 
-   * `http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4`
+   * http(s)://example-bucket.oss-ap-southeast-1.aliyuncs.com/example.mp4 or
    * 
-   * `oss://example-bucket/example.mp4`. When you use this format, the OSS region defaults to the service endpoint region.
+   * oss://example-bucket/example.mp4. This format assumes the OSS region is the same as the service access region by default.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -24,7 +20,7 @@ export class GetMediaInfoRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The ID of the media asset in Intelligent Media Services (IMS). If you omit this parameter, you must specify `InputURL`.
+   * The IMS media asset ID. If this parameter is empty, InputURL is required.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -32,11 +28,7 @@ export class GetMediaInfoRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of URL to return for the media asset file.
-   * 
-   * - `oss`: Returns the OSS URL. This is the default value.
-   * 
-   * - `cdn`: Returns the Content Delivery Network (CDN) URL. A CDN URL is returned only if the media asset was imported from Video on Demand (VOD) and has a CDN domain name configured in VOD.
+   * The type of the media file address in the response:
    * 
    * @example
    * cdn
@@ -44,11 +36,10 @@ export class GetMediaInfoRequest extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * Whether to return detailed information for specific media asset fields. The only supported field is `AiRoughData.StandardSmartTagJob`, which specifies how the result of a tag analysis task is returned.
-   * 
-   * - `false`: The task result is returned as a URL. This is the default value.
-   * 
-   * - `true`: The task result is returned as a string.
+   * Specifies whether to return detailed information for the corresponding media asset fields. The following fields are supported:
+   * AiRoughData.StandardSmartTagJob: Specifies whether to return detailed tagging results if the media asset has been submitted for tag analysis.
+   * - Default value: false. The task result is returned as a URL.
+   * - true: The task result is returned as text.
    * 
    * @example
    * {"AiRoughData.StandardSmartTagJob": false}

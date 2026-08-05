@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveRecordJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the recording job.
+   * The name of the recording task.
    * 
    * This parameter is required.
    * 
@@ -23,21 +23,21 @@ export class SubmitLiveRecordJobShrinkRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The storage address of the recording.
+   * The recording storage address.
    * 
    * This parameter is required.
    */
   recordOutputShrink?: string;
   /**
    * @remarks
-   * The URL of the live stream.
+   * The live stream address.
    * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
-   * The ID of the recording template.
+   * The recording template ID.
    * 
    * This parameter is required.
    * 

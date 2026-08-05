@@ -21,7 +21,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The creation time of the project.
+   * The creation time.
    * 
    * @example
    * 2026-01-07T02:21:36Z
@@ -29,7 +29,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator name.
+   * The username of the creator.
    * 
    * @example
    * aliyun_183320223010****
@@ -53,7 +53,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
-   * The title of the project.
+   * The title.
    * 
    * @example
    * Harvest
@@ -105,7 +105,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
 export class ListYikeProductionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results returned on each page.
+   * The maximum number of results to return.
    * 
    * @example
    * 50
@@ -113,7 +113,7 @@ export class ListYikeProductionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. If more results are available, you can use this token in the next request to retrieve the next page of results. If this field is empty, all results have been returned.
+   * The pagination token for the next page.
    * 
    * @example
    * Token
@@ -121,7 +121,7 @@ export class ListYikeProductionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of projects.
+   * The project list.
    */
   productionList?: ListYikeProductionsResponseBodyProductionList[];
   /**

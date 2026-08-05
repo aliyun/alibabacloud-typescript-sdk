@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSearchLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The return code.
    * 
    * @example
    * 200
@@ -29,10 +29,8 @@ export class CreateSearchLibResponseBody extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * 
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

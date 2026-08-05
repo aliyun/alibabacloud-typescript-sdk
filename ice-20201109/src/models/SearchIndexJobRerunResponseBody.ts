@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchIndexJobRerunResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The media asset IDs that do not exist.
+   * The list of media asset IDs that do not exist.
    */
   mediaIdsNoExist?: string[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class SearchIndexJobRerunResponseBodyData extends $dara.Model {
 export class SearchIndexJobRerunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -56,11 +56,9 @@ export class SearchIndexJobRerunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

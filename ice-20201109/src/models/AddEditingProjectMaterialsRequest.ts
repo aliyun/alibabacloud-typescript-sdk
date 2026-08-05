@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material ID. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs. The following material types are supported:
-   * 
-   * - video
-   * 
-   * - audio
-   * 
-   * - image
-   * 
-   * - liveStream
-   * 
-   * - editingProject
+   * The material IDs. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs.
+   * - "video": video
+   * - "audio": audio
+   * - "image": image
+   * - "liveStream": live stream
+   * - "editingProject": editing project
    * 
    * This parameter is required.
    * 

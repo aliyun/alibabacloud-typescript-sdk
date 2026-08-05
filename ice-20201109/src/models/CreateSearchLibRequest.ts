@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSearchLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the search library, in JSON string format. The fields include the following:
-   * 
-   * - faceGroupIds: The IDs of custom face recognition libraries. You can create these libraries by calling the CreateRecognitionLib operation. You can specify up to three library IDs, separated by commas (,).
+   * The configuration of the search library. The value is in JSON string format. Fields:
+   * - faceGroupIds: the IDs of self-registered face libraries created by calling CreateRecognitionLib. A maximum of three self-registered face library IDs are supported, separated by commas (,).
    * 
    * @example
    * {"faceGroupIds":"xxx1,xxx2,xx3"}
@@ -15,7 +14,7 @@ export class CreateSearchLibRequest extends $dara.Model {
   searchLibConfig?: string;
   /**
    * @remarks
-   * The name of the search library. The name can contain letters and digits. For IP camera (IPC) monitoring scenarios, the name must start with the `IPCamera_` prefix. For other scenarios, you can use a custom name.
+   * The name of the search library. The name must be a combination of letters and digits. For network monitoring camera (IPC) scenarios, the prefix must be "IPCamera_". For other scenarios, you can customize the name.
    * 
    * This parameter is required.
    * 

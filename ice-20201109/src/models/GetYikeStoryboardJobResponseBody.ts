@@ -21,7 +21,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   fileURL?: string;
   /**
    * @remarks
-   * The model parameters.
+   * The random seed.
    * 
    * @example
    * {
@@ -31,7 +31,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   modelParams?: string;
   /**
    * @remarks
-   * The narration voice.
+   * The narration voice ID.
    * 
    * @example
    * sys_YoungGracefulWoman
@@ -47,7 +47,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   resolution?: string;
   /**
    * @remarks
-   * The shot generation mode.
+   * The shot prompt generation mode.
    * 
    * @example
    * multi
@@ -55,7 +55,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   shotPromptMode?: string;
   /**
    * @remarks
-   * The shot splitting mode.
+   * The shot split mode.
    * 
    * @example
    * firstPersonNarration
@@ -83,7 +83,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
    * 
    * \\- Maximum length: 128 bytes.
    * 
-   * \\- UTF-8 encoding.
+   * \\- UTF-8 encoded.
    * 
    * @example
    * test-title
@@ -141,7 +141,7 @@ export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
 export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   /**
    * @remarks
-   * A list of IDs for storyboards that encountered an exception.
+   * The list of exception storyboard IDs.
    * 
    * @example
    * [\\"st_2053348871\\"]
@@ -149,7 +149,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   exceptionStoryboardIds?: string;
   /**
    * @remarks
-   * A list of shots that failed to generate.
+   * The list of failed shots.
    * 
    * @example
    * [{\\"errorCode\\":\\"NoMediaData\\",\\"storyboardId\\":\\"st_2118280473\\",\\"shotId\\":\\"54\\"}]
@@ -165,7 +165,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   outputUrl?: string;
   /**
    * @remarks
-   * Detailed information about each storyboard in the job.
+   * The detailed storyboard information for the storyboard generation task.
    * 
    * @example
    * [{\\"storyboardId\\":\\"st_1541525214\\",\\"title\\":\\"test_1\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"},{\\"storyboardId\\":\\"st_1633435355\\",\\"title\\":\\"test_2\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"}]
@@ -173,7 +173,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   storyboardInfoList?: string;
   /**
    * @remarks
-   * A comma-separated list of successful storyboard IDs.
+   * The list of successful storyboard IDs, separated by commas.
    * 
    * @example
    * st_2118280473, st_2118280471
@@ -181,7 +181,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   successStoryboardIds?: string;
   /**
    * @remarks
-   * A list of IDs for successful storyboards.
+   * The list of successful storyboards.
    * 
    * @example
    * [\\"st_2118280473\\"]
@@ -221,7 +221,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
 export class GetYikeStoryboardJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The storyboard job ID. You can obtain this ID from the response parameters of the [SubmitStoryboardJob](https://help.aliyun.com/document_detail/461964.html) operation.
+   * The job ID. You can obtain this value from the response parameters of [Submit a packaging job](https://help.aliyun.com/document_detail/461964.html).
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -229,7 +229,7 @@ export class GetYikeStoryboardJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * A JSON object that contains the parameters for the job. The structure of this object varies based on the AI algorithm.
+   * The algorithm job parameters. This is a JSON object whose content varies depending on the algorithm.
    */
   jobParams?: GetYikeStoryboardJobResponseBodyJobParams;
   /**
@@ -241,11 +241,11 @@ export class GetYikeStoryboardJobResponseBody extends $dara.Model {
    * @remarks
    * The job status. Valid values:
    * 
-   * - **Succeeded**: The job completed successfully.
+   * - **Succeeded**: The job is processed.
    * 
-   * - **Failed**: The job failed to complete.
+   * - **Failed**: The job failed.
    * 
-   * - **Running**: The job is in progress.
+   * - **Running**: The job is being processed.
    * 
    * @example
    * Succeeded

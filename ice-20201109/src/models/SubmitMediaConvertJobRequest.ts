@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaConvertJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A unique client token that ensures request idempotency.
+   * The idempotency key. Ensures request idempotency.
    * 
    * @example
    * 86f8e525-9d73-4dac-88aa-7aa4e950c00a
@@ -13,14 +13,14 @@ export class SubmitMediaConvertJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The transcoding job configuration. For more information, see [MediaConvertJobConfig](https://help.aliyun.com/document_detail/2999539.html).
+   * The transcoding task configuration. For more information, see [MediaConvertJobConfig](https://help.aliyun.com/document_detail/2999539.html).
    * 
    * This parameter is required.
    */
   config?: string;
   /**
    * @remarks
-   * The ID of the pipeline for the transcoding job.
+   * The pipeline ID.
    * 
    * @example
    * e197ecfb103e4849922b054d3032f954
@@ -28,7 +28,7 @@ export class SubmitMediaConvertJobRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Custom data to pass with the job.
+   * The user data.
    * 
    * @example
    * {"videoId":"abcd"}

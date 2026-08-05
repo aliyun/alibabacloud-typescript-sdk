@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The category ID. You can use one of the following methods to obtain the ID:
-   * 
-   * - Log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
-   * 
-   * - View the value of CateId returned by the AddCategory operation that you called to create a category.
-   * 
-   * - View the value of CateId returned by the GetCategories operation that you called to query a category.
+   * The category ID. You can obtain the category ID by using the following methods:
+   * - Log on to the [IMS console](https://ims.console.aliyun.com), and choose **Media Asset Management** > **Category Management** to view the category ID.
+   * - When you create a category by calling the create category operation, the category ID is the value of the CateId response parameter.
+   * - When you query a category by calling the get category operation, the category ID is the value of the CateId response parameter.
    * 
    * This parameter is required.
    * 
