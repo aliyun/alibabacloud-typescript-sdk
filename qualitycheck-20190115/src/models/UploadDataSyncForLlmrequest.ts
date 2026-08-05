@@ -13,7 +13,7 @@ export class UploadDataSyncForLLMRequest extends $dara.Model {
   baseMeAgentId?: number;
   /**
    * @remarks
-   * The complete JSON string. For more information about the content, see the following details.
+   * The complete JSON string. For more information, see the following details.
    * 
    * This parameter is required.
    * 

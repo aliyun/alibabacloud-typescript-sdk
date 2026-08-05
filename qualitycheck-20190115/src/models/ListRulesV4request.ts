@@ -165,6 +165,7 @@ export class ListRulesV4Request extends $dara.Model {
    * 2
    */
   status?: number;
+  targetType?: string;
   /**
    * @remarks
    * Type value of the rule category that the rule belongs to.
@@ -228,6 +229,7 @@ export class ListRulesV4Request extends $dara.Model {
       sourceType: 'SourceType',
       startTime: 'StartTime',
       status: 'Status',
+      targetType: 'TargetType',
       type: 'Type',
       typeName: 'TypeName',
       updateEndTime: 'UpdateEndTime',
@@ -259,6 +261,7 @@ export class ListRulesV4Request extends $dara.Model {
       sourceType: 'number',
       startTime: 'string',
       status: 'number',
+      targetType: 'string',
       type: 'number',
       typeName: 'string',
       updateEndTime: 'string',
