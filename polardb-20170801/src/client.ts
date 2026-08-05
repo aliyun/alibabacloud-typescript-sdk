@@ -8907,7 +8907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a path mapping for transparent acceleration.
+   * Deletes a transparent acceleration path mapping.
    * 
    * @param request - DeletePolarFsPathMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8946,7 +8946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a path mapping for transparent acceleration.
+   * Deletes a transparent acceleration path mapping.
    * 
    * @param request - DeletePolarFsPathMappingRequest
    * @returns DeletePolarFsPathMappingResponse

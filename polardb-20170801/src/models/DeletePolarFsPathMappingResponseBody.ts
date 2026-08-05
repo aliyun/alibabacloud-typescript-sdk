@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolarFsPathMappingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 7E2FE3BB-C677-5FF9-9FC5-9CF364BD6BE5

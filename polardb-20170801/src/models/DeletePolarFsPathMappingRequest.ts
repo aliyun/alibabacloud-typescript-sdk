@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolarFsPathMappingRequestCustomBucketPathList extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket.
+   * The custom storage bucket.
    * 
    * @example
    * Bucket
@@ -13,7 +13,7 @@ export class DeletePolarFsPathMappingRequestCustomBucketPathList extends $dara.M
   bucket?: string;
   /**
    * @remarks
-   * The path in the bucket.
+   * The custom storage path.
    * 
    * @example
    * /data
@@ -45,12 +45,12 @@ export class DeletePolarFsPathMappingRequestCustomBucketPathList extends $dara.M
 export class DeletePolarFsPathMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of bucket-path mappings to delete.
+   * The bucket and corresponding path information.
    */
   customBucketPathList?: DeletePolarFsPathMappingRequestCustomBucketPathList[];
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class DeletePolarFsPathMappingRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the PolarFS instance.
+   * The PolarFS instance ID.
    * 
    * This parameter is required.
    * 
