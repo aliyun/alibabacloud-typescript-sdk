@@ -5902,6 +5902,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭数据洞察
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - DisableDataInsightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDataInsightResponse
+   */
+  async disableDataInsightWithOptions(request: $_model.DisableDataInsightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDataInsightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableDataInsight",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableDataInsightResponse>(await this.callApi(params, req, runtime), new $_model.DisableDataInsightResponse({}));
+  }
+
+  /**
+   * 关闭数据洞察
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - DisableDataInsightRequest
+   * @returns DisableDataInsightResponse
+   */
+  async disableDataInsight(request: $_model.DisableDataInsightRequest): Promise<$_model.DisableDataInsightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableDataInsightWithOptions(request, runtime);
+  }
+
+  /**
    * Disables the NFS ACL feature for a file system.
    * 
    * @remarks
@@ -5995,6 +6043,54 @@ export default class Client extends OpenApi {
   async disableSmbAcl(request: $_model.DisableSmbAclRequest): Promise<$_model.DisableSmbAclResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableSmbAclWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启数据洞察
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - EnableDataInsightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDataInsightResponse
+   */
+  async enableDataInsightWithOptions(request: $_model.EnableDataInsightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDataInsightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableDataInsight",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableDataInsightResponse>(await this.callApi(params, req, runtime), new $_model.EnableDataInsightResponse({}));
+  }
+
+  /**
+   * 开启数据洞察
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - EnableDataInsightRequest
+   * @returns EnableDataInsightResponse
+   */
+  async enableDataInsight(request: $_model.EnableDataInsightRequest): Promise<$_model.EnableDataInsightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableDataInsightWithOptions(request, runtime);
   }
 
   /**
@@ -6475,6 +6571,66 @@ export default class Client extends OpenApi {
   async listAccessPoints(request: $_model.ListAccessPointsRequest): Promise<$_model.ListAccessPointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccessPointsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据洞察目录结构
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - ListDataInsightDirectoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataInsightDirectoriesResponse
+   */
+  async listDataInsightDirectoriesWithOptions(request: $_model.ListDataInsightDirectoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataInsightDirectoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.parentDir)) {
+      query["ParentDir"] = request.parentDir;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataInsightDirectories",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataInsightDirectoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataInsightDirectoriesResponse({}));
+  }
+
+  /**
+   * 获取数据洞察目录结构
+   * 
+   * @remarks
+   * - 当前邀测使用，如需使用请提交工单申请。
+   * 
+   * @param request - ListDataInsightDirectoriesRequest
+   * @returns ListDataInsightDirectoriesResponse
+   */
+  async listDataInsightDirectories(request: $_model.ListDataInsightDirectoriesRequest): Promise<$_model.ListDataInsightDirectoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataInsightDirectoriesWithOptions(request, runtime);
   }
 
   /**

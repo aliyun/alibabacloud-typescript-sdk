@@ -139,6 +139,8 @@ export { ListAccessPointsResponseBodyAccessPointsPosixUser } from './ListAccessP
 export { ListAccessPointsResponseBodyAccessPointsRootPathPermission } from './ListAccessPointsResponseBody';
 export { ListAccessPointsResponseBodyAccessPointsTags } from './ListAccessPointsResponseBody';
 export { ListAccessPointsResponseBodyAccessPoints } from './ListAccessPointsResponseBody';
+export { ListDataInsightDirectoriesResponseBodyDirectorySubDirectories } from './ListDataInsightDirectoriesResponseBody';
+export { ListDataInsightDirectoriesResponseBodyDirectory } from './ListDataInsightDirectoriesResponseBody';
 export { ListDirectoriesAndFilesResponseBodyEntries } from './ListDirectoriesAndFilesResponseBody';
 export { ListLifecycleRetrieveJobsResponseBodyLifecycleRetrieveJobs } from './ListLifecycleRetrieveJobsResponseBody';
 export { ListRecentlyRecycledDirectoriesResponseBodyEntries } from './ListRecentlyRecycledDirectoriesResponseBody';
@@ -411,12 +413,18 @@ export { DetachVscFromFilesystemsResponse } from './DetachVscFromFilesystemsResp
 export { DisableAndCleanRecycleBinRequest } from './DisableAndCleanRecycleBinRequest';
 export { DisableAndCleanRecycleBinResponseBody } from './DisableAndCleanRecycleBinResponseBody';
 export { DisableAndCleanRecycleBinResponse } from './DisableAndCleanRecycleBinResponse';
+export { DisableDataInsightRequest } from './DisableDataInsightRequest';
+export { DisableDataInsightResponseBody } from './DisableDataInsightResponseBody';
+export { DisableDataInsightResponse } from './DisableDataInsightResponse';
 export { DisableNfsAclRequest } from './DisableNfsAclRequest';
 export { DisableNfsAclResponseBody } from './DisableNfsAclResponseBody';
 export { DisableNfsAclResponse } from './DisableNfsAclResponse';
 export { DisableSmbAclRequest } from './DisableSmbAclRequest';
 export { DisableSmbAclResponseBody } from './DisableSmbAclResponseBody';
 export { DisableSmbAclResponse } from './DisableSmbAclResponse';
+export { EnableDataInsightRequest } from './EnableDataInsightRequest';
+export { EnableDataInsightResponseBody } from './EnableDataInsightResponseBody';
+export { EnableDataInsightResponse } from './EnableDataInsightResponse';
 export { EnableNfsAclRequest } from './EnableNfsAclRequest';
 export { EnableNfsAclResponseBody } from './EnableNfsAclResponseBody';
 export { EnableNfsAclResponse } from './EnableNfsAclResponse';
@@ -444,6 +452,9 @@ export { GetRecycleBinAttributeResponse } from './GetRecycleBinAttributeResponse
 export { ListAccessPointsRequest } from './ListAccessPointsRequest';
 export { ListAccessPointsResponseBody } from './ListAccessPointsResponseBody';
 export { ListAccessPointsResponse } from './ListAccessPointsResponse';
+export { ListDataInsightDirectoriesRequest } from './ListDataInsightDirectoriesRequest';
+export { ListDataInsightDirectoriesResponseBody } from './ListDataInsightDirectoriesResponseBody';
+export { ListDataInsightDirectoriesResponse } from './ListDataInsightDirectoriesResponse';
 export { ListDirectoriesAndFilesRequest } from './ListDirectoriesAndFilesRequest';
 export { ListDirectoriesAndFilesResponseBody } from './ListDirectoriesAndFilesResponseBody';
 export { ListDirectoriesAndFilesResponse } from './ListDirectoriesAndFilesResponse';
