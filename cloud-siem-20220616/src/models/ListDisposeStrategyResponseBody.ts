@@ -2,10 +2,92 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListDisposeStrategyResponseBodyDataGroupsGroupMeta extends $dara.Model {
+  groupInfo?: any;
+  static names(): { [key: string]: string } {
+    return {
+      groupInfo: 'GroupInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupInfo: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisposeStrategyResponseBodyDataGroups extends $dara.Model {
+  failedCount?: number;
+  firstOccurrenceTime?: number;
+  groupBy?: string;
+  groupKey?: string;
+  groupMeta?: ListDisposeStrategyResponseBodyDataGroupsGroupMeta;
+  groupName?: string;
+  groupTitle?: string;
+  lastOccurrenceTime?: number;
+  latestModifiedTime?: number;
+  runningCount?: number;
+  successCount?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      firstOccurrenceTime: 'FirstOccurrenceTime',
+      groupBy: 'GroupBy',
+      groupKey: 'GroupKey',
+      groupMeta: 'GroupMeta',
+      groupName: 'GroupName',
+      groupTitle: 'GroupTitle',
+      lastOccurrenceTime: 'LastOccurrenceTime',
+      latestModifiedTime: 'LatestModifiedTime',
+      runningCount: 'RunningCount',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      firstOccurrenceTime: 'number',
+      groupBy: 'string',
+      groupKey: 'string',
+      groupMeta: ListDisposeStrategyResponseBodyDataGroupsGroupMeta,
+      groupName: 'string',
+      groupTitle: 'string',
+      lastOccurrenceTime: 'number',
+      latestModifiedTime: 'number',
+      runningCount: 'number',
+      successCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.groupMeta && typeof (this.groupMeta as any).validate === 'function') {
+      (this.groupMeta as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * Current page number.
+   * The current page number of the list.
    * 
    * @example
    * 1
@@ -13,7 +95,7 @@ export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Number of entries returned per page.
+   * The number of records returned per page.
    * 
    * @example
    * 10
@@ -21,7 +103,7 @@ export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -53,9 +135,10 @@ export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
 }
 
 export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model {
+  alertName?: string;
   /**
    * @remarks
-   * Alert UUID.
+   * The alert UUID.
    * 
    * @example
    * sas_71e24437d2797ce8fc59692905a4****
@@ -63,7 +146,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   alertUuid?: string;
   /**
    * @remarks
-   * SIEM root account ID associated with the strategy.
+   * The SIEM primary account ID associated with the policy.
    * 
    * @example
    * 127608589417****
@@ -71,11 +154,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   aliuid?: number;
   /**
    * @remarks
-   * Strategy status. Valid values:
-   * 
-   * - 0: disabled
-   * 
-   * - 1: enabled
+   * The policy status. Valid values:
    * 
    * @example
    * 0
@@ -83,7 +162,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   effectiveStatus?: number;
   /**
    * @remarks
-   * Entity details in JSON array format.
+   * The entity details in JSON array format.
    * 
    * @example
    * [{"ip":"1.1.1.1"}]
@@ -91,7 +170,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   entity?: any[];
   /**
    * @remarks
-   * Entity ID.
+   * The entity ID.
    * 
    * @example
    * 123456789
@@ -99,13 +178,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   entityId?: number;
   /**
    * @remarks
-   * Entity type. Valid values:
-   * 
-   * - ip
-   * 
-   * - process
-   * 
-   * - file
+   * The entity type. Valid values:
    * 
    * @example
    * ip
@@ -113,7 +186,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   entityType?: string;
   /**
    * @remarks
-   * Summary of task failure.
+   * The failure summary of the task.
    * 
    * @example
    * DisposalEntity failed which description is Aegis Quarantine File , return_info failed which description is Check Aegis Process Result , [ERROR DETAIL] *******.php:file not found
@@ -121,7 +194,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   errorMessage?: string;
   /**
    * @remarks
-   * Task completion time.
+   * The end time of the task.
    * 
    * @example
    * 2021-08-10 21:34:07
@@ -129,7 +202,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   finishTime?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -137,7 +210,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   gmtCreate?: string;
   /**
    * @remarks
-   * Last modified time.
+   * The modification time.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -145,7 +218,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   gmtModified?: string;
   /**
    * @remarks
-   * Strategy ID.
+   * The policy ID.
    * 
    * @example
    * 123
@@ -153,7 +226,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Event name.
+   * The incident name.
    * 
    * @example
    * Multiple type of alerts, including Miner Network, Command line download and run malicious files, Backdoor Process, etc
@@ -161,7 +234,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   incidentName?: string;
   /**
    * @remarks
-   * Global unique UUID of the event.
+   * The globally unique UUID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -169,7 +242,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   incidentUuid?: string;
   /**
    * @remarks
-   * Unique name of the playbook.
+   * The unique identifier name of the playbook.
    * 
    * @example
    * WafBlockIP
@@ -177,16 +250,11 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookName?: string;
   /**
    * @remarks
-   * Playbook type. Valid values:
-   * 
-   * - system: manual disposal
-   * 
+   * The playbook type. Valid values:
+   * - system: manual handling
    * - custom: event-triggered playbook
-   * 
    * - custom_alert: alert-triggered playbook
-   * 
    * - soar-manual: manually run playbook
-   * 
    * - soar-mdr: MDR-run playbook
    * 
    * @example
@@ -195,7 +263,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookType?: string;
   /**
    * @remarks
-   * UUID of the playbook.
+   * The playbook UUID.
    * 
    * @example
    * system_aliyun_clb_process_book
@@ -203,7 +271,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookUuid?: string;
   /**
    * @remarks
-   * Disposal scope.
+   * The disposition scope.
    * 
    * @example
    * [{ aliUid: 1766185894104675 }]
@@ -211,7 +279,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   scope?: any[];
   /**
    * @remarks
-   * ID of the security orchestration and automated response disposal strategy.
+   * The SOAR disposal policy ID.
    * 
    * @example
    * 577bbf90-a770-44a7-8154-586aa2d3****
@@ -219,15 +287,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   sophonTaskId?: string;
   /**
    * @remarks
-   * Playbook invocation status. Valid values:
-   * 
-   * - 200: succeeded
-   * 
-   * - 10: deleted
-   * 
-   * - 5: failed
-   * 
-   * - 0: initial state
+   * The playbook invocation status. Valid values:
    * 
    * @example
    * 10
@@ -235,7 +295,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID associated with the configuration policy.
+   * The Alibaba Cloud account ID that configured the policy.
    * 
    * @example
    * 176555323***
@@ -243,7 +303,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   subAliuid?: number;
   /**
    * @remarks
-   * Parameters used to trigger the playbook, in JSON format.
+   * The playbook trigger parameters in JSON format.
    * 
    * @example
    * {
@@ -282,7 +342,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   taskParam?: string;
   /**
    * @remarks
-   * Playbook URL.
+   * The playbook URL.
    * 
    * @example
    * {"playbookUuid":"system_aliyun_aegis_stop_container_book","requestUuid":"e8924356-448b-4301-aee9-*******"}
@@ -290,6 +350,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   taskUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      alertName: 'AlertName',
       alertUuid: 'AlertUuid',
       aliuid: 'Aliuid',
       effectiveStatus: 'EffectiveStatus',
@@ -317,6 +378,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      alertName: 'string',
       alertUuid: 'string',
       aliuid: 'number',
       effectiveStatus: 'number',
@@ -358,18 +420,20 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
 }
 
 export class ListDisposeStrategyResponseBodyData extends $dara.Model {
+  groups?: ListDisposeStrategyResponseBodyDataGroups[];
   /**
    * @remarks
-   * Paging information.
+   * The pagination information.
    */
   pageInfo?: ListDisposeStrategyResponseBodyDataPageInfo;
   /**
    * @remarks
-   * Detailed data.
+   * The detailed data.
    */
   responseData?: ListDisposeStrategyResponseBodyDataResponseData[];
   static names(): { [key: string]: string } {
     return {
+      groups: 'Groups',
       pageInfo: 'PageInfo',
       responseData: 'ResponseData',
     };
@@ -377,12 +441,16 @@ export class ListDisposeStrategyResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      groups: { 'type': 'array', 'itemType': ListDisposeStrategyResponseBodyDataGroups },
       pageInfo: ListDisposeStrategyResponseBodyDataPageInfo,
       responseData: { 'type': 'array', 'itemType': ListDisposeStrategyResponseBodyDataResponseData },
     };
   }
 
   validate() {
+    if(Array.isArray(this.groups)) {
+      $dara.Model.validateArray(this.groups);
+    }
     if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
       (this.pageInfo as any).validate();
     }
@@ -400,7 +468,7 @@ export class ListDisposeStrategyResponseBodyData extends $dara.Model {
 export class ListDisposeStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * HTTP status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -408,7 +476,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response data.
+   * The request return value.
    * 
    * @example
    * 123456
@@ -416,7 +484,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   data?: ListDisposeStrategyResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The request return message.
    * 
    * @example
    * success
@@ -424,7 +492,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -432,11 +500,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request was successful. Valid values:
    * 
    * @example
    * true

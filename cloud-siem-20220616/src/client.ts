@@ -2154,7 +2154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of playbooks used in a disposal policy.
+   * Retrieves the list of playbooks used by a disposal policy.
    * 
    * @param request - DescribeDisposeStrategyPlaybookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2201,7 +2201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of playbooks used in a disposal policy.
+   * Retrieves the list of playbooks used by a disposal policy.
    * 
    * @param request - DescribeDisposeStrategyPlaybookRequest
    * @returns DescribeDisposeStrategyPlaybookResponse
@@ -4166,15 +4166,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of system-recommended disposal strategies.
+   * Retrieves the list of system-recommended disposal policies.
    * 
-   * @param request - ListDisposeStrategyRequest
+   * @param tmpReq - ListDisposeStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDisposeStrategyResponse
    */
-  async listDisposeStrategyWithOptions(request: $_model.ListDisposeStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDisposeStrategyResponse> {
-    request.validate();
+  async listDisposeStrategyWithOptions(tmpReq: $_model.ListDisposeStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDisposeStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDisposeStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entityUuidList)) {
+      request.entityUuidListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entityUuidList, "EntityUuidList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alertUuid)) {
+      body["AlertUuid"] = request.alertUuid;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
@@ -4193,6 +4212,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.entityType)) {
       body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.entityUuidListShrink)) {
+      body["EntityUuidList"] = request.entityUuidListShrink;
+    }
+
+    if (!$dara.isNull(request.groupBy)) {
+      body["GroupBy"] = request.groupBy;
+    }
+
+    if (!$dara.isNull(request.groupKey)) {
+      body["GroupKey"] = request.groupKey;
     }
 
     if (!$dara.isNull(request.incidentUuid)) {
@@ -4223,8 +4254,16 @@ export default class Client extends OpenApi {
       body["PlaybookUuid"] = request.playbookUuid;
     }
 
+    if (!$dara.isNull(request.queryMode)) {
+      body["QueryMode"] = request.queryMode;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseRuleId)) {
+      body["ResponseRuleId"] = request.responseRuleId;
     }
 
     if (!$dara.isNull(request.roleFor)) {
@@ -4247,7 +4286,12 @@ export default class Client extends OpenApi {
       body["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.strategyId)) {
+      body["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4265,7 +4309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve a list of system-recommended disposal strategies.
+   * Retrieves the list of system-recommended disposal policies.
    * 
    * @param request - ListDisposeStrategyRequest
    * @returns ListDisposeStrategyResponse

@@ -108,6 +108,8 @@ export { ListDeliveryResponseBodyDataProductListLogListExtraParameters } from '.
 export { ListDeliveryResponseBodyDataProductListLogList } from './ListDeliveryResponseBody';
 export { ListDeliveryResponseBodyDataProductList } from './ListDeliveryResponseBody';
 export { ListDeliveryResponseBodyData } from './ListDeliveryResponseBody';
+export { ListDisposeStrategyResponseBodyDataGroupsGroupMeta } from './ListDisposeStrategyResponseBody';
+export { ListDisposeStrategyResponseBodyDataGroups } from './ListDisposeStrategyResponseBody';
 export { ListDisposeStrategyResponseBodyDataPageInfo } from './ListDisposeStrategyResponseBody';
 export { ListDisposeStrategyResponseBodyDataResponseData } from './ListDisposeStrategyResponseBody';
 export { ListDisposeStrategyResponseBodyData } from './ListDisposeStrategyResponseBody';
@@ -329,6 +331,7 @@ export { ListDeliveryRequest } from './ListDeliveryRequest';
 export { ListDeliveryResponseBody } from './ListDeliveryResponseBody';
 export { ListDeliveryResponse } from './ListDeliveryResponse';
 export { ListDisposeStrategyRequest } from './ListDisposeStrategyRequest';
+export { ListDisposeStrategyShrinkRequest } from './ListDisposeStrategyShrinkRequest';
 export { ListDisposeStrategyResponseBody } from './ListDisposeStrategyResponseBody';
 export { ListDisposeStrategyResponse } from './ListDisposeStrategyResponse';
 export { ListEntitiesRequest } from './ListEntitiesRequest';

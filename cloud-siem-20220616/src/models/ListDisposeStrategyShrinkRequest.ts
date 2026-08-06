@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDisposeStrategyRequest extends $dara.Model {
+export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   alertUuid?: string;
   /**
    * @remarks
@@ -48,7 +48,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
    * ip
    */
   entityType?: string;
-  entityUuidList?: string[];
+  entityUuidListShrink?: string;
   groupBy?: string;
   groupKey?: string;
   /**
@@ -182,7 +182,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
       endTime: 'EndTime',
       entityIdentity: 'EntityIdentity',
       entityType: 'EntityType',
-      entityUuidList: 'EntityUuidList',
+      entityUuidListShrink: 'EntityUuidList',
       groupBy: 'GroupBy',
       groupKey: 'GroupKey',
       incidentUuid: 'IncidentUuid',
@@ -214,7 +214,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
       endTime: 'number',
       entityIdentity: 'string',
       entityType: 'string',
-      entityUuidList: { 'type': 'array', 'itemType': 'string' },
+      entityUuidListShrink: 'string',
       groupBy: 'string',
       groupKey: 'string',
       incidentUuid: 'string',
@@ -239,9 +239,6 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.entityUuidList)) {
-      $dara.Model.validateArray(this.entityUuidList);
-    }
     super.validate();
   }
 

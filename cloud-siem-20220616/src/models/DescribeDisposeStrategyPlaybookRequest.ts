@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDisposeStrategyPlaybookRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. This value is a UNIX timestamp in milliseconds.
+   * The end time of the query, in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class DescribeDisposeStrategyPlaybookRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The region of the Data Management center for Threat Analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: The assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: The assets are outside China.
+   * The region where the data management center of threat detection and response is located. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: the asset belongs to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: the asset belongs to a region outside China.
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +25,7 @@ export class DescribeDisposeStrategyPlaybookRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. An administrator can use this parameter to switch to the member\\"s view.
+   * The ID of the user to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -35,11 +33,10 @@ export class DescribeDisposeStrategyPlaybookRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
+   * The view type. Valid values:
    * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts in the enterprise.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -47,7 +44,7 @@ export class DescribeDisposeStrategyPlaybookRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The start time of the query. This value is a UNIX timestamp in milliseconds.
+   * The start time of the query, in milliseconds.
    * 
    * This parameter is required.
    * 
