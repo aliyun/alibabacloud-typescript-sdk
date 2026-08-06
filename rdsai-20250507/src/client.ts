@@ -1899,6 +1899,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看 model operator 实例具体 token 汇总情况
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - DescribeMOTokenUsageSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMOTokenUsageSummaryResponse
+   */
+  async describeMOTokenUsageSummaryWithOptions(request: $_model.DescribeMOTokenUsageSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMOTokenUsageSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.usageType)) {
+      query["UsageType"] = request.usageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMOTokenUsageSummary",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMOTokenUsageSummaryResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMOTokenUsageSummaryResponse({}));
+  }
+
+  /**
+   * 查看 model operator 实例具体 token 汇总情况
+   * 
+   * @remarks
+   * ### 适用引擎
+   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * 
+   * @param request - DescribeMOTokenUsageSummaryRequest
+   * @returns DescribeMOTokenUsageSummaryResponse
+   */
+  async describeMOTokenUsageSummary(request: $_model.DescribeMOTokenUsageSummaryRequest): Promise<$_model.DescribeMOTokenUsageSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMOTokenUsageSummaryWithOptions(request, runtime);
+  }
+
+  /**
    * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
    * 
    * @remarks

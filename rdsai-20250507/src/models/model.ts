@@ -22,6 +22,8 @@ export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './Desc
 export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';
 export { DescribeInstanceStorageConfigResponseBodyConfigList } from './DescribeInstanceStorageConfigResponseBody';
 export { DescribeMOTokenUsageDetailResponseBodyRecords } from './DescribeMotokenUsageDetailResponseBody';
+export { DescribeMOTokenUsageSummaryResponseBodyRecords } from './DescribeMotokenUsageSummaryResponseBody';
+export { DescribeMOTokenUsageSummaryResponseBodySummary } from './DescribeMotokenUsageSummaryResponseBody';
 export { DescribeMOUsageDetailExportResponseBodyDataFilters } from './DescribeMousageDetailExportResponseBody';
 export { DescribeMOUsageDetailExportResponseBodyData } from './DescribeMousageDetailExportResponseBody';
 export { DescribeModelOperatorResponseBodyDataDailyUsage } from './DescribeModelOperatorResponseBody';
@@ -152,6 +154,9 @@ export { DescribeInstanceStorageConfigResponse } from './DescribeInstanceStorage
 export { DescribeMOTokenUsageDetailRequest } from './DescribeMotokenUsageDetailRequest';
 export { DescribeMOTokenUsageDetailResponseBody } from './DescribeMotokenUsageDetailResponseBody';
 export { DescribeMOTokenUsageDetailResponse } from './DescribeMotokenUsageDetailResponse';
+export { DescribeMOTokenUsageSummaryRequest } from './DescribeMotokenUsageSummaryRequest';
+export { DescribeMOTokenUsageSummaryResponseBody } from './DescribeMotokenUsageSummaryResponseBody';
+export { DescribeMOTokenUsageSummaryResponse } from './DescribeMotokenUsageSummaryResponse';
 export { DescribeMOUsageDetailExportRequest } from './DescribeMousageDetailExportRequest';
 export { DescribeMOUsageDetailExportResponseBody } from './DescribeMousageDetailExportResponseBody';
 export { DescribeMOUsageDetailExportResponse } from './DescribeMousageDetailExportResponse';
