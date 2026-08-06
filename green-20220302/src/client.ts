@@ -741,10 +741,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This is the synchronous detection API for the multi-modal agent.
+   * Synchronously detects content by using the multimodal Agent API.
    * 
    * @remarks
-   * This is the AI Guardrails agent.
+   * The content moderation agent.
    * 
    * @param request - MultiModalAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -779,10 +779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This is the synchronous detection API for the multi-modal agent.
+   * Synchronously detects content by using the multimodal Agent API.
    * 
    * @remarks
-   * This is the AI Guardrails agent.
+   * The content moderation agent.
    * 
    * @param request - MultiModalAgentRequest
    * @returns MultiModalAgentResponse

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The description of the label.
+   * The label description.
    * 
    * @example
-   * 未检测出风险
+   * No risk detected
    */
   description?: string;
   /**
@@ -21,22 +21,14 @@ export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * A description of the result when the session is terminated.
-   * 
-   * - **SESSION_KILLED**: The session was successfully terminated.
-   * 
+   * The result description when the session is terminated.
+   * - **SESSION_KILLED**: The session is terminated.
    * - **SESSION_EXPIRED**: The session has expired.
-   * 
-   * - **SESSION_NO_PERMISSION**: The account used to terminate the session does not have sufficient permissions.
-   * 
-   * - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is incorrect.
-   * 
+   * - **SESSION_NO_PERMISSION**: Operations account used to terminate the session has insufficient permissions.
+   * - **SESSION_ACCOUNT_ERROR**: Operations account or password used to terminate the session is incorrect.
    * - **SESSION_IGNORED_USER**: The session of an account that does not need to be terminated.
-   * 
-   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud operations account.
-   * 
-   * - **SESSION_KILL_TASK_TIMEOUT**: A timeout occurred when terminating the session.
-   * 
+   * - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud O&M account.
+   * - **SESSION_KILL_TASK_TIMEOUT**: The session termination timed out.
    * - **SESSION_OTHER_ERROR**: Other errors.
    * 
    * @example
@@ -71,20 +63,21 @@ export class MultiModalAgentResponseBodyDataResult extends $dara.Model {
 export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
   /**
    * @remarks
-   * Agent details.
+   * The agent details.
    */
   agentDetail?: { [key: string]: any };
   /**
    * @remarks
-   * The length of the content.
+   * The content length.
    * 
    * @example
    * 10
    */
   contentLength?: number;
+  credits?: number;
   /**
    * @remarks
-   * The length of the prompt.
+   * The prompt length.
    * 
    * @example
    * 100
@@ -94,6 +87,7 @@ export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
     return {
       agentDetail: 'AgentDetail',
       contentLength: 'ContentLength',
+      credits: 'Credits',
       promptLength: 'PromptLength',
     };
   }
@@ -102,6 +96,7 @@ export class MultiModalAgentResponseBodyDataUsage extends $dara.Model {
     return {
       agentDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       contentLength: 'number',
+      credits: 'number',
       promptLength: 'number',
     };
   }
@@ -129,20 +124,20 @@ export class MultiModalAgentResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The structure of the label item.
+   * The label item structure.
    */
   result?: MultiModalAgentResponseBodyDataResult[];
   /**
    * @remarks
-   * The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+   * The risk level, which is returned based on the configured high and low risk scores. Valid values:
    * 
-   * - high: High risk
+   * - high: high risk.
    * 
-   * - medium: Medium risk
+   * - medium: medium risk.
+   *  
+   * - low: low risk.
    * 
-   * - low: Low risk
-   * 
-   * - none: No risk detected
+   * - none: no risk detected.
    * 
    * @example
    * high
@@ -150,7 +145,7 @@ export class MultiModalAgentResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * Token usage.
+   * The token usage.
    */
   usage?: MultiModalAgentResponseBodyDataUsage;
   static names(): { [key: string]: string } {
@@ -189,7 +184,7 @@ export class MultiModalAgentResponseBodyData extends $dara.Model {
 export class MultiModalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the request was successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200

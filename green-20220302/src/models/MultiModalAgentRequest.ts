@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MultiModalAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the whiteboard application. To get the whiteboard application ID, see [CreateApp](https://help.aliyun.com/document_detail/204234.html).
+   * The unique identifier of the whiteboard application. To obtain the whiteboard application ID, see [CreateApp](https://help.aliyun.com/document_detail/204234.html).
    * 
    * @example
    * txt_check_agent_01
@@ -13,10 +13,10 @@ export class MultiModalAgentRequest extends $dara.Model {
   appID?: string;
   /**
    * @remarks
-   * The set of parameters for the auditing service. This includes the taskId of the detection task to query. You can specify only one taskId at a time.
+   * The parameter set required by the moderation service. taskId specifies the taskId of the detection task to query. Only one taskId can be specified per request.
    * 
    * @example
-   * {"content":"测试文本","dataId":"img1234567"}
+   * {"content":"Test text","dataId":"img1234567"}
    */
   serviceParameters?: string;
   static names(): { [key: string]: string } {
