@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeFrInstancesResponseBodyDataAutoPurchase extends $dara.Model {
+  alreadyAutoPurchase?: boolean;
+  settingAutoPurchase?: boolean;
+  supportAutoPurchase?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      alreadyAutoPurchase: 'AlreadyAutoPurchase',
+      settingAutoPurchase: 'SettingAutoPurchase',
+      supportAutoPurchase: 'SupportAutoPurchase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alreadyAutoPurchase: 'boolean',
+      settingAutoPurchase: 'boolean',
+      supportAutoPurchase: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFrInstancesResponseBodyDataCapacityType extends $dara.Model {
   /**
    * @remarks
@@ -16,7 +45,7 @@ export class DescribeFrInstancesResponseBodyDataCapacityType extends $dara.Model
    * The property name.
    * 
    * @example
-   * 总量递减型
+   * Total decrement
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +85,7 @@ export class DescribeFrInstancesResponseBodyDataCommodity extends $dara.Model {
    * The property name.
    * 
    * @example
-   * ALB资源包
+   * ALB Resource Plan
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +125,7 @@ export class DescribeFrInstancesResponseBodyDataCycleType extends $dara.Model {
    * The commitment cycle name.
    * 
    * @example
-   * 小时
+   * Hour
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -136,7 +165,7 @@ export class DescribeFrInstancesResponseBodyDataDeductRegions extends $dara.Mode
    * The deductible region.
    * 
    * @example
-   * 北京
+   * Beijing
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -176,7 +205,7 @@ export class DescribeFrInstancesResponseBodyDataProduct extends $dara.Model {
    * The property name.
    * 
    * @example
-   * 负载均衡
+   * Server Load Balancer
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -216,7 +245,7 @@ export class DescribeFrInstancesResponseBodyDataStatus extends $dara.Model {
    * The property name.
    * 
    * @example
-   * 有效
+   * Valid
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -256,7 +285,7 @@ export class DescribeFrInstancesResponseBodyDataTemplate extends $dara.Model {
    * The property name.
    * 
    * @example
-   * 中国内地区域
+   * Chinese mainland regions
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -299,12 +328,13 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * icloudtest
    */
   accountName?: string;
+  autoPurchase?: DescribeFrInstancesResponseBodyDataAutoPurchase;
   /**
    * @remarks
    * The capacity type name.
    * 
    * @example
-   * 总量递减型
+   * Total decrement
    */
   capacitiyTypeName?: string;
   /**
@@ -338,12 +368,12 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The commodity name.
    * 
    * @example
-   * 性能测试
+   * Performance Testing
    */
   commodityName?: string;
   /**
    * @remarks
-   * The current capacity baseline unit.
+   * The current capacity base unit.
    * 
    * @example
    * CU
@@ -351,7 +381,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   currCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The current capacity baseline value.
+   * The current capacity base value.
    * 
    * @example
    * 1000.000000
@@ -391,7 +421,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The commitment cycle name.
    * 
    * @example
-   * 小时
+   * Hour
    */
   cycleTypeName?: string;
   /**
@@ -399,9 +429,10 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The list of deductible regions.
    */
   deductRegions?: DescribeFrInstancesResponseBodyDataDeductRegions[];
+  enableDeductRule?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource plan can be exchanged.
+   * Indicates whether exchange is supported.
    * 
    * @example
    * false
@@ -409,7 +440,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   enableExchange?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource plan can be renewed.
+   * Indicates whether renewal is supported.
    * 
    * @example
    * false
@@ -417,7 +448,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   enableRenew?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource plan can be upgraded.
+   * Indicates whether upgrade is supported.
    * 
    * @example
    * false
@@ -433,7 +464,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The commodity code for exchange.
+   * The exchange commodity code.
    * 
    * @example
    * null
@@ -441,7 +472,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   exchangeCommodityCode?: string;
   /**
    * @remarks
-   * The initial capacity baseline unit.
+   * The initial capacity base unit.
    * 
    * @example
    * CU
@@ -449,7 +480,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   initCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The initial capacity baseline value.
+   * The initial capacity base value.
    * 
    * @example
    * 1000.000000
@@ -521,7 +552,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 性能测试
+   * Performance Testing
    */
   productName?: string;
   /**
@@ -582,7 +613,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The resource status name.
    * 
    * @example
-   * 有效
+   * Valid
    */
   statusName?: string;
   /**
@@ -608,7 +639,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The period capacity baseline unit.
+   * The periodic capacity base unit.
    * 
    * @example
    * CU
@@ -616,7 +647,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   periodCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The period capacity baseline value.
+   * The periodic capacity base value.
    * 
    * @example
    * 1000.000000
@@ -626,6 +657,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
     return {
       accountId: 'AccountId',
       accountName: 'AccountName',
+      autoPurchase: 'AutoPurchase',
       capacitiyTypeName: 'CapacitiyTypeName',
       capacityType: 'CapacityType',
       capacityTypeCode: 'CapacityTypeCode',
@@ -640,6 +672,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
       cycleTypeCode: 'CycleTypeCode',
       cycleTypeName: 'CycleTypeName',
       deductRegions: 'DeductRegions',
+      enableDeductRule: 'EnableDeductRule',
       enableExchange: 'EnableExchange',
       enableRenew: 'EnableRenew',
       enableUpgrade: 'EnableUpgrade',
@@ -676,6 +709,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
     return {
       accountId: 'number',
       accountName: 'string',
+      autoPurchase: DescribeFrInstancesResponseBodyDataAutoPurchase,
       capacitiyTypeName: 'string',
       capacityType: DescribeFrInstancesResponseBodyDataCapacityType,
       capacityTypeCode: 'string',
@@ -690,6 +724,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
       cycleTypeCode: 'string',
       cycleTypeName: 'string',
       deductRegions: { 'type': 'array', 'itemType': DescribeFrInstancesResponseBodyDataDeductRegions },
+      enableDeductRule: 'boolean',
       enableExchange: 'boolean',
       enableRenew: 'boolean',
       enableUpgrade: 'boolean',
@@ -723,6 +758,9 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.autoPurchase && typeof (this.autoPurchase as any).validate === 'function') {
+      (this.autoPurchase as any).validate();
+    }
     if(this.capacityType && typeof (this.capacityType as any).validate === 'function') {
       (this.capacityType as any).validate();
     }

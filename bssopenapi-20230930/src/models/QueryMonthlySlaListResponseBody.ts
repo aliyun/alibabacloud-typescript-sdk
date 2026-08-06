@@ -13,7 +13,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   availableRate?: number;
   /**
    * @remarks
-   * The unique identifier of the damage record, which is used for targeted compensation application.
+   * The unique ID of the damage record, used for targeted claims.
    * 
    * @example
    * 9b7***9413
@@ -37,7 +37,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   month?: number;
   /**
    * @remarks
-   * The monthly service charge.
+   * The monthly service fee.
    * 
    * @example
    * 365.00
@@ -48,12 +48,12 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
    * The compensation description.
    * 
    * @example
-   * SLA赔付
+   * SLA compensation
    */
   payDescription?: string;
   /**
    * @remarks
-   * The compensation ratio. Unit: %.
+   * The compensation ratio, in percentage (%).
    * 
    * @example
    * 10
@@ -61,7 +61,10 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   payRate?: number;
   /**
    * @remarks
-   * The compensation status. Valid values: 0 (uncompensated) and 1 (compensated).
+   * The compensation status. Valid values:
+   * - 0: not compensated.
+   * - 1: compensated.
+   * - 2: no compensation required.
    * 
    * @example
    * 1
@@ -77,7 +80,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The compensation amount.
+   * The compensation amount that should be paid.
    * 
    * @example
    * 36.5
@@ -138,7 +141,7 @@ export class QueryMonthlySlaListResponseBody extends $dara.Model {
   data?: QueryMonthlySlaListResponseBodyData[];
   /**
    * @remarks
-   * The response metadata.
+   * The response struct metadata.
    * 
    * @example
    * {}

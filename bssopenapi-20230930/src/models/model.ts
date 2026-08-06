@@ -45,6 +45,7 @@ export { DescribeDeductLogsResponseBodyDataProduct } from './DescribeDeductLogsR
 export { DescribeDeductLogsResponseBodyDataTemplate } from './DescribeDeductLogsResponseBody';
 export { DescribeDeductLogsResponseBodyData } from './DescribeDeductLogsResponseBody';
 export { DescribeFrInstancesRequestEcIdAccountIds } from './DescribeFrInstancesRequest';
+export { DescribeFrInstancesResponseBodyDataAutoPurchase } from './DescribeFrInstancesResponseBody';
 export { DescribeFrInstancesResponseBodyDataCapacityType } from './DescribeFrInstancesResponseBody';
 export { DescribeFrInstancesResponseBodyDataCommodity } from './DescribeFrInstancesResponseBody';
 export { DescribeFrInstancesResponseBodyDataCycleType } from './DescribeFrInstancesResponseBody';

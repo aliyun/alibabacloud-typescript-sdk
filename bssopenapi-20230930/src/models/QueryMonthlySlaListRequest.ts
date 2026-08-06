@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMonthlySlaListRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of accounts to query. If this parameter is left empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
@@ -45,7 +45,7 @@ export class QueryMonthlySlaListRequestEcIdAccountIds extends $dara.Model {
 export class QueryMonthlySlaListRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number. Default value: 1, which indicates the first page.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
+   * The enterprise and account list. If this parameter is empty, the current account is queried.
    */
   ecIdAccountIds?: QueryMonthlySlaListRequestEcIdAccountIds[];
   /**
@@ -66,7 +66,7 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * Optional. Month list in yyyyMM format.
+   * Optional. List of months in yyyyMM format.
    * 
    * @example
    * [202602,202603]
@@ -74,7 +74,7 @@ export class QueryMonthlySlaListRequest extends $dara.Model {
   months?: number[];
   /**
    * @remarks
-   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001

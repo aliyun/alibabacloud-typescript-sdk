@@ -29,7 +29,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The enterprise and account list. If this parameter is empty, the current account is queried.
+   * The enterprise and account list. If empty, the current account is queried.
    */
   ecIdAccountIdsShrink?: string;
   /**
@@ -42,7 +42,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The resource dimension to query.
+   * The resource dimension for the query.
    * 
    * @example
    * cu
@@ -58,7 +58,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance label value of the resource plan.
+   * The instance tag label value of the resource plan instance.
    * 
    * @example
    * FR-***
@@ -66,7 +66,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   instanceTag?: string;
   /**
    * @remarks
-   * The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684202000018
@@ -106,7 +106,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sorting rule.
+   * The collation for sorting.
    * 
    * @example
    * asc

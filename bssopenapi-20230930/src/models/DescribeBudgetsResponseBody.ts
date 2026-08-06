@@ -45,7 +45,7 @@ export class DescribeBudgetsResponseBodyDataCycleQuota extends $dara.Model {
 export class DescribeBudgetsResponseBodyDataEcIdAccountIdsFilter extends $dara.Model {
   /**
    * @remarks
-   * The member account IDs.
+   * The IDs of the member accounts.
    */
   accountIds?: number[];
   /**
@@ -101,7 +101,7 @@ export class DescribeBudgetsResponseBodyDataQueryFilter extends $dara.Model {
   selectType?: string;
   /**
    * @remarks
-   * The filter value list.
+   * The list of filter values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class DescribeBudgetsResponseBodyDataQueryFilter extends $dara.Model {
 export class DescribeBudgetsResponseBodyDataWarnConfs extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * comment1
@@ -143,7 +143,7 @@ export class DescribeBudgetsResponseBodyDataWarnConfs extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Indicates whether EventBridge is enabled.
+   * Specifies whether EventBridge is enabled.
    */
   eventBridge?: boolean;
   /**
@@ -166,7 +166,7 @@ export class DescribeBudgetsResponseBodyDataWarnConfs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort sequence number. This parameter is present only in responses. Alerts are numbered in ascending order by alert ID, starting from 1.
+   * The sequence number. This field is present only in responses and is numbered starting from 1 in ascending order of alert ID.
    * 
    * @example
    * 1
@@ -258,7 +258,7 @@ export class DescribeBudgetsResponseBodyData extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * budget-1
@@ -266,7 +266,7 @@ export class DescribeBudgetsResponseBodyData extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The end period.
+   * The end period of the budget cycle.
    * 
    * @example
    * 2026-12
@@ -274,12 +274,12 @@ export class DescribeBudgetsResponseBodyData extends $dara.Model {
   cycleEndPeriod?: string;
   /**
    * @remarks
-   * The specified quota per cycle.
+   * The specified quota for each cycle.
    */
   cycleQuota?: DescribeBudgetsResponseBodyDataCycleQuota[];
   /**
    * @remarks
-   * The start period.
+   * The start period of the budget cycle.
    * 
    * @example
    * 2025-10

@@ -1274,7 +1274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query budget list
+   * Queries a list of budgets.
    * 
    * @param request - DescribeBudgetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1327,7 +1327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query budget list
+   * Queries a list of budgets.
    * 
    * @param request - DescribeBudgetsRequest
    * @returns DescribeBudgetsResponse
@@ -3325,10 +3325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SLA compensation list of a user.
+   * Queries the SLA compensation list for a user.
    * 
    * @remarks
-   * Queries the SLA compensation details list of a user. Only data from the last two months is available.
+   * Provides the SLA compensation details list for a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3389,10 +3389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SLA compensation list of a user.
+   * Queries the SLA compensation list for a user.
    * 
    * @remarks
-   * Queries the SLA compensation details list of a user. Only data from the last two months is available.
+   * Provides the SLA compensation details list for a user. Only data from the last two months is available.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @returns QueryMonthlySlaListResponse
