@@ -9,13 +9,13 @@ export class CreateDocParserJobRequest extends $dara.Model {
    * 
    * - **pdf**: PDF file.
    * 
-   * - **docx**: Word file in DOCX format.
+   * - **docx**: Word file in docx format.
    * 
-   * - **doc**: Word file in DOC format.
+   * - **doc**: Word file in doc format.
    * 
-   * - **pptx**: PPT file in PPTX format.
+   * - **pptx**: PPT file in pptx format.
    * 
-   * - **ppt**: PPT file in PPT format.
+   * - **ppt**: PPT file in ppt format.
    * 
    * - **txt**: plain text file.
    * 
@@ -46,7 +46,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
   /**
    * @remarks
    * The HTTP or HTTPS URL of the file to be parsed.
-   * >The SDKs for various programming languages additionally provide a `CreateDocParserJobAdvance` method that supports passing a local file stream directly (such as InputStream in Java), without the need to upload the file to OSS and construct a FileUrl in advance. When using the Advance method, replace the `FileUrl` parameter (URL string) with the `FileUrlObject` parameter (file stream). All other request parameters remain unchanged. The SDK automatically performs the following operations:
+   * >SDKs for various languages provide an additional `CreateDocParserJobAdvance` method that supports passing a local file stream directly (such as InputStream in Java), without the need to upload the file to OSS and construct a FileUrl in advance. When using the Advance method, replace the `FileUrl` parameter (URL string) with the `FileUrlObject` parameter (file stream). All other request parameters remain unchanged. The SDK automatically performs the following operations:
    * >1. Obtains temporary OSS upload credentials.
    * >2. Uploads the file stream directly to OSS.
    * >3. Calls the CreateDocParserJob operation with the generated OSS URL.

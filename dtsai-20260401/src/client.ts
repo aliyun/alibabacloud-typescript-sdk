@@ -121,7 +121,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) is supported.
-   * - Fees: The service is free of charge during the public preview period.
+   * - Fees: Free during the public preview period. No fees are charged.
    * 
    * @param request - CreateDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -188,7 +188,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Region: Only China (Beijing) is supported.
-   * - Fees: The service is free of charge during the public preview period.
+   * - Fees: Free during the public preview period. No fees are charged.
    * 
    * @param request - CreateDocParserJobRequest
    * @returns CreateDocParserJobResponse
@@ -476,6 +476,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.urlScopeDomains)) {
+      query["UrlScopeDomains"] = request.urlScopeDomains;
+    }
+
+    if (!$dara.isNull(request.urlScopeMode)) {
+      query["UrlScopeMode"] = request.urlScopeMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

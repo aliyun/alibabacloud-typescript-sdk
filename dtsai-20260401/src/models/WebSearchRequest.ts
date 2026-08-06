@@ -31,11 +31,15 @@ export class WebSearchRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  urlScopeDomains?: string;
+  urlScopeMode?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       query: 'Query',
       regionId: 'RegionId',
+      urlScopeDomains: 'UrlScopeDomains',
+      urlScopeMode: 'UrlScopeMode',
     };
   }
 
@@ -44,6 +48,8 @@ export class WebSearchRequest extends $dara.Model {
       maxResults: 'number',
       query: 'string',
       regionId: 'string',
+      urlScopeDomains: 'string',
+      urlScopeMode: 'string',
     };
   }
 
