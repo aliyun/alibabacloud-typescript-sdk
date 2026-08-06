@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FunctionFileResource extends $dara.Model {
+  /**
+   * @remarks
+   * Resource type
+   * 
+   * @example
+   * JAR
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * Resource path
+   * 
+   * @example
+   * oss://tmp/SimpleUdf.jar
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,7 +4,18 @@ import { ShareResource } from "./ShareResource";
 
 
 export class AlterShareResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the catalog.
+   * 
+   * @example
+   * clg-paimon-xxxx
+   */
   catalogId?: string;
+  /**
+   * @remarks
+   * The shared resources.
+   */
   shareResourceList?: ShareResource[];
   static names(): { [key: string]: string } {
     return {

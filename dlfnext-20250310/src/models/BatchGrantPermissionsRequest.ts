@@ -4,6 +4,10 @@ import { Permission } from "./Permission";
 
 
 export class BatchGrantPermissionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of permissions.
+   */
   permissions?: Permission[];
   static names(): { [key: string]: string } {
     return {

@@ -5,22 +5,96 @@ import { Schema } from "./Schema";
 
 
 export class Table extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the table was created.
+   * 
+   * @example
+   * 1741266704867
+   */
   createdAt?: number;
+  /**
+   * @remarks
+   * The creator of the table.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   createdBy?: string;
   icebergTableMetadata?: IcebergTableMetadata;
+  /**
+   * @remarks
+   * The UUID of the table.
+   * 
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @remarks
+   * Indicates whether the table is an external table.
+   * 
+   * @example
+   * true
+   */
   isExternal?: boolean;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * table_test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The owner of the table.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The path of the table.
+   * 
+   * @example
+   * oss://clg-paimon-xxx/db-xxx/tbl-xxxx
+   */
   path?: string;
+  /**
+   * @remarks
+   * The table schema information.
+   */
   schema?: Schema;
+  /**
+   * @remarks
+   * The ID of the table schema.
+   * 
+   * @example
+   * 1
+   */
   schemaId?: number;
   status?: string;
   storageAction?: string;
   storageActionTimestamp?: number;
   storageClass?: string;
   type?: string;
+  /**
+   * @remarks
+   * The time when the table was last updated.
+   * 
+   * @example
+   * 1741266704867
+   */
   updatedAt?: number;
+  /**
+   * @remarks
+   * The user who last updated the table.
+   * 
+   * @example
+   * acs:ram::[accountId]:root
+   */
   updatedBy?: string;
   static names(): { [key: string]: string } {
     return {

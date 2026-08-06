@@ -4,6 +4,10 @@ import { Schema } from "./Schema";
 
 
 export class AlterTableSchemaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The table schema.
+   */
   schema?: Schema;
   static names(): { [key: string]: string } {
     return {

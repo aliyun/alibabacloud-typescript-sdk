@@ -6,27 +6,27 @@ import { FunctionFileResource } from "./FunctionFileResource";
 export class FunctionDefinition extends $dara.Model {
   /**
    * @remarks
-   * required in FileFunctionDefinition
+   * Required in FileFunctionDefinition.
    */
   className?: string;
   /**
    * @remarks
-   * required in SQLFunctionDefinition/LambdaFunctionDefinition
+   * Required in SQLFunctionDefinition and LambdaFunctionDefinition.
    */
   definition?: string;
   /**
    * @remarks
-   * required in FileFunctionDefinition
+   * Required in FileFunctionDefinition.
    */
   fileResources?: FunctionFileResource[];
   /**
    * @remarks
-   * required in FileFunctionDefinition
+   * Required in FileFunctionDefinition.
    */
   functionName?: string;
   /**
    * @remarks
-   * required in LambdaFunctionDefinition/FileFunctionDefinition
+   * Required in LambdaFunctionDefinition and FileFunctionDefinition.
    */
   language?: string;
   type?: string;

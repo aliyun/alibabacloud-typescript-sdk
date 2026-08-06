@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlterCatalogRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The items to delete.
+   */
   removals?: string[];
+  /**
+   * @remarks
+   * The items to update.
+   */
   updates?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

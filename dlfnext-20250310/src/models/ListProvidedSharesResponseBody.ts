@@ -4,7 +4,18 @@ import { Share } from "./Share";
 
 
 export class ListProvidedSharesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The token to retrieve the next page of results. A null value indicates that this is the last page.
+   * 
+   * @example
+   * ""
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The shares.
+   */
   shares?: Share[];
   static names(): { [key: string]: string } {
     return {

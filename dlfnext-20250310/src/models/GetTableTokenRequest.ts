@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTableTokenRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the access is from a VPC.
+   * 
+   * @example
+   * true
+   */
   isInternal?: boolean;
   static names(): { [key: string]: string } {
     return {

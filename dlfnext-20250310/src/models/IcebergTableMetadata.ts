@@ -6,10 +6,26 @@ import { IcebergPartitionField } from "./IcebergPartitionField";
 
 
 export class IcebergTableMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The latest snapshot of the Iceberg table.
+   */
   currentSnapshot?: IcebergSnapshot;
+  /**
+   * @remarks
+   * The fields.
+   */
   fields?: IcebergNestedField[];
   identifierFieldIds?: number[];
+  /**
+   * @remarks
+   * The partition fields.
+   */
   partitionFields?: IcebergPartitionField[];
+  /**
+   * @remarks
+   * The properties.
+   */
   properties?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

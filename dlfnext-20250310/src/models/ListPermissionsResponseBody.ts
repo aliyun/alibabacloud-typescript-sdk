@@ -4,7 +4,18 @@ import { Permission } from "./Permission";
 
 
 export class ListPermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token used to retrieve the next page of data. If null is returned, the current page is the last page of results.
+   * 
+   * @example
+   * E8ABEB1C3DB893D16576269017992F57
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The permission list.
+   */
   permissions?: Permission[];
   static names(): { [key: string]: string } {
     return {

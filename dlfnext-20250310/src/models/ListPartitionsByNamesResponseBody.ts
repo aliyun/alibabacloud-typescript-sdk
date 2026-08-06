@@ -4,6 +4,10 @@ import { Partition } from "./Partition";
 
 
 export class ListPartitionsByNamesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The partitions.
+   */
   partitions?: Partition[];
   static names(): { [key: string]: string } {
     return {

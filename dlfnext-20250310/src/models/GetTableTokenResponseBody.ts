@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTableTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The expiration time of the temporary access credential.
+   * 
+   * @example
+   * 1749160909000
+   */
   expiresAtMillis?: number;
+  /**
+   * @remarks
+   * The temporary access credential for the catalog hosting the table.
+   */
   token?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

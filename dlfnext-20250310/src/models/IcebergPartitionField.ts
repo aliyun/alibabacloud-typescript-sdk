@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IcebergPartitionField extends $dara.Model {
+  /**
+   * @remarks
+   * The partition ID.
+   * 
+   * @example
+   * 1
+   */
   fieldId?: number;
+  /**
+   * @remarks
+   * The partition name.
+   * 
+   * @example
+   * ts_day
+   */
   name?: string;
+  /**
+   * @remarks
+   * The source ID.
+   * 
+   * @example
+   * 0
+   */
   sourceId?: number;
+  /**
+   * @remarks
+   * The transformation rule.
+   * 
+   * @example
+   * day
+   */
   transform?: string;
   static names(): { [key: string]: string } {
     return {

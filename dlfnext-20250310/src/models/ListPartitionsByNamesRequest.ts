@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPartitionsByNamesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of partition specifications.
+   */
   specs?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {

@@ -2,23 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
+export class UpdateVpcConfigRequestUpdates extends $dara.Model {
   /**
    * @remarks
-   * The time when the VPC was created, in UNIX timestamp milliseconds.
-   * 
-   * @example
-   * 1744970111419
-   */
-  createdAt?: number;
-  /**
-   * @remarks
-   * List of configuration items.
+   * The list of configuration items.
    */
   extendedOptions?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the VPC.
+   * VPC ID。
    * 
    * @example
    * vpc-uf67xxxx
@@ -26,7 +18,6 @@ export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      createdAt: 'createdAt',
       extendedOptions: 'extendedOptions',
       vpcId: 'vpcId',
     };
@@ -34,7 +25,6 @@ export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      createdAt: 'number',
       extendedOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       vpcId: 'string',
     };
@@ -52,27 +42,37 @@ export class GetVpcConfigResponseBodyTrustedVpcs extends $dara.Model {
   }
 }
 
-export class GetVpcConfigResponseBody extends $dara.Model {
+export class UpdateVpcConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * List of trusted VPCs.
+   * The list of VPC IDs to delete.
    */
-  trustedVpcs?: GetVpcConfigResponseBodyTrustedVpcs[];
+  removals?: string[];
+  /**
+   * @remarks
+   * The list of VPCs to update.
+   */
+  updates?: UpdateVpcConfigRequestUpdates[];
   static names(): { [key: string]: string } {
     return {
-      trustedVpcs: 'trustedVpcs',
+      removals: 'removals',
+      updates: 'updates',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      trustedVpcs: { 'type': 'array', 'itemType': GetVpcConfigResponseBodyTrustedVpcs },
+      removals: { 'type': 'array', 'itemType': 'string' },
+      updates: { 'type': 'array', 'itemType': UpdateVpcConfigRequestUpdates },
     };
   }
 
   validate() {
-    if(Array.isArray(this.trustedVpcs)) {
-      $dara.Model.validateArray(this.trustedVpcs);
+    if(Array.isArray(this.removals)) {
+      $dara.Model.validateArray(this.removals);
+    }
+    if(Array.isArray(this.updates)) {
+      $dara.Model.validateArray(this.updates);
     }
     super.validate();
   }
