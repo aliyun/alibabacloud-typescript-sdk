@@ -11101,6 +11101,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.secondaryZoneId)) {
+      query["SecondaryZoneId"] = request.secondaryZoneId;
+    }
+
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }

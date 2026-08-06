@@ -172,6 +172,7 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   replicaCount?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  secondaryZoneId?: string;
   securityToken?: string;
   /**
    * @remarks
@@ -254,6 +255,7 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
       replicaCount: 'ReplicaCount',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      secondaryZoneId: 'SecondaryZoneId',
       securityToken: 'SecurityToken',
       shardCount: 'ShardCount',
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
@@ -285,6 +287,7 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
       replicaCount: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      secondaryZoneId: 'string',
       securityToken: 'string',
       shardCount: 'number',
       slaveReadOnlyCount: 'number',

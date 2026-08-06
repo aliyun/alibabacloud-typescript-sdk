@@ -8,15 +8,18 @@ export class SwitchInstanceToTargetZoneResponseBody extends $dara.Model {
    * 5D622714-AEDD-4609-9167-F5DDD3D1****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
