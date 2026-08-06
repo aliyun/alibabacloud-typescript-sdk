@@ -7,12 +7,12 @@ export class ListConfigsRequest extends $dara.Model {
    * @remarks
    * The category of the configuration item. The following categories are supported:
    * 
-   * - CommonResourceConfig: common resource configuration
-   * - DLCAutoRecycle: DLC automatic reclamation
-   * - DLCPriorityConfig: DLC priority settings
-   * - DSWPriorityConfig: DSW priority settings
-   * - QuotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota
-   * - CommonTagConfig: tag settings
+   * - CommonResourceConfig: common resource configuration.
+   * - DLCAutoRecycle: DLC automatic recycling.
+   * - DLCPriorityConfig: DLC priority settings.
+   * - DSWPriorityConfig: DSW priority settings.
+   * - QuotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota.
+   * - CommonTagConfig: tag settings.
    * 
    * @example
    * CommonResourceConfig
@@ -22,11 +22,11 @@ export class ListConfigsRequest extends $dara.Model {
    * @remarks
    * The keys of the configuration items. The following keys are supported:
    * 
-   * - tempStoragePath: temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
-   * - isAutoRecycle: automatic reclamation configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
-   * - priorityConfig: priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * - quotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
-   * - predefinedTags: preset tags for the workspace. Resources that are created must include these tags.
+   * - tempStoragePath: the temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
+   * - isAutoRecycle: the automatic recycling configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
+   * - priorityConfig: the priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * - quotaMaximumDuration: the maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
+   * - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
    * 
    * @example
    * tempStoragePath
@@ -34,7 +34,7 @@ export class ListConfigsRequest extends $dara.Model {
   configKeys?: string;
   /**
    * @remarks
-   * The labels used as filter conditions. Separate multiple conditions with commas. These conditions have an AND relationship.
+   * The labels used as filter conditions. Separate multiple conditions with commas. These conditions are evaluated using a logical AND.
    * 
    * @example
    * key1=value1,key2=value2

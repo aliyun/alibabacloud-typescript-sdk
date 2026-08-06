@@ -1573,6 +1573,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a prompt.
+   * 
+   * @remarks
+   * ## Request description.
+   * 
+   * @param request - CreatePromptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePromptResponse
+   */
+  async createPromptWithOptions(request: $_model.CreatePromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePromptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.frameworkContent)) {
+      body["FrameworkContent"] = request.frameworkContent;
+    }
+
+    if (!$dara.isNull(request.frameworkType)) {
+      body["FrameworkType"] = request.frameworkType;
+    }
+
+    if (!$dara.isNull(request.promptName)) {
+      body["PromptName"] = request.promptName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePrompt",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/prompts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePromptResponse>(await this.callApi(params, req, runtime), new $_model.CreatePromptResponse({}));
+  }
+
+  /**
+   * Creates a prompt.
+   * 
+   * @remarks
+   * ## Request description.
+   * 
+   * @param request - CreatePromptRequest
+   * @returns CreatePromptResponse
+   */
+  async createPrompt(request: $_model.CreatePromptRequest): Promise<$_model.CreatePromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPromptWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
    * 
    * @param request - CreateRunRequest
@@ -2521,6 +2592,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteModelVersionLabelsWithOptions(ModelId, VersionName, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a prompt.
+   * 
+   * @remarks
+   * When calling this operation, note the following:
+   * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+   * - Tag keys cannot start with aliyun, acs, http://, or https://.
+   * 
+   * @param request - DeletePromptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePromptResponse
+   */
+  async deletePromptWithOptions(PromptId: string, request: $_model.DeletePromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePromptResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrompt",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/prompts/${$dara.URL.percentEncode(PromptId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePromptResponse>(await this.callApi(params, req, runtime), new $_model.DeletePromptResponse({}));
+  }
+
+  /**
+   * Deletes a prompt.
+   * 
+   * @remarks
+   * When calling this operation, note the following:
+   * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+   * - Tag keys cannot start with aliyun, acs, http://, or https://.
+   * 
+   * @param request - DeletePromptRequest
+   * @returns DeletePromptResponse
+   */
+  async deletePrompt(PromptId: string, request: $_model.DeletePromptRequest): Promise<$_model.DeletePromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePromptWithOptions(PromptId, request, headers, runtime);
   }
 
   /**
@@ -3600,6 +3726,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPermissionWithOptions(WorkspaceId, PermissionCode, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a prompt.
+   * 
+   * @param request - GetPromptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPromptResponse
+   */
+  async getPromptWithOptions(PromptId: string, request: $_model.GetPromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPromptResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPrompt",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/prompts/${$dara.URL.percentEncode(PromptId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPromptResponse>(await this.callApi(params, req, runtime), new $_model.GetPromptResponse({}));
+  }
+
+  /**
+   * Retrieves a prompt.
+   * 
+   * @param request - GetPromptRequest
+   * @returns GetPromptResponse
+   */
+  async getPrompt(PromptId: string, request: $_model.GetPromptRequest): Promise<$_model.GetPromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPromptWithOptions(PromptId, request, headers, runtime);
   }
 
   /**
@@ -5108,6 +5279,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProductsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Retrieves a list of prompts.
+   * 
+   * @param request - ListPromptsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPromptsResponse
+   */
+  async listPromptsWithOptions(request: $_model.ListPromptsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPromptsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.frameworkType)) {
+      query["FrameworkType"] = request.frameworkType;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPrompts",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/prompts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPromptsResponse>(await this.callApi(params, req, runtime), new $_model.ListPromptsResponse({}));
+  }
+
+  /**
+   * Retrieves a list of prompts.
+   * 
+   * @param request - ListPromptsRequest
+   * @returns ListPromptsResponse
+   */
+  async listPrompts(request: $_model.ListPromptsRequest): Promise<$_model.ListPromptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPromptsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6885,6 +7121,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
+  }
+
+  /**
+   * Updates the prompt of a dataset.
+   * 
+   * @remarks
+   * ## Request description.
+   * 
+   * @param request - UpdatePromptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePromptResponse
+   */
+  async updatePromptWithOptions(PromptId: string, request: $_model.UpdatePromptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePromptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.frameworkContent)) {
+      body["FrameworkContent"] = request.frameworkContent;
+    }
+
+    if (!$dara.isNull(request.frameworkType)) {
+      body["FrameworkType"] = request.frameworkType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePrompt",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/prompts/${$dara.URL.percentEncode(PromptId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePromptResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePromptResponse({}));
+  }
+
+  /**
+   * Updates the prompt of a dataset.
+   * 
+   * @remarks
+   * ## Request description.
+   * 
+   * @param request - UpdatePromptRequest
+   * @returns UpdatePromptResponse
+   */
+  async updatePrompt(PromptId: string, request: $_model.UpdatePromptRequest): Promise<$_model.UpdatePromptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePromptWithOptions(PromptId, request, headers, runtime);
   }
 
   /**

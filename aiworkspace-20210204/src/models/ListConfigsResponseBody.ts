@@ -44,6 +44,9 @@ export class ListConfigsResponseBodyConfigsLabels extends $dara.Model {
 
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID, which is globally unique.
+   * 
    * @example
    * wc-95******o36ylr
    */
@@ -52,11 +55,11 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
    * @remarks
    * The key of the configuration item. The following keys are supported:
    * 
-   * - tempStoragePath: temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
-   * - isAutoRecycle: automatic reclamation configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
-   * - priorityConfig: priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-   * - quotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
-   * - predefinedTags: preset tags for the workspace. Resources that are created must include these tags.
+   * - tempStoragePath: the temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
+   * - isAutoRecycle: the automatic recycling configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
+   * - priorityConfig: the priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+   * - quotaMaximumDuration: the maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
+   * - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
    * 
    * @example
    * tempTableLifecycle
@@ -141,7 +144,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned configuration items.
+   * The total number of returned entries.
    * 
    * @example
    * 15

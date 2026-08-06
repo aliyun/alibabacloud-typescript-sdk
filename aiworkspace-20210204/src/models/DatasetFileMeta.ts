@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetFileMeta extends $dara.Model {
   /**
    * @remarks
-   * The MIME type of the file. Contains Type and SubType.
+   * The MIME type of the file. The value contains the type and subtype.
    * 
    * @example
    * image/jpeg
@@ -21,7 +21,7 @@ export class DatasetFileMeta extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The ID of the dataset file metadata.
+   * The dataset file metadata ID.
    * 
    * @example
    * 07914c9534586e4e7aa6e9dbca5009082df******fd8a0d857b33296c59bf6
@@ -37,7 +37,7 @@ export class DatasetFileMeta extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The file creation time. UTC timestamp in ISO 8601 format.
+   * The file creation time. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -47,7 +47,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileCreateTime?: string;
   /**
    * @remarks
-   * The file fingerprint value. Used to determine the uniqueness of the file content. This value changes when the file content is modified. OSS files use ETag, and NAS files use MD5 values.
+   * The file fingerprint value. This parameter is used to determine the uniqueness of the file content. The value changes when the file content is modified. The ETag is used for OSS files, and the MD5 value is used for NAS files.
    * 
    * @example
    * D41D8CD98F*****E9800998ECF8
@@ -63,7 +63,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type. Same as MIME Type.
+   * The file type. The value is the same as the MIME type.
    * 
    * @example
    * image
@@ -71,7 +71,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The last modification time of the file. UTC timestamp in ISO 8601 format.
+   * The last modification time of the file. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -81,7 +81,7 @@ export class DatasetFileMeta extends $dara.Model {
   fileUpdateTime?: string;
   /**
    * @remarks
-   * The specific metadata of the file. For example, image width and height information, or bitrate and resolution information for video files. Search capability is not currently supported. JSON string format.
+   * The specific metadata of the file. For example, image width and height, or video bitrate and resolution. Search is not supported for this field. The value is in JSON string format.
    * 
    * @example
    * {     "ImageHeight": 400,     "ImageWidth": 800 }
@@ -105,7 +105,7 @@ export class DatasetFileMeta extends $dara.Model {
   semanticIndexJobId?: string;
   /**
    * @remarks
-   * The last update time of the semantic index. UTC timestamp in ISO 8601 format.
+   * The last update time of the semantic index. The value is a UTC timestamp in ISO 8601 format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -116,7 +116,7 @@ export class DatasetFileMeta extends $dara.Model {
   /**
    * @remarks
    * The current status of the metadata. Valid values:
-   * * ACTIVE: currently available.
+   * * ACTIVE: active.
    * * DELETED: deleted.
    * 
    * @example
@@ -125,12 +125,12 @@ export class DatasetFileMeta extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag collection of the metadata in JSON string format. This includes:
-   * - Algorithm tag group:
-   *   - ai: The list of tag names aggregated from all algorithm tagging tasks for a single metadata entry.
-   * - User-defined tag group:
-   *   - user: The list of tag names manually added by the user for a single metadata entry.
-   *   - user-delete-ai-tags: The list of tag names in the algorithm tag group that the user wants to delete for a single metadata entry.
+   * The collection of labels for the metadata, in JSON string format. The following label groups are included:
+   * - Algorithm label group:
+   *   - ai: the list of label names aggregated from all algorithm labeling tasks for a single metadata entry.
+   * - User-defined label group:
+   *   - user: the list of label names manually added by the user for a single metadata entry.
+   *   - user-delete-ai-tags: the list of label names in the algorithm label group that the user wants to delete for a single metadata entry.
    * 
    * @example
    * {
@@ -163,7 +163,7 @@ export class DatasetFileMeta extends $dara.Model {
   thumbnailUrl?: string;
   /**
    * @remarks
-   * The unique URI of the file. Used to record the unique path of the file. Supports file paths in OSS and NAS.
+   * The unique URI of the file. This parameter is used to record the unique path of the file. File paths in OSS and NAS are supported.
    * <details>
    * <summary>OSS</summary>
    * oss://${bucket}/${path}
