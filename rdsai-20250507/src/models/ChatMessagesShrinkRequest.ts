@@ -16,6 +16,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
    * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
    */
   eventMode?: string;
+  filesShrink?: string;
   /**
    * @remarks
    * The task input.
@@ -43,6 +44,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
     return {
       conversationId: 'ConversationId',
       eventMode: 'EventMode',
+      filesShrink: 'Files',
       inputsShrink: 'Inputs',
       parentMessageId: 'ParentMessageId',
       query: 'Query',
@@ -53,6 +55,7 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
     return {
       conversationId: 'string',
       eventMode: 'string',
+      filesShrink: 'string',
       inputsShrink: 'string',
       parentMessageId: 'string',
       query: 'string',

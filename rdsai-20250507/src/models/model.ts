@@ -1,3 +1,4 @@
+export { ChatMessagesRequestFiles } from './ChatMessagesRequest';
 export { ChatMessagesRequestInputs } from './ChatMessagesRequest';
 export { CreateApiKeyResponseBodyDataCustomKeyList } from './CreateApiKeyResponseBody';
 export { CreateApiKeyResponseBodyData } from './CreateApiKeyResponseBody';
@@ -42,6 +43,7 @@ export { GetInspectionReportResponseBodyDataData } from './GetInspectionReportRe
 export { GetInspectionReportResponseBodyDataLevelSummary } from './GetInspectionReportResponseBody';
 export { GetInspectionReportResponseBodyData } from './GetInspectionReportResponseBody';
 export { GetMessagesResponseBodyDataEvents } from './GetMessagesResponseBody';
+export { GetMessagesResponseBodyDataMessageFiles } from './GetMessagesResponseBody';
 export { GetMessagesResponseBodyData } from './GetMessagesResponseBody';
 export { GetModelOperatorOrderResponseBodyDataInstanceList } from './GetModelOperatorOrderResponseBody';
 export { GetModelOperatorOrderResponseBodyData } from './GetModelOperatorOrderResponseBody';

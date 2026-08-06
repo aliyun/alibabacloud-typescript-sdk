@@ -56,6 +56,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ChatMessagesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
     if (!$dara.isNull(tmpReq.inputs)) {
       request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
     }
@@ -67,6 +71,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventMode)) {
       query["EventMode"] = request.eventMode;
+    }
+
+    if (!$dara.isNull(request.filesShrink)) {
+      query["Files"] = request.filesShrink;
     }
 
     if (!$dara.isNull(request.inputsShrink)) {
@@ -123,6 +131,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ChatMessagesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
     if (!$dara.isNull(tmpReq.inputs)) {
       request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
     }
@@ -134,6 +146,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventMode)) {
       query["EventMode"] = request.eventMode;
+    }
+
+    if (!$dara.isNull(request.filesShrink)) {
+      query["Files"] = request.filesShrink;
     }
 
     if (!$dara.isNull(request.inputsShrink)) {

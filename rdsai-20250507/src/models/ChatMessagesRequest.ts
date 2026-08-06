@@ -4,6 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class ChatMessagesRequestFiles extends $dara.Model {
+  transferMethod?: string;
+  type?: string;
+  uploadFileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      transferMethod: 'TransferMethod',
+      type: 'Type',
+      uploadFileId: 'UploadFileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      transferMethod: 'string',
+      type: 'string',
+      uploadFileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChatMessagesRequestInputs extends $dara.Model {
   /**
    * @remarks
@@ -87,6 +116,7 @@ export class ChatMessagesRequest extends $dara.Model {
    * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
    */
   eventMode?: string;
+  files?: ChatMessagesRequestFiles[];
   /**
    * @remarks
    * The task input.
@@ -114,6 +144,7 @@ export class ChatMessagesRequest extends $dara.Model {
     return {
       conversationId: 'ConversationId',
       eventMode: 'EventMode',
+      files: 'Files',
       inputs: 'Inputs',
       parentMessageId: 'ParentMessageId',
       query: 'Query',
@@ -124,6 +155,7 @@ export class ChatMessagesRequest extends $dara.Model {
     return {
       conversationId: 'string',
       eventMode: 'string',
+      files: { 'type': 'array', 'itemType': ChatMessagesRequestFiles },
       inputs: ChatMessagesRequestInputs,
       parentMessageId: 'string',
       query: 'string',
@@ -131,6 +163,9 @@ export class ChatMessagesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.files)) {
+      $dara.Model.validateArray(this.files);
+    }
     if(this.inputs && typeof (this.inputs as any).validate === 'function') {
       (this.inputs as any).validate();
     }

@@ -28,6 +28,35 @@ export class GetMessagesResponseBodyDataEvents extends $dara.Model {
   }
 }
 
+export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
+  id?: string;
+  previewUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      previewUrl: 'PreviewUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      previewUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -74,6 +103,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    */
   id?: string;
   lastSentEntryId?: string;
+  messageFiles?: GetMessagesResponseBodyDataMessageFiles[];
   /**
    * @remarks
    * The user\\"s query.
@@ -100,6 +130,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       generationStatus: 'GenerationStatus',
       id: 'Id',
       lastSentEntryId: 'LastSentEntryId',
+      messageFiles: 'MessageFiles',
       query: 'Query',
       retrieverResources: 'RetrieverResources',
       streamKey: 'StreamKey',
@@ -118,6 +149,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       generationStatus: 'string',
       id: 'string',
       lastSentEntryId: 'string',
+      messageFiles: { 'type': 'array', 'itemType': GetMessagesResponseBodyDataMessageFiles },
       query: 'string',
       retrieverResources: { 'type': 'array', 'itemType': 'any' },
       streamKey: 'string',
@@ -127,6 +159,9 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.events)) {
       $dara.Model.validateArray(this.events);
+    }
+    if(Array.isArray(this.messageFiles)) {
+      $dara.Model.validateArray(this.messageFiles);
     }
     if(Array.isArray(this.retrieverResources)) {
       $dara.Model.validateArray(this.retrieverResources);
