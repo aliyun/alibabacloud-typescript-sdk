@@ -1360,6 +1360,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 为指定数据源创建元数据采集器，并配置采集范围、资源组、调度方式和扩展配置。
+   * ## 推荐流程
+   * 1. 调用 `GetCrawlerTypeCapabilities` 查询当前地域支持的采集器类型及其配置能力。
+   * 2. 使用与 `Type` 匹配的数据源创建采集器。
+   * 3. 创建成功后，调用 `RunCrawler` 手动运行，或通过周期调度自动运行。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 创建成功仅表示采集器配置已生成，不会立即执行元数据采集。
+   * 
+   * @param tmpReq - CreateCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCrawlerResponse
+   */
+  async createCrawlerWithOptions(tmpReq: $_model.CreateCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCrawlerResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCrawlerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scope)) {
+      request.scopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scope, "Scope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.enableAiComment)) {
+      body["EnableAiComment"] = request.enableAiComment;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["Options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.scheduleConfigShrink)) {
+      body["ScheduleConfig"] = request.scheduleConfigShrink;
+    }
+
+    if (!$dara.isNull(request.scopeShrink)) {
+      body["Scope"] = request.scopeShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.CreateCrawlerResponse({}));
+  }
+
+  /**
+   * 创建元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 为指定数据源创建元数据采集器，并配置采集范围、资源组、调度方式和扩展配置。
+   * ## 推荐流程
+   * 1. 调用 `GetCrawlerTypeCapabilities` 查询当前地域支持的采集器类型及其配置能力。
+   * 2. 使用与 `Type` 匹配的数据源创建采集器。
+   * 3. 创建成功后，调用 `RunCrawler` 手动运行，或通过周期调度自动运行。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 创建成功仅表示采集器配置已生成，不会立即执行元数据采集。
+   * 
+   * @param request - CreateCrawlerRequest
+   * @returns CreateCrawlerResponse
+   */
+  async createCrawler(request: $_model.CreateCrawlerRequest): Promise<$_model.CreateCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCrawlerWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom attribute definition.
    * 
    * @param tmpReq - CreateCustomAttributeRequest
@@ -3186,10 +3294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a metadata entity definition. The definition can be for a pure custom type or an extended table type.
+   * Creates a metadata entity definition, including custom types and extended table types.
    * 
    * @remarks
-   * This operation requires DataWorks Professional Edition or a higher edition.
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param tmpReq - CreateMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3242,10 +3350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a metadata entity definition. The definition can be for a pure custom type or an extended table type.
+   * Creates a metadata entity definition, including custom types and extended table types.
    * 
    * @remarks
-   * This operation requires DataWorks Professional Edition or a higher edition.
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param request - CreateMetaEntityDefRequest
    * @returns CreateMetaEntityDefResponse
@@ -4414,10 +4522,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+   * Saves a reusable semantic job definition. If you use a single-file source, apply for and complete the attachment upload first. After creation, call RunSemanticJob with the returned Name.
    * 
    * @remarks
-   * Creates a semantic task definition.
+   * ## Scenarios
+   * Creates and saves a reusable semantic job definition. This operation only saves the data source, resource group, and reference file configurations without immediately executing the job.
+   * ## Recommended workflow
+   * 1. When `Source.type=singleTableFile`, call `UploadSemanticFile` first, use the returned `Data.UploadUrl` to complete the PUT upload, and then specify `Data.FileId` in `ReferenceFileIds`. Alternatively, you can provide a single accessible URI.
+   * 2. Configure `Source`, `ProjectId`, and `ResourceGroupId`, and then call this operation to save the job.
+   * 3. Use `Data.Name` from the response to call `RunSemanticJob`. After the job is complete, use `DownloadSemanticResults` to retrieve the output.
+   * ## Before you begin
+   * `Name` must be unique within the current tenant. The reference file quantity rules differ between single-file sources and other sources. For details, refer to the descriptions of the `ReferenceFileIds` and `ReferenceFileUris` fields.
    * 
    * @param tmpReq - CreateSemanticJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4482,10 +4597,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+   * Saves a reusable semantic job definition. If you use a single-file source, apply for and complete the attachment upload first. After creation, call RunSemanticJob with the returned Name.
    * 
    * @remarks
-   * Creates a semantic task definition.
+   * ## Scenarios
+   * Creates and saves a reusable semantic job definition. This operation only saves the data source, resource group, and reference file configurations without immediately executing the job.
+   * ## Recommended workflow
+   * 1. When `Source.type=singleTableFile`, call `UploadSemanticFile` first, use the returned `Data.UploadUrl` to complete the PUT upload, and then specify `Data.FileId` in `ReferenceFileIds`. Alternatively, you can provide a single accessible URI.
+   * 2. Configure `Source`, `ProjectId`, and `ResourceGroupId`, and then call this operation to save the job.
+   * 3. Use `Data.Name` from the response to call `RunSemanticJob`. After the job is complete, use `DownloadSemanticResults` to retrieve the output.
+   * ## Before you begin
+   * `Name` must be unique within the current tenant. The reference file quantity rules differ between single-file sources and other sources. For details, refer to the descriptions of the `ReferenceFileIds` and `ReferenceFileUris` fields.
    * 
    * @param request - CreateSemanticJobRequest
    * @returns CreateSemanticJobResponse
@@ -5145,6 +5267,70 @@ export default class Client extends OpenApi {
   async deleteComputeResource(request: $_model.DeleteComputeResourceRequest): Promise<$_model.DeleteComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 删除不再使用的元数据采集器。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询采集器 ID。
+   * 2. 确认采集器不再需要后调用本接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 删除成功后，该采集器不能继续查询、更新或运行。已采集元数据由系统清理，清理结果可能存在延迟。
+   * 
+   * @param request - DeleteCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCrawlerResponse
+   */
+  async deleteCrawlerWithOptions(request: $_model.DeleteCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCrawlerResponse({}));
+  }
+
+  /**
+   * 删除元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 删除不再使用的元数据采集器。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询采集器 ID。
+   * 2. 确认采集器不再需要后调用本接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 删除成功后，该采集器不能继续查询、更新或运行。已采集元数据由系统清理，清理结果可能存在延迟。
+   * 
+   * @param request - DeleteCrawlerRequest
+   * @returns DeleteCrawlerResponse
+   */
+  async deleteCrawler(request: $_model.DeleteCrawlerRequest): Promise<$_model.DeleteCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCrawlerWithOptions(request, runtime);
   }
 
   /**
@@ -5982,10 +6168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lineage in Data Map.
+   * Deletes a specified data lineage relationship from DataWorks Data Map.
    * 
    * @remarks
-   * 1. DataWorks Professional Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
    * 
    * @param request - DeleteLineageRelationshipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6016,10 +6202,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lineage in Data Map.
+   * Deletes a specified data lineage relationship from DataWorks Data Map.
    * 
    * @remarks
-   * 1. DataWorks Professional Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
    * 
    * @param request - DeleteLineageRelationshipRequest
    * @returns DeleteLineageRelationshipResponse
@@ -6746,10 +6932,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+   * Deletes a semantic job definition by the Name of a created job. If the job is currently running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
    * 
    * @remarks
-   * Operation description for deleting a semantic task.
+   * ## Scenarios
+   * Archives and deletes a saved semantic job definition so that it no longer appears in the list of available jobs.
+   * ## Call flow
+   * 1. Obtain the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs.Data.SemanticJobs[].Name`.
+   * 2. To check whether any active runs exist, call `ListSemanticJobRuns` first. If necessary, stop the execution by calling `KillSemanticJob`.
+   * 3. Call this operation to delete the job definition.
+   * ## Result description
+   * A successful response indicates that the deletion request is complete. After deletion, you can no longer use the name to call `RunSemanticJob`.
    * 
    * @param request - DeleteSemanticJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6780,10 +6973,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+   * Deletes a semantic job definition by the Name of a created job. If the job is currently running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
    * 
    * @remarks
-   * Operation description for deleting a semantic task.
+   * ## Scenarios
+   * Archives and deletes a saved semantic job definition so that it no longer appears in the list of available jobs.
+   * ## Call flow
+   * 1. Obtain the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs.Data.SemanticJobs[].Name`.
+   * 2. To check whether any active runs exist, call `ListSemanticJobRuns` first. If necessary, stop the execution by calling `KillSemanticJob`.
+   * 3. Call this operation to delete the job definition.
+   * ## Result description
+   * A successful response indicates that the deletion request is complete. After deletion, you can no longer use the name to call `RunSemanticJob`.
    * 
    * @param request - DeleteSemanticJobRequest
    * @returns DeleteSemanticJobResponse
@@ -7307,10 +7507,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+   * Returns the download URL of artifacts by job name and an optional run ID after a run completes. If JobRunId is not specified, the results of the most recent run of the job are returned.
    * 
    * @remarks
-   * Operation description for retrieving the download URL of semantic task results.
+   * ## Scenarios
+   * Retrieves temporary download URLs for result files of a submitted semantic job run, such as semantic model YAML artifacts. This operation returns download URLs and does not directly return file content.
+   * ## Procedure
+   * 1. Use the job name `JobName` to locate the job.
+   * 2. To retrieve artifacts of a specific run, specify the `JobRunId` from the `RunSemanticJob.Data.JobRunId` or `ListSemanticJobRuns` response. If you do not specify this parameter, the artifacts of the most recent run are returned.
+   * 3. Download the corresponding files from `Data.Results[].DownloadUrl`.
+   * ## Before you begin
+   * The download URL is a temporary credential. Use it only briefly on the client side. Do not write it to logs or store it for long-term use.
    * 
    * @param request - DownloadSemanticResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7345,10 +7552,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+   * Returns the download URL of artifacts by job name and an optional run ID after a run completes. If JobRunId is not specified, the results of the most recent run of the job are returned.
    * 
    * @remarks
-   * Operation description for retrieving the download URL of semantic task results.
+   * ## Scenarios
+   * Retrieves temporary download URLs for result files of a submitted semantic job run, such as semantic model YAML artifacts. This operation returns download URLs and does not directly return file content.
+   * ## Procedure
+   * 1. Use the job name `JobName` to locate the job.
+   * 2. To retrieve artifacts of a specific run, specify the `JobRunId` from the `RunSemanticJob.Data.JobRunId` or `ListSemanticJobRuns` response. If you do not specify this parameter, the artifacts of the most recent run are returned.
+   * 3. Download the corresponding files from `Data.Results[].DownloadUrl`.
+   * ## Before you begin
+   * The download URL is a temporary credential. Use it only briefly on the client side. Do not write it to logs or store it for long-term use.
    * 
    * @param request - DownloadSemanticResultsRequest
    * @returns DownloadSemanticResultsResponse
@@ -8226,6 +8440,129 @@ export default class Client extends OpenApi {
   async getComputeResource(request: $_model.GetComputeResourceRequest): Promise<$_model.GetComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取元数据采集器详情
+   * 
+   * @remarks
+   * ## 使用场景
+   * 查询指定元数据采集器的配置、可用状态和最近一次运行信息。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询采集器 ID。
+   * 2. 调用本接口获取采集器详情。
+   * 3. 如需查询完整运行历史，调用 `ListCrawlerRuns`。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 采集器尚未运行时，最近运行状态和任务实例 ID 可能为空。
+   * 
+   * @param request - GetCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCrawlerResponse
+   */
+  async getCrawlerWithOptions(request: $_model.GetCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.GetCrawlerResponse({}));
+  }
+
+  /**
+   * 获取元数据采集器详情
+   * 
+   * @remarks
+   * ## 使用场景
+   * 查询指定元数据采集器的配置、可用状态和最近一次运行信息。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询采集器 ID。
+   * 2. 调用本接口获取采集器详情。
+   * 3. 如需查询完整运行历史，调用 `ListCrawlerRuns`。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 采集器尚未运行时，最近运行状态和任务实例 ID 可能为空。
+   * 
+   * @param request - GetCrawlerRequest
+   * @returns GetCrawlerResponse
+   */
+  async getCrawler(request: $_model.GetCrawlerRequest): Promise<$_model.GetCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询当前地域支持创建的元数据采集器类型及能力
+   * 
+   * @remarks
+   * ## 使用场景
+   * 查询当前地域支持创建的采集器类型，以及各类型支持的数据源、采集范围、资源组、调度、AI 元数据描述和扩展配置能力。
+   * ## 推荐流程
+   * 1. 在创建或更新采集器前调用本接口。
+   * 2. 根据返回的能力信息构造 `CreateCrawler` 或 `UpdateCrawler` 请求。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 不同地域和采集器类型的能力可能不同，请以本接口的实际返回结果为准。
+   * 
+   * @param request - GetCrawlerTypeCapabilitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCrawlerTypeCapabilitiesResponse
+   */
+  async getCrawlerTypeCapabilitiesWithOptions(request: $_model.GetCrawlerTypeCapabilitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCrawlerTypeCapabilitiesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCrawlerTypeCapabilities",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCrawlerTypeCapabilitiesResponse>(await this.callApi(params, req, runtime), new $_model.GetCrawlerTypeCapabilitiesResponse({}));
+  }
+
+  /**
+   * 查询当前地域支持创建的元数据采集器类型及能力
+   * 
+   * @remarks
+   * ## 使用场景
+   * 查询当前地域支持创建的采集器类型，以及各类型支持的数据源、采集范围、资源组、调度、AI 元数据描述和扩展配置能力。
+   * ## 推荐流程
+   * 1. 在创建或更新采集器前调用本接口。
+   * 2. 根据返回的能力信息构造 `CreateCrawler` 或 `UpdateCrawler` 请求。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 不同地域和采集器类型的能力可能不同，请以本接口的实际返回结果为准。
+   * 
+   * @param request - GetCrawlerTypeCapabilitiesRequest
+   * @returns GetCrawlerTypeCapabilitiesResponse
+   */
+  async getCrawlerTypeCapabilities(request: $_model.GetCrawlerTypeCapabilitiesRequest): Promise<$_model.GetCrawlerTypeCapabilitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCrawlerTypeCapabilitiesWithOptions(request, runtime);
   }
 
   /**
@@ -10384,7 +10721,14 @@ export default class Client extends OpenApi {
    * Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
    * 
    * @remarks
-   * Operation description for querying semantic job run details.
+   * ## Scenarios
+   * Queries the detailed status and runtime information of a semantic job run on the executor side. This is used to poll execution progress or troubleshoot run failures.
+   * ## Procedure
+   * 1. Call `RunSemanticJob` or `ListSemanticJobRuns` to obtain the `ExecutorJobId`.
+   * 2. Use the `ProjectId` returned by the job definition as the `ProjectId` for this operation.
+   * 3. Determine the current status based on the executor details in `Data`. If the job is still running, continue polling this operation.
+   * ## Related operations
+   * To retrieve logs, call `GetSemanticJobLog`. To stop a run, call `KillSemanticJob`.
    * 
    * @param request - GetSemanticJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10422,7 +10766,14 @@ export default class Client extends OpenApi {
    * Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
    * 
    * @remarks
-   * Operation description for querying semantic job run details.
+   * ## Scenarios
+   * Queries the detailed status and runtime information of a semantic job run on the executor side. This is used to poll execution progress or troubleshoot run failures.
+   * ## Procedure
+   * 1. Call `RunSemanticJob` or `ListSemanticJobRuns` to obtain the `ExecutorJobId`.
+   * 2. Use the `ProjectId` returned by the job definition as the `ProjectId` for this operation.
+   * 3. Determine the current status based on the executor details in `Data`. If the job is still running, continue polling this operation.
+   * ## Related operations
+   * To retrieve logs, call `GetSemanticJobLog`. To stop a run, call `KillSemanticJob`.
    * 
    * @param request - GetSemanticJobDetailRequest
    * @returns GetSemanticJobDetailResponse
@@ -10436,7 +10787,14 @@ export default class Client extends OpenApi {
    * Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
    * 
    * @remarks
-   * Operation description for querying semantic job run logs.
+   * ## Scenarios
+   * Reads the execution logs of a semantic job run to observe the execution process and identify failure causes.
+   * ## Procedure
+   * 1. Specify the run by using `RunSemanticJob.Data.ExecutorJobId` or `ListSemanticJobRuns[].ExecutorJobId`.
+   * 2. Call this operation with the `ProjectId` of the corresponding task.
+   * 3. Analyze the log segments in `Data` together with the run status returned by `GetSemanticJobDetail`.
+   * ## Before you begin
+   * Logs are used for diagnostics and do not represent the final result files. Obtain result artifacts by calling `DownloadSemanticResults`.
    * 
    * @param request - GetSemanticJobLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10474,7 +10832,14 @@ export default class Client extends OpenApi {
    * Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
    * 
    * @remarks
-   * Operation description for querying semantic job run logs.
+   * ## Scenarios
+   * Reads the execution logs of a semantic job run to observe the execution process and identify failure causes.
+   * ## Procedure
+   * 1. Specify the run by using `RunSemanticJob.Data.ExecutorJobId` or `ListSemanticJobRuns[].ExecutorJobId`.
+   * 2. Call this operation with the `ProjectId` of the corresponding task.
+   * 3. Analyze the log segments in `Data` together with the run status returned by `GetSemanticJobDetail`.
+   * ## Before you begin
+   * Logs are used for diagnostics and do not represent the final result files. Obtain result artifacts by calling `DownloadSemanticResults`.
    * 
    * @param request - GetSemanticJobLogRequest
    * @returns GetSemanticJobLogResponse
@@ -10539,7 +10904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
+   * Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -10569,7 +10934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
+   * Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -11105,10 +11470,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call indicates only that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
    * 
    * @remarks
-   * Operation description for stopping a semantic job run.
+   * ## Scenarios
+   * Sends a stop request to the executor for a specified semantic job run. This is applicable to scenarios where a job runs for an extended period, requires manual termination, or needs resource reclamation.
+   * ## Procedure
+   * 1. Obtain the `ExecutorJobId` from `RunSemanticJob` or `ListSemanticJobRuns`, and use the `ProjectId` of the job.
+   * 2. Optionally specify `RetryTimes` as needed.
+   * 3. After the call, poll the final status by using `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
+   * ## Before you begin
+   * A successful response indicates only that the stop request has been processed. It does not mean the job has reached a desired state.
    * 
    * @param request - KillSemanticJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11147,10 +11519,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+   * Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call indicates only that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
    * 
    * @remarks
-   * Operation description for stopping a semantic job run.
+   * ## Scenarios
+   * Sends a stop request to the executor for a specified semantic job run. This is applicable to scenarios where a job runs for an extended period, requires manual termination, or needs resource reclamation.
+   * ## Procedure
+   * 1. Obtain the `ExecutorJobId` from `RunSemanticJob` or `ListSemanticJobRuns`, and use the `ProjectId` of the job.
+   * 2. Optionally specify `RetryTimes` as needed.
+   * 3. After the call, poll the final status by using `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
+   * ## Before you begin
+   * A successful response indicates only that the stop request has been processed. It does not mean the job has reached a desired state.
    * 
    * @param request - KillSemanticJobRequest
    * @returns KillSemanticJobResponse
@@ -11597,7 +11976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column list of a specified data table in DataWorks Data Map.
+   * Queries the column list of a specified table in DataWorks Data Map.
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -11627,7 +12006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the column list of a specified data table in DataWorks Data Map.
+   * Queries the column list of a specified table in DataWorks Data Map.
    * 
    * @remarks
    * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
@@ -11787,6 +12166,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询元数据采集器运行记录
+   * 
+   * @remarks
+   * ## 使用场景
+   * 分页查询指定元数据采集器最近 30 天内的运行记录，并可按运行开始时间和状态筛选。
+   * ## 推荐流程
+   * 1. 使用 `ListCrawlers` 查询采集器 ID。
+   * 2. 调用本接口查询运行记录和任务实例 ID。
+   * 3. 对运行、停止等异步操作，以本接口返回的最终状态为准。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 未指定时间范围时，默认查询当前时间向前 30 天。
+   * 
+   * @param request - ListCrawlerRunsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrawlerRunsResponse
+   */
+  async listCrawlerRunsWithOptions(request: $_model.ListCrawlerRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCrawlerRunsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTimeFrom)) {
+      body["StartTimeFrom"] = request.startTimeFrom;
+    }
+
+    if (!$dara.isNull(request.startTimeTo)) {
+      body["StartTimeTo"] = request.startTimeTo;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCrawlerRuns",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCrawlerRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListCrawlerRunsResponse({}));
+  }
+
+  /**
+   * 查询元数据采集器运行记录
+   * 
+   * @remarks
+   * ## 使用场景
+   * 分页查询指定元数据采集器最近 30 天内的运行记录，并可按运行开始时间和状态筛选。
+   * ## 推荐流程
+   * 1. 使用 `ListCrawlers` 查询采集器 ID。
+   * 2. 调用本接口查询运行记录和任务实例 ID。
+   * 3. 对运行、停止等异步操作，以本接口返回的最终状态为准。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 未指定时间范围时，默认查询当前时间向前 30 天。
+   * 
+   * @param request - ListCrawlerRunsRequest
+   * @returns ListCrawlerRunsResponse
+   */
+  async listCrawlerRuns(request: $_model.ListCrawlerRunsRequest): Promise<$_model.ListCrawlerRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCrawlerRunsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
    * 
    * @remarks
@@ -11821,6 +12286,104 @@ export default class Client extends OpenApi {
   async listCrawlerTypes(): Promise<$_model.ListCrawlerTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCrawlerTypesWithOptions(runtime);
+  }
+
+  /**
+   * 查询元数据采集器列表
+   * 
+   * @remarks
+   * ## 使用场景
+   * 分页查询有权访问的元数据采集器，并可按工作空间、数据源、采集器类型、环境、负责人和名称筛选。
+   * ## 推荐流程
+   * 1. 按需组合筛选条件查询采集器列表。
+   * 2. 使用返回的采集器 ID 调用详情、更新、运行、停止、运行记录或删除接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 多个筛选条件同时提供时组合生效，名称支持模糊匹配。
+   * 
+   * @param tmpReq - ListCrawlersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrawlersResponse
+   */
+  async listCrawlersWithOptions(tmpReq: $_model.ListCrawlersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCrawlersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCrawlersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataSourceIds)) {
+      request.dataSourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSourceIds, "DataSourceIds", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceIdsShrink)) {
+      body["DataSourceIds"] = request.dataSourceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCrawlers",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCrawlersResponse>(await this.callApi(params, req, runtime), new $_model.ListCrawlersResponse({}));
+  }
+
+  /**
+   * 查询元数据采集器列表
+   * 
+   * @remarks
+   * ## 使用场景
+   * 分页查询有权访问的元数据采集器，并可按工作空间、数据源、采集器类型、环境、负责人和名称筛选。
+   * ## 推荐流程
+   * 1. 按需组合筛选条件查询采集器列表。
+   * 2. 使用返回的采集器 ID 调用详情、更新、运行、停止、运行记录或删除接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 多个筛选条件同时提供时组合生效，名称支持模糊匹配。
+   * 
+   * @param request - ListCrawlersRequest
+   * @returns ListCrawlersResponse
+   */
+  async listCrawlers(request: $_model.ListCrawlersRequest): Promise<$_model.ListCrawlersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCrawlersWithOptions(request, runtime);
   }
 
   /**
@@ -11898,7 +12461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of custom attribute definitions.
+   * Queries the list of custom attribute definitions.
    * 
    * @param request - ListCustomAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11953,7 +12516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of custom attribute definitions.
+   * Queries the list of custom attribute definitions.
    * 
    * @param request - ListCustomAttributesRequest
    * @returns ListCustomAttributesResponse
@@ -13891,10 +14454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data map for data lineage relationships between specified entities, such as tables, columns, and OSS objects.
+   * Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
    * 
    * @remarks
-   * 1. This operation is available in DataWorks Standard Edition and later versions.
+   * 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
    * 
    * @param request - ListLineageRelationshipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13921,10 +14484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data map for data lineage relationships between specified entities, such as tables, columns, and OSS objects.
+   * Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
    * 
    * @remarks
-   * 1. This operation is available in DataWorks Standard Edition and later versions.
+   * 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
    * 
    * @param request - ListLineageRelationshipsRequest
    * @returns ListLineageRelationshipsResponse
@@ -14059,10 +14622,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of collections in Data Map. Collections include categories and data albums.
+   * Queries the list of Data Map collections. Supports querying both Data Map categories and data albums.
    * 
    * @remarks
-   * 1. DataWorks Professional Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
    * 
    * @param request - ListMetaCollectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14089,10 +14652,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of collections in Data Map. Collections include categories and data albums.
+   * Queries the list of Data Map collections. Supports querying both Data Map categories and data albums.
    * 
    * @remarks
-   * 1. DataWorks Professional Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
    * 
    * @param request - ListMetaCollectionsRequest
    * @returns ListMetaCollectionsResponse
@@ -14103,7 +14666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists metadata entities. Support is currently limited to custom types.
+   * Queries a list of metadata entities. Currently, only custom entity types are supported.
    * 
    * @param tmpReq - ListMetaEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14176,7 +14739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists metadata entities. Support is currently limited to custom types.
+   * Queries a list of metadata entities. Currently, only custom entity types are supported.
    * 
    * @param request - ListMetaEntitiesRequest
    * @returns ListMetaEntitiesResponse
@@ -14187,7 +14750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of custom entity definitions, including custom entity types and extended table types.
+   * Queries the list of custom entity definitions, including custom entity types and extension table types.
    * 
    * @param request - ListMetaEntityDefsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14242,7 +14805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of custom entity definitions, including custom entity types and extended table types.
+   * Queries the list of custom entity definitions, including custom entity types and extension table types.
    * 
    * @param request - ListMetaEntityDefsRequest
    * @returns ListMetaEntityDefsResponse
@@ -14741,11 +15304,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
+   * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
-   * 2. Only maxcompute and hms (EMR cluster) table types are supported.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
+   * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
    * 
    * @param request - ListPartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14772,11 +15336,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
+   * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
-   * 2. Only maxcompute and hms (EMR cluster) table types are supported.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+   * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
+   * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
    * 
    * @param request - ListPartitionsRequest
    * @returns ListPartitionsResponse
@@ -15693,10 +16258,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+   * Queries the run records of a created node by Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for querying details, retrieving logs, or stopping the run.
    * 
    * @remarks
-   * Queries the run records of a semantic job.
+   * ## Scenarios
+   * View the historical run records of a semantic job with pagination to obtain the run ID, executor job ID, status, and time information for each submission.
+   * ## Procedure
+   * 1. Use the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs` as the `JobName`.
+   * 2. Use `PageNumber` and `PageSize` to read records page by page.
+   * 3. Use the `JobRunId` from a record to call `DownloadSemanticResults`, and use the `ExecutorJobId` to call the detail, log, or stop operations.
+   * ## Before you begin
+   * Pagination starts from page 1 by default. Each page contains a maximum of 200 records.
    * 
    * @param request - ListSemanticJobRunsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15735,10 +16307,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+   * Queries the run records of a created node by Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for querying details, retrieving logs, or stopping the run.
    * 
    * @remarks
-   * Queries the run records of a semantic job.
+   * ## Scenarios
+   * View the historical run records of a semantic job with pagination to obtain the run ID, executor job ID, status, and time information for each submission.
+   * ## Procedure
+   * 1. Use the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs` as the `JobName`.
+   * 2. Use `PageNumber` and `PageSize` to read records page by page.
+   * 3. Use the `JobRunId` from a record to call `DownloadSemanticResults`, and use the `ExecutorJobId` to call the detail, log, or stop operations.
+   * ## Before you begin
+   * Pagination starts from page 1 by default. Each page contains a maximum of 200 records.
    * 
    * @param request - ListSemanticJobRunsRequest
    * @returns ListSemanticJobRunsResponse
@@ -15749,10 +16328,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+   * Queries the semantic node definitions of the current tenant with paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
    * 
    * @remarks
-   * Queries the list of semantic task definitions.
+   * ## Scenarios
+   * Queries the saved semantic node definitions of the current tenant with paging. Use this operation to display the node list, select a node to run, or obtain the workspace to which a node belongs.
+   * ## Invoke flow
+   * 1. Use `PageNumber` and `PageSize` to read `Data.SemanticJobs` with paging.
+   * 2. Use the `Name` field of a list item to invoke `RunSemanticJob`, `DeleteSemanticJob`, or `ListSemanticJobRuns`.
+   * 3. Use the `ProjectId` field of a list item together with `ExecutorJobId` to invoke the details, log, and stop operations.
+   * ## Notes
+   * This operation returns node definitions, not real-time run statuses. To query run statuses, invoke `ListSemanticJobRuns`.
    * 
    * @param request - ListSemanticJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15787,10 +16373,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+   * Queries the semantic node definitions of the current tenant with paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
    * 
    * @remarks
-   * Queries the list of semantic task definitions.
+   * ## Scenarios
+   * Queries the saved semantic node definitions of the current tenant with paging. Use this operation to display the node list, select a node to run, or obtain the workspace to which a node belongs.
+   * ## Invoke flow
+   * 1. Use `PageNumber` and `PageSize` to read `Data.SemanticJobs` with paging.
+   * 2. Use the `Name` field of a list item to invoke `RunSemanticJob`, `DeleteSemanticJob`, or `ListSemanticJobRuns`.
+   * 3. Use the `ProjectId` field of a list item together with `ExecutorJobId` to invoke the details, log, and stop operations.
+   * ## Notes
+   * This operation returns node definitions, not real-time run statuses. To query run statuses, invoke `ListSemanticJobRuns`.
    * 
    * @param request - ListSemanticJobsRequest
    * @returns ListSemanticJobsResponse
@@ -15882,7 +16475,7 @@ export default class Client extends OpenApi {
    * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param tmpReq - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15918,7 +16511,7 @@ export default class Client extends OpenApi {
    * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -17762,10 +18355,89 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+   * 运行元数据采集器
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+   * ## 使用场景
+   * 提交指定元数据采集器的运行请求。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询可运行的采集器 ID。
+   * 2. 调用本接口提交运行请求。
+   * 3. 调用 `ListCrawlerRuns` 查询最终运行状态。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 费用说明
+   * 运行采集任务会使用计算资源，可能产生费用，具体以实际使用的资源组和 DataWorks 计费规则为准。
+   * 当采集器已开启 AI 元数据描述能力（`EnableAiComment=true`）时，采集元数据并生成 AI 说明会消耗 Token。Token 赠送额度及超出额度后的计费规则，请参见 [Data Agent 费用](https://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing)。
+   * ## 注意事项
+   * 接口成功仅表示运行请求已受理，不表示采集任务已经完成。
+   * 
+   * @param request - RunCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCrawlerResponse
+   */
+  async runCrawlerWithOptions(request: $_model.RunCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.RunCrawlerResponse({}));
+  }
+
+  /**
+   * 运行元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 提交指定元数据采集器的运行请求。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlers` 查询可运行的采集器 ID。
+   * 2. 调用本接口提交运行请求。
+   * 3. 调用 `ListCrawlerRuns` 查询最终运行状态。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 费用说明
+   * 运行采集任务会使用计算资源，可能产生费用，具体以实际使用的资源组和 DataWorks 计费规则为准。
+   * 当采集器已开启 AI 元数据描述能力（`EnableAiComment=true`）时，采集元数据并生成 AI 说明会消耗 Token。Token 赠送额度及超出额度后的计费规则，请参见 [Data Agent 费用](https://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing)。
+   * ## 注意事项
+   * 接口成功仅表示运行请求已受理，不表示采集任务已经完成。
+   * 
+   * @param request - RunCrawlerRequest
+   * @returns RunCrawlerResponse
+   */
+  async runCrawler(request: $_model.RunCrawlerRequest): Promise<$_model.RunCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runCrawlerWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+   * 
+   * @remarks
+   * ## Description
+   * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+   * ## Pre-execution validation
+   * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+   * ## Response and What to do next
+   * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+   * ## Billing
+   * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
    * 
    * @param request - RunSemanticJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17796,10 +18468,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+   * Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+   * ## Description
+   * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+   * ## Pre-execution validation
+   * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+   * ## Response and What to do next
+   * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+   * ## Billing
+   * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
    * 
    * @param request - RunSemanticJobRequest
    * @returns RunSemanticJobResponse
@@ -17973,6 +18652,72 @@ export default class Client extends OpenApi {
   async startWorkflowInstances(request: $_model.StartWorkflowInstancesRequest): Promise<$_model.StartWorkflowInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startWorkflowInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止元数据采集器运行
+   * 
+   * @remarks
+   * ## 使用场景
+   * 停止指定元数据采集器当前正在执行的运行任务。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlerRuns` 确认采集器存在正在执行的运行任务。
+   * 2. 调用本接口提交停止请求。
+   * 3. 再次调用 `ListCrawlerRuns` 确认最终运行状态。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 没有正在执行的运行任务时调用会失败。接口成功仅表示停止请求已受理。
+   * 
+   * @param request - StopCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCrawlerResponse
+   */
+  async stopCrawlerWithOptions(request: $_model.StopCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopCrawlerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.StopCrawlerResponse({}));
+  }
+
+  /**
+   * 停止元数据采集器运行
+   * 
+   * @remarks
+   * ## 使用场景
+   * 停止指定元数据采集器当前正在执行的运行任务。
+   * ## 推荐流程
+   * 1. 调用 `ListCrawlerRuns` 确认采集器存在正在执行的运行任务。
+   * 2. 调用本接口提交停止请求。
+   * 3. 再次调用 `ListCrawlerRuns` 确认最终运行状态。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 没有正在执行的运行任务时调用会失败。接口成功仅表示停止请求已受理。
+   * 
+   * @param request - StopCrawlerRequest
+   * @returns StopCrawlerResponse
+   */
+  async stopCrawler(request: $_model.StopCrawlerRequest): Promise<$_model.StopCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopCrawlerWithOptions(request, runtime);
   }
 
   /**
@@ -18901,6 +19646,106 @@ export default class Client extends OpenApi {
   async updateComputeResource(request: $_model.UpdateComputeResourceRequest): Promise<$_model.UpdateComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 部分更新指定元数据采集器的资源组、采集范围、调度、AI 元数据描述或扩展配置。
+   * ## 推荐流程
+   * 1. 调用 `GetCrawler` 查询当前配置。
+   * 2. 调用 `GetCrawlerTypeCapabilities` 确认该采集器类型支持的配置能力。
+   * 3. 仅传入需要更新的字段调用本接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 至少需要提供一个可更新字段；未提供的字段保持不变。
+   * 
+   * @param tmpReq - UpdateCrawlerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCrawlerResponse
+   */
+  async updateCrawlerWithOptions(tmpReq: $_model.UpdateCrawlerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCrawlerResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCrawlerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scheduleConfig)) {
+      request.scheduleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfig, "ScheduleConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scope)) {
+      request.scopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scope, "Scope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enableAiComment)) {
+      body["EnableAiComment"] = request.enableAiComment;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["Options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.scheduleConfigShrink)) {
+      body["ScheduleConfig"] = request.scheduleConfigShrink;
+    }
+
+    if (!$dara.isNull(request.scopeShrink)) {
+      body["Scope"] = request.scopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCrawler",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCrawlerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCrawlerResponse({}));
+  }
+
+  /**
+   * 更新元数据采集器
+   * 
+   * @remarks
+   * ## 使用场景
+   * 部分更新指定元数据采集器的资源组、采集范围、调度、AI 元数据描述或扩展配置。
+   * ## 推荐流程
+   * 1. 调用 `GetCrawler` 查询当前配置。
+   * 2. 调用 `GetCrawlerTypeCapabilities` 确认该采集器类型支持的配置能力。
+   * 3. 仅传入需要更新的字段调用本接口。
+   * ## 版本要求
+   * 需要购买DataWorks基础版及以上版本才能使用。
+   * ## 注意事项
+   * 至少需要提供一个可更新字段；未提供的字段保持不变。
+   * 
+   * @param request - UpdateCrawlerRequest
+   * @returns UpdateCrawlerResponse
+   */
+  async updateCrawler(request: $_model.UpdateCrawlerRequest): Promise<$_model.UpdateCrawlerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCrawlerWithOptions(request, runtime);
   }
 
   /**
@@ -20459,10 +21304,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a meta entity definition. This operation supports both custom and extended table entity types.
+   * Updates a metadata entity definition, including custom entity types and extension table types.
    * 
    * @remarks
-   * This operation requires DataWorks Professional Edition or a later version.
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param tmpReq - UpdateMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20519,10 +21364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a meta entity definition. This operation supports both custom and extended table entity types.
+   * Updates a metadata entity definition, including custom entity types and extension table types.
    * 
    * @remarks
-   * This operation requires DataWorks Professional Edition or a later version.
+   * DataWorks Professional Edition or a more advanced edition is required.
    * 
    * @param request - UpdateMetaEntityDefRequest
    * @returns UpdateMetaEntityDefResponse
@@ -21305,10 +22150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
+   * Updates the business metadata of a table in Data Map. Currently, only the table usage description and custom attributes can be updated.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a later version to use this operation.
+   * 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param tmpReq - UpdateTableBusinessMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21353,10 +22198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
+   * Updates the business metadata of a table in Data Map. Currently, only the table usage description and custom attributes can be updated.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a later version to use this operation.
+   * 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - UpdateTableBusinessMetadataRequest
    * @returns UpdateTableBusinessMetadataResponse
@@ -21835,10 +22680,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
    * 
    * @remarks
-   * Requests an upload URL for semantic job attachments.
+   * ## Scenarios
+   * Requests an upload slot for a reference file to prepare a file for the `singleTableFile` source of `CreateSemanticJob`.
+   * ## Procedure
+   * 1. Pass the file name, MIME type, and actual size to this operation to obtain `Data.UploadUrl` and `Data.FileId`.
+   * 2. Perform an HTTP PUT upload with the same `Content-Type` before the `UploadUrl` expires.
+   * 3. After the upload is complete, use `FileId` as the only element of `CreateSemanticJob.ReferenceFileIds`.
+   * ## Security considerations
+   * `UploadUrl` is a short-lived pre-signed PUT URL. The holder can write to the corresponding object. Do not log, share, or persist this URL.
    * 
    * @param request - UploadSemanticFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21877,10 +22729,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+   * Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
    * 
    * @remarks
-   * Requests an upload URL for semantic job attachments.
+   * ## Scenarios
+   * Requests an upload slot for a reference file to prepare a file for the `singleTableFile` source of `CreateSemanticJob`.
+   * ## Procedure
+   * 1. Pass the file name, MIME type, and actual size to this operation to obtain `Data.UploadUrl` and `Data.FileId`.
+   * 2. Perform an HTTP PUT upload with the same `Content-Type` before the `UploadUrl` expires.
+   * 3. After the upload is complete, use `FileId` as the only element of `CreateSemanticJob.ReferenceFileIds`.
+   * ## Security considerations
+   * `UploadUrl` is a short-lived pre-signed PUT URL. The holder can write to the corresponding object. Do not log, share, or persist this URL.
    * 
    * @param request - UploadSemanticFileRequest
    * @returns UploadSemanticFileResponse

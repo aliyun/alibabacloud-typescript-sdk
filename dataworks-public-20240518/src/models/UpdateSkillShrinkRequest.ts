@@ -24,7 +24,7 @@ export class UpdateSkillShrinkRequest extends $dara.Model {
    * The expected version number for optimistic locking. If not specified, the update is based on the current highest version.
    * 
    * @example
-   * -
+   * 1
    */
   expectedVersion?: number;
   /**

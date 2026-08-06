@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMetaEntityDefResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the created entity type.
+   * The entity type after creation.
    * 
    * @example
    * custom_entity-biz_api

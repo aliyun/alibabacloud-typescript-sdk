@@ -6,12 +6,12 @@ import { LineageRelationship } from "./LineageRelationship";
 export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * An array of data lineage relationships.
+   * The list of data tables.
    */
   lineageRelationships?: LineageRelationship[];
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -66,12 +66,12 @@ export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model 
 export class ListLineageRelationshipsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination result.
    */
   pagingInfo?: ListLineageRelationshipsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request. You can use this ID to troubleshoot issues.
+   * The request ID. You can use this ID to locate and troubleshoot issues.
    * 
    * @example
    * SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF

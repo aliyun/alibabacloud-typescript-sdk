@@ -18,7 +18,7 @@ export class KillSemanticJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

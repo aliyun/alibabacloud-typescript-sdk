@@ -10,7 +10,7 @@ export class GetSemanticJobDetailResponseBodyData extends $dara.Model {
   advanceSettings?: { [key: string]: any };
   /**
    * @remarks
-   * The code parameter information returned by the executor. Used for troubleshooting the runtime configuration of this run.
+   * The code parameter information returned by the executor. Used to troubleshoot the runtime configuration of this run.
    * 
    * @example
    * --limit 100

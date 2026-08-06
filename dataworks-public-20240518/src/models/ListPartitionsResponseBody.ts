@@ -22,12 +22,12 @@ export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of table partitions.
+   * The partition list of the table.
    */
   partitionList?: Partition[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -66,7 +66,7 @@ export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
 export class ListPartitionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information.
+   * The pagination result.
    */
   pagingInfo?: ListPartitionsResponseBodyPagingInfo;
   /**
@@ -79,7 +79,7 @@ export class ListPartitionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

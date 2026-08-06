@@ -16,7 +16,7 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
    * Specifies whether to use resumable transfer. If the SSE stream is interrupted due to issues like an unstable network connection, you can set this parameter to `true` to re-fetch the stream data from the point of failure.
    * 
    * @example
-   * true or false
+   * true
    */
   isReload?: boolean;
   static names(): { [key: string]: string } {

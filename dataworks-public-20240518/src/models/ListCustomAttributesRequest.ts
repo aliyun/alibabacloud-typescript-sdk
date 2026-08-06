@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The comment on the custom attribute. The service performs a fuzzy search based on this parameter\\"s value.
+   * The description of the custom attribute. The value is fuzzy matched.
    * 
    * @example
    * owner
@@ -13,7 +13,7 @@ export class ListCustomAttributesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The display name of the custom attribute. The service performs a partial match based on this parameter\\"s value.
+   * The display name of the custom attribute. The value is matched by plain text containment.
    * 
    * @example
    * Owner
@@ -21,7 +21,7 @@ export class ListCustomAttributesRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The entity types to which the custom attribute applies. To specify multiple entity types, separate them with commas (,), for example, `*-table,*-column`. This parameter supports specific entity types, such as `hms-table` and `emr-table`, and wildcard types, such as `*-table` and `*-column`.
+   * The entity types to which the custom attribute applies. Separate multiple entity types with commas, such as `*-table,*-column`. Specific entity types (such as hms-table and emr-table) and wildcard types `*-table` and `*-column` are supported.
    * 
    * @example
    * maxcompute-table
@@ -53,7 +53,7 @@ export class ListCustomAttributesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to sort by. Valid values: CreateTime and ModifyTime.
+   * The sort field. Valid values: CreateTime and ModifyTime.
    * 
    * @example
    * CreateTime

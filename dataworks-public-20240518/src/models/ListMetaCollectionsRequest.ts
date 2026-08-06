@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaCollectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The administrator ID. Valid only for album types. Default: The current user ID.
+   * The ID of the collection administrator. This parameter is valid only for the album type. Default value: the current user ID.
    * 
    * @example
    * 12345
@@ -13,7 +13,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   administrator?: string;
   /**
    * @remarks
-   * The creator user ID. Valid only for album types. Default: The current user ID.
+   * The user ID of the creator. This parameter is valid only for the album type. Default value: the current user ID.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The collection description. Supports fuzzy matching.
+   * The collection description. Fuzzy match is supported.
    * 
    * @example
    * Test collection
@@ -29,19 +29,18 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The collection name. Supports fuzzy matching.
+   * The collection name. Fuzzy match is supported.
    * 
    * @example
-   * test
+   * Data Asset Subject Domain
    */
   name?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sort direction. Valid values:
    * 
-   * - Asc (default): Ascending order
-   * 
-   * - Desc
+   *  - Asc (default)
+   *  - Desc
    * 
    * @example
    * Asc
@@ -49,7 +48,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Default: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +56,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default: 10. Maximum: 100.
+   * The page size. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -65,7 +64,7 @@ export class ListMetaCollectionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the parent collection.
+   * The ID of the parent node collection object.
    * 
    * @example
    * as78d756asd
@@ -75,15 +74,11 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * @remarks
    * The sort field. Valid values:
    * 
-   * - Id (default)
-   * 
-   * - Name
-   * 
-   * - CreateUser: Creator ID
-   * 
-   * - CreateTime: Creation time
-   * 
-   * - ModifyTime: Modification time
+   *  - Id (default)
+   *  - Name: name.
+   *  - CreateUser: creator ID.
+   *  - CreateTime: creation time.
+   *  - ModifyTime: modification time.
    * 
    * @example
    * Name
@@ -93,11 +88,9 @@ export class ListMetaCollectionsRequest extends $dara.Model {
    * @remarks
    * The collection type. Valid values:
    * 
-   * - Category
-   * 
-   * - Album
-   * 
-   * - AlbumCategory: Album subcategory
+   *  - Category: category.
+   *  - Album: data album.
+   *  - AlbumCategory: album subcategory.
    * 
    * This parameter is required.
    * 

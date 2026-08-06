@@ -4,18 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the asset domain.
+   * 
    * @example
    * 1001
    */
   assetDomainId?: string;
   /**
+   * @remarks
+   * The ID of the asset category.
+   * 
    * @example
    * cate-xxxxxx
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the asset category.
+   * 
    * @example
-   * 资产域名称
+   * AssetDomainName
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -62,7 +71,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
   creator?: string;
   /**
    * @remarks
-   * The data asset ID.
+   * The ID of the data asset.
    * 
    * @example
    * 7259557313
@@ -80,8 +89,8 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
    * @remarks
    * The source of the mapping between the data asset and the tag. Valid values:
    * 
-   * - System: The mapping is created by the data asset governance system.
-   * - UserDefined: The mapping is manually created by a user.
+   * - System: The mapping originates from data asset governance system operations.
+   * - UserDefined: The mapping originates from manual user-defined operations.
    * 
    * @example
    * UserDefined
@@ -127,6 +136,10 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
 }
 
 export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model {
+  /**
+   * @remarks
+   * The asset category information.
+   */
   assetCategories?: ListDataAssetsResponseBodyPagingInfoDataAssetsAssetCategories[];
   /**
    * @remarks
@@ -145,7 +158,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
   envType?: string;
   /**
    * @remarks
-   * The data asset ID.
+   * The ID of the data asset.
    * 
    * @example
    * 7259557313
@@ -161,7 +174,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 54275
@@ -171,7 +184,7 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
    * @remarks
    * The Asset Type of the data asset. Valid values:
    * 
-   * - ACS::DataWorks::Table: table.
+   * - ACS::DataWorks::Table: data table.
    * 
    * - ACS::DataWorks::Task: scheduling node.
    * 

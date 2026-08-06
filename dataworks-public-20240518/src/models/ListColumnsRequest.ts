@@ -11,6 +11,13 @@ export class ListColumnsRequest extends $dara.Model {
    * test comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * Specifies whether to return extended properties. Set this parameter to `true` to return extended properties or `false` to not return them.
+   * 
+   * @example
+   * true
+   */
   includeExtendedProperties?: boolean;
   /**
    * @remarks
@@ -22,9 +29,9 @@ export class ListColumnsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order. Default value: Asc. Valid values:
-   * - Asc: ascending order
-   * - Desc: descending order
+   * The sort direction. Default value: Asc. Valid values:
+   * - Asc: ascending order.
+   * - Desc: descending order.
    * 
    * @example
    * Asc
@@ -40,7 +47,7 @@ export class ListColumnsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The page size. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -49,8 +56,8 @@ export class ListColumnsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field. Default value: Position. Valid values:
-   * - Name: name
-   * - Position: position
+   * - Name: name.
+   * - Position: position.
    * 
    * @example
    * Position
@@ -58,7 +65,7 @@ export class ListColumnsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The ID of the data table. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+   * The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
    * This parameter is required.
    * 

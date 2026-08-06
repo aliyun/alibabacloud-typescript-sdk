@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSemanticJobRunsResponseBodyDataJobRuns extends $dara.Model {
   /**
    * @remarks
-   * The executor job ID. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
+   * The executor job ID. Pass this value as the ExecutorJobId parameter to GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
    * 
    * @example
    * exec-job-demo
@@ -21,7 +21,7 @@ export class ListSemanticJobRunsResponseBodyDataJobRuns extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The name of the job to which this run belongs. This value can be used to re-run the job, query run records, or download results.
+   * The name of the job to which this run belongs. You can use this value to rerun the job, query run records, or download results.
    * 
    * @example
    * semantic-job-demo
@@ -29,7 +29,7 @@ export class ListSemanticJobRunsResponseBodyDataJobRuns extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The semantic job run ID. Pass this value to the JobRunId parameter of DownloadSemanticResults to download the results of this run.
+   * The semantic job run ID. Pass this value as the JobRunId parameter to DownloadSemanticResults to download the results of this run.
    * 
    * @example
    * 01H00000000000000000000000
@@ -80,7 +80,7 @@ export class ListSemanticJobRunsResponseBodyData extends $dara.Model {
   jobRuns?: ListSemanticJobRunsResponseBodyDataJobRuns[];
   /**
    * @remarks
-   * The page number returned, starting from 1.
+   * The page number of the returned page, starting from 1.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class ListSemanticJobRunsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page returned.
+   * The number of records per page in the current response.
    * 
    * @example
    * 50
@@ -135,12 +135,12 @@ export class ListSemanticJobRunsResponseBodyData extends $dara.Model {
 export class ListSemanticJobRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated run record results. Use the JobRunId to download the results of a specific run, and use the ExecutorJobId to query details, logs, or stop a run.
+   * The paginated run record results. Use the JobRunId to download the results of a specific run, and use the ExecutorJobId to query details, retrieve logs, or stop a run.
    */
   data?: ListSemanticJobRunsResponseBodyData;
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 676271D6-53B4-57BE-89FA-72F7AE1418DF

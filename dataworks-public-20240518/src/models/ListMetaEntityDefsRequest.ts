@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaEntityDefsRequest extends $dara.Model {
   /**
    * @remarks
-   * A keyword to search for in the description. The system performs a fuzzy match.
+   * The description. Matched by fuzzy match.
    * 
    * @example
    * description
@@ -13,7 +13,7 @@ export class ListMetaEntityDefsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the type definition. This parameter supports partial matching.
+   * The display name of the type definition. Matched by plain text containment.
    * 
    * @example
    * CustomReport
@@ -21,15 +21,21 @@ export class ListMetaEntityDefsRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Filters the results by extension mode. Valid values: `NONE` and `TABLE`.
+   * The extension mode filter. Valid values:
+   * 
+   * - NONE: custom entity only.
+   * - TABLE: extension table entity.
    * 
    * @example
-   * NONE
+   * TABLE
    */
   extend?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `Asc` and `Desc`.
+   * The sort direction. Valid values:
+   * 
+   * - Asc: ascending order.
+   * - Desc: descending order.
    * 
    * @example
    * Asc
@@ -45,7 +51,7 @@ export class ListMetaEntityDefsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -53,7 +59,11 @@ export class ListMetaEntityDefsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. Valid values: `Name`, `CreateTime`, and `ModifyTime`.
+   * The field by which to sort the results. Valid values:
+   * 
+   * - Name: sorted by name.
+   * - CreateTime: sorted by creation time.
+   * - ModifyTime: sorted by modification time.
    * 
    * @example
    * CreateTime

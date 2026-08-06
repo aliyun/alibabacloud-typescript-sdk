@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Model {
   /**
    * @remarks
-   * The list of administrator IDs. Supported only for album types. Administrators must be users within the same tenant. Multiple administrators can be specified.
+   * The list of administrator user IDs. This parameter is supported only for the album type. The administrators must be users within the same tenant. You can specify multiple administrators.
    */
   administrators?: string[];
   /**
    * @remarks
-   * The creation time in milliseconds (timestamp).
+   * The creation time as a millisecond-level timestamp.
    * 
    * @example
    * 1668568601000
@@ -18,7 +18,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The creator user ID.
+   * The user ID of the creator.
    * 
    * @example
    * 456789
@@ -26,7 +26,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   createUser?: string;
   /**
    * @remarks
-   * The collection description.
+   * The description of the collection object.
    * 
    * @example
    * Test category
@@ -34,7 +34,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The collection name.
+   * The name of the collection object.
    * 
    * @example
    * 7a65sd7aasd
@@ -42,7 +42,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The modification time in milliseconds (timestamp).
+   * The modification time as a millisecond-level timestamp.
    * 
    * @example
    * 1668568601000
@@ -50,7 +50,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   modifyTime?: number;
   /**
    * @remarks
-   * The collection name.
+   * The name of the collection object.
    * 
    * @example
    * test_category
@@ -58,7 +58,7 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The ID of the parent collection. Can be empty.
+   * The ID of the parent node collection object. This value can be empty.
    * 
    * @example
    * as78d756asd
@@ -68,11 +68,9 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
    * @remarks
    * The collection type. Valid values:
    * 
-   * - Category
-   * 
-   * - Album
-   * 
-   * - AlbumCategory: Album subcategory
+   *  - Category: category.
+   *  - Album: data album.
+   *  - AlbumCategory: album subcategory.
    * 
    * @example
    * Category
@@ -134,7 +132,7 @@ export class ListMetaCollectionsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -181,7 +179,7 @@ export class ListMetaCollectionsResponseBodyData extends $dara.Model {
 export class ListMetaCollectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Pagination information.
+   * The paged result object.
    */
   data?: ListMetaCollectionsResponseBodyData;
   /**

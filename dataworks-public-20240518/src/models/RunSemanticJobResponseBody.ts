@@ -42,7 +42,7 @@ export class RunSemanticJobResponseBodyData extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that the results are complete.
+   * The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that results are complete.
    */
   statuses?: number[];
   static names(): { [key: string]: string } {

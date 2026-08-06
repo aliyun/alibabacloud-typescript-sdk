@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSemanticJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task creator identifier, equivalent to UserId, used to display creation ownership.
+   * The job creator identifier, equivalent to UserId, used to display creation ownership.
    * 
    * @example
    * user-demo
@@ -13,7 +13,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time of the task definition, as a UNIX timestamp in milliseconds.
+   * The creation time of the job definition, expressed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1700000000000
@@ -21,7 +21,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time of the task definition, as a UNIX timestamp in milliseconds.
+   * The last modification time of the job definition, expressed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1700000000000
@@ -29,7 +29,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The internal unique ID of the task definition, which identifies the task created by this call.
+   * The internal unique ID of the job definition, which identifies the job created by this call.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The saved task name. Use this value for subsequent run, delete, list runs, and download results operations.
+   * The saved job name. Use this value for subsequent operations such as running, deleting, querying run records, and downloading results.
    * 
    * @example
    * semantic-job-demo
@@ -45,7 +45,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID to which the task belongs. Use this value as the ProjectId for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
+   * The DataWorks workspace ID to which the job belongs. Use this value as the ProjectId for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
    * 
    * @example
    * 100
@@ -63,7 +63,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   referenceFileUris?: string[];
   /**
    * @remarks
-   * The ID of the resource group that will be used when running this task.
+   * The ID of the resource group that is used when running this job.
    * 
    * @example
    * rg-demo
@@ -76,7 +76,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   source?: { [key: string]: any };
   /**
    * @remarks
-   * The saved Source.type data source type, used to quickly identify the task input type.
+   * The saved Source.type data source type, used to quickly identify the job input type.
    * 
    * @example
    * maxcompute
@@ -84,7 +84,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The identifier of the user who created the task.
+   * The identifier of the user who created the job.
    * 
    * @example
    * user-demo
@@ -145,7 +145,7 @@ export class CreateSemanticJobResponseBodyData extends $dara.Model {
 export class CreateSemanticJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The saved semantic task definition. Use Data.Name to call RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
+   * The saved semantic job definition. Use Data.Name to call RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
    */
   data?: CreateSemanticJobResponseBodyData;
   /**

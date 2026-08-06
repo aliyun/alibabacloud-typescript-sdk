@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaEntitiesRequestAttributeFilters extends $dara.Model {
   /**
    * @remarks
-   * The key of the entity attribute to filter by.
+   * The filter attribute key.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListMetaEntitiesRequestAttributeFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A list of values for the specified entity attribute.
+   * The list of filter attribute values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class ListMetaEntitiesRequestAttributeFilters extends $dara.Model {
 export class ListMetaEntitiesRequestCustomAttributeFilters extends $dara.Model {
   /**
    * @remarks
-   * The key of the custom attribute to filter by.
+   * The filter attribute key.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ListMetaEntitiesRequestCustomAttributeFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A list of values for the specified custom attribute.
+   * The list of filter attribute values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -89,7 +89,7 @@ export class ListMetaEntitiesRequestCustomAttributeFilters extends $dara.Model {
 export class ListMetaEntitiesRequest extends $dara.Model {
   /**
    * @remarks
-   * Conditions for filtering entities by entity attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter.
+   * The entity attribute filter conditions. Multiple filter conditions have an AND relationship. Multiple values within the same filter condition have an OR relationship.
    * 
    * @example
    * []
@@ -97,7 +97,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   attributeFilters?: ListMetaEntitiesRequestAttributeFilters[];
   /**
    * @remarks
-   * Filters entities by comment. This is a token-based match.
+   * The comment filter. Performs token matching.
    * 
    * @example
    * this is a comment
@@ -105,7 +105,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Conditions for filtering entities by custom attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter. This parameter supports only `ENUM` custom attributes.
+   * The custom attribute filter conditions. Multiple filter conditions have an AND relationship. Multiple values within the same filter condition have an OR relationship. Only ENUM custom attributes are supported.
    * 
    * @example
    * []
@@ -113,7 +113,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   customAttributeFilters?: ListMetaEntitiesRequestCustomAttributeFilters[];
   /**
    * @remarks
-   * The type of the entity to list.
+   * The entity type.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The maximum number of results to return per page. Default value: 10. Maximum value: 100.
+   * The maximum number of results per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -131,7 +131,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Filters entities by name. This is a containment match.
+   * The entity name filter. Performs keyword-contains matching.
    * 
    * @example
    * xm_create_test
@@ -139,7 +139,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that specifies the next page of results. To retrieve the first page, do not specify this parameter. To retrieve subsequent pages, set this parameter to the `NextToken` value from the previous response.
+   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response.
    * 
    * @example
    * AAAAAaUpAxoCTD/+sbOf3f+uxvnYyILMeAjoTFQSX64R12GN
@@ -147,7 +147,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `Asc` and `Desc`.
+   * The sort direction.
    * 
    * @example
    * Asc
@@ -155,7 +155,7 @@ export class ListMetaEntitiesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field to use for sorting the results.
+   * The sort field.
    * 
    * @example
    * Name

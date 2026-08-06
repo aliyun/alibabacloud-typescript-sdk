@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadSemanticResultsResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * The temporary pre-signed download URL of the result file. Download the file by using an HTTP GET request as soon as possible. Do not log, share, or treat the full URL as a long-term address.
+   * The temporary pre-signed download URL of the result file. Download the file promptly by using an HTTP GET request. Do not log, share, or treat the full URL as a long-term address.
    * 
    * @example
    * https://example.com/temporary-download-url
@@ -13,7 +13,7 @@ export class DownloadSemanticResultsResponseBodyDataResults extends $dara.Model 
   downloadUrl?: string;
   /**
    * @remarks
-   * The node name to which the artifact belongs. This value is the same as the JobName value in the request.
+   * The job name to which the artifact belongs. This value is the same as the JobName in the request.
    * 
    * @example
    * semantic-job-demo
@@ -21,7 +21,7 @@ export class DownloadSemanticResultsResponseBodyDataResults extends $dara.Model 
   jobName?: string;
   /**
    * @remarks
-   * The run ID to which the artifact belongs. You can compare this value with the Data.JobRunId value from the RunSemanticJob response or the JobRunId value from ListSemanticJobRuns.
+   * The run ID to which the artifact belongs. You can compare this value with Data.JobRunId in the RunSemanticJob response or JobRunId in the ListSemanticJobRuns response.
    * 
    * @example
    * 01H00000000000000000000000
@@ -55,7 +55,7 @@ export class DownloadSemanticResultsResponseBodyDataResults extends $dara.Model 
 export class DownloadSemanticResultsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of result files. Each item contains the associated node name, the associated run ID, and a short-lived download URL.
+   * The list of result files. Each item contains the associated job name, run ID, and a short-lived download URL.
    */
   results?: DownloadSemanticResultsResponseBodyDataResults[];
   static names(): { [key: string]: string } {
@@ -85,12 +85,12 @@ export class DownloadSemanticResultsResponseBodyData extends $dara.Model {
 export class DownloadSemanticResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of result files for the specified node run. Multiple items are returned if a single run generates multiple files.
+   * The collection of result files for the specified job run. Multiple items are returned if a single run generates multiple files.
    */
   data?: DownloadSemanticResultsResponseBodyData;
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 676271D6-53B4-57BE-89FA-72F7AE1418DF

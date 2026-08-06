@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataAssetsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the asset domain.
+   * 
    * @example
    * 1001
    */
   assetDomainId?: number;
   /**
+   * @remarks
+   * The ID of the asset category.
+   * 
    * @example
    * cate-xxxxxxxx
    */
@@ -22,7 +28,7 @@ export class ListDataAssetsShrinkRequest extends $dara.Model {
    * @remarks
    * The Asset Type of the data asset. Valid values:
    * 
-   * - ACS::DataWorks::Table: table.
+   * - ACS::DataWorks::Table: data table.
    * 
    * - ACS::DataWorks::Task: scheduling node.
    * 
@@ -41,13 +47,16 @@ export class ListDataAssetsShrinkRequest extends $dara.Model {
    */
   envType?: string;
   /**
+   * @remarks
+   * The name of the asset. Fuzzy search by name is supported.
+   * 
    * @example
-   * 资产域名称
+   * AssetDomainName
    */
   name?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -63,7 +72,7 @@ export class ListDataAssetsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 10000
@@ -72,7 +81,7 @@ export class ListDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of tags associated with data assets. Tags are used as query filters:
-   * - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any of the specified tags.
+   * - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any one of the specified tags.
    * - If this parameter is not specified or is left empty, no tag-based filtering is applied.
    */
   tagsShrink?: string;

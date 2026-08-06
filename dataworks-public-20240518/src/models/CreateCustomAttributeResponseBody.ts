@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5A1E9EBB-FEA6-5BBB-B7BE-BFC0FB3F8C71

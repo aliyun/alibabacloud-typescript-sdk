@@ -13,7 +13,7 @@ export class UpdateMetaEntityDefShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new display name. The maximum length is 32 characters.
+   * The new display name, up to 32 characters.
    * 
    * @example
    * Business API
@@ -39,7 +39,7 @@ export class UpdateMetaEntityDefShrinkRequest extends $dara.Model {
   newAttributeDefsShrink?: string;
   /**
    * @remarks
-   * The updates to existing attribute definitions. You can modify only the display name and description. You can also add enumerated values for attributes of the ENUM type.
+   * Updates to existing attribute definitions. Only modifying the display name, description, and appending enum values to ENUM types are supported.
    * 
    * @example
    * []
