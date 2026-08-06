@@ -5480,6 +5480,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+   * 
+   * @param request - ModifyInstanceGroupSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceGroupSpecResponse
+   */
+  async modifyInstanceGroupSpecWithOptions(request: $_model.ModifyInstanceGroupSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceGroupSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.instanceGroupIds)) {
+      query["InstanceGroupIds"] = request.instanceGroupIds;
+    }
+
+    if (!$dara.isNull(request.instanceGroupSpec)) {
+      query["InstanceGroupSpec"] = request.instanceGroupSpec;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceGroupSpec",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceGroupSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceGroupSpecResponse({}));
+  }
+
+  /**
+   * Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+   * 
+   * @param request - ModifyInstanceGroupSpecRequest
+   * @returns ModifyInstanceGroupSpecResponse
+   */
+  async modifyInstanceGroupSpec(request: $_model.ModifyInstanceGroupSpecRequest): Promise<$_model.ModifyInstanceGroupSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceGroupSpecWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configuration of a JVS instance.
    * 
    * @param request - ModifyJVSInstanceRequest
@@ -6548,12 +6602,18 @@ export default class Client extends OpenApi {
   /**
    * Triggers an Agent to execute an AI automation task on Mobile nodes.
    * 
-   * @param request - RunAgentTaskRequest
+   * @param tmpReq - RunAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunAgentTaskResponse
    */
-  async runAgentTaskWithOptions(request: $_model.RunAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunAgentTaskResponse> {
-    request.validate();
+  async runAgentTaskWithOptions(tmpReq: $_model.RunAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunAgentTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunAgentTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.runConfig)) {
+      request.runConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runConfig, "RunConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
@@ -6565,6 +6625,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxSteps)) {
       query["MaxSteps"] = request.maxSteps;
+    }
+
+    if (!$dara.isNull(request.runConfigShrink)) {
+      query["RunConfig"] = request.runConfigShrink;
     }
 
     if (!$dara.isNull(request.scheduleId)) {

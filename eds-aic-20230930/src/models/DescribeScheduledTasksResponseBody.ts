@@ -20,6 +20,11 @@ export class DescribeScheduledTasksResponseBodyTasksRunConfig extends $dara.Mode
    */
   maxSteps?: number;
   /**
+   * @example
+   * ["sk-abc"]
+   */
+  skills?: string[];
+  /**
    * @remarks
    * The timeout period, in seconds.
    * 
@@ -31,6 +36,7 @@ export class DescribeScheduledTasksResponseBodyTasksRunConfig extends $dara.Mode
     return {
       extraParams: 'ExtraParams',
       maxSteps: 'MaxSteps',
+      skills: 'Skills',
       timeoutSeconds: 'TimeoutSeconds',
     };
   }
@@ -39,11 +45,15 @@ export class DescribeScheduledTasksResponseBodyTasksRunConfig extends $dara.Mode
     return {
       extraParams: 'string',
       maxSteps: 'number',
+      skills: { 'type': 'array', 'itemType': 'string' },
       timeoutSeconds: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
+    }
     super.validate();
   }
 
@@ -132,7 +142,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
    * The task name.
    * 
    * @example
-   * Daily data synchronization task.
+   * DailyDataSyncTask
    */
   taskName?: string;
   /**
@@ -156,7 +166,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
    * The user prompt or task description.
    * 
    * @example
-   * Execute daily data synchronization task.
+   * Execute daily data synchronization task
    */
   userPrompt?: string;
   /**

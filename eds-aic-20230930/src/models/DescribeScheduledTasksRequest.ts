@@ -42,7 +42,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scheduled task IDs used to filter results.
+   * The scheduled task IDs used for filtering.
    * 
    * @example
    * ["scheduled-abcd1234"]
@@ -50,7 +50,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
   scheduledIds?: string[];
   /**
    * @remarks
-   * The status used to filter results. Valid values: ACTIVE and DISABLED.
+   * The status used for filtering. Valid values: ACTIVE and DISABLED.
    * 
    * @example
    * ACTIVE
@@ -61,7 +61,7 @@ export class DescribeScheduledTasksRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * Data synchronization.
+   * DataSync
    */
   taskName?: string;
   static names(): { [key: string]: string } {

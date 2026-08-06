@@ -29,6 +29,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * Open Xiaohongshu.
    */
   description?: string;
+  durationMs?: number;
   inputTokens?: number;
   /**
    * @remarks
@@ -59,6 +60,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    */
   taskId?: string;
   totalTokens?: number;
+  ttftMs?: number;
   static names(): { [key: string]: string } {
     return {
       apiKeyName: 'ApiKeyName',
@@ -66,6 +68,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
       changeTime: 'ChangeTime',
       creditChange: 'CreditChange',
       description: 'Description',
+      durationMs: 'DurationMs',
       inputTokens: 'InputTokens',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -75,6 +78,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
       requestId: 'RequestId',
       taskId: 'TaskId',
       totalTokens: 'TotalTokens',
+      ttftMs: 'TtftMs',
     };
   }
 
@@ -85,6 +89,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
       changeTime: 'string',
       creditChange: 'string',
       description: 'string',
+      durationMs: 'number',
       inputTokens: 'number',
       instanceId: 'string',
       instanceName: 'string',
@@ -94,6 +99,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
       requestId: 'string',
       taskId: 'string',
       totalTokens: 'number',
+      ttftMs: 'number',
     };
   }
 

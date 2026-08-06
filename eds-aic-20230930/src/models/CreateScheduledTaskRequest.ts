@@ -20,6 +20,11 @@ export class CreateScheduledTaskRequestRunConfig extends $dara.Model {
    */
   maxSteps?: number;
   /**
+   * @example
+   * ["sk-abc"]
+   */
+  skills?: string[];
+  /**
    * @remarks
    * The timeout period, in seconds.
    * 
@@ -31,6 +36,7 @@ export class CreateScheduledTaskRequestRunConfig extends $dara.Model {
     return {
       extraParams: 'ExtraParams',
       maxSteps: 'MaxSteps',
+      skills: 'Skills',
       timeoutSeconds: 'TimeoutSeconds',
     };
   }
@@ -39,11 +45,15 @@ export class CreateScheduledTaskRequestRunConfig extends $dara.Model {
     return {
       extraParams: 'string',
       maxSteps: 'number',
+      skills: { 'type': 'array', 'itemType': 'string' },
       timeoutSeconds: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.skills)) {
+      $dara.Model.validateArray(this.skills);
+    }
     super.validate();
   }
 

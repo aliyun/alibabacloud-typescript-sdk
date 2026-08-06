@@ -2,37 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RunAgentTaskRequestRunConfig extends $dara.Model {
-  /**
-   * @example
-   * ["sk-abc","sk-def"]
-   */
-  skills?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      skills: 'Skills',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      skills: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.skills)) {
-      $dara.Model.validateArray(this.skills);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunAgentTaskRequestTargets extends $dara.Model {
+export class RunAgentTaskShrinkRequestTargets extends $dara.Model {
   /**
    * @remarks
    * The Mobile node ID, such as acp-xxx.
@@ -72,7 +42,7 @@ export class RunAgentTaskRequestTargets extends $dara.Model {
   }
 }
 
-export class RunAgentTaskRequest extends $dara.Model {
+export class RunAgentTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Mobile node.
@@ -98,7 +68,7 @@ export class RunAgentTaskRequest extends $dara.Model {
    * @example
    * {"Skills":["sk-abc","sk-def"]}
    */
-  runConfig?: RunAgentTaskRequestRunConfig;
+  runConfigShrink?: string;
   /**
    * @remarks
    * The scheduling plan ID. When specified, execution records are associated with the corresponding scheduled node, which facilitates aggregation query by scheduling dimension.
@@ -111,7 +81,7 @@ export class RunAgentTaskRequest extends $dara.Model {
    * @remarks
    * The array of target objects. Each element contains an InstanceId and a SessionId.
    */
-  targets?: RunAgentTaskRequestTargets[];
+  targets?: RunAgentTaskShrinkRequestTargets[];
   /**
    * @remarks
    * The task configuration ID used to trigger a task with the specified configuration.
@@ -141,7 +111,7 @@ export class RunAgentTaskRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       instanceIds: 'InstanceIds',
       maxSteps: 'MaxSteps',
-      runConfig: 'RunConfig',
+      runConfigShrink: 'RunConfig',
       scheduleId: 'ScheduleId',
       targets: 'Targets',
       taskConfigId: 'TaskConfigId',
@@ -155,9 +125,9 @@ export class RunAgentTaskRequest extends $dara.Model {
       bizRegionId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxSteps: 'number',
-      runConfig: RunAgentTaskRequestRunConfig,
+      runConfigShrink: 'string',
       scheduleId: 'string',
-      targets: { 'type': 'array', 'itemType': RunAgentTaskRequestTargets },
+      targets: { 'type': 'array', 'itemType': RunAgentTaskShrinkRequestTargets },
       taskConfigId: 'string',
       timeoutSeconds: 'number',
       userPrompt: 'string',
@@ -167,9 +137,6 @@ export class RunAgentTaskRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
-    }
-    if(this.runConfig && typeof (this.runConfig as any).validate === 'function') {
-      (this.runConfig as any).validate();
     }
     if(Array.isArray(this.targets)) {
       $dara.Model.validateArray(this.targets);
