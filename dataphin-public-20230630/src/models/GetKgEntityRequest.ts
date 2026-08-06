@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetKgEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity record ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetKgEntityRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
+   * The entity type code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetKgEntityRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetKgEntityRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

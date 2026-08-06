@@ -17,7 +17,7 @@ export class GetPipelineByIdRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The ID of the project to which the integration pipeline task belongs.
+   * The project ID to which the integration pipeline node belongs.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class GetPipelineByIdRequestContext extends $dara.Model {
 export class GetPipelineByIdRequestQueryId extends $dara.Model {
   /**
    * @remarks
-   * Supports querying by the integration task file ID (fileId).
+   * The file ID of the integration node. You can use this parameter to query the pipeline node.
    * 
    * @example
    * 123
@@ -59,7 +59,7 @@ export class GetPipelineByIdRequestQueryId extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * Supports querying by the integration task scheduling node ID (nodeId).
+   * The scheduling node ID of the integration node. You can use this parameter to query the pipeline node.
    * 
    * @example
    * n_123
@@ -67,7 +67,7 @@ export class GetPipelineByIdRequestQueryId extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Supports querying by the integration pipeline primary key (pipelineId).
+   * The primary key ID of the integration pipeline. You can use this parameter to query the pipeline node.
    * 
    * @example
    * 123
@@ -118,7 +118,7 @@ export class GetPipelineByIdRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID used to query the pipeline task.
+   * The query ID used to query the pipeline node.
    * 
    * This parameter is required.
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKgRelationRequestListQuery extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The source entity record ID.
+   * 
    * @example
    * e1d4559a4db044158305e2d89bccf81f
    */
   sourceEntityId?: string;
   /**
+   * @remarks
+   * The target entity record ID.
+   * 
    * @example
    * e1d4559a4db044158305e2d89bccf82f
    */
@@ -51,9 +63,15 @@ export class ListKgRelationRequestListQuery extends $dara.Model {
 }
 
 export class ListKgRelationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged search filter conditions.
+   */
   listQuery?: ListKgRelationRequestListQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +80,8 @@ export class ListKgRelationRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The relationship type code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +90,8 @@ export class ListKgRelationRequest extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

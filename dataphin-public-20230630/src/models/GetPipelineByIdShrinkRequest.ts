@@ -22,7 +22,7 @@ export class GetPipelineByIdShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID used to query the pipeline task.
+   * The query ID used to query the pipeline node.
    * 
    * This parameter is required.
    */

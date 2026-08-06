@@ -4,15 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetKgNeighborRequestNeighborsQuery extends $dara.Model {
   /**
+   * @remarks
+   * The maximum depth of neighbor nodes. Default value: 1.
+   * 
    * @example
    * 2
    */
   depth?: number;
   /**
+   * @remarks
+   * The direction type. Valid values:
+   * - in: the current entity is the target node.
+   * - out: the current entity is the source node.
+   * - both: the current entity is both the source node and the target node.
+   * 
+   * Default value: both.
+   * 
    * @example
    * both
    */
   directionType?: string;
+  /**
+   * @remarks
+   * The list of relation types.
+   */
   relationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -45,6 +60,8 @@ export class GetKgNeighborRequestNeighborsQuery extends $dara.Model {
 export class GetKgNeighborRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity record data ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,15 +70,23 @@ export class GetKgNeighborRequest extends $dara.Model {
   entityDataId?: string;
   /**
    * @remarks
+   * The entity type.
+   * 
    * This parameter is required.
    * 
    * @example
    * Student
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The entity record neighbor node query instruction.
+   */
   neighborsQuery?: GetKgNeighborRequestNeighborsQuery;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +95,8 @@ export class GetKgNeighborRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The model ID.
+   * 
    * This parameter is required.
    * 
    * @example

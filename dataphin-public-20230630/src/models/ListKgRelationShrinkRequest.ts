@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKgRelationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The paged search filter conditions.
+   */
   listQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ListKgRelationShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The relationship type code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +30,8 @@ export class ListKgRelationShrinkRequest extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

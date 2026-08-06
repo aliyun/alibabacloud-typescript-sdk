@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetKgNeighborShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The entity record data ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +15,23 @@ export class GetKgNeighborShrinkRequest extends $dara.Model {
   entityDataId?: string;
   /**
    * @remarks
+   * The entity type.
+   * 
    * This parameter is required.
    * 
    * @example
    * Student
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The entity record neighbor node query instruction.
+   */
   neighborsQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +40,8 @@ export class GetKgNeighborShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The model ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportKgSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,25 @@ export class ExportKgSchemaRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The format of the exported content. Valid values: json and yaml. Default value: yaml.
+   * 
    * @example
    * json
    */
   outputFormat?: string;
   /**
+   * @remarks
+   * The version number. If this parameter is empty or set to -1, the model metadata in draft state is returned. If this parameter is set to 0, the model metadata of the latest version is returned.
+   * 
    * @example
    * 0
    */
   versionId?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

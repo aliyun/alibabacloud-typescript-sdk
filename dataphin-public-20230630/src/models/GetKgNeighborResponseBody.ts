@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Model {
   /**
+   * @remarks
+   * The property code.
+   * 
    * @example
    * company_name
    */
   code?: string;
   /**
+   * @remarks
+   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+   * 
    * @example
    * STRING
    */
   dataType?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * Alibaba
    */
@@ -44,23 +53,39 @@ export class GetKgNeighborResponseBodyDataEdgeListPropertyList extends $dara.Mod
 }
 
 export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
+  /**
+   * @remarks
+   * The relation record property list.
+   */
   propertyList?: GetKgNeighborResponseBodyDataEdgeListPropertyList[];
   /**
+   * @remarks
+   * The relation record ID.
+   * 
    * @example
    * abc-xxx
    */
   relationId?: string;
   /**
+   * @remarks
+   * The relation type code.
+   * 
    * @example
    * BELONG_TO
    */
   relationType?: string;
   /**
+   * @remarks
+   * The source entity ID.
+   * 
    * @example
    * abc-xxx
    */
   sourceEntityId?: string;
   /**
+   * @remarks
+   * The target entity ID.
+   * 
    * @example
    * abd-xxx
    */
@@ -99,16 +124,25 @@ export class GetKgNeighborResponseBodyDataEdgeList extends $dara.Model {
 
 export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Model {
   /**
+   * @remarks
+   * The property code.
+   * 
    * @example
    * company_name
    */
   code?: string;
   /**
+   * @remarks
+   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+   * 
    * @example
    * STRING
    */
   dataType?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * Alibaba
    */
@@ -140,15 +174,25 @@ export class GetKgNeighborResponseBodyDataNodeListPropertyList extends $dara.Mod
 
 export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
   /**
+   * @remarks
+   * The entity record ID.
+   * 
    * @example
    * abc-xxx
    */
   entityId?: string;
   /**
+   * @remarks
+   * The entity type code.
+   * 
    * @example
    * Company
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The entity record property list.
+   */
   propertyList?: GetKgNeighborResponseBodyDataNodeListPropertyList[];
   static names(): { [key: string]: string } {
     return {
@@ -179,7 +223,15 @@ export class GetKgNeighborResponseBodyDataNodeList extends $dara.Model {
 }
 
 export class GetKgNeighborResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The edge list.
+   */
   edgeList?: GetKgNeighborResponseBodyDataEdgeList[];
+  /**
+   * @remarks
+   * The node list.
+   */
   nodeList?: GetKgNeighborResponseBodyDataNodeList[];
   static names(): { [key: string]: string } {
     return {
@@ -212,26 +264,46 @@ export class GetKgNeighborResponseBodyData extends $dara.Model {
 
 export class GetKgNeighborResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: GetKgNeighborResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The backend exception details.
+   * 
    * @example
    * internal error
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

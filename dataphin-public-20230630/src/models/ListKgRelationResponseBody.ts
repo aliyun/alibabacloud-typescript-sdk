@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKgRelationResponseBodyPageResultRelationListPropertyList extends $dara.Model {
   /**
+   * @remarks
+   * The property code.
+   * 
    * @example
    * company_name
    */
   code?: string;
   /**
+   * @remarks
+   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (boolean), DATE (date), LIST (list), and others.
+   * 
    * @example
    * STRING
    */
   dataType?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * Alibaba
    */
@@ -44,23 +53,39 @@ export class ListKgRelationResponseBodyPageResultRelationListPropertyList extend
 }
 
 export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Model {
+  /**
+   * @remarks
+   * The relationship record property list.
+   */
   propertyList?: ListKgRelationResponseBodyPageResultRelationListPropertyList[];
   /**
+   * @remarks
+   * The relationship record ID.
+   * 
    * @example
    * abc-xxx
    */
   relationId?: string;
   /**
+   * @remarks
+   * The relationship type code.
+   * 
    * @example
    * BELONG_TO
    */
   relationType?: string;
   /**
+   * @remarks
+   * The source entity ID.
+   * 
    * @example
    * abc-xxx
    */
   sourceEntityId?: string;
   /**
+   * @remarks
+   * The target entity ID.
+   * 
    * @example
    * abd-xxx
    */
@@ -98,8 +123,15 @@ export class ListKgRelationResponseBodyPageResultRelationList extends $dara.Mode
 }
 
 export class ListKgRelationResponseBodyPageResult extends $dara.Model {
+  /**
+   * @remarks
+   * The paged relationship record list.
+   */
   relationList?: ListKgRelationResponseBodyPageResultRelationList[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 68
    */
@@ -132,26 +164,46 @@ export class ListKgRelationResponseBodyPageResult extends $dara.Model {
 
 export class ListKgRelationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The backend exception details.
+   * 
    * @example
    * internal error
    */
   message?: string;
+  /**
+   * @remarks
+   * The paged query result.
+   */
   pageResult?: ListKgRelationResponseBodyPageResult;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

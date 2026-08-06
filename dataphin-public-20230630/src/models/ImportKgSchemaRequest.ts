@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportKgSchemaRequestImportCommand extends $dara.Model {
   /**
+   * @remarks
+   * The knowledge graph definition content converted based on the specified format.
+   * 
    * @example
    * name:xxx
    */
   content?: string;
   /**
+   * @remarks
+   * The format of the knowledge graph definition content. Valid values: json and yaml. Default value: yaml.
+   * 
    * @example
    * yaml
    */
   inputFormat?: string;
   /**
+   * @remarks
+   * The merge strategy for the knowledge graph definition content. Valid values: replace and merge. Default value: replace.
+   * 
    * @example
    * replace
    */
@@ -46,6 +55,8 @@ export class ImportKgSchemaRequestImportCommand extends $dara.Model {
 export class ImportKgSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The instruction for importing the knowledge graph definition.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +65,8 @@ export class ImportKgSchemaRequest extends $dara.Model {
   importCommand?: ImportKgSchemaRequestImportCommand;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +75,8 @@ export class ImportKgSchemaRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

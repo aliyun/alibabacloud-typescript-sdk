@@ -21,7 +21,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter data type.
+   * The parameter type.
    * 
    * @example
    * 0
@@ -91,7 +91,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter data type.
+   * The parameter type.
    * 
    * @example
    * 0
@@ -177,12 +177,12 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   authType?: string;
   /**
    * @remarks
-   * The list of authorized fields for the API in the development environment.
+   * The list of fields authorized for the API in the development environment.
    */
   authorizedDevReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedDevReturnParameters[];
   /**
    * @remarks
-   * The list of authorized fields for the API in the production environment.
+   * The list of fields authorized for the API in the production environment.
    */
   authorizedProdReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedProdReturnParameters[];
   /**
@@ -324,7 +324,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model
    * The error message.
    * 
    * @example
-   * Invalid input parameter.
+   * Invalid parameter.
    */
   message?: string;
   /**
