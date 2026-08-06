@@ -3,12 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTeamInput extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * 开发专用
+   */
   description?: string;
+  plan?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmwxqyrgwabcd
+   */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The team name.
+   * 
+   * @example
+   * dev
+   */
   teamName?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      plan: 'plan',
       resourceGroupID: 'resourceGroupID',
       teamName: 'teamName',
     };
@@ -17,6 +40,7 @@ export class CreateTeamInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      plan: 'string',
       resourceGroupID: 'string',
       teamName: 'string',
     };

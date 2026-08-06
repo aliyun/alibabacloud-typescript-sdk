@@ -2,24 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteQuotaRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Team ID
-   * 
-   * @example
-   * f79d6a95-abcd-47a8-9167-eccf0622a998
-   */
-  tagValue?: string;
+export class ContainerConfiguration extends $dara.Model {
+  image?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'tagValue',
+      image: 'image',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
+      image: 'string',
     };
   }
 

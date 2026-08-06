@@ -1,5 +1,6 @@
 export { ApiKey } from './ApiKey';
 export { CertConfig } from './CertConfig';
+export { ContainerConfiguration } from './ContainerConfiguration';
 export { CreateApiKeyInput } from './CreateApiKeyInput';
 export { CreateCustomDomainInput } from './CreateCustomDomainInput';
 export { CreateTeamInput } from './CreateTeamInput';

@@ -3,8 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateApiKeyInput extends $dara.Model {
+  /**
+   * @remarks
+   * The API key name.
+   * 
+   * @example
+   * dev
+   */
   apiKeyName?: string;
+  /**
+   * @remarks
+   * The expiration time.
+   * 
+   * @example
+   * 2026-07-24T16:00:00.000Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The status. Valid values:
+   * - active
+   * - inactive
+   * 
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

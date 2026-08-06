@@ -4,9 +4,37 @@ import { ApiKey } from "./ApiKey";
 
 
 export class DescribeApiKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Bailian API key.
+   * 
+   * @example
+   * asdfjoY87-9IUHH
+   */
   apiKey?: ApiKey;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2BCFAE0A-9FA9-5F72-8E8B-724632BC19A9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

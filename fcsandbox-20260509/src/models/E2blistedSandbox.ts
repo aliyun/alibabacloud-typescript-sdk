@@ -14,6 +14,7 @@ export class E2BListedSandbox extends $dara.Model {
   state?: string;
   teamID?: string;
   teamName?: string;
+  teamPlan?: string;
   templateID?: string;
   templateName?: string;
   userID?: string;
@@ -30,6 +31,7 @@ export class E2BListedSandbox extends $dara.Model {
       state: 'state',
       teamID: 'teamID',
       teamName: 'teamName',
+      teamPlan: 'teamPlan',
       templateID: 'templateID',
       templateName: 'templateName',
       userID: 'userID',
@@ -49,6 +51,7 @@ export class E2BListedSandbox extends $dara.Model {
       state: 'string',
       teamID: 'string',
       teamName: 'string',
+      teamPlan: 'string',
       templateID: 'string',
       templateName: 'string',
       userID: 'string',

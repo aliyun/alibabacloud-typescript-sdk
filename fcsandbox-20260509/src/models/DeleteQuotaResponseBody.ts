@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response status code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B5AD8B54-4358-5F5B-ACAA-52F2016459C6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

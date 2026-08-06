@@ -4,9 +4,34 @@ import { E2BTeam } from "./E2bteam";
 
 
 export class UpdateTeamResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The team information.
+   */
   team?: E2BTeam;
   static names(): { [key: string]: string } {
     return {

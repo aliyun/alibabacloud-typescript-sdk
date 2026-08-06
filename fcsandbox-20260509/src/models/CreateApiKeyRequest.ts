@@ -4,6 +4,10 @@ import { CreateApiKeyInput } from "./CreateApiKeyInput";
 
 
 export class CreateApiKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The template base structure.
+   */
   body?: CreateApiKeyInput;
   static names(): { [key: string]: string } {
     return {

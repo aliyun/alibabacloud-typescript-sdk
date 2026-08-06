@@ -4,6 +4,10 @@ import { UpdateApiKeyInput } from "./UpdateApiKeyInput";
 
 
 export class UpdateApiKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body parameters.
+   */
   body?: UpdateApiKeyInput;
   static names(): { [key: string]: string } {
     return {

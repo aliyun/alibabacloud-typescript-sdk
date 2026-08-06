@@ -4,6 +4,10 @@ import { CreateTeamInput } from "./CreateTeamInput";
 
 
 export class CreateTeamRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request struct.
+   */
   body?: CreateTeamInput;
   static names(): { [key: string]: string } {
     return {

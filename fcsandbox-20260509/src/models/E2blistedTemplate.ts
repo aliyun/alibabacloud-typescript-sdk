@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ContainerConfiguration } from "./ContainerConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
 import { E2BTemplateTag } from "./E2btemplateTag";
 
@@ -7,6 +8,7 @@ import { E2BTemplateTag } from "./E2btemplateTag";
 export class E2BListedTemplate extends $dara.Model {
   buildStatus?: string;
   category?: string;
+  containerConfiguration?: ContainerConfiguration;
   cpuCount?: number;
   createdAt?: string;
   functionName?: string;
@@ -19,6 +21,7 @@ export class E2BListedTemplate extends $dara.Model {
   tags?: E2BTemplateTag[];
   teamID?: string;
   teamName?: string;
+  teamPlan?: string;
   templateID?: string;
   updatedAt?: string;
   userID?: string;
@@ -26,6 +29,7 @@ export class E2BListedTemplate extends $dara.Model {
     return {
       buildStatus: 'buildStatus',
       category: 'category',
+      containerConfiguration: 'containerConfiguration',
       cpuCount: 'cpuCount',
       createdAt: 'createdAt',
       functionName: 'functionName',
@@ -38,6 +42,7 @@ export class E2BListedTemplate extends $dara.Model {
       tags: 'tags',
       teamID: 'teamID',
       teamName: 'teamName',
+      teamPlan: 'teamPlan',
       templateID: 'templateID',
       updatedAt: 'updatedAt',
       userID: 'userID',
@@ -48,6 +53,7 @@ export class E2BListedTemplate extends $dara.Model {
     return {
       buildStatus: 'string',
       category: 'string',
+      containerConfiguration: ContainerConfiguration,
       cpuCount: 'number',
       createdAt: 'string',
       functionName: 'string',
@@ -60,6 +66,7 @@ export class E2BListedTemplate extends $dara.Model {
       tags: { 'type': 'array', 'itemType': E2BTemplateTag },
       teamID: 'string',
       teamName: 'string',
+      teamPlan: 'string',
       templateID: 'string',
       updatedAt: 'string',
       userID: 'string',
@@ -67,6 +74,9 @@ export class E2BListedTemplate extends $dara.Model {
   }
 
   validate() {
+    if(this.containerConfiguration && typeof (this.containerConfiguration as any).validate === 'function') {
+      (this.containerConfiguration as any).validate();
+    }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
     }

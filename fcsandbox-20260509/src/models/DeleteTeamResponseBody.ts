@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTeamResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

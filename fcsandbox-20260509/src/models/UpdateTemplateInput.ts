@@ -1,14 +1,17 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ContainerConfiguration } from "./ContainerConfiguration";
 import { LogConfiguration } from "./LogConfiguration";
 import { NetworkConfiguration } from "./NetworkConfiguration";
 
 
 export class UpdateTemplateInput extends $dara.Model {
+  containerConfiguration?: ContainerConfiguration;
   logConfiguration?: LogConfiguration;
   networkConfiguration?: NetworkConfiguration;
   static names(): { [key: string]: string } {
     return {
+      containerConfiguration: 'containerConfiguration',
       logConfiguration: 'logConfiguration',
       networkConfiguration: 'networkConfiguration',
     };
@@ -16,12 +19,16 @@ export class UpdateTemplateInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containerConfiguration: ContainerConfiguration,
       logConfiguration: LogConfiguration,
       networkConfiguration: NetworkConfiguration,
     };
   }
 
   validate() {
+    if(this.containerConfiguration && typeof (this.containerConfiguration as any).validate === 'function') {
+      (this.containerConfiguration as any).validate();
+    }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
     }
