@@ -59,6 +59,7 @@ export { CreateAutoProvisioningGroupResponseBodyLaunchResults } from './CreateAu
 export { CreateAutoSnapshotPolicyRequestCopyEncryptionConfigurationArn } from './CreateAutoSnapshotPolicyRequest';
 export { CreateAutoSnapshotPolicyRequestCopyEncryptionConfiguration } from './CreateAutoSnapshotPolicyRequest';
 export { CreateAutoSnapshotPolicyRequestTag } from './CreateAutoSnapshotPolicyRequest';
+export { CreateAutoSnapshotPolicyRequestTargetTags } from './CreateAutoSnapshotPolicyRequest';
 export { CreateCapacityReservationRequestPrivatePoolOptions } from './CreateCapacityReservationRequest';
 export { CreateCapacityReservationRequestTag } from './CreateCapacityReservationRequest';
 export { CreateCommandRequestTag } from './CreateCommandRequest';
@@ -70,6 +71,7 @@ export { CreateElasticityAssuranceRequestRecurrenceRules } from './CreateElastic
 export { CreateElasticityAssuranceRequestTag } from './CreateElasticityAssuranceRequest';
 export { CreateImageRequestDiskDeviceMapping } from './CreateImageRequest';
 export { CreateImageRequestFeatures } from './CreateImageRequest';
+export { CreateImageRequestSecureBootOptions } from './CreateImageRequest';
 export { CreateImageRequestTag } from './CreateImageRequest';
 export { CreateImageComponentRequestTag } from './CreateImageComponentRequest';
 export { CreateImagePipelineRequestAdvancedOptions } from './CreateImagePipelineRequest';
@@ -185,6 +187,8 @@ export { DescribeAutoSnapshotPolicyExRequestTag } from './DescribeAutoSnapshotPo
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyCopyEncryptionConfiguration } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTagsTag } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTags } from './DescribeAutoSnapshotPolicyExResponseBody';
+export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTagsTargetTag } from './DescribeAutoSnapshotPolicyExResponseBody';
+export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTags } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicy } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPolicies } from './DescribeAutoSnapshotPolicyExResponseBody';
 export { DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResourcesSupportedResource } from './DescribeAvailableResourceResponseBody';
@@ -399,6 +403,7 @@ export { DescribeImagesResponseBodyImagesImageDetectionOptions } from './Describ
 export { DescribeImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping } from './DescribeImagesResponseBody';
 export { DescribeImagesResponseBodyImagesImageDiskDeviceMappings } from './DescribeImagesResponseBody';
 export { DescribeImagesResponseBodyImagesImageFeatures } from './DescribeImagesResponseBody';
+export { DescribeImagesResponseBodyImagesImageSecureBootOptions } from './DescribeImagesResponseBody';
 export { DescribeImagesResponseBodyImagesImageTagsTag } from './DescribeImagesResponseBody';
 export { DescribeImagesResponseBodyImagesImageTags } from './DescribeImagesResponseBody';
 export { DescribeImagesResponseBodyImagesImage } from './DescribeImagesResponseBody';
@@ -837,6 +842,7 @@ export { LockSnapshotResponseBodyLockedSnapshotInfo } from './LockSnapshotRespon
 export { ModifyAutoProvisioningGroupRequestLaunchTemplateConfig } from './ModifyAutoProvisioningGroupRequest';
 export { ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn } from './ModifyAutoSnapshotPolicyExRequest';
 export { ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration } from './ModifyAutoSnapshotPolicyExRequest';
+export { ModifyAutoSnapshotPolicyExRequestTargetTags } from './ModifyAutoSnapshotPolicyExRequest';
 export { ModifyCapacityReservationRequestPrivatePoolOptions } from './ModifyCapacityReservationRequest';
 export { ModifyCloudAssistantSettingsRequestAgentUpgradeConfig } from './ModifyCloudAssistantSettingsRequest';
 export { ModifyCloudAssistantSettingsRequestOssDeliveryConfig } from './ModifyCloudAssistantSettingsRequest';

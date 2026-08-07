@@ -203,6 +203,29 @@ export class DescribeImagesResponseBodyImagesImageFeatures extends $dara.Model {
   }
 }
 
+export class DescribeImagesResponseBodyImagesImageSecureBootOptions extends $dara.Model {
+  secureBootSupport?: string;
+  static names(): { [key: string]: string } {
+    return {
+      secureBootSupport: 'SecureBootSupport',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secureBootSupport: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImagesResponseBodyImagesImageTagsTag extends $dara.Model {
   tagKey?: string;
   tagValue?: string;
@@ -284,6 +307,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
   productCode?: string;
   progress?: string;
   resourceGroupId?: string;
+  secureBootOptions?: DescribeImagesResponseBodyImagesImageSecureBootOptions;
   size?: number;
   status?: string;
   supplierName?: string;
@@ -320,6 +344,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       productCode: 'ProductCode',
       progress: 'Progress',
       resourceGroupId: 'ResourceGroupId',
+      secureBootOptions: 'SecureBootOptions',
       size: 'Size',
       status: 'Status',
       supplierName: 'SupplierName',
@@ -359,6 +384,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       productCode: 'string',
       progress: 'string',
       resourceGroupId: 'string',
+      secureBootOptions: DescribeImagesResponseBodyImagesImageSecureBootOptions,
       size: 'number',
       status: 'string',
       supplierName: 'string',
@@ -377,6 +403,9 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
     }
     if(this.features && typeof (this.features as any).validate === 'function') {
       (this.features as any).validate();
+    }
+    if(this.secureBootOptions && typeof (this.secureBootOptions as any).validate === 'function') {
+      (this.secureBootOptions as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();

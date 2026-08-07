@@ -62,8 +62,8 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
    * @remarks
    * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
    * 
-   * - true: Enabled. 
-   * - false: Disabled. 
+   * - true: enabled. 
+   * - false: disabled. 
    * 
    * Default value: false.
    * 
@@ -107,13 +107,51 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
   }
 }
 
+export class ModifyAutoSnapshotPolicyExRequestTargetTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * Valid values of N: 1 to 10.
+   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * Valid values of N: 1 to 10. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * Note: If you pass in an empty value or an empty string, it indicates any value.
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   /**
    * @remarks
    * The retention period of cross-region snapshot replicas. Unit: days. Valid values:
    * 
-   * - -1: Snapshot replicas are permanently retained.
-   * - 1 to 65535: the number of days for which snapshot replicas are retained.
+   * - -1: permanently retained.
+   * - 1 to 65535: retained for the specified number of days.
    * 
    * Default value: -1.
    * 
@@ -123,15 +161,15 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   copiedSnapshotsRetentionDays?: number;
   /**
    * @remarks
-   * The encryption parameter for cross-region snapshot replication.
+   * The encryption parameter object for cross-region snapshot replication.
    */
   copyEncryptionConfiguration?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to allow automatic cross-region replication. Valid values:
+   * Specifies whether to allow automatic cross-region replication.
    * 
-   * - true: Allowed.
-   * - false: Not allowed.
+   * - true: allowed.
+   * - false: not allowed.
    * 
    * @example
    * false
@@ -142,12 +180,18 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination region for cross-region snapshot replication. You can set one destination region.
+   * The destination region to which snapshots are replicated. Currently, you can set only one destination region.
    * 
    * @example
    * ["cn-hangzhou"]
    */
   targetCopyRegions?: string;
+  /**
+   * @remarks
+   * The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
+   * This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+   */
+  targetTags?: ModifyAutoSnapshotPolicyExRequestTargetTags[];
   /**
    * @remarks
    * The ID of the automatic snapshot policy. You can call [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) to query available automatic snapshot policies.
@@ -160,7 +204,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The name of the automatic snapshot policy. If this parameter is empty, the name is not modified.
+   * The name of the automatic snapshot policy. If this parameter is left empty, the name is not modified.
    * 
    * @example
    * SPTestName
@@ -193,8 +237,8 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * @remarks
    * The retention period of automatic snapshots. Unit: days. Valid values:
    * 
-   * - -1: Automatic snapshots are permanently retained.
-   * - 1 to 65536: the number of days for which automatic snapshots are retained.
+   * - -1: permanently retained.
+   * - 1 to 65536: retained for the specified number of days.
    * 
    * Default value: -1.
    * 
@@ -224,6 +268,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       targetCopyRegions: 'TargetCopyRegions',
+      targetTags: 'TargetTags',
       autoSnapshotPolicyId: 'autoSnapshotPolicyId',
       autoSnapshotPolicyName: 'autoSnapshotPolicyName',
       regionId: 'regionId',
@@ -242,6 +287,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       targetCopyRegions: 'string',
+      targetTags: { 'type': 'array', 'itemType': ModifyAutoSnapshotPolicyExRequestTargetTags },
       autoSnapshotPolicyId: 'string',
       autoSnapshotPolicyName: 'string',
       regionId: 'string',
@@ -254,6 +300,9 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   validate() {
     if(this.copyEncryptionConfiguration && typeof (this.copyEncryptionConfiguration as any).validate === 'function') {
       (this.copyEncryptionConfiguration as any).validate();
+    }
+    if(Array.isArray(this.targetTags)) {
+      $dara.Model.validateArray(this.targetTags);
     }
     super.validate();
   }

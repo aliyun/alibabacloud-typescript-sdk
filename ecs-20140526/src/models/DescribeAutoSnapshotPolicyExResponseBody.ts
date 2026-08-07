@@ -80,7 +80,64 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
   }
 }
 
+export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTagsTargetTag extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTags extends $dara.Model {
+  targetTag?: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTagsTargetTag[];
+  static names(): { [key: string]: string } {
+    return {
+      targetTag: 'TargetTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetTag: { 'type': 'array', 'itemType': DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTagsTargetTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.targetTag)) {
+      $dara.Model.validateArray(this.targetTag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicy extends $dara.Model {
+  /**
+   * @example
+   * AssociatedWithDisk
+   */
+  associationType?: string;
   autoSnapshotPolicyId?: string;
   autoSnapshotPolicyName?: string;
   copiedSnapshotsRetentionDays?: number;
@@ -95,11 +152,13 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
   status?: string;
   tags?: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTags;
   targetCopyRegions?: string;
+  targetTags?: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTags;
   timePoints?: string;
   type?: string;
   volumeNums?: number;
   static names(): { [key: string]: string } {
     return {
+      associationType: 'AssociationType',
       autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
       autoSnapshotPolicyName: 'AutoSnapshotPolicyName',
       copiedSnapshotsRetentionDays: 'CopiedSnapshotsRetentionDays',
@@ -114,6 +173,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
       status: 'Status',
       tags: 'Tags',
       targetCopyRegions: 'TargetCopyRegions',
+      targetTags: 'TargetTags',
       timePoints: 'TimePoints',
       type: 'Type',
       volumeNums: 'VolumeNums',
@@ -122,6 +182,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
 
   static types(): { [key: string]: any } {
     return {
+      associationType: 'string',
       autoSnapshotPolicyId: 'string',
       autoSnapshotPolicyName: 'string',
       copiedSnapshotsRetentionDays: 'number',
@@ -136,6 +197,7 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
       status: 'string',
       tags: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTags,
       targetCopyRegions: 'string',
+      targetTags: DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSnapshotPolicyTargetTags,
       timePoints: 'string',
       type: 'string',
       volumeNums: 'number',
@@ -148,6 +210,9 @@ export class DescribeAutoSnapshotPolicyExResponseBodyAutoSnapshotPoliciesAutoSna
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
+    }
+    if(this.targetTags && typeof (this.targetTags as any).validate === 'function') {
+      (this.targetTags as any).validate();
     }
     super.validate();
   }
@@ -195,7 +260,7 @@ export class DescribeAutoSnapshotPolicyExResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when automatic snapshot policies are returned with pagination.
+   * The number of entries per page when the automatic snapshot policies are displayed by page.
    * 
    * @example
    * 10

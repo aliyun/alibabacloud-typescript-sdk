@@ -729,7 +729,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Each cloud disk supports up to 10 automatic snapshot policies.
-   * - If the target cloud disk already has automatic snapshot policies applied, invoking this operation adds new policies without replacing existing ones.
+   * - If the target cloud disk already has an automatic snapshot policy applied, invoking this operation adds new policies without replacing existing ones.
    * >Cancel any unnecessary automatic snapshot policies to avoid unexpected costs.
    * 
    * @param request - ApplyAutoSnapshotPolicyRequest
@@ -785,7 +785,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Each cloud disk supports up to 10 automatic snapshot policies.
-   * - If the target cloud disk already has automatic snapshot policies applied, invoking this operation adds new policies without replacing existing ones.
+   * - If the target cloud disk already has an automatic snapshot policy applied, invoking this operation adds new policies without replacing existing ones.
    * >Cancel any unnecessary automatic snapshot policies to avoid unexpected costs.
    * 
    * @param request - ApplyAutoSnapshotPolicyRequest
@@ -905,14 +905,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify available private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoints to automatically allocate private IP addresses.
+   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify idle private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoint addresses to automatically allocate private IP addresses.
    * 
    * @remarks
    * ## Operation description
-   * - Only Elastic Network Interfaces (ENIs) in the Available or InUse state are supported.
-   * - When you operate the primary ENI, the instance to which the ENI is attached must be in the Running or Stopped state.
-   * - When an ENI is in the Available state, you can allocate up to 49 secondary private IP addresses to the ENI. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully call this operation, you can obtain the allocated secondary private IP address information from the response.
+   * - Only ENIs in the Available or InUse state are supported.
+   * - When you operate the primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
+   * - When an Elastic Network Interface (ENI) is in the active (`Available`) state, you can allocate up to 49 secondary private IP addresses to it. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you successfully invoke this operation, you can obtain the allocated secondary private IP address information from the response.
    * 
    * @param request - AssignPrivateIpAddressesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -987,14 +987,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify available private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoints to automatically allocate private IP addresses.
+   * Allocates one or more secondary private IP addresses to an Elastic Network Interface (ENI). You can specify idle private IP addresses within the vSwitch to which the ENI belongs, or specify the number of private endpoint addresses to automatically allocate private IP addresses.
    * 
    * @remarks
    * ## Operation description
-   * - Only Elastic Network Interfaces (ENIs) in the Available or InUse state are supported.
-   * - When you operate the primary ENI, the instance to which the ENI is attached must be in the Running or Stopped state.
-   * - When an ENI is in the Available state, you can allocate up to 49 secondary private IP addresses to the ENI. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-   * - After you successfully call this operation, you can obtain the allocated secondary private IP address information from the response.
+   * - Only ENIs in the Available or InUse state are supported.
+   * - When you operate the primary network interface controller (NIC), the instance to which the NIC is attached must be in the Running or Stopped state.
+   * - When an Elastic Network Interface (ENI) is in the active (`Available`) state, you can allocate up to 49 secondary private IP addresses to it. After the ENI is attached to an instance, the number of secondary private IP addresses that can be allocated to the ENI is subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - After you successfully invoke this operation, you can obtain the allocated secondary private IP address information from the response.
    * 
    * @param request - AssignPrivateIpAddressesRequest
    * @returns AssignPrivateIpAddressesResponse
@@ -3373,11 +3373,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, read [Create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
-   * Take note of the following items:
-   * - You can create a maximum of 100 automatic snapshot policies in a region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
+   * When you call this operation, take note of the following items:
+   * -  You can create a maximum of 100 automatic snapshot policies per region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
    * - The system does not execute automatic snapshot policies when an ECS instance has a pending stop or restart task.
    * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are encrypted by using the service key of the destination region by default. For more information about cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
-   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
+   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to the target disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3386,6 +3386,10 @@ export default class Client extends OpenApi {
   async createAutoSnapshotPolicyWithOptions(request: $_model.CreateAutoSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAutoSnapshotPolicyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.associationType)) {
+      query["AssociationType"] = request.associationType;
+    }
+
     if (!$dara.isNull(request.copiedSnapshotsRetentionDays)) {
       query["CopiedSnapshotsRetentionDays"] = request.copiedSnapshotsRetentionDays;
     }
@@ -3424,6 +3428,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.targetCopyRegions)) {
       query["TargetCopyRegions"] = request.targetCopyRegions;
+    }
+
+    if (!$dara.isNull(request.targetTags)) {
+      query["TargetTags"] = request.targetTags;
     }
 
     if (!$dara.isNull(request.autoSnapshotPolicyName)) {
@@ -3468,11 +3476,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, read [Create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
-   * Take note of the following items:
-   * - You can create a maximum of 100 automatic snapshot policies in a region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
+   * When you call this operation, take note of the following items:
+   * -  You can create a maximum of 100 automatic snapshot policies per region for an Alibaba Cloud account. When the number of automatic snapshots for a disk reaches the quota limit, the system deletes the earliest automatic snapshot created by the automatic snapshot policy when a new snapshot task is initiated.
    * - The system does not execute automatic snapshot policies when an ECS instance has a pending stop or restart task.
    * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are encrypted by using the service key of the destination region by default. For more information about cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
-   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
+   * After you create an automatic snapshot policy, call [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) to apply the policy to the target disks. To modify an automatic snapshot policy, call [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html).
    * 
    * @param request - CreateAutoSnapshotPolicyRequest
    * @returns CreateAutoSnapshotPolicyResponse
@@ -4062,9 +4070,12 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a disk, you can enable the multi-attach attribute (`MultiAttach`). Learn about this attribute and its limits before you use it. For more information, see [Enterprise SSDs that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - You can enable the multi-attach feature (`MultiAttach`) when you create a disk. We recommend that you learn about this feature and its usage limits. For more information, see [NVMe-enabled ESSDs](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - The following disk types can be created: basic disks, ultra disks, standard SSDs, enterprise SSDs, ESSD Entry disks, regional ESSDs, ESSD AutoPL disks, elastic ephemeral disks - Standard Edition, and elastic ephemeral disks - Advanced Edition.
+   * - You must complete real-name registration before you can create a disk. Go to the [Real-name registration](https://account.console.aliyun.com/#/auth/home) page in the Account Center.
+   * - Creating a disk incurs fees. Learn about the billing methods of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    * - When you create a disk, the following default settings apply:
-   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify them.
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. The `DeleteAutoSnapshot` parameter is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the parameter.
    * 
    * @param request - CreateDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4202,9 +4213,12 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a disk, you can enable the multi-attach attribute (`MultiAttach`). Learn about this attribute and its limits before you use it. For more information, see [Enterprise SSDs that support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - You can enable the multi-attach feature (`MultiAttach`) when you create a disk. We recommend that you learn about this feature and its usage limits. For more information, see [NVMe-enabled ESSDs](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - The following disk types can be created: basic disks, ultra disks, standard SSDs, enterprise SSDs, ESSD Entry disks, regional ESSDs, ESSD AutoPL disks, elastic ephemeral disks - Standard Edition, and elastic ephemeral disks - Advanced Edition.
+   * - You must complete real-name registration before you can create a disk. Go to the [Real-name registration](https://account.console.aliyun.com/#/auth/home) page in the Account Center.
+   * - Creating a disk incurs fees. Learn about the billing methods of Elastic Compute Service (ECS) in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    * - When you create a disk, the following default settings apply:
-   *   - Automatic snapshots of the disk are deleted when the disk is deleted. That is, `DeleteAutoSnapshot` is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify them.
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. The `DeleteAutoSnapshot` parameter is set to `true`. You can invoke [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) to query the parameter settings and invoke [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) to modify the parameter.
    * 
    * @param request - CreateDiskRequest
    * @returns CreateDiskResponse
@@ -4592,22 +4606,22 @@ export default class Client extends OpenApi {
    * Creates a custom image. You can use the created custom image to create ECS instances (RunInstances) or replace the system disk of an instance (ReplaceSystemDisk).
    * 
    * @remarks
-   * ### Before you begin
-   * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately complete. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
-   * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create custom images.
-   * - Configure the image check parameter `DetectionStrategy` when creating an image to allow the system to optimize your image. For more information, see [Image check overview](https://help.aliyun.com/document_detail/439819.html).
+   * ### Precautions
+   * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately completed. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
+   * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create a custom image.
+   * - We recommend that you configure the image detection parameter `DetectionStrategy` when creating an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
    * The following section describes three methods to create a custom image by calling this operation. The priority of request parameters is: InstanceId > DiskDeviceMapping > SnapshotId. If your request contains two or more of these parameters, the image is created based on the parameter with the highest priority.
    * - **Create a custom image from an instance**: Specify the instance ID (`InstanceId`).
    *   - The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
    *   - After the operation is called, a new snapshot is created for each disk of the instance.
-   *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. Stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before you create an image.
-   * - **Create a custom image from snapshots (the specified snapshots cannot be created on or before July 15, 2013.)**
-   *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the system disk (`SnapshotId`).
-   *   - **Create a custom image from system disk and data disk snapshots**: Establish data associations among multiple disks (`DiskDeviceMapping`).
-   *     -  Only one system disk snapshot can be specified. 
-   *     -  You can specify multiple data disk snapshots, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
+   *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. We recommend that you stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before creating an image.
+   * - **Create a custom image from a snapshot (the specified snapshot cannot be one created on or before July 15, 2013.)**
+   *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the instance system disk (`SnapshotId`).
+   *   - **Create a custom image from system disk and data disk snapshots**: This requires establishing data associations among multiple disks (`DiskDeviceMapping`).
+   *     - Only one system disk snapshot can be specified. 
+   *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
    *  
-   * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support custom image creation. Create a custom image before the instance is released as needed.
+   * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before releasing the instance as needed.
    * 
    * @param request - CreateImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4692,6 +4706,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.secureBootOptions)) {
+      query["SecureBootOptions"] = request.secureBootOptions;
+    }
+
     if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
     }
@@ -4721,22 +4739,22 @@ export default class Client extends OpenApi {
    * Creates a custom image. You can use the created custom image to create ECS instances (RunInstances) or replace the system disk of an instance (ReplaceSystemDisk).
    * 
    * @remarks
-   * ### Before you begin
-   * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately complete. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
-   * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create custom images.
-   * - Configure the image check parameter `DetectionStrategy` when creating an image to allow the system to optimize your image. For more information, see [Image check overview](https://help.aliyun.com/document_detail/439819.html).
+   * ### Precautions
+   * - This is an asynchronous operation. After a request to create a custom image is sent, the image ID is returned. However, the image creation is not immediately completed. Call [DescribeImage](https://help.aliyun.com/document_detail/2679797.html) to query the image information. When the status in the response is `Available`, the image is created and ready for use. For more information, see [Custom image overview](https://help.aliyun.com/document_detail/172789.html).
+   * - When you query ECS instance information, if the response contains {"OperationLocks": {"LockReason" : "security"}}, you cannot create a custom image.
+   * - We recommend that you configure the image detection parameter `DetectionStrategy` when creating an image. This helps the system optimize your image. For more information, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html).
    * The following section describes three methods to create a custom image by calling this operation. The priority of request parameters is: InstanceId > DiskDeviceMapping > SnapshotId. If your request contains two or more of these parameters, the image is created based on the parameter with the highest priority.
    * - **Create a custom image from an instance**: Specify the instance ID (`InstanceId`).
    *   - The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
    *   - After the operation is called, a new snapshot is created for each disk of the instance.
-   *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. Stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before you create an image.
-   * - **Create a custom image from snapshots (the specified snapshots cannot be created on or before July 15, 2013.)**
-   *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the system disk (`SnapshotId`).
-   *   - **Create a custom image from system disk and data disk snapshots**: Establish data associations among multiple disks (`DiskDeviceMapping`).
-   *     -  Only one system disk snapshot can be specified. 
-   *     -  You can specify multiple data disk snapshots, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
+   *   >Notice: Because a running instance may have cached data that has not been written to disks, the data of the created custom image may be inconsistent with the instance data. We recommend that you stop the instance ([StopInstances](https://help.aliyun.com/document_detail/155372.html)) before creating an image.
+   * - **Create a custom image from a snapshot (the specified snapshot cannot be one created on or before July 15, 2013.)**
+   *   - **Create a custom image from a system disk snapshot**: Specify only the snapshot ID of the instance system disk (`SnapshotId`).
+   *   - **Create a custom image from system disk and data disk snapshots**: This requires establishing data associations among multiple disks (`DiskDeviceMapping`).
+   *     - Only one system disk snapshot can be specified. 
+   *     - Multiple data disk snapshots can be specified, up to a maximum of 16. If `DiskDeviceMapping.N.SnapshotId` is not specified, an empty data disk with the default capacity is created.  
    *  
-   * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support custom image creation. Create a custom image before the instance is released as needed.
+   * > When an instance is released, the system disk is retained as a pay-as-you-go data disk. Snapshots created from this disk do not support creating custom images. Create a custom image before releasing the instance as needed.
    * 
    * @param request - CreateImageRequest
    * @returns CreateImageResponse
@@ -14893,13 +14911,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available image resources based on specified parameters such as ImageId, image usage scenarios, and Filter conditions.
+   * Queries the list of available image resources based on specified parameters such as ImageId, image usage Scenarios, and Filter conditions.
    * 
    * @remarks
    * - Image resources that you can query include your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images that other Alibaba Cloud users have shared with you.
-   * - Paging is supported. The query results include the total number of available image resources and the image resources on the current page. The default number of entries per page is 10.
-   * - When you invoke an API operation by using Cloud Assistant CLI, request parameters of different data types must comply with format requirements. For more information, see [CLI parameter format](https://help.aliyun.com/document_detail/110340.html).
-   * - When you query images provided by Alibaba Cloud or shared images (ImageOwnerAlias is set to system or others), the request can bypass RAM authentication rules. For more information, see [Authentication rules](https://help.aliyun.com/document_detail/25497.html).
    * 
    * @param request - DescribeImagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15038,13 +15053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available image resources based on specified parameters such as ImageId, image usage scenarios, and Filter conditions.
+   * Queries the list of available image resources based on specified parameters such as ImageId, image usage Scenarios, and Filter conditions.
    * 
    * @remarks
    * - Image resources that you can query include your custom images, public images provided by Alibaba Cloud, Alibaba Cloud Marketplace images, and shared images that other Alibaba Cloud users have shared with you.
-   * - Paging is supported. The query results include the total number of available image resources and the image resources on the current page. The default number of entries per page is 10.
-   * - When you invoke an API operation by using Cloud Assistant CLI, request parameters of different data types must comply with format requirements. For more information, see [CLI parameter format](https://help.aliyun.com/document_detail/110340.html).
-   * - When you query images provided by Alibaba Cloud or shared images (ImageOwnerAlias is set to system or others), the request can bypass RAM authentication rules. For more information, see [Authentication rules](https://help.aliyun.com/document_detail/25497.html).
    * 
    * @param request - DescribeImagesRequest
    * @returns DescribeImagesResponse
@@ -20225,7 +20237,7 @@ export default class Client extends OpenApi {
    * Queries information about one or more snapshot-consistent groups, such as the status, instance ID, and snapshot creation progress.
    * 
    * @remarks
-   * InstanceId, SnapshotGroupId.N, and Status.N are not required request parameters, but you can use them to build filter logic. These parameters have a logical AND relationship.
+   * InstanceId, SnapshotGroupId.N, and Status.N are not required request parameters, but you can use them to build filter logic. The parameters have a logical AND relationship.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20311,7 +20323,7 @@ export default class Client extends OpenApi {
    * Queries information about one or more snapshot-consistent groups, such as the status, instance ID, and snapshot creation progress.
    * 
    * @remarks
-   * InstanceId, SnapshotGroupId.N, and Status.N are not required request parameters, but you can use them to build filter logic. These parameters have a logical AND relationship.
+   * InstanceId, SnapshotGroupId.N, and Status.N are not required request parameters, but you can use them to build filter logic. The parameters have a logical AND relationship.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @returns DescribeSnapshotGroupsResponse
@@ -24643,15 +24655,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tags on one or more ECS resources.
+   * Queries the tags that are bound to one or more ECS resources.
    * 
    * @remarks
-   * ## API
-   * To find specific resources, include at least one of the following parameters in your request.
+   * ## Operation description
+   * Specify at least one of the following parameters in the request to determine the query object.
    * - `ResourceId.N`
    * - `Tag.N` (`Tag.N.Key` and `Tag.N.Value`)
    * - `TagFilter.N`
-   * If you specify the following parameter combinations, the API returns only the ECS resources that match all conditions.
+   * If you specify the following parameters at the same time, the response contains only ECS resources that meet both conditions.
    * - `Tag.N` and `ResourceId.N`
    * - `TagFilter.N` and `ResourceId.N`
    * 
@@ -24724,15 +24736,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tags on one or more ECS resources.
+   * Queries the tags that are bound to one or more ECS resources.
    * 
    * @remarks
-   * ## API
-   * To find specific resources, include at least one of the following parameters in your request.
+   * ## Operation description
+   * Specify at least one of the following parameters in the request to determine the query object.
    * - `ResourceId.N`
    * - `Tag.N` (`Tag.N.Key` and `Tag.N.Value`)
    * - `TagFilter.N`
-   * If you specify the following parameter combinations, the API returns only the ECS resources that match all conditions.
+   * If you specify the following parameters at the same time, the response contains only ECS resources that meet both conditions.
    * - `Tag.N` and `ResourceId.N`
    * - `TagFilter.N` and `ResourceId.N`
    * 
@@ -24947,12 +24959,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat date, and retention period.
+   * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat days, and retention period.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
    * - System policies cannot be modified.
-   * - After you modify an automatic snapshot policy, the disks to which the policy has been applied immediately execute the modified automatic snapshot policy.
+   * - After you modify an automatic snapshot policy, the disks to which the policy has been applied immediately execute the modified policy.
    * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are encrypted by using the service key of the destination region by default.
    * 
    * @param request - ModifyAutoSnapshotPolicyExRequest
@@ -24988,6 +25000,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.targetCopyRegions)) {
       query["TargetCopyRegions"] = request.targetCopyRegions;
+    }
+
+    if (!$dara.isNull(request.targetTags)) {
+      query["TargetTags"] = request.targetTags;
     }
 
     if (!$dara.isNull(request.autoSnapshotPolicyId)) {
@@ -25032,12 +25048,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat date, and retention period.
+   * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat days, and retention period.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
    * - System policies cannot be modified.
-   * - After you modify an automatic snapshot policy, the disks to which the policy has been applied immediately execute the modified automatic snapshot policy.
+   * - After you modify an automatic snapshot policy, the disks to which the policy has been applied immediately execute the modified policy.
    * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are encrypted by using the service key of the destination region by default.
    * 
    * @param request - ModifyAutoSnapshotPolicyExRequest
@@ -34312,10 +34328,96 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * <props="china">
-   * ### Before you begin.
+   * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.
+   * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.
+   * This is an asynchronous operation. After a request to create an instance is successfully sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query instance information. When the returned status is `Running`, the instance is created and started.
+   * ### Before you begin
+   * <props="china">
+   * - Make sure that your account has completed real-name registration. For more information, see [Real-name registration](https://help.aliyun.com/document_detail/48263.html).
+   * - When resource inventory is insufficient to complete the current instance creation, Alibaba Cloud immediately sends an instance creation failure event (SystemFailure.Delete). You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether an instance creation failure event exists. For more information, see [Instance creation failure event](https://help.aliyun.com/document_detail/2545990.html).
+   * - Make sure that the total number of instances you create or the total vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
+   * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Before you begin.
    * ### Recommendations.
-   * ## Request example.
+   * ## Request examples
+   * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system and data disks with specific capacities, assign a public IP address, and set the instance name and password. The relevant request parameters are as follows:
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Set the image ID
+   * InstanceType:"ecs.g7.large", //Set the instance type
+   * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Set the security group ID
+   * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Set the vSwitch ID
+   * SystemDisk:{
+   *   Category:"cloud_essd", //Set the system disk category to enterprise SSD
+   *   Size:40, //Set the system disk size to 40 GiB
+   * },
+   * DataDisk:[
+   *   {
+   *     Category:"cloud_essd", //Set the data disk category to enterprise SSD
+   *     Size:100, //Set the data disk size to 100 GiB
+   *   }
+   * ],
+   * HostName:"ECS-test", //Set the instance hostname
+   * Password:"ECS@test1234", //Set the instance logon password
+   * InternetMaxBandwidthOut:10 //Set the outbound public bandwidth to 10 Mbit/s
+   * ```
+   * Based on the preceding configurations, create instances of different types:
+   * <details>
+   * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
+   * ```
+   * Amount:5, //Set the quantity to 5
+   * InstanceChargeType:"PrePaid", //Specify subscription billing
+   * PeriodUnit:"Month", //Set the period unit to month
+   * Period:1, //Set the period to 1 month
+   * AutoRenew:true, //Enable auto-renewal
+   * AutoRenewPeriod:1 //Set the auto-renewal period to 1 month
+   * ```
+   * </details>
+   * <details>
+   * <summary>Example: Create 10 pay-as-you-go instances</summary>
+   * ```
+   * Amount:10, //Set the quantity to 10
+   * InstanceChargeType:"PostPaid", //Specify pay-as-you-go billing
+   * SpotStrategy:"NoSpot" //Default value, indicating regular pay-as-you-go
+   * ```
+   * </details>
+   * <details>
+   * <summary>Example: Create 20 spot instances with a bidding strategy and protection period</summary>
+   * ```
+   * Amount:20, //Set the quantity to 20
+   * InstanceChargeType:"PostPaid",
+   * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy to automatically bid based on market price
+   * SpotDuration:1 //Set the spot instance protection period to 1 hour
+   * ```
+   * </details>
+   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html). You now want to use this template to create ECS instances in the China (Hangzhou) region. Example:
+   * <details>
+   * <summary>Example: Create 10 ECS instances based on a launch template</summary>
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * Amount:10, //Set the quantity to 10
+   * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Set the launch template ID
+   * ```
+   * </details>
+   * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, pay-as-you-go instances are created.
+   * <details>
+   * <summary>Example: Create one instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * ImageId = m-bp13ohd32cvzpq9e****，//Custom image ID
+   * InstanceType = ecs.u1-c1m1.large，//Instance type
+   * SecurityGroupId = sg-bp10jztp6b0sdsyl****，//Security group ID
+   * VSwitchId = vsw-bp19wo63nleroq22g****，//vSwitch ID
+   * SystemDisk.Size = 50，//Set the size of the system disk included in the full image
+   * SystemDisk.Category = cloud_auto，//Set the category of the system disk included in the full image
+   * DataDisk.1.Device = /dev/xvdb，//Set the mount point of the data disk included in the full image
+   * DataDisk.1.Size = 50，//Set the size of the data disk included in the full image
+   * DataDisk.1.Category = cloud_essd，//Set the category of the data disk included in the full image
+   * DataDisk.2.Device = /dev/xvdc，//Mount point of the additional data disk. To replace the data disk included in the full image with an additional data disk, set DataDisk.1.Device = /dev/xvdb (the default mount point of the data disk in the full image).
+   * DataDisk.2.Size = 70，//Size of the additional data disk
+   * DataDisk.2.Category = cloud_auto，//Category of the additional data disk
+   * ```
+   * </details>
    * 
    * @param request - RunInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34662,10 +34764,96 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * <props="china">
-   * ### Before you begin.
+   * Creating an instance incurs fees. Billable items include [instance type](https://help.aliyun.com/document_detail/25398.html), [image](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.
+   * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.
+   * This is an asynchronous operation. After a request to create an instance is successfully sent, the instance ID is returned. The instance is not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query instance information. When the returned status is `Running`, the instance is created and started.
+   * ### Before you begin
+   * <props="china">
+   * - Make sure that your account has completed real-name registration. For more information, see [Real-name registration](https://help.aliyun.com/document_detail/48263.html).
+   * - When resource inventory is insufficient to complete the current instance creation, Alibaba Cloud immediately sends an instance creation failure event (SystemFailure.Delete). You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether an instance creation failure event exists. For more information, see [Instance creation failure event](https://help.aliyun.com/document_detail/2545990.html).
+   * - Make sure that the total number of instances you create or the total vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
+   * - Before you create a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Before you begin.
    * ### Recommendations.
-   * ## Request example.
+   * ## Request examples
+   * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system and data disks with specific capacities, assign a public IP address, and set the instance name and password. The relevant request parameters are as follows:
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", //Set the image ID
+   * InstanceType:"ecs.g7.large", //Set the instance type
+   * SecurityGroupId:"sg-bp150uqocpf9jj70****", //Set the security group ID
+   * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", //Set the vSwitch ID
+   * SystemDisk:{
+   *   Category:"cloud_essd", //Set the system disk category to enterprise SSD
+   *   Size:40, //Set the system disk size to 40 GiB
+   * },
+   * DataDisk:[
+   *   {
+   *     Category:"cloud_essd", //Set the data disk category to enterprise SSD
+   *     Size:100, //Set the data disk size to 100 GiB
+   *   }
+   * ],
+   * HostName:"ECS-test", //Set the instance hostname
+   * Password:"ECS@test1234", //Set the instance logon password
+   * InternetMaxBandwidthOut:10 //Set the outbound public bandwidth to 10 Mbit/s
+   * ```
+   * Based on the preceding configurations, create instances of different types:
+   * <details>
+   * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
+   * ```
+   * Amount:5, //Set the quantity to 5
+   * InstanceChargeType:"PrePaid", //Specify subscription billing
+   * PeriodUnit:"Month", //Set the period unit to month
+   * Period:1, //Set the period to 1 month
+   * AutoRenew:true, //Enable auto-renewal
+   * AutoRenewPeriod:1 //Set the auto-renewal period to 1 month
+   * ```
+   * </details>
+   * <details>
+   * <summary>Example: Create 10 pay-as-you-go instances</summary>
+   * ```
+   * Amount:10, //Set the quantity to 10
+   * InstanceChargeType:"PostPaid", //Specify pay-as-you-go billing
+   * SpotStrategy:"NoSpot" //Default value, indicating regular pay-as-you-go
+   * ```
+   * </details>
+   * <details>
+   * <summary>Example: Create 20 spot instances with a bidding strategy and protection period</summary>
+   * ```
+   * Amount:20, //Set the quantity to 20
+   * InstanceChargeType:"PostPaid",
+   * SpotStrategy:"SpotAsPriceGo", //Set the bidding strategy to automatically bid based on market price
+   * SpotDuration:1 //Set the spot instance protection period to 1 hour
+   * ```
+   * </details>
+   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html). You now want to use this template to create ECS instances in the China (Hangzhou) region. Example:
+   * <details>
+   * <summary>Example: Create 10 ECS instances based on a launch template</summary>
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * Amount:10, //Set the quantity to 10
+   * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" //Set the launch template ID
+   * ```
+   * </details>
+   * >Notice: If you specify both instance parameters and template parameters, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, pay-as-you-go instances are created.
+   * <details>
+   * <summary>Example: Create one instance by using a full image (a whole-machine image that contains a system disk and data disks)</summary>
+   * ```
+   * RegionId:"ap-southeast-1", //Set the China (Hangzhou) region
+   * ImageId = m-bp13ohd32cvzpq9e****，//Custom image ID
+   * InstanceType = ecs.u1-c1m1.large，//Instance type
+   * SecurityGroupId = sg-bp10jztp6b0sdsyl****，//Security group ID
+   * VSwitchId = vsw-bp19wo63nleroq22g****，//vSwitch ID
+   * SystemDisk.Size = 50，//Set the size of the system disk included in the full image
+   * SystemDisk.Category = cloud_auto，//Set the category of the system disk included in the full image
+   * DataDisk.1.Device = /dev/xvdb，//Set the mount point of the data disk included in the full image
+   * DataDisk.1.Size = 50，//Set the size of the data disk included in the full image
+   * DataDisk.1.Category = cloud_essd，//Set the category of the data disk included in the full image
+   * DataDisk.2.Device = /dev/xvdc，//Mount point of the additional data disk. To replace the data disk included in the full image with an additional data disk, set DataDisk.1.Device = /dev/xvdb (the default mount point of the data disk in the full image).
+   * DataDisk.2.Size = 70，//Size of the additional data disk
+   * DataDisk.2.Category = cloud_auto，//Category of the additional data disk
+   * ```
+   * </details>
    * 
    * @param request - RunInstancesRequest
    * @returns RunInstancesResponse

@@ -8,7 +8,7 @@ export class ApplyAutoSnapshotPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the automatic snapshot policy.
+   * The ID of the target automatic snapshot policy.
    * 
    * This parameter is required.
    * 

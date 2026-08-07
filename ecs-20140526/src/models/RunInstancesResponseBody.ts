@@ -32,7 +32,7 @@ export class RunInstancesResponseBody extends $dara.Model {
   instanceIdSets?: RunInstancesResponseBodyInstanceIdSets;
   /**
    * @remarks
-   * The order ID. This parameter is returned only when you create subscription ECS instances (request parameter `InstanceChargeType=PrePaid`).
+   * The order ID. This parameter is returned only when you create a subscription ECS instance (request parameter `InstanceChargeType=PrePaid`).
    * 
    * @example
    * 123456****

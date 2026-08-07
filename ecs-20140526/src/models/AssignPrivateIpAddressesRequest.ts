@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignPrivateIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14,13 +14,13 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
    * One or more IPv4 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
-   * > To set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
+   * > If you need to set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
    */
   ipv4Prefix?: string[];
   /**
    * @remarks
    * The number of randomly generated IPv4 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
-   * > To set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
+   * > If you need to set IPv4 prefixes for the NIC, you must set either the Ipv4Prefix.N parameter or the Ipv4PrefixCount parameter, but not both.
    * 
    * @example
    * 1
@@ -43,9 +43,9 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
    * One or more secondary private IP addresses selected from the idle IP addresses within the vSwitch to which the network interface controller (NIC) belongs. Valid values of N:
    * 
    * - When the NIC is in the active (`Available`) state: 1 to 32.
-   * - When the NIC is in the `InUse` state: subject to the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * - When the NIC is in the `InUse` state: subject to the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
-   * When you allocate secondary private IP addresses, you cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount`.
+   * When you allocate secondary private IP addresses, you cannot specify both PrivateIpAddress.N and SecondaryPrivateIpAddressCount.
    * 
    * @example
    * ``10.1.**.**``
@@ -53,7 +53,7 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
   privateIpAddress?: string[];
   /**
    * @remarks
-   * The region ID of the network interface controller (NIC). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class AssignPrivateIpAddressesRequest extends $dara.Model {
    * @remarks
    * The number of private IP addresses to be automatically assigned from the idle IP addresses within the vSwitch.
    * 
-   * When you assign secondary private IP addresses, you cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount`.
+   * When you assign secondary private IP addresses, you cannot specify both PrivateIpAddress.N and SecondaryPrivateIpAddressCount.
    * 
    * @example
    * 1
