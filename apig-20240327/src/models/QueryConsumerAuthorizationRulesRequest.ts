@@ -19,6 +19,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
+  consumerGroupNameLike?: string;
   /**
    * @remarks
    * The consumer ID.
@@ -111,6 +112,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
     return {
       apiNameLike: 'apiNameLike',
       consumerGroupId: 'consumerGroupId',
+      consumerGroupNameLike: 'consumerGroupNameLike',
       consumerId: 'consumerId',
       consumerNameLike: 'consumerNameLike',
       environmentId: 'environmentId',
@@ -129,6 +131,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
     return {
       apiNameLike: 'string',
       consumerGroupId: 'string',
+      consumerGroupNameLike: 'string',
       consumerId: 'string',
       consumerNameLike: 'string',
       environmentId: 'string',

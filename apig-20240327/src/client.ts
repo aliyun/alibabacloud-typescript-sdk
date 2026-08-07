@@ -6102,6 +6102,10 @@ export default class Client extends OpenApi {
       query["consumerGroupId"] = request.consumerGroupId;
     }
 
+    if (!$dara.isNull(request.consumerGroupNameLike)) {
+      query["consumerGroupNameLike"] = request.consumerGroupNameLike;
+    }
+
     if (!$dara.isNull(request.consumerId)) {
       query["consumerId"] = request.consumerId;
     }
