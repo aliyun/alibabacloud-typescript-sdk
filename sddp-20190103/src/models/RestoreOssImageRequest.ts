@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestoreOssImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The name of the OSS bucket.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class RestoreOssImageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The full path of the file stored in OSS.
+   * The full name of the file stored in OSS.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class RestoreOssImageRequest extends $dara.Model {
   objectKey?: string;
   /**
    * @remarks
-   * The ID of the region where the bucket is located.
+   * The region ID of the bucket.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class RestoreOssImageRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The storage path for the restored image.
+   * The storage path of the restored image.
    * 
    * @example
    * aliyun_dsc_original /dir1/test.png

@@ -6,10 +6,8 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   /**
    * @remarks
    * The audit status. Valid values:
-   * 
-   * - **1**: Auditing enabled.
-   * 
-   * - **0**: Auditing disabled.
+   * - **1**: audit enabled.
+   * - **0**: audit disabled.
    * 
    * @example
    * 1
@@ -17,17 +15,12 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * The connectivity test status. Valid values:
-   * 
-   * - **0**: Ready.
-   * 
-   * - **1**: Running.
-   * 
-   * - **2**: Connectivity test in progress.
-   * 
-   * - **3**: Connectivity test passed.
-   * 
-   * - **4**: Connectivity test failed.
+   * The data detection status. Valid values:
+   * - **0**: ready.
+   * - **1**: running.
+   * - **2**: connectivity test in progress.
+   * - **3**: connectivity test passed.
+   * - **4**: connectivity test failed.
    * 
    * @example
    * 3
@@ -35,7 +28,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   checkStatus?: number;
   /**
    * @remarks
-   * The page number to return.
+   * Settings the page number of the current page when you perform a paged query. For more information about paging, refer to the paging parameters.
    * 
    * @example
    * 1
@@ -43,11 +36,9 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data masking status. Valid values:
-   * 
-   * - **1**: Enabled.
-   * 
-   * - **0**: Disabled.
+   * The data masking permission status. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -55,11 +46,9 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   datamaskStatus?: number;
   /**
    * @remarks
-   * The sensitive data detection status. Valid values:
-   * 
-   * - **1**: Enabled.
-   * 
-   * - **0**: Disabled.
+   * The detection permission status. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -67,7 +56,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The end of the creation time range. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1616068534877
@@ -75,7 +64,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The type of the database engine. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+   * The database type. Valid values: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, **MongoDB**, and others.
    * 
    * @example
    * MySQL
@@ -91,10 +80,8 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
+   * The language of the request and response. Valid values:
    * - **zh**: Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -103,7 +90,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts.
    * 
    * @example
    * **********8103
@@ -111,7 +98,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return on each page when you perform a paged query. For more information about paging, refer to the paging parameters.
    * 
    * @example
    * 10
@@ -120,12 +107,9 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the parent asset to which the data asset belongs. Valid values:
-   * 
-   * - The name or ID of a MaxCompute project.
-   * 
-   * - The name or ID of an OSS bucket.
-   * 
-   * - The name or ID of an RDS instance or database.
+   * - The project name or ID for MaxCompute.
+   * - The bucket name or ID for OSS.
+   * - The instance name or ID, or the database name or ID for RDS.
    * 
    * @example
    * 1112
@@ -133,19 +117,13 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
-   * 
+   * Required. The type of the product to which the data asset belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
-   * - **3**: AnalyticDB for MySQL
-   * 
-   * - **4**: Tablestore
-   * 
+   * - **3**: ADS
+   * - **4**: OTS
    * - **5**: RDS
-   * 
-   * - **6**: A self-managed database
+   * - **6**: SELF_DB
    * 
    * @example
    * 1
@@ -153,7 +131,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The ID of the region where the data asset is located.
+   * The region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -161,7 +139,7 @@ export class DescribeDataLimitsRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The start of the creation time range. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1616068534877

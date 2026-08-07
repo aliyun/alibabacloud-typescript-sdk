@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data tag for the detection model.
-   * 
-   * - **101**: Personal sensitive information.
-   * 
-   * - **102**: Personal information.
-   * 
-   * - **103**: Important data.
+   * The data tag ID of the detection model. Valid values:
+   * - **101**: personal sensitive information.
+   * - **102**: personal information.
+   * - **103**: important data.
    * 
    * @example
    * 101
@@ -19,12 +16,9 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags
   id?: number;
   /**
    * @remarks
-   * The name of the data tag for the detection model.
-   * 
+   * The data tag name of the detection model. Valid values:
    * - Personal sensitive information.
-   * 
    * - Personal information.
-   * 
    * - Important data.
    * 
    * @example
@@ -57,7 +51,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags
 export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS object type.
+   * The object type name of the OSS storage object.
    * 
    * @example
    * Excel
@@ -65,7 +59,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
   categoryName?: string;
   /**
    * @remarks
-   * The number of times the sensitive data detection rule was hit.
+   * The number of times the sensitive data detection rule is hit.
    * 
    * @example
    * 2
@@ -73,21 +67,16 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
   count?: number;
   /**
    * @remarks
-   * A list of data tags that are hit by the detection model.
+   * The list of data tags for the detection model that is hit.
    */
   modelTags?: DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags[];
   /**
    * @remarks
-   * The ID of the risk level for the OSS object.
-   * 
+   * The risk level ID of the OSS storage object. Valid values:
    * - **1**: No sensitive data is detected.
-   * 
    * - **2**: Level 1 sensitive data.
-   * 
    * - **3**: Level 2 sensitive data.
-   * 
    * - **4**: Level 3 sensitive data.
-   * 
    * - **5**: Level 4 sensitive data.
    * 
    * @example
@@ -96,7 +85,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the risk level for the OSS object.
+   * The risk level name of the OSS storage object.
    * 
    * @example
    * S2
@@ -104,7 +93,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
   riskLevelName?: string;
   /**
    * @remarks
-   * The name of the sensitive data detection rule that was hit.
+   * The name of the sensitive data detection rule that is hit.
    * 
    * @example
    * name
@@ -147,7 +136,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
 export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket to which the OSS object belongs.
+   * The name of the bucket to which the OSS storage object belongs.
    * 
    * @example
    * bucke***
@@ -155,7 +144,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
   bucketName?: string;
   /**
    * @remarks
-   * The name of the OSS object type.
+   * The object type name of the OSS storage object.
    * 
    * @example
    * Excel
@@ -163,7 +152,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
   categoryName?: string;
   /**
    * @remarks
-   * The name of the OSS object.
+   * The name of the OSS storage object.
    * 
    * @example
    * obj_id
@@ -171,7 +160,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The ID of the region where the OSS object is stored.
+   * The region ID of the OSS storage object.
    * 
    * @example
    * cn-***
@@ -179,7 +168,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
   regionId?: string;
   /**
    * @remarks
-   * The name of the risk level for the OSS object.
+   * The risk level name of the OSS storage object.
    * 
    * @example
    * S2
@@ -187,7 +176,7 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
   riskLevelName?: string;
   /**
    * @remarks
-   * A list of sensitive data detection rules that the OSS object hits.
+   * The list of sensitive data detection rules that the OSS storage object hits.
    */
   ruleList?: DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList[];
   static names(): { [key: string]: string } {
@@ -227,12 +216,12 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Mo
 export class DescribeOssObjectDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the OSS object.
+   * The details of the OSS storage object.
    */
   ossObjectDetail?: DescribeOssObjectDetailResponseBodyOssObjectDetail;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 769FB3C1-F4C9-42DF-9B72-7077A8989C13

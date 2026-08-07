@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScanTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the data asset. The asset can be an instance, a database, or a bucket. Call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain this ID.
+   * The unique ID of the data asset such as an instance, database, or bucket. You can call [DescribeDataLimits](~~DescribeDataLimits~~) to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateScanTaskRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The interval in days between two consecutive custom scan tasks. The value must be between 1 and 2147483648.
+   * The interval in days between two consecutive custom scan tasks. Valid values: 1 to 2147483648.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateScanTaskRequest extends $dara.Model {
   intervalDay?: number;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language of the request and response. Valid values:
    * 
    * - **zh**: Chinese.
    * 
@@ -45,7 +45,7 @@ export class CreateScanTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The scan scope for OSS assets. You can specify a prefix, a suffix, or a regular expression to match objects.
+   * The scan scope for OSS assets. Prefix match, suffix match, and regular expression match are supported.
    * 
    * @example
    * /test/test
@@ -53,19 +53,13 @@ export class CreateScanTaskRequest extends $dara.Model {
   ossScanPath?: string;
   /**
    * @remarks
-   * The type of resource to query. Valid values:
-   * 
+   * The resource type of the product to query. Valid values:
    * - **1**: MaxCompute.
-   * 
    * - **2**: OSS.
-   * 
-   * - **3**: AnalyticDB.
-   * 
-   * - **4**: Tablestore.
-   * 
+   * - **3**: ADS.
+   * - **4**: OTS.
    * - **5**: RDS.
-   * 
-   * - **6**: a self-managed database.
+   * - **6**: SELF_DB.
    * 
    * This parameter is required.
    * 
@@ -75,7 +69,7 @@ export class CreateScanTaskRequest extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The hour at which the next scan task runs.
+   * The runtime of the next scan task. Unit: hours.
    * 
    * This parameter is required.
    * 
@@ -85,7 +79,7 @@ export class CreateScanTaskRequest extends $dara.Model {
   runHour?: number;
   /**
    * @remarks
-   * The minute at which the next scan task runs.
+   * The runtime of the next scan task. Unit: minutes.
    * 
    * This parameter is required.
    * 
@@ -95,14 +89,10 @@ export class CreateScanTaskRequest extends $dara.Model {
   runMinute?: number;
   /**
    * @remarks
-   * The matching rule for the scan scope of the custom scan task. This parameter takes effect only when you configure the **ScanRangeContent** parameter. Valid values:
-   * 
+   * The scan scope matching rule for the custom scan task. This parameter takes effect only when used together with **ScanRangeContent**. Valid values:
    * - **0**: full match.
-   * 
    * - **1**: prefix match.
-   * 
    * - **2**: suffix match.
-   * 
    * - **3**: regular expression match.
    * 
    * This parameter is required.
@@ -113,9 +103,9 @@ export class CreateScanTaskRequest extends $dara.Model {
   scanRange?: number;
   /**
    * @remarks
-   * The content to match for the scan of structured data assets. This parameter is used with the ScanRange parameter.
+   * The content to match within the scan scope of structured data assets by using prefix match, suffix match, or regular expression match.
    * 
-   * > If you set ScanRange to 0, the scan matches the exact value of this parameter. If you set ScanRange to 1, the scan matches items that have the prefix specified by this parameter. For example, if you set this parameter to \\`test/abc\\`, file paths that start with \\`test/abc\\` are matched. If you set ScanRange to 2, the scan matches items that have the suffix specified by this parameter. If you set ScanRange to 3, the scan matches items that match the regular expression specified by this parameter.
+   * > When ScanRange is set to 0, all content in this field is fully matched. When ScanRange is set to 1, the content in this field is matched by prefix. For example, if this field is set to test/abc, file paths that start with test/abc are matched. When ScanRange is set to 2, the content in this field is matched by suffix. When ScanRange is set to 3, the content in this field is matched by regular expression.
    * 
    * This parameter is required.
    * 

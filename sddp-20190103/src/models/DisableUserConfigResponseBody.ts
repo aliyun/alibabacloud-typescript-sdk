@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableUserConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AC314611-D907-5EBF-B6D8-70425E5A8643

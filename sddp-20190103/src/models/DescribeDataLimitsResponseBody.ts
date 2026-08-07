@@ -6,10 +6,8 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The audit status. Valid values:
-   * 
-   * - **1**: Auditing enabled.
-   * 
-   * - **0**: Auditing disabled.
+   * - **1**: audit enabled.
+   * - **0**: audit disabled.
    * 
    * @example
    * 1
@@ -18,10 +16,8 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether automatic scanning is enabled. Valid values:
-   * 
-   * - **0**: No.
-   * 
-   * - **1**: Yes.
+   * - **0**: disabled.
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -29,17 +25,12 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   autoScan?: number;
   /**
    * @remarks
-   * The connectivity test status. Valid values:
-   * 
-   * - **0**: Ready.
-   * 
-   * - **1**: Running.
-   * 
-   * - **2**: Connectivity test in progress.
-   * 
-   * - **3**: Connectivity test passed.
-   * 
-   * - **4**: Connectivity test failed.
+   * The data detection status. Valid values:
+   * - **0**: ready.
+   * - **1**: running.
+   * - **2**: connectivity test in progress.
+   * - **3**: connectivity test passed.
+   * - **4**: connectivity test failed.
    * 
    * @example
    * 3
@@ -47,7 +38,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   checkStatus?: number;
   /**
    * @remarks
-   * The name of the connectivity test status.
+   * The name of the data detection status.
    * 
    * @example
    * Connectivity detection status
@@ -55,11 +46,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   checkStatusName?: string;
   /**
    * @remarks
-   * The data masking status. Valid values:
-   * 
-   * - **1**: Enabled.
-   * 
-   * - **0**: Disabled.
+   * The data masking permission status. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -75,11 +64,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   dbVersion?: string;
   /**
    * @remarks
-   * The sensitive data detection status. Valid values:
-   * 
-   * - **1**: Enabled.
-   * 
-   * - **0**: Disabled.
+   * The detection permission status. Valid values:
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -87,7 +74,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   enable?: number;
   /**
    * @remarks
-   * The database engine type. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+   * The database type. Valid values: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, **MongoDB**, and others.
    * 
    * @example
    * MySQL
@@ -95,7 +82,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The error code that is returned if the connectivity test fails.
+   * The error code.
    * 
    * @example
    * connect_network_error
@@ -103,7 +90,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message that is returned if the connectivity test fails.
+   * The failure reason.
    * 
    * @example
    * Incorrect password.
@@ -111,11 +98,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The anomaly detection status. Valid values:
-   * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled (default).
+   * The data leak prevention switch. Valid values:
+   * - **0**: disabled.
+   * - **1**: enabled (default).
    * 
    * @example
    * 1
@@ -123,7 +108,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   eventStatus?: number;
   /**
    * @remarks
-   * The time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 145600000
@@ -147,7 +132,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the instance to which the data asset belongs.
+   * The instance ID of the asset to which the data asset table belongs.
    * 
    * @example
    * 12332
@@ -155,10 +140,8 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the last full scan was complete. This value is a UNIX timestamp in milliseconds.
-   * 
-   * - Format: UNIX timestamp
-   * 
+   * The time when the last full scan was completed.
+   * - Format: timestamp
    * - Unit: milliseconds
    * 
    * @example
@@ -167,7 +150,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   lastFinishedTime?: number;
   /**
    * @remarks
-   * The time when the last scan started. This value is a UNIX timestamp in milliseconds.
+   * The time when the last scan of the data asset started. Unit: milliseconds.
    * 
    * @example
    * 145600000
@@ -175,7 +158,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   lastStartTime?: number;
   /**
    * @remarks
-   * The name of the region in which the data asset is located.
+   * The name of the region where the data resides.
    * 
    * @example
    * China (Hangzhou)
@@ -183,7 +166,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The retention period of raw logs, in days.
+   * The raw log storage duration. Unit: days.
    * 
    * @example
    * 30
@@ -191,7 +174,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   logStoreDay?: number;
   /**
    * @remarks
-   * The ID of the member account to which the data asset belongs.
+   * The member accounts ID.
    * 
    * @example
    * **********8103
@@ -199,7 +182,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The time when the next scan is scheduled to start. This value is a UNIX timestamp. Unit: milliseconds.
+   * The next execution time. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1676620236000
@@ -207,11 +190,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   nextStartTime?: number;
   /**
    * @remarks
-   * The status of Optical Character Recognition (OCR). Valid values:
-   * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled.
+   * The OCR status. Valid values:
+   * - **0**: disabled.
+   * - **1**: enabled.
    * 
    * @example
    * 1
@@ -219,7 +200,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   ocrStatus?: number;
   /**
    * @remarks
-   * The ID of the parent asset, such as a bucket, DB, or **project**.
+   * The parent ID of the asset to query. Valid values: **bucket**, **db**, **project**, and others.
    * 
    * @example
    * project
@@ -235,17 +216,12 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The status of the scan task. Valid values:
-   * 
-   * - **-1**: Invalid.
-   * 
-   * - **0**: Pending.
-   * 
-   * - **1**: Scanning.
-   * 
-   * - **2**: Paused.
-   * 
-   * - **3**: Completed.
+   * The scan status. Valid values:
+   * - **-1**: invalid.
+   * - **0**: waiting.
+   * - **1**: scanning.
+   * - **2**: paused.
+   * - **3**: completed.
    * 
    * @example
    * 3
@@ -253,7 +229,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   processStatus?: number;
   /**
    * @remarks
-   * The total number of data tables or files.
+   * The total number of tables or files.
    * 
    * @example
    * 100
@@ -261,7 +237,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   processTotalCount?: number;
   /**
    * @remarks
-   * The ID of the region in which the data asset is located.
+   * The region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -269,19 +245,13 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
-   * 
+   * The type of the product to which the data asset belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
-   * - **3**: AnalyticDB for MySQL
-   * 
-   * - **4**: Tablestore
-   * 
+   * - **3**: ADS
+   * - **4**: OTS
    * - **5**: RDS
-   * 
-   * - **6**: A self-managed database
+   * - **6**: SELF_DB
    * 
    * @example
    * 5
@@ -289,7 +259,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The code of the service to which the data asset belongs. Examples: MaxCompute, OSS, ADS, OTS, and **RDS**.
+   * The product type code of the data source. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
    * 
    * @example
    * RDS
@@ -297,7 +267,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   resourceTypeCode?: string;
   /**
    * @remarks
-   * The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: entries.
+   * The sensitive data sampling size. Valid values: **0**, **5**, and **10**. Unit: entries.
    * 
    * @example
    * 5
@@ -305,16 +275,14 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   samplingSize?: number;
   /**
    * @remarks
-   * A list of security group IDs that are used by PrivateLink for agent-based auditing.
+   * The list of security group IDs used by PrivateLink in agent-based auditing.
    */
   securityGroupIdList?: string[];
   /**
    * @remarks
    * Indicates whether auditing is supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * 
-   * - **false**: No.
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -323,10 +291,8 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether data masking is supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * 
-   * - **false**: No.
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -334,11 +300,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   supportDatamask?: boolean;
   /**
    * @remarks
-   * Indicates whether anomaly detection is supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * 
-   * - **false**: No.
+   * Indicates whether anomalous activity detection is supported. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -347,10 +311,8 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether OCR is supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * 
-   * - **false**: No.
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -358,11 +320,9 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   supportOcr?: boolean;
   /**
    * @remarks
-   * Indicates whether sensitive data detection is supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * 
-   * - **false**: No.
+   * Indicates whether scanning is supported. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -370,7 +330,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   supportScan?: boolean;
   /**
    * @remarks
-   * The alias of the tenant.
+   * The tenant alias.
    * 
    * @example
    * insta_gram
@@ -378,7 +338,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * The total number of fields. This parameter is returned only when the data asset is a table.
+   * The total number of fields in the data asset table.
    * 
    * @example
    * 100
@@ -386,7 +346,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The username of the data asset owner.
+   * The username of the data owner.
    * 
    * @example
    * tsts
@@ -394,12 +354,12 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * A list of vSwitch IDs that are used by PrivateLink for agent-based auditing.
+   * The list of vSwitch IDs used by PrivateLink in agent-based auditing.
    */
   vSwitchIdList?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the data asset resides.
+   * The VPC ID to which the data asset belongs.
    * 
    * @example
    * vpc-2zevcqke6hh09c41****
@@ -515,7 +475,7 @@ export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
 export class DescribeDataLimitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -523,12 +483,12 @@ export class DescribeDataLimitsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A list of data assets.
+   * The list of data assets.
    */
   items?: DescribeDataLimitsResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 10
@@ -536,7 +496,7 @@ export class DescribeDataLimitsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 769FB3C1-F4C9-42DF-9B72-7077A8989***
@@ -544,7 +504,7 @@ export class DescribeDataLimitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 200

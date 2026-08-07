@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization status of the data asset instance.
-   * 
+   * The authorization status of the data asset instance. Valid values:
    * - **0**: Unauthorized.
-   * 
    * - **1**: Authorized.
    * 
    * @example
@@ -17,18 +15,12 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   authStatus?: number;
   /**
    * @remarks
-   * The connection status of the instance or a database in the instance. Valid values:
-   * 
+   * The database connection status of the instance or the database under the instance. Valid values:
    * - **-3**: The database is not created.
-   * 
    * - **-2**: Released.
-   * 
    * - **-1**: Not connected.
-   * 
-   * - **2**: Testing connectivity.
-   * 
+   * - **2**: Connectivity test in progress.
    * - **3**: Connected.
-   * 
    * - **4**: Connection failed.
    * 
    * @example
@@ -37,13 +29,10 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   checkStatus?: number;
   /**
    * @remarks
-   * The instance status.
-   * 
+   * The instance status. Valid values:
    * - **Running**: Running.
-   * 
    * - **Released**: Released.
-   * 
-   * - **DatabaseNotCreated**: Database not created.
+   * - **DatabaseNotCreated**: The database is not created.
    * 
    * @example
    * Running
@@ -51,7 +40,7 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * The number of the page to return for a paged query. Default value: **1**.
+   * The page number when paging is used. Default value: **1**.
    * 
    * @example
    * 1
@@ -59,7 +48,7 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * db_**t
@@ -67,17 +56,12 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
-   * 
-   * - **MySQL**.
-   * 
-   * - **MariaDB**.
-   * 
-   * - **Oracle**.
-   * 
-   * - **PostgreSQL**.
-   * 
-   * - **SQLServer**.
+   * The engine type. Valid values:
+   * - **MySQL**
+   * - **MariaDB**
+   * - **Oracle**
+   * - **PostgreSQL**
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -85,7 +69,7 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The ID of the data asset instance.
+   * The instance ID of the asset to which the column data in the data asset table belongs.
    * 
    * @example
    * rm-*******xx
@@ -93,11 +77,9 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * - **zh_cn**: Simplified Chinese. This is the default value.
-   * 
-   * - **en_us**: U.S. English.
+   * The language of the request and response. Valid values:
+   * - **zh_cn**: Chinese (Simplified). This is the default value.
+   * - **en_us**: English (US).
    * 
    * @example
    * zh_cn
@@ -105,7 +87,7 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts.
    * 
    * @example
    * **********8103
@@ -113,7 +95,7 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query. Default value: 10.
+   * The number of entries per page when paging is used. Default value: 10.
    * 
    * @example
    * 10
@@ -121,30 +103,18 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * This parameter is required. The type of the product. Valid values:
-   * 
+   * Required. The product type. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADB-MYSQL
-   * 
    * - **4**: TableStore
-   * 
    * - **5**: RDS
-   * 
-   * - **6**: Self-managed database
-   * 
+   * - **6**: SelfDB
    * - **7**: PolarDB-X
-   * 
    * - **8**: PolarDB
-   * 
    * - **9**: ADB-PG
-   * 
    * - **10**: OceanBase
-   * 
    * - **11**: MongoDB
-   * 
    * - **25**: Redis
    * 
    * @example
@@ -154,20 +124,13 @@ export class DescribeParentInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the asset resides. Valid values:
-   * 
    * - **cn-beijing**: China (Beijing).
-   * 
    * - **cn-zhangjiakou**: China (Zhangjiakou).
-   * 
    * - **cn-huhehaote**: China (Hohhot).
-   * 
    * - **cn-hangzhou**: China (Hangzhou).
-   * 
    * - **cn-shanghai**: China (Shanghai).
-   * 
    * - **cn-shenzhen**: China (Shenzhen).
-   * 
-   * - **cn-hongkong**: China (Hong Kong).
+   * - **cn-hongkong**: Hong Kong (China).
    * 
    * @example
    * cn-shanghai

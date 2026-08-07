@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number to return.
+   * The page number for a paged query.
    * 
    * @example
    * 1
@@ -13,18 +13,12 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The product that the destination data source belongs to. Valid values:
-   * 
+   * The service to which the destination data source belongs. Valid values:
    * - **1**: MaxCompute.
-   * 
    * - **2**: OSS.
-   * 
    * - **3**: ADS.
-   * 
    * - **4**: OTS.
-   * 
    * - **5**: RDS.
-   * 
    * - **6**: SELF_DB.
    * 
    * @example
@@ -33,7 +27,7 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   dstType?: number;
   /**
    * @remarks
-   * The end time for creating the data masking task. The value is a UNIX timestamp. Unit: milliseconds.
+   * The end time of the task creation period. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1583856000000
@@ -42,9 +36,7 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Default value: **zh_cn**. Valid values:
-   * 
    * - **zh_cn**: Chinese.
-   * 
    * - **en_us**: English.
    * 
    * @example
@@ -53,7 +45,7 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries per page.
    * 
    * @example
    * 10
@@ -61,7 +53,7 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A keyword to search for tasks. You can search by task name or task ID.
+   * The keyword used to search for tasks. You can search by task name or task ID.
    * 
    * @example
    * test
@@ -69,7 +61,7 @@ export class DescribeDataMaskingTasksRequest extends $dara.Model {
   searchKey?: string;
   /**
    * @remarks
-   * The start time for creating the task. The value is a UNIX timestamp. Unit: milliseconds.
+   * The start time of the task creation period. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1582992000000

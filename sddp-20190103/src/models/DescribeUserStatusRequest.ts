@@ -14,10 +14,8 @@ export class DescribeUserStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
-   * - **zh_cn**: The default value. Simplified Chinese.
-   * 
-   * - **en_us**: American English.
+   * - **zh_cn**: Chinese (Simplified). This is the default value.
+   * - **en_us**: English (US).
    * 
    * @example
    * zh_cn

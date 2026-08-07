@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of data conflicts. This is the number of rows to be inserted into the destination table that conflict with existing data.
+   * The number of data conflict rows, which indicates the number of rows where the masked data to be inserted into the destination table conflicts with the existing data in the destination table.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   conflictCount?: number;
   /**
    * @remarks
-   * The type of service to which the masked data is destined. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
+   * The type of the destination product where the masked data is stored. Valid values: **1**: MaxCompute, **2**: OSS, **3**: ADS, **4**: OTS, **5**: RDS, and others.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   dstType?: number;
   /**
    * @remarks
-   * The type of the destination service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the destination product. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
    * 
    * @example
    * OSS
@@ -29,7 +29,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   dstTypeCode?: string;
   /**
    * @remarks
-   * The time when the execution ended. This is a UNIX timestamp in milliseconds.
+   * The end time of the execution.
    * 
    * @example
    * 1582251233000
@@ -37,7 +37,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   endTime?: number;
   /**
    * @remarks
-   * The error code returned when the task fails. This parameter has a value only if the task fails.
+   * The error code for the task execution failure. This parameter has a value only when the task execution fails.
    * 
    * @example
    * masking_task_not_found
@@ -45,7 +45,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   failCode?: string;
   /**
    * @remarks
-   * The reason the task failed.
+   * The reason for the task execution failure.
    * 
    * @example
    * error
@@ -53,10 +53,9 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   failMsg?: string;
   /**
    * @remarks
-   * Indicates whether a download file is available.
+   * Indicates whether a download file exists. Valid values:
    * 
    * - **1**: Yes.
-   * 
    * - **0**: No.
    * 
    * @example
@@ -65,7 +64,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   hasDownloadFile?: number;
   /**
    * @remarks
-   * The number of created subtasks.
+   * The number of subtasks that have been created.
    * 
    * @example
    * 4
@@ -81,7 +80,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The number of masked rows.
+   * The number of rows masked.
    * 
    * @example
    * 100
@@ -97,7 +96,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   percentage?: number;
   /**
    * @remarks
-   * The number of times the task has been executed.
+   * The sequence number of the task execution.
    * 
    * @example
    * 1
@@ -113,7 +112,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcTableName?: string;
   /**
    * @remarks
-   * The type of service to which the source data belongs. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
+   * The type of the source product to which the data to be masked belongs. Valid values: **1**: MaxCompute, **2**: OSS, **3**: ADS, **4**: OTS, **5**: RDS, and others.
    * 
    * @example
    * 2
@@ -121,7 +120,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcType?: number;
   /**
    * @remarks
-   * The type of the source service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * The type of the source product. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
    * 
    * @example
    * OSS
@@ -129,7 +128,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   srcTypeCode?: string;
   /**
    * @remarks
-   * The time when the execution started. This is a UNIX timestamp in milliseconds.
+   * The execution time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1582251233000
@@ -137,19 +136,13 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   startTime?: number;
   /**
    * @remarks
-   * The execution status of the task. Valid values:
-   * 
-   * - -**1**: pending.
-   * 
-   * - **0**: running.
-   * 
-   * - **1**: successful.
-   * 
-   * - **2**: failed.
-   * 
-   * - **3**: stopped by user.
-   * 
-   * - **4**: partially failed.
+   * The task execution status. Valid values:
+   * - **-1**: Waiting for execution.
+   * - **0**: Running.
+   * - **1**: Executed successfully.
+   * - **2**: Execution failed.
+   * - **3**: Terminated by user.
+   * - **4**: Partially failed.
    * 
    * @example
    * 1
@@ -157,7 +150,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   status?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * mt4HBgtw1B******
@@ -165,11 +158,9 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
   taskId?: string;
   /**
    * @remarks
-   * The execution method. Valid values:
-   * 
-   * - **1**: manual.
-   * 
-   * - **2**: scheduled.
+   * The execution mode. Valid values:
+   * - **1**: Manual.
+   * - **2**: Scheduled.
    * 
    * @example
    * 1
@@ -235,7 +226,7 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model 
 export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in the results.
    * 
    * @example
    * 1
@@ -243,12 +234,12 @@ export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A list of data masking task details.
+   * The list of data masking task information.
    */
   items?: DescribeDataMaskingRunHistoryResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in the results.
    * 
    * @example
    * 10
@@ -256,7 +247,7 @@ export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 769FB3C1-F4C9-4******
@@ -264,7 +255,7 @@ export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the results.
    * 
    * @example
    * 100

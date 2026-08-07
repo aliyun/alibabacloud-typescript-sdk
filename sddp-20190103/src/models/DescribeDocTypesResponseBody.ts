@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   /**
    * @remarks
-   * The code of the file type.
+   * The file type code.
    * 
    * @example
    * 100001
@@ -21,7 +21,7 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the file type.
+   * The file type name.
    * 
    * @example
    * C/C++ Source Code
@@ -55,12 +55,12 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
 export class DescribeDocTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of OSS file types.
+   * The list of OSS file types in the result.
    */
   docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The unique identifier that Alibaba Cloud generated for the request.
    * 
    * @example
    * 769FB3C1-F4C9-4******

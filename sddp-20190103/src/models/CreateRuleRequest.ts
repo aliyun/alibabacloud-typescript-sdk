@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The content type of the sensitive data detection rule. Valid values:
-   * 
+   * The type of content in the sensitive data detection rule. Valid values:
    * - **0**: keyword.
-   * 
    * - **2**: regular expression.
    * 
    * @example
@@ -17,7 +15,7 @@ export class CreateRuleRequest extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The content of the sensitive data detection rule. The content can be a regular expression or a keyword that is used to match sensitive data fields or text.
+   * The content of the sensitive data detection rule. The content can be a regular expression or keyword used to match sensitive data fields or text.
    * 
    * This parameter is required.
    * 
@@ -29,14 +27,10 @@ export class CreateRuleRequest extends $dara.Model {
    * @remarks
    * The content type. Valid values:
    * 
-   * - **1**: SQL injection exploit.
-   * 
-   * - **2**: SQL injection bypass.
-   * 
+   * - **1**: SQL injection exploitation attempt.
+   * - **2**: SQL injection bypass attempt.
    * - **3**: stored procedure abuse.
-   * 
    * - **4**: buffer overflow.
-   * 
    * - **5**: error-based SQL injection.
    * 
    * @example
@@ -53,10 +47,8 @@ export class CreateRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The language of the content in the request and response. Valid values:
-   * 
+   * The language type for the request and response messages. Valid values:
    * - **zh**: Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -66,9 +58,7 @@ export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The match type. Valid values:
-   * 
    * - **1**: rule-based match.
-   * 
    * - **2**: dictionary-based match.
    * 
    * @example
@@ -77,7 +67,7 @@ export class CreateRuleRequest extends $dara.Model {
   matchType?: number;
   /**
    * @remarks
-   * The IDs of the model rules for sensitive data auditing.
+   * The collection of model IDs for sensitive data auditing.
    * 
    * @example
    * 1452
@@ -95,7 +85,7 @@ export class CreateRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the service to which the data asset belongs. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
    * 
    * @example
    * RDS
@@ -103,18 +93,12 @@ export class CreateRuleRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the data asset belongs. Valid values:
-   * 
+   * The ID that corresponds to the product name of the data asset. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADS
-   * 
    * - **4**: OTS
-   * 
    * - **5**: RDS
-   * 
    * - **6**: SELF_DB
    * 
    * @example
@@ -124,16 +108,11 @@ export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The sensitivity level ID of the sensitive data detection rule. Valid values:
-   * 
    * - **1**: N/A. No sensitive data is detected.
-   * 
-   * - **2**: S1. Level 1 sensitive data.
-   * 
-   * - **3**: S2. Level 2 sensitive data.
-   * 
-   * - **4**: S3. Level 3 sensitive data.
-   * 
-   * - **5**: S4. Level 4 sensitive data.
+   * - **2**: S1. Level-1 sensitive data.
+   * - **3**: S2. Level-2 sensitive data.
+   * - **4**: S3. Level-3 sensitive data.
+   * - **5**: S4. Level-4 sensitive data.
    * 
    * @example
    * 2
@@ -141,14 +120,10 @@ export class CreateRuleRequest extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
+   * The feature type of the rule. Valid values:
    * - **1**: data detection rule.
-   * 
    * - **2**: audit policy.
-   * 
-   * - **3**: anomaly detection rule.
-   * 
+   * - **3**: outlier detection rule.
    * - **99**: custom rule.
    * 
    * @example
@@ -174,10 +149,8 @@ export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the rule. Valid values:
-   * 
-   * - **1**: Enabled.
-   * 
-   * - **0**: Disabled.
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -185,12 +158,9 @@ export class CreateRuleRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of data assets that the rule supports. Valid values:
-   * 
+   * The asset form supported by the rule. Valid values:
    * - **0**: all assets.
-   * 
    * - **1**: structured assets.
-   * 
    * - **2**: unstructured assets.
    * 
    * @example
@@ -199,7 +169,7 @@ export class CreateRuleRequest extends $dara.Model {
   supportForm?: number;
   /**
    * @remarks
-   * The code of the service to which the rule applies. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * The target product code. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
    * 
    * @example
    * MaxCompute
@@ -207,7 +177,7 @@ export class CreateRuleRequest extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The IDs of the template rules for sensitive data auditing.
+   * The collection of template IDs for sensitive data auditing.
    * 
    * @example
    * 1
@@ -216,12 +186,9 @@ export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
-   * - **1**: Low.
-   * 
-   * - **2**: Medium.
-   * 
-   * - **3**: High.
+   * - **1**: low.
+   * - **2**: medium.
+   * - **3**: high.
    * 
    * @example
    * 2

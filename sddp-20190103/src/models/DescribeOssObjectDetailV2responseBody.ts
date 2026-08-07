@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data tag for the detection model.
-   * 
-   * - **101**: Personal sensitive information.
-   * 
-   * - **102**: Personal information.
-   * 
-   * - **103**: Important data.
+   * The data tag ID of the detection model. Valid values:
+   * - **101**: personal sensitive information.
+   * - **102**: personal information.
+   * - **103**: important data.
    * 
    * @example
    * 101
@@ -19,12 +16,9 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTa
   id?: number;
   /**
    * @remarks
-   * The name of the data tag for the detection model.
-   * 
+   * The data tag name of the detection model. Valid values:
    * - Personal sensitive information.
-   * 
    * - Personal information.
-   * 
    * - Important data.
    * 
    * @example
@@ -65,7 +59,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   categoryName?: string;
   /**
    * @remarks
-   * The number of times the sensitive data detection rule was matched.
+   * The number of times the sensitive data detection rule is hit.
    * 
    * @example
    * 2
@@ -73,22 +67,17 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   count?: number;
   /**
    * @remarks
-   * A list of tags for the detection model.
+   * The list of data tags.
    */
   modelTags?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags[];
   /**
    * @remarks
-   * The ID of the risk level that is specified in the rule.
-   * 
-   * - **1**: N/A
-   * 
-   * - **2**: S1
-   * 
-   * - **3**: S2
-   * 
-   * - **4**: S3
-   * 
-   * - **5**: S4
+   * The risk level ID of the OSS storage object. Valid values:
+   * - **1**: No sensitive data is detected.
+   * - **2**: Level 1 sensitive data.
+   * - **3**: Level 2 sensitive data.
+   * - **4**: Level 3 sensitive data.
+   * - **5**: Level 4 sensitive data.
    * 
    * @example
    * 3
@@ -96,7 +85,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the risk level that is specified in the rule.
+   * The risk level name of the OSS storage object.
    * 
    * @example
    * S2
@@ -104,7 +93,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
   riskLevelName?: string;
   /**
    * @remarks
-   * The name of the matched sensitive data detection rule.
+   * The name of the sensitive data detection rule that is hit.
    * 
    * @example
    * ID card number
@@ -147,7 +136,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
 export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.Model {
   /**
    * @remarks
-   * The name of the bucket that stores the OSS object.
+   * The name of the bucket to which the OSS storage object belongs.
    * 
    * @example
    * sddp-api-scan-demo
@@ -171,7 +160,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   fileCategoryName?: string;
   /**
    * @remarks
-   * The unique ID of the object.
+   * The unique ID of the column object.
    * 
    * @example
    * 1757262735738932224
@@ -179,13 +168,10 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   id?: string;
   /**
    * @remarks
-   * The data tags, separated by commas. Example: 101,102. Valid values:
-   * 
-   * - **101**: Personal sensitive information.
-   * 
-   * - **102**: Personal information.
-   * 
-   * - **107**: General information.
+   * The data tags, separated by commas, such as 101,102. Valid values:
+   * - **101**: personal sensitive information.
+   * - **102**: personal information.
+   * - **107**: general information.
    * 
    * @example
    * 101,102
@@ -193,7 +179,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   modelTagIds?: string;
   /**
    * @remarks
-   * The name of the OSS object.
+   * The name of the OSS storage object.
    * 
    * @example
    * dir1/test.png
@@ -201,7 +187,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   name?: string;
   /**
    * @remarks
-   * The access control list (ACL) of the object.
+   * The ACL of the file object.
    * 
    * @example
    * private
@@ -209,7 +195,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   objectAcl?: string;
   /**
    * @remarks
-   * The ID of the region where the OSS object is stored.
+   * The region ID of the OSS storage object.
    * 
    * @example
    * cn-hangzhou
@@ -217,19 +203,14 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   regionId?: string;
   /**
    * @remarks
-   * The ID of the risk level of the data asset. Valid values:
-   * 
+   * The risk level ID of the column data in the data asset table. Valid values:
    * - **1**: N/A.
-   * 
    * - **2**: S1.
-   * 
    * - **3**: S2.
-   * 
    * - **4**: S3.
-   * 
    * - **5**: S4.
    * 
-   * > A return value of 1 or less indicates N/A.
+   * > A return value less than or equal to 1 indicates N/A.
    * 
    * @example
    * 4
@@ -237,7 +218,7 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the risk level of the OSS object.
+   * The risk level name of the OSS storage object.
    * 
    * @example
    * S2
@@ -245,12 +226,12 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
   riskLevelName?: string;
   /**
    * @remarks
-   * The list of sensitive data detection rules that the OSS object matches.
+   * The list of sensitive data detection rules that the OSS storage object hits.
    */
   ruleList?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList[];
   /**
    * @remarks
-   * The size of the file in bytes.
+   * The file size. Unit: bytes.
    * 
    * @example
    * 1024
@@ -305,12 +286,12 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.
 export class DescribeOssObjectDetailV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the OSS object.
+   * The details of the OSS storage object.
    */
   ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
   /**
    * @remarks
-   * The ID of the request. Use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * 769FB3C1-F4C9-42DF-9B72-7077A8989C13

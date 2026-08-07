@@ -43,6 +43,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
    * 2
    */
   domainId?: number;
+  engineType?: string;
   /**
    * @remarks
    * This parameter is deprecated.
@@ -316,6 +317,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       dbName: 'DbName',
       domainId: 'DomainId',
+      engineType: 'EngineType',
       featureType: 'FeatureType',
       fileCategoryCode: 'FileCategoryCode',
       fileType: 'FileType',
@@ -351,6 +353,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
       currentPage: 'number',
       dbName: 'string',
       domainId: 'number',
+      engineType: 'string',
       featureType: 'number',
       fileCategoryCode: 'number',
       fileType: 'number',

@@ -6,9 +6,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The audit authorization status. Valid values:
-   * 
    * - **1**: Authorized.
-   * 
    * - **0**: Unauthorized.
    * 
    * @example
@@ -17,10 +15,8 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * The authorization status of the data asset instance.
-   * 
+   * The authorization status of the data asset instance. Valid values:
    * - **0**: Unauthorized.
-   * 
    * - **1**: Authorized.
    * 
    * @example
@@ -45,7 +41,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * The type of the connection node. This parameter is valid only for MongoDB assets.
+   * The connection node type. This parameter is valid only for the MongoDB Asset Type.
    * 
    * @example
    * Primary
@@ -53,7 +49,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   connectNode?: string;
   /**
    * @remarks
-   * The number of databases in the instance.
+   * The number of databases under the instance.
    * 
    * @example
    * 3
@@ -61,17 +57,12 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   dbNum?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
-   * 
-   * - **MySQL**.
-   * 
-   * - **MariaDB**.
-   * 
-   * - **Oracle**.
-   * 
-   * - **PostgreSQL**.
-   * 
-   * - **SQLServer**.
+   * The engine type. Valid values:
+   * - **MySQL**
+   * - **MariaDB**
+   * - **Oracle**
+   * - **PostgreSQL**
+   * - **SQLServer**
    * 
    * @example
    * MySQL
@@ -95,7 +86,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The storage space of the instance. This parameter is valid only for OSS assets. Unit: bytes.
+   * The storage size of the instance. This parameter is valid only for the OSS Asset Type. Unit: bytes.
    * 
    * @example
    * 409600
@@ -103,24 +94,16 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   instanceSize?: number;
   /**
    * @remarks
-   * The name of the region. The following list describes the valid values:
+   * The region name. Valid values:
    * 
    * - **China (Hangzhou)**
-   * 
    * - **China (Shanghai)**
-   * 
    * - **China (Beijing)**
-   * 
    * - **China (Zhangjiakou)**
-   * 
    * - **China (Shenzhen)**
-   * 
    * - **China (Guangzhou)**
-   * 
-   * - **China (Hong Kong)**
-   * 
+   * - **Hong Kong (China)**
    * - **Singapore**
-   * 
    * - **US (Silicon Valley)**
    * 
    * @example
@@ -129,7 +112,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts.
    * 
    * @example
    * **********8103
@@ -137,7 +120,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The identifier of the authorized asset. If the asset is structured data, the identifier is in the format of \\`Instance ID.Database name\\`.
+   * The identifier of the authorized asset. For structured data, the identifier is in the format of instance ID.database name.
    * 
    * @example
    * rm-******xxx.**st
@@ -153,30 +136,18 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the asset type. Valid values:
-   * 
+   * The asset type name. Valid values:
    * - **MaxCompute**
-   * 
    * - **OSS**
-   * 
    * - **ADB-MYSQL**
-   * 
    * - **TableStore**
-   * 
    * - **RDS**
-   * 
    * - **SelfDB**
-   * 
    * - **PolarDB-X**
-   * 
    * - **PolarDB**
-   * 
    * - **ADB-PG**
-   * 
    * - **OceanBase**
-   * 
    * - **MongoDB**
-   * 
    * - **Redis**
    * 
    * @example
@@ -185,7 +156,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The supported connection nodes. Multiple nodes are separated by commas.
+   * The supported connection nodes. Multiple nodes are separated by commas (,).
    * 
    * @example
    * Primary,Secondary
@@ -209,7 +180,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * The number of unconnected databases in the instance.
+   * The number of unconnected databases under the instance.
    * 
    * @example
    * 1
@@ -285,7 +256,7 @@ export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
 export class DescribeParentInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page. Default value: **1**.
+   * The page number of the current page when paging is used. Default value: **1**.
    * 
    * @example
    * 1
@@ -293,12 +264,12 @@ export class DescribeParentInstanceResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of queried data assets.
+   * The list of data assets returned.
    */
   items?: DescribeParentInstanceResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of data asset instances returned on each page. Default value: **10**.
+   * The maximum number of data asset instances displayed per page when paging is used. Default value: **10**.
    * 
    * @example
    * 10
@@ -306,7 +277,7 @@ export class DescribeParentInstanceResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ACEF9334-BB50-525D-8CF3-6CF504E4D1B3

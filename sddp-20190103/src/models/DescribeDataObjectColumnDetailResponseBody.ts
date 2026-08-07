@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data label. Valid values:
-   * 
-   * - **101**: Personal sensitive information
-   * 
-   * - **102**: Personal information
-   * 
-   * - **107**: General information
+   * The ID that corresponds to the data tag name. Valid values:
+   * - **101**: personal sensitive information
+   * - **102**: personal information
+   * - **107**: general information
    * 
    * @example
    * 101
@@ -19,13 +16,10 @@ export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $d
   id?: number;
   /**
    * @remarks
-   * The name of the data label. Valid values:
-   * 
-   * - **Personal sensitive information**
-   * 
-   * - **Personal information**
-   * 
-   * - **General information**
+   * The data tag name. Valid values:
+   * - **101**: personal sensitive information
+   * - **102**: personal information
+   * - **107**: general information
    * 
    * @example
    * personal sensitive information
@@ -57,12 +51,12 @@ export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $d
 export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The industry-specific data classifications.
+   * The list of industry categories to which the sensitive data belongs.
    */
   categories?: string[];
   /**
    * @remarks
-   * The comment on the column.
+   * The comment of the column.
    * 
    * @example
    * column comment
@@ -70,7 +64,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   columnComment?: string;
   /**
    * @remarks
-   * The name of the column.
+   * The column name.
    * 
    * @example
    * hide14
@@ -86,16 +80,11 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   dataType?: string;
   /**
    * @remarks
-   * The type of the database engine. Valid values:
-   * 
+   * The engine type. Valid values:
    * - **MySQL**
-   * 
    * - **MariaDB**
-   * 
    * - **Oracle**
-   * 
    * - **PostgreSQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -104,7 +93,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   engineType?: string;
   /**
    * @remarks
-   * The ID of the column.
+   * The unique ID of the column object.
    * 
    * @example
    * 1509415150052786176
@@ -112,7 +101,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * The name of the instance where the table is located.
+   * The instance name of the data asset table.
    * 
    * @example
    * rm-1234
@@ -120,13 +109,13 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   instanceName?: string;
   /**
    * @remarks
-   * The data masking status of the column. Valid values:
+   * The encryption status of the column. Valid values:
    * 
-   * - **-1**: Not masked
+   * - **-1**: Not encrypted.
    * 
-   * - **1**: Masked
+   * - **1**: Encrypted.
    * 
-   * - **2**: Masking failed
+   * - **2**: Encryption failed.
    * 
    * @example
    * -1
@@ -134,7 +123,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   maskingStatus?: number;
   /**
    * @remarks
-   * The data labels.
+   * The list of data tags.
    */
   modelTags?: DescribeDataObjectColumnDetailResponseBodyItemsModelTags[];
   /**
@@ -142,7 +131,6 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
    * Indicates whether the column is a primary key. Valid values:
    * 
    * - **true**: The column is a primary key.
-   * 
    * - **false**: The column is not a primary key.
    * 
    * @example
@@ -151,30 +139,18 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   primaryKey?: boolean;
   /**
    * @remarks
-   * The ID of the service to which the data object belongs. Valid values:
-   * 
+   * The ID of the product to which the data object belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADB-MYSQL
-   * 
-   * - **4**: Tablestore
-   * 
+   * - **4**: TableStore
    * - **5**: RDS
-   * 
    * - **6**: SELF_DB
-   * 
    * - **7**: PolarDB-X
-   * 
    * - **8**: PolarDB
-   * 
    * - **9**: ADB-PG
-   * 
    * - **10**: OceanBase
-   * 
    * - **11**: MongoDB
-   * 
    * - **25**: Redis
    * 
    * @example
@@ -183,7 +159,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   productId?: number;
   /**
    * @remarks
-   * The ID of the region where the data asset is located.
+   * The region where the asset resides.
    * 
    * @example
    * cn-hangzhou
@@ -191,17 +167,12 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level. Valid values:
-   * 
-   * - **1**: N/A
-   * 
-   * - **2**: S1
-   * 
-   * - **3**: S2
-   * 
-   * - **4**: S3
-   * 
-   * - **5**: S4
+   * The risk level ID. Valid values:
+   * - **1**: N/A. No sensitive data is detected.
+   * - **2**: S1. Level 1 sensitive data.
+   * - **3**: S2. Level 2 sensitive data.
+   * - **4**: S3. Level 3 sensitive data.
+   * - **5**: S4. Level 4 sensitive data.
    * 
    * @example
    * 2
@@ -209,17 +180,12 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   riskLevelId?: number;
   /**
    * @remarks
-   * The name of the sensitivity level. Valid values:
-   * 
-   * - **N/A**
-   * 
-   * - **S1**
-   * 
-   * - **S2**
-   * 
-   * - **S3**
-   * 
-   * - **S4**
+   * The risk level name. Valid values:
+   * - **N/A**: No sensitive data is detected.
+   * - **S1**: Level 1 sensitive data.
+   * - **S2**: Level 2 sensitive data.
+   * - **S3**: Level 3 sensitive data.
+   * - **S4**: Level 4 sensitive data.
    * 
    * @example
    * S1
@@ -227,7 +193,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   riskLevelName?: string;
   /**
    * @remarks
-   * The ID of the sensitive data detection rule that was matched.
+   * The ID of the sensitive data detection rule that is hit.
    * 
    * @example
    * 1004
@@ -235,7 +201,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   ruleId?: number;
   /**
    * @remarks
-   * The name of the sensitive data detection rule that was matched.
+   * The name of the sensitive data detection rule that is hit.
    * 
    * @example
    * name
@@ -243,7 +209,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * it_table
@@ -311,7 +277,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model
 export class DescribeDataObjectColumnDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paged query. Settings this parameter for paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -319,12 +285,12 @@ export class DescribeDataObjectColumnDetailResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The details of the columns.
+   * The list of column detection results of the data table.
    */
   items?: DescribeDataObjectColumnDetailResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The maximum number of data asset instances to display on each page in a paged query. Settings this parameter for paging. Default value: **10**.
    * 
    * @example
    * 10
@@ -332,7 +298,7 @@ export class DescribeDataObjectColumnDetailResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 8C8036CC-961D-514E-88E8-3088B5A50CA9
@@ -340,7 +306,7 @@ export class DescribeDataObjectColumnDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 61

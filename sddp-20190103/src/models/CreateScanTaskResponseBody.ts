@@ -13,7 +13,7 @@ export class CreateScanTaskResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0

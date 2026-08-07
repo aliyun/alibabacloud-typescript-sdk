@@ -15,6 +15,9 @@ export default class Client extends OpenApi {
     this._endpointMap = {
       'cn-hongkong': "sddp-api.cn-hongkong.aliyuncs.com",
       'cn-zhangjiakou': "sddp.cn-zhangjiakou.aliyuncs.com",
+      'cn-shanghai': "sddp.cn-shanghai.aliyuncs.com",
+      'cn-hangzhou': "sddp.cn-hangzhou.aliyuncs.com",
+      'ap-southeast-5': "sddp.ap-southeast-5.aliyuncs.com",
       'ap-southeast-1': "sddp.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
@@ -107,12 +110,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateDataLimit operation to grant permissions to scan databases, projects, and buckets.
+   * Creates a scan authorization for a database, project, or Object Storage Service (OSS) bucket.
    * 
    * @remarks
-   * You can use this operation to grant permissions to scan your data assets. This helps improve the security of your data assets.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, the system throttles your API calls. This may affect your business. Plan your calls accordingly.
+   * This operation is used to authorize scanning of data assets to further protect the data security of your data assets.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - CreateDataLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -215,12 +218,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateDataLimit operation to grant permissions to scan databases, projects, and buckets.
+   * Creates a scan authorization for a database, project, or Object Storage Service (OSS) bucket.
    * 
    * @remarks
-   * You can use this operation to grant permissions to scan your data assets. This helps improve the security of your data assets.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, the system throttles your API calls. This may affect your business. Plan your calls accordingly.
+   * This operation is used to authorize scanning of data assets to further protect the data security of your data assets.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - CreateDataLimitRequest
    * @returns CreateDataLimitResponse
@@ -231,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call CreateRule to create a custom sensitive data detection rule.
+   * Creates a custom sensitive data detection rule by calling CreateRule.
    * 
    * @param request - CreateRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -334,7 +337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call CreateRule to create a custom sensitive data detection rule.
+   * Creates a custom sensitive data detection rule by calling CreateRule.
    * 
    * @param request - CreateRuleRequest
    * @returns CreateRuleResponse
@@ -345,12 +348,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateScanTask operation to create a custom scan task to detect sensitive data in authorized assets.
+   * Calls the CreateScanTask operation to create a custom scan task for detecting sensitive data in assets that have been successfully authorized for detection.
    * 
    * @remarks
-   * This operation creates custom scan tasks for authorized assets. You can control the run interval and runtime of each scan task.
-   * ## QPS limits
-   * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, API calls are throttled. This may impact your business. Plan your calls accordingly.
+   * This operation is applicable to users who want to create custom scan tasks for authorized assets. It allows users to flexibly control the interval between scan tasks and the runtime of each scan task.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - CreateScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -429,12 +432,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the CreateScanTask operation to create a custom scan task to detect sensitive data in authorized assets.
+   * Calls the CreateScanTask operation to create a custom scan task for detecting sensitive data in assets that have been successfully authorized for detection.
    * 
    * @remarks
-   * This operation creates custom scan tasks for authorized assets. You can control the run interval and runtime of each scan task.
-   * ## QPS limits
-   * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If you exceed this limit, API calls are throttled. This may impact your business. Plan your calls accordingly.
+   * This operation is applicable to users who want to create custom scan tasks for authorized assets. It allows users to flexibly control the interval between scan tasks and the runtime of each scan task.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - CreateScanTaskRequest
    * @returns CreateScanTaskResponse
@@ -509,12 +512,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the scan authorization for a data asset, such as a database, instance, or bucket.
+   * Deletes authorized data assets such as databases, instances, or buckets from connection authorization.
    * 
    * @remarks
-   * This operation is typically used to revoke authorization for data assets. This helps you manage data access permissions.
+   * This operation is used to revoke authorization for data assets that a user has authorized, facilitating authorization management.
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you call this operation within this limit.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DeleteDataLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -557,12 +560,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the scan authorization for a data asset, such as a database, instance, or bucket.
+   * Deletes authorized data assets such as databases, instances, or buckets from connection authorization.
    * 
    * @remarks
-   * This operation is typically used to revoke authorization for data assets. This helps you manage data access permissions.
+   * This operation is used to revoke authorization for data assets that a user has authorized, facilitating authorization management.
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you call this operation within this limit.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DeleteDataLimitRequest
    * @returns DeleteDataLimitResponse
@@ -787,7 +790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists industry-specific templates.
+   * Queries the list of industry templates.
    * 
    * @param request - DescribeCategoryTemplateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -834,7 +837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists industry-specific templates.
+   * Queries the list of industry templates.
    * 
    * @param request - DescribeCategoryTemplateListRequest
    * @returns DescribeCategoryTemplateListResponse
@@ -917,14 +920,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DescribeColumns API to query column data in data asset tables, such as MaxCompute and RDS, that are authorized to connect to Data Security Center.
+   * Queries column data in data asset tables, such as MaxCompute and ApsaraDB RDS tables, that are authorized for connection by Data Security Center.
    * 
    * @remarks
-   * This API is typically used to view column data in sensitive data asset information tables. This helps users accurately analyze sensitive data.
+   * This operation is used to view column data in sensitive data asset tables, which helps you accurately analyze sensitive data.
    * ## Notes
-   * The DescribeColumns API has been revised and replaced by DescribeColumnsV2. Use the newer DescribeColumnsV2 version when developing applications.
-   * ## QPS Limits
-   * The single-user QPS limit for this API is 10 calls per second. If you exceed this limit, API calls will be rate-limited. This may affect your business. You should call the API reasonably.
+   * The DescribeColumns operation has been revised to DescribeColumnsV2. Use the newer version DescribeColumnsV2 when developing applications.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1027,14 +1030,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DescribeColumns API to query column data in data asset tables, such as MaxCompute and RDS, that are authorized to connect to Data Security Center.
+   * Queries column data in data asset tables, such as MaxCompute and ApsaraDB RDS tables, that are authorized for connection by Data Security Center.
    * 
    * @remarks
-   * This API is typically used to view column data in sensitive data asset information tables. This helps users accurately analyze sensitive data.
+   * This operation is used to view column data in sensitive data asset tables, which helps you accurately analyze sensitive data.
    * ## Notes
-   * The DescribeColumns API has been revised and replaced by DescribeColumnsV2. Use the newer DescribeColumnsV2 version when developing applications.
-   * ## QPS Limits
-   * The single-user QPS limit for this API is 10 calls per second. If you exceed this limit, API calls will be rate-limited. This may affect your business. You should call the API reasonably.
+   * The DescribeColumns operation has been revised to DescribeColumnsV2. Use the newer version DescribeColumnsV2 when developing applications.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - DescribeColumnsRequest
    * @returns DescribeColumnsResponse
@@ -1045,7 +1048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The DescribeColumnsV2 operation queries data in the columns of data asset tables, such as those in MaxCompute and RDS, that are authorized in Data Security Center.
+   * Queries column data in data asset tables, such as MaxCompute and ApsaraDB RDS tables, that are connected to and authorized by Data Security Center.
    * 
    * @param request - DescribeColumnsV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1128,7 +1131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The DescribeColumnsV2 operation queries data in the columns of data asset tables, such as those in MaxCompute and RDS, that are authorized in Data Security Center.
+   * Queries column data in data asset tables, such as MaxCompute and ApsaraDB RDS tables, that are connected to and authorized by Data Security Center.
    * 
    * @param request - DescribeColumnsV2Request
    * @returns DescribeColumnsV2Response
@@ -1399,7 +1402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data assets for authorized instances, databases, and buckets.
+   * Queries the list of data assets, including authorized instances, databases, and buckets.
    * 
    * @param request - DescribeDataLimitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1486,7 +1489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data assets for authorized instances, databases, and buckets.
+   * Queries the list of data assets, including authorized instances, databases, and buckets.
    * 
    * @param request - DescribeDataLimitsRequest
    * @returns DescribeDataLimitsResponse
@@ -1497,12 +1500,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call DescribeDataMaskingRunHistory to query the execution history of data masking tasks.
+   * Queries the execution history of data masking tasks.
    * 
    * @remarks
-   * This operation retrieves the execution history of static data masking tasks. You can use it to search for task statuses and view task progress.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
+   * This operation is used to retrieve the execution status of static data masking tasks, allowing you to search for task statuses and view task progress.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeDataMaskingRunHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1573,12 +1576,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call DescribeDataMaskingRunHistory to query the execution history of data masking tasks.
+   * Queries the execution history of data masking tasks.
    * 
    * @remarks
-   * This operation retrieves the execution history of static data masking tasks. You can use it to search for task statuses and view task progress.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user on this operation is 10 calls per second. Calls that exceed this limit are throttled. This may affect your business. Plan your calls accordingly.
+   * This operation is used to retrieve the execution status of static data masking tasks, allowing you to search for task statuses and view task progress.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeDataMaskingRunHistoryRequest
    * @returns DescribeDataMaskingRunHistoryResponse
@@ -1589,12 +1592,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call DescribeDataMaskingTasks to retrieve a list of data masking tasks.
+   * Queries the list of static data masking tasks.
    * 
    * @remarks
-   * This operation retrieves a list of static data masking tasks, which you can then search and manage.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
+   * This operation is used to retrieve the list of static data masking tasks for search and task management purposes.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeDataMaskingTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1649,12 +1652,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call DescribeDataMaskingTasks to retrieve a list of data masking tasks.
+   * Queries the list of static data masking tasks.
    * 
    * @remarks
-   * This operation retrieves a list of static data masking tasks, which you can then search and manage.
-   * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls are throttled, which may affect your business. We recommend that you call this operation at a reasonable rate.
+   * This operation is used to retrieve the list of static data masking tasks for search and task management purposes.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeDataMaskingTasksRequest
    * @returns DescribeDataMaskingTasksResponse
@@ -1665,11 +1668,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results for columns in a data table.
+   * Queries the column detection results of a data table.
    * 
    * @remarks
-   * ## Notes
-   * The DescribeDataObjectColumnDetail operation has been updated to DescribeDataObjectColumnDetailV2. We recommend that you use the latest version, DescribeDataObjectColumnDetailV2, for application development.
+   * ## Before you begin
+   * The DescribeDataObjectColumnDetail operation has been revised to DescribeDataObjectColumnDetailV2. Use the newer version DescribeDataObjectColumnDetailV2 when developing applications.
    * 
    * @param request - DescribeDataObjectColumnDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1724,11 +1727,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results for columns in a data table.
+   * Queries the column detection results of a data table.
    * 
    * @remarks
-   * ## Notes
-   * The DescribeDataObjectColumnDetail operation has been updated to DescribeDataObjectColumnDetailV2. We recommend that you use the latest version, DescribeDataObjectColumnDetailV2, for application development.
+   * ## Before you begin
+   * The DescribeDataObjectColumnDetail operation has been revised to DescribeDataObjectColumnDetailV2. Use the newer version DescribeDataObjectColumnDetailV2 when developing applications.
    * 
    * @param request - DescribeDataObjectColumnDetailRequest
    * @returns DescribeDataObjectColumnDetailResponse
@@ -1739,7 +1742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results for the columns of a data table.
+   * Queries the column detection results of a data table.
    * 
    * @param request - DescribeDataObjectColumnDetailV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1794,7 +1797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detection results for the columns of a data table.
+   * Queries the column detection results of a data table.
    * 
    * @param request - DescribeDataObjectColumnDetailV2Request
    * @returns DescribeDataObjectColumnDetailV2Response
@@ -1837,6 +1840,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainId)) {
       query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.engineType)) {
+      query["EngineType"] = request.engineType;
     }
 
     if (!$dara.isNull(request.featureType)) {
@@ -1973,7 +1980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of file types supported by Object Storage Service (OSS).
+   * Queries the list of OSS file types that can be detected.
    * 
    * @param request - DescribeDocTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2004,7 +2011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of file types supported by Object Storage Service (OSS).
+   * Queries the list of OSS file types that can be detected.
    * 
    * @param request - DescribeDocTypesRequest
    * @returns DescribeDocTypesResponse
@@ -2015,7 +2022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an anomalous event, including its occurrence time, description, and handling status.
+   * Queries the details of a single anomalous activity, including the time when the anomalous activity occurred, the anomaly description, and the handling status.
    * 
    * @param request - DescribeEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2050,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an anomalous event, including its occurrence time, description, and handling status.
+   * Queries the details of a single anomalous activity, including the time when the anomalous activity occurred, the anomaly description, and the handling status.
    * 
    * @param request - DescribeEventDetailRequest
    * @returns DescribeEventDetailResponse
@@ -2231,11 +2238,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the completion status of a detection task based on the task ID. You can obtain the task ID from the Id field in the return value of a CreateScanTask or ScanOssObjectV1 API call.
+   * Queries the completion status of a detection task by task ID. You can obtain the task ID from the ID field in the response of the CreateScanTask or ScanOssObjectV1 operation.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeIdentifyTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2262,11 +2269,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the completion status of a detection task based on the task ID. You can obtain the task ID from the Id field in the return value of a CreateScanTask or ScanOssObjectV1 API call.
+   * Queries the completion status of a detection task by task ID. You can obtain the task ID from the ID field in the response of the CreateScanTask or ScanOssObjectV1 operation.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 for each user. If you exceed the limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
    * 
    * @param request - DescribeIdentifyTaskStatusRequest
    * @returns DescribeIdentifyTaskStatusResponse
@@ -2379,12 +2386,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of authorized MaxCompute, RDS, and OSS data asset instances.
+   * Retrieves the list of data asset instances for authorized MaxCompute, ApsaraDB RDS, and OSS connections.
    * 
    * @remarks
-   * When you call the DescribeInstances operation, you can set parameters such as search keywords and the threat level of data asset instances to retrieve a list of instances that meet your requirements.
+   * When you call the DescribeInstances operation, you can set parameters such as search keywords and risk levels of data asset instances to retrieve a list of data asset instances that meet the specified conditions.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user for this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This can affect your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2451,12 +2458,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of authorized MaxCompute, RDS, and OSS data asset instances.
+   * Retrieves the list of data asset instances for authorized MaxCompute, ApsaraDB RDS, and OSS connections.
    * 
    * @remarks
-   * When you call the DescribeInstances operation, you can set parameters such as search keywords and the threat level of data asset instances to retrieve a list of instances that meet your requirements.
+   * When you call the DescribeInstances operation, you can set parameters such as search keywords and risk levels of data asset instances to retrieve a list of data asset instances that meet the specified conditions.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user for this operation is 10 calls per second. If you exceed this limit, API calls are throttled. This can affect your business. Plan your calls accordingly.
+   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as needed.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -2467,14 +2474,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains detailed information about an authorized OSS object in Data Security Center.
+   * Queries the details of a single OSS storage object that is authorized for connection in Data Security Center.
    * 
    * @remarks
-   * This operation is typically used to query the details of OSS objects. This information helps you accurately locate sensitive data assets in OSS.
-   * ## Usage notes
-   * The DescribeOssObjectDetail operation has been updated to DescribeOssObjectDetailV2. We recommend that you use the new version, DescribeOssObjectDetailV2, when you develop applications.
-   * ## QPS limit
-   * A single user can make up to 10 queries per second (QPS). If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+   * This operation is used to query the details of an OSS storage object, which helps you accurately locate sensitive asset information in OSS.
+   * ## Before you begin
+   * The DescribeOssObjectDetail operation has been revised to DescribeOssObjectDetailV2. Use the newer version DescribeOssObjectDetailV2 when developing applications.
+   * ## Rate limit
+   * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeOssObjectDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2509,14 +2516,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains detailed information about an authorized OSS object in Data Security Center.
+   * Queries the details of a single OSS storage object that is authorized for connection in Data Security Center.
    * 
    * @remarks
-   * This operation is typically used to query the details of OSS objects. This information helps you accurately locate sensitive data assets in OSS.
-   * ## Usage notes
-   * The DescribeOssObjectDetail operation has been updated to DescribeOssObjectDetailV2. We recommend that you use the new version, DescribeOssObjectDetailV2, when you develop applications.
-   * ## QPS limit
-   * A single user can make up to 10 queries per second (QPS). If you exceed the limit, API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+   * This operation is used to query the details of an OSS storage object, which helps you accurately locate sensitive asset information in OSS.
+   * ## Before you begin
+   * The DescribeOssObjectDetail operation has been revised to DescribeOssObjectDetailV2. Use the newer version DescribeOssObjectDetailV2 when developing applications.
+   * ## Rate limit
+   * The single-user queries per second (QPS) limit for this operation is 10. If the number of calls exceeds the limit, throttling is triggered, which may affect your business. Call this operation as appropriate.
    * 
    * @param request - DescribeOssObjectDetailRequest
    * @returns DescribeOssObjectDetailResponse
@@ -2527,10 +2534,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains detailed information about an authorized OSS object in Data Security Center.
+   * Queries the details of a single storage object in OSS that is authorized for connection to Data Security Center.
    * 
    * @remarks
-   * This operation queries the details of OSS objects. You can use this operation to locate sensitive data assets in OSS.
+   * This operation is used to query the details of an OSS storage object, which helps you accurately locate sensitive asset information in OSS.
    * 
    * @param request - DescribeOssObjectDetailV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2581,10 +2588,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains detailed information about an authorized OSS object in Data Security Center.
+   * Queries the details of a single storage object in OSS that is authorized for connection to Data Security Center.
    * 
    * @remarks
-   * This operation queries the details of OSS objects. You can use this operation to locate sensitive data assets in OSS.
+   * This operation is used to query the details of an OSS storage object, which helps you accurately locate sensitive asset information in OSS.
    * 
    * @param request - DescribeOssObjectDetailV2Request
    * @returns DescribeOssObjectDetailV2Response
@@ -2765,7 +2772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists assets and their authorization status.
+   * Queries the list of authorized or unauthorized assets.
    * 
    * @param request - DescribeParentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2840,7 +2847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists assets and their authorization status.
+   * Queries the list of authorized or unauthorized assets.
    * 
    * @param request - DescribeParentInstanceRequest
    * @returns DescribeParentInstanceResponse
@@ -3175,12 +3182,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a user account.
+   * Queries the status of a user account by calling DescribeUserStatus.
    * 
    * @remarks
-   * Retrieves information about the current account, such as your usage of Data Security Center (DSC).
+   * Queries information about the current logon account. This helps you gain a comprehensive understanding of the effectiveness of Data Security Center (DSC).
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeUserStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3215,12 +3222,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a user account.
+   * Queries the status of a user account by calling DescribeUserStatus.
    * 
    * @remarks
-   * Retrieves information about the current account, such as your usage of Data Security Center (DSC).
+   * Queries information about the current logon account. This helps you gain a comprehensive understanding of the effectiveness of Data Security Center (DSC).
    * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Call this operation at a reasonable frequency.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - DescribeUserStatusRequest
    * @returns DescribeUserStatusResponse
@@ -3231,12 +3238,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DisableUserConfig operation to disable a user configuration. After a configuration is disabled, you can call the CreateConfig operation and specify the same Code parameter to restore the general anomaly alert configuration.
+   * Calls the DisableUserConfig operation to disable a user configuration. After the user configuration is disabled, you can call the CreateConfig operation with the same request parameter Code to restore the anomaly alert general configuration for the configuration item.
    * 
    * @remarks
-   * This operation disables a user configuration based on the code of a configuration item in the general anomaly alert configuration module. This lets you promptly change the status of the user configuration.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled. Throttling may impact your business. Plan your calls accordingly.
+   * This operation is used to disable a user configuration based on the code of a configuration item in the anomaly alert general configuration module, allowing you to promptly modify the effective status of the user configuration.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DisableUserConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3275,12 +3282,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DisableUserConfig operation to disable a user configuration. After a configuration is disabled, you can call the CreateConfig operation and specify the same Code parameter to restore the general anomaly alert configuration.
+   * Calls the DisableUserConfig operation to disable a user configuration. After the user configuration is disabled, you can call the CreateConfig operation with the same request parameter Code to restore the anomaly alert general configuration for the configuration item.
    * 
    * @remarks
-   * This operation disables a user configuration based on the code of a configuration item in the general anomaly alert configuration module. This lets you promptly change the status of the user configuration.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled. Throttling may impact your business. Plan your calls accordingly.
+   * This operation is used to disable a user configuration based on the code of a configuration item in the anomaly alert general configuration module, allowing you to promptly modify the effective status of the user configuration.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
    * 
    * @param request - DisableUserConfigRequest
    * @returns DisableUserConfigResponse
@@ -3481,7 +3488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call ModifyDataLimit to modify the configuration items of a connection authorization in Data Security Center (DSC).
+   * Modifies the configuration items of a Data Security Center (DSC) connection authorization.
    * 
    * @param request - ModifyDataLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3576,7 +3583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call ModifyDataLimit to modify the configuration items of a connection authorization in Data Security Center (DSC).
+   * Modifies the configuration items of a Data Security Center (DSC) connection authorization.
    * 
    * @param request - ModifyDataLimitRequest
    * @returns ModifyDataLimitResponse
@@ -3587,12 +3594,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the rules that define threat levels for sensitive data. This includes the default threat level for unidentified data and the threat levels for data that is classified as sensitive.
+   * Modifies the risk level definition rules for sensitive data, including the default risk level for unrecognized data and the risk level for data classified as "sensitive".
    * 
    * @remarks
-   * This API modifies the rules that define threat levels for sensitive data to help with threat level planning.
+   * This operation is used to modify the risk level definition rules for sensitive data, which helps you plan risk levels.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. Throttling can impact your business. We recommend that you call this API at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - ModifyDefaultLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3631,12 +3638,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the rules that define threat levels for sensitive data. This includes the default threat level for unidentified data and the threat levels for data that is classified as sensitive.
+   * Modifies the risk level definition rules for sensitive data, including the default risk level for unrecognized data and the risk level for data classified as "sensitive".
    * 
    * @remarks
-   * This API modifies the rules that define threat levels for sensitive data to help with threat level planning.
+   * This operation is used to modify the risk level definition rules for sensitive data, which helps you plan risk levels.
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled. Throttling can impact your business. We recommend that you call this API at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
    * 
    * @param request - ModifyDefaultLevelRequest
    * @returns ModifyDefaultLevelResponse
@@ -3715,7 +3722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables anomalous activity detection for subtypes.
+   * Invokes this operation to enable the feature for detecting anomalous activity events of specified child classes.
    * 
    * @param request - ModifyEventTypeStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3754,7 +3761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables anomalous activity detection for subtypes.
+   * Invokes this operation to enable the feature for detecting anomalous activity events of specified child classes.
    * 
    * @param request - ModifyEventTypeStatusRequest
    * @returns ModifyEventTypeStatusResponse
@@ -3828,9 +3835,9 @@ export default class Client extends OpenApi {
    * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
    * 
    * @remarks
-   * You must specify the rule name, rule ID, and rule content.
-   * ## QPS limits
-   * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * When calling this operation, you must specify the rule name, rule ID, and rule content parameters.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - ModifyRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3916,9 +3923,9 @@ export default class Client extends OpenApi {
    * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
    * 
    * @remarks
-   * You must specify the rule name, rule ID, and rule content.
-   * ## QPS limits
-   * The queries per second (QPS) limit for this operation is 10 calls per second for a single user. If the limit is exceeded, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * When calling this operation, you must specify the rule name, rule ID, and rule content parameters.
+   * ## QPS limit
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
    * 
    * @param request - ModifyRuleRequest
    * @returns ModifyRuleResponse
@@ -3929,7 +3936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables sensitive data detection rules.
+   * Enables or disables the detection feature of a sensitive data detection rule.
    * 
    * @param request - ModifyRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3972,7 +3979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables sensitive data detection rules.
+   * Enables or disables the detection feature of a sensitive data detection rule.
    * 
    * @param request - ModifyRuleStatusRequest
    * @returns ModifyRuleStatusResponse
@@ -3983,11 +3990,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the RestoreOssImage operation to restore desensitized images.
+   * Restores an image that has been masked by calling the RestoreOssImage operation.
    * 
    * @remarks
-   * You can use RestoreOssImage to retrieve the original images that were processed by the MaskOssImage operation if the IsAlwaysUpload parameter is set to `true`.
-   * For example, the image `aliyun_dsc_desensitization/exampledir/test.png` in a bucket is restored and saved as `aliyun_dsc_original/exampledir/test.png`.
+   * For files that were masked by calling MaskOssImage with IsAlwaysUpload set to true, you can call RestoreOssImage to retrieve the original image.
+   * For example, the image aliyun_dsc_desensitization/exampledir/test.png in the bucket is stored as aliyun_dsc_original/exampledir/test.png after restoration.
    * 
    * @param request - RestoreOssImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4034,11 +4041,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the RestoreOssImage operation to restore desensitized images.
+   * Restores an image that has been masked by calling the RestoreOssImage operation.
    * 
    * @remarks
-   * You can use RestoreOssImage to retrieve the original images that were processed by the MaskOssImage operation if the IsAlwaysUpload parameter is set to `true`.
-   * For example, the image `aliyun_dsc_desensitization/exampledir/test.png` in a bucket is restored and saved as `aliyun_dsc_original/exampledir/test.png`.
+   * For files that were masked by calling MaskOssImage with IsAlwaysUpload set to true, you can call RestoreOssImage to retrieve the original image.
+   * For example, the image aliyun_dsc_desensitization/exampledir/test.png in the bucket is stored as aliyun_dsc_original/exampledir/test.png after restoration.
    * 
    * @param request - RestoreOssImageRequest
    * @returns RestoreOssImageResponse

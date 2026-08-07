@@ -196,6 +196,11 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @example
+   * TABLE
+   */
+  engineType?: string;
+  /**
    * @remarks
    * The code for the file category.
    * 
@@ -500,6 +505,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
       comment: 'Comment',
       dataType: 'DataType',
       dbName: 'DbName',
+      engineType: 'EngineType',
       fileCategoryCode: 'FileCategoryCode',
       id: 'Id',
       instanceDescription: 'InstanceDescription',
@@ -542,6 +548,7 @@ export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
       comment: 'string',
       dataType: 'string',
       dbName: 'string',
+      engineType: 'string',
       fileCategoryCode: 'number',
       id: 'string',
       instanceDescription: 'string',

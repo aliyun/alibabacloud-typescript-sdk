@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManualTriggerMaskingProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7C3AC882-E5A8-4855-BE77-B6837B695EF1

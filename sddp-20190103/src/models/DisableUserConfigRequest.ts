@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableUserConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the configuration item in the general anomaly alert configuration module. Call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code.
+   * The code of the configuration item in the anomaly alert general configuration module. You can call [DescribeConfigs](~~DescribeConfigs~~) to obtain the Code of the configuration item.
    * 
    * @example
    * access_failed_cnt
@@ -22,9 +22,7 @@ export class DisableUserConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
    * - **zh_cn**: Chinese. This is the default value.
-   * 
    * - **en_us**: English.
    * 
    * @example

@@ -23,7 +23,9 @@ export class DeleteRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the data asset. Valid values: -**zh**: Chinese -**en**: English
+   * The language of the data asset. Valid values:
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh

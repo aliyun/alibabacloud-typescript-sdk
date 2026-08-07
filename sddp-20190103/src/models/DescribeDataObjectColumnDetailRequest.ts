@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number to return. Default value: **1**.
+   * The page number of the current page in a paged query. Settings this parameter for paging. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The unique ID of the data object that you want to query.
+   * The unique ID of the data object to query.
    * 
-   * > Call the [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) operation to obtain the ID.
+   * > You can call [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) to obtain the ID.
    * 
    * @example
    * 318248
@@ -31,11 +31,9 @@ export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * - **zh_cn**: Chinese
-   * 
-   * - **en_us**: English
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
+   * - **zh_cn**: Chinese.
+   * - **en_us**: English.
    * 
    * @example
    * zh_cn
@@ -43,7 +41,7 @@ export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The maximum number of data asset instances to display on each page in a paged query. Settings this parameter for paging. Default value: **10**.
    * 
    * @example
    * 10
@@ -51,30 +49,18 @@ export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the service to which the data object belongs. Valid values:
-   * 
+   * The ID of the product to which the data object belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADB-MYSQL
-   * 
-   * - **4**: Tablestore
-   * 
+   * - **4**: TableStore
    * - **5**: RDS
-   * 
    * - **6**: SELF_DB
-   * 
    * - **7**: PolarDB-X
-   * 
    * - **8**: PolarDB
-   * 
    * - **9**: ADB-PG
-   * 
    * - **10**: OceanBase
-   * 
    * - **11**: MongoDB
-   * 
    * - **25**: Redis
    * 
    * @example
@@ -83,9 +69,8 @@ export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The ID of the industry-specific template.
-   * 
-   * > Call the [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) operation to obtain the ID of the industry-specific template.
+   * The industry template ID.
+   * > You can call [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) to obtain the industry template ID.
    * 
    * @example
    * 1

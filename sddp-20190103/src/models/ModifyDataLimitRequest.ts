@@ -6,9 +6,7 @@ export class ModifyDataLimitRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auditing. Valid values:
-   * 
    * - **0**: Disable auditing.
-   * 
    * - **1**: Enable auditing.
    * 
    * @example
@@ -17,13 +15,11 @@ export class ModifyDataLimitRequest extends $dara.Model {
   auditStatus?: number;
   /**
    * @remarks
-   * Specifies whether to automatically trigger a rescan when a rule is changed. Valid values:
+   * Specifies whether to automatically trigger a rescan when rules change. Valid values:
+   * - **0**: Do not trigger an automatic scan.
+   * - **1**: Trigger an automatic scan.  
    * 
-   * - **0**: Do not automatically trigger a rescan.
-   * 
-   * - **1**: Automatically trigger a rescan.
-   * 
-   * > If a rescan is automatically triggered, a full scan is performed on the data asset.
+   * > When a rule change triggers an automatic scan, a full scan is performed on all data in the data source.
    * 
    * @example
    * 1
@@ -31,10 +27,8 @@ export class ModifyDataLimitRequest extends $dara.Model {
   autoScan?: number;
   /**
    * @remarks
-   * The type of the database. Valid values:
-   * 
+   * The database type. Valid values:
    * - **MySQL**
-   * 
    * - **SQLServer**
    * 
    * @example
@@ -51,9 +45,8 @@ export class ModifyDataLimitRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The unique ID of the data asset.
-   * 
-   * > Call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+   * The unique ID of the data asset that belongs to the product associated with the DSC connection authorization configuration item.
+   * > To modify a DSC connection authorization configuration item, you must provide the unique ID of the data asset that belongs to the associated product. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -63,10 +56,9 @@ export class ModifyDataLimitRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response messages. Valid values:
    * 
    * - **zh**: Chinese (default)
-   * 
    * - **en**: English
    * 
    * @example
@@ -76,13 +68,9 @@ export class ModifyDataLimitRequest extends $dara.Model {
   /**
    * @remarks
    * The retention period of raw logs after auditing is enabled. Unit: days. Valid values:
-   * 
    * - **30**
-   * 
    * - **90**
-   * 
    * - **180**
-   * 
    * - **365**
    * 
    * @example
@@ -91,11 +79,9 @@ export class ModifyDataLimitRequest extends $dara.Model {
   logStoreDay?: number;
   /**
    * @remarks
-   * Specifies whether to modify the username and password that are used to connect to the database. Valid values:
-   * 
-   * - **true**: Modify the username and password.
-   * 
-   * - **false**: Do not modify the username and password.
+   * Specifies whether to modify the username and password for connecting to the database. Valid values:
+   * - **true**: Modify.
+   * - **false**: Do not modify.
    * 
    * @example
    * true
@@ -103,7 +89,7 @@ export class ModifyDataLimitRequest extends $dara.Model {
   modifyPassword?: boolean;
   /**
    * @remarks
-   * The password for the ApsaraDB RDS database.
+   * The password used for the DSC connection authorization to the RDS database.
    * 
    * @example
    * ********
@@ -119,16 +105,11 @@ export class ModifyDataLimitRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The service to which the data asset belongs. Valid values:
-   * 
+   * The name of the product to which the data of the DSC connection authorization configuration item belongs. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADS
-   * 
    * - **4**: OTS
-   * 
    * - **5**: RDS
    * 
    * This parameter is required.
@@ -139,12 +120,9 @@ export class ModifyDataLimitRequest extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
-   * The number of sensitive data samples to return. This parameter takes effect only after data detection is enabled. Valid values:
-   * 
+   * The number of sample entries for sensitive data detection after data detection is enabled. Valid values:
    * - **0**
-   * 
    * - **5**
-   * 
    * - **10**
    * 
    * @example
@@ -153,26 +131,19 @@ export class ModifyDataLimitRequest extends $dara.Model {
   samplingSize?: number;
   /**
    * @remarks
-   * The security groups for agent-based auditing that uses PrivateLink.
+   * The security groups used by PrivateLink in agent-based auditing.
    */
   securityGroupIdList?: string[];
   /**
    * @remarks
-   * The ID of the region in which the data asset is located. Valid values:
-   * 
+   * The region where the asset resides. Valid values:
    * - **cn-beijing**: China (Beijing)
-   * 
    * - **cn-zhangjiakou**: China (Zhangjiakou)
-   * 
    * - **cn-huhehaote**: China (Hohhot)
-   * 
    * - **cn-hangzhou**: China (Hangzhou)
-   * 
    * - **cn-shanghai**: China (Shanghai)
-   * 
    * - **cn-shenzhen**: China (Shenzhen)
-   * 
-   * - **cn-hongkong**: China (Hong Kong)
+   * - **cn-hongkong**: Hong Kong (China)
    * 
    * @example
    * cn-hangzhou
@@ -180,7 +151,7 @@ export class ModifyDataLimitRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The username for the ApsaraDB RDS database.
+   * The username used for the DSC connection authorization to the RDS database.
    * 
    * @example
    * User01
@@ -188,12 +159,12 @@ export class ModifyDataLimitRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The vSwitches for agent-based auditing that uses PrivateLink.
+   * The vSwitches used by PrivateLink in agent-based auditing.
    */
   vSwitchIdList?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the data asset belongs.
+   * The VPC ID to which the data asset belongs.
    * 
    * @example
    * vpc-2zevcqke6hh09c41****

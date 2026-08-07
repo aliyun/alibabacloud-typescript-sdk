@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The member account that the data masking destination belongs to.
+   * The member accounts to which the destination data belongs.
    * 
    * @example
    * 192479427903xxxx
@@ -18,18 +18,12 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstPath?: string;
   /**
    * @remarks
-   * The product that the destination data source belongs to. Valid values:
-   * 
+   * The service to which the destination data source belongs. Valid values:
    * - **1**: MaxCompute.
-   * 
    * - **2**: OSS.
-   * 
    * - **3**: ADS.
-   * 
    * - **4**: OTS.
-   * 
    * - **5**: RDS.
-   * 
    * - **6**: SELF_DB.
    * 
    * @example
@@ -38,18 +32,12 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstType?: number;
   /**
    * @remarks
-   * The type of the destination product. Valid values:
-   * 
+   * The destination service type. Valid values:
    * - **MaxCompute**.
-   * 
    * - **OSS**.
-   * 
    * - **ADS**.
-   * 
    * - **OTS**.
-   * 
    * - **RDS**.
-   * 
    * - **SELF_DB**.
    * 
    * @example
@@ -58,7 +46,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   dstTypeCode?: string;
   /**
    * @remarks
-   * The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time. Format: timestamp. Unit: milliseconds.
    * 
    * @example
    * 1582992000000
@@ -66,7 +54,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Indicates whether the task is running.
+   * Indicates whether the task is being executed.
    * 
    * @example
    * false
@@ -74,7 +62,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   hasUnfinishProcess?: boolean;
   /**
    * @remarks
-   * The numerical ID of the task.
+   * The task ID.
    * 
    * @example
    * 1
@@ -82,7 +70,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the source table is masked.
+   * Indicates whether the task masks data in the original table.
    * 
    * @example
    * false
@@ -90,7 +78,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   originalTable?: boolean;
   /**
    * @remarks
-   * The creator of the task.
+   * The task creator.
    * 
    * @example
    * owner
@@ -106,7 +94,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   runCount?: number;
   /**
    * @remarks
-   * The member account that the data masking source belongs to.
+   * The member accounts to which the source data belongs.
    * 
    * @example
    * 192479427903xxxx
@@ -119,18 +107,12 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   srcPath?: string;
   /**
    * @remarks
-   * The type of the source product. Valid values:
-   * 
+   * The source service type. Valid values:
    * - **1**: MaxCompute.
-   * 
    * - **2**: OSS.
-   * 
    * - **3**: ADS.
-   * 
    * - **4**: OTS.
-   * 
    * - **5**: RDS.
-   * 
    * - **6**: SELF_DB.
    * 
    * @example
@@ -139,18 +121,12 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   srcType?: number;
   /**
    * @remarks
-   * The type of the source product. Valid values:
-   * 
+   * The source service type. Valid values:
    * - **MaxCompute**.
-   * 
    * - **OSS**.
-   * 
    * - **ADS**.
-   * 
    * - **OTS**.
-   * 
    * - **RDS**.
-   * 
    * - **SELF_DB**.
    * 
    * @example
@@ -159,10 +135,8 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   srcTypeCode?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
+   * The task status. Valid values:
    * - **0**: Disabled.
-   * 
    * - **1**: Enabled.
    * 
    * @example
@@ -171,7 +145,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The string ID of the task.
+   * The task ID.
    * 
    * @example
    * mt4HBgtw1B******
@@ -179,7 +153,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * Task name
@@ -187,12 +161,9 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The execution method of the task. Valid values:
-   * 
+   * The execution mode. Valid values:
    * - **1**: Manual.
-   * 
    * - **2**: Scheduled.
-   * 
    * - **3**: Manual and scheduled.
    * 
    * @example
@@ -257,7 +228,7 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
 export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in the results.
    * 
    * @example
    * 1
@@ -265,12 +236,12 @@ export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A list of data masking tasks.
+   * The list of static data masking tasks.
    */
   items?: DescribeDataMaskingTasksResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page in the results.
    * 
    * @example
    * 10
@@ -278,7 +249,7 @@ export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 769FB3C1-F4C9-4******
@@ -286,7 +257,7 @@ export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the results.
    * 
    * @example
    * 100

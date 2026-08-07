@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the content in the sensitive data detection rule. Valid values:
-   * 
+   * The type of the sensitive data detection rule content. Valid values:
    * - **2**: regular expression.
-   * 
    * - **3**: algorithm.
-   * 
    * - **5**: keyword.
    * 
    * @example
@@ -19,7 +16,7 @@ export class ModifyRuleRequest extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The content of the sensitive data detection rule. The rule can be a regular expression, an algorithm, or a keyword, and matches fields or text that contain sensitive data.
+   * The content of the sensitive data detection rule. The content can be a regular expression, algorithm, or keyword that is used to match sensitive data fields or text.
    * 
    * This parameter is required.
    * 
@@ -31,7 +28,7 @@ export class ModifyRuleRequest extends $dara.Model {
    * @remarks
    * The unique ID of the sensitive data detection rule.
    * 
-   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID.
+   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
    * 
    * This parameter is required.
    * 
@@ -41,11 +38,10 @@ export class ModifyRuleRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the request and response. The default value is **zh_cn**. Valid values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * 
    * - **zh_cn**: Simplified Chinese.
-   * 
-   * - **en_us**: English.
+   * - **en_us**: English (US).
    * 
    * @example
    * zh_cn
@@ -54,10 +50,8 @@ export class ModifyRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The match type. Valid values:
-   * 
-   * - **1**: rule-based match.
-   * 
-   * - **2**: dictionary-based match.
+   * - **1**: rule match.
+   * - **2**: dictionary match.
    * 
    * @example
    * 1
@@ -65,7 +59,7 @@ export class ModifyRuleRequest extends $dara.Model {
   matchType?: number;
   /**
    * @remarks
-   * A collection of model IDs for sensitive data auditing.
+   * The collection of model IDs associated with the sensitive data audit.
    * 
    * @example
    * 1452
@@ -85,19 +79,13 @@ export class ModifyRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the product resource that contains the sensitive data detection rule. Valid values:
-   * 
-   * - **MaxCompute**.
-   * 
-   * - **OSS**.
-   * 
-   * - **ADS**.
-   * 
-   * - **OTS**.
-   * 
-   * - **RDS**.
-   * 
-   * - **SELF_DB**.
+   * The resource type of the product that contains the sensitive data detection rule. Valid values:
+   * - **MaxCompute**
+   * - **OSS**
+   * - **ADS**
+   * - **OTS**
+   * - **RDS**
+   * - **SELF_DB**
    * 
    * @example
    * RDS
@@ -105,18 +93,12 @@ export class ModifyRuleRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the product that contains the sensitive data detection rule. Valid values:
-   * 
+   * The product ID of the product that contains the sensitive data detection rule. Valid values:
    * - **1**: MaxCompute.
-   * 
    * - **2**: OSS.
-   * 
    * - **3**: ADS.
-   * 
    * - **4**: OTS.
-   * 
    * - **5**: RDS.
-   * 
    * - **6**: SELF_DB.
    * 
    * @example
@@ -125,17 +107,12 @@ export class ModifyRuleRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The ID of the risk level for the sensitive data detection rule. Valid values:
-   * 
+   * The risk level ID of the sensitive data detection rule. Valid values:
    * - **1**: N/A. No sensitive data is detected.
-   * 
-   * - **2**: S1. Level 1 sensitive data.
-   * 
-   * - **3**: S2. Level 2 sensitive data.
-   * 
-   * - **4**: S3. Level 3 sensitive data.
-   * 
-   * - **5**: S4. Level 4 sensitive data.
+   * - **2**: S1. Level-1 sensitive data.
+   * - **3**: S2. Level-2 sensitive data.
+   * - **4**: S3. Level-3 sensitive data.
+   * - **5**: S4. Level-4 sensitive data.
    * 
    * @example
    * 2
@@ -144,12 +121,9 @@ export class ModifyRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the sensitive data detection rule. Valid values:
-   * 
    * - **1**: data detection rule.
-   * 
    * - **2**: audit policy.
-   * 
-   * - **3**: abnormal event rule.
+   * - **3**: anomalous activity rule.
    * 
    * @example
    * 1
@@ -157,12 +131,9 @@ export class ModifyRuleRequest extends $dara.Model {
   ruleType?: number;
   /**
    * @remarks
-   * The type of data asset that the rule supports. Valid values:
-   * 
+   * The data asset type supported by the rule. Valid values:
    * - **0**: all assets.
-   * 
    * - **1**: structured assets.
-   * 
    * - **2**: unstructured assets.
    * 
    * @example
@@ -171,7 +142,7 @@ export class ModifyRuleRequest extends $dara.Model {
   supportForm?: number;
   /**
    * @remarks
-   * A collection of template IDs for sensitive data auditing.
+   * The collection of template IDs associated with the sensitive data audit.
    * 
    * @example
    * 1
@@ -180,11 +151,8 @@ export class ModifyRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The risk level of the sensitive data detection rule. Valid values:
-   * 
    * - **1**: low.
-   * 
    * - **2**: medium.
-   * 
    * - **3**: high.
    * 
    * @example
