@@ -33,6 +33,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建克隆音色
+   * 
+   * @param request - CreateCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloneVoiceResponse
+   */
+  async createCloneVoiceWithOptions(request: $_model.CreateCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloneVoice",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloneVoiceResponse({}));
+  }
+
+  /**
+   * 创建克隆音色
+   * 
+   * @param request - CreateCloneVoiceRequest
+   * @returns CreateCloneVoiceResponse
+   */
+  async createCloneVoice(request: $_model.CreateCloneVoiceRequest): Promise<$_model.CreateCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an instance.
+   * 
+   * @param tmpReq - CreateFlashSmsAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFlashSmsAccessProfileResponse
+   */
+  async createFlashSmsAccessProfileWithOptions(tmpReq: $_model.CreateFlashSmsAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlashSmsAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFlashSmsAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.accessProfile)) {
+      request.accessProfileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessProfile, "AccessProfile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileShrink)) {
+      body["AccessProfile"] = request.accessProfileShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFlashSmsAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFlashSmsAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlashSmsAccessProfileResponse({}));
+  }
+
+  /**
+   * Creates an instance.
+   * 
+   * @param request - CreateFlashSmsAccessProfileRequest
+   * @returns CreateFlashSmsAccessProfileResponse
+   */
+  async createFlashSmsAccessProfile(request: $_model.CreateFlashSmsAccessProfileRequest): Promise<$_model.CreateFlashSmsAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFlashSmsAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an instance.
    * 
    * @param request - CreateInstanceRequest
@@ -87,6 +193,356 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an instance.
+   * 
+   * @param tmpReq - CreateOutboundCallRestrictionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOutboundCallRestrictionResponse
+   */
+  async createOutboundCallRestrictionWithOptions(tmpReq: $_model.CreateOutboundCallRestrictionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOutboundCallRestrictionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateOutboundCallRestrictionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.outboundCallRestriction)) {
+      request.outboundCallRestrictionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outboundCallRestriction, "OutboundCallRestriction", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.outboundCallRestrictionShrink)) {
+      body["OutboundCallRestriction"] = request.outboundCallRestrictionShrink;
+    }
+
+    if (!$dara.isNull(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOutboundCallRestriction",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOutboundCallRestrictionResponse>(await this.callApi(params, req, runtime), new $_model.CreateOutboundCallRestrictionResponse({}));
+  }
+
+  /**
+   * Creates an instance.
+   * 
+   * @param request - CreateOutboundCallRestrictionRequest
+   * @returns CreateOutboundCallRestrictionResponse
+   */
+  async createOutboundCallRestriction(request: $_model.CreateOutboundCallRestrictionRequest): Promise<$_model.CreateOutboundCallRestrictionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOutboundCallRestrictionWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建场景
+   * 
+   * @param request - CreateScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScriptResponse
+   */
+  async createScriptWithOptions(request: $_model.CreateScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nluEngine)) {
+      body["NluEngine"] = request.nluEngine;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScript",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScriptResponse>(await this.callApi(params, req, runtime), new $_model.CreateScriptResponse({}));
+  }
+
+  /**
+   * 创建场景
+   * 
+   * @param request - CreateScriptRequest
+   * @returns CreateScriptResponse
+   */
+  async createScript(request: $_model.CreateScriptRequest): Promise<$_model.CreateScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建场景配置
+   * 
+   * @param tmpReq - CreateScriptVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScriptVersionResponse
+   */
+  async createScriptVersionWithOptions(tmpReq: $_model.CreateScriptVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScriptVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateScriptVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.interactionConfig)) {
+      request.interactionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interactionConfig, "InteractionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelConfigs)) {
+      request.labelConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelConfigs, "LabelConfigs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scriptProfile)) {
+      request.scriptProfileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scriptProfile, "ScriptProfile", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.synthesizerConfig)) {
+      request.synthesizerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synthesizerConfig, "SynthesizerConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.transcriberConfig)) {
+      request.transcriberConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcriberConfig, "TranscriberConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.interactionConfigShrink)) {
+      body["InteractionConfig"] = request.interactionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.labelConfigsShrink)) {
+      body["LabelConfigs"] = request.labelConfigsShrink;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.scriptProfileShrink)) {
+      body["ScriptProfile"] = request.scriptProfileShrink;
+    }
+
+    if (!$dara.isNull(request.sourceVersionId)) {
+      body["SourceVersionId"] = request.sourceVersionId;
+    }
+
+    if (!$dara.isNull(request.synthesizerConfigShrink)) {
+      body["SynthesizerConfig"] = request.synthesizerConfigShrink;
+    }
+
+    if (!$dara.isNull(request.transcriberConfigShrink)) {
+      body["TranscriberConfig"] = request.transcriberConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScriptVersion",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScriptVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateScriptVersionResponse({}));
+  }
+
+  /**
+   * 创建场景配置
+   * 
+   * @param request - CreateScriptVersionRequest
+   * @returns CreateScriptVersionResponse
+   */
+  async createScriptVersion(request: $_model.CreateScriptVersionRequest): Promise<$_model.CreateScriptVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScriptVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建语音接入配置
+   * 
+   * @param tmpReq - CreateVoiceAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVoiceAccessProfileResponse
+   */
+  async createVoiceAccessProfileWithOptions(tmpReq: $_model.CreateVoiceAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVoiceAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateVoiceAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nlsEngine)) {
+      body["NlsEngine"] = request.nlsEngine;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVoiceAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVoiceAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.CreateVoiceAccessProfileResponse({}));
+  }
+
+  /**
+   * 创建语音接入配置
+   * 
+   * @param request - CreateVoiceAccessProfileRequest
+   * @returns CreateVoiceAccessProfileResponse
+   */
+  async createVoiceAccessProfile(request: $_model.CreateVoiceAccessProfileRequest): Promise<$_model.CreateVoiceAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVoiceAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除克隆音色
+   * 
+   * @param request - DeleteCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloneVoiceResponse
+   */
+  async deleteCloneVoiceWithOptions(request: $_model.DeleteCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloneVoiceId)) {
+      body["CloneVoiceId"] = request.cloneVoiceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloneVoice",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloneVoiceResponse({}));
+  }
+
+  /**
+   * 删除克隆音色
+   * 
+   * @param request - DeleteCloneVoiceRequest
+   * @returns DeleteCloneVoiceResponse
+   */
+  async deleteCloneVoice(request: $_model.DeleteCloneVoiceRequest): Promise<$_model.DeleteCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除闪信配置
+   * 
+   * @param request - DeleteFlashSmsAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlashSmsAccessProfileResponse
+   */
+  async deleteFlashSmsAccessProfileWithOptions(request: $_model.DeleteFlashSmsAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlashSmsAccessProfileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlashSmsAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlashSmsAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlashSmsAccessProfileResponse({}));
+  }
+
+  /**
+   * 删除闪信配置
+   * 
+   * @param request - DeleteFlashSmsAccessProfileRequest
+   * @returns DeleteFlashSmsAccessProfileResponse
+   */
+  async deleteFlashSmsAccessProfile(request: $_model.DeleteFlashSmsAccessProfileRequest): Promise<$_model.DeleteFlashSmsAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFlashSmsAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an instance.
    * 
    * @param request - DeleteInstanceRequest
@@ -129,6 +585,192 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes blacklists and whitelists.
+   * 
+   * @param tmpReq - DeleteOutboundCallRestrictionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOutboundCallRestrictionResponse
+   */
+  async deleteOutboundCallRestrictionWithOptions(tmpReq: $_model.DeleteOutboundCallRestrictionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOutboundCallRestrictionResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteOutboundCallRestrictionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.restrictionIdList)) {
+      request.restrictionIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.restrictionIdList, "RestrictionIdList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.restrictionIdListShrink)) {
+      body["RestrictionIdList"] = request.restrictionIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOutboundCallRestriction",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteOutboundCallRestrictionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteOutboundCallRestrictionResponse({}));
+  }
+
+  /**
+   * Deletes blacklists and whitelists.
+   * 
+   * @param request - DeleteOutboundCallRestrictionRequest
+   * @returns DeleteOutboundCallRestrictionResponse
+   */
+  async deleteOutboundCallRestriction(request: $_model.DeleteOutboundCallRestrictionRequest): Promise<$_model.DeleteOutboundCallRestrictionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOutboundCallRestrictionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除场景
+   * 
+   * @param request - DeleteScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScriptResponse
+   */
+  async deleteScriptWithOptions(request: $_model.DeleteScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScript",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScriptResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScriptResponse({}));
+  }
+
+  /**
+   * 删除场景
+   * 
+   * @param request - DeleteScriptRequest
+   * @returns DeleteScriptResponse
+   */
+  async deleteScript(request: $_model.DeleteScriptRequest): Promise<$_model.DeleteScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除三方语音配置
+   * 
+   * @param request - DeleteVoiceAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVoiceAccessProfileResponse
+   */
+  async deleteVoiceAccessProfileWithOptions(request: $_model.DeleteVoiceAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVoiceAccessProfileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVoiceAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVoiceAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVoiceAccessProfileResponse({}));
+  }
+
+  /**
+   * 删除三方语音配置
+   * 
+   * @param request - DeleteVoiceAccessProfileRequest
+   * @returns DeleteVoiceAccessProfileResponse
+   */
+  async deleteVoiceAccessProfile(request: $_model.DeleteVoiceAccessProfileRequest): Promise<$_model.DeleteVoiceAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVoiceAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用消息订阅
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSubscriptionResponse
+   */
+  async disableSubscriptionWithOptions(request: $_model.DisableSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableSubscriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableSubscription",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.DisableSubscriptionResponse({}));
+  }
+
+  /**
+   * 禁用消息订阅
+   * 
+   * @param request - DisableSubscriptionRequest
+   * @returns DisableSubscriptionResponse
+   */
+  async disableSubscription(request: $_model.DisableSubscriptionRequest): Promise<$_model.DisableSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an instance.
    * 
    * @param request - GetInstanceRequest
@@ -168,6 +810,340 @@ export default class Client extends OpenApi {
   async getInstance(request: $_model.GetInstanceRequest): Promise<$_model.GetInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取prompt场景模版
+   * 
+   * @param request - GetScriptProfileTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScriptProfileTemplateResponse
+   */
+  async getScriptProfileTemplateWithOptions(request: $_model.GetScriptProfileTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScriptProfileTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScriptProfileTemplate",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScriptProfileTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetScriptProfileTemplateResponse({}));
+  }
+
+  /**
+   * 获取prompt场景模版
+   * 
+   * @param request - GetScriptProfileTemplateRequest
+   * @returns GetScriptProfileTemplateResponse
+   */
+  async getScriptProfileTemplate(request: $_model.GetScriptProfileTemplateRequest): Promise<$_model.GetScriptProfileTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScriptProfileTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取MQ配置
+   * 
+   * @param request - GetSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscriptionResponse
+   */
+  async getSubscriptionWithOptions(request: $_model.GetSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSubscriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSubscription",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.GetSubscriptionResponse({}));
+  }
+
+  /**
+   * 获取MQ配置
+   * 
+   * @param request - GetSubscriptionRequest
+   * @returns GetSubscriptionResponse
+   */
+  async getSubscription(request: $_model.GetSubscriptionRequest): Promise<$_model.GetSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取克隆音色可用模型列表
+   * 
+   * @param request - ListCloneVoiceModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloneVoiceModelsResponse
+   */
+  async listCloneVoiceModelsWithOptions(request: $_model.ListCloneVoiceModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloneVoiceModelsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloneVoiceModels",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloneVoiceModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListCloneVoiceModelsResponse({}));
+  }
+
+  /**
+   * 获取克隆音色可用模型列表
+   * 
+   * @param request - ListCloneVoiceModelsRequest
+   * @returns ListCloneVoiceModelsResponse
+   */
+  async listCloneVoiceModels(request: $_model.ListCloneVoiceModelsRequest): Promise<$_model.ListCloneVoiceModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloneVoiceModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取克隆音色列表
+   * 
+   * @param request - ListCloneVoicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloneVoicesResponse
+   */
+  async listCloneVoicesWithOptions(request: $_model.ListCloneVoicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloneVoicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloneVoices",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloneVoicesResponse>(await this.callApi(params, req, runtime), new $_model.ListCloneVoicesResponse({}));
+  }
+
+  /**
+   * 获取克隆音色列表
+   * 
+   * @param request - ListCloneVoicesRequest
+   * @returns ListCloneVoicesResponse
+   */
+  async listCloneVoices(request: $_model.ListCloneVoicesRequest): Promise<$_model.ListCloneVoicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloneVoicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取闪信配置列表
+   * 
+   * @param request - ListFlashSmsAccessProfilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsAccessProfilesResponse
+   */
+  async listFlashSmsAccessProfilesWithOptions(request: $_model.ListFlashSmsAccessProfilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlashSmsAccessProfilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlashSmsAccessProfiles",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlashSmsAccessProfilesResponse>(await this.callApi(params, req, runtime), new $_model.ListFlashSmsAccessProfilesResponse({}));
+  }
+
+  /**
+   * 获取闪信配置列表
+   * 
+   * @param request - ListFlashSmsAccessProfilesRequest
+   * @returns ListFlashSmsAccessProfilesResponse
+   */
+  async listFlashSmsAccessProfiles(request: $_model.ListFlashSmsAccessProfilesRequest): Promise<$_model.ListFlashSmsAccessProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlashSmsAccessProfilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取闪信厂商列表
+   * 
+   * @param request - ListFlashSmsProvidersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsProvidersResponse
+   */
+  async listFlashSmsProvidersWithOptions(request: $_model.ListFlashSmsProvidersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlashSmsProvidersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlashSmsProviders",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlashSmsProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ListFlashSmsProvidersResponse({}));
+  }
+
+  /**
+   * 获取闪信厂商列表
+   * 
+   * @param request - ListFlashSmsProvidersRequest
+   * @returns ListFlashSmsProvidersResponse
+   */
+  async listFlashSmsProviders(request: $_model.ListFlashSmsProvidersRequest): Promise<$_model.ListFlashSmsProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlashSmsProvidersWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取闪信模版列表
+   * 
+   * @param request - ListFlashSmsTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlashSmsTemplatesResponse
+   */
+  async listFlashSmsTemplatesWithOptions(request: $_model.ListFlashSmsTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlashSmsTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlashSmsTemplates",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlashSmsTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListFlashSmsTemplatesResponse({}));
+  }
+
+  /**
+   * 获取闪信模版列表
+   * 
+   * @param request - ListFlashSmsTemplatesRequest
+   * @returns ListFlashSmsTemplatesResponse
+   */
+  async listFlashSmsTemplates(request: $_model.ListFlashSmsTemplatesRequest): Promise<$_model.ListFlashSmsTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlashSmsTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -218,6 +1194,480 @@ export default class Client extends OpenApi {
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the blacklists and whitelists of an outbound robot.
+   * 
+   * @param request - ListOutboundCallRestrictionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOutboundCallRestrictionsResponse
+   */
+  async listOutboundCallRestrictionsWithOptions(request: $_model.ListOutboundCallRestrictionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOutboundCallRestrictionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOutboundCallRestrictions",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOutboundCallRestrictionsResponse>(await this.callApi(params, req, runtime), new $_model.ListOutboundCallRestrictionsResponse({}));
+  }
+
+  /**
+   * Retrieves the blacklists and whitelists of an outbound robot.
+   * 
+   * @param request - ListOutboundCallRestrictionsRequest
+   * @returns ListOutboundCallRestrictionsResponse
+   */
+  async listOutboundCallRestrictions(request: $_model.ListOutboundCallRestrictionsRequest): Promise<$_model.ListOutboundCallRestrictionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOutboundCallRestrictionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景配置模板列表
+   * 
+   * @param request - ListScriptProfileTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScriptProfileTemplatesResponse
+   */
+  async listScriptProfileTemplatesWithOptions(request: $_model.ListScriptProfileTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScriptProfileTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nluEngine)) {
+      body["NluEngine"] = request.nluEngine;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScriptProfileTemplates",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScriptProfileTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListScriptProfileTemplatesResponse({}));
+  }
+
+  /**
+   * 获取场景配置模板列表
+   * 
+   * @param request - ListScriptProfileTemplatesRequest
+   * @returns ListScriptProfileTemplatesResponse
+   */
+  async listScriptProfileTemplates(request: $_model.ListScriptProfileTemplatesRequest): Promise<$_model.ListScriptProfileTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScriptProfileTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景列表
+   * 
+   * @param tmpReq - ListScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScriptsResponse
+   */
+  async listScriptsWithOptions(tmpReq: $_model.ListScriptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScriptsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListScriptsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scriptIds)) {
+      request.scriptIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scriptIds, "ScriptIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.publishOnly)) {
+      body["PublishOnly"] = request.publishOnly;
+    }
+
+    if (!$dara.isNull(request.scriptIdsShrink)) {
+      body["ScriptIds"] = request.scriptIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScripts",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScriptsResponse>(await this.callApi(params, req, runtime), new $_model.ListScriptsResponse({}));
+  }
+
+  /**
+   * 获取场景列表
+   * 
+   * @param request - ListScriptsRequest
+   * @returns ListScriptsResponse
+   */
+  async listScripts(request: $_model.ListScriptsRequest): Promise<$_model.ListScriptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScriptsWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据流程ID获取场景列表
+   * 
+   * @param request - ListScriptsByFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScriptsByFlowResponse
+   */
+  async listScriptsByFlowWithOptions(request: $_model.ListScriptsByFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScriptsByFlowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.flowId)) {
+      body["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScriptsByFlow",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScriptsByFlowResponse>(await this.callApi(params, req, runtime), new $_model.ListScriptsByFlowResponse({}));
+  }
+
+  /**
+   * 根据流程ID获取场景列表
+   * 
+   * @param request - ListScriptsByFlowRequest
+   * @returns ListScriptsByFlowResponse
+   */
+  async listScriptsByFlow(request: $_model.ListScriptsByFlowRequest): Promise<$_model.ListScriptsByFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScriptsByFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取系统配置列表
+   * 
+   * @param request - ListSystemConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSystemConfigsResponse
+   */
+  async listSystemConfigsWithOptions(request: $_model.ListSystemConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSystemConfigsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.objectId)) {
+      body["ObjectId"] = request.objectId;
+    }
+
+    if (!$dara.isNull(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSystemConfigs",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSystemConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListSystemConfigsResponse({}));
+  }
+
+  /**
+   * 获取系统配置列表
+   * 
+   * @param request - ListSystemConfigsRequest
+   * @returns ListSystemConfigsResponse
+   */
+  async listSystemConfigs(request: $_model.ListSystemConfigsRequest): Promise<$_model.ListSystemConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSystemConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取语音接入配置列表
+   * 
+   * @param request - ListVoiceAccessProfilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoiceAccessProfilesResponse
+   */
+  async listVoiceAccessProfilesWithOptions(request: $_model.ListVoiceAccessProfilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVoiceAccessProfilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVoiceAccessProfiles",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVoiceAccessProfilesResponse>(await this.callApi(params, req, runtime), new $_model.ListVoiceAccessProfilesResponse({}));
+  }
+
+  /**
+   * 获取语音接入配置列表
+   * 
+   * @param request - ListVoiceAccessProfilesRequest
+   * @returns ListVoiceAccessProfilesResponse
+   */
+  async listVoiceAccessProfiles(request: $_model.ListVoiceAccessProfilesRequest): Promise<$_model.ListVoiceAccessProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVoiceAccessProfilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 发布场景
+   * 
+   * @param request - PublishScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishScriptResponse
+   */
+  async publishScriptWithOptions(request: $_model.PublishScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishScript",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishScriptResponse>(await this.callApi(params, req, runtime), new $_model.PublishScriptResponse({}));
+  }
+
+  /**
+   * 发布场景
+   * 
+   * @param request - PublishScriptRequest
+   * @returns PublishScriptResponse
+   */
+  async publishScript(request: $_model.PublishScriptRequest): Promise<$_model.PublishScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新克隆音色
+   * 
+   * @param request - UpdateCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloneVoiceResponse
+   */
+  async updateCloneVoiceWithOptions(request: $_model.UpdateCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloneVoiceId)) {
+      body["CloneVoiceId"] = request.cloneVoiceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloneVoice",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloneVoiceResponse({}));
+  }
+
+  /**
+   * 更新克隆音色
+   * 
+   * @param request - UpdateCloneVoiceRequest
+   * @returns UpdateCloneVoiceResponse
+   */
+  async updateCloneVoice(request: $_model.UpdateCloneVoiceRequest): Promise<$_model.UpdateCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新闪信配置
+   * 
+   * @param tmpReq - UpdateFlashSmsAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlashSmsAccessProfileResponse
+   */
+  async updateFlashSmsAccessProfileWithOptions(tmpReq: $_model.UpdateFlashSmsAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlashSmsAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateFlashSmsAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.accessProfile)) {
+      request.accessProfileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessProfile, "AccessProfile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileShrink)) {
+      body["AccessProfile"] = request.accessProfileShrink;
+    }
+
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlashSmsAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlashSmsAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlashSmsAccessProfileResponse({}));
+  }
+
+  /**
+   * 更新闪信配置
+   * 
+   * @param request - UpdateFlashSmsAccessProfileRequest
+   * @returns UpdateFlashSmsAccessProfileResponse
+   */
+  async updateFlashSmsAccessProfile(request: $_model.UpdateFlashSmsAccessProfileRequest): Promise<$_model.UpdateFlashSmsAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFlashSmsAccessProfileWithOptions(request, runtime);
   }
 
   /**
@@ -272,6 +1722,256 @@ export default class Client extends OpenApi {
   async updateInstance(request: $_model.UpdateInstanceRequest): Promise<$_model.UpdateInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新场景
+   * 
+   * @param request - UpdateScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScriptResponse
+   */
+  async updateScriptWithOptions(request: $_model.UpdateScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScript",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScriptResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScriptResponse({}));
+  }
+
+  /**
+   * 更新场景
+   * 
+   * @param request - UpdateScriptRequest
+   * @returns UpdateScriptResponse
+   */
+  async updateScript(request: $_model.UpdateScriptRequest): Promise<$_model.UpdateScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建或更新MQ配置
+   * 
+   * @param tmpReq - UpdateSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscriptionWithOptions(tmpReq: $_model.UpdateSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSubscriptionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSubscriptionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventSubscriptions)) {
+      request.eventSubscriptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventSubscriptions, "EventSubscriptions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endpoint)) {
+      body["Endpoint"] = request.endpoint;
+    }
+
+    if (!$dara.isNull(request.eventSubscriptionsShrink)) {
+      body["EventSubscriptions"] = request.eventSubscriptionsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mqInstanceId)) {
+      body["MqInstanceId"] = request.mqInstanceId;
+    }
+
+    if (!$dara.isNull(request.mqType)) {
+      body["MqType"] = request.mqType;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.producerId)) {
+      body["ProducerId"] = request.producerId;
+    }
+
+    if (!$dara.isNull(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSubscription",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSubscriptionResponse({}));
+  }
+
+  /**
+   * 创建或更新MQ配置
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscription(request: $_model.UpdateSubscriptionRequest): Promise<$_model.UpdateSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新系统配置
+   * 
+   * @param tmpReq - UpdateSystemConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSystemConfigsResponse
+   */
+  async updateSystemConfigsWithOptions(tmpReq: $_model.UpdateSystemConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSystemConfigsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSystemConfigsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configs)) {
+      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!$dara.isNull(request.objectId)) {
+      body["ObjectId"] = request.objectId;
+    }
+
+    if (!$dara.isNull(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSystemConfigs",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSystemConfigsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSystemConfigsResponse({}));
+  }
+
+  /**
+   * 更新系统配置
+   * 
+   * @param request - UpdateSystemConfigsRequest
+   * @returns UpdateSystemConfigsResponse
+   */
+  async updateSystemConfigs(request: $_model.UpdateSystemConfigsRequest): Promise<$_model.UpdateSystemConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSystemConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新语音接入配置
+   * 
+   * @param tmpReq - UpdateVoiceAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVoiceAccessProfileResponse
+   */
+  async updateVoiceAccessProfileWithOptions(tmpReq: $_model.UpdateVoiceAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVoiceAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateVoiceAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nlsEngine)) {
+      body["NlsEngine"] = request.nlsEngine;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVoiceAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVoiceAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVoiceAccessProfileResponse({}));
+  }
+
+  /**
+   * 更新语音接入配置
+   * 
+   * @param request - UpdateVoiceAccessProfileRequest
+   * @returns UpdateVoiceAccessProfileResponse
+   */
+  async updateVoiceAccessProfile(request: $_model.UpdateVoiceAccessProfileRequest): Promise<$_model.UpdateVoiceAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVoiceAccessProfileWithOptions(request, runtime);
   }
 
 }
