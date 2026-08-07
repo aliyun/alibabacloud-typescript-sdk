@@ -13,15 +13,22 @@ export class DeleteAIDBClusterRequest extends $dara.Model {
    * pc-**************
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * pms-xxx
+   */
+  modelSpace?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      modelSpace: 'ModelSpace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      modelSpace: 'string',
     };
   }
 

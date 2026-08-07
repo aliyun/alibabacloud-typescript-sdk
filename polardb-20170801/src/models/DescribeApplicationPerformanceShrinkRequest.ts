@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeApplicationPerformanceRequest extends $dara.Model {
+export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The application cluster ID.
@@ -116,7 +116,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
    * 2020-09-23T01:01Z
    */
   startTime?: string;
-  filter?: { [key: string]: any };
+  filterShrink?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
@@ -131,7 +131,7 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       modelService: 'ModelService',
       startStep: 'StartStep',
       startTime: 'StartTime',
-      filter: 'filter',
+      filterShrink: 'filter',
     };
   }
 
@@ -149,14 +149,11 @@ export class DescribeApplicationPerformanceRequest extends $dara.Model {
       modelService: 'string',
       startStep: 'number',
       startTime: 'string',
-      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      filterShrink: 'string',
     };
   }
 
   validate() {
-    if(this.filter) {
-      $dara.Model.validateMap(this.filter);
-    }
     super.validate();
   }
 

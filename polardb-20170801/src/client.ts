@@ -493,6 +493,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加冷存授权账号
+   * 
+   * @param request - AddPolarOSSAuthorizedAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPolarOSSAuthorizedAccountResponse
+   */
+  async addPolarOSSAuthorizedAccountWithOptions(request: $_model.AddPolarOSSAuthorizedAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPolarOSSAuthorizedAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizedUserIds)) {
+      query["AuthorizedUserIds"] = request.authorizedUserIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddPolarOSSAuthorizedAccount",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddPolarOSSAuthorizedAccountResponse>(await this.callApi(params, req, runtime), new $_model.AddPolarOSSAuthorizedAccountResponse({}));
+  }
+
+  /**
+   * 添加冷存授权账号
+   * 
+   * @param request - AddPolarOSSAuthorizedAccountRequest
+   * @returns AddPolarOSSAuthorizedAccountResponse
+   */
+  async addPolarOSSAuthorizedAccount(request: $_model.AddPolarOSSAuthorizedAccountRequest): Promise<$_model.AddPolarOSSAuthorizedAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addPolarOSSAuthorizedAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Adds SQL throttling rules.
    * 
    * @param request - AddSQLRateLimitingRulesRequest
@@ -1918,6 +1972,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.createPublicEndpoint)) {
+      query["CreatePublicEndpoint"] = request.createPublicEndpoint;
+    }
+
     if (!$dara.isNull(request.DBClusterDescription)) {
       query["DBClusterDescription"] = request.DBClusterDescription;
     }
@@ -1964,6 +2022,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modelName)) {
       query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelSpace)) {
+      query["ModelSpace"] = request.modelSpace;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -2074,6 +2136,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.modelSpaceName)) {
+      query["ModelSpaceName"] = request.modelSpaceName;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -2196,12 +2262,20 @@ export default class Client extends OpenApi {
   async createAIDBClusterTaskWithOptions(request: $_model.CreateAIDBClusterTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIDBClusterTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customOssBucketName)) {
+      query["CustomOssBucketName"] = request.customOssBucketName;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
 
     if (!$dara.isNull(request.DBInstanceClass)) {
       query["DBInstanceClass"] = request.DBInstanceClass;
+    }
+
+    if (!$dara.isNull(request.dataserviceMode)) {
+      query["DataserviceMode"] = request.dataserviceMode;
     }
 
     if (!$dara.isNull(request.datasetPath)) {
@@ -3656,6 +3730,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.cacheCostPointsPerMillion)) {
       query["CacheCostPointsPerMillion"] = request.cacheCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.effectiveTargetType)) {
+      query["EffectiveTargetType"] = request.effectiveTargetType;
+    }
+
+    if (!$dara.isNull(request.effectiveTargetValue)) {
+      query["EffectiveTargetValue"] = request.effectiveTargetValue;
     }
 
     if (!$dara.isNull(request.gwClusterId)) {
@@ -6534,6 +6616,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.modelSpace)) {
+      query["ModelSpace"] = request.modelSpace;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6574,6 +6660,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.apiKey)) {
       query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.modelSpaceName)) {
+      query["ModelSpaceName"] = request.modelSpaceName;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -9307,6 +9397,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除冷存授权账号
+   * 
+   * @param request - DeletePolarOSSAuthorizedAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarOSSAuthorizedAccountResponse
+   */
+  async deletePolarOSSAuthorizedAccountWithOptions(request: $_model.DeletePolarOSSAuthorizedAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarOSSAuthorizedAccountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizedUserIds)) {
+      query["AuthorizedUserIds"] = request.authorizedUserIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarOSSAuthorizedAccount",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarOSSAuthorizedAccountResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarOSSAuthorizedAccountResponse({}));
+  }
+
+  /**
+   * 删除冷存授权账号
+   * 
+   * @param request - DeletePolarOSSAuthorizedAccountRequest
+   * @returns DeletePolarOSSAuthorizedAccountResponse
+   */
+  async deletePolarOSSAuthorizedAccount(request: $_model.DeletePolarOSSAuthorizedAccountRequest): Promise<$_model.DeletePolarOSSAuthorizedAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarOSSAuthorizedAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a throttling policy.
    * 
    * @param request - DeleteRateLimitPolicyRequest
@@ -9492,6 +9636,10 @@ export default class Client extends OpenApi {
   async describeAIDBClusterApiKeysWithOptions(request: $_model.DescribeAIDBClusterApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterApiKeysResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.modelSpaceName)) {
+      query["ModelSpaceName"] = request.modelSpaceName;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -11433,12 +11581,18 @@ export default class Client extends OpenApi {
   /**
    * Queries the performance of a PolarDB AI application.
    * 
-   * @param request - DescribeApplicationPerformanceRequest
+   * @param tmpReq - DescribeApplicationPerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeApplicationPerformanceResponse
    */
-  async describeApplicationPerformanceWithOptions(request: $_model.DescribeApplicationPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPerformanceResponse> {
-    request.validate();
+  async describeApplicationPerformanceWithOptions(tmpReq: $_model.DescribeApplicationPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPerformanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeApplicationPerformanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
@@ -11486,6 +11640,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      query["filter"] = request.filterShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -12882,6 +13040,14 @@ export default class Client extends OpenApi {
   async describeCostRulesWithOptions(request: $_model.DescribeCostRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCostRulesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.effectiveTargetType)) {
+      query["EffectiveTargetType"] = request.effectiveTargetType;
+    }
+
+    if (!$dara.isNull(request.effectiveTargetValue)) {
+      query["EffectiveTargetValue"] = request.effectiveTargetValue;
+    }
+
     if (!$dara.isNull(request.gwClusterId)) {
       query["GwClusterId"] = request.gwClusterId;
     }
@@ -29481,7 +29647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves memories based on a search query.
+   * Retrieves memories.
    * 
    * @param request - SearchMemoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29510,6 +29676,14 @@ export default class Client extends OpenApi {
       query["MemoryUserId"] = request.memoryUserId;
     }
 
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!$dara.isNull(request.query)) {
       query["Query"] = request.query;
     }
@@ -29536,7 +29710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves memories based on a search query.
+   * Retrieves memories.
    * 
    * @param request - SearchMemoriesRequest
    * @returns SearchMemoriesResponse

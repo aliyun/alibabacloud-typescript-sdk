@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAIDBClusterApiKeysRequest extends $dara.Model {
   /**
+   * @example
+   * pms-xxx
+   */
+  modelSpaceName?: string;
+  /**
    * @remarks
    * The region ID.
    * 
@@ -15,12 +20,14 @@ export class DescribeAIDBClusterApiKeysRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      modelSpaceName: 'ModelSpaceName',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      modelSpaceName: 'string',
       regionId: 'string',
     };
   }

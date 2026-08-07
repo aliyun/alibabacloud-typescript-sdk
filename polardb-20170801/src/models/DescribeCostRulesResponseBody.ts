@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The cost in points per one million cached tokens.
+   * The cost points per million cache tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -21,7 +21,23 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The time when the cost rule was created.
+   * The effective target type.
+   * 
+   * @example
+   * global
+   */
+  effectiveTargetType?: string;
+  /**
+   * @remarks
+   * The effective target value.
+   * 
+   * @example
+   * user
+   */
+  effectiveTargetValue?: string;
+  /**
+   * @remarks
+   * The creation time.
    * 
    * @example
    * 2026-01-04T16:09:29+08:00
@@ -29,7 +45,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the cost rule was last updated.
+   * The last modification time.
    * 
    * @example
    * 2024-10-16 16:46:20
@@ -45,7 +61,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The cost in points per one million input tokens.
+   * The cost points per million input tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -69,7 +85,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The cost in points per one million output tokens.
+   * The cost points per million output tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -79,6 +95,8 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
     return {
       cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
       costRuleId: 'CostRuleId',
+      effectiveTargetType: 'EffectiveTargetType',
+      effectiveTargetValue: 'EffectiveTargetValue',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       gwClusterId: 'GwClusterId',
@@ -93,6 +111,8 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
     return {
       cacheCostPointsPerMillion: 'string',
       costRuleId: 'string',
+      effectiveTargetType: 'string',
+      effectiveTargetValue: 'string',
       gmtCreated: 'string',
       gmtModified: 'string',
       gwClusterId: 'string',
@@ -115,7 +135,7 @@ export class DescribeCostRulesResponseBodyItems extends $dara.Model {
 export class DescribeCostRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of cost rules.
+   * The list of cost rules.
    */
   items?: DescribeCostRulesResponseBodyItems[];
   /**
@@ -136,7 +156,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
    * 
    * @example
    * 30
@@ -144,7 +164,7 @@ export class DescribeCostRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

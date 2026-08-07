@@ -39,6 +39,7 @@ export { DeletePolarFsPathMappingRequestCustomBucketPathList } from './DeletePol
 export { DeletePolarFsQuotaRequestQuotas } from './DeletePolarFsQuotaRequest';
 export { DescribeAIDBClusterApiKeysResponseBodyApiKeys } from './DescribeAidbclusterApiKeysResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes } from './DescribeAidbclusterAttributeResponseBody';
+export { DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyDBNodes } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems } from './DescribeAidbclusterAttributeResponseBody';
 export { DescribeAIDBClusterAttributeResponseBodyEndpointList } from './DescribeAidbclusterAttributeResponseBody';
@@ -51,6 +52,7 @@ export { DescribeAIDBClusterAttributeResponseBodyVolumes } from './DescribeAidbc
 export { DescribeAIDBClusterDatasetsResponseBodyDatasets } from './DescribeAidbclusterDatasetsResponseBody';
 export { DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints } from './DescribeAidbclusterPerformanceResponseBody';
 export { DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys } from './DescribeAidbclusterPerformanceResponseBody';
+export { DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo } from './DescribeAidbclusterTaskAttributeResponseBody';
 export { DescribeAIDBClusterTaskAttributeResponseBodyDataSets } from './DescribeAidbclusterTaskAttributeResponseBody';
 export { DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo } from './DescribeAidbclusterTaskAttributeResponseBody';
 export { DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems } from './DescribeAidbclusterTaskLogFilesResponseBody';
@@ -424,6 +426,9 @@ export { AddPolarFsPathMappingResponse } from './AddPolarFsPathMappingResponse';
 export { AddPolarFsQuotaRequest } from './AddPolarFsQuotaRequest';
 export { AddPolarFsQuotaResponseBody } from './AddPolarFsQuotaResponseBody';
 export { AddPolarFsQuotaResponse } from './AddPolarFsQuotaResponse';
+export { AddPolarOSSAuthorizedAccountRequest } from './AddPolarOssauthorizedAccountRequest';
+export { AddPolarOSSAuthorizedAccountResponseBody } from './AddPolarOssauthorizedAccountResponseBody';
+export { AddPolarOSSAuthorizedAccountResponse } from './AddPolarOssauthorizedAccountResponse';
 export { AddSQLRateLimitingRulesRequest } from './AddSqlrateLimitingRulesRequest';
 export { AddSQLRateLimitingRulesResponseBody } from './AddSqlrateLimitingRulesResponseBody';
 export { AddSQLRateLimitingRulesResponse } from './AddSqlrateLimitingRulesResponse';
@@ -796,6 +801,9 @@ export { DeletePolarFsPathMappingResponse } from './DeletePolarFsPathMappingResp
 export { DeletePolarFsQuotaRequest } from './DeletePolarFsQuotaRequest';
 export { DeletePolarFsQuotaResponseBody } from './DeletePolarFsQuotaResponseBody';
 export { DeletePolarFsQuotaResponse } from './DeletePolarFsQuotaResponse';
+export { DeletePolarOSSAuthorizedAccountRequest } from './DeletePolarOssauthorizedAccountRequest';
+export { DeletePolarOSSAuthorizedAccountResponseBody } from './DeletePolarOssauthorizedAccountResponseBody';
+export { DeletePolarOSSAuthorizedAccountResponse } from './DeletePolarOssauthorizedAccountResponse';
 export { DeleteRateLimitPolicyRequest } from './DeleteRateLimitPolicyRequest';
 export { DeleteRateLimitPolicyResponseBody } from './DeleteRateLimitPolicyResponseBody';
 export { DeleteRateLimitPolicyResponse } from './DeleteRateLimitPolicyResponse';
@@ -894,6 +902,7 @@ export { DescribeApplicationParametersShrinkRequest } from './DescribeApplicatio
 export { DescribeApplicationParametersResponseBody } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponse } from './DescribeApplicationParametersResponse';
 export { DescribeApplicationPerformanceRequest } from './DescribeApplicationPerformanceRequest';
+export { DescribeApplicationPerformanceShrinkRequest } from './DescribeApplicationPerformanceShrinkRequest';
 export { DescribeApplicationPerformanceResponseBody } from './DescribeApplicationPerformanceResponseBody';
 export { DescribeApplicationPerformanceResponse } from './DescribeApplicationPerformanceResponse';
 export { DescribeApplicationPromptsRequest } from './DescribeApplicationPromptsRequest';

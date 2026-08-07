@@ -72,6 +72,38 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends
   }
 }
 
+export class DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis extends $dara.Model {
+  apiName?: string;
+  generationMode?: string;
+  path?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      generationMode: 'GenerationMode',
+      path: 'Path',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      generationMode: 'string',
+      path: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   /**
    * @remarks
@@ -129,7 +161,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * * **DBNodeDeleting**: deleting a node 
    * * **ClassChanging**: changing node specifications  
    * * **MinorVersionUpgrading**: upgrading the minor version
-   * * **Maintaining**: under maintenance  
+   * * **Maintaining**: being maintained  
    * * **Switching**: being switched
    * 
    * @example
@@ -160,6 +192,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * 8192
    */
   memorySize?: string;
+  modelName?: string;
   /**
    * @remarks
    * The public IP address.
@@ -168,6 +201,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * 101.101.101.101
    */
   publicIp?: string;
+  supportedApis?: DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis[];
   /**
    * @remarks
    * The Kubernetes virtual node ID.
@@ -212,7 +246,9 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       GPU: 'GPU',
       linkIP: 'LinkIP',
       memorySize: 'MemorySize',
+      modelName: 'ModelName',
       publicIp: 'PublicIp',
+      supportedApis: 'SupportedApis',
       VNodeId: 'VNodeId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -232,7 +268,9 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       GPU: 'string',
       linkIP: 'string',
       memorySize: 'string',
+      modelName: 'string',
       publicIp: 'string',
+      supportedApis: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodesSupportedApis },
       VNodeId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -243,6 +281,9 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   validate() {
     if(Array.isArray(this.childVolumes)) {
       $dara.Model.validateArray(this.childVolumes);
+    }
+    if(Array.isArray(this.supportedApis)) {
+      $dara.Model.validateArray(this.supportedApis);
     }
     super.validate();
   }
@@ -255,7 +296,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
 export class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems extends $dara.Model {
   /**
    * @remarks
-   * The database connection address.
+   * The database endpoint.
    * 
    * @example
    * pc-**********.rwlb.rds.aliyuncs.com
@@ -548,7 +589,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The node type. Valid values:
-   * - vnode: ACK-managed
+   * - vnode: managed by ACK
    * - container: loginable container
    * - maas: model service
    * 
@@ -604,6 +645,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * Running
    */
   DBClusterStatus?: string;
+  DBInstanceStatusDesc?: string;
   /**
    * @remarks
    * The node details.
@@ -640,7 +682,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * @remarks
    * The cluster expiration time.
    * 
-   * > This parameter returns a value only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -699,6 +741,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * 20
    */
   maxQPM?: string;
+  maxTPM?: string;
   /**
    * @remarks
    * The model name.
@@ -707,6 +750,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * Qwen3-Embedding-8B
    */
   modelName?: string;
+  modelSpaceName?: string;
   /**
    * @remarks
    * The model type.
@@ -762,11 +806,11 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   runType?: string;
   /**
    * @remarks
-   * Valid values for Enterprise Edition storage type:
+   * The storage type for Enterprise Edition. Valid values:
    * - **PSL5**
    * - **PSL4**
    * 
-   * Valid values for Standard Edition storage type:
+   * The storage type for Standard Edition. Valid values:
    * - **ESSDPL0**
    * - **ESSDPL1**
    * - **ESSDPL2**
@@ -781,7 +825,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   timeSlicesType?: string;
   /**
    * @remarks
-   * The VPC ID specified for the zone switchover.
+   * The VPC ID that can be specified when switching zones.
    * 
    * @example
    * vpc-*******************
@@ -813,7 +857,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone IDs.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-i,cn-hangzhou-g
@@ -827,6 +871,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
       DBClusterStatus: 'DBClusterStatus',
+      DBInstanceStatusDesc: 'DBInstanceStatusDesc',
       DBNodes: 'DBNodes',
       DBVersion: 'DBVersion',
       ecsSecurityGroupId: 'EcsSecurityGroupId',
@@ -839,7 +884,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       kubeClusterId: 'KubeClusterId',
       lockMode: 'LockMode',
       maxQPM: 'MaxQPM',
+      maxTPM: 'MaxTPM',
       modelName: 'ModelName',
+      modelSpaceName: 'ModelSpaceName',
       modelType: 'ModelType',
       payType: 'PayType',
       publicIp: 'PublicIp',
@@ -866,6 +913,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBClusterDescription: 'string',
       DBClusterId: 'string',
       DBClusterStatus: 'string',
+      DBInstanceStatusDesc: 'string',
       DBNodes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodes },
       DBVersion: 'string',
       ecsSecurityGroupId: 'string',
@@ -878,7 +926,9 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       kubeClusterId: 'string',
       lockMode: 'string',
       maxQPM: 'string',
+      maxTPM: 'string',
       modelName: 'string',
+      modelSpaceName: 'string',
       modelType: 'string',
       payType: 'string',
       publicIp: 'string',

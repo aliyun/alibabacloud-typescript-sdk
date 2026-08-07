@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCostRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * Filters by effective target type. Valid values: global, consumerGroup, and consumer.
+   * 
+   * @example
+   * global
+   */
+  effectiveTargetType?: string;
+  /**
+   * @remarks
+   * Filters by effective target value.
+   * 
+   * @example
+   * user
+   */
+  effectiveTargetValue?: string;
+  /**
+   * @remarks
    * The gateway instance ID.
    * 
    * This parameter is required.
@@ -15,7 +31,7 @@ export class DescribeCostRulesRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The model name, such as `gpt-4` or `qwen-turbo`.
+   * The model name, such as gpt-4 or qwen-turbo.
    * 
    * @example
    * qwen3-max
@@ -40,12 +56,9 @@ export class DescribeCostRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
@@ -63,6 +76,8 @@ export class DescribeCostRulesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveTargetType: 'EffectiveTargetType',
+      effectiveTargetValue: 'EffectiveTargetValue',
       gwClusterId: 'GwClusterId',
       modelName: 'ModelName',
       modelServiceId: 'ModelServiceId',
@@ -74,6 +89,8 @@ export class DescribeCostRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      effectiveTargetType: 'string',
+      effectiveTargetValue: 'string',
       gwClusterId: 'string',
       modelName: 'string',
       modelServiceId: 'string',

@@ -5,12 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCostRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of cost points per million cache tokens. The default value is 0.
+   * The cost points per million cached tokens. Default value: 0.
    * 
    * @example
    * 0
    */
   cacheCostPointsPerMillion?: string;
+  /**
+   * @remarks
+   * The effective target type. Valid values:
+   * 
+   * - global
+   * - consumerGroup
+   * - consumer
+   * 
+   * Default value: global.
+   * 
+   * @example
+   * global
+   */
+  effectiveTargetType?: string;
+  /**
+   * @remarks
+   * The effective target value. This parameter is required when EffectiveTargetType is not set to global.
+   * 
+   * @example
+   * user
+   */
+  effectiveTargetValue?: string;
   /**
    * @remarks
    * The gateway instance ID.
@@ -23,7 +45,7 @@ export class CreateCostRuleRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The number of cost points per million input tokens. The default value is 0.
+   * The cost points per million input tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -31,7 +53,7 @@ export class CreateCostRuleRequest extends $dara.Model {
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The name of the model, such as `gpt-4` or `qwen-turbo`.
+   * The model name, such as gpt-4 or qwen-turbo.
    * 
    * This parameter is required.
    * 
@@ -51,7 +73,7 @@ export class CreateCostRuleRequest extends $dara.Model {
   modelServiceId?: string;
   /**
    * @remarks
-   * The number of cost points per million output tokens. The default value is 0.
+   * The cost points per million output tokens. Default value: 0.
    * 
    * @example
    * 0
@@ -68,6 +90,8 @@ export class CreateCostRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
+      effectiveTargetType: 'EffectiveTargetType',
+      effectiveTargetValue: 'EffectiveTargetValue',
       gwClusterId: 'GwClusterId',
       inputCostPointsPerMillion: 'InputCostPointsPerMillion',
       modelName: 'ModelName',
@@ -80,6 +104,8 @@ export class CreateCostRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cacheCostPointsPerMillion: 'string',
+      effectiveTargetType: 'string',
+      effectiveTargetValue: 'string',
       gwClusterId: 'string',
       inputCostPointsPerMillion: 'string',
       modelName: 'string',

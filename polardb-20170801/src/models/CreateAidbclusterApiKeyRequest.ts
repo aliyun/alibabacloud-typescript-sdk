@@ -12,6 +12,11 @@ export class CreateAIDBClusterApiKeyRequest extends $dara.Model {
    */
   description?: string;
   /**
+   * @example
+   * pms-xxx
+   */
+  modelSpaceName?: string;
+  /**
    * @remarks
    * The region ID.
    * > * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters under the specified account.
@@ -26,6 +31,7 @@ export class CreateAIDBClusterApiKeyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      modelSpaceName: 'ModelSpaceName',
       regionId: 'RegionId',
     };
   }
@@ -33,6 +39,7 @@ export class CreateAIDBClusterApiKeyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      modelSpaceName: 'string',
       regionId: 'string',
     };
   }

@@ -81,6 +81,11 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * ON
+   */
+  createPublicEndpoint?: string;
+  /**
    * @remarks
    * The description of the cluster. You can use the description to perform a fuzzy search.
    * 
@@ -99,8 +104,6 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The node specification.
-   * 
-   * This parameter is required.
    * 
    * @example
    * polar.pg.g4.6xlarge.gu4
@@ -175,6 +178,11 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * Qwen3-30B-A3B
    */
   modelName?: string;
+  /**
+   * @example
+   * pms-xxx
+   */
+  modelSpace?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -310,6 +318,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
+      createPublicEndpoint: 'CreatePublicEndpoint',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
       DBNodeClass: 'DBNodeClass',
@@ -322,6 +331,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       kubernetesConfig: 'KubernetesConfig',
       managementMode: 'ManagementMode',
       modelName: 'ModelName',
+      modelSpace: 'ModelSpace',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       password: 'Password',
@@ -348,6 +358,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       autoRenew: 'string',
       autoUseCoupon: 'boolean',
       clientToken: 'string',
+      createPublicEndpoint: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
       DBNodeClass: 'string',
@@ -360,6 +371,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       kubernetesConfig: 'string',
       managementMode: 'string',
       modelName: 'string',
+      modelSpace: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       password: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the memory.
+   * The creation time.
    * 
    * @example
    * 2025-09-26T08:25:44Z
@@ -13,7 +13,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The unique ID of the memory.
+   * The memory ID.
    * 
    * @example
    * 423
@@ -21,7 +21,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The content of the memory.
+   * The memory content.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The agent ID that owns the memory.
+   * The agent to which the memory belongs.
    * 
    * @example
    * agent1
@@ -37,7 +37,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   memoryAgentId?: string;
   /**
    * @remarks
-   * The user ID that owns the memory.
+   * The user to whom the memory belongs.
    * 
    * @example
    * user1
@@ -45,7 +45,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   memoryUserId?: string;
   /**
    * @remarks
-   * Additional metadata associated with the memory.
+   * The metadata.
    * 
    * @example
    * {\\"tags\\":\\"Issue_date_2023-11-30,VD_现行有效\\"}
@@ -53,7 +53,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The relevance score of the result.
+   * The score.
    * 
    * @example
    * 12
@@ -61,7 +61,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   score?: string;
   /**
    * @remarks
-   * The update time of the memory.
+   * The update time.
    * 
    * @example
    * 2025-10-16T02:27:33Z
@@ -103,9 +103,11 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
 }
 
 export class SearchMemoriesResponseBody extends $dara.Model {
+  page?: string;
+  pageSize?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
@@ -113,20 +115,30 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of search results.
+   * The list of results.
    */
   results?: SearchMemoriesResponseBodyResults[];
+  total?: string;
+  totalPages?: string;
   static names(): { [key: string]: string } {
     return {
+      page: 'Page',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       results: 'Results',
+      total: 'Total',
+      totalPages: 'TotalPages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      page: 'string',
+      pageSize: 'string',
       requestId: 'string',
       results: { 'type': 'array', 'itemType': SearchMemoriesResponseBodyResults },
+      total: 'string',
+      totalPages: 'string',
     };
   }
 

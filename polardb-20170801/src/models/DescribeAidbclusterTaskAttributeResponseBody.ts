@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo extends $dara.Model {
+  /**
+   * @example
+   * my-bucket
+   */
+  customOssBucketName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customOssBucketName: 'CustomOssBucketName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customOssBucketName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.Model {
   /**
    * @remarks
@@ -199,6 +226,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
    * 2025-11-12T03:45:13Z
    */
   createTime?: string;
+  customBucketInfo?: DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo;
   /**
    * @remarks
    * The task name.
@@ -344,6 +372,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
       accessInfo: 'AccessInfo',
       clusterNetworkType: 'ClusterNetworkType',
       createTime: 'CreateTime',
+      customBucketInfo: 'CustomBucketInfo',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
       DBClusterStatus: 'DBClusterStatus',
@@ -370,6 +399,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
       accessInfo: 'string',
       clusterNetworkType: 'string',
       createTime: 'string',
+      customBucketInfo: DescribeAIDBClusterTaskAttributeResponseBodyCustomBucketInfo,
       DBClusterDescription: 'string',
       DBClusterId: 'string',
       DBClusterStatus: 'string',
@@ -392,6 +422,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.customBucketInfo && typeof (this.customBucketInfo as any).validate === 'function') {
+      (this.customBucketInfo as any).validate();
+    }
     if(Array.isArray(this.dataSets)) {
       $dara.Model.validateArray(this.dataSets);
     }

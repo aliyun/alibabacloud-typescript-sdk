@@ -43,11 +43,56 @@ export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $d
 }
 
 export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint of the protocol connection.
+   * 
+   * @example
+   * aclsh-prd-pdb12-rw.rwlb.rds.aliyuncs.com
+   */
   connectionString?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 47.116.9.224
+   */
   IPAddress?: string;
+  /**
+   * @remarks
+   * The network type of the connection string. Valid values:
+   * * **Public**: public endpoint.
+   * * **Private**: private endpoint.
+   * * **Inner**: private endpoint (classic network).
+   * 
+   * @example
+   * Public
+   */
   netType?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 3306
+   */
   port?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-**********
+   */
   VPCId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-**************
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,7 +141,7 @@ export class DescribePolarFsAttributeResponseBodyEndpointItems extends $dara.Mod
   DBEndpointId?: string;
   /**
    * @remarks
-   * The endpoint type, such as Nas or S3Gateway.
+   * The endpoint type. Valid values: Nas, S3Gateway, and others.
    * 
    * @example
    * S3Gateway
@@ -191,7 +236,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The acceleration space. Unit: GB.
+   * The acceleration storage space, in GB.
    * 
    * @example
    * 1000
@@ -225,7 +270,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   authorizedUserIds?: string;
   /**
    * @remarks
-   * The bandwidth. Unit: MB/s.
+   * The bandwidth, in MB/s.
    * 
    * @example
    * 100
@@ -233,7 +278,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The bandwidth baseline. Unit: MB/s/TiB.
+   * The bandwidth baseline, in MB/s/TiB.
    * 
    * @example
    * 100
@@ -290,6 +335,13 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * The list of custom storage paths.
    */
   customBucketPathList?: DescribePolarFsAttributeResponseBodyCustomBucketPathList[];
+  /**
+   * @remarks
+   * The endpoint ID.
+   * 
+   * @example
+   * pe-zo1z5qw5nb39s699n
+   */
   DBEndpointId?: string;
   /**
    * @remarks
@@ -303,7 +355,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
+   * The list of endpoints, including endpoint information for NAS, S3Gateway, and other types.
    */
   endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
@@ -345,7 +397,21 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * Unlock
    */
   lockMode?: string;
+  /**
+   * @remarks
+   * The proxy endpoint ID.
+   * 
+   * @example
+   * pe-cz9inwqec7ifd98c3
+   */
   maxscaleEndpointId?: string;
+  /**
+   * @remarks
+   * The metadata service cluster endpoint.
+   * 
+   * @example
+   * pc-x67w12d2d5t13mt88.pg.polardb.rds.aliyuncs.com
+   */
   metaConnString?: string;
   /**
    * @remarks
@@ -355,10 +421,17 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * pc-xxxxxxxxxxxxxxxxx
    */
   metaInstanceName?: string;
+  /**
+   * @remarks
+   * The metadata proxy service cluster endpoint.
+   * 
+   * @example
+   * pc-y3610mp168p3bb740.rwlb.rds.aliyuncs.com
+   */
   metaMxsConnString?: string;
   /**
    * @remarks
-   * The metadata URL for Fuse mounting (encrypted).
+   * The metadata address for Fuse mount (encrypted).
    * 
    * @example
    * e6cc1d2e2a6fa292038d999fda6501*****
@@ -415,8 +488,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance version. Valid values:
-   * - **PolarFS 2.0**: 2.0.
-   * - **PolarFS 1.0**: 1.0.
+   * - **PolarFS 2.0**: 2.0
+   * - **PolarFS 1.0**: 1.0
    * 
    * @example
    * PolarFS 2.0
@@ -472,7 +545,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The storage space. Unit: GB.
+   * The storage space, in GB.
    * 
    * @example
    * 1000
@@ -485,7 +558,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * * **ESSDPL0**
    * 
    * The storage type for the Basic Edition. Valid values:
-   * * **city_redundancy**: zone-redundant storage.
+   * * **city_redundancy**: cross-zone redundancy.
    * 
    * @example
    * essdpl1
@@ -493,7 +566,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The used storage space. Unit: bytes.
+   * The storage usage, in bytes.
    * 
    * @example
    * 3012558848

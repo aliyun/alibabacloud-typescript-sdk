@@ -13,7 +13,7 @@ export class CreateCostRuleResponseBody extends $dara.Model {
   costRuleId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 580EF224-9647-59E7-9950-D9EBFD6A2921

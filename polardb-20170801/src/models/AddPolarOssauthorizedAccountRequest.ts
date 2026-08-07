@@ -2,45 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAIDBClusterApiKeyRequest extends $dara.Model {
+export class AddPolarOSSAuthorizedAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key of the model service.
-   * 
    * This parameter is required.
    * 
    * @example
-   * xxx
+   * 1234567890,acs:ram::123456:role/myrole
    */
-  apiKey?: string;
+  authorizedUserIds?: string;
   /**
    * @example
-   * pms-xxx
+   * pc-xxxxxxxxxxxxxxxxx
    */
-  modelSpaceName?: string;
+  DBClusterId?: string;
   /**
    * @remarks
-   * The region ID.
-   * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
-   * 
    * This parameter is required.
    * 
+   * @example
+   * pfs-xxxxxxxxxxxxxxxxx
+   */
+  pfsInstanceId?: string;
+  /**
    * @example
    * cn-beijing
    */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiKey: 'ApiKey',
-      modelSpaceName: 'ModelSpaceName',
+      authorizedUserIds: 'AuthorizedUserIds',
+      DBClusterId: 'DBClusterId',
+      pfsInstanceId: 'PfsInstanceId',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiKey: 'string',
-      modelSpaceName: 'string',
+      authorizedUserIds: 'string',
+      DBClusterId: 'string',
+      pfsInstanceId: 'string',
       regionId: 'string',
     };
   }

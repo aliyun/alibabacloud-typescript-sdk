@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAIDBClusterTaskRequest extends $dara.Model {
   /**
+   * @example
+   * my-bucket
+   */
+  customOssBucketName?: string;
+  /**
    * @remarks
    * The cluster ID.
    * 
@@ -21,6 +26,11 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
    * polar.pg.g6.4xlarge.guh
    */
   DBInstanceClass?: string;
+  /**
+   * @example
+   * cold_storage
+   */
+  dataserviceMode?: string;
   /**
    * @remarks
    * The training dataset ID. This parameter is required for fine-tuning.
@@ -145,8 +155,10 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      customOssBucketName: 'CustomOssBucketName',
       DBClusterId: 'DBClusterId',
       DBInstanceClass: 'DBInstanceClass',
+      dataserviceMode: 'DataserviceMode',
       datasetPath: 'DatasetPath',
       evalDatasetPath: 'EvalDatasetPath',
       kubeType: 'KubeType',
@@ -170,8 +182,10 @@ export class CreateAIDBClusterTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customOssBucketName: 'string',
       DBClusterId: 'string',
       DBInstanceClass: 'string',
+      dataserviceMode: 'string',
       datasetPath: 'string',
       evalDatasetPath: 'string',
       kubeType: 'string',

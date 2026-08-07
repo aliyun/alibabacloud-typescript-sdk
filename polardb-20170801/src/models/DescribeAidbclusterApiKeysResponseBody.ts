@@ -78,6 +78,8 @@ export class DescribeAIDBClusterApiKeysResponseBody extends $dara.Model {
    * API Keys。
    */
   apiKeys?: DescribeAIDBClusterApiKeysResponseBodyApiKeys[];
+  pageNumber?: string;
+  pageSize?: string;
   /**
    * @remarks
    * Id of the request
@@ -89,6 +91,8 @@ export class DescribeAIDBClusterApiKeysResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKeys: 'ApiKeys',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
     };
   }
@@ -96,6 +100,8 @@ export class DescribeAIDBClusterApiKeysResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKeys: { 'type': 'array', 'itemType': DescribeAIDBClusterApiKeysResponseBodyApiKeys },
+      pageNumber: 'string',
+      pageSize: 'string',
       requestId: 'string',
     };
   }

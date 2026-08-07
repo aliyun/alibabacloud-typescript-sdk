@@ -15,7 +15,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The start time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+   * The start time for memory creation.
    * 
    * @example
    * yyyy-MM-ddTHH:mm:ssZ
@@ -23,7 +23,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   createTimeBegin?: string;
   /**
    * @remarks
-   * The end time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+   * The end time for memory creation.
    * 
    * @example
    * yyyy-MM-ddTHH:mm:ssZ
@@ -31,7 +31,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The agent ID associated with the memory.
+   * The memory agent ID.
    * 
    * @example
    * agent1
@@ -39,7 +39,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   memoryAgentId?: string;
   /**
    * @remarks
-   * The user ID associated with the memory.
+   * The memory user ID.
    * 
    * This parameter is required.
    * 
@@ -49,9 +49,17 @@ export class SearchMemoriesRequest extends $dara.Model {
   memoryUserId?: string;
   /**
    * @remarks
+   * The page number.
+   */
+  page?: number;
+  /**
+   * @remarks
+   * The number of records per page.
+   */
+  pageSize?: number;
+  /**
+   * @remarks
    * The search query.
-   * 
-   * This parameter is required.
    * 
    * @example
    * who are you
@@ -59,7 +67,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The maximum number of results to return.
+   * Specifies the number of top results to return.
    * 
    * @example
    * 3
@@ -72,6 +80,8 @@ export class SearchMemoriesRequest extends $dara.Model {
       createTimeEnd: 'CreateTimeEnd',
       memoryAgentId: 'MemoryAgentId',
       memoryUserId: 'MemoryUserId',
+      page: 'Page',
+      pageSize: 'PageSize',
       query: 'Query',
       topK: 'TopK',
     };
@@ -84,6 +94,8 @@ export class SearchMemoriesRequest extends $dara.Model {
       createTimeEnd: 'string',
       memoryAgentId: 'string',
       memoryUserId: 'string',
+      page: 'number',
+      pageSize: 'number',
       query: 'string',
       topK: 'string',
     };

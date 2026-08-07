@@ -66,6 +66,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
   expired?: boolean;
   kubeClusterId?: string;
   lockMode?: string;
+  modelSpace?: string;
   modelType?: string;
   payType?: string;
   regionId?: string;
@@ -94,6 +95,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       expired: 'Expired',
       kubeClusterId: 'KubeClusterId',
       lockMode: 'LockMode',
+      modelSpace: 'ModelSpace',
       modelType: 'ModelType',
       payType: 'PayType',
       regionId: 'RegionId',
@@ -121,6 +123,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       expired: 'boolean',
       kubeClusterId: 'string',
       lockMode: 'string',
+      modelSpace: 'string',
       modelType: 'string',
       payType: 'string',
       regionId: 'string',
