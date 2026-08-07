@@ -55,6 +55,7 @@ export class ListLineagesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  recentDays?: number;
   /**
    * @remarks
    * The field to sort the results by. The default is `Name`, which sorts by entity name.
@@ -87,6 +88,7 @@ export class ListLineagesRequest extends $dara.Model {
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      recentDays: 'RecentDays',
       sortBy: 'SortBy',
       srcEntityId: 'SrcEntityId',
       srcEntityName: 'SrcEntityName',
@@ -101,6 +103,7 @@ export class ListLineagesRequest extends $dara.Model {
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      recentDays: 'number',
       sortBy: 'string',
       srcEntityId: 'string',
       srcEntityName: 'string',
