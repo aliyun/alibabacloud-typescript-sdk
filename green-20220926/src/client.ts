@@ -1739,7 +1739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取oss结果v2
+   * Retrieves OSS moderation results v2.
+   * 
+   * @remarks
+   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
    * 
    * @param request - DescribeOssV2ResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1794,7 +1797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取oss结果v2
+   * Retrieves OSS moderation results v2.
+   * 
+   * @remarks
+   * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
    * 
    * @param request - DescribeOssV2ResultRequest
    * @returns DescribeOssV2ResultResponse
@@ -2726,6 +2732,41 @@ export default class Client extends OpenApi {
   async getFeatureConfig(request: $_model.GetFeatureConfigRequest): Promise<$_model.GetFeatureConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFeatureConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves log statistics for AI security guardrails.
+   * 
+   * @param request - GetGuardLogStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGuardLogStatsResponse
+   */
+  async getGuardLogStatsWithOptions(request: $_model.GetGuardLogStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGuardLogStatsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGuardLogStats",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGuardLogStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetGuardLogStatsResponse({}));
+  }
+
+  /**
+   * Retrieves log statistics for AI security guardrails.
+   * 
+   * @param request - GetGuardLogStatsRequest
+   * @returns GetGuardLogStatsResponse
+   */
+  async getGuardLogStats(request: $_model.GetGuardLogStatsRequest): Promise<$_model.GetGuardLogStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGuardLogStatsWithOptions(request, runtime);
   }
 
   /**
@@ -3830,6 +3871,48 @@ export default class Client extends OpenApi {
   async getTuneProposalById(request: $_model.GetTuneProposalByIdRequest): Promise<$_model.GetTuneProposalByIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTuneProposalByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the text content of an uploaded file.
+   * 
+   * @param request - GetUploadContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadContentResponse
+   */
+  async getUploadContentWithOptions(request: $_model.GetUploadContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUploadContentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.uploadUrl)) {
+      query["UploadUrl"] = request.uploadUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUploadContent",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUploadContentResponse>(await this.callApi(params, req, runtime), new $_model.GetUploadContentResponse({}));
+  }
+
+  /**
+   * Retrieves the text content of an uploaded file.
+   * 
+   * @param request - GetUploadContentRequest
+   * @returns GetUploadContentResponse
+   */
+  async getUploadContent(request: $_model.GetUploadContentRequest): Promise<$_model.GetUploadContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUploadContentWithOptions(request, runtime);
   }
 
   /**
