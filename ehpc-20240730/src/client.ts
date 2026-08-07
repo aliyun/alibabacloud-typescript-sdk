@@ -13,6 +13,7 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
+      'me-east-1': "ehpc.me-east-1.aliyuncs.com",
       'eu-central-1': "ehpc.eu-central-1.aliyuncs.com",
       'cn-zhangjiakou': "ehpc.cn-zhangjiakou.aliyuncs.com",
       'cn-wulanchabu': "ehpc.cn-wulanchabu.aliyuncs.com",
@@ -28,7 +29,6 @@ export default class Client extends OpenApi {
       'cn-chengdu': "ehpc.cn-chengdu.aliyuncs.com",
       'cn-beijing': "ehpc.cn-beijing.aliyuncs.com",
       'ap-southeast-5': "ehpc.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-2': "ehpc.ap-southeast-2.aliyuncs.com",
       'ap-southeast-1': "ehpc.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "ehpc.ap-northeast-1.aliyuncs.com",
     };

@@ -152,6 +152,7 @@ export class ListNodesResponseBodyNodes extends $dara.Model {
    * autoque3
    */
   queueName?: string;
+  reason?: string;
   /**
    * @remarks
    * The bidding policy of the node. Valid values:
@@ -231,6 +232,7 @@ export class ListNodesResponseBodyNodes extends $dara.Model {
       keepAlive: 'KeepAlive',
       publicIpAddress: 'PublicIpAddress',
       queueName: 'QueueName',
+      reason: 'Reason',
       spotStrategy: 'SpotStrategy',
       stateInSched: 'StateInSched',
       status: 'Status',
@@ -255,6 +257,7 @@ export class ListNodesResponseBodyNodes extends $dara.Model {
       keepAlive: 'boolean',
       publicIpAddress: 'string',
       queueName: 'string',
+      reason: 'string',
       spotStrategy: 'string',
       stateInSched: 'string',
       status: 'string',
