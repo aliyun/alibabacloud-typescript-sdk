@@ -7590,6 +7590,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - GenerateAuthCodeRequest
+   * @param tmpHeader - GenerateAuthCodeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateAuthCodeResponse
+   */
+  async generateAuthCodeWithOptions(tmpReq: $_model.GenerateAuthCodeRequest, tmpHeader: $_model.GenerateAuthCodeHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateAuthCodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenerateAuthCodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GenerateAuthCodeShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucAppName)) {
+      body["BucAppName"] = request.bucAppName;
+    }
+
+    if (!$dara.isNull(request.ssoTicket)) {
+      body["SsoTicket"] = request.ssoTicket;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.validRedirectUri)) {
+      body["ValidRedirectUri"] = request.validRedirectUri;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateAuthCode",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/auth/generateAuthCode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateAuthCodeResponse>(await this.callApi(params, req, runtime), new $_model.GenerateAuthCodeResponse({}));
+  }
+
+  /**
+   * @param request - GenerateAuthCodeRequest
+   * @returns GenerateAuthCodeResponse
+   */
+  async generateAuthCode(request: $_model.GenerateAuthCodeRequest): Promise<$_model.GenerateAuthCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GenerateAuthCodeHeaders({ });
+    return await this.generateAuthCodeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取流程设计的节点信息
    * 
    * @param request - GetActivityListRequest
@@ -13023,6 +13097,88 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetUserHeaders({ });
     return await this.getUserWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取用户对钉钉文档的权限情况
+   * 
+   * @param tmpReq - GetUserDocumentPermissionRequest
+   * @param tmpHeader - GetUserDocumentPermissionHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserDocumentPermissionResponse
+   */
+  async getUserDocumentPermissionWithOptions(tmpReq: $_model.GetUserDocumentPermissionRequest, tmpHeader: $_model.GetUserDocumentPermissionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserDocumentPermissionResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetUserDocumentPermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetUserDocumentPermissionShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dentryId)) {
+      body["DentryId"] = request.dentryId;
+    }
+
+    if (!$dara.isNull(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserDocumentPermission",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/getUserDocumentPermission`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserDocumentPermissionResponse>(await this.callApi(params, req, runtime), new $_model.GetUserDocumentPermissionResponse({}));
+  }
+
+  /**
+   * 获取用户对钉钉文档的权限情况
+   * 
+   * @param request - GetUserDocumentPermissionRequest
+   * @returns GetUserDocumentPermissionResponse
+   */
+  async getUserDocumentPermission(request: $_model.GetUserDocumentPermissionRequest): Promise<$_model.GetUserDocumentPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetUserDocumentPermissionHeaders({ });
+    return await this.getUserDocumentPermissionWithOptions(request, headers, runtime);
   }
 
   /**
