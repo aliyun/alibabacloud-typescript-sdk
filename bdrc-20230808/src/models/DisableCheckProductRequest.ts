@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableCheckProductRequest extends $dara.Model {
   /**
    * @remarks
-   * Product type
+   * The product type.
    * 
    * This parameter is required.
    * 

@@ -10,6 +10,8 @@ export { DescribeProductsResponseBodyDataContentProtectionScoreDistributionRange
 export { DescribeProductsResponseBodyDataContentProtectionScoreDistribution } from './DescribeProductsResponseBody';
 export { DescribeProductsResponseBodyDataContent } from './DescribeProductsResponseBody';
 export { DescribeProductsResponseBodyData } from './DescribeProductsResponseBody';
+export { DescribeRegionsResponseBodyDataRegions } from './DescribeRegionsResponseBody';
+export { DescribeRegionsResponseBodyData } from './DescribeRegionsResponseBody';
 export { DescribeResourcesResponseBodyDataContent } from './DescribeResourcesResponseBody';
 export { DescribeResourcesResponseBodyData } from './DescribeResourcesResponseBody';
 export { DescribeRulesResponseBodyDataContent } from './DescribeRulesResponseBody';
@@ -69,6 +71,9 @@ export { DescribeProductsRequest } from './DescribeProductsRequest';
 export { DescribeProductsShrinkRequest } from './DescribeProductsShrinkRequest';
 export { DescribeProductsResponseBody } from './DescribeProductsResponseBody';
 export { DescribeProductsResponse } from './DescribeProductsResponse';
+export { DescribeRegionsRequest } from './DescribeRegionsRequest';
+export { DescribeRegionsResponseBody } from './DescribeRegionsResponseBody';
+export { DescribeRegionsResponse } from './DescribeRegionsResponse';
 export { DescribeResourcesRequest } from './DescribeResourcesRequest';
 export { DescribeResourcesShrinkRequest } from './DescribeResourcesShrinkRequest';
 export { DescribeResourcesResponseBody } from './DescribeResourcesResponseBody';

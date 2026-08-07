@@ -2,24 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DisableCheckProductResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 89E3CBB7-16F3-52AE-BD32-31A43A2A807F
-   */
-  requestId?: string;
+export class DescribeRegionsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
     };
   }
 

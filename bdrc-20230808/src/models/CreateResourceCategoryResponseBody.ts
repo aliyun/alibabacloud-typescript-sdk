@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceCategoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Resource category ID.
+   * The resource category ID.
    * 
    * @example
    * rc-123****7890
@@ -35,7 +35,7 @@ export class CreateResourceCategoryResponseBodyData extends $dara.Model {
 export class CreateResourceCategoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateResourceCategoryResponseBodyData;
   /**

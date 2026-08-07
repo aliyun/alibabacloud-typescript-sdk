@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * Resource category name.
+   * The resource category name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateResourceCategoryRequest extends $dara.Model {
   resourceCategoryName?: string;
   /**
    * @remarks
-   * Resource matcher.
+   * The resource matcher.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateResourceCategoryRequest extends $dara.Model {
   resourceMatcher?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * ACS::ECS::Instance

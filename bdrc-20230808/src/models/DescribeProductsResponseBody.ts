@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProductsResponseBodyDataContentProtectionScoreDistributionRange extends $dara.Model {
   /**
    * @remarks
-   * The lower bound of the score range, inclusive.
+   * The lower bound of the range (inclusive).
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeProductsResponseBodyDataContentProtectionScoreDistributionR
   from?: number;
   /**
    * @remarks
-   * The upper bound of the score range, inclusive.
+   * The upper bound of the range (inclusive).
    * 
    * @example
    * 60
@@ -45,7 +45,7 @@ export class DescribeProductsResponseBodyDataContentProtectionScoreDistributionR
 export class DescribeProductsResponseBodyDataContentProtectionScoreDistribution extends $dara.Model {
   /**
    * @remarks
-   * The count of resources within this score range.
+   * The number of resources within the range.
    * 
    * @example
    * 5
@@ -85,7 +85,7 @@ export class DescribeProductsResponseBodyDataContentProtectionScoreDistribution 
 export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The count of failed check items.
+   * The number of failed check items.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   checkFailedCount?: number;
   /**
    * @remarks
-   * The count of resources that failed the check.
+   * The number of resources that failed the check.
    * 
    * @example
    * 1
@@ -101,7 +101,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   checkFailedResourceCount?: number;
   /**
    * @remarks
-   * The count of resources for which the check is disabled.
+   * The number of resources for which the check is disabled.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   disableCheckResourceCount?: number;
   /**
    * @remarks
-   * Indicates whether the data protection score is enabled for the cloud product.
+   * Indicates whether data protection score assessment is enabled.
    * 
    * @example
    * true
@@ -117,7 +117,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   enableCheck?: boolean;
   /**
    * @remarks
-   * The cloud product type, such as `ECS` and `OSS`.
+   * The cloud service type, such as ecs or oss.
    * 
    * @example
    * oss
@@ -125,7 +125,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The data protection score, ranging from 0 to 100.
+   * The data protection score (0 to 100).
    * 
    * @example
    * 90
@@ -138,7 +138,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   protectionScoreDistribution?: DescribeProductsResponseBodyDataContentProtectionScoreDistribution[];
   /**
    * @remarks
-   * The UNIX timestamp of the last data protection score update.
+   * The time when the data protection score was last updated (UNIX timestamp).
    * 
    * @example
    * 1726036498
@@ -146,7 +146,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   protectionScoreUpdatedTime?: number;
   /**
    * @remarks
-   * The count of risky check items.
+   * The number of check items with risks.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   riskCount?: number;
   /**
    * @remarks
-   * The count of risky resources.
+   * The number of resources with risks.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   riskyResourceCount?: number;
   /**
    * @remarks
-   * The total count of resources for the cloud product.
+   * The total number of resources.
    * 
    * @example
    * 100
@@ -170,7 +170,7 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
   totalResourceCount?: number;
   /**
    * @remarks
-   * The count of resources pending a check.
+   * The number of resources pending check.
    * 
    * @example
    * 1
@@ -225,12 +225,12 @@ export class DescribeProductsResponseBodyDataContent extends $dara.Model {
 export class DescribeProductsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of cloud products and their data protection status.
+   * The collection of records returned in this request.
    */
   content?: DescribeProductsResponseBodyDataContent[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 10
@@ -238,7 +238,7 @@ export class DescribeProductsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is absent from the response, all results have been retrieved.
+   * The position from which the current call starts reading. An empty value indicates that all data has been read.
    * 
    * @example
    * b4fd3cffcacafd65e3818a0b9b2ff9a2
@@ -246,7 +246,7 @@ export class DescribeProductsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries that match the query. This parameter is not returned by default.
+   * The total number of records that match the request conditions. This is an optional parameter and may not be returned by default.
    * 
    * @example
    * 50
@@ -290,7 +290,7 @@ export class DescribeProductsResponseBody extends $dara.Model {
   data?: DescribeProductsResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 30FB202A-1D22-5394-AB02-4477CDFCF51F

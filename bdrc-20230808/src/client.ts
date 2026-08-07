@@ -443,7 +443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data protection score status for cloud products.
+   * Queries the data protection score status of cloud services.
    * 
    * @param tmpReq - DescribeProductsRequest
    * @param headers - map
@@ -494,7 +494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the data protection score status for cloud products.
+   * Queries the data protection score status of cloud services.
    * 
    * @param request - DescribeProductsRequest
    * @returns DescribeProductsResponse
@@ -503,6 +503,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeProductsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries available regions.
+   * 
+   * @remarks
+   * BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * Queries available regions.
+   * 
+   * @remarks
+   * BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -605,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all data protection rules.
+   * Queries a list of data protection rules.
    * 
    * @param tmpReq - DescribeRulesRequest
    * @param headers - map
@@ -664,7 +709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all data protection rules.
+   * Queries a list of data protection rules.
    * 
    * @param request - DescribeRulesRequest
    * @returns DescribeRulesResponse
@@ -827,7 +872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the data protection score for a cloud product.
+   * Disables the data protection score for a cloud service.
    * 
    * @param request - DisableCheckProductRequest
    * @param headers - map
@@ -860,7 +905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the data protection score for a cloud product.
+   * Disables the data protection score for a cloud service.
    * 
    * @param request - DisableCheckProductRequest
    * @returns DisableCheckProductResponse
@@ -917,7 +962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables data protection scoring for a cloud product.
+   * Enables data protection scoring for an Alibaba Cloud service.
    * 
    * @param request - EnableCheckProductRequest
    * @param headers - map
@@ -950,7 +995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables data protection scoring for a cloud product.
+   * Enables data protection scoring for an Alibaba Cloud service.
    * 
    * @param request - EnableCheckProductRequest
    * @returns EnableCheckProductResponse

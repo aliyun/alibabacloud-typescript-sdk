@@ -13,7 +13,12 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   checkFailedResourceCount?: number;
   /**
    * @remarks
-   * The check status. Valid values: NOT_CHECKED (Not checked), PASSED (Passed), FAILED (Failed), CHECKING (Checking), and CHECK_FAILED (Check failed).
+   * The check status. Valid values:
+   * - NOT_CHECKED: not checked.
+   * - PASSED: check passed.
+   * - FAILED: check failed.
+   * - CHECKING: checking in progress.
+   * - CHECK_FAILED: check execution failed.
    * 
    * @example
    * PASSED
@@ -21,7 +26,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   checkStatus?: string;
   /**
    * @remarks
-   * The UNIX timestamp that indicates when the check was performed.
+   * The check time.
    * 
    * @example
    * 1704157635
@@ -29,7 +34,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   checkTime?: number;
   /**
    * @remarks
-   * The product type to which the rule applies.
+   * The applicable product type.
    * 
    * @example
    * ecs
@@ -37,7 +42,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The resource type to which the rule applies.
+   * The applicable resource type.
    * 
    * @example
    * ACS::ECS::Instance
@@ -45,7 +50,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The number of at-risk resources.
+   * The number of resources with risks.
    * 
    * @example
    * 0
@@ -53,7 +58,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   riskyResourceCount?: number;
   /**
    * @remarks
-   * The unique ID of the rule.
+   * The unique identifier of the rule.
    * 
    * @example
    * rule-bp11ggd8wr762
@@ -69,7 +74,7 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
   ruleTemplate?: string;
   /**
    * @remarks
-   * The total number of resources that were checked.
+   * The total number of checked resources.
    * 
    * @example
    * 1
@@ -115,12 +120,12 @@ export class DescribeRulesResponseBodyDataContent extends $dara.Model {
 export class DescribeRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of returned records.
+   * The collection of records returned in this request.
    */
   content?: DescribeRulesResponseBodyDataContent[];
   /**
    * @remarks
-   * The maximum number of entries returned on the current page.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 10
@@ -128,7 +133,7 @@ export class DescribeRulesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
+   * The position from which the current call starts reading. An empty value indicates that all data has been read.
    * 
    * @example
    * 0975951c75d7b41464c8d08ae17043ca
@@ -136,7 +141,7 @@ export class DescribeRulesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries that meet the filter criteria. This parameter is optional and is not returned by default.
+   * The total number of records that match the request conditions. This parameter is optional and may not be returned by default.
    * 
    * @example
    * 42
@@ -180,7 +185,7 @@ export class DescribeRulesResponseBody extends $dara.Model {
   data?: DescribeRulesResponseBodyData;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique identifier of the request.
    * 
    * @example
    * 86DEBAC9-AB6A-59AB-9E5C-A540E579ECC9

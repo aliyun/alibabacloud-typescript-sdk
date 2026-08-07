@@ -13,7 +13,7 @@ export class ListMessagesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Message level.
+   * The message level.
    * 
    * @example
    * WARNING
@@ -21,7 +21,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageLevel?: string;
   /**
    * @remarks
-   * Messages with time earlier than this value.
+   * Filters messages with a time earlier than the specified value.
    * 
    * @example
    * 1740019610
@@ -29,7 +29,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageTimeEarlierThan?: number;
   /**
    * @remarks
-   * Messages with time later than this value.
+   * Filters messages with a time later than the specified value.
    * 
    * @example
    * 1740019609
@@ -37,7 +37,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageTimeLaterThan?: number;
   /**
    * @remarks
-   * Message type.
+   * The message type.
    * 
    * @example
    * SUB_PROTECTION_POLICY_MODIFIED
@@ -45,9 +45,7 @@ export class ListMessagesRequest extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The pagination token. If more entries are to be returned on the next page, a pagination token is returned.
-   * 
-   * > If this parameter returns data, it indicates that there are more pages. You can use the returned NextToken as a request parameter to obtain the next page of data until it returns Null, indicating that all data has been obtained.
+   * The pagination token. If there is a next page, this field has a return value. This parameter indicates that there is a next page as long as data is returned. You can use the returned NextToken as a request parameter to obtain the next page of data until Null is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * cae***********99

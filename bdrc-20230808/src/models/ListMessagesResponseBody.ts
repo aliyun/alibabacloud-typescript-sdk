@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessagesResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * Message ID.
+   * The message ID.
    * 
    * @example
    * zgrjap8j-us04-owef-fpmo-kdpr80pbss0k
@@ -13,7 +13,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * Message level.
+   * The message level.
    * 
    * @example
    * WARNING
@@ -21,7 +21,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageLevel?: string;
   /**
    * @remarks
-   * Message name.
+   * The message name.
    * 
    * @example
    * MyMessage
@@ -29,7 +29,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageName?: string;
   /**
    * @remarks
-   * Message source ID.
+   * The message source ID.
    * 
    * @example
    * p-123***7890
@@ -37,7 +37,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageSourceId?: string;
   /**
    * @remarks
-   * Message source region ID.
+   * The region ID of the message source.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageSourceRegionId?: string;
   /**
    * @remarks
-   * Message source type.
+   * The message source type.
    * 
    * @example
    * PROTECTION_POLICY
@@ -53,7 +53,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageSourceType?: string;
   /**
    * @remarks
-   * Message time.
+   * The message time.
    * 
    * @example
    * 1740019609
@@ -61,7 +61,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
   messageTime?: number;
   /**
    * @remarks
-   * Message type.
+   * The message type.
    * 
    * @example
    * SUB_PROTECTION_POLICY_MODIFIED
@@ -105,7 +105,7 @@ export class ListMessagesResponseBodyDataContent extends $dara.Model {
 export class ListMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Response parameters.
+   * The response content.
    */
   content?: ListMessagesResponseBodyDataContent[];
   /**
@@ -126,7 +126,7 @@ export class ListMessagesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 42
@@ -165,12 +165,12 @@ export class ListMessagesResponseBodyData extends $dara.Model {
 export class ListMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListMessagesResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The unique request ID.
    * 
    * @example
    * 5748C531-80B1-5C31-8421-63A1830B9E48
