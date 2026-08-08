@@ -1052,6 +1052,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启跨账号管理
+   * 
+   * @param request - EnableCrossAccountManagementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCrossAccountManagementResponse
+   */
+  async enableCrossAccountManagementWithOptions(request: $_model.EnableCrossAccountManagementRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCrossAccountManagementResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCrossAccountManagement",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cross-accounts/enable-management`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCrossAccountManagementResponse>(await this.callApi(params, req, runtime), new $_model.EnableCrossAccountManagementResponse({}));
+  }
+
+  /**
+   * 开启跨账号管理
+   * 
+   * @param request - EnableCrossAccountManagementRequest
+   * @returns EnableCrossAccountManagementResponse
+   */
+  async enableCrossAccountManagement(request: $_model.EnableCrossAccountManagementRequest): Promise<$_model.EnableCrossAccountManagementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableCrossAccountManagementWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the status of the Backup and Disaster Recovery Center.
    * 
    * @param headers - map
@@ -1207,6 +1246,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceCategoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建跨账号纳管关系
+   * 
+   * @param request - ListCrossAccountsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrossAccountsResponse
+   */
+  async listCrossAccountsWithOptions(request: $_model.ListCrossAccountsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCrossAccountsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crossAccountOwnerId)) {
+      query["CrossAccountOwnerId"] = request.crossAccountOwnerId;
+    }
+
+    if (!$dara.isNull(request.managementMode)) {
+      query["ManagementMode"] = request.managementMode;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCrossAccounts",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cross-accounts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCrossAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListCrossAccountsResponse({}));
+  }
+
+  /**
+   * 创建跨账号纳管关系
+   * 
+   * @param request - ListCrossAccountsRequest
+   * @returns ListCrossAccountsResponse
+   */
+  async listCrossAccounts(request: $_model.ListCrossAccountsRequest): Promise<$_model.ListCrossAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCrossAccountsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1482,6 +1586,120 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.openBdrcServiceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 预检查资源数量
+   * 
+   * @param tmpReq - PrecheckResourceCountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PrecheckResourceCountResponse
+   */
+  async precheckResourceCountWithOptions(tmpReq: $_model.PrecheckResourceCountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PrecheckResourceCountResponse> {
+    tmpReq.validate();
+    let request = new $_model.PrecheckResourceCountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagResourceMatchers)) {
+      request.tagResourceMatchersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagResourceMatchers, "TagResourceMatchers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagResourceMatchersShrink)) {
+      body["TagResourceMatchers"] = request.tagResourceMatchersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PrecheckResourceCount",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/resources/precheck-count`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PrecheckResourceCountResponse>(await this.callApi(params, req, runtime), new $_model.PrecheckResourceCountResponse({}));
+  }
+
+  /**
+   * 预检查资源数量
+   * 
+   * @param request - PrecheckResourceCountRequest
+   * @returns PrecheckResourceCountResponse
+   */
+  async precheckResourceCount(request: $_model.PrecheckResourceCountRequest): Promise<$_model.PrecheckResourceCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.precheckResourceCountWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新跨账号纳管关系
+   * 
+   * @param tmpReq - UpdateCrossAccountsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCrossAccountsResponse
+   */
+  async updateCrossAccountsWithOptions(tmpReq: $_model.UpdateCrossAccountsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCrossAccountsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCrossAccountsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createTargets)) {
+      request.createTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createTargets, "CreateTargets", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.deleteTargets)) {
+      request.deleteTargetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteTargets, "DeleteTargets", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createTargetsShrink)) {
+      body["CreateTargets"] = request.createTargetsShrink;
+    }
+
+    if (!$dara.isNull(request.deleteTargetsShrink)) {
+      body["DeleteTargets"] = request.deleteTargetsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCrossAccounts",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cross-accounts`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCrossAccountsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCrossAccountsResponse({}));
+  }
+
+  /**
+   * 更新跨账号纳管关系
+   * 
+   * @param request - UpdateCrossAccountsRequest
+   * @returns UpdateCrossAccountsResponse
+   */
+  async updateCrossAccounts(request: $_model.UpdateCrossAccountsRequest): Promise<$_model.UpdateCrossAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCrossAccountsWithOptions(request, headers, runtime);
   }
 
   /**
