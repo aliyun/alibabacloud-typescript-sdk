@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to return the total count
+   * Specifies whether to return the total number of entries.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetContactWhiteListRequest extends $dara.Model {
   countTotalRow?: boolean;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetContactWhiteListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -31,18 +31,20 @@ export class GetContactWhiteListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
       countTotalRow: 'CountTotalRow',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      searchPattern: 'SearchPattern',
     };
   }
 
@@ -52,6 +54,7 @@ export class GetContactWhiteListRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      searchPattern: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactBlockListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the total number of entries.
+   * Specifies whether to display the total number of entries.
    * 
    * @example
    * true
@@ -31,18 +31,20 @@ export class GetContactBlockListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries (required)
+   * The number of entries per page. This parameter is required.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
       countTotalRow: 'CountTotalRow',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      searchPattern: 'SearchPattern',
     };
   }
 
@@ -52,6 +54,7 @@ export class GetContactBlockListRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      searchPattern: 'string',
     };
   }
 

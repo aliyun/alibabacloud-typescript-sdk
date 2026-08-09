@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,14 @@ export class ListScriptsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The NLU engine.
+   * The NLU robot engine.
    * 
-   * - Leave this parameter empty to query scripts that use small models.
+   * - If this parameter is left empty, small model scenarios are queried.
    * 
-   * - Set this parameter to `Prompts` to query scripts that use the text completion mode of a large model.
+   * - If this parameter is set to Prompts, the text input mode under large model scenarios is queried.
    * 
-   * - Set this parameter to `SSE_FUNCTION` to query scripts that use the function calling mode of a large model.
-   * 
-   * - Set this parameter to `BeeBot` to query scripts that use the workflow configuration mode of a large model.
+   * - If this parameter is set to SSE_FUNCTION, the function computing mode under large model scenarios is queried.
+   * - If this parameter is set to BeeBot, the workflow configuration mode under large model scenarios is queried.
    * 
    * @example
    * Prompts
@@ -51,10 +50,10 @@ export class ListScriptsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the script.
+   * The script name.
    * 
    * @example
-   * 课程满意度回访
+   * Course satisfaction follow-up
    */
   scriptName?: string;
   static names(): { [key: string]: string } {

@@ -4050,7 +4050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of contacts blocked for outbound calls.
+   * Retrieves the outbound call blocklist.
    * 
    * @param request - GetContactBlockListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4075,6 +4075,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4093,7 +4097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of contacts blocked for outbound calls.
+   * Retrieves the outbound call blocklist.
    * 
    * @param request - GetContactBlockListRequest
    * @returns GetContactBlockListResponse
@@ -4127,6 +4131,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6088,7 +6096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the script list.
+   * Queries the list of scripts.
    * 
    * @param request - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6135,7 +6143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the script list.
+   * Queries the list of scripts.
    * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse

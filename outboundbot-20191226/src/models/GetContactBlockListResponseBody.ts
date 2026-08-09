@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactBlockListResponseBodyContactBlocklistListList extends $dara.Model {
   /**
    * @remarks
-   * The unique key of the entry in the do-not-call list.
+   * The unique business key of the outbound call blocklist entry.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -13,7 +13,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   contactBlockListId?: string;
   /**
    * @remarks
-   * The time when the entry was created.
+   * The creation time.
    * 
    * @example
    * 1640077685465
@@ -21,7 +21,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   creationTime?: number;
   /**
    * @remarks
-   * The user who created the entry.
+   * The creator.
    * 
    * @example
    * xxx
@@ -37,7 +37,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   instanceId?: string;
   /**
    * @remarks
-   * The name of the contact.
+   * The name.
    * 
    * @example
    * xxx
@@ -53,7 +53,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
   operator?: string;
   /**
    * @remarks
-   * The mobile phone number.
+   * The phone number.
    * 
    * @example
    * 1388888888
@@ -105,7 +105,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
 export class GetContactBlockListResponseBodyContactBlocklistList extends $dara.Model {
   /**
    * @remarks
-   * The data array.
+   * The array data.
    * 
    * @example
    * []
@@ -176,7 +176,7 @@ export class GetContactBlockListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of blocked contacts.
+   * The contact blocklist.
    * 
    * @example
    * {}
@@ -192,7 +192,7 @@ export class GetContactBlockListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Success

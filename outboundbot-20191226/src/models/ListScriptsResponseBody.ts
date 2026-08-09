@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
   /**
    * @remarks
-   * The function name.
+   * The function service name.
    * 
    * @example
    * sanfang_test
@@ -13,7 +13,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
   fcFunction?: string;
   /**
    * @remarks
-   * The URL of the function trigger.
+   * The function service trigger URL.
    * 
    * @example
    * http://sanfang_test-xxxxxx.cn-shanghai-vpc.fcapp.run
@@ -21,7 +21,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
   fcHttpTriggerUrl?: string;
   /**
    * @remarks
-   * The function region.
+   * The function service region.
    * 
    * @example
    * cn-shanghai
@@ -55,7 +55,7 @@ export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
 export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   /**
    * @remarks
-   * The agent access key.
+   * The access key of the robot business workspace.
    * 
    * @example
    * 14791f5f226b4878b3d9b676a0291234
@@ -63,12 +63,13 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   agentKey?: string;
   /**
    * @remarks
-   * Indicates whether the agent is an LLM agent.
+   * Indicates whether the robot business workspace is a large model workspace.
    * 
    * @example
    * false
    */
   agentLlm?: boolean;
+  chatBotId?: string;
   /**
    * @remarks
    * The creation time.
@@ -87,7 +88,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   debugStatus?: string;
   /**
    * @remarks
-   * Indicates whether emotion detection is enabled. This parameter is always false for LLM-based scripts.
+   * Indicates whether the emotion recognition feature is enabled. This parameter is set to false for all large model scenarios.
    * 
    * @example
    * false
@@ -98,12 +99,12 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The industry.
    * 
    * @example
-   * 金融
+   * Finance
    */
   industry?: string;
   /**
    * @remarks
-   * Indicates whether the debug version of the script is a draft.
+   * Indicates whether the debug version is in draft state.
    * 
    * @example
    * true
@@ -119,7 +120,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   isDrafted?: boolean;
   /**
    * @remarks
-   * Indicates whether the script is for a preset scene.
+   * Indicates whether the scenario is a preset scenario.
    * 
    * @example
    * false
@@ -127,7 +128,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   isPreset?: boolean;
   /**
    * @remarks
-   * Indicates whether long wait is enabled. This parameter is always false for LLM-based scripts.
+   * Indicates whether the long pause detection feature is enabled. This parameter is set to false for all large model scenarios.
    * 
    * @example
    * false
@@ -135,7 +136,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   longWaitEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether mini playback is enabled.
+   * Indicates whether the filler phrase feature is enabled.
    * 
    * @example
    * false
@@ -143,7 +144,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   miniPlaybackEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether graceful barge-in is enabled. This parameter is always false for LLM-based scripts.
+   * Indicates whether the graceful barge-in feature is enabled. This parameter is set to false for all large model scenarios.
    * 
    * @example
    * false
@@ -151,39 +152,39 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   newBargeInEnable?: boolean;
   /**
    * @remarks
-   * The NLU access type, which is set to Managed for LLM scenarios and is empty for small model scenarios.
+   * The robot access type. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Managed.
    * 
    * @example
-   * 空或者Managed
+   * Empty or Managed
    */
   nluAccessType?: string;
   /**
    * @remarks
-   * The NLU engine, which is set to Prompts for LLM scenarios and is empty for small model scenarios.
+   * The robot engine. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Prompts.
    * 
    * @example
-   * 空或者Prompts
+   * Empty or Prompts
    */
   nluEngine?: string;
   /**
    * @remarks
-   * The Function Compute configuration for function calling mode.
+   * The function computing service mode configuration.
    */
   nluProfile?: ListScriptsResponseBodyScriptsListNluProfile;
   /**
    * @remarks
-   * The rejection reason.
+   * The reason for review rejection.
    * 
    * @example
-   * 话术用语不合规
+   * Non-compliant script language
    */
   rejectReason?: string;
   /**
    * @remarks
-   * The scene.
+   * The scenario.
    * 
    * @example
-   * 电销
+   * Telemarketing
    */
   scene?: string;
   /**
@@ -191,7 +192,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The script description.
    * 
    * @example
-   * 电话销售话术
+   * Telemarketing script
    */
   scriptDescription?: string;
   /**
@@ -207,7 +208,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
    * The script name.
    * 
    * @example
-   * 电话销售话术
+   * Telemarketing script
    */
   scriptName?: string;
   /**
@@ -228,7 +229,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The agent ID.
+   * The robot business workspace ID.
    * 
    * @example
    * 1160195
@@ -238,6 +239,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
     return {
       agentKey: 'AgentKey',
       agentLlm: 'AgentLlm',
+      chatBotId: 'ChatBotId',
       createTime: 'CreateTime',
       debugStatus: 'DebugStatus',
       emotionEnable: 'EmotionEnable',
@@ -266,6 +268,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
     return {
       agentKey: 'string',
       agentLlm: 'boolean',
+      chatBotId: 'string',
       createTime: 'number',
       debugStatus: 'string',
       emotionEnable: 'boolean',
@@ -305,7 +308,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
 export class ListScriptsResponseBodyScripts extends $dara.Model {
   /**
    * @remarks
-   * The list of scripts.
+   * The script array.
    */
   list?: ListScriptsResponseBodyScriptsList[];
   /**
@@ -318,7 +321,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -326,7 +329,7 @@ export class ListScriptsResponseBodyScripts extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of scripts.
+   * The total number of entries.
    * 
    * @example
    * 15
@@ -397,7 +400,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The paginated list of scripts.
+   * The script list.
    */
   scripts?: ListScriptsResponseBodyScripts;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactWhiteListResponseBodyContactWhitelistListList extends $dara.Model {
   /**
    * @remarks
-   * Whitelist ID
+   * The whitelist ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -13,7 +13,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   contactWhiteListId?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1640174411848
@@ -21,15 +21,15 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   creationTime?: number;
   /**
    * @remarks
-   * Creator
+   * The creator.
    * 
    * @example
-   * 测试123
+   * Test123
    */
   creator?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -37,15 +37,15 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   instanceId?: string;
   /**
    * @remarks
-   * Name
+   * The name.
    * 
    * @example
-   * 张三
+   * John Smith
    */
   name?: string;
   /**
    * @remarks
-   * Operator
+   * The operator.
    * 
    * @example
    * xxx
@@ -53,7 +53,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   operator?: string;
   /**
    * @remarks
-   * Mobile phone number
+   * The phone number.
    * 
    * @example
    * 13959999999
@@ -61,7 +61,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
   phoneNumber?: string;
   /**
    * @remarks
-   * Remarks
+   * The remarks.
    * 
    * @example
    * xxxx
@@ -105,7 +105,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
 export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.Model {
   /**
    * @remarks
-   * Contact list
+   * The contact list.
    * 
    * @example
    * {}
@@ -113,7 +113,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.M
   list?: GetContactWhiteListResponseBodyContactWhitelistListList[];
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.M
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -129,7 +129,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * Total number of entries
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -168,7 +168,7 @@ export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.M
 export class GetContactWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status code
+   * The API status code.
    * 
    * @example
    * OK
@@ -176,7 +176,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Contact list
+   * The contact list.
    * 
    * @example
    * {}
@@ -184,7 +184,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   contactWhitelistList?: GetContactWhiteListResponseBodyContactWhitelistList;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -192,7 +192,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * API message
+   * The API response message.
    * 
    * @example
    * Success
@@ -200,7 +200,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -208,7 +208,7 @@ export class GetContactWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
