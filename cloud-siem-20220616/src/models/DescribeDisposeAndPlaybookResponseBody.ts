@@ -55,10 +55,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataPageInfo extends $dara.Mo
 export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the playbook is available. Valid values:
-   * 
-   * - 1: Available.
-   * - 0: Unavailable.
+   * Indicates whether the playbook is available.
    * 
    * @example
    * 1
@@ -100,10 +97,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   opCode?: string;
   /**
    * @remarks
-   * Indicates whether the playbook is selected by default for one-click event disposition. Valid values:
-   * 
-   * - 2: Selected. 
-   * - 1: Displayed but not selected.
+   * Specifies whether the playbook is selected by default for one-click incident disposition. Valid values:
    * 
    * @example
    * 2
@@ -111,7 +105,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   opLevel?: string;
   /**
    * @remarks
-   * The parameter list and corresponding parameter properties of the playbook.
+   * The parameter list of the playbook and the corresponding parameter properties.
    */
   paramConfig?: any[];
   /**
@@ -124,9 +118,10 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   taskConfig?: string;
   /**
    * @remarks
-   * The code that indicates why the playbook is unavailable. Valid values:
+   * The code that indicates why the playbook is unavailable.
    * 
-   * - PARAM_INVALID: The input parameters are invalid. 
+   * Valid values:
+   * - PARAM_INVALID: The input parameters are invalid.
    * - NO_INGESTION: The corresponding product is not connected.
    * 
    * @example
@@ -143,10 +138,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
   uuid?: string;
   /**
    * @remarks
-   * Indicates whether this is a WAF playbook. Valid values:
-   * 
-   * - true: Yes.
-   * - false: No.
+   * Indicates whether the playbook is a WAF playbook. Valid values:
    * 
    * @example
    * false
@@ -268,12 +260,12 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
    * The list of playbooks that can dispose of the entity.
    * 
    * @example
-   * [{"name":"云安全中心-云服务器安全","code":"1"}]
+   * [{"name":"Security Center - Cloud Server Security","code":"1"}]
    */
   playbookList?: DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList[];
   /**
    * @remarks
-   * The disposition scope. The list of user IDs that can perform the disposition.
+   * The disposition scope, which is the list of user IDs that can perform the disposition.
    * 
    * @example
    * 176618589410****
@@ -374,7 +366,7 @@ export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
 export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The request status code.
    * 
    * @example
    * 200
@@ -407,8 +399,6 @@ export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
    * 
    * @example
    * true

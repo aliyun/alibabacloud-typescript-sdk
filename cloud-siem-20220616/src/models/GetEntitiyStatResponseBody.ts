@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEntitiyStatResponseBodyData extends $dara.Model {
+  alertNum?: number;
   /**
    * @remarks
    * The number of entities.
@@ -27,19 +28,24 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
    * 5cde2118666ffda40783ebd7cec9a60a
    */
   entityUuid?: string;
+  incidentNum?: number;
   static names(): { [key: string]: string } {
     return {
+      alertNum: 'AlertNum',
       entityNum: 'EntityNum',
       entityType: 'EntityType',
       entityUuid: 'EntityUuid',
+      incidentNum: 'IncidentNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      alertNum: 'number',
       entityNum: 'number',
       entityType: 'string',
       entityUuid: 'string',
+      incidentNum: 'number',
     };
   }
 
@@ -55,7 +61,7 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
 export class GetEntitiyStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -89,8 +95,8 @@ export class GetEntitiyStatResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true: successful.
-   * - false: failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

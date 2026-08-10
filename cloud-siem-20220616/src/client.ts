@@ -3231,7 +3231,7 @@ export default class Client extends OpenApi {
    * Queries entity counts.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - GetEntitiyStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3258,6 +3258,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.entityUuid)) {
       body["EntityUuid"] = request.entityUuid;
+    }
+
+    if (!$dara.isNull(request.entityUuids)) {
+      body["EntityUuids"] = request.entityUuids;
     }
 
     if (!$dara.isNull(request.incidentUuid)) {
@@ -3309,7 +3313,7 @@ export default class Client extends OpenApi {
    * Queries entity counts.
    * 
    * @remarks
-   * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+   * The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
    * 
    * @param request - GetEntitiyStatRequest
    * @returns GetEntitiyStatResponse

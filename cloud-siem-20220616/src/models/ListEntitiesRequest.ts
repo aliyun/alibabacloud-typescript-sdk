@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEntitiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page. The value must be greater than or equal to 1.
+   * The current page number, which must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -24,15 +24,6 @@ export class ListEntitiesRequest extends $dara.Model {
   /**
    * @remarks
    * The entity type. Valid values:
-   * - ip: IP address
-   * - domain: domain name
-   * - url: URL
-   * - process: process
-   * - file: file
-   * - host: host
-   * - cloud_account: cloud account
-   * - container: container
-   * - bucket: Object Storage Service (OSS) bucket.
    * 
    * @example
    * ip
@@ -67,8 +58,6 @@ export class ListEntitiesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the entity is malicious. Valid values:
-   * - 0: No.
-   * - 1: Yes.
    * 
    * @example
    * 1
@@ -76,7 +65,7 @@ export class ListEntitiesRequest extends $dara.Model {
   isMalwareEntity?: string;
   /**
    * @remarks
-   * The malicious entity type.
+   * The malware entity type.
    * 
    * @example
    * aliyun.siem.sas.alert_tag.miner_software
@@ -84,7 +73,7 @@ export class ListEntitiesRequest extends $dara.Model {
   malwareType?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100.
+   * The number of entries per page, up to a maximum of 100.
    * 
    * This parameter is required.
    * 
@@ -94,9 +83,9 @@ export class ListEntitiesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the data management center of the threat analysis feature resides. Select the region based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: the assets reside in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: the assets reside in regions outside China.
+   * The region where the data management center of threat analysis is located. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets reside in the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -104,7 +93,7 @@ export class ListEntitiesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The user ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -112,10 +101,7 @@ export class ListEntitiesRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type. Valid values:
-   * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts in the enterprise.
+   * The view type.
    * 
    * @example
    * 1
@@ -125,7 +111,7 @@ export class ListEntitiesRequest extends $dara.Model {
    * @remarks
    * The entity tags. The value is a JSON array string:
    * 
-   * `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`.
+   * `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`
    * 
    * @example
    * [{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]

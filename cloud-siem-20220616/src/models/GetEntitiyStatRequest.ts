@@ -43,6 +43,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
    * 6c740667-80b2-476d-8924-2e706feb****
    */
   entityUuid?: string;
+  entityUuids?: string;
   /**
    * @remarks
    * The incident ID.
@@ -76,8 +77,8 @@ export class GetEntitiyStatRequest extends $dara.Model {
    * @remarks
    * The region where the threat detection and response data management center resides. Select the management center based on the region of your assets. Valid values:
    * 
-   * - cn-hangzhou: the asset belongs to the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: the asset belongs to a region outside the Chinese mainland.
+   * - cn-hangzhou: The assets belong to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: The assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -119,6 +120,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
       entityName: 'EntityName',
       entityType: 'EntityType',
       entityUuid: 'EntityUuid',
+      entityUuids: 'EntityUuids',
       incidentUuid: 'IncidentUuid',
       isAsset: 'IsAsset',
       isMalwareEntity: 'IsMalwareEntity',
@@ -136,6 +138,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
       entityName: 'string',
       entityType: 'string',
       entityUuid: 'string',
+      entityUuids: 'string',
       incidentUuid: 'string',
       isAsset: 'string',
       isMalwareEntity: 'string',
