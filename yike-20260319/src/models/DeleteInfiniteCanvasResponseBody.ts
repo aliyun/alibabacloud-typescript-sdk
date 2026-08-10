@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteInfiniteCanvasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the infinite canvas.
+   * 
    * @example
    * canvas_adaasd*
    */
   canvasId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ***F88A3-AC51-5588-859A-03144F082***
    */

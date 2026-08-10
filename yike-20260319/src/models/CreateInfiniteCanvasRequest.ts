@@ -4,24 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInfiniteCanvasRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cover URL.
+   * 
    * @example
    * 8fec0fd4172941f7a6213095c8657ecf
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * pd_061716***
    */
   productionId?: string;
   /**
    * @remarks
+   * The title of the infinite canvas.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 这是无限画布标题
+   * This is the infinite canvas title
    */
   title?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws_2121**
    */

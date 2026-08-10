@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetInfiniteCanvasRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the infinite canvas.
+   * 
    * This parameter is required.
    * 
    * @example

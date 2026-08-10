@@ -4,26 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInfiniteCanvasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The query keyword. Currently, only searching by infinite canvas ID is supported.
+   * 
    * @example
    * canvas_xxx
    */
   keyword?: string;
   /**
+   * @remarks
+   * The current page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The field by which the results are sorted.
+   * 
    * @example
    * CreatedTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   *  * asc: ascending order
+   * 
+   *  * desc: descending order
+   * 
    * @example
    * asc
    */

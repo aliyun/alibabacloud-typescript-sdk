@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInfiniteCanvasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The canvas ID.
+   * 
    * @example
    * canvas_***
    */
   canvasId?: string;
   /**
+   * @remarks
+   * RequestId
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

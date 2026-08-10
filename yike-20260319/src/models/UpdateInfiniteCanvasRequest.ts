@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInfiniteCanvasRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the infinite canvas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class UpdateInfiniteCanvasRequest extends $dara.Model {
    */
   canvasId?: string;
   /**
+   * @remarks
+   * The cover URL.
+   * 
    * @example
    * https://*uncs.com/cover.png
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The title of the infinite canvas.
+   * 
    * @example
    * example
    */

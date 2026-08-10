@@ -4,41 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateYikeLoginTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether automatic creation of a project is enabled. Default value: false.
+   * 
    * @example
    * false
    */
   autoCreateProduction?: string;
   /**
+   * @remarks
+   * The token expiration time, in seconds. Default value: 30 days.
+   * 
    * @example
    * 300
    */
   expires?: string;
   /**
+   * @remarks
+   * The nickname.
+   * 
+   * - Format check: The maximum length is 50 characters.
+   * - Special character check: Chinese characters, English letters, digits, _ \\ / () ] [
+   * 
    * @example
    * testNickName
    */
   nickName?: string;
   /**
+   * @remarks
+   * The role of the user in the project. Valid values:
+   * 
+   * - common: Regular member.
+   * - edit: Operator with editing permissions.
+   * - manage: Administrator.
+   * 
    * @example
    * common
    */
   productionAuth?: string;
   /**
+   * @remarks
+   * The default credits granted to the user.
+   * 
    * @example
    * 1000
    */
   subUserCredit?: string;
   /**
+   * @remarks
+   * The tenant ID. Submit a ticket to create one.
+   * 
    * @example
    * tenttest
    */
   tenant?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * userxxx
    */
   userName?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws_8022674***
    */
