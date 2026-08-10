@@ -1,48 +1,49 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { JobInstance } from "./JobInstance";
 
 
-export class ListStoreViewsResponseBody extends $dara.Model {
+export class ListJobInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of storeviews returned.
+   * The number of jobs returned on the current page.
    * 
    * @example
-   * 100
+   * 10
    */
-  count?: number;
+  count?: string;
   /**
    * @remarks
-   * The list of storeview names.
+   * The job configuration details.
    */
-  storeviews?: string[];
+  results?: JobInstance[];
   /**
    * @remarks
-   * The total number of storeviews in the project.
+   * The total number of records.
    * 
    * @example
-   * 100
+   * 20
    */
   total?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'count',
-      storeviews: 'storeviews',
+      results: 'results',
       total: 'total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      count: 'number',
-      storeviews: { 'type': 'array', 'itemType': 'string' },
+      count: 'string',
+      results: { 'type': 'array', 'itemType': JobInstance },
       total: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.storeviews)) {
-      $dara.Model.validateArray(this.storeviews);
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
     }
     super.validate();
   }

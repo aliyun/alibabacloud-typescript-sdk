@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * The Object Storage Service (OSS) bucket.
+   * The OSS bucket.
    * 
    * @example
    * ali-test-oss-bucket
@@ -21,7 +21,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   compressionType?: string;
   /**
    * @remarks
-   * The file format.
+   * The format of the downloaded file.
    * 
    * @example
    * csv
@@ -29,7 +29,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The prefix of the file that is saved to the bucket.
+   * The file prefix used when downloading logs to the user\\"s bucket.
    * 
    * @example
    * download/
@@ -37,7 +37,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used for the download.
+   * The ARN of the RAM role used for the download.
    * 
    * @example
    * acs:ram::0123456789:role/aliyunlogdefaultrole
@@ -45,7 +45,7 @@ export class GetDownloadJobResponseBodyConfigurationSink extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The value is fixed to AliyunOSS.
+   * Fixed value: AliyunOSS.
    * 
    * @example
    * AliyunOSS
@@ -93,7 +93,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   allowInComplete?: boolean;
   /**
    * @remarks
-   * The start time of the download task. The value is a UNIX timestamp in seconds.
+   * The start timestamp, in seconds.
    * 
    * @example
    * 1722409860
@@ -117,7 +117,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   powerSql?: boolean;
   /**
    * @remarks
-   * The search statement.
+   * The query statement.
    * 
    * @example
    * * | select *
@@ -130,7 +130,7 @@ export class GetDownloadJobResponseBodyConfiguration extends $dara.Model {
   sink?: GetDownloadJobResponseBodyConfigurationSink;
   /**
    * @remarks
-   * The end time of the download task. The value is a UNIX timestamp in seconds.
+   * The end timestamp, in seconds.
    * 
    * @example
    * 1722411060
@@ -183,7 +183,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   checkSum?: string;
   /**
    * @remarks
-   * The error message if the download fails.
+   * The error message of the download.
    * 
    * @example
    * timeout
@@ -191,7 +191,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The duration of the download task in seconds.
+   * The execution time of the download.
    * 
    * @example
    * 123
@@ -199,7 +199,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   executeTime?: number;
   /**
    * @remarks
-   * The URL of the download result.
+   * The download result link.
    * 
    * @example
    * https://xxx.csv.zst?xxx
@@ -207,7 +207,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   filePath?: string;
   /**
    * @remarks
-   * The size of the downloaded file in bytes.
+   * The size of the downloaded file.
    * 
    * @example
    * 123456
@@ -223,7 +223,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $dara.Model {
   logCount?: number;
   /**
    * @remarks
-   * Notification text.
+   * The notification text.
    * 
    * @example
    * test
@@ -280,7 +280,7 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   configuration?: GetDownloadJobResponseBodyConfiguration;
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time.
    * 
    * @example
    * 1722411060
@@ -288,7 +288,7 @@ export class GetDownloadJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * a download job

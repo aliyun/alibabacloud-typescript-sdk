@@ -14,7 +14,7 @@ export class ListProjectResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of projects that meet the query criteria.
+   * The list of projects that meet the query conditions.
    * 
    * @example
    * Not applicable
@@ -22,7 +22,7 @@ export class ListProjectResponseBody extends $dara.Model {
   projects?: Project[];
   /**
    * @remarks
-   * The total number of projects that meet the query criteria.
+   * The total number of projects that meet the query conditions.
    * 
    * @example
    * 11

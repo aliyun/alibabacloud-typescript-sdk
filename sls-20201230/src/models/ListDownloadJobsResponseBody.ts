@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * The destination OSS bucket.
+   * The OSS bucket.
    * 
    * @example
    * ali-test-oss-bucket
@@ -21,7 +21,7 @@ export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.
   compressionType?: string;
   /**
    * @remarks
-   * The file format of the downloaded file.
+   * The download file format.
    * 
    * @example
    * csv
@@ -29,7 +29,7 @@ export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.
   contentType?: string;
   /**
    * @remarks
-   * The prefix of the object that is downloaded to the destination OSS bucket.
+   * The file prefix used when downloading to the user\\"s OSS bucket.
    * 
    * @example
    * download/
@@ -37,7 +37,7 @@ export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.
   prefix?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role that is used for the download.
+   * The ARN of the RAM role used for the download.
    * 
    * @example
    * acs:ram::123456:role/aliyunlogimportossrole
@@ -45,7 +45,7 @@ export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.
   roleArn?: string;
   /**
    * @remarks
-   * The type of the sink. The value is fixed as AliyunOSS.
+   * Fixed value: AliyunOSS.
    * 
    * @example
    * AliyunOSS
@@ -85,7 +85,7 @@ export class ListDownloadJobsResponseBodyResultsConfigurationSink extends $dara.
 export class ListDownloadJobsResponseBodyResultsConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the download of incomplete results.
+   * Specifies whether to allow downloading incomplete results.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class ListDownloadJobsResponseBodyResultsConfiguration extends $dara.Mode
   allowInComplete?: string;
   /**
    * @remarks
-   * The start time of the query. This is a UNIX timestamp that is accurate to the second.
+   * The start timestamp, in seconds.
    * 
    * @example
    * 1722409260
@@ -109,7 +109,7 @@ export class ListDownloadJobsResponseBodyResultsConfiguration extends $dara.Mode
   logstore?: string;
   /**
    * @remarks
-   * Specifies whether to enable PowerSQL.
+   * Indicates whether PowerSQL is enabled.
    * 
    * @example
    * true
@@ -125,12 +125,12 @@ export class ListDownloadJobsResponseBodyResultsConfiguration extends $dara.Mode
   query?: string;
   /**
    * @remarks
-   * The sink configuration.
+   * The log download task configuration.
    */
   sink?: ListDownloadJobsResponseBodyResultsConfigurationSink;
   /**
    * @remarks
-   * The end time of the query. This is a UNIX timestamp that is accurate to the second.
+   * The end timestamp, in seconds.
    * 
    * @example
    * 1722411060
@@ -175,7 +175,7 @@ export class ListDownloadJobsResponseBodyResultsConfiguration extends $dara.Mode
 export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.Model {
   /**
    * @remarks
-   * The ETag of the file.
+   * The file ETag.
    * 
    * @example
    * ETASFGASDASQWDasd
@@ -183,7 +183,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   checkSum?: string;
   /**
    * @remarks
-   * The error message that is returned if the job fails.
+   * The download error message.
    * 
    * @example
    * timeout
@@ -191,7 +191,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   errorMessage?: string;
   /**
    * @remarks
-   * The running time of the download.
+   * The download execution time.
    * 
    * @example
    * 123
@@ -199,7 +199,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   executeTime?: number;
   /**
    * @remarks
-   * The URL of the downloaded file.
+   * The download result link.
    * 
    * @example
    * https://sls-downloaded-xxxx.csv.gzip?Expiresxxx
@@ -207,7 +207,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   filePath?: string;
   /**
    * @remarks
-   * The size of the downloaded file in bytes.
+   * The download file size.
    * 
    * @example
    * 123456
@@ -223,7 +223,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   logCount?: number;
   /**
    * @remarks
-   * The notification message.
+   * The notification information.
    * 
    * @example
    * test
@@ -231,7 +231,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $dara.M
   notice?: string;
   /**
    * @remarks
-   * The download progress as a percentage.
+   * The download progress.
    * 
    * @example
    * 100
@@ -280,7 +280,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   configuration?: ListDownloadJobsResponseBodyResultsConfiguration;
   /**
    * @remarks
-   * The time when the log download job was created. This is a UNIX timestamp in seconds.
+   * The creation time of the log download task.
    * 
    * @example
    * 1722411060
@@ -288,7 +288,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the log download job.
+   * The description of the log download task.
    * 
    * @example
    * a download job
@@ -296,7 +296,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Display name
+   * The display name.
    * 
    * @example
    * download-123
@@ -304,12 +304,12 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The execution details of the job.
+   * The execution details.
    */
   executionDetails?: ListDownloadJobsResponseBodyResultsExecutionDetails;
   /**
    * @remarks
-   * The name of the log download job.
+   * The name of the log download task.
    * 
    * @example
    * download-123
@@ -317,7 +317,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the Job.
+   * The task status.
    * 
    * @example
    * STARTING、RUNNING、SUCCEEDED、ERROR
@@ -365,7 +365,7 @@ export class ListDownloadJobsResponseBodyResults extends $dara.Model {
 export class ListDownloadJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of log download jobs returned in the current response.
+   * The number of log download tasks returned in the current request.
    * 
    * @example
    * 10
@@ -373,7 +373,7 @@ export class ListDownloadJobsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * An array that contains the list of log download jobs.
+   * The list of log download tasks.
    */
   results?: ListDownloadJobsResponseBodyResults[];
   /**

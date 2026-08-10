@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CallAiToolsRequest extends $dara.Model {
   /**
    * @remarks
-   * Tool parameters.
+   * The tool parameters.
    */
   params?: { [key: string]: string };
   /**

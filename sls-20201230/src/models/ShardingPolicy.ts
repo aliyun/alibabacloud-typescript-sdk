@@ -83,19 +83,17 @@ export class ShardingPolicyShardHash extends $dara.Model {
 }
 
 export class ShardingPolicy extends $dara.Model {
+  enabled?: boolean;
   /**
    * @example
    * 1764659409
    */
   queryActiveTime?: number;
   shardGroup?: ShardingPolicyShardGroup;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   shardHash?: ShardingPolicyShardHash;
   static names(): { [key: string]: string } {
     return {
+      enabled: 'enabled',
       queryActiveTime: 'queryActiveTime',
       shardGroup: 'shardGroup',
       shardHash: 'shardHash',
@@ -104,6 +102,7 @@ export class ShardingPolicy extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enabled: 'boolean',
       queryActiveTime: 'number',
       shardGroup: ShardingPolicyShardGroup,
       shardHash: ShardingPolicyShardHash,

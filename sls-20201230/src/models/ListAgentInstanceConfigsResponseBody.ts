@@ -46,23 +46,13 @@ export class ListAgentInstanceConfigsResponseBodyConfigs extends $dara.Model {
 }
 
 export class ListAgentInstanceConfigsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The process-level configurations.
-   */
   configs?: ListAgentInstanceConfigsResponseBodyConfigs[];
   /**
-   * @remarks
-   * The number of data entries.
-   * 
    * @example
    * 10
    */
   size?: number;
   /**
-   * @remarks
-   * The total number of data entries that meet the query conditions.
-   * 
    * @example
    * 10
    */

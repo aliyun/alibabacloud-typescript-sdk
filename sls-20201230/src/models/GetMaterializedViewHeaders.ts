@@ -4,10 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMaterializedViewHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The content type of the request. The value must be `application/json`.
-   */
   contentType?: string;
   static names(): { [key: string]: string } {
     return {

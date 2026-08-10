@@ -2,16 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetLogsV2Headers extends $dara.Model {
+export class GetLogsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
-   * @remarks
-   * The compression method for the response content. SDK users do not need to specify this parameter because the SDK automatically handles compression and decompression.
-   * 
-   * - Java, Python, and Go currently support lz4 and gzip decompression.
-   * 
-   * - php, JavaScript, and C# currently support only gzip decompression.
-   * 
    * @example
    * lz4
    */

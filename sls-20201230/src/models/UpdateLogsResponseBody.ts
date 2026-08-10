@@ -2,35 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAgentInstanceConfigsRequest extends $dara.Model {
+export class UpdateLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of updated log rows.
+   * 
    * @example
-   * apm_trace
+   * 10
    */
-  configType?: string;
-  /**
-   * @example
-   * 0
-   */
-  offset?: number;
-  /**
-   * @example
-   * 100
-   */
-  size?: number;
+  affectedRows?: number;
   static names(): { [key: string]: string } {
     return {
-      configType: 'configType',
-      offset: 'offset',
-      size: 'size',
+      affectedRows: 'affectedRows',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configType: 'string',
-      offset: 'number',
-      size: 'number',
+      affectedRows: 'number',
     };
   }
 

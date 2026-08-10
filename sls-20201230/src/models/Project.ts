@@ -29,6 +29,8 @@ export class Project extends $dara.Model {
    * Description of my-project
    */
   description?: string;
+  internalEndpoint?: string;
+  internetEndpoint?: string;
   /**
    * @remarks
    * The time when the project was last modified.
@@ -39,7 +41,7 @@ export class Project extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account that owns the project.
+   * The Alibaba Cloud account to which the project belongs.
    * 
    * @example
    * ""
@@ -47,7 +49,7 @@ export class Project extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The name of the project. The name is a part of the endpoint. The project name must be unique in a region of Alibaba Cloud. After a project is created, its name cannot be changed.
+   * The name of the project, which is used as part of the host. The project name is globally unique within an Alibaba Cloud region and cannot be modified after creation.
    * 
    * This parameter is required.
    * 
@@ -57,7 +59,7 @@ export class Project extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The quota of the project.
+   * The project quota.
    */
   quota?: { [key: string]: any };
   /**
@@ -70,7 +72,7 @@ export class Project extends $dara.Model {
   recycleBinEnabled?: boolean;
   /**
    * @remarks
-   * The region where the project resides.
+   * The region to which the project belongs.
    * 
    * @example
    * cn-hangzhou
@@ -86,11 +88,10 @@ export class Project extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the project.
+   * The status of the project. Valid values:
    * 
-   * - Normal: The project is in the normal state.
-   * 
-   * - Disable: The project is disabled.
+   * - Normal: Normal.
+   * - Disable: Disabled.
    * 
    * @example
    * Normal
@@ -101,6 +102,8 @@ export class Project extends $dara.Model {
       createTime: 'createTime',
       dataRedundancyType: 'dataRedundancyType',
       description: 'description',
+      internalEndpoint: 'internalEndpoint',
+      internetEndpoint: 'internetEndpoint',
       lastModifyTime: 'lastModifyTime',
       owner: 'owner',
       projectName: 'projectName',
@@ -117,6 +120,8 @@ export class Project extends $dara.Model {
       createTime: 'string',
       dataRedundancyType: 'string',
       description: 'string',
+      internalEndpoint: 'string',
+      internetEndpoint: 'string',
       lastModifyTime: 'string',
       owner: 'string',
       projectName: 'string',

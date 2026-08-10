@@ -6,25 +6,7 @@ import { StoreViewStore } from "./StoreViewStore";
 export class GetStoreViewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The type of the dataset.
-   * 
-   * Valid values:
-   * 
-   * - metricstore
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - logstore
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * The type of the storeview.
    * 
    * @example
    * logstore
@@ -32,7 +14,7 @@ export class GetStoreViewResponseBody extends $dara.Model {
   storeType?: string;
   /**
    * @remarks
-   * The Logstores or Metricstores.
+   * The list of Logstores or Metricstores.
    */
   stores?: StoreViewStore[];
   static names(): { [key: string]: string } {

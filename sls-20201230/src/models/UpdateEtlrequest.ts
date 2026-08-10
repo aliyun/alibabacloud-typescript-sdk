@@ -6,14 +6,14 @@ import { ETLConfiguration } from "./Etlconfiguration";
 export class UpdateETLRequest extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the data transformation task.
+   * The detailed configuration of the data transformation job.
    * 
    * This parameter is required.
    */
   configuration?: ETLConfiguration;
   /**
    * @remarks
-   * The description of the data transformation task.
+   * The description of the data transformation job.
    * 
    * @example
    * this is description
@@ -21,7 +21,7 @@ export class UpdateETLRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the data transformation task.
+   * The display name of the data transformation job.
    * 
    * This parameter is required.
    * 

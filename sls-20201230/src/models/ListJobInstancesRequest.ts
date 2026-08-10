@@ -2,18 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListStoreViewsRequest extends $dara.Model {
+export class ListJobInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The storeview name used for fuzzy match.
+   * The owner of the job.
    * 
    * @example
-   * my_storeview
+   * 12312
    */
-  name?: string;
+  callerOwner?: string;
   /**
    * @remarks
-   * The offset of the returned results in the total list of storeviews. Default value: 0.
+   * The end time.
+   * 
+   * @example
+   * 1784237598
+   */
+  end?: number;
+  /**
+   * @remarks
+   * The start row of the query.
    * 
    * @example
    * 0
@@ -21,7 +29,7 @@ export class ListStoreViewsRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * The number of storeviews to return. Default value: 100.
+   * The number of rows per page for a paged query.
    * 
    * @example
    * 100
@@ -29,27 +37,39 @@ export class ListStoreViewsRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The storeview type. By default, results are not filtered by type.
+   * The start time.
    * 
    * @example
-   * logstore
+   * 1784151198
    */
-  storeType?: string;
+  start?: number;
+  /**
+   * @remarks
+   * The current execution status.
+   * 
+   * @example
+   * Running
+   */
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
+      callerOwner: 'callerOwner',
+      end: 'end',
       offset: 'offset',
       size: 'size',
-      storeType: 'storeType',
+      start: 'start',
+      state: 'state',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
+      callerOwner: 'string',
+      end: 'number',
       offset: 'number',
       size: 'number',
-      storeType: 'string',
+      start: 'number',
+      state: 'string',
     };
   }
 

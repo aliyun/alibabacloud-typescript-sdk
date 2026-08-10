@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListMaterializedViewResponseBody } from "./ListMaterializedViewResponseBody";
+import { JobInstance } from "./JobInstance";
 
 
-export class ListMaterializedViewResponse extends $dara.Model {
+export class GetJobInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: ListMaterializedViewResponseBody;
+  body?: JobInstance;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class ListMaterializedViewResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ListMaterializedViewResponseBody,
+      body: JobInstance,
     };
   }
 

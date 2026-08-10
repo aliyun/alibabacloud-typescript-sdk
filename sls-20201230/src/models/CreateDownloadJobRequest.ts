@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   /**
    * @remarks
-   * The destination Object Storage Service (OSS) bucket.
+   * The OSS bucket.
    * 
    * @example
    * oss-test-bucket
@@ -13,7 +13,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The compression format of the file. Valid values: \\`zstd\\`, \\`lz4\\`, \\`gzip\\`, and \\`none\\`.
+   * The compression format. Valid values: zstd, lz4, gzip, none.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   compressionType?: string;
   /**
    * @remarks
-   * The format of the downloaded file. Valid values: \\`csv\\` and \\`json\\`.
+   * The download file format. Valid values: csv, json.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The prefix of the path in the destination OSS bucket.
+   * The path prefix for downloading data to the user\\"s OSS bucket.
    * 
    * @example
    * download/
@@ -41,7 +41,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   prefix?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role to use for the download.
+   * The ARN of the RAM role used for the download.
    * 
    * @example
    * acs:ram::0123456789:role/aliyunlogdefaultrole
@@ -49,7 +49,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The type of the destination. Set the value to \\`AliyunOSS\\`.
+   * Fixed value: AliyunOSS.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateDownloadJobRequestConfigurationSink extends $dara.Model {
 export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the download of incomplete results. Valid values: \\`true\\` and \\`false\\`.
+   * Specifies whether to allow downloading imprecise results. Valid values: true, false.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   allowInComplete?: boolean;
   /**
    * @remarks
-   * The start time. This is a UNIX timestamp that is accurate to the second.
+   * The start timestamp, in seconds.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * Specifies whether to enable PowerSQL. Valid values: \\`true\\` and \\`false\\`.
+   * Specifies whether to enable PowerSQL. Valid values: true, false.
    * 
    * @example
    * true
@@ -129,7 +129,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   powerSql?: boolean;
   /**
    * @remarks
-   * The search statement.
+   * The query statement.
    * 
    * This parameter is required.
    * 
@@ -146,7 +146,7 @@ export class CreateDownloadJobRequestConfiguration extends $dara.Model {
   sink?: CreateDownloadJobRequestConfigurationSink;
   /**
    * @remarks
-   * The end time. This is a UNIX timestamp that is accurate to the second.
+   * The end timestamp, in seconds.
    * 
    * This parameter is required.
    * 
@@ -218,15 +218,12 @@ export class CreateDownloadJobRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The name of the job. The name must meet the following requirements:
+   * The job name. The naming rules are as follows:
    * 
-   * The job name must be unique within a project.
-   * 
-   * - It can contain only lowercase letters, digits, hyphens (-), and underscores (_).
-   * 
-   * - It must start and end with a lowercase letter or a digit.
-   * 
-   * - The name must be 2 to 64 characters in length.
+   * Job names must be unique within the same project.
+   * * The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * * The name must start and end with a lowercase letter or digit.
+   * * The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 

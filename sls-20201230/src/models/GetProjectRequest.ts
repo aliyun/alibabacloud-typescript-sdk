@@ -2,23 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListMaterializedViewsRequest extends $dara.Model {
-  name?: string;
-  offset?: number;
-  size?: number;
+export class GetProjectRequest extends $dara.Model {
+  crossRegion?: boolean;
   static names(): { [key: string]: string } {
     return {
-      name: 'name',
-      offset: 'offset',
-      size: 'size',
+      crossRegion: 'crossRegion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      offset: 'number',
-      size: 'number',
+      crossRegion: 'boolean',
     };
   }
 

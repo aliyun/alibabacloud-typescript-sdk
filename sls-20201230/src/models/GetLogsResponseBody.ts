@@ -2,38 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The start offset of the scan results after index filtering.
-   * 
-   * @example
-   * 0
-   */
+export class GetLogsResponseBodyMetaPhraseQueryInfo extends $dara.Model {
   beginOffset?: number;
-  /**
-   * @remarks
-   * The end offset of the scan results after index filtering.
-   * 
-   * @example
-   * 0
-   */
   endOffset?: number;
-  /**
-   * @remarks
-   * The end time of the scan results after index filtering.
-   * 
-   * @example
-   * 1
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * Indicates whether all logs have been scanned.
-   * 
-   * @example
-   * true
-   */
   scanAll?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -62,158 +34,26 @@ export class GetLogsV2ResponseBodyMetaPhraseQueryInfo extends $dara.Model {
   }
 }
 
-export class GetLogsV2ResponseBodyMeta extends $dara.Model {
-  /**
-   * @remarks
-   * The SQL part after the pipe (|) in the query statement.
-   * 
-   * @example
-   * select *
-   */
+export class GetLogsResponseBodyMeta extends $dara.Model {
   aggQuery?: string;
-  /**
-   * @remarks
-   * The column types.
-   */
   columnTypes?: string[];
-  /**
-   * @remarks
-   * The number of log entries returned in this query request.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
-  /**
-   * @remarks
-   * The number of CPU cores used.
-   * 
-   * @example
-   * 3
-   */
   cpuCores?: number;
-  /**
-   * @remarks
-   * The core-hour consumed by Dedicated SQL.
-   * 
-   * @example
-   * 0.002
-   */
   cpuSec?: number;
-  /**
-   * @remarks
-   * The time consumed by this query, in milliseconds.
-   * 
-   * @example
-   * 5
-   */
   elapsedMillisecond?: number;
-  /**
-   * @remarks
-   * Indicates whether the query is an SQL query.
-   * 
-   * @example
-   * false
-   */
   hasSQL?: boolean;
-  /**
-   * @remarks
-   * The highlighted content.
-   */
   highlights?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * Specifies whether to enable nanosecond-precision ordering.
-   * 
-   * @example
-   * true
-   */
   isAccurate?: boolean;
-  /**
-   * @remarks
-   * All keys in the query results.
-   */
   keys?: string[];
-  /**
-   * @remarks
-   * The limit on the number of rows. Returned when the SQL statement does not contain a LIMIT clause.
-   * 
-   * @example
-   * 100
-   */
   limited?: number;
-  /**
-   * @remarks
-   * The query mode. Valid values:
-   * - 0: standard query (including SQL)
-   * - 1: phrase query
-   * - 2: SCAN
-   * - 3: SCAN SQL
-   * 
-   * @example
-   * 0
-   */
   mode?: number;
-  /**
-   * @remarks
-   * The phrase query information.
-   */
-  phraseQueryInfo?: GetLogsV2ResponseBodyMetaPhraseQueryInfo;
-  /**
-   * @remarks
-   * The volume of logs processed by the query, in bytes.
-   * 
-   * @example
-   * 10000
-   */
+  phraseQueryInfo?: GetLogsResponseBodyMetaPhraseQueryInfo;
   processedBytes?: number;
-  /**
-   * @remarks
-   * The number of rows processed in this query.
-   * 
-   * @example
-   * 10000
-   */
   processedRows?: number;
-  /**
-   * @remarks
-   * Indicates whether the query results are complete. Valid values:
-   * 
-   * - Complete: The query is complete and the results are complete.
-   * - Incomplete: The query is complete but the results are incomplete. Repeat the request to obtain complete results.
-   * 
-   * @example
-   * Complete
-   */
   progress?: string;
-  /**
-   * @remarks
-   * The amount of data scanned during the scan, in bytes.
-   * 
-   * @example
-   * 1024
-   */
   scanBytes?: number;
-  /**
-   * @remarks
-   * The observable data type.
-   * 
-   * @example
-   * None
-   */
   telementryType?: string;
-  /**
-   * @remarks
-   * All terms in the query statement.
-   */
   terms?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The part before the pipe (|) in the query statement.
-   * 
-   * @example
-   * *
-   */
   whereQuery?: string;
   static names(): { [key: string]: string } {
     return {
@@ -254,7 +94,7 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
       keys: { 'type': 'array', 'itemType': 'string' },
       limited: 'number',
       mode: 'number',
-      phraseQueryInfo: GetLogsV2ResponseBodyMetaPhraseQueryInfo,
+      phraseQueryInfo: GetLogsResponseBodyMetaPhraseQueryInfo,
       processedBytes: 'number',
       processedRows: 'number',
       progress: 'string',
@@ -289,17 +129,9 @@ export class GetLogsV2ResponseBodyMeta extends $dara.Model {
   }
 }
 
-export class GetLogsV2ResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned results.
-   */
+export class GetLogsResponseBody extends $dara.Model {
   data?: { [key: string]: string }[];
-  /**
-   * @remarks
-   * The metadata of the response.
-   */
-  meta?: GetLogsV2ResponseBodyMeta;
+  meta?: GetLogsResponseBodyMeta;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
@@ -310,7 +142,7 @@ export class GetLogsV2ResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-      meta: GetLogsV2ResponseBodyMeta,
+      meta: GetLogsResponseBodyMeta,
     };
   }
 

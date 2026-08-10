@@ -2,35 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAgentInstanceConfigsRequest extends $dara.Model {
+export class GetJobInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The owner of the job.
+   * 
    * @example
-   * apm_trace
+   * 12312
    */
-  configType?: string;
-  /**
-   * @example
-   * 0
-   */
-  offset?: number;
-  /**
-   * @example
-   * 100
-   */
-  size?: number;
+  callerOwner?: string;
   static names(): { [key: string]: string } {
     return {
-      configType: 'configType',
-      offset: 'offset',
-      size: 'size',
+      callerOwner: 'callerOwner',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      configType: 'string',
-      offset: 'number',
-      size: 'number',
+      callerOwner: 'string',
     };
   }
 

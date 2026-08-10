@@ -6,7 +6,7 @@ import { Index } from "./Index";
 export class GetStoreViewIndexResponseBodyIndexes extends $dara.Model {
   /**
    * @remarks
-   * The index configurations of the Logstore.
+   * The index configuration of the Logstore.
    */
   index?: Index;
   /**
@@ -56,7 +56,7 @@ export class GetStoreViewIndexResponseBodyIndexes extends $dara.Model {
 export class GetStoreViewIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The index configurations.
+   * The list of index configurations.
    */
   indexes?: GetStoreViewIndexResponseBodyIndexes[];
   static names(): { [key: string]: string } {

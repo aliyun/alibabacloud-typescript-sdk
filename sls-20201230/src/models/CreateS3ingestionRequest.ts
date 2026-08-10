@@ -12,7 +12,7 @@ export class CreateS3IngestionRequest extends $dara.Model {
   configuration?: S3IngestionConfiguration;
   /**
    * @remarks
-   * The description of the job.
+   * The task description.
    * 
    * @example
    * test
@@ -30,15 +30,12 @@ export class CreateS3IngestionRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The name of the job. Follow these naming rules:
+   * The job name. The naming rules are as follows:
    * 
-   * Each job in the same project must have a unique name.
-   * 
-   * - Use only lowercase letters, digits, hyphens (-), and underscores (_).
-   * 
-   * - Start and end with a lowercase letter or digit.
-   * 
-   * - Be 2 to 64 characters long.
+   * Job names must be unique within the same project.
+   * * Can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * * Must start and end with a lowercase letter or digit.
+   * * Must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -46,6 +43,10 @@ export class CreateS3IngestionRequest extends $dara.Model {
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The scheduling structure.
+   */
   schedule?: Schedule;
   static names(): { [key: string]: string } {
     return {

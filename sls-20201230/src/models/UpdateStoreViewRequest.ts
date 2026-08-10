@@ -6,25 +6,7 @@ import { StoreViewStore } from "./StoreViewStore";
 export class UpdateStoreViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the dataset.
-   * 
-   * Valid values:
-   * 
-   * - metricstore
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   * - logstore
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
-   * 
-   *   <!-- -->
+   * The type of the storeview.
    * 
    * This parameter is required.
    * 
@@ -34,7 +16,7 @@ export class UpdateStoreViewRequest extends $dara.Model {
   storeType?: string;
   /**
    * @remarks
-   * The Logstores or Metricstores.
+   * The list of Logstores or Metricstores.
    * 
    * This parameter is required.
    */
