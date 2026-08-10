@@ -55,7 +55,7 @@ export class StartDBInstanceResponseBodyData extends $dara.Model {
 export class StartDBInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: StartDBInstanceResponseBodyData;
   /**

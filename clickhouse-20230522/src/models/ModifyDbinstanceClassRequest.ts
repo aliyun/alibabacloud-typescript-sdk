@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos extends $dara.Model {
   /**
    * @remarks
-   * The VSwitch IDs.
+   * The vSwitch IDs in the zone.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The zone ID.
+   * The zone of the hot pool.
    * 
    * @example
    * cn-beijing-XXX
@@ -45,7 +45,7 @@ export class ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos extends $da
 export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of burstable nodes for autoscaling.
+   * The number of nodes available for burstable horizontal scaling.
    * 
    * @example
    * 2
@@ -53,7 +53,10 @@ export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
   burstNum?: number;
   /**
    * @remarks
-   * Specifies whether to enable or disable autoscaling. Valid values: `enable` and `disable`.
+   * The configuration status. Valid values:
+   * 
+   * - disable: disabled.
+   * - enable: enabled.
    * 
    * @example
    * enable
@@ -61,7 +64,7 @@ export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Information about the VSwitches.
+   * The vSwitch information.
    */
   vSwitchInfos?: ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos[];
   static names(): { [key: string]: string } {
@@ -95,7 +98,7 @@ export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
 export class ModifyDBInstanceClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The autoscaling configuration for the compute group.
+   * The automatic horizontal scaling configuration.
    * 
    * **if can be null:**
    * true
@@ -129,7 +132,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The maximum capacity per node for serverless autoscaling. Valid values: 4 to 32. This value must be greater than the minimum value.
+   * The maximum value for serverless node elastic scaling. Valid values: 4 to 32. The value must be greater than the minimum value.
    * 
    * @example
    * 4
@@ -137,7 +140,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   nodeScaleMax?: number;
   /**
    * @remarks
-   * The minimum capacity per node for serverless autoscaling. Valid values: 4 to 32.
+   * The minimum value for serverless node elastic scaling. Valid values: 4 to 32.
    * 
    * @example
    * 32
@@ -155,7 +158,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum capacity for serverless autoscaling.
+   * The maximum value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -163,7 +166,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum capacity for serverless autoscaling.
+   * The minimum value for serverless elastic scaling.
    * 
    * @example
    * 8
@@ -171,7 +174,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * The pre-purchased storage capacity in GB.
+   * The pre-purchased storage quota, in GB.
    * 
    * @example
    * 100

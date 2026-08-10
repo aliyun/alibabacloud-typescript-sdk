@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   /**
    * @remarks
-   * The computing group ID.
+   * The compute group ID.
    * 
    * @example
    * cc-2ze34****-clickhouse
@@ -13,7 +13,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   computingGroupId?: string;
   /**
    * @remarks
-   * The connection string.
+   * The endpoint.
    * 
    * @example
    * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
@@ -21,7 +21,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   connectionString?: string;
   /**
    * @remarks
-   * The connection string prefix.
+   * The prefix of the database endpoint.
    * 
    * @example
    * cc-****-clickhouse
@@ -41,9 +41,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * - `Vpc`: VPC
-   * 
-   * - `Public`: public network
+   * - Vpc: VPC network.
+   * - Public: public network.
    * 
    * @example
    * Public
@@ -51,14 +50,9 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   DBInstanceNetType?: string;
   /**
    * @remarks
-   * - The database ports to disable. You can specify multiple ports, separated by commas.
-   * 
-   * - This parameter is supported only for clusters with a kernel version of 24.10.1.11098_1 or later.
-   * 
-   * 
-   *   >Notice: 
-   * 
-   *   This parameter is not supported for clusters that were upgraded to kernel version 24.10.1.11098_1 or later from an earlier version.
+   * - Disables specified database ports. You can specify multiple ports separated by commas (,).
+   * - Only clusters with a kernel version of 24.10.1.11098_1 or later support this parameter.
+   * >Notice: If the cluster was created with a version earlier than 24.10.1.11098_1 and later upgraded to version 24.10.1.11098_1 or later, this parameter is not supported.</notice>
    * 
    * @example
    * 9001,8123

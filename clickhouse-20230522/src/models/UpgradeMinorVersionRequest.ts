@@ -25,9 +25,8 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * >  If you set SwitchTimeMode to SpecifyTime, you must configure this parameter to specify the update time.
+   * The specified upgrade time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * > This parameter is required when SwitchTimeMode is set to SpecifyTime.
    * 
    * @example
    * 2023-01-09T05:00:00Z
@@ -35,11 +34,10 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * Specifies whether to update the minor engine version of the cluster immediately. Valid values:
-   * 
-   * *   **Immediate**: The system immediately performs the update.
-   * *   **MaintainTime**: The system performs the update during the specified maintenance window.
-   * *   **SpecifyTime**: The system performs the update at a specified time.
+   * Specifies when to upgrade. Valid values:
+   * - **Immediate**: upgrades immediately.
+   * - **MaintainTime**: upgrades during the O&M window.
+   * - **SpecifyTime**: upgrades at a specified time.
    * 
    * @example
    * Immediate
@@ -47,9 +45,8 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
   switchTimeMode?: string;
   /**
    * @remarks
-   * The minor engine version to which you want to update.
-   * 
-   * >  By default, TargetMinorVersion is not set and the minor engine version of the cluster is updated to the latest version.
+   * The target minor engine version.
+   * >By default, leave this parameter empty to upgrade to the latest minor engine version.
    * 
    * @example
    * 23.8.1.41495_6

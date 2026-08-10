@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The computing group ID.
+   * The compute group ID.
    * 
    * @example
    * cc-wz9v6y29y3******-clickhouse
@@ -23,7 +23,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. The time must be in UTC and in `yyyy-MM-dd HH:mm:ss` format.
+   * The end of the time range to query. Format: yyyy-MM-dd hh:mm:ss (UTC).
    * 
    * @example
    * 2023-09-15 16:00:00
@@ -40,11 +40,8 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - 30 (default)
-   * 
    * - 50
-   * 
    * - 100
    * 
    * @example
@@ -53,7 +50,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The minimum duration, in milliseconds, for a slow SQL query to be returned. The minimum value is **1000**.
+   * The execution duration of the slow SQL statement. The minimum value is **1000**. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -71,7 +68,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. The time must be in UTC and in `yyyy-MM-dd HH:mm:ss` format.
+   * The beginning of the time range to query. Format: yyyy-MM-dd hh:mm:ss (UTC).
    * 
    * @example
    * 2023-09-11 16:00:00

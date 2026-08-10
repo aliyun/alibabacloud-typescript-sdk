@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The connection string.
+   * The endpoint.
    * 
    * @example
    * cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
@@ -29,7 +29,7 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Mode
   DBInstanceName?: string;
   /**
    * @remarks
-   * The disabled database ports.
+   * The database ports that are disabled.
    * 
    * @example
    * 9001,8123

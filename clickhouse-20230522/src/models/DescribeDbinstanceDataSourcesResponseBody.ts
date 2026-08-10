@@ -29,11 +29,10 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
   DBName?: string;
   /**
    * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
+   * Indicates whether the column is a primary key. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The column is a primary key.
+   * - **false**: The column is not a primary key.
    * 
    * @example
    * false
@@ -49,7 +48,7 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
   tableName?: string;
   /**
    * @remarks
-   * The type of the stored data.
+   * The data type of the stored data.
    * 
    * @example
    * UInt64
@@ -89,7 +88,7 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
 export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The columns.
+   * The column types.
    */
   columns?: DescribeDBInstanceDataSourcesResponseBodyDataColumns[];
   /**
@@ -102,7 +101,7 @@ export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The account.
+   * The accounts.
    * 
    * @example
    * default
@@ -110,7 +109,7 @@ export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
   schemas?: string;
   /**
    * @remarks
-   * The tables.
+   * The list of tables.
    */
   tables?: string[];
   static names(): { [key: string]: string } {

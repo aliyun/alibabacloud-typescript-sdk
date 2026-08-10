@@ -35,7 +35,7 @@ export class UpgradeMinorVersionResponseBodyData extends $dara.Model {
 export class UpgradeMinorVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   data?: UpgradeMinorVersionResponseBodyData;
   /**

@@ -103,6 +103,7 @@ export { ModifyDBInstanceConfigResponseBodyData } from './ModifyDbinstanceConfig
 export { ModifyDBInstanceConnectionStringResponseBodyData } from './ModifyDbinstanceConnectionStringResponseBody';
 export { ModifyLangfuseOrgMembershipResponseBodyData } from './ModifyLangfuseOrgMembershipResponseBody';
 export { ModifyLangfuseProjectMembershipResponseBodyData } from './ModifyLangfuseProjectMembershipResponseBody';
+export { ModifyLangfuseSecurityIPListResponseBodyData } from './ModifyLangfuseSecurityIplistResponseBody';
 export { ModifySecurityIPListResponseBodyData } from './ModifySecurityIplistResponseBody';
 export { ResetAccountPasswordResponseBodyData } from './ResetAccountPasswordResponseBody';
 export { ResetLangfuseUserPasswordResponseBodyData } from './ResetLangfuseUserPasswordResponseBody';
@@ -299,6 +300,9 @@ export { ModifyLangfuseOrgMembershipResponse } from './ModifyLangfuseOrgMembersh
 export { ModifyLangfuseProjectMembershipRequest } from './ModifyLangfuseProjectMembershipRequest';
 export { ModifyLangfuseProjectMembershipResponseBody } from './ModifyLangfuseProjectMembershipResponseBody';
 export { ModifyLangfuseProjectMembershipResponse } from './ModifyLangfuseProjectMembershipResponse';
+export { ModifyLangfuseSecurityIPListRequest } from './ModifyLangfuseSecurityIplistRequest';
+export { ModifyLangfuseSecurityIPListResponseBody } from './ModifyLangfuseSecurityIplistResponseBody';
+export { ModifyLangfuseSecurityIPListResponse } from './ModifyLangfuseSecurityIplistResponse';
 export { ModifySecurityIPListRequest } from './ModifySecurityIplistRequest';
 export { ModifySecurityIPListResponseBody } from './ModifySecurityIplistResponseBody';
 export { ModifySecurityIPListResponse } from './ModifySecurityIplistResponse';

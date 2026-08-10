@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifySecurityIPListResponseBodyData extends $dara.Model {
+export class ModifyLangfuseSecurityIPListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * @example
-   * cc-xxxx
+   * 12345
    */
   DBInstanceID?: number;
   /**
    * @remarks
-   * The cluster name.
+   * The Langfuse instance ID.
    * 
    * @example
-   * cc-xxxx
+   * lfs-*****
    */
   DBInstanceName?: string;
   /**
    * @remarks
-   * The group name.
+   * The name of the whitelist group.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class ModifySecurityIPListResponseBodyData extends $dara.Model {
   groupTag?: string;
   /**
    * @remarks
-   * The list of IP addresses in the whitelist group.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.0.0/24,172.16.0.0/24
@@ -45,7 +45,7 @@ export class ModifySecurityIPListResponseBodyData extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The IP address type.
+   * The IP address type. The value is fixed to IPv4. IPv6 is not supported.
    * 
    * @example
    * ipv4
@@ -56,7 +56,7 @@ export class ModifySecurityIPListResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * 1
+   * 100001080
    */
   taskId?: number;
   /**
@@ -102,18 +102,18 @@ export class ModifySecurityIPListResponseBodyData extends $dara.Model {
   }
 }
 
-export class ModifySecurityIPListResponseBody extends $dara.Model {
+export class ModifyLangfuseSecurityIPListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
-  data?: ModifySecurityIPListResponseBodyData;
+  data?: ModifyLangfuseSecurityIPListResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * xxx-xxx-xxx
+   * F5178C10-1407-4987-9133-DE4DC9119F75
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class ModifySecurityIPListResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: ModifySecurityIPListResponseBodyData,
+      data: ModifyLangfuseSecurityIPListResponseBodyData,
       requestId: 'string',
     };
   }

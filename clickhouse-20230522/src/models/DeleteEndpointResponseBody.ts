@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75

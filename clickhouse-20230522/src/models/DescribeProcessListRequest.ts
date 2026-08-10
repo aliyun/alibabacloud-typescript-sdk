@@ -71,13 +71,13 @@ export class DescribeProcessListRequest extends $dara.Model {
   queryDurationMs?: string;
   /**
    * @remarks
-   * Sorts the results in descending order by the specified columns.
+   * Sorts results in descending order by the specified columns.
    * 
-   * - 0: sorts by query_duration_ms only.
+   * - 0: Sorts only by query_duration_ms.
    * 
-   * - 1: sorts by query_duration_ms and query_start_time.
+   * - 1: Sorts by query_duration_ms and query_start_time.
    * 
-   * - 2: sorts by query_duration_ms, query_start_time, and user.
+   * - 2: Sorts by query_duration_ms, query_start_time, and user.
    * 
    * @example
    * 0

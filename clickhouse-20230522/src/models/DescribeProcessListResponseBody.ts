@@ -96,7 +96,7 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * For testing
+   * Test.
    */
   DBInstanceName?: string;
   /**

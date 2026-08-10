@@ -2,20 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifySecurityIPListRequest extends $dara.Model {
+export class ModifyLangfuseSecurityIPListRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The Langfuse instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * cc-xxxxx
+   * lfs-bp1*****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the group to modify.
+   * The name of the whitelist group.
    * 
    * @example
    * test
@@ -25,11 +25,11 @@ export class ModifySecurityIPListRequest extends $dara.Model {
    * @remarks
    * The modification mode. Valid values:
    * 
-   * - 0: overwrites the existing whitelist.
-   * - 1: adds IP addresses to the whitelist.
-   * - 2: removes IP addresses from the whitelist.
+   * - 0: overwrite
+   * - 1: increase
+   * - 2: delete
    * 
-   * > Set this parameter to 0 to overwrite the existing whitelist.
+   * > Specify 0 to use the overwrite mode.
    * 
    * @example
    * 0
@@ -42,12 +42,12 @@ export class ModifySecurityIPListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-beijing
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The whitelisted IP addresses.
+   * The IP addresses to add to the instance whitelist. Separate multiple IP addresses with commas (,). For example, 192.168.0.0/24 indicates that all IP addresses in the 192.168.0.XX range are allowed to access the instance.
    * 
    * @example
    * 192.168.0.0/24,172.16.0.0/24

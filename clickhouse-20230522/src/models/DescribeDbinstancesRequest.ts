@@ -45,7 +45,7 @@ export class DescribeDBInstancesRequestTags extends $dara.Model {
 export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * A comma-separated list of instance IDs.
+   * The list of cluster IDs. Separate multiple cluster IDs with commas (,).
    * 
    * @example
    * cc-xxxxx,cx-xxxx
@@ -53,7 +53,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceIds?: string;
   /**
    * @remarks
-   * The instance status.
+   * The cluster status.
    * 
    * @example
    * active
@@ -61,7 +61,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The instance description.
+   * The cluster description.
    * 
    * @example
    * test
@@ -103,7 +103,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags for filtering instances.
+   * The tag information.
    * 
    * @example
    * DescribeDBInstances
@@ -111,7 +111,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   tags?: DescribeDBInstancesRequestTags[];
   /**
    * @remarks
-   * A comma-separated list of VPC IDs.
+   * The list of VPC IDs.
    * 
    * @example
    * vpc-2ze4ee9z******,vpc-2ze4ee9z5l******

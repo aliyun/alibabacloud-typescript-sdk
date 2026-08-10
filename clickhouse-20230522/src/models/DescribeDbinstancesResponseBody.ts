@@ -45,7 +45,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstancesTags extends $dara.Mo
 export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model {
   /**
    * @remarks
-   * The account ID.
+   * The user ID.
    * 
    * @example
    * 1294****
@@ -61,11 +61,10 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   bid?: string;
   /**
    * @remarks
-   * The billing method for the instance. Valid values:
+   * The billing method. Valid values:
    * 
-   * - `PrePaid`: subscription.
-   * 
-   * - `PostPaid`: pay-as-you-go.
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -73,7 +72,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   chargeType?: string;
   /**
    * @remarks
-   * The instance creation time.
+   * The creation time.
    * 
    * @example
    * 2022-12-04 21:16:15
@@ -81,7 +80,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The cluster ID.
    * 
    * @example
    * cc-xxxxxxx
@@ -97,7 +96,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   deletionProtection?: string;
   /**
    * @remarks
-   * The instance description.
+   * The parameter description.
    * 
    * @example
    * test_desc
@@ -105,7 +104,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The engine.
+   * The engine type.
    * 
    * @example
    * clickhouse
@@ -113,7 +112,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   engine?: string;
   /**
    * @remarks
-   * The engine version.
+   * The DPI engine version.
    * 
    * @example
    * 22.8
@@ -137,7 +136,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   lockMode?: string;
   /**
    * @remarks
-   * The reason for the lock.
+   * The lock reason.
    * 
    * @example
    * null
@@ -145,7 +144,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   lockReason?: string;
   /**
    * @remarks
-   * The maintenance window end time.
+   * The end time of the maintenance window.
    * 
    * @example
    * 04:00:00Z
@@ -153,7 +152,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   maintainEndTime?: string;
   /**
    * @remarks
-   * The maintenance window start time.
+   * The start time of the maintenance window.
    * 
    * @example
    * 00:00Z
@@ -177,7 +176,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   resourceGroupId?: string;
   /**
    * @remarks
-   * The maximum compute capacity for serverless elastic scaling.
+   * The maximum value for serverless elastic scaling.
    * 
    * @example
    * 13
@@ -185,7 +184,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum compute capacity for serverless elastic scaling.
+   * The minimum value for serverless elastic scaling.
    * 
    * @example
    * 1
@@ -209,7 +208,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   storageType?: string;
   /**
    * @remarks
-   * The tags attached to the instance.
+   * The tags.
    */
   tags?: DescribeDBInstancesResponseBodyDataDBInstancesTags[];
   /**
@@ -222,7 +221,7 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * VPC ID。
    * 
    * @example
    * vpc-uf6kg****
@@ -369,7 +368,7 @@ export class DescribeDBInstancesResponseBodyData extends $dara.Model {
 export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: DescribeDBInstancesResponseBodyData;
   /**

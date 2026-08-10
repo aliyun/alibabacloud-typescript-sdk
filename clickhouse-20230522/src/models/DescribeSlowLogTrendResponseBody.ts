@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   /**
    * @remarks
-   * The average execution duration, in milliseconds, of slow SQL queries within the time interval.
+   * The average execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
    * 
    * @example
    * 2000
@@ -13,7 +13,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   avgQueryDurationMs?: number;
   /**
    * @remarks
-   * The number of slow SQL queries in the time interval.
+   * The total number of SQL statements within the current time period.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   cnt?: number;
   /**
    * @remarks
-   * The maximum execution duration, in milliseconds, of slow SQL queries within the time interval.
+   * The maximum execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
    * 
    * @example
    * 3000
@@ -29,7 +29,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   maxQueryDurationMs?: number;
   /**
    * @remarks
-   * The minimum execution duration, in milliseconds, of slow SQL queries within the time interval.
+   * The minimum execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
    * 
    * @example
    * 1000
@@ -37,7 +37,7 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   minQueryDurationMs?: number;
   /**
    * @remarks
-   * The start of the time interval for the data point. The time is in UTC and uses the yyyy-MM-dd hh:mm:ss format.
+   * The time when the query starts. Format: yyyy-MM-dd hh:mm:ss (UTC).
    * 
    * @example
    * 2023-04-13 17:48:00
@@ -125,7 +125,7 @@ export class DescribeSlowLogTrendResponseBodyData extends $dara.Model {
 export class DescribeSlowLogTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: DescribeSlowLogTrendResponseBodyData;
   /**
