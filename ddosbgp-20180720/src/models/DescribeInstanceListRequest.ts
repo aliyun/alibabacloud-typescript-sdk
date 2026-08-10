@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceListRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The mitigation plan of the Anti-DDoS Origin instance.
+   * The key of the tag bound to the Anti-DDoS Origin instance to query.
    * 
    * @example
    * test-key
@@ -13,11 +13,7 @@ export class DescribeInstanceListRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The mitigation plan of the Anti-DDoS Origin instance. Valid values:
-   * 
-   * - 0: the Professional mitigation plan.
-   * 
-   * - 1: the Enterprise mitigation plan.
+   * The value of the tag bound to the Anti-DDoS Origin instance to query.
    * 
    * @example
    * test-value
@@ -49,7 +45,7 @@ export class DescribeInstanceListRequestTag extends $dara.Model {
 export class DescribeInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The IDs of the Anti-DDoS Origin instances to query. Specify the value in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
    * 
    * @example
    * ["ddosbgp-cn-oew1pjrk****"]
@@ -57,9 +53,10 @@ export class DescribeInstanceListRequest extends $dara.Model {
   instanceIdList?: string;
   /**
    * @remarks
-   * The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
+   * The mitigation plan type of the Anti-DDoS Origin instance to query. Valid values:
    * 
-   * You can set the **Orderdire** parameter to specify the sorting method.
+   * - **0**: Professional.
+   * - **1**: Enterprise.
    * 
    * @example
    * 0
@@ -67,16 +64,12 @@ export class DescribeInstanceListRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The total number of Anti-DDoS Origin instances.
+   * The mitigation plan types of the Anti-DDoS Origin instances to query.
    */
   instanceTypeList?: string[];
   /**
    * @remarks
-   * The sorting method. Valid values:
-   * 
-   * - **desc**: the descending order. This is the default value.
-   * 
-   * - **asc**: the ascending order.
+   * The IP address of the protected object for the Anti-DDoS Origin instance to query.
    * 
    * @example
    * 47.89.XX.XX
@@ -84,7 +77,10 @@ export class DescribeInstanceListRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+   * The protocol type of the IP assets protected by the Anti-DDoS Origin instance to query. Valid values:
+   * 
+   * - **IPv4**: IPv4 protocol.
+   * - **IPv6**: IPv6 protocol.
    * 
    * @example
    * IPv4
@@ -92,9 +88,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance to query resides.
+   * The field used to sort the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates that instances are sorted by expiration time.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * You can use the **Orderdire** parameter to specify the sort order.
    * 
    * @example
    * expireTime
@@ -102,7 +98,10 @@ export class DescribeInstanceListRequest extends $dara.Model {
   orderby?: string;
   /**
    * @remarks
-   * The tags that are added to the Anti-DDoS Origin instance.
+   * The sort order. Valid values:
+   * 
+   * - **desc** (default): descending order by expiration time.
+   * - **asc**: ascending order by expiration time.
    * 
    * @example
    * desc
@@ -110,11 +109,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   orderdire?: string;
   /**
    * @remarks
-   * The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
-   * 
-   * - **Ipv4**: IPv4
-   * 
-   * - **Ipv6**: IPv6
+   * The number of the page to return when paging is used.
    * 
    * This parameter is required.
    * 
@@ -124,11 +119,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
-   * 
-   * - **0**: the Professional mitigation plan
-   * 
-   * - **1**: the Enterprise mitigation plan
+   * The number of instances on each page when paging is used.
    * 
    * This parameter is required.
    * 
@@ -138,7 +129,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tag that is added to the Anti-DDoS Origin instance.
+   * The region ID of the Anti-DDoS Origin instance to query.
+   * 
+   * > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
    * 
    * @example
    * cn-hangzhou
@@ -146,7 +139,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The remark of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -154,7 +147,9 @@ export class DescribeInstanceListRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+   * 
+   * If you do not specify this parameter, the instance belongs to the default resource group.
    * 
    * @example
    * rg-acfm2pz25js****
@@ -162,7 +157,7 @@ export class DescribeInstanceListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The key of the tag that is added to the Anti-DDoS Origin instance.
+   * The tags bound to the Anti-DDoS Origin instance to query.
    */
   tag?: DescribeInstanceListRequestTag[];
   static names(): { [key: string]: string } {

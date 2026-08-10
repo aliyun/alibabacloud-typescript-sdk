@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAccessLogAuthRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance resides.
+   * The region ID of the Anti-DDoS Origin instance.
    * 
    * For more information about the valid values of this parameter, see [Regions and zones](https://help.aliyun.com/document_detail/188196.html).
    * 
@@ -15,7 +15,7 @@ export class CheckAccessLogAuthRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. If this parameter is empty, the instance belongs to the default resource group.
    * 
    * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 

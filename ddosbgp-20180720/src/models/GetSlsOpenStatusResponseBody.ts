@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSlsOpenStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D01666F5-541B-4C78-98A6-D29E02DAAC7C
@@ -13,10 +13,10 @@ export class GetSlsOpenStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether Simple Log Service was activated. Valid values:
+   * Indicates whether Simple Log Service is activated for the current Alibaba Cloud account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Simple Log Service is activated.
+   * - **false**: Simple Log Service is not activated.
    * 
    * @example
    * true

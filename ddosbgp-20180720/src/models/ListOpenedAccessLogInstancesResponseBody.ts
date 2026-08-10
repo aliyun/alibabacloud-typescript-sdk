@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
+   * Indicates whether log analysis is enabled for the instance. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enabled.
+   * - **false**: Not enabled.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $da
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin instance.
+   * The instance ID of Anti-DDoS Origin.
    * 
    * @example
    * ddosbgp-cn-m7r1zce2****
@@ -48,7 +48,7 @@ export class ListOpenedAccessLogInstancesResponseBodySlsConfigStatus extends $da
 export class ListOpenedAccessLogInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4DB64811-70A1-41C9-A0CE-CD8B260ED551
@@ -56,12 +56,12 @@ export class ListOpenedAccessLogInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configuration of log analysis for the Anti-DDoS Origin instances.
+   * The log analysis configurations of Anti-DDoS Origin instances.
    */
   slsConfigStatus?: ListOpenedAccessLogInstancesResponseBodySlsConfigStatus[];
   /**
    * @remarks
-   * The number of the Anti-DDoS Origin instances for which log analysis was enabled.
+   * The number of results returned, which is the number of Anti-DDoS Origin instances that have log analysis enabled.
    * 
    * @example
    * 1
