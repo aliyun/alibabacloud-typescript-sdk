@@ -60,15 +60,15 @@ export class GetMessagesResponseBodyDataMessageFiles extends $dara.Model {
 export class GetMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AI-generated response to the query.
+   * The answer.
    * 
    * @example
-   * 您询问的实例rm-bp14as9914vd3**** 磁盘使用率为23%，暂时不需要进行扩容。如果您需要进一步查看某个实例的详细配置、性能监控或进行其他操作，请告诉我具体需求！
+   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and scaling is not required for now. If you need to view the detailed configurations or performance monitoring of a specific instance, or perform other operations, let me know your specific requirements!
    */
   answer?: string;
   /**
    * @remarks
-   * The unique identifier for the conversation.
+   * The conversation ID.
    * 
    * @example
    * 9cbbe885-b240-4803-9d15-6781a3fd****
@@ -76,7 +76,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The Unix timestamp (in seconds) when the message was created.
+   * The creation time.
    * 
    * @example
    * 1763986004
@@ -85,7 +85,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   events?: GetMessagesResponseBodyDataEvents[];
   /**
    * @remarks
-   * The user\\"s feedback on the answer, such as "like" or "dislike".
+   * The feedback.
    * 
    * @example
    * like
@@ -96,7 +96,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   generationStatus?: string;
   /**
    * @remarks
-   * The unique identifier for the message.
+   * The message ID.
    * 
    * @example
    * 84dc9f9b-424a-404d-9c36-35e9d000****
@@ -106,15 +106,15 @@ export class GetMessagesResponseBodyData extends $dara.Model {
   messageFiles?: GetMessagesResponseBodyDataMessageFiles[];
   /**
    * @remarks
-   * The user\\"s query.
+   * The query statement.
    * 
    * @example
-   * 实例rm-bp14as9914vd3**** 磁盘使用率，是否需要扩容
+   * What is the disk usage of instance rm-bp14as9914vd3****, and is scaling required?
    */
   query?: string;
   /**
    * @remarks
-   * The resources that were retrieved to generate the answer.
+   * The retrieval resources.
    */
   retrieverResources?: any[];
   streamKey?: string;
@@ -177,12 +177,12 @@ export class GetMessagesResponseBodyData extends $dara.Model {
 export class GetMessagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of message objects.
+   * The query result.
    */
   data?: GetMessagesResponseBodyData[];
   /**
    * @remarks
-   * Indicates whether there are more messages to retrieve.
+   * Indicates whether there is a next page.
    * 
    * @example
    * true
@@ -190,7 +190,7 @@ export class GetMessagesResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * The value of the Limit parameter used for this request.
+   * The maximum number of entries returned.
    * 
    * @example
    * 100
@@ -198,7 +198,7 @@ export class GetMessagesResponseBody extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****

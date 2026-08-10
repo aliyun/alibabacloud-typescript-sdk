@@ -13,8 +13,6 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "rdsai.us-west-1.aliyuncs.com",
-      'eu-central-1': "rdsai.eu-central-1.aliyuncs.com",
       'cn-wulanchabu': "rdsai.aliyuncs.com",
       'cn-shenzhen': "rdsai.aliyuncs.com",
       'cn-shanghai': "rdsai.aliyuncs.com",
@@ -27,6 +25,8 @@ export default class Client extends OpenApi {
       'ap-southeast-3': "rdsai.ap-southeast-3.aliyuncs.com",
       'ap-southeast-1': "rdsai.ap-southeast-1.aliyuncs.com",
       'ap-northeast-1': "rdsai.ap-northeast-1.aliyuncs.com",
+      'eu-central-1': "rdsai.eu-central-1.aliyuncs.com",
+      'us-west-1': "rdsai.us-west-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("rdsai", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -434,6 +434,178 @@ export default class Client extends OpenApi {
   async createAppInstance(request: $_model.CreateAppInstanceRequest): Promise<$_model.CreateAppInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建上下文数据库 API Key
+   * 
+   * @remarks
+   * 创建 API Key（返回明文 apiKey）。
+   * 
+   * @param request - CreateContextDatabaseApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseApiKeyResponse
+   */
+  async createContextDatabaseApiKeyWithOptions(request: $_model.CreateContextDatabaseApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseApiKeyResponse({}));
+  }
+
+  /**
+   * 创建上下文数据库 API Key
+   * 
+   * @remarks
+   * 创建 API Key（返回明文 apiKey）。
+   * 
+   * @param request - CreateContextDatabaseApiKeyRequest
+   * @returns CreateContextDatabaseApiKeyResponse
+   */
+  async createContextDatabaseApiKey(request: $_model.CreateContextDatabaseApiKeyRequest): Promise<$_model.CreateContextDatabaseApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建上下文数据库成员
+   * 
+   * @remarks
+   * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+   * 
+   * @param request - CreateContextDatabaseMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseMemberResponse
+   */
+  async createContextDatabaseMemberWithOptions(request: $_model.CreateContextDatabaseMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.generateInitialKey)) {
+      query["GenerateInitialKey"] = request.generateInitialKey;
+    }
+
+    if (!$dara.isNull(request.initialKeyName)) {
+      query["InitialKeyName"] = request.initialKeyName;
+    }
+
+    if (!$dara.isNull(request.memberName)) {
+      query["MemberName"] = request.memberName;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseMember",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseMemberResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseMemberResponse({}));
+  }
+
+  /**
+   * 创建上下文数据库成员
+   * 
+   * @remarks
+   * 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+   * 
+   * @param request - CreateContextDatabaseMemberRequest
+   * @returns CreateContextDatabaseMemberResponse
+   */
+  async createContextDatabaseMember(request: $_model.CreateContextDatabaseMemberRequest): Promise<$_model.CreateContextDatabaseMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建上下文数据库工作区
+   * 
+   * @remarks
+   * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+   * 
+   * @param request - CreateContextDatabaseWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseWorkspaceResponse
+   */
+  async createContextDatabaseWorkspaceWithOptions(request: $_model.CreateContextDatabaseWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberName)) {
+      query["MemberName"] = request.memberName;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseWorkspace",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建上下文数据库工作区
+   * 
+   * @remarks
+   * 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+   * 
+   * @param request - CreateContextDatabaseWorkspaceRequest
+   * @returns CreateContextDatabaseWorkspaceResponse
+   */
+  async createContextDatabaseWorkspace(request: $_model.CreateContextDatabaseWorkspaceRequest): Promise<$_model.CreateContextDatabaseWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -1012,6 +1184,106 @@ export default class Client extends OpenApi {
   async deleteAppInstance(request: $_model.DeleteAppInstanceRequest): Promise<$_model.DeleteAppInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除上下文数据库成员
+   * 
+   * @remarks
+   * 删除成员（硬删除，不可恢复）。
+   * 
+   * @param request - DeleteContextDatabaseMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDatabaseMemberResponse
+   */
+  async deleteContextDatabaseMemberWithOptions(request: $_model.DeleteContextDatabaseMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDatabaseMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDatabaseMember",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDatabaseMemberResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDatabaseMemberResponse({}));
+  }
+
+  /**
+   * 删除上下文数据库成员
+   * 
+   * @remarks
+   * 删除成员（硬删除，不可恢复）。
+   * 
+   * @param request - DeleteContextDatabaseMemberRequest
+   * @returns DeleteContextDatabaseMemberResponse
+   */
+  async deleteContextDatabaseMember(request: $_model.DeleteContextDatabaseMemberRequest): Promise<$_model.DeleteContextDatabaseMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDatabaseMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除上下文数据库工作区
+   * 
+   * @remarks
+   * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+   * 
+   * @param request - DeleteContextDatabaseWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDatabaseWorkspaceResponse
+   */
+  async deleteContextDatabaseWorkspaceWithOptions(request: $_model.DeleteContextDatabaseWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDatabaseWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDatabaseWorkspace",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDatabaseWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDatabaseWorkspaceResponse({}));
+  }
+
+  /**
+   * 删除上下文数据库工作区
+   * 
+   * @remarks
+   * 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+   * 
+   * @param request - DeleteContextDatabaseWorkspaceRequest
+   * @returns DeleteContextDatabaseWorkspaceResponse
+   */
+  async deleteContextDatabaseWorkspace(request: $_model.DeleteContextDatabaseWorkspaceRequest): Promise<$_model.DeleteContextDatabaseWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDatabaseWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -2631,7 +2903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of messages in a specific conversation.
+   * Queries the details of specific conversation messages.
    * 
    * @param request - GetMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2674,7 +2946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of messages in a specific conversation.
+   * Queries the details of specific conversation messages.
    * 
    * @param request - GetMessagesRequest
    * @returns GetMessagesResponse
@@ -2993,6 +3265,190 @@ export default class Client extends OpenApi {
   async listApiKeys(request: $_model.ListApiKeysRequest): Promise<$_model.ListApiKeysResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApiKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出成员名下 API Key
+   * 
+   * @remarks
+   * 列出指定成员名下的 API Key（不返回明文）。
+   * 
+   * @param request - ListContextDatabaseApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseApiKeysResponse
+   */
+  async listContextDatabaseApiKeysWithOptions(request: $_model.ListContextDatabaseApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseApiKeys",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseApiKeysResponse({}));
+  }
+
+  /**
+   * 列出成员名下 API Key
+   * 
+   * @remarks
+   * 列出指定成员名下的 API Key（不返回明文）。
+   * 
+   * @param request - ListContextDatabaseApiKeysRequest
+   * @returns ListContextDatabaseApiKeysResponse
+   */
+  async listContextDatabaseApiKeys(request: $_model.ListContextDatabaseApiKeysRequest): Promise<$_model.ListContextDatabaseApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseApiKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出工作区成员
+   * 
+   * @remarks
+   * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+   * 
+   * @param request - ListContextDatabaseMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseMembersResponse
+   */
+  async listContextDatabaseMembersWithOptions(request: $_model.ListContextDatabaseMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseMembers",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseMembersResponse({}));
+  }
+
+  /**
+   * 列出工作区成员
+   * 
+   * @remarks
+   * 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+   * 
+   * @param request - ListContextDatabaseMembersRequest
+   * @returns ListContextDatabaseMembersResponse
+   */
+  async listContextDatabaseMembers(request: $_model.ListContextDatabaseMembersRequest): Promise<$_model.ListContextDatabaseMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseMembersWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于获取指定条件下的工作区列表。
+   * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+   * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+   * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+   * 
+   * @param request - ListContextDatabaseWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseWorkspacesResponse
+   */
+  async listContextDatabaseWorkspacesWithOptions(request: $_model.ListContextDatabaseWorkspacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseWorkspacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseWorkspaces",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseWorkspacesResponse({}));
+  }
+
+  /**
+   * 根据workspaceId和状态过滤调用方账号下的工作区列表。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于获取指定条件下的工作区列表。
+   * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+   * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+   * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+   * 
+   * @param request - ListContextDatabaseWorkspacesRequest
+   * @returns ListContextDatabaseWorkspacesResponse
+   */
+  async listContextDatabaseWorkspaces(request: $_model.ListContextDatabaseWorkspacesRequest): Promise<$_model.ListContextDatabaseWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseWorkspacesWithOptions(request, runtime);
   }
 
   /**
@@ -4399,6 +4855,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 吊销上下文数据库 API Key
+   * 
+   * @remarks
+   * 吊销 API Key。
+   * 
+   * @param request - RevokeContextDatabaseApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeContextDatabaseApiKeyResponse
+   */
+  async revokeContextDatabaseApiKeyWithOptions(request: $_model.RevokeContextDatabaseApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeContextDatabaseApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeContextDatabaseApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeContextDatabaseApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.RevokeContextDatabaseApiKeyResponse({}));
+  }
+
+  /**
+   * 吊销上下文数据库 API Key
+   * 
+   * @remarks
+   * 吊销 API Key。
+   * 
+   * @param request - RevokeContextDatabaseApiKeyRequest
+   * @returns RevokeContextDatabaseApiKeyResponse
+   */
+  async revokeContextDatabaseApiKey(request: $_model.RevokeContextDatabaseApiKeyRequest): Promise<$_model.RevokeContextDatabaseApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeContextDatabaseApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Starts an RDS AI application instance that is in the Stopped state.
    * 
    * @remarks
@@ -4584,6 +5096,182 @@ export default class Client extends OpenApi {
   async updateApiKeyQuota(request: $_model.UpdateApiKeyQuotaRequest): Promise<$_model.UpdateApiKeyQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApiKeyQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新上下文数据库 API Key 元数据
+   * 
+   * @remarks
+   * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+   * 
+   * @param request - UpdateContextDatabaseApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseApiKeyResponse
+   */
+  async updateContextDatabaseApiKeyWithOptions(request: $_model.UpdateContextDatabaseApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.keyId)) {
+      query["KeyId"] = request.keyId;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseApiKeyResponse({}));
+  }
+
+  /**
+   * 更新上下文数据库 API Key 元数据
+   * 
+   * @remarks
+   * 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+   * 
+   * @param request - UpdateContextDatabaseApiKeyRequest
+   * @returns UpdateContextDatabaseApiKeyResponse
+   */
+  async updateContextDatabaseApiKey(request: $_model.UpdateContextDatabaseApiKeyRequest): Promise<$_model.UpdateContextDatabaseApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新上下文数据库成员
+   * 
+   * @remarks
+   * 更新成员的角色 / 状态。
+   * 
+   * @param request - UpdateContextDatabaseMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseMemberResponse
+   */
+  async updateContextDatabaseMemberWithOptions(request: $_model.UpdateContextDatabaseMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseMember",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseMemberResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseMemberResponse({}));
+  }
+
+  /**
+   * 更新上下文数据库成员
+   * 
+   * @remarks
+   * 更新成员的角色 / 状态。
+   * 
+   * @param request - UpdateContextDatabaseMemberRequest
+   * @returns UpdateContextDatabaseMemberResponse
+   */
+  async updateContextDatabaseMember(request: $_model.UpdateContextDatabaseMemberRequest): Promise<$_model.UpdateContextDatabaseMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改上下文数据库工作区
+   * 
+   * @remarks
+   * 修改 workspace 名称。
+   * 
+   * @param request - UpdateContextDatabaseWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseWorkspaceResponse
+   */
+  async updateContextDatabaseWorkspaceWithOptions(request: $_model.UpdateContextDatabaseWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseWorkspace",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseWorkspaceResponse({}));
+  }
+
+  /**
+   * 修改上下文数据库工作区
+   * 
+   * @remarks
+   * 修改 workspace 名称。
+   * 
+   * @param request - UpdateContextDatabaseWorkspaceRequest
+   * @returns UpdateContextDatabaseWorkspaceResponse
+   */
+  async updateContextDatabaseWorkspace(request: $_model.UpdateContextDatabaseWorkspaceRequest): Promise<$_model.UpdateContextDatabaseWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseWorkspaceWithOptions(request, runtime);
   }
 
   /**
