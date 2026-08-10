@@ -1572,45 +1572,15 @@ export default class Client extends OpenApi {
    * Data query result synchronization:
    * - API data is synchronized every 6 hours. You can query current network analysis data only after 6 hours.
    * Supported analysis scenarios: 
-   * - Internet performance observation dashboard scenario
    * - Cross-zone internal network performance observation dashboard scenario
    * - Cross-region internal network performance observation dashboard scenario
-   * ## Internet performance observation dashboard scenario
-   * **Note**
-   * The maximum query time span is 24 hours. If not specified, the most recent 1 hour is queried by default. The query result contains one data point per minute.
-   * ### **Request parameters**
-   * | **Name** | **Type** | **Required** | **Description** |
-   * | --- | --- | --- | --- |
-   * | RegionNo | string | Yes | The Alibaba Cloud region where the probing source is located. |
-   * | ResourceType | string | Yes | Set to **InternetProbing** to query Internet performance monitoring trends. |
-   * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
-   * | Dimensions | object[\\] | Yes | The filter information. |
-   * | \\-Name | string | Yes | The filter condition. Valid values:
-   *  - **Country**: the probing country.
-   *  - **Province**: the probing province.
-   *  - **Isp**: the probing ISP.
-   *  **Note:** Specify at least one of the preceding parameters. |
-   * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
-   *  - Country: China
-   *  - Province: Zhejiang 
-   * - Isp: Alibaba 
-   * **Note:** Country and province values are capitalized. The ISP parameter value must match the name displayed in the console. |
-   * ### **Response parameters**
-   * | **Name** | **Type** | **Description** |
-   * | --- | --- | --- |
-   * | RequestId | string | The request ID. |
-   * | Data | object | The cloud network metric trends data object. |
-   * | Metrics | array | The collection of metric trends data. |
-   * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
-   * | Unit | String | The unit of **Value**. |
    * ## Cross-zone internal network performance observation dashboard scenario
-   * **Note**
-   * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+   * **Description**
+   * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
    *     
-   * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+   * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
    *     
-   * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+   * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
    * ### **Request parameters**
    * | **Name** | **Type** | **Required** | **Description** |
    * | --- | --- | --- | --- |
@@ -1619,8 +1589,8 @@ export default class Client extends OpenApi {
    * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
    * | Dimensions | object[\\] | Yes | The filter information. |
    * | \\-Name | string | Yes | The filter condition. Valid values:
-   *  - **SourceZone**: the source zone for probing. This parameter is required.
-   *  - **DestinationZone**: the destination zone for probing. This parameter is required. |
+   *  - **SourceZone**: the source zone of probing. This parameter is required.
+   *  - **DestinationZone**: the destination zone of probing. This parameter is required. |
    * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
    *  - SourceZone: cn-hangzhou-j
    *  - DestinationZone: cn-hangzhou-k |
@@ -1631,15 +1601,15 @@ export default class Client extends OpenApi {
    * | Data | object | The cloud network metric trends data object. |
    * | Metrics | array | The collection of metric trends data. |
    * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+   * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
    * | Unit | String | The unit of **Value**. |
    * ## **Cross-region internal network performance observation dashboard scenario**
-   * **Note**
-   * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+   * **Description**
+   * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
    *     
-   * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+   * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
    *     
-   * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+   * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
    * ### **Request parameters**
    * | **Name** | **Type** | **Required** | **Description** |
    * | --- | --- | --- | --- |
@@ -1650,7 +1620,7 @@ export default class Client extends OpenApi {
    *  - **out**: probing with RegionNo as the source. |
    * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
    * | Dimensions | object[\\] | No | The filter information. |
-   * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region for probing. This parameter is required. |
+   * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region of probing. This parameter is required. |
    * | \\-Value | string | No | The destination region ID. Example: DestinationRegionNo: cn-shenzhen |
    * ### **Response parameters**
    * | **Name** | **Type** | **Description** |
@@ -1659,7 +1629,7 @@ export default class Client extends OpenApi {
    * | Data | object | The cloud network metric trends data object. |
    * | Metrics | array | The collection of metric trends data. |
    * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+   * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
    * | Unit | String | The unit of **Value**. |
    * 
    * @param tmpReq - GetNisNetworkMetricsRequest
@@ -1739,45 +1709,15 @@ export default class Client extends OpenApi {
    * Data query result synchronization:
    * - API data is synchronized every 6 hours. You can query current network analysis data only after 6 hours.
    * Supported analysis scenarios: 
-   * - Internet performance observation dashboard scenario
    * - Cross-zone internal network performance observation dashboard scenario
    * - Cross-region internal network performance observation dashboard scenario
-   * ## Internet performance observation dashboard scenario
-   * **Note**
-   * The maximum query time span is 24 hours. If not specified, the most recent 1 hour is queried by default. The query result contains one data point per minute.
-   * ### **Request parameters**
-   * | **Name** | **Type** | **Required** | **Description** |
-   * | --- | --- | --- | --- |
-   * | RegionNo | string | Yes | The Alibaba Cloud region where the probing source is located. |
-   * | ResourceType | string | Yes | Set to **InternetProbing** to query Internet performance monitoring trends. |
-   * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
-   * | Dimensions | object[\\] | Yes | The filter information. |
-   * | \\-Name | string | Yes | The filter condition. Valid values:
-   *  - **Country**: the probing country.
-   *  - **Province**: the probing province.
-   *  - **Isp**: the probing ISP.
-   *  **Note:** Specify at least one of the preceding parameters. |
-   * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
-   *  - Country: China
-   *  - Province: Zhejiang 
-   * - Isp: Alibaba 
-   * **Note:** Country and province values are capitalized. The ISP parameter value must match the name displayed in the console. |
-   * ### **Response parameters**
-   * | **Name** | **Type** | **Description** |
-   * | --- | --- | --- |
-   * | RequestId | string | The request ID. |
-   * | Data | object | The cloud network metric trends data object. |
-   * | Metrics | array | The collection of metric trends data. |
-   * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
-   * | Unit | String | The unit of **Value**. |
    * ## Cross-zone internal network performance observation dashboard scenario
-   * **Note**
-   * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+   * **Description**
+   * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
    *     
-   * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+   * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
    *     
-   * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+   * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
    * ### **Request parameters**
    * | **Name** | **Type** | **Required** | **Description** |
    * | --- | --- | --- | --- |
@@ -1786,8 +1726,8 @@ export default class Client extends OpenApi {
    * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
    * | Dimensions | object[\\] | Yes | The filter information. |
    * | \\-Name | string | Yes | The filter condition. Valid values:
-   *  - **SourceZone**: the source zone for probing. This parameter is required.
-   *  - **DestinationZone**: the destination zone for probing. This parameter is required. |
+   *  - **SourceZone**: the source zone of probing. This parameter is required.
+   *  - **DestinationZone**: the destination zone of probing. This parameter is required. |
    * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
    *  - SourceZone: cn-hangzhou-j
    *  - DestinationZone: cn-hangzhou-k |
@@ -1798,15 +1738,15 @@ export default class Client extends OpenApi {
    * | Data | object | The cloud network metric trends data object. |
    * | Metrics | array | The collection of metric trends data. |
    * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+   * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
    * | Unit | String | The unit of **Value**. |
    * ## **Cross-region internal network performance observation dashboard scenario**
-   * **Note**
-   * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+   * **Description**
+   * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
    *     
-   * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+   * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
    *     
-   * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+   * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
    * ### **Request parameters**
    * | **Name** | **Type** | **Required** | **Description** |
    * | --- | --- | --- | --- |
@@ -1817,7 +1757,7 @@ export default class Client extends OpenApi {
    *  - **out**: probing with RegionNo as the source. |
    * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
    * | Dimensions | object[\\] | No | The filter information. |
-   * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region for probing. This parameter is required. |
+   * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region of probing. This parameter is required. |
    * | \\-Value | string | No | The destination region ID. Example: DestinationRegionNo: cn-shenzhen |
    * ### **Response parameters**
    * | **Name** | **Type** | **Description** |
@@ -1826,7 +1766,7 @@ export default class Client extends OpenApi {
    * | Data | object | The cloud network metric trends data object. |
    * | Metrics | array | The collection of metric trends data. |
    * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
-   * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+   * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
    * | Unit | String | The unit of **Value**. |
    * 
    * @param request - GetNisNetworkMetricsRequest
@@ -2436,6 +2376,137 @@ export default class Client extends OpenApi {
   async listNisInspectionTasks(request: $_model.ListNisInspectionTasksRequest): Promise<$_model.ListNisInspectionTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNisInspectionTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Sends an A2A streaming message.
+   * 
+   * @param tmpReq - SendNapalStreamMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendNapalStreamMessageResponse
+   */
+  async *sendNapalStreamMessageWithSSE(tmpReq: $_model.SendNapalStreamMessageRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.SendNapalStreamMessageResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.SendNapalStreamMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configuration)) {
+      request.configurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configuration, "Configuration", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.message)) {
+      request.messageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.message, "Message", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configurationShrink)) {
+      body["Configuration"] = request.configurationShrink;
+    }
+
+    if (!$dara.isNull(request.messageShrink)) {
+      body["Message"] = request.messageShrink;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendNapalStreamMessage",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.SendNapalStreamMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.SendNapalStreamMessageResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Sends an A2A streaming message.
+   * 
+   * @param tmpReq - SendNapalStreamMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendNapalStreamMessageResponse
+   */
+  async sendNapalStreamMessageWithOptions(tmpReq: $_model.SendNapalStreamMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendNapalStreamMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.SendNapalStreamMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configuration)) {
+      request.configurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configuration, "Configuration", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.message)) {
+      request.messageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.message, "Message", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configurationShrink)) {
+      body["Configuration"] = request.configurationShrink;
+    }
+
+    if (!$dara.isNull(request.messageShrink)) {
+      body["Message"] = request.messageShrink;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendNapalStreamMessage",
+      version: "2021-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendNapalStreamMessageResponse>(await this.callApi(params, req, runtime), new $_model.SendNapalStreamMessageResponse({}));
+  }
+
+  /**
+   * Sends an A2A streaming message.
+   * 
+   * @param request - SendNapalStreamMessageRequest
+   * @returns SendNapalStreamMessageResponse
+   */
+  async sendNapalStreamMessage(request: $_model.SendNapalStreamMessageRequest): Promise<$_model.SendNapalStreamMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendNapalStreamMessageWithOptions(request, runtime);
   }
 
   /**

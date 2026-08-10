@@ -45,12 +45,12 @@ export class GetNisNetworkMetricsRequestDimensions extends $dara.Model {
 export class GetNisNetworkMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * Explicitly passes sub-account IDs.
+   * Explicitly passes member account IDs.
    */
   accountIds?: string[];
   /**
    * @remarks
-   * The start time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. The earliest start time is 7 days ago.
+   * The start time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. The earliest start time can be 7 days ago.
    * 
    * @example
    * 1638239092000
@@ -83,7 +83,7 @@ export class GetNisNetworkMetricsRequest extends $dara.Model {
    * -   rtt: round-trip time when establishing a TCP connection.
    * -   RetransmitRate: retransmission rate.
    * -   RatelimitDropPps: rate of packets dropped due to throttling.
-   * -   ActiveSessionCount: concurrent sessions.
+   * -   ActiveSessionCount: concurrent session count.
    * -   NewSessionPerSecond: new sessions per second.
    * -   BandwidthUtilization: bandwidth utilization.
    * -   passRate: inspection pass rate.
@@ -114,12 +114,11 @@ export class GetNisNetworkMetricsRequest extends $dara.Model {
    * - ElasticIP: Elastic IP Address (EIP) (IPv4).
    * - PublicIpEcs: static public IP address bound to an ECS instance (IPv4).
    * - PublicIpClb: static public IP address bound to a CLB instance (IPv4).
-   * - NAT: public traffic through SNAT.
+   * - NAT: public network traffic through SNAT.
    * - TR: traffic through Cloud Enterprise Network (CEN) transit routers.
    * - TRAttachment: traffic through CEN connection instances, including intra-region and inter-region connections. Intra-region connections have inbound and outbound directions. Inter-region connections have only the outbound direction.
    * - VBR: traffic through virtual border routers.
    * - GA: traffic through Global Accelerator.
-   * - InternetProbing: Internet quality probing data.
    * - IntranetProbing: internal network quality probing data.
    * - NisInspectionHistoryReportScore: inspection history scores.
    * 
@@ -143,7 +142,7 @@ export class GetNisNetworkMetricsRequest extends $dara.Model {
   stepMinutes?: number;
   /**
    * @remarks
-   * Specifies whether to use cross-account access mode. This is a reserved parameter and is not currently supported.
+   * Specifies whether to use multi-account access mode. This is a reserved parameter and is not currently supported.
    * 
    * @example
    * false
