@@ -75,13 +75,11 @@ export default class Client extends OpenApi {
       'us-southeast-1': "mongodb.us-southeast-1.aliyuncs.com",
       'na-south-1': "mongodb.na-south-1.aliyuncs.com",
       'me-central-1': "mongodb.me-central-1.aliyuncs.com",
-      'eu-west-2': "mongodb.eu-west-2.aliyuncs.com",
       'cn-zhongwei': "mongodb.cn-zhongwei.aliyuncs.com",
       'cn-zhengzhou-jva': "mongodb.cn-zhengzhou-jva.aliyuncs.com",
       'cn-wulanchabu-gic-1': "mongodb.cn-wulanchabu-gic-1.aliyuncs.com",
       'cn-wuhan-lr': "mongodb.cn-wuhan-lr.aliyuncs.com",
       'cn-nanjing': "mongodb.cn-nanjing.aliyuncs.com",
-      'cn-heyuan-acdr-1': "mongodb.cn-heyuan-acdr-1.aliyuncs.com",
       'cn-fuzhou': "mongodb.cn-fuzhou.aliyuncs.com",
       'ap-southeast-8': "mongodb.ap-southeast-8.aliyuncs.com",
       'ap-southeast-7': "mongodb.ap-southeast-7.aliyuncs.com",
@@ -7218,12 +7216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the audit log types collected for a MongoDB instance.
+   * Modifies the collection types of audit logs for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - The instance must be in the running state when you call this operation.
-   * - This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The instance must be in the Running instance status when you invoke this operation.
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not invoke this operation at a high frequency. If you require high-frequency calls, use a Logstore. For details, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ModifyAuditLogFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7278,12 +7275,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the audit log types collected for a MongoDB instance.
+   * Modifies the collection types of audit logs for an ApsaraDB for MongoDB instance.
    * 
    * @remarks
-   * - The instance must be in the running state when you call this operation.
-   * - This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-   * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+   * - The instance must be in the Running instance status when you invoke this operation.
+   * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not invoke this operation at a high frequency. If you require high-frequency calls, use a Logstore. For details, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
    * 
    * @param request - ModifyAuditLogFilterRequest
    * @returns ModifyAuditLogFilterResponse
