@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddTenantMembersBySourceUserResponseBody extends $dara.Model {
+export class ExecuteDDLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -13,15 +13,7 @@ export class AddTenantMembersBySourceUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the add operation.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The HTTP status code returned by the backend.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,18 +21,18 @@ export class AddTenantMembersBySourceUserResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The backend exception details.
    * 
    * @example
-   * successful
+   * internal error
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
+   * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
   /**
@@ -48,13 +40,12 @@ export class AddTenantMembersBySourceUserResponseBody extends $dara.Model {
    * Indicates whether the request was successful.
    * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      data: 'Data',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -65,7 +56,6 @@ export class AddTenantMembersBySourceUserResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'boolean',
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',

@@ -2,12 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model {
+export class ListSecurityClassifyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination request.
-   * 
-   * This parameter is required.
+   * The query conditions.
    */
   listQueryShrink?: string;
   /**

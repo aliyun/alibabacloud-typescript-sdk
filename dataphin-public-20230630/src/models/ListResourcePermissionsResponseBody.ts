@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcePermissionsResponseBodyPageResultDataPeriod extends $dara.Model {
   /**
    * @remarks
-   * Expiration time.
+   * The expiration time.
    * 
    * @example
    * 1712000000000
@@ -13,7 +13,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataPeriod extends $da
   endTime?: string;
   /**
    * @remarks
-   * Validity period type. Custom: CUSTOM. Long-term: LONG_TERM.
+   * The validity period type.
    * 
    * @example
    * CUSTOM
@@ -45,7 +45,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataPeriod extends $da
 export class ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodListPeriod extends $dara.Model {
   /**
    * @remarks
-   * Expiration time.
+   * The expiration time.
    * 
    * @example
    * 1712000000000
@@ -53,7 +53,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodLi
   endTime?: string;
   /**
    * @remarks
-   * Validity period type. Custom: CUSTOM. Long-term: LONG_TERM.
+   * The validity period type.
    * 
    * @example
    * CUSTOM
@@ -85,12 +85,12 @@ export class ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodLi
 export class ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodList extends $dara.Model {
   /**
    * @remarks
-   * Validity period settings.
+   * The validity period settings.
    */
   period?: ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodListPeriod;
   /**
    * @remarks
-   * Permission type.
+   * The permission type.
    * 
    * @example
    * SELECT
@@ -125,7 +125,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodLi
 export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUnitInfo extends $dara.Model {
   /**
    * @remarks
-   * Display name.
+   * The display name.
    * 
    * @example
    * xx
@@ -133,7 +133,9 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUni
   displayName?: string;
   /**
    * @remarks
-   * Environment identifier. Development: DEV. Production: PROD.
+   * The environment identifier. Valid values:
+   * - DEV: development.
+   * - PROD: production.
    * 
    * @example
    * DEV
@@ -141,7 +143,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUni
   env?: string;
   /**
    * @remarks
-   * ID.
+   * Id
    * 
    * @example
    * 121323
@@ -149,7 +151,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUni
   id?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * xx
@@ -185,7 +187,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUni
 export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjectInfo extends $dara.Model {
   /**
    * @remarks
-   * Display name.
+   * The display name.
    * 
    * @example
    * xx
@@ -193,7 +195,9 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjec
   displayName?: string;
   /**
    * @remarks
-   * Environment identifier. Development: DEV. Production: PROD.
+   * The environment identifier. Valid values:
+   * - DEV: development.
+   * - PROD: production.
    * 
    * @example
    * DEV
@@ -201,7 +205,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjec
   env?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 1123131
@@ -209,7 +213,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjec
   id?: number;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
    * xx
@@ -245,12 +249,12 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjec
 export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Business unit.
+   * The business unit.
    */
   bizUnitInfo?: ListResourcePermissionsResponseBodyPageResultDataResourceInfoBizUnitInfo;
   /**
    * @remarks
-   * Resource display name.
+   * The display name of the resource.
    * 
    * @example
    * tb1
@@ -258,7 +262,9 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo exten
   displayName?: string;
   /**
    * @remarks
-   * Resource environment type. Development: DEV. Production: PROD.
+   * The resource environment type. Valid values:
+   * - DEV: development.
+   * - PROD: production.
    * 
    * @example
    * DEV
@@ -266,7 +272,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo exten
   env?: string;
   /**
    * @remarks
-   * Permission resource ID.
+   * The ID of the permission resource.
    * 
    * @example
    * a.tb1
@@ -274,7 +280,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo exten
   id?: string;
   /**
    * @remarks
-   * Permission resource name.
+   * The name of the permission resource.
    * 
    * @example
    * tb1
@@ -282,12 +288,12 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo exten
   name?: string;
   /**
    * @remarks
-   * Project.
+   * The project.
    */
   projectInfo?: ListResourcePermissionsResponseBodyPageResultDataResourceInfoProjectInfo;
   /**
    * @remarks
-   * Resource type. Valid values: PHYSICAL_TABLE, PHYSICAL_VIEW, LOGICAL_TABLE, LOGICAL_VIEW, REALTIME_LOGICAL_TABLE, REALTIME_MIRROR_TABLE, and DATASOURCE.
+   * The resource type. Valid values: PHYSICAL_TABLE, PHYSICAL_VIEW, LOGICAL_TABLE, LOGICAL_VIEW, REALTIME_LOGICAL_TABLE, REALTIME_MIRROR_TABLE, DATASOURCE.
    * 
    * @example
    * PHYSICAL_TABLE
@@ -335,7 +341,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataResourceInfo exten
 export class ListResourcePermissionsResponseBodyPageResultDataTargetAccount extends $dara.Model {
   /**
    * @remarks
-   * Personal account: the userId on the Dataphin side. Production account: the UserId obtained by calling the GetProjectProduceUser operation. User group: the user group ID obtained by calling the ListUserGroup operation.
+   * The account ID. For an individual account, this is the Dataphin-side userId. For a production account, this is the UserId obtained by calling the GetProjectProduceUser operation. For a user group, this is the user group ID obtained by calling the ListUserGroup operation.
    * 
    * @example
    * 1212131
@@ -343,7 +349,7 @@ export class ListResourcePermissionsResponseBodyPageResultDataTargetAccount exte
   id?: string;
   /**
    * @remarks
-   * Personal account: the userId on the Dataphin side. Production account: the UserId obtained by calling the GetProjectProduceUser operation. User group: the user group ID obtained by calling the ListUserGroup operation.
+   * The account ID. For an individual account, this is the Dataphin-side userId. For a production account, this is the UserId obtained by calling the GetProjectProduceUser operation. For a user group, this is the user group ID obtained by calling the ListUserGroup operation.
    * 
    * @example
    * xx
@@ -351,7 +357,10 @@ export class ListResourcePermissionsResponseBodyPageResultDataTargetAccount exte
   name?: string;
   /**
    * @remarks
-   * Authorization account type. Valid values: PERSONAL (personal account), PRODUCE (production account), and USER_GROUP (user group).
+   * The type of the authorized account. Valid values:
+   * - PERSONAL: individual account.
+   * - PRODUCE: production account.
+   * - USER_GROUP: user group.
    * 
    * @example
    * PERSONAL
@@ -385,7 +394,10 @@ export class ListResourcePermissionsResponseBodyPageResultDataTargetAccount exte
 export class ListResourcePermissionsResponseBodyPageResultData extends $dara.Model {
   /**
    * @remarks
-   * Authorization scope of the table. Specified table: selectTable. All tables in the project: projectAllTable. All logical tables in the business unit: bizUnitAllLogicTable.
+   * The authorization scope of the table. Valid values:
+   * - selectTable: a specified table.
+   * - projectAllTable: all tables in the project.
+   * - bizUnitAllLogicTable: all logical tables in the business unit.
    * 
    * @example
    * selectTable
@@ -393,17 +405,17 @@ export class ListResourcePermissionsResponseBodyPageResultData extends $dara.Mod
   authScope?: string;
   /**
    * @remarks
-   * Validity period settings.
+   * The validity period settings.
    */
   period?: ListResourcePermissionsResponseBodyPageResultDataPeriod;
   /**
    * @remarks
-   * List of validity periods for different permission types.
+   * The list of validity periods for different permission types.
    */
   permissionPeriodList?: ListResourcePermissionsResponseBodyPageResultDataPermissionPeriodList[];
   /**
    * @remarks
-   * Record ID.
+   * The record ID.
    * 
    * @example
    * 12123111
@@ -411,12 +423,12 @@ export class ListResourcePermissionsResponseBodyPageResultData extends $dara.Mod
   recordId?: string;
   /**
    * @remarks
-   * Permission resource.
+   * The permission resource.
    */
   resourceInfo?: ListResourcePermissionsResponseBodyPageResultDataResourceInfo;
   /**
    * @remarks
-   * Authorized object.
+   * The authorized object.
    */
   targetAccount?: ListResourcePermissionsResponseBodyPageResultDataTargetAccount;
   static names(): { [key: string]: string } {
@@ -465,12 +477,12 @@ export class ListResourcePermissionsResponseBodyPageResultData extends $dara.Mod
 export class ListResourcePermissionsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Paginated list.
+   * The paged list.
    */
   data?: ListResourcePermissionsResponseBodyPageResultData[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 121
@@ -505,7 +517,7 @@ export class ListResourcePermissionsResponseBodyPageResult extends $dara.Model {
 export class ListResourcePermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates a normal request.
+   * The error code. A value of OK indicates that the request was successful.
    * 
    * @example
    * OK
@@ -513,7 +525,7 @@ export class ListResourcePermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -521,7 +533,7 @@ export class ListResourcePermissionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message returned for the request.
    * 
    * @example
    * successful
@@ -529,12 +541,12 @@ export class ListResourcePermissionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paged query result.
    */
   pageResult?: ListResourcePermissionsResponseBodyPageResult;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -542,7 +554,7 @@ export class ListResourcePermissionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

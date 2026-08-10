@@ -24,7 +24,7 @@ export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends
    * The display name.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   displayName?: string;
   /**
@@ -45,12 +45,13 @@ export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends
   mobilePhone?: string;
   /**
    * @remarks
-   * The original ID of the user.
+   * The source user ID.
    * 
    * @example
    * 2323131
    */
   sourceId?: string;
+  sourceType?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -59,6 +60,7 @@ export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends
       mail: 'Mail',
       mobilePhone: 'MobilePhone',
       sourceId: 'SourceId',
+      sourceType: 'SourceType',
     };
   }
 
@@ -70,6 +72,7 @@ export class AddTenantMembersBySourceUserRequestAddCommandSourceUserList extends
       mail: 'string',
       mobilePhone: 'string',
       sourceId: 'string',
+      sourceType: 'string',
     };
   }
 

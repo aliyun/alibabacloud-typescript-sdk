@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcePermissionsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListResourcePermissionsRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of records per page.
    * 
    * This parameter is required.
    * 
@@ -25,15 +25,18 @@ export class ListResourcePermissionsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Search keyword.
+   * The search keyword.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   searchText?: string;
   /**
    * @remarks
-   * Tab name. Table: TABLE. Data source: DATASOURCE.
+   * The tab type. Valid values:
+   * 
+   * - TABLE: table.
+   * - DATASOURCE: datasource.
    * 
    * This parameter is required.
    * 
@@ -71,14 +74,14 @@ export class ListResourcePermissionsRequestListQuery extends $dara.Model {
 export class ListResourcePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Paginated request.
+   * The paged query request.
    * 
    * This parameter is required.
    */
   listQuery?: ListResourcePermissionsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

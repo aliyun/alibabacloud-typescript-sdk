@@ -2,14 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model {
+export class ListPipelinesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination request.
+   * The request context.
    * 
    * This parameter is required.
    */
-  listQueryShrink?: string;
+  contextShrink?: string;
+  /**
+   * @remarks
+   * The query parameters.
+   * 
+   * This parameter is required.
+   */
+  listCommandShrink?: string;
   /**
    * @remarks
    * The tenant ID.
@@ -22,14 +29,16 @@ export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model
   opTenantId?: number;
   static names(): { [key: string]: string } {
     return {
-      listQueryShrink: 'ListQuery',
+      contextShrink: 'Context',
+      listCommandShrink: 'ListCommand',
       opTenantId: 'OpTenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listQueryShrink: 'string',
+      contextShrink: 'string',
+      listCommandShrink: 'string',
       opTenantId: 'number',
     };
   }

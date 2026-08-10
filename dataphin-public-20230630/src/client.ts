@@ -317,7 +317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tenant members by using original user identities.
+   * Adds tenant members by using source users.
    * 
    * @param tmpReq - AddTenantMembersBySourceUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -360,7 +360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tenant members by using original user identities.
+   * Adds tenant members by using source users.
    * 
    * @param request - AddTenantMembersBySourceUserRequest
    * @returns AddTenantMembersBySourceUserResponse
@@ -5084,6 +5084,68 @@ export default class Client extends OpenApi {
   async executeAdHocTask(request: $_model.ExecuteAdHocTaskRequest): Promise<$_model.ExecuteAdHocTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeAdHocTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+   * 
+   * @param tmpReq - ExecuteDDLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteDDLResponse
+   */
+  async executeDDLWithOptions(tmpReq: $_model.ExecuteDDLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteDDLResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExecuteDDLShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.DDLCommand)) {
+      request.DDLCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DDLCommand, "DDLCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.DDLCommandShrink)) {
+      body["DDLCommand"] = request.DDLCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteDDL",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteDDLResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteDDLResponse({}));
+  }
+
+  /**
+   * Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+   * 
+   * @param request - ExecuteDDLRequest
+   * @returns ExecuteDDLResponse
+   */
+  async executeDDL(request: $_model.ExecuteDDLRequest): Promise<$_model.ExecuteDDLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeDDLWithOptions(request, runtime);
   }
 
   /**
@@ -12611,6 +12673,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+   * 
+   * @param tmpReq - ListPipelinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPipelinesResponse
+   */
+  async listPipelinesWithOptions(tmpReq: $_model.ListPipelinesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPipelinesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListPipelinesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.listCommand)) {
+      request.listCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listCommand, "ListCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.listCommandShrink)) {
+      body["ListCommand"] = request.listCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPipelines",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPipelinesResponse>(await this.callApi(params, req, runtime), new $_model.ListPipelinesResponse({}));
+  }
+
+  /**
+   * Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+   * 
+   * @param request - ListPipelinesRequest
+   * @returns ListPipelinesResponse
+   */
+  async listPipelines(request: $_model.ListPipelinesRequest): Promise<$_model.ListPipelinesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPipelinesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of project members.
    * 
    * @param tmpReq - ListProjectMembersRequest
@@ -13111,7 +13235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves permission authorization records with pagination.
+   * Retrieves permission authorization records by page.
    * 
    * @param tmpReq - ListResourcePermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13154,7 +13278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves permission authorization records with pagination.
+   * Retrieves permission authorization records by page.
    * 
    * @param request - ListResourcePermissionsRequest
    * @returns ListResourcePermissionsResponse
@@ -13270,6 +13394,60 @@ export default class Client extends OpenApi {
   async listRowPermissionByUserId(request: $_model.ListRowPermissionByUserIdRequest): Promise<$_model.ListRowPermissionByUserIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRowPermissionByUserIdWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the data classification list by paging.
+   * 
+   * @param tmpReq - ListSecurityClassifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityClassifyResponse
+   */
+  async listSecurityClassifyWithOptions(tmpReq: $_model.ListSecurityClassifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecurityClassifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSecurityClassifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecurityClassify",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecurityClassifyResponse>(await this.callApi(params, req, runtime), new $_model.ListSecurityClassifyResponse({}));
+  }
+
+  /**
+   * Queries the data classification list by paging.
+   * 
+   * @param request - ListSecurityClassifyRequest
+   * @returns ListSecurityClassifyResponse
+   */
+  async listSecurityClassify(request: $_model.ListSecurityClassifyRequest): Promise<$_model.ListSecurityClassifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSecurityClassifyWithOptions(request, runtime);
   }
 
   /**
@@ -15063,6 +15241,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves knowledge graph entity or relationship records through semantic search.
+   * 
+   * @param tmpReq - SearchKgBySemanticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchKgBySemanticResponse
+   */
+  async searchKgBySemanticWithOptions(tmpReq: $_model.SearchKgBySemanticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchKgBySemanticResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchKgBySemanticShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.searchCommand)) {
+      request.searchCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchCommand, "SearchCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.searchCommandShrink)) {
+      body["SearchCommand"] = request.searchCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchKgBySemantic",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchKgBySemanticResponse>(await this.callApi(params, req, runtime), new $_model.SearchKgBySemanticResponse({}));
+  }
+
+  /**
+   * Retrieves knowledge graph entity or relationship records through semantic search.
+   * 
+   * @param request - SearchKgBySemanticRequest
+   * @returns SearchKgBySemanticResponse
+   */
+  async searchKgBySemantic(request: $_model.SearchKgBySemanticRequest): Promise<$_model.SearchKgBySemanticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchKgBySemanticWithOptions(request, runtime);
+  }
+
+  /**
    * Stops an ad hoc query task.
    * 
    * @param request - StopAdHocTaskRequest
@@ -15164,6 +15400,68 @@ export default class Client extends OpenApi {
   async submitBatchTask(request: $_model.SubmitBatchTaskRequest): Promise<$_model.SubmitBatchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an integration pipeline task by OAQueryId.
+   * 
+   * @param tmpReq - SubmitPipelineByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitPipelineByIdResponse
+   */
+  async submitPipelineByIdWithOptions(tmpReq: $_model.SubmitPipelineByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitPipelineByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitPipelineByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.queryId)) {
+      request.queryIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryId, "QueryId", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.queryIdShrink)) {
+      body["QueryId"] = request.queryIdShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitPipelineById",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitPipelineByIdResponse>(await this.callApi(params, req, runtime), new $_model.SubmitPipelineByIdResponse({}));
+  }
+
+  /**
+   * Submits an integration pipeline task by OAQueryId.
+   * 
+   * @param request - SubmitPipelineByIdRequest
+   * @returns SubmitPipelineByIdResponse
+   */
+  async submitPipelineById(request: $_model.SubmitPipelineByIdRequest): Promise<$_model.SubmitPipelineByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitPipelineByIdWithOptions(request, runtime);
   }
 
   /**

@@ -2,14 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The pagination request.
-   * 
-   * This parameter is required.
-   */
-  listQueryShrink?: string;
+export class SearchKgBySemanticShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The tenant ID.
@@ -20,17 +13,36 @@ export class ListResourcePermissionOperationLogShrinkRequest extends $dara.Model
    * 30001011
    */
   opTenantId?: number;
+  /**
+   * @remarks
+   * The search command.
+   * 
+   * This parameter is required.
+   */
+  searchCommandShrink?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * f1d4559a4db044158305e2d89bccf81f
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      listQueryShrink: 'ListQuery',
       opTenantId: 'OpTenantId',
+      searchCommandShrink: 'SearchCommand',
+      workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listQueryShrink: 'string',
       opTenantId: 'number',
+      searchCommandShrink: 'string',
+      workspaceId: 'string',
     };
   }
 

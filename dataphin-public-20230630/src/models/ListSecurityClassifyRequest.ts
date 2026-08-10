@@ -2,67 +2,71 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Model {
+export class ListSecurityClassifyRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The page number.
-   * 
-   * This parameter is required.
+   * The data level ID.
    * 
    * @example
    * 1
    */
-  page?: number;
+  levelIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * This parameter is required.
+   * The classification name. Fuzzy match is supported.
    * 
    * @example
-   * 10
+   * Personal Information
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * The search keyword.
+   * The list of effective statuses. Valid values: ENABLE, DISABLE.
    * 
    * @example
-   * xxTest
+   * ["ENABLE"]
    */
-  searchText?: string;
-  /**
-   * @remarks
-   * The tab type. Valid values:
-   * 
-   * - TABLE: table.
-   * - DATASOURCE: data source.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TABLE
-   */
-  tabType?: string;
+  statusList?: string[];
   static names(): { [key: string]: string } {
     return {
-      page: 'Page',
+      levelIndex: 'LevelIndex',
+      name: 'Name',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
-      searchText: 'SearchText',
-      tabType: 'TabType',
+      statusList: 'StatusList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      page: 'number',
+      levelIndex: 'number',
+      name: 'string',
+      pageNo: 'number',
       pageSize: 'number',
-      searchText: 'string',
-      tabType: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.statusList)) {
+      $dara.Model.validateArray(this.statusList);
+    }
     super.validate();
   }
 
@@ -71,14 +75,12 @@ export class ListResourcePermissionOperationLogRequestListQuery extends $dara.Mo
   }
 }
 
-export class ListResourcePermissionOperationLogRequest extends $dara.Model {
+export class ListSecurityClassifyRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination request.
-   * 
-   * This parameter is required.
+   * The query conditions.
    */
-  listQuery?: ListResourcePermissionOperationLogRequestListQuery;
+  listQuery?: ListSecurityClassifyRequestListQuery;
   /**
    * @remarks
    * The tenant ID.
@@ -98,7 +100,7 @@ export class ListResourcePermissionOperationLogRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      listQuery: ListResourcePermissionOperationLogRequestListQuery,
+      listQuery: ListSecurityClassifyRequestListQuery,
       opTenantId: 'number',
     };
   }
