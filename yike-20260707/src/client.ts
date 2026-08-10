@@ -138,6 +138,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - CreateInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInfiniteCanvasResponse
+   */
+  async createInfiniteCanvasWithOptions(request: $_model.CreateInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInfiniteCanvas",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.CreateInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * Creates an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - CreateInfiniteCanvasRequest
+   * @returns CreateInfiniteCanvasResponse
+   */
+  async createInfiniteCanvas(request: $_model.CreateInfiniteCanvasRequest): Promise<$_model.CreateInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInfiniteCanvasWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a media asset category.
    * 
    * @remarks
@@ -183,6 +245,56 @@ export default class Client extends OpenApi {
   async deleteAssetCategory(request: $_model.DeleteAssetCategoryRequest): Promise<$_model.DeleteAssetCategoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAssetCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - DeleteInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInfiniteCanvasResponse
+   */
+  async deleteInfiniteCanvasWithOptions(request: $_model.DeleteInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInfiniteCanvas",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * Deletes an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - DeleteInfiniteCanvasRequest
+   * @returns DeleteInfiniteCanvasResponse
+   */
+  async deleteInfiniteCanvas(request: $_model.DeleteInfiniteCanvasRequest): Promise<$_model.DeleteInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInfiniteCanvasWithOptions(request, runtime);
   }
 
   /**
@@ -233,6 +345,82 @@ export default class Client extends OpenApi {
   async deleteMedias(request: $_model.DeleteMediasRequest): Promise<$_model.DeleteMediasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMediasWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a login token for an enterprise account.
+   * 
+   * @remarks
+   * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+   * 
+   * @param request - GenerateYikeLoginTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateYikeLoginTokenResponse
+   */
+  async generateYikeLoginTokenWithOptions(request: $_model.GenerateYikeLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateYikeLoginTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoCreateProduction)) {
+      query["AutoCreateProduction"] = request.autoCreateProduction;
+    }
+
+    if (!$dara.isNull(request.expires)) {
+      query["Expires"] = request.expires;
+    }
+
+    if (!$dara.isNull(request.nickName)) {
+      query["NickName"] = request.nickName;
+    }
+
+    if (!$dara.isNull(request.productionAuth)) {
+      query["ProductionAuth"] = request.productionAuth;
+    }
+
+    if (!$dara.isNull(request.subUserCredit)) {
+      query["SubUserCredit"] = request.subUserCredit;
+    }
+
+    if (!$dara.isNull(request.tenant)) {
+      query["Tenant"] = request.tenant;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateYikeLoginToken",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateYikeLoginTokenResponse>(await this.callApi(params, req, runtime), new $_model.GenerateYikeLoginTokenResponse({}));
+  }
+
+  /**
+   * Retrieves a login token for an enterprise account.
+   * 
+   * @remarks
+   * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+   * 
+   * @param request - GenerateYikeLoginTokenRequest
+   * @returns GenerateYikeLoginTokenResponse
+   */
+  async generateYikeLoginToken(request: $_model.GenerateYikeLoginTokenRequest): Promise<$_model.GenerateYikeLoginTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateYikeLoginTokenWithOptions(request, runtime);
   }
 
   /**
@@ -320,11 +508,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资
+   * Queries an infinite canvas.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Description
+   * This API is used to query a media asset content understanding job.
+   * 
+   * @param request - GetInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInfiniteCanvasResponse
+   */
+  async getInfiniteCanvasWithOptions(request: $_model.GetInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInfiniteCanvas",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.GetInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * Queries an infinite canvas.
+   * 
+   * @remarks
+   * ## Description
+   * This API is used to query a media asset content understanding job.
+   * 
+   * @param request - GetInfiniteCanvasRequest
+   * @returns GetInfiniteCanvasResponse
+   */
+  async getInfiniteCanvas(request: $_model.GetInfiniteCanvasRequest): Promise<$_model.GetInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInfiniteCanvasWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a media asset.
+   * 
+   * @remarks
+   * ## Operation description.
    * 
    * @param request - GetMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -363,11 +600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询媒资
+   * Queries a media asset.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于查询媒资内容理解作业。
+   * ## Operation description.
    * 
    * @param request - GetMediaRequest
    * @returns GetMediaResponse
@@ -516,7 +752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询爆款新视频渲染任务
+   * Submits a video rendering and composition task.
    * 
    * @param request - GetVideoRenderJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -547,7 +783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询爆款新视频渲染任务
+   * Submits a video rendering and composition task.
    * 
    * @param request - GetVideoRenderJobRequest
    * @returns GetVideoRenderJobResponse
@@ -555,6 +791,66 @@ export default class Client extends OpenApi {
   async getVideoRenderJob(request: $_model.GetVideoRenderJobRequest): Promise<$_model.GetVideoRenderJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getVideoRenderJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询视频翻译任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+   * - `JobId`是必需参数，通过query或form方式传递。
+   * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+   * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+   * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+   * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+   * 
+   * @param request - GetVideoTranslationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoTranslationJobResponse
+   */
+  async getVideoTranslationJobWithOptions(request: $_model.GetVideoTranslationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoTranslationJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoTranslationJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoTranslationJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoTranslationJobResponse({}));
+  }
+
+  /**
+   * 查询视频翻译任务
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+   * - `JobId`是必需参数，通过query或form方式传递。
+   * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+   * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+   * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+   * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+   * 
+   * @param request - GetVideoTranslationJobRequest
+   * @returns GetVideoTranslationJobResponse
+   */
+  async getVideoTranslationJob(request: $_model.GetVideoTranslationJobRequest): Promise<$_model.GetVideoTranslationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoTranslationJobWithOptions(request, runtime);
   }
 
   /**
@@ -779,6 +1075,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of infinite canvases.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API is used to query media asset content understanding jobs.
+   * 
+   * @param request - ListInfiniteCanvasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInfiniteCanvasesResponse
+   */
+  async listInfiniteCanvasesWithOptions(request: $_model.ListInfiniteCanvasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInfiniteCanvasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInfiniteCanvases",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInfiniteCanvasesResponse>(await this.callApi(params, req, runtime), new $_model.ListInfiniteCanvasesResponse({}));
+  }
+
+  /**
+   * Queries the list of infinite canvases.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API is used to query media asset content understanding jobs.
+   * 
+   * @param request - ListInfiniteCanvasesRequest
+   * @returns ListInfiniteCanvasesResponse
+   */
+  async listInfiniteCanvases(request: $_model.ListInfiniteCanvasesRequest): Promise<$_model.ListInfiniteCanvasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInfiniteCanvasesWithOptions(request, runtime);
+  }
+
+  /**
    * Returns media asset information that matches the specified filter conditions.
    * 
    * @param request - SearchMediaRequest
@@ -919,11 +1281,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒资内容理解作业
+   * Submits a media asset content understanding job.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * ## Operation description
+   * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -966,11 +1328,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒资内容理解作业
+   * Submits a media asset content understanding job.
    * 
    * @remarks
-   * ## 请求说明
-   * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+   * ## Operation description
+   * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @returns SubmitMediaComprehensionJobResponse
@@ -981,10 +1343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交爆款复刻新脚本生成任务
+   * Submits a creative script generation task.
    * 
    * @remarks
-   * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+   * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1023,10 +1385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交爆款复刻新脚本生成任务
+   * Submits a creative script generation task.
    * 
    * @remarks
-   * 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+   * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @returns SubmitRemakeScriptJobResponse
@@ -1078,6 +1440,10 @@ export default class Client extends OpenApi {
       query["N"] = request.n;
     }
 
+    if (!$dara.isNull(request.output)) {
+      query["Output"] = request.output;
+    }
+
     if (!$dara.isNull(request.resolution)) {
       query["Resolution"] = request.resolution;
     }
@@ -1119,7 +1485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交爆款新视频渲染任务
+   * Submits a video rendering and compositing task.
    * 
    * @param request - SubmitVideoRenderJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1158,7 +1524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交爆款新视频渲染任务
+   * Submits a video rendering and compositing task.
    * 
    * @param request - SubmitVideoRenderJobRequest
    * @returns SubmitVideoRenderJobResponse
@@ -1308,6 +1674,64 @@ export default class Client extends OpenApi {
   async updateAssetCategory(request: $_model.UpdateAssetCategoryRequest): Promise<$_model.UpdateAssetCategoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAssetCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the information of an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - UpdateInfiniteCanvasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInfiniteCanvasResponse
+   */
+  async updateInfiniteCanvasWithOptions(request: $_model.UpdateInfiniteCanvasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInfiniteCanvasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.canvasId)) {
+      query["CanvasId"] = request.canvasId;
+    }
+
+    if (!$dara.isNull(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInfiniteCanvas",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInfiniteCanvasResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInfiniteCanvasResponse({}));
+  }
+
+  /**
+   * Updates the information of an infinite canvas.
+   * 
+   * @remarks
+   * ## Operation description
+   * This API operation is used to query media asset content understanding jobs.
+   * 
+   * @param request - UpdateInfiniteCanvasRequest
+   * @returns UpdateInfiniteCanvasResponse
+   */
+  async updateInfiniteCanvas(request: $_model.UpdateInfiniteCanvasRequest): Promise<$_model.UpdateInfiniteCanvasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInfiniteCanvasWithOptions(request, runtime);
   }
 
   /**

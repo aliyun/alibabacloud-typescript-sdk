@@ -2,24 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetVideoRenderJobRequest extends $dara.Model {
+export class DeleteInfiniteCanvasRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the infinite canvas.
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 68ca759e798b40b4903b255*******
+   * canvas_adaasd*
    */
-  jobId?: string;
+  canvasId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      canvasId: 'CanvasId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      canvasId: 'string',
     };
   }
 

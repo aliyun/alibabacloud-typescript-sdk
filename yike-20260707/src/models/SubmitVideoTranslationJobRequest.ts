@@ -58,9 +58,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The output configuration JSON string.
-   * 
-   * This parameter is required.
+   * The output configuration JSON string. The OssUri value must be a folder.
    * 
    * @example
    * {"OssUri":"oss://bucket/output/"}

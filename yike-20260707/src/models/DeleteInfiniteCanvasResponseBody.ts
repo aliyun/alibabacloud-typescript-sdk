@@ -2,43 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitMediaComprehensionJobResponseBody extends $dara.Model {
+export class DeleteInfiniteCanvasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business error code. An empty string is returned when the submission is successful.
+   * The ID of the infinite canvas.
    * 
    * @example
-   * ""
+   * canvas_adaasd*
    */
-  errorCode?: string;
+  canvasId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The request ID.
    * 
    * @example
-   * 68ca759e798b40b4903b255********
-   */
-  jobId?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * ******11-DB8D-4A9A-875B-275798******
+   * ***F88A3-AC51-5588-859A-03144F082***
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      errorCode: 'ErrorCode',
-      jobId: 'JobId',
+      canvasId: 'CanvasId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      errorCode: 'string',
-      jobId: 'string',
+      canvasId: 'string',
       requestId: 'string',
     };
   }
