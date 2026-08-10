@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
+   * The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. Maximum length: 200 characters. Format: [A-Za-z0-9-_.]+
    * 
    * @example
    * Abc123Def456
@@ -13,7 +13,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   authorizationCode?: string;
   /**
    * @remarks
-   * The channel name.
+   * The name of an existing channel.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The endpoint description.
+   * The description of the endpoint.
    * 
    * @example
    * This is an origin endpoint.
@@ -31,7 +31,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the origin endpoint. The name can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of an existing channel group.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist. It supports subnet masks. Separate multiple IP addresses with commas (,).
+   * The IP blacklist. Subnet masks are supported. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 103.0.0.0/8
@@ -59,7 +59,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
+   * The IP whitelist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. Maximum length: 1000 characters.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1
@@ -67,7 +67,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * Live stream encapsulation configuration
+   * The live packaging configuration.
    */
   livePackagingConfigShrink?: string;
   /**
@@ -80,7 +80,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   manifestName?: string;
   /**
    * @remarks
-   * The protocol. Only HLS is supported.
+   * The protocol. Currently, only HLS is supported.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available. Maximum value: 30.
+   * The number of time-shifting days. Maximum value: 30.
    * 
    * @example
    * 5

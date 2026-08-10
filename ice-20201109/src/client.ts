@@ -1991,17 +1991,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live package channel.
+   * Generates a real-time video stream processing channel that supports the HLS protocol and automatically assigns endpoints and keys.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
-   * ### [](#)Precautions
-   * - Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
-   * - Only `HLS` is supported.
-   * - The segment duration must be from 1 to 30 seconds.
-   * - The number of M3U8 segments must be from 2 to 100.
-   * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
+   * ## Operation description
+   * This operation creates a live video packaging service channel. Currently, only the HLS protocol is supported. The system automatically generates ingest endpoint addresses and the username and password required for authentication.
+   * ### Before you begin
+   * - Channel group names and channel names can contain only uppercase and lowercase letters, digits, underscores, and hyphens.
+   * - Currently, only `HLS` is supported as the protocol.
+   * - The segment duration must be between 1 and 30 seconds.
+   * - The number of m3u8 segments must be between 2 and 100.
+   * A successful response returns the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
    * 
    * @param request - CreateLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2058,17 +2058,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a live package channel.
+   * Generates a real-time video stream processing channel that supports the HLS protocol and automatically assigns endpoints and keys.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
-   * ### [](#)Precautions
-   * - Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
-   * - Only `HLS` is supported.
-   * - The segment duration must be from 1 to 30 seconds.
-   * - The number of M3U8 segments must be from 2 to 100.
-   * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
+   * ## Operation description
+   * This operation creates a live video packaging service channel. Currently, only the HLS protocol is supported. The system automatically generates ingest endpoint addresses and the username and password required for authentication.
+   * ### Before you begin
+   * - Channel group names and channel names can contain only uppercase and lowercase letters, digits, underscores, and hyphens.
+   * - Currently, only `HLS` is supported as the protocol.
+   * - The segment duration must be between 1 and 30 seconds.
+   * - The number of m3u8 segments must be between 2 and 100.
+   * A successful response returns the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
    * 
    * @param request - CreateLivePackageChannelRequest
    * @returns CreateLivePackageChannelResponse
@@ -2137,10 +2137,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_description]Endpoint playback URL
+   * Adds an origin endpoint configuration for a live streaming channel. This operation supports HLS, HLS_CMAF, and DASH protocols and DRM encryption.
    * 
    * @remarks
-   * [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_title]Endpoint URL
+   * ## Operation description
+   * This operation allows you to create an origin endpoint for the live packaging service. The endpoint is used to configure back-to-origin settings, security policies (such as IP blacklists and whitelists and authorization codes), and time-shifting for a channel. Currently, only the HLS protocol is supported for playback. Before creating an origin endpoint, create a live packaging channel group and channel first. After the endpoint is created, the endpoint playback URL and other configuration details are returned.
    * 
    * @param tmpReq - CreateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2223,10 +2224,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_description]Endpoint playback URL
+   * Adds an origin endpoint configuration for a live streaming channel. This operation supports HLS, HLS_CMAF, and DASH protocols and DRM encryption.
    * 
    * @remarks
-   * [responses_200_schema_properties_LivePackageOriginEndpoint_properties_EndpointUrl_title]Endpoint URL
+   * ## Operation description
+   * This operation allows you to create an origin endpoint for the live packaging service. The endpoint is used to configure back-to-origin settings, security policies (such as IP blacklists and whitelists and authorization codes), and time-shifting for a channel. Currently, only the HLS protocol is supported for playback. Before creating an origin endpoint, create a live packaging channel group and channel first. After the endpoint is created, the endpoint playback URL and other configuration details are returned.
    * 
    * @param request - CreateLivePackageOriginEndpointRequest
    * @returns CreateLivePackageOriginEndpointResponse
@@ -4135,7 +4137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a human voice cloning job that is not in the Training or Success state.
+   * Deletes a voice cloning task that is not in the "Training" or "Training Succeeded" state.
    * 
    * @param request - DeleteCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4166,7 +4168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a human voice cloning job that is not in the Training or Success state.
+   * Deletes a voice cloning task that is not in the "Training" or "Training Succeeded" state.
    * 
    * @param request - DeleteCustomizedVoiceJobRequest
    * @returns DeleteCustomizedVoiceJobResponse
@@ -4833,7 +4835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a live stream transcoding template.
+   * Deletes a real-time transcoding template.
    * 
    * @param request - DeleteLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4864,7 +4866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a live stream transcoding template.
+   * Deletes a real-time transcoding template.
    * 
    * @param request - DeleteLiveTranscodeTemplateRequest
    * @returns DeleteLiveTranscodeTemplateResponse
@@ -5297,7 +5299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the marks of a media asset.
+   * Deletes the mark information of a media asset.
    * 
    * @param request - DeleteMediaMarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5332,7 +5334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the marks of a media asset.
+   * Deletes the mark information of a media asset.
    * 
    * @param request - DeleteMediaMarksRequest
    * @returns DeleteMediaMarksResponse
@@ -8259,10 +8261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the real-time stream packaging origin configuration details of a specified channel.
+   * Queries the details of the real-time stream packaging origin server configuration for a specified channel.
    * 
    * @remarks
-   * ## Request Description
+   * ## Request description.
    * 
    * @param request - GetLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8301,10 +8303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the real-time stream packaging origin configuration details of a specified channel.
+   * Queries the details of the real-time stream packaging origin server configuration for a specified channel.
    * 
    * @remarks
-   * ## Request Description
+   * ## Request description.
    * 
    * @param request - GetLivePackageOriginEndpointRequest
    * @returns GetLivePackageOriginEndpointResponse
@@ -16096,10 +16098,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search media assets by face image (coarse search). Input a face image to retrieve information about media assets containing the person in the image.
+   * Searches for media assets by face image (coarse search). Accepts a face image as input and returns information about media assets that contain the person.
    * 
    * @remarks
-   * For questions about using or troubleshooting the Intelligent Media Asset Search feature of Alibaba Cloud Intelligent Media Services, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
+   * To use the intelligent media asset search feature of Alibaba Cloud Intelligent Media Services or to consult about related issues, search for DingTalk group (30415005038) to join the Intelligent Media Services multimodal search customer support group and contact us.
    * 
    * @param request - SearchMediaByFaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16166,10 +16168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search media assets by face image (coarse search). Input a face image to retrieve information about media assets containing the person in the image.
+   * Searches for media assets by face image (coarse search). Accepts a face image as input and returns information about media assets that contain the person.
    * 
    * @remarks
-   * For questions about using or troubleshooting the Intelligent Media Asset Search feature of Alibaba Cloud Intelligent Media Services, search for the DingTalk group (30415005038) and join the Intelligent Media Services multimodal search Customer Support DingTalk group to contact us.
+   * To use the intelligent media asset search feature of Alibaba Cloud Intelligent Media Services or to consult about related issues, search for DingTalk group (30415005038) to join the Intelligent Media Services multimodal search customer support group and contact us.
    * 
    * @param request - SearchMediaByFaceRequest
    * @returns SearchMediaByFaceResponse
@@ -17996,10 +17998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extracts time start and end points along with corresponding text information based on video speech.
+   * Extracts time start and end points along with corresponding text information from video speech.
    * 
    * @remarks
-   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. At this point, the task is not yet complete and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitASRJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18054,10 +18056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Extracts time start and end points along with corresponding text information based on video speech.
+   * Extracts time start and end points along with corresponding text information from video speech.
    * 
    * @remarks
-   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. At this point, the task is not yet complete and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
+   * This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit a task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is delivered through a callback notification. You can also proactively query the task status by calling [Get intelligent task results](https://help.aliyun.com/document_detail/441172.html).
    * 
    * @param request - SubmitASRJobRequest
    * @returns SubmitASRJobResponse
@@ -21822,7 +21824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the title, timeline, cover, and other properties of a cloud editing project.
+   * Modifies a cloud editing project. You can modify the title, timeline, and cover image of the project.
    * 
    * @param request - UpdateEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21883,7 +21885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the title, timeline, cover, and other properties of a cloud editing project.
+   * Modifies a cloud editing project. You can modify the title, timeline, and cover image of the project.
    * 
    * @param request - UpdateEditingProjectRequest
    * @returns UpdateEditingProjectResponse
@@ -21970,11 +21972,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a live package channel, including the protocol, segment duration, and number of segments.
+   * Updates the channel configuration in the live packaging service, including the protocol, duration, and segment count.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * You need to provide the name of the channel group to which the channel belongs, channel name, protocol, segment duration, and number of segments to update. In addition, you can choose to add or modify the description of the channel. Make sure that the provided channel group name and channel name conform to the naming conventions.
+   * ## Operation description
+   * You can call this API operation to modify the configuration of a specified channel in the live packaging service. You must provide the channel group name, channel name, and the protocol type, segment duration, and segment count to update. You can also optionally add or modify the channel description. Ensure that the channel group name and channel name comply with the naming conventions.
    * 
    * @param request - UpdateLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22025,11 +22027,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a live package channel, including the protocol, segment duration, and number of segments.
+   * Updates the channel configuration in the live packaging service, including the protocol, duration, and segment count.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * You need to provide the name of the channel group to which the channel belongs, channel name, protocol, segment duration, and number of segments to update. In addition, you can choose to add or modify the description of the channel. Make sure that the provided channel group name and channel name conform to the naming conventions.
+   * ## Operation description
+   * You can call this API operation to modify the configuration of a specified channel in the live packaging service. You must provide the channel group name, channel name, and the protocol type, segment duration, and segment count to update. You can also optionally add or modify the channel description. Ensure that the channel group name and channel name comply with the naming conventions.
    * 
    * @param request - UpdateLivePackageChannelRequest
    * @returns UpdateLivePackageChannelResponse
@@ -22152,11 +22154,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the real-time packaging origin endpoint configuration of a channel group, supporting protocol, time-shift settings, and access control.
+   * Updates the origin endpoint configuration of a channel group for live packaging, including protocol, time-shifting settings, and access control.
    * 
    * @remarks
-   * ## Request Description
-   * Modify the origin endpoint configuration for the real-time packaging service under a specified channel group. You can use this API to adjust the origin protocol policy, set the time-shift duration in days, define the playlist name, and configure IP blacklists and whitelists to achieve fine-grained management of real-time streaming media delivery. Note that some parameters are required, and you must provide either an IP whitelist or an origin request header (at least one of them).
+   * ## Operation description
+   * This operation modifies the origin endpoint configuration of the live packaging service under a specified channel group. You can use this operation to adjust the back-to-origin protocol, set the number of time-shifting days, define playlist names, and configure IP blacklists and whitelists to achieve fine-grained management of live streaming distribution. Some parameters are required. You must specify at least one of the IP whitelist and the back-to-origin request header.
    * 
    * @param tmpReq - UpdateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22233,11 +22235,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the real-time packaging origin endpoint configuration of a channel group, supporting protocol, time-shift settings, and access control.
+   * Updates the origin endpoint configuration of a channel group for live packaging, including protocol, time-shifting settings, and access control.
    * 
    * @remarks
-   * ## Request Description
-   * Modify the origin endpoint configuration for the real-time packaging service under a specified channel group. You can use this API to adjust the origin protocol policy, set the time-shift duration in days, define the playlist name, and configure IP blacklists and whitelists to achieve fine-grained management of real-time streaming media delivery. Note that some parameters are required, and you must provide either an IP whitelist or an origin request header (at least one of them).
+   * ## Operation description
+   * This operation modifies the origin endpoint configuration of the live packaging service under a specified channel group. You can use this operation to adjust the back-to-origin protocol, set the number of time-shifting days, define playlist names, and configure IP blacklists and whitelists to achieve fine-grained management of live streaming distribution. Some parameters are required. You must specify at least one of the IP whitelist and the back-to-origin request header.
    * 
    * @param request - UpdateLivePackageOriginEndpointRequest
    * @returns UpdateLivePackageOriginEndpointResponse
@@ -23496,16 +23498,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The UploadMediaByURL API uploads audio or video files from source URLs. It supports batch uploads and is ideal for uploading files from a public URL instead of a local server or device.
+   * Invokes the UploadMediaByURL operation to pull audio and video media files from source file URLs for upload. Batch uploads are supported. This operation is mainly applicable to scenarios where files are not stored on a local service or terminal and need to be uploaded through a URL that supports public network access.
    * 
    * @remarks
-   * ### Description
-   * - If a callback is configured, the service sends an event notification when the URL upload is complete. You can query the upload status by calling the API to retrieve URL upload information.
-   * - After you successfully submit an upload job, the system creates an asynchronous task in the cloud and queues it for execution. After the upload is complete, you can use the URL and media ID from the event notification (message callback) to update your records.
-   * ### Limitations
-   * - This API supports uploading files to VOD storage only and does not support uploading to your own Object Storage Service (OSS) buckets. To use your own OSS storage, you must first pull the files to a local device, upload them to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) API to register the OSS object with the media asset library.
-   * - This API is currently available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-   * - This API supports uploading audio and video files only.
+   * ### Operation description
+   * - If a callback is configured, you receive an event notification about the completion of URL-based video upload after the upload is complete. You can invoke the operation for obtaining URL upload information to query the upload status.
+   * - After an upload task is submitted successfully, an asynchronous task is generated in the cloud and queued for execution. After the upload is complete, you can associate the URL with the video ID based on the information returned in the event notification (message callback).
+   * ### Limits
+   * - This operation supports uploading only to VOD storage, not to user-owned Object Storage Service (OSS) storage. If you use your own OSS storage, pull the file to a local device first, upload the file to OSS by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then invoke the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS file in the media asset library.
+   * - This operation is currently supported only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * - This operation supports uploading only audio and video files.
    * 
    * @param request - UploadMediaByURLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23560,16 +23562,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The UploadMediaByURL API uploads audio or video files from source URLs. It supports batch uploads and is ideal for uploading files from a public URL instead of a local server or device.
+   * Invokes the UploadMediaByURL operation to pull audio and video media files from source file URLs for upload. Batch uploads are supported. This operation is mainly applicable to scenarios where files are not stored on a local service or terminal and need to be uploaded through a URL that supports public network access.
    * 
    * @remarks
-   * ### Description
-   * - If a callback is configured, the service sends an event notification when the URL upload is complete. You can query the upload status by calling the API to retrieve URL upload information.
-   * - After you successfully submit an upload job, the system creates an asynchronous task in the cloud and queues it for execution. After the upload is complete, you can use the URL and media ID from the event notification (message callback) to update your records.
-   * ### Limitations
-   * - This API supports uploading files to VOD storage only and does not support uploading to your own Object Storage Service (OSS) buckets. To use your own OSS storage, you must first pull the files to a local device, upload them to OSS by using the [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then call the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) API to register the OSS object with the media asset library.
-   * - This API is currently available only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
-   * - This API supports uploading audio and video files only.
+   * ### Operation description
+   * - If a callback is configured, you receive an event notification about the completion of URL-based video upload after the upload is complete. You can invoke the operation for obtaining URL upload information to query the upload status.
+   * - After an upload task is submitted successfully, an asynchronous task is generated in the cloud and queued for execution. After the upload is complete, you can associate the URL with the video ID based on the information returned in the event notification (message callback).
+   * ### Limits
+   * - This operation supports uploading only to VOD storage, not to user-owned Object Storage Service (OSS) storage. If you use your own OSS storage, pull the file to a local device first, upload the file to OSS by using [OSS SDK](https://help.aliyun.com/document_detail/32006.html), and then invoke the [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html) operation to register the OSS file in the media asset library.
+   * - This operation is currently supported only in the China (Shanghai), China (Beijing), and China (Shenzhen) regions.
+   * - This operation supports uploading only audio and video files.
    * 
    * @param request - UploadMediaByURLRequest
    * @returns UploadMediaByURLResponse

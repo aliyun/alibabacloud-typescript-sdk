@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByFaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching mode can be specified. Filters across different fields are combined with a logical AND relationship.
-   * 
-   * - Exact match, for example: {"intField1":12,"strField1":"abc"}
-   * 
-   * - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
-   * 
-   * - Range match, for example: {"intField1":{"gte":12,"lte":13}}
+   * The custom filter. JSON string. Supported fields include integer field intField1 and string fields strField1 and strField2. Each field supports only one matching mode. Filters on different fields are combined with an AND relationship.
+   * - Exact match, such as {"intField1":12,"strField1":"abc"}
+   * - Multi-value match, such as {"intField1":[12,13],"strField1":["abc","cd"]}
+   * - Range match, such as {"intField1":{"gte":12,"lte":13}}
    * 
    * @example
    * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
@@ -19,7 +16,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
   customFilters?: string;
   /**
    * @remarks
-   * The ID of the entity.
+   * The entity ID.
    * 
    * @example
    * 2d3bf1e35a1e42b5ab338d701efa****
@@ -27,7 +24,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The token that is used to identify the query. You can use this parameter in the SearchMediaClipByFace operation to specify the same query conditions.
+   * The token used to identify paginated results under the same search condition. Use this parameter together with the FaceSearchToken parameter in the [refined search operation](https://help.aliyun.com/document_detail/612891.html).
    * 
    * This parameter is required.
    * 
@@ -37,11 +34,9 @@ export class SearchMediaByFaceRequest extends $dara.Model {
   faceSearchToken?: string;
   /**
    * @remarks
-   * The type of the media asset. Valid values:
-   * 
-   * - image
-   * 
-   * - video
+   * The media asset type. Valid values:
+   * - image: image
+   * - video: video
    * 
    * @example
    * video
@@ -49,7 +44,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * Namespace.
+   * The namespace.
    * 
    * @example
    * name-1
@@ -91,9 +86,8 @@ export class SearchMediaByFaceRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
-   * 
-   * - Example range: {"gte":1761205662998,"lte":1771205662998}
+   * The creation time, in millisecond-precision timestamp. gte specifies greater than or equal to, and lte specifies less than or equal to.
+   * - Range, such as {"gte":1761205662998,"lte":1771205662998}
    * 
    * @example
    * {"gte":1761205662998,"lte":1771205662998}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMediaMarksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -13,9 +13,9 @@ export class DeleteMediaMarksRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The mark ID. You can specify multiple mark IDs separated with commas (,).
+   * The mark IDs. Multiple IDs are separated by commas.
    * 
-   * If you do not specify MediaMarkIds, all the marks of the media asset are deleted.
+   * If MediaMarkIds is empty, all mark information of the media asset is deleted by default.
    * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material ID. Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
+   * The IDs of the materials. Separate multiple material IDs with commas (,). You can specify up to 10 material IDs.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,13 @@ export class DeleteEditingProjectMaterialsRequest extends $dara.Model {
   materialIds?: string;
   /**
    * @remarks
-   * The material type. Valid values:
+   * The type of the material. Valid values:
    * 
-   * \\- video
-   * 
-   * \\- image
-   * 
-   * \\- audio
-   * 
-   * \\- subtitle
-   * 
-   * \\- text
+   * - video
+   * - image
+   * - audio
+   * - subtitle
+   * - text
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The task description. The value can be up to 128 bytes in length.
+   * The task description. The description can be up to 128 bytes in length.
    * 
    * @example
    * Test description
@@ -23,7 +23,9 @@ export class SubmitASRJobRequest extends $dara.Model {
    * @remarks
    * The audio-to-text recognition configuration:
    * 
-   * - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID can be specified. Support for multiple hotword library IDs is planned for the future.
+   * - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID is supported. Support for multiple hotword library IDs is planned for the future.
+   * - SentenceMaxLength: the maximum length of each sentence in the output. Type: int.
+   * - EnableSemanticSentenceDetection: specifies whether to segment sentences based on semantics in the output. Type: bool. Default value: false.
    * 
    * @example
    * {
@@ -33,10 +35,10 @@ export class SubmitASRJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. OSS URLs and content library material IDs are supported.
+   * The input configuration. OSS addresses and content library material IDs are supported.
    * 
    * @example
-   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or ****20b48fb04483915d4f2cd8ac****
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
    */
   inputFile?: string;
   /**
@@ -49,7 +51,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task title. The value can be up to 128 bytes in length.
+   * The task title. The title can be up to 128 bytes in length.
    * 
    * @example
    * Test title

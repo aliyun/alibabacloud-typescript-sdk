@@ -73,7 +73,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   channelName?: string;
   /**
    * @remarks
-   * The time when the channel was created.
+   * The creation time.
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -81,7 +81,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The channel description. It can be up to 1,000 characters in length.
+   * The description. Maximum length: 1000 characters.
    * 
    * @example
    * This is a test channel.
@@ -97,12 +97,12 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   groupName?: string;
   /**
    * @remarks
-   * The ingest endpoints.
+   * The array of ingest endpoints.
    */
   ingestEndpoints?: UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * The time when the channel was last modified.
+   * The last modified time.
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -110,7 +110,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * The ingest protocol. Only HLS is supported.
+   * The input stream protocol. HLS is supported.
    * 
    * @example
    * HLS
@@ -118,7 +118,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   protocol?: string;
   /**
    * @remarks
-   * The number of segments.
+   * The number of segments in the input stream.
    * 
    * @example
    * 3
@@ -126,7 +126,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration.
+   * The segment duration of the input stream.
    * 
    * @example
    * 5
@@ -175,7 +175,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
 export class UpdateLivePackageChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the live package channel.
+   * The details of the live packaging channel.
    */
   livePackageChannel?: UpdateLivePackageChannelResponseBodyLivePackageChannel;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the human voice cloning job.
+   * The ID of the voice cloning task.
    * 
    * This parameter is required.
    * 

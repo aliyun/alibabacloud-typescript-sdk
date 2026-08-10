@@ -30,7 +30,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   createTime?: string;
   /**
    * @remarks
-   * The endpoint description.
+   * The description of the endpoint.
    * 
    * @example
    * This is an origin endpoint.
@@ -62,7 +62,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
+   * The IP blacklist. Subnet masks are supported. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 10.21.222.1/32,192.168.100.0/24
@@ -70,7 +70,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
+   * The IP whitelist. Subnet masks are supported. Multiple IP addresses are separated with commas (,).
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -86,7 +86,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   lastModified?: string;
   /**
    * @remarks
-   * Live packaging configuration
+   * The live packaging configuration.
    */
   livePackagingConfig?: LivePackagingConfig;
   /**
@@ -99,7 +99,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   manifestName?: string;
   /**
    * @remarks
-   * The protocol. Only HLS is supported.
+   * The protocol. Currently, only HLS is supported.
    * 
    * @example
    * HLS
@@ -107,7 +107,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available. Maximum value: 30.
+   * The number of time-shifting days. Maximum value: 30.
    * 
    * @example
    * 5
@@ -166,7 +166,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
 export class UpdateLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the origin endpoint.
+   * The origin endpoint information.
    */
   livePackageOriginEndpoint?: UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

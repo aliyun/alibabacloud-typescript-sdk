@@ -22,7 +22,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   channelName?: string;
   /**
    * @remarks
-   * The time when the endpoint was created.
+   * The creation time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -62,7 +62,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist.
+   * The IP blacklist.
    * 
    * @example
    * 10.21.222.1/32
@@ -70,7 +70,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -78,7 +78,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   ipWhitelist?: string;
   /**
    * @remarks
-   * The time when the endpoint was last modified.
+   * The last modified time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -86,12 +86,12 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   lastModified?: string;
   /**
    * @remarks
-   * Live packaging configuration
+   * The live packaging configuration.
    */
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
-   * The playlist name.
+   * The manifest name.
    * 
    * @example
    * manifest
@@ -107,7 +107,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available.
+   * The number of time-shift days.
    * 
    * @example
    * 5
@@ -166,7 +166,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
 export class GetLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the origin endpoints.
+   * The origin endpoint type.
    */
   livePackageOriginEndpoint?: GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

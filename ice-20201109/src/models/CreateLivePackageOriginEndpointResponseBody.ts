@@ -14,7 +14,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   authorizationCode?: string;
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * channel-1
@@ -30,7 +30,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   createTime?: string;
   /**
    * @remarks
-   * The endpoint description.
+   * The description of the endpoint.
    * 
    * @example
    * This is an origin endpoint.
@@ -38,7 +38,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   description?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
    * endpoint-1
@@ -46,7 +46,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointName?: string;
   /**
    * @remarks
-   * The endpoint URL.
+   * The playback URL of the endpoint.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -54,7 +54,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointUrl?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -62,7 +62,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist.
+   * The IP blacklist.
    * 
    * @example
    * 103.21.222.1/32,192.168.100.0/24
@@ -70,7 +70,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -86,12 +86,12 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   lastModified?: string;
   /**
    * @remarks
-   * Live packaging configuration
+   * The live packaging configuration.
    */
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
-   * The playlist name.
+   * The manifest name.
    * 
    * @example
    * manifest
@@ -99,7 +99,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   manifestName?: string;
   /**
    * @remarks
-   * The protocol. Only HLS is supported.
+   * The protocol. Currently, only HLS is supported.
    * 
    * @example
    * HLS
@@ -107,7 +107,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available. Maximum value: 30.
+   * The number of days for time-shifting. Maximum value: 30.
    * 
    * @example
    * 1
@@ -166,7 +166,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
 export class CreateLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the origin endpoint.
+   * The LivePackageOriginEndpoint object.
    */
   livePackageOriginEndpoint?: CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

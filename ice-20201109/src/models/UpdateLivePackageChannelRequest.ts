@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The channel name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The channel description. It can be up to 1,000 characters in length.
+   * The description. Maximum length: 1000 characters.
    * 
    * @example
    * This is a test channel.
@@ -23,7 +23,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The channel group name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ingest protocol. Only HLS is supported.
+   * The input protocol. Currently, only HLS is supported.
    * 
    * This parameter is required.
    * 
@@ -43,9 +43,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of M3U8 segments. Valid values: 2 to 100.
-   * 
-   * This parameter is required.
+   * The number of segments in the input stream m3u8 file. Valid values: 2 to 100.
    * 
    * @example
    * 3
@@ -53,9 +51,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration. Valid values: 1 to 30.
-   * 
-   * This parameter is required.
+   * The segment duration of the input stream. Valid values: 1 to 30.
    * 
    * @example
    * 6

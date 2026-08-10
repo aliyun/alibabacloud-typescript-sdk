@@ -6,7 +6,7 @@ import { LiveManifestConfig } from "./LiveManifestConfig";
 export class LivePackagingConfigDrmConfig extends $dara.Model {
   /**
    * @remarks
-   * The content ID in the DRM system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported. You must ensure this ID is unique to prevent playback failures.
+   * The content ID in the DRM system. Format: [A-Za-z0-9_-]+. Maximum length: 256 characters. Ensure that the content ID is unique. Otherwise, DRM playback may fail.
    * 
    * @example
    * live-axb1-9dd2fa123
@@ -14,11 +14,10 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
   contentId?: string;
   /**
    * @remarks
-   * The encryption method. Valid value:
+   * The encryption algorithm. Valid values:
+   * - SAMPLE_AES
    * 
-   * *   SAMPLE_AES
-   * 
-   * If not specified, encryption is disabled.
+   * Default value: empty, which indicates no encryption.
    * 
    * @example
    * SAMPLE_AES
@@ -26,7 +25,7 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
   encryptionMethod?: string;
   /**
    * @remarks
-   * A 128-bit, 16-byte hex value represented by a 32-character string that is used with the key for encrypting data blocks. If you leave this parameter empty, MediaPackage creates a constant initialization vector (IV). If it is specified, the value is passed to the DRM service.
+   * An optional 128-bit (16-byte) hexadecimal value represented by a 32-character string. This value is used together with the key to encrypt data blocks. If you do not specify this value, MediaPackage creates a constant initialization vector (IV). Default value: empty. If specified, the value is passed through to the provider as a constant initialization vector.
    * 
    * @example
    * 00000000000000000000000000000000
@@ -34,7 +33,7 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
   IV?: string;
   /**
    * @remarks
-   * The key rotation interval for DRM, in seconds. The default value of 0 disables key rotation.
+   * The DRM key rotation interval. Unit: seconds. Default value: 0, which indicates that key rotation is disabled.
    * 
    * @example
    * 0
@@ -42,17 +41,18 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
   rotatePeriod?: number;
   /**
    * @remarks
-   * The ID of the DRM system. The supported systems depend on the protocol.
+   * The DRM system IDs, determined by the protocol type.
+   * - DASH: supports Google Widevine and Microsoft PlayReady.
+   * - HLS: not supported.
+   * - HLS_CMAF: supports Apple FairPlay, Google Widevine, and Microsoft PlayReady.
    * 
-   * *   DASH: Supports Google Widevine and Microsoft PlayReady.
-   * *   HLS: DRM is not supported.
-   * *   HLS-CMAF: Supports Apple FairPlay, Google Widevine, and Microsoft PlayReady.
-   * 
-   * The corresponding System IDs are:
-   * 
-   * *   Apple FairPlay: 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
-   * *   Google Widevine: edef8ba9-79d6-4ace-a3c8-27dcd51d21ed
-   * *   Microsoft PlayReady: 9a04f079-9840-4286-ab92-e65be0885f95
+   * Three DRM systems are supported: Apple FairPlay, Google Widevine, and Microsoft PlayReady. The corresponding system IDs are:
+   * - Apple FairPlay:
+   * 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
+   * - Google Widevine:
+   * edef8ba9-79d6-4ace-a3c8-27dcd51d21ed
+   * - Microsoft PlayReady:
+   * 9a04f079-9840-4286-ab92-e65be0885f95.
    */
   systemIds?: string[];
   /**
@@ -100,17 +100,18 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
 export class LivePackagingConfig extends $dara.Model {
   /**
    * @remarks
-   * Configuration for the DRM provider. To disable DRM, leave all fields in this object empty.
+   * The DRM encryption provider configuration. If encryption is not required, leave all fields empty.
    */
   drmConfig?: LivePackagingConfigDrmConfig;
   /**
    * @remarks
-   * Live stream manifest configuration. Only one configuration is supported.
+   * The live manifest configurations. A maximum of one configuration is supported.
    */
   liveManifestConfigs?: LiveManifestConfig[];
+  partDurationMs?: number;
   /**
    * @remarks
-   * The duration of each output segment, in seconds. If not set, this defaults to the channel\\"s configured segment duration. The final segment duration is a multiple of the source segment duration that is closest to and not less than this value. Valid values: 1 to 30.
+   * The duration of each segment, in seconds. Default value: the channel segment duration. The actual segment duration is the nearest multiple of the source segment duration that is greater than or equal to the configured value. Valid values: 1 to 30.
    * 
    * @example
    * 6
@@ -118,7 +119,7 @@ export class LivePackagingConfig extends $dara.Model {
   segmentDuration?: number;
   /**
    * @remarks
-   * Specifies whether to create separate audio rendition groups for TS segments.
+   * Specifies whether to separate audio tracks in TS segments.
    * 
    * @example
    * true
@@ -128,6 +129,7 @@ export class LivePackagingConfig extends $dara.Model {
     return {
       drmConfig: 'DrmConfig',
       liveManifestConfigs: 'LiveManifestConfigs',
+      partDurationMs: 'PartDurationMs',
       segmentDuration: 'SegmentDuration',
       useAudioRenditionGroups: 'UseAudioRenditionGroups',
     };
@@ -137,6 +139,7 @@ export class LivePackagingConfig extends $dara.Model {
     return {
       drmConfig: LivePackagingConfigDrmConfig,
       liveManifestConfigs: { 'type': 'array', 'itemType': LiveManifestConfig },
+      partDurationMs: 'number',
       segmentDuration: 'number',
       useAudioRenditionGroups: 'boolean',
     };

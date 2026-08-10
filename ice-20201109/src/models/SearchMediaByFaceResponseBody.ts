@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByFaceResponseBodyMediaInfoList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 3b187b3620c8490886cfc2a9578c****
@@ -35,7 +35,7 @@ export class SearchMediaByFaceResponseBodyMediaInfoList extends $dara.Model {
 export class SearchMediaByFaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class SearchMediaByFaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The media assets that meet the conditions.
+   * The list of media assets that match the search criteria.
    */
   mediaInfoList?: SearchMediaByFaceResponseBodyMediaInfoList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7CA7D615-CFB1-5437-9A12-2D185C3EE6CB
@@ -56,7 +56,7 @@ export class SearchMediaByFaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
    * 
    * @example
    * true
@@ -64,7 +64,7 @@ export class SearchMediaByFaceResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of data records that meet the specified filter condition.
+   * The total number of media assets that match the search criteria.
    * 
    * @example
    * 163
