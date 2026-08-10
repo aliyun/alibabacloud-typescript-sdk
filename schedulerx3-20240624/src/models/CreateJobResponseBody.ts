@@ -56,7 +56,7 @@ export class CreateJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C

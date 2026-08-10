@@ -64,10 +64,17 @@ export class CreateJobRequestCoordinate extends $dara.Model {
 
 export class CreateJobRequestNoticeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The early completion threshold. Unit: seconds.
+   * 
    * @example
    * 30
    */
   endEarly?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the early completion alert.
+   */
   endEarlyEnable?: boolean;
   /**
    * @remarks
@@ -145,7 +152,7 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
   timeoutEnable?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the timeout termination feature. Valid values:
+   * Specifies whether to enable the timeout termination. Valid values:
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.
@@ -196,7 +203,7 @@ export class CreateJobRequestNoticeConfig extends $dara.Model {
 export class CreateJobRequestNoticeContacts extends $dara.Model {
   /**
    * @remarks
-   * The object type of the notification recipient. Valid values:
+   * The Notification Recipient type. Valid values:
    * 
    * - 1: alert contact
    * 
@@ -250,7 +257,7 @@ export class CreateJobRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval. Unit: seconds. Default value: 30.
+   * The retry interval upon failure. Unit: seconds. Default value: 30.
    * 
    * @example
    * 3
@@ -332,6 +339,14 @@ export class CreateJobRequest extends $dara.Model {
    * xxljob
    */
   jobType?: string;
+  /**
+   * @remarks
+   * The node label information.
+   * 
+   * @example
+   * {key:value}
+   */
+  label?: string;
   /**
    * @remarks
    * The maximum number of retry attempts upon failure. Set this parameter based on your business requirements.
@@ -433,7 +448,7 @@ export class CreateJobRequest extends $dara.Model {
   startTimeType?: number;
   /**
    * @remarks
-   * The node status. Default value: 1 (enabled). Valid values:
+   * The node status. Default value: enabled. Valid values:
    * - 0: disabled
    * - 1: enabled
    * 
@@ -487,7 +502,7 @@ export class CreateJobRequest extends $dara.Model {
   weight?: number;
   /**
    * @remarks
-   * The configuration for K8s node types. Set this parameter if the node type is K8s.
+   * The configuration for K8s node types. This parameter is required for K8s node types.
    * Job node: {"resource":"job"}
    * Shell node: {"image":"busybox","resource":"shell"}
    * 
@@ -508,6 +523,7 @@ export class CreateJobRequest extends $dara.Model {
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobType: 'JobType',
+      label: 'Label',
       maxAttempt: 'MaxAttempt',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
@@ -541,6 +557,7 @@ export class CreateJobRequest extends $dara.Model {
       executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobType: 'string',
+      label: 'string',
       maxAttempt: 'number',
       maxConcurrency: 'number',
       name: 'string',

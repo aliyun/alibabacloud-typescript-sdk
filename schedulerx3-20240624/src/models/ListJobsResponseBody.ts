@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobsResponseBodyDataRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The retry interval upon a fault. Unit: seconds.
+   * The retry interval on error. Unit: seconds.
    * 
    * @example
    * 30
@@ -55,10 +59,10 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The current execution status. Valid values:
-   * - 0: not started
-   * - 1: running
-   * - 2: queued
-   * - 3: waiting
+   * - 0: Not started.
+   * - 1: Running.
+   * - 2: Queued.
+   * - 3: Waiting.
    * 
    * @example
    * 3
@@ -85,15 +89,15 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * The job description.
    * 
    * @example
-   * job01单机任务
+   * job01 standalone job
    */
   description?: string;
   /**
    * @remarks
-   * The client-side blocking strategy. Valid values:
-   * - 1: serial execution on a single machine
-   * - 2: ignore subsequent triggers
-   * - 3: override previous triggers
+   * The client blocking strategy. Valid values:
+   * - 1: Serial execution on a single machine.
+   * - 2: Ignore subsequent schedules.
+   * - 3: Override previous schedules.
    * 
    * @example
    * 1
@@ -101,7 +105,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   executorBlockStrategy?: string;
   /**
    * @remarks
-   * The jobhandler name.
+   * The `jobhandler` name.
    * 
    * @example
    * jobDemoHandler
@@ -125,6 +129,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
+   * The job label information.
+   * 
+   * @example
+   * {key:value}
+   */
+  label?: string;
+  /**
+   * @remarks
    * The end time of the last execution.
    * 
    * @example
@@ -134,8 +146,8 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The result of the last execution. Valid values:
-   * - 4: succeeded
-   * - 5: failed
+   * - 4: Succeeded.
+   * - 5: Failed.
    * 
    * @example
    * 4
@@ -143,7 +155,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   lastExecuteStatus?: number;
   /**
    * @remarks
-   * The maximum number of retry attempts upon failure. Set this value based on your business requirements.
+   * The maximum number of retry attempts on error. Set this based on your business requirements.
    * 
    * @example
    * 5
@@ -151,7 +163,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrent instances.
+   * The maximum concurrency threshold.
    * 
    * @example
    * 100
@@ -175,7 +187,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   nodeType?: number;
   /**
    * @remarks
-   * The notice configuration.
+   * The `Notice` configuration.
    * 
    * @example
    * {"failLimitTimes":1,"failEnable":true,"timeoutKillEnable":false,"missWorkerEnable":true,"timeoutEnable":true,"sendChannel":"","timeout":300,"successNotice":false}
@@ -208,14 +220,14 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The routing strategy. Valid values:
-   * - 1: round-robin
-   * - 2: random
-   * - 3: first
-   * - 4: last
-   * - 5: least frequently used
-   * - 6: least recently used
-   * - 7: consistent hashing
-   * - 8: shard broadcast
+   * - 1: polling.
+   * - 2: random.
+   * - 3: first.
+   * - 4: last.
+   * - 5: least frequently used.
+   * - 6: least recently used.
+   * - 7: consistent hashing.
+   * - 8: shard broadcast.
    * 
    * @example
    * 1
@@ -243,8 +255,8 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The job status. Valid values:
-   * - 0: disabled
-   * - 1: enabled
+   * - 0: DISABLE (disabled).
+   * - 1: ENABLE (enabled).
    * 
    * @example
    * 1
@@ -262,11 +274,11 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
    * @remarks
    * The time type. Valid values:
    * 
-   * - -1: none
-   * - 1: cron
-   * - 3: fix_rate
-   * - 5: one_time
-   * - 100: api
+   * - -1: none.
+   * - 1: cron.
+   * - 3: fix_rate.
+   * - 5: one_time.
+   * - 100: api.
    * 
    * @example
    * 1
@@ -315,7 +327,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
    * The extended attributes.
-   * > Not supported.
+   * > Not supported currently.
    * 
    * @example
    * 暂无
@@ -338,6 +350,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       jobHandler: 'JobHandler',
       jobId: 'JobId',
       jobType: 'JobType',
+      label: 'Label',
       lastExecuteEndTime: 'LastExecuteEndTime',
       lastExecuteStatus: 'LastExecuteStatus',
       maxAttempt: 'MaxAttempt',
@@ -380,6 +393,7 @@ export class ListJobsResponseBodyDataRecords extends $dara.Model {
       jobHandler: 'string',
       jobId: 'number',
       jobType: 'string',
+      label: 'string',
       lastExecuteEndTime: 'string',
       lastExecuteStatus: 'number',
       maxAttempt: 'number',
@@ -425,7 +439,7 @@ export class ListJobsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

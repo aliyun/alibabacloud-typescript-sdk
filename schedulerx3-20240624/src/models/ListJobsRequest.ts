@@ -23,15 +23,15 @@ export class ListJobsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The job description.
+   * The description.
    * 
    * @example
-   * job01单机任务
+   * job01 standalone job
    */
   description?: string;
   /**
    * @remarks
-   * The jobhandler name.
+   * The `jobhandler` name.
    * 
    * @example
    * jobDemoHandler
@@ -55,6 +55,14 @@ export class ListJobsRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
+   * The job label filter condition.
+   * 
+   * @example
+   * {key:value}
+   */
+  label?: string;
+  /**
+   * @remarks
    * The page number.
    * 
    * @example
@@ -71,7 +79,7 @@ export class ListJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The job status.
+   * The status.
    * 
    * @example
    * 0
@@ -93,6 +101,7 @@ export class ListJobsRequest extends $dara.Model {
       jobHandler: 'JobHandler',
       jobId: 'JobId',
       jobName: 'JobName',
+      label: 'Label',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       status: 'Status',
@@ -108,6 +117,7 @@ export class ListJobsRequest extends $dara.Model {
       jobHandler: 'string',
       jobId: 'number',
       jobName: 'string',
+      label: 'string',
       pageNum: 'number',
       pageSize: 'number',
       status: 'string',

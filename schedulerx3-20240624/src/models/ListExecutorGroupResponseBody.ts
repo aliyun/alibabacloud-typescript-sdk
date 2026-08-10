@@ -56,6 +56,7 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
    * my first workflow
    */
   description?: string;
+  enableJobs?: number;
   integrationType?: string;
   maxJobs?: number;
   /**
@@ -99,6 +100,7 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
       cmsWorkspaceId: 'CmsWorkspaceId',
       currentJobs: 'CurrentJobs',
       description: 'Description',
+      enableJobs: 'EnableJobs',
       integrationType: 'IntegrationType',
       maxJobs: 'MaxJobs',
       name: 'Name',
@@ -121,6 +123,7 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
       cmsWorkspaceId: 'string',
       currentJobs: 'number',
       description: 'string',
+      enableJobs: 'number',
       integrationType: 'string',
       maxJobs: 'number',
       name: 'string',

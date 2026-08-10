@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @remarks
-   * The early termination threshold, in seconds.
+   * The early completion threshold, in seconds.
    * 
    * @example
    * 30
@@ -13,15 +13,15 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
   endEarly?: number;
   /**
    * @remarks
-   * Specifies whether to enable the early termination alert.
+   * Specifies whether to enable the early completion alert.
    */
   endEarlyEnable?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the failure alert. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Enables the failure alert.
+   * - **false**: Disables the failure alert.
    * 
    * @example
    * true
@@ -39,8 +39,8 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the no-available-machine alert. Valid values:
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Enables the no-available-machine alert.
+   * - **false**: Disables the no-available-machine alert.
    * 
    * @example
    * true
@@ -49,8 +49,8 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
   /**
    * @remarks
    * The notification channel. Valid values:
-   * - sms: text message
-   * - phone: phone call
+   *  - sms: SMS
+   *  - phone: phone call
    * - mail: email
    * - webhook: webhook
    * > Separate multiple notification channels with commas.
@@ -94,8 +94,8 @@ export class UpdateJobRequestNoticeConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable the timeout termination for the current trigger. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: Enables the timeout termination.
+   * - **false**: Disables the timeout termination.
    * 
    * @example
    * true
@@ -144,7 +144,7 @@ export class UpdateJobRequestNoticeContacts extends $dara.Model {
   /**
    * @remarks
    * The contact type. 
-   * > Default configurations: 1.
+   * >Default configurations: 1.
    * 
    * @example
    * 1
@@ -182,6 +182,10 @@ export class UpdateJobRequestNoticeContacts extends $dara.Model {
 }
 
 export class UpdateJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -256,7 +260,7 @@ export class UpdateJobRequest extends $dara.Model {
   executorBlockStrategy?: number;
   /**
    * @remarks
-   * The JobHandler name.
+   * The jobhandler name.
    * 
    * @example
    * testJobVoidHandler
@@ -274,6 +278,14 @@ export class UpdateJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
+   * The node label information.
+   * 
+   * @example
+   * {key:value}
+   */
+  label?: string;
+  /**
+   * @remarks
    * The maximum number of retry attempts upon node failure.
    * 
    * @example
@@ -282,7 +294,7 @@ export class UpdateJobRequest extends $dara.Model {
   maxAttempt?: number;
   /**
    * @remarks
-   * The maximum number of concurrent instances for the node.
+   * The maximum concurrency of the node.
    * >The maximum number of instances that can run simultaneously for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
    * 
    * @example
@@ -317,7 +329,7 @@ export class UpdateJobRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The node execution priority. Valid values:
+   * The execution priority of the node. Valid values:
    * 
    * - 1: low
    * - 5: medium
@@ -347,7 +359,7 @@ export class UpdateJobRequest extends $dara.Model {
   routeStrategy?: number;
   /**
    * @remarks
-   * The script content for non-BEAN nodes. Use this field to configure the script.
+   * The script configured for non-BEAN nodes.
    * 
    * @example
    * echo "hello world"
@@ -374,10 +386,10 @@ export class UpdateJobRequest extends $dara.Model {
    * The time expression. Set the time expression based on the selected time type.
    * 
    * - none: No value is required.
-   * - cron: Specify a standard cron expression. Online verification is supported.
+   * - cron: Enter a standard cron expression. Online verification is supported.
    * - api: No value is required.
-   * - fixed_rate: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-   * - one_time: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+   * - fixed_rate: Enter a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+   * - one_time: Enter a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
    * 
    * @example
    * 0 0 4 ? * Mon/1
@@ -400,7 +412,7 @@ export class UpdateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The time zone.
-   * > The default value is the time zone of the SchedulerX server.
+   * > Default value: the time zone of the SchedulerX server.
    * 
    * @example
    * Hongkong
@@ -415,6 +427,9 @@ export class UpdateJobRequest extends $dara.Model {
    */
   weight?: number;
   /**
+   * @remarks
+   * The extended properties of the node.
+   * 
    * @example
    * {"reponseMode":"streaming"}
    */
@@ -432,6 +447,7 @@ export class UpdateJobRequest extends $dara.Model {
       executorBlockStrategy: 'ExecutorBlockStrategy',
       jobHandler: 'JobHandler',
       jobId: 'JobId',
+      label: 'Label',
       maxAttempt: 'MaxAttempt',
       maxConcurrency: 'MaxConcurrency',
       name: 'Name',
@@ -464,6 +480,7 @@ export class UpdateJobRequest extends $dara.Model {
       executorBlockStrategy: 'number',
       jobHandler: 'string',
       jobId: 'number',
+      label: 'string',
       maxAttempt: 'number',
       maxConcurrency: 'number',
       name: 'string',
