@@ -53,7 +53,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupPolicies extends $da
    * The policy name.
    * 
    * @example
-   * 测试策略123
+   * TestPolicy123
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -96,16 +96,18 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
    * The scheduled task name.
    * 
    * @example
-   * 测试任务123
+   * TestTask123
    */
   name?: string;
   timerStatus?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       bindStatus: 'BindStatus',
       id: 'Id',
       name: 'Name',
       timerStatus: 'TimerStatus',
+      type: 'Type',
     };
   }
 
@@ -115,6 +117,7 @@ export class DescribeResourceGroupsResponseBodyResourceGroupTimers extends $dara
       id: 'string',
       name: 'string',
       timerStatus: 'string',
+      type: 'string',
     };
   }
 
@@ -157,8 +160,8 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   /**
    * @remarks
    * > The policies associated with the resource group.
-   * > - Associated policies take effect on cloud desktops in the resource group. If multiple policies are associated, they take effect based on policy priority.
-   * > - If a cloud desktop in the resource group already has other policies specified, the policies associated with the resource group take precedence.
+   * > - Associated policies take effect on cloud computers in the resource group. If multiple policies are associated, they take effect based on policy priority.
+   * > - If a cloud computer in the resource group already has other policies specified, the policies associated with the resource group take effect first.
    */
   policies?: DescribeResourceGroupsResponseBodyResourceGroupPolicies[];
   /**
@@ -179,16 +182,16 @@ export class DescribeResourceGroupsResponseBodyResourceGroup extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
-   * 测试资源组
+   * TestResourceGroup
    */
   resourceGroupName?: string;
   /**
    * @remarks
    * > The associated scheduled tasks.
-   * > - Associated scheduled tasks take effect on cloud desktops in the resource group. If a cloud desktop in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take precedence.
+   * > - Associated scheduled tasks take effect on cloud computers in the resource group. If a cloud computer in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take effect first.
    */
   timers?: DescribeResourceGroupsResponseBodyResourceGroupTimers[];
   static names(): { [key: string]: string } {
@@ -250,7 +253,7 @@ export class DescribeResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of resource groups.
+   * The list of resource group information.
    */
   resourceGroup?: DescribeResourceGroupsResponseBodyResourceGroup[];
   /**

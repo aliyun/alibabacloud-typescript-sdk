@@ -6,7 +6,7 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The cloud platform resource group ID.
+   * The Alibaba Cloud resource group ID.
    */
   aliyunResourceGroupIds?: string[];
   /**
@@ -50,6 +50,10 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
    * AliyunConsole
    */
   platform?: string;
+  /**
+   * @remarks
+   * The resource classification within the resource group.
+   */
   resourceClassification?: string;
   /**
    * @remarks
@@ -58,10 +62,10 @@ export class DescribeResourceGroupsRequest extends $dara.Model {
   resourceGroupIds?: string[];
   /**
    * @remarks
-   * The name of the resource group.
+   * The resource group name.
    * 
    * @example
-   * 部门A资源组
+   * DepartmentAResourceGroup
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
