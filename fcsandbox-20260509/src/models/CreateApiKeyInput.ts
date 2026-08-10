@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { IPConfig } from "./Ipconfig";
 
 
 export class CreateApiKeyInput extends $dara.Model {
@@ -19,6 +20,8 @@ export class CreateApiKeyInput extends $dara.Model {
    * 2026-07-24T16:00:00.000Z
    */
   expireTime?: string;
+  ipBlacklist?: IPConfig[];
+  ipWhitelist?: IPConfig[];
   /**
    * @remarks
    * The unique identifier of the team.
@@ -31,6 +34,8 @@ export class CreateApiKeyInput extends $dara.Model {
     return {
       apiKeyName: 'apiKeyName',
       expireTime: 'expireTime',
+      ipBlacklist: 'ipBlacklist',
+      ipWhitelist: 'ipWhitelist',
       teamID: 'teamID',
     };
   }
@@ -39,11 +44,19 @@ export class CreateApiKeyInput extends $dara.Model {
     return {
       apiKeyName: 'string',
       expireTime: 'string',
+      ipBlacklist: { 'type': 'array', 'itemType': IPConfig },
+      ipWhitelist: { 'type': 'array', 'itemType': IPConfig },
       teamID: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.ipBlacklist)) {
+      $dara.Model.validateArray(this.ipBlacklist);
+    }
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
     super.validate();
   }
 

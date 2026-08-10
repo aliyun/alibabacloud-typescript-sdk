@@ -13,7 +13,7 @@ export class E2BTeam extends $dara.Model {
   allowUpdateTeamName?: boolean;
   /**
    * @remarks
-   * The creation time.
+   * The time when the team was created.
    * 
    * @example
    * 2025-05-23T11:26:25Z
@@ -24,7 +24,7 @@ export class E2BTeam extends $dara.Model {
    * The description.
    * 
    * @example
-   * 开放团队
+   * Open team
    */
   description?: string;
   plan?: string;
@@ -38,7 +38,7 @@ export class E2BTeam extends $dara.Model {
   resourceGroupID?: string;
   /**
    * @remarks
-   * The status.
+   * The status of the team.
    * 
    * @example
    * active
@@ -54,7 +54,7 @@ export class E2BTeam extends $dara.Model {
   teamID?: string;
   /**
    * @remarks
-   * The team name.
+   * The name of the team.
    * 
    * @example
    * dev

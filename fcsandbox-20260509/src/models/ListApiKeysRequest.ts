@@ -21,7 +21,7 @@ export class ListApiKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of teams displayed per page.
+   * The number of teams to display per page.
    * 
    * @example
    * 20

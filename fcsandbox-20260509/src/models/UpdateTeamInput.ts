@@ -8,7 +8,7 @@ export class UpdateTeamInput extends $dara.Model {
    * The description.
    * 
    * @example
-   * 开发团队
+   * Development team
    */
   description?: string;
   plan?: string;

@@ -8,7 +8,7 @@ export class CreateTeamInput extends $dara.Model {
    * The description.
    * 
    * @example
-   * 开发专用
+   * Development only
    */
   description?: string;
   plan?: string;

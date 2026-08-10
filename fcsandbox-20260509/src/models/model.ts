@@ -15,6 +15,8 @@ export { E2BTemplate } from './E2btemplate';
 export { E2BTemplateBuild } from './E2btemplateBuild';
 export { E2BTemplateTag } from './E2btemplateTag';
 export { E2BVolumeMount } from './E2bvolumeMount';
+export { IPConfig } from './Ipconfig';
+export { ImportApiKeyInput } from './ImportApiKeyInput';
 export { LogConfiguration } from './LogConfiguration';
 export { NetworkConfiguration } from './NetworkConfiguration';
 export { Quota } from './Quota';

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { IPConfig } from "./Ipconfig";
 
 
 /**
@@ -47,12 +48,14 @@ export class ApiKey extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The expiration time of the API key.
+   * The expiration time.
    * 
    * @example
    * 2023-10-13T08:27:20Z
    */
   expireTime?: string;
+  ipBlacklist?: IPConfig[];
+  ipWhitelist?: IPConfig[];
   /**
    * @remarks
    * The time when the API key was last used.
@@ -69,9 +72,10 @@ export class ApiKey extends $dara.Model {
    * rg-acfmwxqyrgwabcd
    */
   resourceGroupID?: string;
+  source?: string;
   /**
    * @remarks
-   * The status of the API key. Valid values:
+   * The status. Valid values:
    * - active
    * - inactive
    * 
@@ -92,7 +96,7 @@ export class ApiKey extends $dara.Model {
    * The name of the team.
    * 
    * @example
-   * 开发团队
+   * Development Team
    */
   teamName?: string;
   teamPlan?: string;
@@ -106,7 +110,7 @@ export class ApiKey extends $dara.Model {
   userID?: string;
   /**
    * @remarks
-   * The username of the creator.
+   * The creator.
    * 
    * @example
    * user1
@@ -120,8 +124,11 @@ export class ApiKey extends $dara.Model {
       apiKeyValue: 'apiKeyValue',
       createdTime: 'createdTime',
       expireTime: 'expireTime',
+      ipBlacklist: 'ipBlacklist',
+      ipWhitelist: 'ipWhitelist',
       lastUsedTime: 'lastUsedTime',
       resourceGroupID: 'resourceGroupID',
+      source: 'source',
       status: 'status',
       teamID: 'teamID',
       teamName: 'teamName',
@@ -139,8 +146,11 @@ export class ApiKey extends $dara.Model {
       apiKeyValue: 'string',
       createdTime: 'string',
       expireTime: 'string',
+      ipBlacklist: { 'type': 'array', 'itemType': IPConfig },
+      ipWhitelist: { 'type': 'array', 'itemType': IPConfig },
       lastUsedTime: 'string',
       resourceGroupID: 'string',
+      source: 'string',
       status: 'string',
       teamID: 'string',
       teamName: 'string',
@@ -151,6 +161,12 @@ export class ApiKey extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ipBlacklist)) {
+      $dara.Model.validateArray(this.ipBlacklist);
+    }
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
     super.validate();
   }
 
