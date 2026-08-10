@@ -6,11 +6,13 @@ export class OssieModelView extends $dara.Model {
   catalogUuid?: string;
   databaseUuid?: string;
   description?: string;
+  docFormat?: string;
   domainTopic?: string;
   expr?: string;
   gmtCreated?: number;
   gmtModified?: number;
   knowledgeUuid?: string;
+  rawDoc?: string;
   semanticType?: string;
   source?: string;
   summary?: string;
@@ -22,11 +24,13 @@ export class OssieModelView extends $dara.Model {
       catalogUuid: 'CatalogUuid',
       databaseUuid: 'DatabaseUuid',
       description: 'Description',
+      docFormat: 'DocFormat',
       domainTopic: 'DomainTopic',
       expr: 'Expr',
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       knowledgeUuid: 'KnowledgeUuid',
+      rawDoc: 'RawDoc',
       semanticType: 'SemanticType',
       source: 'Source',
       summary: 'Summary',
@@ -41,11 +45,13 @@ export class OssieModelView extends $dara.Model {
       catalogUuid: 'string',
       databaseUuid: 'string',
       description: 'string',
+      docFormat: 'string',
       domainTopic: 'string',
       expr: 'string',
       gmtCreated: 'number',
       gmtModified: 'number',
       knowledgeUuid: 'string',
+      rawDoc: 'string',
       semanticType: 'string',
       source: 'string',
       summary: 'string',

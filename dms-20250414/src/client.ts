@@ -13,14 +13,14 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "dms.us-west-1.aliyuncs.com",
-      'us-east-1': "dms.us-east-1.aliyuncs.com",
       'cn-shenzhen': "dms.cn-shenzhen.aliyuncs.com",
+      'cn-beijing': "dms.cn-beijing.aliyuncs.com",
       'cn-shanghai': "dms.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "dms.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "dms.cn-hangzhou.aliyuncs.com",
-      'cn-beijing': "dms.cn-beijing.aliyuncs.com",
       'ap-southeast-1': "dms.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou': "dms.cn-hangzhou.aliyuncs.com",
+      'us-west-1': "dms.us-west-1.aliyuncs.com",
+      'us-east-1': "dms.us-east-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -2855,6 +2855,126 @@ export default class Client extends OpenApi {
   async getDataAgentSubAccountInfo(request: $_model.GetDataAgentSubAccountInfoRequest): Promise<$_model.GetDataAgentSubAccountInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataAgentSubAccountInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+   * 
+   * @remarks
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * 
+   * @param request - GetDataAgentTaskModelUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentTaskModelUsageResponse
+   */
+  async getDataAgentTaskModelUsageWithOptions(request: $_model.GetDataAgentTaskModelUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentTaskModelUsage",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentTaskModelUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentTaskModelUsageResponse({}));
+  }
+
+  /**
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+   * 
+   * @remarks
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * 
+   * @param request - GetDataAgentTaskModelUsageRequest
+   * @returns GetDataAgentTaskModelUsageResponse
+   */
+  async getDataAgentTaskModelUsage(request: $_model.GetDataAgentTaskModelUsageRequest): Promise<$_model.GetDataAgentTaskModelUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentTaskModelUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+   * 
+   * @remarks
+   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+   * 
+   * @param request - GetDataAgentTaskModelUsageMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataAgentTaskModelUsageMetricsResponse
+   */
+  async getDataAgentTaskModelUsageMetricsWithOptions(request: $_model.GetDataAgentTaskModelUsageMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataAgentTaskModelUsageMetricsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataAgentTaskModelUsageMetrics",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataAgentTaskModelUsageMetricsResponse>(await this.callApi(params, req, runtime), new $_model.GetDataAgentTaskModelUsageMetricsResponse({}));
+  }
+
+  /**
+   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+   * 
+   * @remarks
+   * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+   * 
+   * @param request - GetDataAgentTaskModelUsageMetricsRequest
+   * @returns GetDataAgentTaskModelUsageMetricsResponse
+   */
+  async getDataAgentTaskModelUsageMetrics(request: $_model.GetDataAgentTaskModelUsageMetricsRequest): Promise<$_model.GetDataAgentTaskModelUsageMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataAgentTaskModelUsageMetricsWithOptions(request, runtime);
   }
 
   /**
