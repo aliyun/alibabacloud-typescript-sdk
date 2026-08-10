@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MarkOssV2ResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of request IDs for failed operations.
+   */
   failureRequestIds?: string[];
+  /**
+   * @remarks
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of request IDs for successful operations.
+   */
   successRequestIds?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -32,10 +32,10 @@ export default class Client extends OpenApi {
       'cn-shanghai-finance-1': "green.aliyuncs.com",
       'cn-north-2-gov-1': "green.aliyuncs.com",
       'cn-shenzhen': "green-cip.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "green-cip.cn-shanghai.aliyuncs.com",
-      'cn-hangzhou': "green-cip.cn-hangzhou.aliyuncs.com",
       'cn-beijing': "green-cip.cn-beijing.aliyuncs.com",
+      'cn-shanghai': "green-cip.cn-shanghai.aliyuncs.com",
       'ap-southeast-1': "green-cip.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou': "green-cip.cn-hangzhou.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("green", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -168,6 +168,68 @@ export default class Client extends OpenApi {
   async addAppAgent(request: $_model.AddAppAgentRequest): Promise<$_model.AddAppAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addAppAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an app configuration.
+   * 
+   * @param request - AddAppConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAppConfigResponse
+   */
+  async addAppConfigWithOptions(request: $_model.AddAppConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAppConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classify)) {
+      query["Classify"] = request.classify;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.sysAppId)) {
+      query["SysAppId"] = request.sysAppId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAppConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAppConfigResponse>(await this.callApi(params, req, runtime), new $_model.AddAppConfigResponse({}));
+  }
+
+  /**
+   * Creates an app configuration.
+   * 
+   * @param request - AddAppConfigRequest
+   * @returns AddAppConfigResponse
+   */
+  async addAppConfig(request: $_model.AddAppConfigRequest): Promise<$_model.AddAppConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAppConfigWithOptions(request, runtime);
   }
 
   /**
@@ -2273,6 +2335,398 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an AI application.
+   * 
+   * @param request - GetAiAppDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppDetailResponse
+   */
+  async getAiAppDetailWithOptions(request: $_model.GetAiAppDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppDetail",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an AI application.
+   * 
+   * @param request - GetAiAppDetailRequest
+   * @returns GetAiAppDetailResponse
+   */
+  async getAiAppDetail(request: $_model.GetAiAppDetailRequest): Promise<$_model.GetAiAppDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves statistics for AI application details.
+   * 
+   * @param request - GetAiAppDetailStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppDetailStatResponse
+   */
+  async getAiAppDetailStatWithOptions(request: $_model.GetAiAppDetailStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppDetailStatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppDetailStat",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppDetailStatResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppDetailStatResponse({}));
+  }
+
+  /**
+   * Retrieves statistics for AI application details.
+   * 
+   * @param request - GetAiAppDetailStatRequest
+   * @returns GetAiAppDetailStatResponse
+   */
+  async getAiAppDetailStat(request: $_model.GetAiAppDetailStatRequest): Promise<$_model.GetAiAppDetailStatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppDetailStatWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the topology of an AI application.
+   * 
+   * @param tmpReq - GetAiAppDetailTopoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppDetailTopoResponse
+   */
+  async getAiAppDetailTopoWithOptions(tmpReq: $_model.GetAiAppDetailTopoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppDetailTopoResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAiAppDetailTopoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.timeQuery)) {
+      request.timeQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeQuery, "TimeQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.timeQueryShrink)) {
+      query["TimeQuery"] = request.timeQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppDetailTopo",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppDetailTopoResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppDetailTopoResponse({}));
+  }
+
+  /**
+   * Retrieves the topology of an AI application.
+   * 
+   * @param request - GetAiAppDetailTopoRequest
+   * @returns GetAiAppDetailTopoResponse
+   */
+  async getAiAppDetailTopo(request: $_model.GetAiAppDetailTopoRequest): Promise<$_model.GetAiAppDetailTopoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppDetailTopoWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of an application node in the agent topology.
+   * 
+   * @param request - GetAiAppNodeDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppNodeDetailResponse
+   */
+  async getAiAppNodeDetailWithOptions(request: $_model.GetAiAppNodeDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppNodeDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.nodeName)) {
+      query["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppNodeDetail",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppNodeDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppNodeDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an application node in the agent topology.
+   * 
+   * @param request - GetAiAppNodeDetailRequest
+   * @returns GetAiAppNodeDetailResponse
+   */
+  async getAiAppNodeDetail(request: $_model.GetAiAppNodeDetailRequest): Promise<$_model.GetAiAppNodeDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppNodeDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the overview information of AI applications.
+   * 
+   * @param request - GetAiAppOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppOverviewResponse
+   */
+  async getAiAppOverviewWithOptions(request: $_model.GetAiAppOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppOverviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppOverview",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppOverviewResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppOverviewResponse({}));
+  }
+
+  /**
+   * Retrieves the overview information of AI applications.
+   * 
+   * @param request - GetAiAppOverviewRequest
+   * @returns GetAiAppOverviewResponse
+   */
+  async getAiAppOverview(request: $_model.GetAiAppOverviewRequest): Promise<$_model.GetAiAppOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppOverviewWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves statistics data for AI applications.
+   * 
+   * @param request - GetAiAppStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppStatsResponse
+   */
+  async getAiAppStatsWithOptions(request: $_model.GetAiAppStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppStatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.byMonth)) {
+      query["ByMonth"] = request.byMonth;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppStats",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppStatsResponse({}));
+  }
+
+  /**
+   * Retrieves statistics data for AI applications.
+   * 
+   * @param request - GetAiAppStatsRequest
+   * @returns GetAiAppStatsResponse
+   */
+  async getAiAppStats(request: $_model.GetAiAppStatsRequest): Promise<$_model.GetAiAppStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of an app alert.
+   * 
+   * @param request - GetAiAppTraceDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiAppTraceDetailResponse
+   */
+  async getAiAppTraceDetailWithOptions(request: $_model.GetAiAppTraceDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiAppTraceDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiAppTraceDetail",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiAppTraceDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetAiAppTraceDetailResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an app alert.
+   * 
+   * @param request - GetAiAppTraceDetailRequest
+   * @returns GetAiAppTraceDetailResponse
+   */
+  async getAiAppTraceDetail(request: $_model.GetAiAppTraceDetailRequest): Promise<$_model.GetAiAppTraceDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiAppTraceDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the import progress of proxy answer samples.
    * 
    * @param request - GetAnswerImportProgressRequest
@@ -2767,6 +3221,52 @@ export default class Client extends OpenApi {
   async getGuardLogStats(request: $_model.GetGuardLogStatsRequest): Promise<$_model.GetGuardLogStatsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getGuardLogStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves statistics information on AI application protection data.
+   * 
+   * @param request - GetGuardStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGuardStatusResponse
+   */
+  async getGuardStatusWithOptions(request: $_model.GetGuardStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGuardStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGuardStatus",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGuardStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetGuardStatusResponse({}));
+  }
+
+  /**
+   * Retrieves statistics information on AI application protection data.
+   * 
+   * @param request - GetGuardStatusRequest
+   * @returns GetGuardStatusResponse
+   */
+  async getGuardStatus(request: $_model.GetGuardStatusRequest): Promise<$_model.GetGuardStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGuardStatusWithOptions(request, runtime);
   }
 
   /**
@@ -3367,6 +3867,110 @@ export default class Client extends OpenApi {
   async getPromptTestResult(request: $_model.GetPromptTestResultRequest): Promise<$_model.GetPromptTestResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPromptTestResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries QPS statistics information.
+   * 
+   * @param request - GetQpsStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQpsStatsResponse
+   */
+  async getQpsStatsWithOptions(request: $_model.GetQpsStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQpsStatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQpsStats",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetQpsStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetQpsStatsResponse({}));
+  }
+
+  /**
+   * Queries QPS statistics information.
+   * 
+   * @param request - GetQpsStatsRequest
+   * @returns GetQpsStatsResponse
+   */
+  async getQpsStats(request: $_model.GetQpsStatsRequest): Promise<$_model.GetQpsStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQpsStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries risk posture statistics.
+   * 
+   * @param request - GetRiskStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRiskStatsResponse
+   */
+  async getRiskStatsWithOptions(request: $_model.GetRiskStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRiskStatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classify)) {
+      query["Classify"] = request.classify;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRiskStats",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRiskStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetRiskStatsResponse({}));
+  }
+
+  /**
+   * Queries risk posture statistics.
+   * 
+   * @param request - GetRiskStatsRequest
+   * @returns GetRiskStatsResponse
+   */
+  async getRiskStats(request: $_model.GetRiskStatsRequest): Promise<$_model.GetRiskStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRiskStatsWithOptions(request, runtime);
   }
 
   /**
@@ -4055,6 +4659,284 @@ export default class Client extends OpenApi {
   async getUserBuyStatus(request: $_model.GetUserBuyStatusRequest): Promise<$_model.GetUserBuyStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserBuyStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Initializes AI application log scanning and activates the service.
+   * 
+   * @param request - InitAiAppScanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitAiAppScanResponse
+   */
+  async initAiAppScanWithOptions(request: $_model.InitAiAppScanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitAiAppScanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitAiAppScan",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitAiAppScanResponse>(await this.callApi(params, req, runtime), new $_model.InitAiAppScanResponse({}));
+  }
+
+  /**
+   * Initializes AI application log scanning and activates the service.
+   * 
+   * @param request - InitAiAppScanRequest
+   * @returns InitAiAppScanResponse
+   */
+  async initAiAppScan(request: $_model.InitAiAppScanRequest): Promise<$_model.InitAiAppScanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initAiAppScanWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a paginated list of AI applications.
+   * 
+   * @param request - ListAiAppByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiAppByPageResponse
+   */
+  async listAiAppByPageWithOptions(request: $_model.ListAiAppByPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiAppByPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiAppByPage",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiAppByPageResponse>(await this.callApi(params, req, runtime), new $_model.ListAiAppByPageResponse({}));
+  }
+
+  /**
+   * Retrieves a paginated list of AI applications.
+   * 
+   * @param request - ListAiAppByPageRequest
+   * @returns ListAiAppByPageResponse
+   */
+  async listAiAppByPage(request: $_model.ListAiAppByPageRequest): Promise<$_model.ListAiAppByPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAiAppByPageWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of risk events for AI applications.
+   * 
+   * @param request - ListAiAppRiskEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiAppRiskEventResponse
+   */
+  async listAiAppRiskEventWithOptions(request: $_model.ListAiAppRiskEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiAppRiskEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiAppRiskEvent",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiAppRiskEventResponse>(await this.callApi(params, req, runtime), new $_model.ListAiAppRiskEventResponse({}));
+  }
+
+  /**
+   * Retrieves the list of risk events for AI applications.
+   * 
+   * @param request - ListAiAppRiskEventRequest
+   * @returns ListAiAppRiskEventResponse
+   */
+  async listAiAppRiskEvent(request: $_model.ListAiAppRiskEventRequest): Promise<$_model.ListAiAppRiskEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAiAppRiskEventWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a paginated list of risk events for AI applications.
+   * 
+   * @param request - ListAiAppRiskEventByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiAppRiskEventByPageResponse
+   */
+  async listAiAppRiskEventByPageWithOptions(request: $_model.ListAiAppRiskEventByPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiAppRiskEventByPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiAppRiskEventByPage",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiAppRiskEventByPageResponse>(await this.callApi(params, req, runtime), new $_model.ListAiAppRiskEventByPageResponse({}));
+  }
+
+  /**
+   * Retrieves a paginated list of risk events for AI applications.
+   * 
+   * @param request - ListAiAppRiskEventByPageRequest
+   * @returns ListAiAppRiskEventByPageResponse
+   */
+  async listAiAppRiskEventByPage(request: $_model.ListAiAppRiskEventByPageRequest): Promise<$_model.ListAiAppRiskEventByPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAiAppRiskEventByPageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the alert list of an application with pagination.
+   * 
+   * @param request - ListAiAppWarningByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiAppWarningByPageResponse
+   */
+  async listAiAppWarningByPageWithOptions(request: $_model.ListAiAppWarningByPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiAppWarningByPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiAppWarningByPage",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiAppWarningByPageResponse>(await this.callApi(params, req, runtime), new $_model.ListAiAppWarningByPageResponse({}));
+  }
+
+  /**
+   * Queries the alert list of an application with pagination.
+   * 
+   * @param request - ListAiAppWarningByPageRequest
+   * @returns ListAiAppWarningByPageResponse
+   */
+  async listAiAppWarningByPage(request: $_model.ListAiAppWarningByPageRequest): Promise<$_model.ListAiAppWarningByPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAiAppWarningByPageWithOptions(request, runtime);
   }
 
   /**
@@ -4747,7 +5629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果反馈
+   * Provides feedback on OSS detection results.
+   * 
+   * @remarks
+   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
    * 
    * @param request - MarkOssV2ResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4798,7 +5683,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果反馈
+   * Provides feedback on OSS detection results.
+   * 
+   * @remarks
+   * This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
    * 
    * @param request - MarkOssV2ResultRequest
    * @returns MarkOssV2ResultResponse
@@ -5489,6 +6377,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries label configurations.
+   * 
+   * @param request - QueryLabelConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLabelConfigResponse
+   */
+  async queryLabelConfigWithOptions(request: $_model.QueryLabelConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryLabelConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.classify)) {
+      query["Classify"] = request.classify;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryLabelConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryLabelConfigResponse>(await this.callApi(params, req, runtime), new $_model.QueryLabelConfigResponse({}));
+  }
+
+  /**
+   * Queries label configurations.
+   * 
+   * @param request - QueryLabelConfigRequest
+   * @returns QueryLabelConfigResponse
+   */
+  async queryLabelConfig(request: $_model.QueryLabelConfigRequest): Promise<$_model.QueryLabelConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryLabelConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Reverts an app to a historical version.
    * 
    * @param request - RecoverAppConfigHistoryRequest
@@ -5593,6 +6539,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the scan status of AI applications.
+   * 
+   * @param request - UpdateAiAppScanStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiAppScanStatusResponse
+   */
+  async updateAiAppScanStatusWithOptions(request: $_model.UpdateAiAppScanStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiAppScanStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiAppScanStatus",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiAppScanStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiAppScanStatusResponse({}));
+  }
+
+  /**
+   * Updates the scan status of AI applications.
+   * 
+   * @param request - UpdateAiAppScanStatusRequest
+   * @returns UpdateAiAppScanStatusResponse
+   */
+  async updateAiAppScanStatus(request: $_model.UpdateAiAppScanStatusRequest): Promise<$_model.UpdateAiAppScanStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAiAppScanStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the evidence transfer configuration.
    * 
    * @param request - UpdateBackupConfigRequest
@@ -5644,6 +6640,74 @@ export default class Client extends OpenApi {
   async updateBackupConfig(request: $_model.UpdateBackupConfigRequest): Promise<$_model.UpdateBackupConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBackupConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the status of risk events.
+   * 
+   * @param tmpReq - UpdateEventStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEventStatusResponse
+   */
+  async updateEventStatusWithOptions(tmpReq: $_model.UpdateEventStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEventStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateEventStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventIds)) {
+      request.eventIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventIds, "EventIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.eventIdsShrink)) {
+      query["EventIds"] = request.eventIdsShrink;
+    }
+
+    if (!$dara.isNull(request.operationCode)) {
+      query["OperationCode"] = request.operationCode;
+    }
+
+    if (!$dara.isNull(request.operationParams)) {
+      query["OperationParams"] = request.operationParams;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEventStatus",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEventStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEventStatusResponse({}));
+  }
+
+  /**
+   * Updates the status of risk events.
+   * 
+   * @param request - UpdateEventStatusRequest
+   * @returns UpdateEventStatusResponse
+   */
+  async updateEventStatus(request: $_model.UpdateEventStatusRequest): Promise<$_model.UpdateEventStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEventStatusWithOptions(request, runtime);
   }
 
   /**
@@ -5818,6 +6882,60 @@ export default class Client extends OpenApi {
   async updateKeywordLib(request: $_model.UpdateKeywordLibRequest): Promise<$_model.UpdateKeywordLibResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateKeywordLibWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates Meta log information.
+   * 
+   * @param request - UpdateMetaLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetaLogResponse
+   */
+  async updateMetaLogWithOptions(request: $_model.UpdateMetaLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.deliveryRegion)) {
+      query["DeliveryRegion"] = request.deliveryRegion;
+    }
+
+    if (!$dara.isNull(request.storage)) {
+      query["Storage"] = request.storage;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMetaLog",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMetaLogResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMetaLogResponse({}));
+  }
+
+  /**
+   * Updates Meta log information.
+   * 
+   * @param request - UpdateMetaLogRequest
+   * @returns UpdateMetaLogResponse
+   */
+  async updateMetaLog(request: $_model.UpdateMetaLogRequest): Promise<$_model.UpdateMetaLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMetaLogWithOptions(request, runtime);
   }
 
   /**
