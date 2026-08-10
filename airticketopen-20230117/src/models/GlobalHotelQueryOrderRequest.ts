@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelQueryOrderRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class GlobalHotelQueryOrderRequest extends $dara.Model {
    */
   accountNo?: number;
   /**
+   * @remarks
+   * The external order number. At least one of ExternalOrderNo and OrderNo is required.
+   * 
    * @example
    * EXT_ORDER_001
    */
   externalOrderNo?: string;
   /**
+   * @remarks
+   * The sales order number. At least one of OrderNo and ExternalOrderNo is required.
+   * 
    * @example
    * SO202606290001
    */
   orderNo?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelSearchHotelListRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelSearchHotelListRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The city code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,16 +24,25 @@ export class GlobalHotelSearchHotelListRequest extends $dara.Model {
    */
   cityCode?: string;
   /**
+   * @remarks
+   * The page number. Pages start from 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * traceId
+   * 
    * @example
    * traceId
    */

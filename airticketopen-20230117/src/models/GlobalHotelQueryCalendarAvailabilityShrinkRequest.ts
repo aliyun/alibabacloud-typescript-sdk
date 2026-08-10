@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The account ID of the distributor.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
   accountNo?: number;
   /**
    * @remarks
+   * The number of adults.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
   adultCount?: number;
   /**
    * @remarks
+   * The end date of the check-in date range in the format yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
   checkInDateEnd?: string;
   /**
    * @remarks
+   * The start date of the check-in date range in the format yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,17 +44,25 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
    */
   checkInDateStart?: string;
   /**
+   * @remarks
+   * The number of children.
+   * 
    * @example
    * 0
    */
   childCount?: number;
   /**
+   * @remarks
+   * The list of children\\"s ages.
+   * 
    * @example
    * []
    */
   childrenAgesShrink?: string;
   /**
    * @remarks
+   * The number of rooms.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +71,8 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
   roomCount?: number;
   /**
    * @remarks
+   * The IDs of the hotels.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +80,9 @@ export class GlobalHotelQueryCalendarAvailabilityShrinkRequest extends $dara.Mod
    */
   standardHotelIdsShrink?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * traceId
    */

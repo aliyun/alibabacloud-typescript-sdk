@@ -28,6 +28,10 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalti
    * 1672531200000
    */
   start?: number;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,6 +71,10 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPolicies extend
    * FREE_CANCELLATION
    */
   policyType?: string;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,6 +115,10 @@ export class GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices extend
    * 2026-07-01
    */
   date?: string;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,6 +157,10 @@ export class GlobalHotelValidatePriceResponseBodyDataPricing extends $dara.Model
    * 10000
    */
   totalAmount?: string;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -184,6 +200,10 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
    */
   itemOfferId?: string;
   pricing?: GlobalHotelValidatePriceResponseBodyDataPricing;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -240,6 +260,10 @@ export class GlobalHotelValidatePriceResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {

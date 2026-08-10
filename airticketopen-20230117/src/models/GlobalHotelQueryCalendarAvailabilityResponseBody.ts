@@ -5,16 +5,25 @@ import { DataHotelsValue } from "./DataHotelsValue";
 
 export class GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * HOTEL_NOT_FOUND
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error description.
+   * 
    * @example
-   * 酒店不存在
+   * The hotel does not exist
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The standard hotel ID.
+   * 
    * @example
    * H001
    */
@@ -45,9 +54,20 @@ export class GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels ex
 }
 
 export class GlobalHotelQueryCalendarAvailabilityResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of failed hotels (in partial success mode).
+   */
   failedHotels?: GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels[];
+  /**
+   * @remarks
+   * The calendar quotes grouped by standard hotel ID.
+   */
   hotels?: { [key: string]: DataHotelsValue[] };
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -84,28 +104,47 @@ export class GlobalHotelQueryCalendarAvailabilityResponseBodyData extends $dara.
 }
 
 export class GlobalHotelQueryCalendarAvailabilityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelQueryCalendarAvailabilityResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CityCodeRequired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 城市编码不能为空
+   * City code cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

@@ -2267,7 +2267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请退款
+   * Applies for a refund.
    * 
    * @param request - GlobalHotelApplyRefundRequest
    * @param headers - map
@@ -2312,7 +2312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请退款
+   * Applies for a refund.
    * 
    * @param request - GlobalHotelApplyRefundRequest
    * @returns GlobalHotelApplyRefundResponse
@@ -2324,7 +2324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询酒店详情
+   * Queries hotel details in batches.
    * 
    * @param tmpReq - GlobalHotelBatchGetHotelDetailRequest
    * @param headers - map
@@ -2375,7 +2375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询酒店详情
+   * Queries hotel details in batches.
    * 
    * @param request - GlobalHotelBatchGetHotelDetailRequest
    * @returns GlobalHotelBatchGetHotelDetailResponse
@@ -2387,7 +2387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消或退款
+   * Cancels or refunds an order.
    * 
    * @param request - GlobalHotelCancelOrRefundRequest
    * @param headers - map
@@ -2428,7 +2428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消或退款
+   * Cancels or refunds an order.
    * 
    * @param request - GlobalHotelCancelOrRefundRequest
    * @returns GlobalHotelCancelOrRefundResponse
@@ -2493,7 +2493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创单并支付
+   * Creates an order and processes the payment.
    * 
    * @param tmpReq - GlobalHotelCreateAndPayRequest
    * @param headers - map
@@ -2560,7 +2560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创单并支付
+   * Creates an order and processes the payment.
    * 
    * @param request - GlobalHotelCreateAndPayRequest
    * @returns GlobalHotelCreateAndPayResponse
@@ -2572,7 +2572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建订单
+   * Creates an order.
    * 
    * @param tmpReq - GlobalHotelCreateOrderRequest
    * @param headers - map
@@ -2639,7 +2639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建订单
+   * Creates an order.
    * 
    * @param request - GlobalHotelCreateOrderRequest
    * @returns GlobalHotelCreateOrderResponse
@@ -2651,7 +2651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分销支付
+   * Processes a distribution payment.
    * 
    * @param request - GlobalHotelPayRequest
    * @param headers - map
@@ -2692,7 +2692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分销支付
+   * Processes a distribution payment.
    * 
    * @param request - GlobalHotelPayRequest
    * @returns GlobalHotelPayResponse
@@ -2704,7 +2704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询酒店报价可用性
+   * Queries the availability of hotel rate plans.
    * 
    * @param tmpReq - GlobalHotelQueryAvailabilityRequest
    * @param headers - map
@@ -2779,7 +2779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询酒店报价可用性
+   * Queries the availability of hotel rate plans.
    * 
    * @param request - GlobalHotelQueryAvailabilityRequest
    * @returns GlobalHotelQueryAvailabilityResponse
@@ -2791,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量日历报价查询
+   * Queries calendar-based availability and pricing for hotels in batch.
    * 
    * @param tmpReq - GlobalHotelQueryCalendarAvailabilityRequest
    * @param headers - map
@@ -2866,7 +2866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量日历报价查询
+   * Queries calendar-based availability and pricing for hotels in batch.
    * 
    * @param request - GlobalHotelQueryCalendarAvailabilityRequest
    * @returns GlobalHotelQueryCalendarAvailabilityResponse
@@ -2878,7 +2878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询订单
+   * Queries an order.
    * 
    * @param request - GlobalHotelQueryOrderRequest
    * @param headers - map
@@ -2923,7 +2923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询订单
+   * Queries an order.
    * 
    * @param request - GlobalHotelQueryOrderRequest
    * @returns GlobalHotelQueryOrderResponse
@@ -2935,7 +2935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询城市行政区划（中英文）
+   * Queries city administrative divisions by paging (in Chinese and English).
    * 
    * @param request - GlobalHotelSearchCityPageRequest
    * @param headers - map
@@ -2984,7 +2984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询城市行政区划（中英文）
+   * Queries city administrative divisions by paging (in Chinese and English).
    * 
    * @param request - GlobalHotelSearchCityPageRequest
    * @returns GlobalHotelSearchCityPageResponse
@@ -2996,7 +2996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按城市分页查询酒店列表
+   * Performs a paged query to retrieve the list of hotels by city with paging.
    * 
    * @param request - GlobalHotelSearchHotelListRequest
    * @param headers - map
@@ -3045,7 +3045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按城市分页查询酒店列表
+   * Performs a paged query to retrieve the list of hotels by city with paging.
    * 
    * @param request - GlobalHotelSearchHotelListRequest
    * @returns GlobalHotelSearchHotelListResponse

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelCreateOrderShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class GlobalHotelCreateOrderShrinkRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The contact information.
+   * 
    * This parameter is required.
    */
   contactShrink?: string;
   /**
    * @remarks
+   * The external order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,11 +32,15 @@ export class GlobalHotelCreateOrderShrinkRequest extends $dara.Model {
   externalOrderNo?: string;
   /**
    * @remarks
+   * The guests grouped by room.
+   * 
    * This parameter is required.
    */
   guestsShrink?: string;
   /**
    * @remarks
+   * The offer ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +49,8 @@ export class GlobalHotelCreateOrderShrinkRequest extends $dara.Model {
   itemOfferId?: string;
   /**
    * @remarks
+   * The number of rooms.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +58,9 @@ export class GlobalHotelCreateOrderShrinkRequest extends $dara.Model {
    */
   roomCount?: number;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
   /**
    * @remarks
+   * The account ID of the distributor.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The number of adults.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
   adultCount?: number;
   /**
    * @remarks
+   * The check-in date in the format of yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
   checkInDate?: string;
   /**
    * @remarks
+   * The check-out date in the format of yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,17 +44,25 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
    */
   checkOutDate?: string;
   /**
+   * @remarks
+   * The number of children.
+   * 
    * @example
    * 1
    */
   childCount?: number;
   /**
+   * @remarks
+   * The list of children\\"s ages.
+   * 
    * @example
    * [8]
    */
   childrenAges?: number[];
   /**
    * @remarks
+   * The number of rooms.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +71,8 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
   roomCount?: number;
   /**
    * @remarks
+   * The list of standard hotel IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +80,9 @@ export class GlobalHotelQueryAvailabilityRequest extends $dara.Model {
    */
   standardHotelIds?: string[];
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

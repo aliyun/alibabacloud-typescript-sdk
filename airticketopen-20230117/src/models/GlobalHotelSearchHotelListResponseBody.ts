@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelSearchHotelListResponseBodyDataHotels extends $dara.Model {
   /**
+   * @remarks
+   * The city name.
+   * 
    * @example
-   * 北京市
+   * Beijing
    */
   cityName?: string;
   /**
+   * @remarks
+   * The country name.
+   * 
    * @example
-   * 中国
+   * China
    */
   countryName?: string;
   /**
+   * @remarks
+   * The hotel name.
+   * 
    * @example
-   * 北京饭店
+   * Beijing Hotel
    */
   hotelName?: string;
   /**
+   * @remarks
+   * The platform standard hotel ID.
+   * 
    * @example
    * H001
    */
   standardHotelId?: string;
   /**
+   * @remarks
+   * The hotel status (ONLINE/OFFLINE).
+   * 
    * @example
    * ONLINE
    */
@@ -58,8 +73,15 @@ export class GlobalHotelSearchHotelListResponseBodyDataHotels extends $dara.Mode
 }
 
 export class GlobalHotelSearchHotelListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of hotels.
+   */
   hotels?: GlobalHotelSearchHotelListResponseBodyDataHotels[];
   /**
+   * @remarks
+   * The total number of hotels.
+   * 
    * @example
    * 100
    */
@@ -91,28 +113,47 @@ export class GlobalHotelSearchHotelListResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelSearchHotelListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelSearchHotelListResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CityCodeRequired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 城市编码不能为空
+   * City code cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * traceId
+   * 
    * @example
    * traceId
    */

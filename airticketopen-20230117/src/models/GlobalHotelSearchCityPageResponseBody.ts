@@ -4,50 +4,69 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model {
   /**
+   * @remarks
+   * The Chinese name of the city.
+   * 
    * @example
    * 北京市
    */
   cnName?: string;
   /**
+   * @remarks
+   * The city code.
+   * 
    * @example
    * 110100
    */
   code?: number;
   /**
+   * @remarks
+   * The country code.
+   * 
    * @example
    * 156
    */
   country?: number;
   /**
+   * @remarks
+   * The country code in ISO 3166-1 alpha-2 format.
+   * 
    * @example
    * CN
    */
   countryCode?: string;
   /**
+   * @remarks
+   * The English name of the city.
+   * 
    * @example
    * Beijing
    */
   enName?: string;
   /**
+   * @remarks
+   * The administrative level.
+   * 
    * @example
    * 3
    */
   level?: number;
   /**
+   * @remarks
+   * The parent city code.
+   * 
    * @example
    * 110000
    */
   parentCode?: number;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * 1
    */
   region?: number;
-  /**
-   * @example
-   * 1
-   */
-  type?: number;
   static names(): { [key: string]: string } {
     return {
       cnName: 'CnName',
@@ -58,7 +77,6 @@ export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model
       level: 'Level',
       parentCode: 'ParentCode',
       region: 'Region',
-      type: 'Type',
     };
   }
 
@@ -72,7 +90,6 @@ export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model
       level: 'number',
       parentCode: 'number',
       region: 'number',
-      type: 'number',
     };
   }
 
@@ -87,16 +104,25 @@ export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model
 
 export class GlobalHotelSearchCityPageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The list of cities.
+   * 
    * @example
    * []
    */
   cities?: GlobalHotelSearchCityPageResponseBodyDataCities[];
   /**
+   * @remarks
+   * Indicates whether there is a next page.
+   * 
    * @example
    * true
    */
   hasNext?: boolean;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -130,28 +156,47 @@ export class GlobalHotelSearchCityPageResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelSearchCityPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelSearchCityPageResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CityCodeRequired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 城市编码不能为空
+   * City code cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

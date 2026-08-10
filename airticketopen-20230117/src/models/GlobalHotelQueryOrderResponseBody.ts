@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties extends $dara.Model {
   /**
+   * @remarks
+   * The currency code. This parameter is valid only when the penalty type is AMOUNT.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * The effective end time in UTC millisecond timestamp.
+   * 
    * @example
    * 1672617600000
    */
   end?: number;
   /**
+   * @remarks
+   * The penalty type.
+   * 
    * @example
    * PERCENTAGE
    */
   penaltyType?: string;
   /**
+   * @remarks
+   * The penalty value, which can be a percentage, amount, or number of nights.
+   * 
    * @example
    * 50
    */
   penaltyValue?: string;
   /**
+   * @remarks
+   * The effective start time in UTC millisecond timestamp.
+   * 
    * @example
    * 1672531200000
    */
   start?: number;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -65,13 +83,23 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
 }
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cancellation penalties.
+   */
   penalties?: GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties[];
   /**
+   * @remarks
+   * The cancellation policy type.
+   * 
    * @example
    * FREE_CANCELLATION
    */
   policyType?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -106,16 +134,25 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy extends $
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurrency extends $dara.Model {
   /**
+   * @remarks
+   * The currency code.
+   * 
    * @example
    * USD
    */
   currencyCode?: string;
   /**
+   * @remarks
+   * DefaultFractionDigits
+   * 
    * @example
    * 1
    */
   defaultFractionDigits?: number;
   /**
+   * @remarks
+   * NumericCode
+   * 
    * @example
    * 1
    */
@@ -147,10 +184,17 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurren
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice extends $dara.Model {
   /**
+   * @remarks
+   * cent
+   * 
    * @example
    * 1
    */
   cent?: number;
+  /**
+   * @remarks
+   * The currency.
+   */
   currency?: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurrency;
   static names(): { [key: string]: string } {
     return {
@@ -180,10 +224,17 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice exten
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices extends $dara.Model {
   /**
+   * @remarks
+   * LocalDate
+   * 
    * @example
    * LocalDate
    */
   date?: string;
+  /**
+   * @remarks
+   * The price.
+   */
   price?: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice;
   static names(): { [key: string]: string } {
     return {
@@ -213,16 +264,25 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices extends $d
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoMeal extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
-   * 含早餐
+   * Breakfast included
    */
   description?: string;
   /**
+   * @remarks
+   * The meal type.
+   * 
    * @example
    * BREAKFAST
    */
   mealType?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -254,16 +314,25 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoMeal extends $dara.Mod
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -294,29 +363,57 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice exte
 }
 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The cancellation policy.
+   */
   cancelPolicy?: GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy;
   /**
+   * @remarks
+   * The check-in date in yyyy-MM-dd format.
+   * 
    * @example
    * 2026-07-01
    */
   checkIn?: string;
   /**
+   * @remarks
+   * The number of guests checking in.
+   * 
    * @example
    * 2
    */
   checkInNumber?: number;
   /**
+   * @remarks
+   * The check-out date in yyyy-MM-dd format.
+   * 
    * @example
    * 2026-07-03
    */
   checkOut?: string;
+  /**
+   * @remarks
+   * The list of nightly rates.
+   */
   dailyPrices?: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices[];
+  /**
+   * @remarks
+   * The meal information.
+   */
   meal?: GlobalHotelQueryOrderResponseBodyDataItemInfoMeal;
   /**
+   * @remarks
+   * The number of rooms.
+   * 
    * @example
    * 1
    */
   roomCount?: number;
+  /**
+   * @remarks
+   * The total selling price.
+   */
   sellingTotalPrice?: GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice;
   static names(): { [key: string]: string } {
     return {
@@ -367,16 +464,25 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
 
 export class GlobalHotelQueryOrderResponseBodyDataPaymentAmount extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -407,18 +513,31 @@ export class GlobalHotelQueryOrderResponseBodyDataPaymentAmount extends $dara.Mo
 }
 
 export class GlobalHotelQueryOrderResponseBodyDataPayment extends $dara.Model {
+  /**
+   * @remarks
+   * The payment amount.
+   */
   amount?: GlobalHotelQueryOrderResponseBodyDataPaymentAmount;
   /**
+   * @remarks
+   * The payment completion time in UTC millisecond timestamp.
+   * 
    * @example
    * 1672531200000
    */
   gmtPaid?: number;
   /**
+   * @remarks
+   * The payment method.
+   * 
    * @example
    * BALANCE
    */
   paymentMethod?: string;
   /**
+   * @remarks
+   * The payment transaction ID.
+   * 
    * @example
    * PAY202606290001
    */
@@ -455,16 +574,25 @@ export class GlobalHotelQueryOrderResponseBodyDataPayment extends $dara.Model {
 
 export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalPenaltyAmount extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -496,16 +624,25 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalPenaltyAmount
 
 export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -537,31 +674,54 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount 
 
 export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the refund order, in UTC millisecond timestamp.
+   * 
    * @example
    * 1672531200000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The refund transaction ID.
+   * 
    * @example
    * TXN001
    */
   refundTransactionId?: string;
   /**
+   * @remarks
+   * The reason for rejection.
+   * 
    * @example
-   * 供应商拒绝
+   * Supplier rejected
    */
   rejectReason?: string;
   /**
+   * @remarks
+   * The external refund order number.
+   * 
    * @example
    * RF202606290001
    */
   sellRefundOrderNo?: string;
   /**
+   * @remarks
+   * The unified refund status.
+   * 
    * @example
    * REFUNDED
    */
   status?: string;
+  /**
+   * @remarks
+   * The penalty amount on the sales side.
+   */
   totalPenaltyAmount?: GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalPenaltyAmount;
+  /**
+   * @remarks
+   * The actual refund amount.
+   */
   totalRefundAmount?: GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount;
   static names(): { [key: string]: string } {
     return {
@@ -604,16 +764,25 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Mod
 
 export class GlobalHotelQueryOrderResponseBodyDataRoomStaysGuests extends $dara.Model {
   /**
+   * @remarks
+   * The first name of the guest.
+   * 
    * @example
    * John
    */
   firstName?: string;
   /**
+   * @remarks
+   * The last name of the guest.
+   * 
    * @example
    * Doe
    */
   lastName?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -645,27 +814,40 @@ export class GlobalHotelQueryOrderResponseBodyDataRoomStaysGuests extends $dara.
 
 export class GlobalHotelQueryOrderResponseBodyDataRoomStays extends $dara.Model {
   /**
+   * @remarks
+   * The room confirmation ID.
+   * 
    * @example
    * CONF001
    */
   confirmationId?: string;
+  /**
+   * @remarks
+   * The list of guests.
+   */
   guests?: GlobalHotelQueryOrderResponseBodyDataRoomStaysGuests[];
   /**
+   * @remarks
+   * The room index, starting from 1.
+   * 
    * @example
    * 1
    */
   roomIndex?: number;
   /**
+   * @remarks
+   * The delivery status. Valid values: PENDING_CHECKIN, CHECKED_IN, CHECKED_OUT, and CANCELLED. The value is null before the delivery is created.
+   * 
    * @example
-   * 豪华大床房
+   * CHECKED_IN
    */
-  roomName?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       confirmationId: 'ConfirmationId',
       guests: 'Guests',
       roomIndex: 'RoomIndex',
-      roomName: 'RoomName',
+      status: 'Status',
     };
   }
 
@@ -674,7 +856,7 @@ export class GlobalHotelQueryOrderResponseBodyDataRoomStays extends $dara.Model 
       confirmationId: 'string',
       guests: { 'type': 'array', 'itemType': GlobalHotelQueryOrderResponseBodyDataRoomStaysGuests },
       roomIndex: 'number',
-      roomName: 'string',
+      status: 'string',
     };
   }
 
@@ -692,40 +874,77 @@ export class GlobalHotelQueryOrderResponseBodyDataRoomStays extends $dara.Model 
 
 export class GlobalHotelQueryOrderResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The buyer ID.
+   * 
    * @example
    * 123456
    */
   buyerId?: string;
   /**
+   * @remarks
+   * The external order number of the buyer.
+   * 
    * @example
    * EXT_ORDER_001
    */
   externalOrderNo?: string;
   /**
+   * @remarks
+   * The creation time in UTC millisecond timestamp.
+   * 
    * @example
    * 1672531200000
    */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The item information.
+   */
   itemInfo?: GlobalHotelQueryOrderResponseBodyDataItemInfo;
   /**
+   * @remarks
+   * The order number.
+   * 
    * @example
    * SO202606290001
    */
   orderNo?: string;
+  /**
+   * @remarks
+   * The payment information.
+   */
   payment?: GlobalHotelQueryOrderResponseBodyDataPayment;
+  /**
+   * @remarks
+   * The list of refund orders.
+   */
   refundOrders?: GlobalHotelQueryOrderResponseBodyDataRefundOrders[];
+  /**
+   * @remarks
+   * The list of room stays.
+   */
   roomStays?: GlobalHotelQueryOrderResponseBodyDataRoomStays[];
   /**
+   * @remarks
+   * The sales channel.
+   * 
    * @example
    * POP
    */
   salesChannel?: string;
   /**
+   * @remarks
+   * The unified order status.
+   * 
    * @example
    * CONFIRMED
    */
   status?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -784,28 +1003,47 @@ export class GlobalHotelQueryOrderResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelQueryOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelQueryOrderResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CreateOrderFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建订单失败
+   * Failed to create order
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */

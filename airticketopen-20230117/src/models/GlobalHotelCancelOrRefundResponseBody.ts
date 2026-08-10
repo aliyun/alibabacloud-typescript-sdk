@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelCancelOrRefundResponseBodyDataTotalPenaltyAmount extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -45,16 +54,25 @@ export class GlobalHotelCancelOrRefundResponseBodyDataTotalPenaltyAmount extends
 
 export class GlobalHotelCancelOrRefundResponseBodyDataTotalRefundAmount extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
    * 10000
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code in ISO 4217 format.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -86,13 +104,27 @@ export class GlobalHotelCancelOrRefundResponseBodyDataTotalRefundAmount extends 
 
 export class GlobalHotelCancelOrRefundResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The after-sales refund order ID.
+   * 
    * @example
    * RF202606290001
    */
   refundOrderId?: string;
+  /**
+   * @remarks
+   * The total penalty amount on the sales side.
+   */
   totalPenaltyAmount?: GlobalHotelCancelOrRefundResponseBodyDataTotalPenaltyAmount;
+  /**
+   * @remarks
+   * The total refund amount.
+   */
   totalRefundAmount?: GlobalHotelCancelOrRefundResponseBodyDataTotalRefundAmount;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -131,28 +163,47 @@ export class GlobalHotelCancelOrRefundResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelCancelOrRefundResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelCancelOrRefundResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CreateOrderFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建订单失败
+   * Failed to create order
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

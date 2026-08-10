@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelCreateOrderResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The sales order number.
+   * 
    * @example
    * SO202606290001
    */
   orderNo?: string;
+  /**
+   * @remarks
+   * TracerId
+   * 
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,27 +43,50 @@ export class GlobalHotelCreateOrderResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelCreateOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelCreateOrderResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CreateOrderFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建订单失败
+   * Failed to create order
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * TracerId
+   * 
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {

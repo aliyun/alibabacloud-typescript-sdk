@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelBatchGetHotelDetailShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the distributor account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class GlobalHotelBatchGetHotelDetailShrinkRequest extends $dara.Model {
    */
   accountNo?: number;
   /**
+   * @remarks
+   * The language. For example, en or zh.
+   * 
    * @example
    * en
    */
   language?: string;
   /**
    * @remarks
+   * The list of standard hotel IDs. A maximum of 100 IDs are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class GlobalHotelBatchGetHotelDetailShrinkRequest extends $dara.Model {
    */
   standardHotelIdsShrink?: string;
   /**
+   * @remarks
+   * string
+   * 
    * @example
    * traceId
    */

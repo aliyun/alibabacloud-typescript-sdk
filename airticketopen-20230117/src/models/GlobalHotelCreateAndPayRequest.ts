@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelCreateAndPayRequestContact extends $dara.Model {
   /**
    * @remarks
+   * The email address of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelCreateAndPayRequestContact extends $dara.Model {
   email?: string;
   /**
    * @remarks
+   * The first name of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GlobalHotelCreateAndPayRequestContact extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
+   * The last name of the contact.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,11 +34,17 @@ export class GlobalHotelCreateAndPayRequestContact extends $dara.Model {
    */
   lastName?: string;
   /**
+   * @remarks
+   * The phone number of the contact.
+   * 
    * @example
    * +86-13800138000
    */
   phone?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -69,6 +81,8 @@ export class GlobalHotelCreateAndPayRequestContact extends $dara.Model {
 export class GlobalHotelCreateAndPayRequestGuests extends $dara.Model {
   /**
    * @remarks
+   * The first name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,6 +91,8 @@ export class GlobalHotelCreateAndPayRequestGuests extends $dara.Model {
   firstName?: string;
   /**
    * @remarks
+   * The last name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,6 +100,9 @@ export class GlobalHotelCreateAndPayRequestGuests extends $dara.Model {
    */
   lastName?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -116,6 +135,8 @@ export class GlobalHotelCreateAndPayRequestGuests extends $dara.Model {
 export class GlobalHotelCreateAndPayRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -124,11 +145,15 @@ export class GlobalHotelCreateAndPayRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The contact information.
+   * 
    * This parameter is required.
    */
   contact?: GlobalHotelCreateAndPayRequestContact;
   /**
    * @remarks
+   * The external order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -137,11 +162,15 @@ export class GlobalHotelCreateAndPayRequest extends $dara.Model {
   externalOrderNo?: string;
   /**
    * @remarks
+   * The guests grouped by room.
+   * 
    * This parameter is required.
    */
   guests?: GlobalHotelCreateAndPayRequestGuests[][];
   /**
    * @remarks
+   * The offer ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -150,6 +179,8 @@ export class GlobalHotelCreateAndPayRequest extends $dara.Model {
   itemOfferId?: string;
   /**
    * @remarks
+   * The number of rooms.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -157,6 +188,9 @@ export class GlobalHotelCreateAndPayRequest extends $dara.Model {
    */
   roomCount?: number;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

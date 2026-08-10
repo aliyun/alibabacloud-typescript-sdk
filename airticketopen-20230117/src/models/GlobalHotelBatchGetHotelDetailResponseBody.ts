@@ -4,33 +4,42 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsFacilities extends $dara.Model {
   /**
+   * @remarks
+   * The facility description.
+   * 
    * @example
-   * 室外恒温泳池
+   * Outdoor heated swimming pool
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the facility.
+   * 
    * @example
-   * F001
-   */
-  facilityId?: string;
-  /**
-   * @example
-   * 游泳池
+   * Swimming pool
    */
   name?: string;
+  /**
+   * @remarks
+   * The type of the facility.
+   * 
+   * @example
+   * parkade
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
-      facilityId: 'FacilityId',
       name: 'Name',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
-      facilityId: 'string',
       name: 'string',
+      type: 'string',
     };
   }
 
@@ -45,41 +54,65 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsFacilities exte
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPictures extends $dara.Model {
   /**
+   * @remarks
+   * The description of the picture.
+   * 
    * @example
-   * 酒店大堂
+   * Hotel lobby
    */
   description?: string;
   /**
+   * @remarks
+   * The first-level category code.
+   * 
    * @example
    * HOTEL
    */
   firstCategoryCode?: string;
   /**
+   * @remarks
+   * The first-level category name.
+   * 
    * @example
-   * 酒店
+   * Hotel
    */
   firstCategoryName?: string;
   /**
+   * @remarks
+   * Indicates whether the picture is the cover image.
+   * 
    * @example
    * true
    */
   isHeadPic?: boolean;
   /**
+   * @remarks
+   * The picture ID. The URL takes precedence.
+   * 
    * @example
    * PIC001
    */
   pictureId?: string;
   /**
+   * @remarks
+   * The second-level category code.
+   * 
    * @example
    * LOBBY
    */
   secondCategoryCode?: string;
   /**
+   * @remarks
+   * The second-level category name.
+   * 
    * @example
-   * 大堂
+   * Lobby
    */
   secondCategoryName?: string;
   /**
+   * @remarks
+   * The URL of the picture.
+   * 
    * @example
    * https://img.example.com/1.jpg
    */
@@ -120,18 +153,31 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPictures extend
 }
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPoliciesItems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of child items.
+   */
   children?: any[];
   /**
+   * @remarks
+   * The item name.
+   * 
    * @example
-   * 入住时间
+   * Check-in time
    */
   itemName?: string;
   /**
+   * @remarks
+   * The item type ID.
+   * 
    * @example
    * CHECK_IN_TIME
    */
   itemTypeId?: string;
   /**
+   * @remarks
+   * The text value.
+   * 
    * @example
    * 14:00
    */
@@ -168,15 +214,25 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPoliciesItems e
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPolicies extends $dara.Model {
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
-   * 入住政策
+   * Check-in policy
    */
   groupName?: string;
   /**
+   * @remarks
+   * The group type ID.
+   * 
    * @example
    * CHECK_IN
    */
   groupTypeId?: string;
+  /**
+   * @remarks
+   * The list of policy items.
+   */
   items?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPoliciesItems[];
   static names(): { [key: string]: string } {
     return {
@@ -208,18 +264,27 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPolicies extend
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedType extends $dara.Model {
   /**
+   * @remarks
+   * The number of beds.
+   * 
    * @example
    * 1
    */
   bedCount?: number;
   /**
+   * @remarks
+   * The bed width in meters.
+   * 
    * @example
    * 1.8
    */
   bedSize?: string;
   /**
+   * @remarks
+   * The bed type name.
+   * 
    * @example
-   * 大床
+   * King bed
    */
   bedType?: string;
   static names(): { [key: string]: string } {
@@ -249,41 +314,65 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedTyp
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesPictures extends $dara.Model {
   /**
+   * @remarks
+   * The description of the picture.
+   * 
    * @example
-   * 酒店大堂
+   * Hotel lobby
    */
   description?: string;
   /**
+   * @remarks
+   * The first-level category code.
+   * 
    * @example
    * HOTEL
    */
   firstCategoryCode?: string;
   /**
+   * @remarks
+   * The first-level category name.
+   * 
    * @example
-   * 酒店
+   * Hotel
    */
   firstCategoryName?: string;
   /**
+   * @remarks
+   * Indicates whether the picture is the cover image.
+   * 
    * @example
    * true
    */
   isHeadPic?: boolean;
   /**
+   * @remarks
+   * The picture ID. The URL takes precedence.
+   * 
    * @example
    * PIC001
    */
   pictureId?: string;
   /**
+   * @remarks
+   * The second-level category code.
+   * 
    * @example
    * LOBBY
    */
   secondCategoryCode?: string;
   /**
+   * @remarks
+   * The second-level category name.
+   * 
    * @example
-   * 大堂
+   * Lobby
    */
   secondCategoryName?: string;
   /**
+   * @remarks
+   * The URL of the picture.
+   * 
    * @example
    * https://img.example.com/1.jpg
    */
@@ -324,39 +413,68 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesPictur
 }
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The list of bed types.
+   */
   bedType?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesBedType[];
+  /**
+   * @remarks
+   * The list of room type pictures.
+   */
   pictures?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypesPictures[];
   /**
+   * @remarks
+   * The room type name.
+   * 
    * @example
    * Deluxe King Room
    */
   roomName?: string;
   /**
+   * @remarks
+   * The Chinese room type name.
+   * 
    * @example
    * 豪华大床房
    */
   roomNameCn?: string;
   /**
+   * @remarks
+   * The room size.
+   * 
    * @example
    * 35.0
    */
   roomSize?: number;
   /**
+   * @remarks
+   * The size unit (SQM/SQFT).
+   * 
    * @example
    * SQM
    */
   roomSizeUnit?: string;
   /**
+   * @remarks
+   * The platform standard room type ID.
+   * 
    * @example
    * R001
    */
   standardRoomId?: string;
   /**
+   * @remarks
+   * The window type.
+   * 
    * @example
    * WINDOW
    */
   windowType?: string;
   /**
+   * @remarks
+   * The defective window type code.
+   * 
    * @example
    * SMALL_WINDOW
    */
@@ -406,110 +524,189 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypes exten
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotels extends $dara.Model {
   /**
+   * @remarks
+   * The address of the hotel.
+   * 
    * @example
    * No.33 East Chang An Avenue
    */
   address?: string;
   /**
+   * @remarks
+   * The default check-in time.
+   * 
    * @example
    * 14:00
    */
   checkInTime?: string;
   /**
+   * @remarks
+   * The default check-out time.
+   * 
    * @example
    * 12:00
    */
   checkOutTime?: string;
   /**
+   * @remarks
+   * The city name.
+   * 
    * @example
    * Beijing
    */
   cityName?: string;
   /**
+   * @remarks
+   * The country name.
+   * 
    * @example
    * China
    */
   countryName?: string;
   /**
+   * @remarks
+   * The description of the hotel.
+   * 
    * @example
-   * 五星级豪华酒店
+   * Five-star luxury hotel
    */
   description?: string;
   /**
+   * @remarks
+   * The error code for the individual hotel.
+   * 
    * @example
    * HOTEL_NOT_FOUND
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message for the individual hotel.
+   * 
    * @example
-   * 酒店不存在
+   * Hotel does not exist
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The list of facilities.
+   */
   facilities?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsFacilities[];
   /**
+   * @remarks
+   * The hotel name.
+   * 
    * @example
    * Beijing Hotel
    */
   hotelName?: string;
   /**
+   * @remarks
+   * The Chinese name of the hotel.
+   * 
    * @example
    * 北京饭店
    */
   hotelNameCn?: string;
   /**
+   * @remarks
+   * The type of the hotel. Valid values: LUXURY, DELUXE, and COMFORT.
+   * 
    * @example
    * LUXURY
    */
   hotelType?: string;
   /**
+   * @remarks
+   * The latitude of the hotel.
+   * 
    * @example
    * 39.9042
    */
   latitude?: string;
   /**
+   * @remarks
+   * The longitude of the hotel.
+   * 
    * @example
    * 116.4074
    */
   longitude?: string;
   /**
+   * @remarks
+   * The year the hotel opened.
+   * 
    * @example
    * 2018
    */
   openingTime?: number;
+  /**
+   * @remarks
+   * The list of pictures.
+   */
   pictures?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPictures[];
+  /**
+   * @remarks
+   * The hotel policy information.
+   */
   policies?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsPolicies[];
   /**
+   * @remarks
+   * The source of the latitude and longitude coordinates.
+   * 
    * @example
    * GOOGLE
    */
   positionType?: string;
   /**
+   * @remarks
+   * The year the hotel was last renovated.
+   * 
    * @example
    * 2021
    */
   renovationTime?: number;
+  /**
+   * @remarks
+   * The list of room types.
+   */
   roomTypes?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotelsRoomTypes[];
   /**
+   * @remarks
+   * The standard hotel ID on the platform.
+   * 
    * @example
    * H001
    */
   standardHotelId?: string;
   /**
+   * @remarks
+   * The star rating of the hotel.
+   * 
    * @example
    * 5
    */
   star?: string;
   /**
+   * @remarks
+   * The status of the hotel. Valid values: ONLINE and OFFLINE.
+   * 
    * @example
    * ONLINE
    */
   status?: string;
   /**
+   * @remarks
+   * The phone number of the hotel.
+   * 
    * @example
    * +86-10-65137766
    */
   tel?: string;
   /**
+   * @remarks
+   * The time zone of the hotel in IANA ID format.
+   * 
    * @example
    * Asia/Shanghai
    */
@@ -596,6 +793,10 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyDataHotels extends $dara.
 }
 
 export class GlobalHotelBatchGetHotelDetailResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of hotel details.
+   */
   hotels?: GlobalHotelBatchGetHotelDetailResponseBodyDataHotels[];
   static names(): { [key: string]: string } {
     return {
@@ -622,28 +823,47 @@ export class GlobalHotelBatchGetHotelDetailResponseBodyData extends $dara.Model 
 }
 
 export class GlobalHotelBatchGetHotelDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelBatchGetHotelDetailResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CityCodeRequired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 城市编码不能为空
+   * City code cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * traceId
+   * 
    * @example
    * traceId
    */

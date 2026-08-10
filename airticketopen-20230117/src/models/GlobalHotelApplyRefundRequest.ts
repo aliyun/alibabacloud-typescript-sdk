@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelApplyRefundRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelApplyRefundRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The sales order number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class GlobalHotelApplyRefundRequest extends $dara.Model {
    */
   orderNo?: string;
   /**
+   * @remarks
+   * The refund reason.
+   * 
    * @example
    * GUEST_REQUEST
    */
   refundReason?: string;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelPayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CreateOrderFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建订单失败
+   * Failed to create order
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */

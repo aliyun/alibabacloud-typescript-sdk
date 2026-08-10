@@ -45,6 +45,10 @@ export class GlobalHotelValidatePriceRequest extends $dara.Model {
    * 1
    */
   roomCount?: number;
+  /**
+   * @example
+   * TracerId
+   */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {

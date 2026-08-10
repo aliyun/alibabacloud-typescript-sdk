@@ -4,8 +4,15 @@ import { DataHotelsValue } from "./DataHotelsValue";
 
 
 export class GlobalHotelQueryAvailabilityResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The room type offers grouped by standard hotel ID.
+   */
   hotels?: { [key: string]: DataHotelsValue[] };
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
@@ -37,28 +44,47 @@ export class GlobalHotelQueryAvailabilityResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelQueryAvailabilityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelQueryAvailabilityResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CityCodeRequired
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 城市编码不能为空
+   * City code cannot be empty
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TraceId
+   * 
    * @example
    * TraceId
    */
