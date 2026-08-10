@@ -2752,7 +2752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+   * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2830,6 +2830,10 @@ export default class Client extends OpenApi {
       body["TargetFacePictureUrl"] = request.targetFacePictureUrl;
     }
 
+    if (!$dara.isNull(request.updateFaceIfUserExists)) {
+      body["UpdateFaceIfUserExists"] = request.updateFaceIfUserExists;
+    }
+
     if (!$dara.isNull(request.verifyModel)) {
       body["VerifyModel"] = request.verifyModel;
     }
@@ -2853,7 +2857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+   * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @returns FaceDuplicationCheckIntlResponse
@@ -3166,7 +3170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
    * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3230,6 +3234,10 @@ export default class Client extends OpenApi {
       query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
     }
 
+    if (!$dara.isNull(request.updateFaceIfUserExists)) {
+      query["UpdateFaceIfUserExists"] = request.updateFaceIfUserExists;
+    }
+
     if (!$dara.isNull(request.verifyModel)) {
       query["VerifyModel"] = request.verifyModel;
     }
@@ -3262,7 +3270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
    * 
    * @remarks
    * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3750,7 +3758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication session.
+   * Initializes an authentication process.
    * 
    * @param tmpReq - InitializeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,6 +3993,10 @@ export default class Client extends OpenApi {
       query["TemplateType"] = request.templateType;
     }
 
+    if (!$dara.isNull(request.updateFaceIfUserExists)) {
+      query["UpdateFaceIfUserExists"] = request.updateFaceIfUserExists;
+    }
+
     if (!$dara.isNull(request.useNFC)) {
       query["UseNFC"] = request.useNFC;
     }
@@ -4017,7 +4029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication session.
+   * Initializes an authentication process.
    * 
    * @param request - InitializeRequest
    * @returns InitializeResponse
@@ -4265,6 +4277,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.updateFaceIfUserExists)) {
+      query["UpdateFaceIfUserExists"] = request.updateFaceIfUserExists;
     }
 
     if (!$dara.isNull(request.useNFC)) {

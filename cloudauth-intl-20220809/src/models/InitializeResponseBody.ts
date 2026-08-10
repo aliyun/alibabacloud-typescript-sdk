@@ -13,9 +13,7 @@ export class InitializeResponseBodyResult extends $dara.Model {
   clientCfg?: string;
   /**
    * @remarks
-   * The authentication standard encryption protocol.
-   * 
-   * > This field is required when integrating H5 web pages using iframe embedding.
+   * The standard encryption protocol for authentication.
    * 
    * @example
    * hksb7ba1b28130d24e015d*********
@@ -67,7 +65,7 @@ export class InitializeResponseBodyResult extends $dara.Model {
 export class InitializeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -75,7 +73,7 @@ export class InitializeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -91,7 +89,7 @@ export class InitializeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response result.
+   * The returned result.
    */
   result?: InitializeResponseBodyResult;
   static names(): { [key: string]: string } {

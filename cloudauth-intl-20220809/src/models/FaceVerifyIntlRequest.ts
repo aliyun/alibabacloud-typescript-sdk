@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class FaceVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * Required when ProductCode is set to FACE_IDU_MIN.
+   * Required when ProductCode=FACE_IDU_MIN.
    * 
    * Specifies whether to automatically register the face to the specified face library when no duplicate face is found during retrieval. Valid values:
-   * - 0: Automatic registration.
-   * - 1: No registration. This is the default value.
+   * - 0: automatic registration.
+   * - 1: no registration (default).
    * 
    * @example
    * 1
@@ -18,9 +18,9 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   faceAttributeCheck?: string;
   /**
    * @remarks
-   * Required when ProductCode is set to FACE_IDU_MIN.
+   * Required when ProductCode=FACE_IDU_MIN.
    * 
-   * The face library codes created by the customer through the console. A maximum of 10 face libraries can be queried at the same time. Separate multiple face library codes with commas (,).
+   * The face library codes created by the customer through the console. A maximum of 10 face libraries can be queried simultaneously. Separate multiple face library codes with commas.
    * 
    * @example
    * 1232344，23444
@@ -29,8 +29,8 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to check the quality of the face image. Valid values:
-   * - Y: Enabled.
-   * - N: Disabled. This is the default value.
+   * - Y: enabled.
+   * - N: disabled (default).
    * 
    * @example
    * Y
@@ -38,9 +38,9 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * Required when ProductCode is set to FACE_IDU_MIN.
+   * Required when ProductCode=FACE_IDU_MIN.
    * 
-   * The code of the face library for registration.
+   * The face library for registration.
    * 
    * @example
    * 0e0c34a77f
@@ -48,7 +48,7 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   faceRegisterGroupCode?: string;
   /**
    * @remarks
-   * A custom unique business identifier used for subsequent troubleshooting. The value supports a combination of letters and digits up to 32 characters in length. Make sure the value is unique.
+   * A custom unique business identifier used for subsequent troubleshooting. The value supports a combination of letters and numbers up to 32 characters in length. Ensure that the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c35****
@@ -56,7 +56,7 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, such as by hashing the value.
+   * A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
    * 
    * @example
    * 123456789
@@ -74,9 +74,11 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Required when ProductCode is set to FACE_IDU_MIN.
+   * Required when ProductCode=FACE_IDU_MIN.
    * 
-   * Specifies the number of faces to return when multiple faces exist above the matching threshold. Default value: 1. Maximum value: 5.
+   * Specifies the number of faces to return when multiple faces exist above the matching threshold. You can customize the return quantity through this parameter.
+   * - Default value: 1.
+   * - Maximum value: 5.
    * 
    * @example
    * 1
@@ -86,10 +88,10 @@ export class FaceVerifyIntlRequest extends $dara.Model {
    * @remarks
    * The Base64-encoded portrait image.
    * 
-   * > **Note**
-   * >
-   * > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-   * > - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
+   * Note
+   * 
+   * - If you choose this method to pass in the image, check the image size and do not pass in an excessively large image.
+   * - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
    * 
    * @example
    * base64
@@ -115,10 +117,10 @@ export class FaceVerifyIntlRequest extends $dara.Model {
    * @remarks
    * The Base64-encoded reference face image.
    * 
-   * > **Note**
-   * >
-   * > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-   * > - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
+   * Note
+   * 
+   * - If you choose this method to pass in the image, check the image size and do not pass in an excessively large image.
+   * - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
    * 
    * @example
    * base64
@@ -142,19 +144,26 @@ export class FaceVerifyIntlRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   /**
    * @remarks
-   * Required when ProductCode is set to FACE_IDU_MIN. The verification type. Valid values:
-   * 
-   * - 0: retrieve pattern
-   * > - Feature: Pass in a face library and a user face image (sourceFacePicture). The system automatically retrieves the face library to check whether the specified face image (sourceFacePicture) already exists. Passive liveness detection can be enabled for the face image (sourceFacePicture).
+   * Specifies whether to overwrite the existing face with the current face during automatic registration if MerchantUserId already exists. Valid values:
+   * - Y: overwrite.
+   * - N: do not overwrite and return that the UserId already exists.
+   */
+  updateFaceIfUserExists?: string;
+  /**
+   * @remarks
+   * Required when ProductCode=FACE_IDU_MIN.
+   * The verification type. Valid values:
+   * - 0: retrieval pattern.
+   * > - Feature: Pass in a face library and a user face image (sourceFacePicture). The system automatically retrieves whether the specified face image (sourceFacePicture) already exists in the face library. Passive liveness detection can be enabled for the face image (sourceFacePicture).
    * > - Recommended scenario: Real-person create an account where duplicate registration is not allowed.
    * 
-   * - 1 (default): authenticate pattern
+   * - 1 (default): authentication pattern.
    * > - Feature: Pass in a specified face image (sourceFacePicture) and a reference face image (TargetFacePicture). The system automatically authenticates whether the faces match. Passive liveness detection can be enabled for the specified face image (sourceFacePicture).
    * > - Recommended scenario: Authenticating the identity of the user when modifying logon credentials or account information.
    * 
-   * - 2: comprehensive pattern
-   * > - Feature: Pass in a face library, a specified face image (sourceFacePicture), and a reference face image (TargetFacePicture). The system automatically retrieves the face library to check whether the specified face image (sourceFacePicture) exists, authenticates whether it matches the reference face, and supports enabling passive liveness detection for the specified face image (sourceFacePicture).
-   * > - Recommended scenario: Authenticating that the user is a new user and the operation is performed by the user in person.
+   * - 2: comprehensive pattern.
+   * > - Feature: Pass in a face library, a specified face image (sourceFacePicture), and a reference face image (TargetFacePicture). The system automatically retrieves whether the specified face image (sourceFacePicture) exists in the face library, authenticates whether it matches the reference face, and supports enabling passive liveness detection for the specified face image (sourceFacePicture).
+   * > - Recommended scenario: Authenticating that the user is new and is performing the operation in person.
    * 
    * @example
    * 0
@@ -177,6 +186,7 @@ export class FaceVerifyIntlRequest extends $dara.Model {
       targetFacePicture: 'TargetFacePicture',
       targetFacePictureFile: 'TargetFacePictureFile',
       targetFacePictureUrl: 'TargetFacePictureUrl',
+      updateFaceIfUserExists: 'UpdateFaceIfUserExists',
       verifyModel: 'VerifyModel',
     };
   }
@@ -198,6 +208,7 @@ export class FaceVerifyIntlRequest extends $dara.Model {
       targetFacePicture: 'string',
       targetFacePictureFile: 'string',
       targetFacePictureUrl: 'string',
+      updateFaceIfUserExists: 'string',
       verifyModel: 'string',
     };
   }

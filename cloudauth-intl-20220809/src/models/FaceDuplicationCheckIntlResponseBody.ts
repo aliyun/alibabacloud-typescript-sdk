@@ -112,7 +112,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The estimated age of the face. This value may not be returned if the prediction fails.
+   * The predicted reference age of the face. The prediction may fail and the value may not be returned.
    * 
    * @example
    * 30
@@ -120,11 +120,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAge?: string;
   /**
    * @remarks
-   * Indicates whether the captured face involves a liveness attack. Valid values:
-   * - Y: Attack detected.
-   * - N: No attack detected.
-   * 
-   * This field is returned only when passive liveness detection is enabled.
+   * Indicates whether the captured face involves a liveness attack. Valid values: Y (attack detected) and N (no attack detected). This field is returned only when passive liveness detection is enabled.
    * 
    * @example
    * N
@@ -132,7 +128,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAttack?: string;
   /**
    * @remarks
-   * The probability of a passive liveness detection attack on the face. The value ranges from 0 to 100. This field is returned only when passive liveness detection is enabled.
+   * The probability of a liveness attack on the face. The value ranges from 0 to 100. This field is returned only when passive liveness detection is enabled.
    * 
    * @example
    * 99
@@ -140,7 +136,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAttackScore?: string;
   /**
    * @remarks
-   * The 1:1 face comparison score returned when the verification mode is 1 or 2. The value ranges from 0 to 100.
+   * The 1:1 comparison score returned when the verification mode is 1 or 2. The score ranges from 0 to 100.
    * 
    * @example
    * 98
@@ -148,9 +144,9 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceComparisonScore?: string;
   /**
    * @remarks
-   * The predicted gender of the face. This value may not be returned if the prediction fails. Valid values:
-   * - M: male
-   * - F: female
+   * The predicted gender of the face image. The prediction may fail and the value may not be returned. Valid values:
+   * - M: male.
+   * - F: female.
    * 
    * @example
    * M
@@ -159,8 +155,8 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The final verification result. Valid values:
-   * - Y: Passed.
-   * - N: Not passed.
+   * - Y: passed.
+   * - N: not passed.
    * 
    * @example
    * Y
@@ -168,7 +164,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   facePassed?: string;
   /**
    * @remarks
-   * The FACEID returned only when automatic registration is enabled and the face is successfully registered.
+   * The corresponding FACEID returned only when the customer has enabled automatic registration and the face is successfully registered.
    * 
    * @example
    * 9e792ec84c8f0ca592a
@@ -177,8 +173,8 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The face registration result. Valid values: 
-   * - 0: Failed. 
-   * - 1: Succeeded.
+   * - 0: failed. 
+   * - 1: succeeded.
    * 
    * @example
    * 0
@@ -186,7 +182,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceRegistrationResult?: number;
   /**
    * @remarks
-   * The verification result description. For more information, see the ResultObject.SubCode error code description.
+   * The verification result description. For more information, refer to the ResultObject.SubCode error code description.
    * 
    * @example
    * 200
@@ -273,7 +269,7 @@ export class FaceDuplicationCheckIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: FaceDuplicationCheckIntlResponseBodyResult;
   static names(): { [key: string]: string } {
