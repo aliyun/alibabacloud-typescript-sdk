@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataObjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the API.
+   * The parameter used for canary release evaluation.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   APIVersion?: number;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The OSS bucket filter.
    * 
    * @example
    * bucketName
@@ -21,15 +21,17 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1.
+   * The page number in a paged query. Default value: 1.
    * 
    * @example
    * 1
    */
   currentPage?: number;
+  cursor?: string;
+  cursorDirection?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name filter.
    * 
    * @example
    * dataBaseName
@@ -37,7 +39,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The ID of the data domain to which the data asset belongs.
+   * The data domain ID to which the data asset belongs.
    * 
    * @example
    * 2
@@ -46,7 +48,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * 2
@@ -54,7 +56,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   featureType?: number;
   /**
    * @remarks
-   * The code of the file category.
+   * The file category code.
    * 
    * @example
    * 1
@@ -62,9 +64,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   fileCategoryCode?: number;
   /**
    * @remarks
-   * The type of the OSS file.
-   * 
-   * > This parameter is valid only for querying data assets of the OSS type. You can call the [DescribeDocTypes](https://help.aliyun.com/document_detail/2536492.html) operation to obtain the supported OSS file types. Use the value of the `Code` parameter in the response.
+   * The OSS file type that can be detected.
    * 
    * @example
    * 100001
@@ -72,7 +72,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   fileType?: number;
   /**
    * @remarks
-   * The keyword of the instance ID.
+   * The keyword of the asset instance ID.
    * 
    * @example
    * 8vb54hn2g9j191ddz
@@ -80,10 +80,9 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * The language of the request and response. Default value: **zh_cn**. Valid values:
    * 
    * - **zh_cn**: Chinese.
-   * 
    * - **en_us**: English.
    * 
    * @example
@@ -92,7 +91,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The SLS Logstore filter.
    * 
    * @example
    * logstore
@@ -100,7 +99,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   logStore?: string;
   /**
    * @remarks
-   * Specifies whether to query data at the Logstore level. The Simple Log Service data catalog has two layers. Set this parameter to 1 to query data at the Logstore level.
+   * Specifies whether to query data at the Logstore dimension. The SLS page in the data catalog has two layers, and this parameter determines whether the query targets Logstore-level data.
    * 
    * @example
    * 1
@@ -108,7 +107,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   logStoreFlag?: number;
   /**
    * @remarks
-   * The ID of the member.
+   * The member accounts ID.
    * 
    * @example
    * **********8103
@@ -116,9 +115,8 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The model ID of the industry-specific rule template. You can specify multiple IDs. Separate them with commas (,).
-   * 
-   * > You can call the [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) operation to obtain the model ID of the industry-specific rule template.
+   * The model IDs of the industry template. Separate multiple IDs with commas.
+   * > You can call [DescribeTemplateAllRules](https://help.aliyun.com/document_detail/2536491.html) to obtain the model IDs of the industry template.
    * 
    * @example
    * 101
@@ -126,13 +124,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   modelIds?: string;
   /**
    * @remarks
-   * The data labels to be queried. You can specify multiple data labels. Separate them with commas (,). Valid values:
-   * 
-   * - **101**: personal sensitive information
-   * 
-   * - **102**: personal information
-   * 
-   * - **107**: general information
+   * The data tags to query, separated by commas. Valid values:
    * 
    * @example
    * 101,102
@@ -140,7 +132,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   modelTagIds?: string;
   /**
    * @remarks
-   * The number of data assets to return on each page. Default value: **10**.
+   * The maximum number of data asset instances to return per page in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -148,7 +140,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the parent asset categories to be queried. You can specify multiple IDs. Separate them with commas (,).
+   * The parent category IDs of the templates to query, separated by commas.
    * 
    * @example
    * 234,236,238
@@ -156,7 +148,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   parentCategoryIds?: string;
   /**
    * @remarks
-   * The path of the file.
+   * The file path filter.
    * 
    * @example
    * road
@@ -164,7 +156,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The ID of the product.
+   * The product of the data catalog.
    * 
    * @example
    * 5
@@ -172,33 +164,21 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The IDs of the products to which the data assets to be queried belong. You can specify multiple product IDs. Separate them with commas (,). We recommend that you specify this parameter. Valid values:
-   * 
+   * We recommend that you specify this parameter. The IDs of the products to query. Separate multiple IDs with commas. Valid values:
    * - **1**: MaxCompute
-   * 
    * - **2**: OSS
-   * 
    * - **3**: ADB-MYSQL
-   * 
    * - **4**: TableStore
-   * 
    * - **5**: RDS
-   * 
    * - **6**: SELF_DB
-   * 
    * - **7**: PolarDB-X
-   * 
    * - **8**: PolarDB
-   * 
    * - **9**: ADB-PG
-   * 
    * - **10**: OceanBase
-   * 
    * - **11**: MongoDB
-   * 
    * - **25**: Redis
    * 
-   * > If you want to query data assets that belong to OSS, you cannot query data assets of other products. By default, data assets of products other than OSS are queried.
+   * > OSS is mutually exclusive with other products. If OSS is included in the query, no other products can be specified. By default, non-OSS products are queried.
    * 
    * @example
    * 1,5
@@ -206,7 +186,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   productIds?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The SLS project filter.
    * 
    * @example
    * project
@@ -214,7 +194,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The keyword of the data asset to be queried.
+   * The keyword of the data object to query.
    * 
    * @example
    * t_sddp_selfmysql_pers0
@@ -222,7 +202,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   queryName?: string;
   /**
    * @remarks
-   * The region in which the data asset catalog resides.
+   * The region of the data catalog display page.
    * 
    * @example
    * cn-zhangjiakou
@@ -230,7 +210,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the sensitivity levels. You can specify multiple sensitivity level IDs. Separate them with commas (,).
+   * The risk level filter.
    * 
    * @example
    * 1,2,3
@@ -238,15 +218,11 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   riskLevelIdList?: string;
   /**
    * @remarks
-   * The sensitivity level of the data asset. You can specify multiple sensitivity levels. Separate them with commas (,).
-   * 
-   * - **2**: S1, low sensitivity level
-   * 
-   * - **3**: S2, medium sensitivity level
-   * 
-   * - **4**: S3, high sensitivity level
-   * 
-   * - **5**: S4, highest sensitivity level
+   * The risk levels of the data assets that you want to query. Separate multiple risk levels with commas (,). Valid values:
+   * - **2**: S1, low risk level.
+   * - **3**: S2, medium risk level.
+   * - **4**: S3, high risk level.
+   * - **5**: S4, highest risk level.
    * 
    * @example
    * 2
@@ -254,7 +230,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   riskLevels?: string;
   /**
    * @remarks
-   * The IDs of the rules. You can specify multiple rule IDs. Separate them with commas (,).
+   * The rule filter.
    * 
    * @example
    * 1,2,3
@@ -262,21 +238,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   ruleIds?: string;
   /**
    * @remarks
-   * The region where the data asset resides. Valid values:
-   * 
-   * - **cn-beijing**: China (Beijing)
-   * 
-   * - **cn-zhangjiakou**: China (Zhangjiakou)
-   * 
-   * - **cn-huhehaote**: China (Hohhot)
-   * 
-   * - **cn-hangzhou**: China (Hangzhou)
-   * 
-   * - **cn-shanghai**: China (Shanghai)
-   * 
-   * - **cn-shenzhen**: China (Shenzhen)
-   * 
-   * - **cn-hongkong**: China (Hong Kong)
+   * The region where the asset resides. Valid values:
    * 
    * @example
    * cn-hangzhou
@@ -284,7 +246,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   serviceRegionId?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The node name filter.
    * 
    * @example
    * TableName
@@ -292,7 +254,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID filter.
    * 
    * @example
    * 1
@@ -300,9 +262,7 @@ export class DescribeDataObjectsRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The ID of the industry-specific rule template.
-   * 
-   * > You can call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the ID of the industry-specific rule template.
+   * The industry template ID.
    * 
    * This parameter is required.
    * 
@@ -315,6 +275,8 @@ export class DescribeDataObjectsRequest extends $dara.Model {
       APIVersion: 'APIVersion',
       bucket: 'Bucket',
       currentPage: 'CurrentPage',
+      cursor: 'Cursor',
+      cursorDirection: 'CursorDirection',
       dbName: 'DbName',
       domainId: 'DomainId',
       engineType: 'EngineType',
@@ -351,6 +313,8 @@ export class DescribeDataObjectsRequest extends $dara.Model {
       APIVersion: 'number',
       bucket: 'string',
       currentPage: 'number',
+      cursor: 'string',
+      cursorDirection: 'string',
       dbName: 'string',
       domainId: 'number',
       engineType: 'string',
