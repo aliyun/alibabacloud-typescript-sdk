@@ -26,20 +26,20 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "gpdb.aliyuncs.com",
       'cn-qingdao': "gpdb.aliyuncs.com",
       'cn-north-2-gov-1': "gpdb.aliyuncs.com",
-      'me-east-1': "gpdb.me-east-1.aliyuncs.com",
-      'me-central-1': "gpdb.me-central-1.aliyuncs.com",
-      'eu-west-1': "gpdb.eu-west-1.aliyuncs.com",
-      'eu-central-1': "gpdb.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "gpdb.cn-zhangjiakou.aliyuncs.com",
       'cn-wulanchabu': "gpdb.cn-wulanchabu.aliyuncs.com",
-      'cn-huhehaote': "gpdb.cn-huhehaote.aliyuncs.com",
-      'cn-chengdu': "gpdb.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "gpdb.cn-beijing-finance-1.aliyuncs.com",
-      'ap-southeast-7': "gpdb.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-5': "gpdb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "gpdb.ap-southeast-3.aliyuncs.com",
+      'cn-zhangjiakou': "gpdb.cn-zhangjiakou.aliyuncs.com",
       'ap-northeast-2': "gpdb.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "gpdb.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "gpdb.cn-chengdu.aliyuncs.com",
+      'ap-southeast-3': "gpdb.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "gpdb.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "gpdb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-7': "gpdb.ap-southeast-7.aliyuncs.com",
+      'eu-west-1': "gpdb.eu-west-1.aliyuncs.com",
+      'eu-central-1': "gpdb.eu-central-1.aliyuncs.com",
+      'me-east-1': "gpdb.me-east-1.aliyuncs.com",
+      'me-central-1': "gpdb.me-central-1.aliyuncs.com",
+      'cn-beijing-finance-1': "gpdb.cn-beijing-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("gpdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -12242,7 +12242,7 @@ export default class Client extends OpenApi {
    * Queries the branch list of a Supabase project.
    * 
    * @remarks
-   * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+   * This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
    * 
    * @param request - ListBranchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12308,7 +12308,7 @@ export default class Client extends OpenApi {
    * Queries the branch list of a Supabase project.
    * 
    * @remarks
-   * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+   * This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
    * 
    * @param request - ListBranchesRequest
    * @returns ListBranchesResponse

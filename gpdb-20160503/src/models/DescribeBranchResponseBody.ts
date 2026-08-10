@@ -45,7 +45,7 @@ export class DescribeBranchResponseBodyBranchTags extends $dara.Model {
 export class DescribeBranchResponseBodyBranch extends $dara.Model {
   /**
    * @remarks
-   * The branch ID, which uniquely identifies a Supabase branch.
+   * The branch ID that uniquely identifies a Supabase branch.
    * 
    * @example
    * br-xxxx
@@ -113,7 +113,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The parent branch ID, which specifies the parent branch for a new branch or a query condition.
+   * The parent branch ID, which specifies the parent branch of a new branch or a query condition.
    * 
    * @example
    * br-main
@@ -129,7 +129,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The LSN of the parent branch at the time this branch was created.
+   * The Log Sequence Number (LSN) of the parent branch at the time this branch was created.
    * 
    * @example
    * 0/3522648
@@ -139,7 +139,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
    * @remarks
    * The data synchronization point in time selected from the parent branch when this branch was created, in ISO 8601 UTC format.
    * 
-   * Note:
+   * Description:
    * - For child branches, this value indicates the point in time of the parent branch selected during creation.
    * - If no parent branch exists, the value 1970-01-01T00:00:00.000Z is returned.
    * 
@@ -149,7 +149,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The Supabase project ID associated with the primary branch.
+   * The Supabase project ID that corresponds to the primary branch.
    * 
    * @example
    * spb-xxxx
@@ -175,6 +175,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
    * Supabase
    */
   serviceType?: string;
+  spbProjectId?: string;
   /**
    * @remarks
    * The branch status.
@@ -185,7 +186,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The branch tag list.
+   * The list of branch tags.
    */
   tags?: DescribeBranchResponseBodyBranchTags[];
   static names(): { [key: string]: string } {
@@ -205,6 +206,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
       projectId: 'ProjectId',
       protected: 'Protected',
       serviceType: 'ServiceType',
+      spbProjectId: 'SpbProjectId',
       status: 'Status',
       tags: 'Tags',
     };
@@ -227,6 +229,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
       projectId: 'string',
       protected: 'boolean',
       serviceType: 'string',
+      spbProjectId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeBranchResponseBodyBranchTags },
     };

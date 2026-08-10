@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBranchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in this request.
+   * The maximum number of records to return in this query.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListBranchesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
+   * The cursor for paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned in the previous response.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -45,7 +45,7 @@ export class ListBranchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The parent branch ID. This parameter specifies the parent branch for a new branch or a query filter.
+   * The parent branch ID. This parameter specifies the parent branch for a new branch or as a query filter condition.
    * 
    * @example
    * br-main
@@ -69,7 +69,7 @@ export class ListBranchesRequest extends $dara.Model {
   search?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * Valid values:
    * - BranchName: sorts by branch name.
@@ -84,7 +84,7 @@ export class ListBranchesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort order.
+   * The sort direction.
    * 
    * Valid values:
    * - Asc: ascending order.
