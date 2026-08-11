@@ -158,6 +158,7 @@ export class SetPolicyCommandConfigRequest extends $dara.Model {
    * 45
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -173,6 +174,7 @@ export class SetPolicyCommandConfigRequest extends $dara.Model {
       commandConfig: 'CommandConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -182,6 +184,7 @@ export class SetPolicyCommandConfigRequest extends $dara.Model {
       commandConfig: SetPolicyCommandConfigRequestCommandConfig,
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

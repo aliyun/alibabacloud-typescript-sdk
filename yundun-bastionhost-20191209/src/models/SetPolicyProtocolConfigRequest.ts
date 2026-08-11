@@ -374,6 +374,7 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
    * 61
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The protocol control configuration.
@@ -395,6 +396,7 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       protocolConfig: 'ProtocolConfig',
       regionId: 'RegionId',
     };
@@ -404,6 +406,7 @@ export class SetPolicyProtocolConfigRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       protocolConfig: SetPolicyProtocolConfigRequestProtocolConfig,
       regionId: 'string',
     };

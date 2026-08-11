@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host on which you want to delete the user group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host from which you want to delete the user group.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,13 @@ export class DeleteUserGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to delete the user group.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host from which you want to delete the user group.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -28,8 +31,7 @@ export class DeleteUserGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the user group that you want to delete.
-   * 
-   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+   * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -40,6 +42,7 @@ export class DeleteUserGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -48,6 +51,7 @@ export class DeleteUserGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

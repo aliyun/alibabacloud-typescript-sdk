@@ -41,6 +41,7 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
    * bastionhost-cn-rp640dg****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
@@ -56,6 +57,7 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
       credentialType: 'CredentialType',
       hostAccountId: 'HostAccountId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -65,6 +67,7 @@ export class ResetHostAccountCredentialRequest extends $dara.Model {
       credentialType: 'string',
       hostAccountId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

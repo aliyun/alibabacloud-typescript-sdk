@@ -13,7 +13,7 @@ export class CreateHostAccountResponseBody extends $dara.Model {
   hostAccountId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

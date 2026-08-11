@@ -9,8 +9,6 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
    * 
    * > You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1124
    */
@@ -43,6 +41,7 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
    * 10
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -59,6 +58,7 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -69,6 +69,7 @@ export class ListHostAccountsForHostShareKeyRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

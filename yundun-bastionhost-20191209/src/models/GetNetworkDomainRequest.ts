@@ -39,6 +39,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
    * 3
    */
   networkDomainId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
@@ -54,6 +55,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
       checkProxyState: 'CheckProxyState',
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -63,6 +65,7 @@ export class GetNetworkDomainRequest extends $dara.Model {
       checkProxyState: 'string',
       instanceId: 'string',
       networkDomainId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

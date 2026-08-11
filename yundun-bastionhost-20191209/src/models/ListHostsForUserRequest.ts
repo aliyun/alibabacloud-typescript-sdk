@@ -74,6 +74,7 @@ export class ListHostsForUserRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to query the hosts that the user is authorized or not authorized to manage.
@@ -105,6 +106,7 @@ export class ListHostsForUserRequest extends $dara.Model {
       OSType: 'OSType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userId: 'UserId',
     };
@@ -119,6 +121,7 @@ export class ListHostsForUserRequest extends $dara.Model {
       OSType: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userId: 'string',
     };

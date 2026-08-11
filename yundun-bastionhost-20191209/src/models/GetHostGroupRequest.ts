@@ -27,6 +27,7 @@ export class GetHostGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host whose asset group you want to query.
@@ -41,6 +42,7 @@ export class GetHostGroupRequest extends $dara.Model {
     return {
       hostGroupId: 'HostGroupId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetHostGroupRequest extends $dara.Model {
     return {
       hostGroupId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

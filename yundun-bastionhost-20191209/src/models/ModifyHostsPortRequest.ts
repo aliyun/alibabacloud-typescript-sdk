@@ -37,6 +37,7 @@ export class ModifyHostsPortRequest extends $dara.Model {
    * 22
    */
   port?: string;
+  projectId?: number;
   /**
    * @remarks
    * The protocol that is used to connect to the host. Valid values:
@@ -66,6 +67,7 @@ export class ModifyHostsPortRequest extends $dara.Model {
       hostIds: 'HostIds',
       instanceId: 'InstanceId',
       port: 'Port',
+      projectId: 'ProjectId',
       protocolName: 'ProtocolName',
       regionId: 'RegionId',
     };
@@ -76,6 +78,7 @@ export class ModifyHostsPortRequest extends $dara.Model {
       hostIds: 'string',
       instanceId: 'string',
       port: 'string',
+      projectId: 'number',
       protocolName: 'string',
       regionId: 'string',
     };

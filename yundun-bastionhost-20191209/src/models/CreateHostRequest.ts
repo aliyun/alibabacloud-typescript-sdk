@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostRequest extends $dara.Model {
   /**
    * @remarks
-   * The address type of the host. Valid values:
-   * 
-   * - **Public**: a public address
-   * 
-   * - **Private**: a private address
+   * The address type of the host to create. Valid values:
+   * - **Public**: public address.
+   * - **Private**: private network address.
    * 
    * This parameter is required.
    * 
@@ -19,7 +17,7 @@ export class CreateHostRequest extends $dara.Model {
   activeAddressType?: string;
   /**
    * @remarks
-   * The comment for the host. The comment can be up to 500 characters in length.
+   * The description of the host. The description can be up to 500 characters in length.
    * 
    * @example
    * Local Host
@@ -27,7 +25,7 @@ export class CreateHostRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name of the host. The name can be up to 128 characters in length.
+   * The name of the host to create. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -37,9 +35,8 @@ export class CreateHostRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The private address of the host. You can use a domain name or an IP address.
-   * 
-   * > This parameter is required when **ActiveAddressType** is set to **Private**.
+   * The private network address of the host to create. You can specify a domain name or an IP address.
+   * > This parameter is required if **ActiveAddressType** is set to **Private**.
    * 
    * @example
    * 192.168.XX.XX
@@ -47,9 +44,8 @@ export class CreateHostRequest extends $dara.Model {
   hostPrivateAddress?: string;
   /**
    * @remarks
-   * The public address of the host. You can use a domain name or an IP address.
-   * 
-   * > This parameter is required when **ActiveAddressType** is set to **Public**.
+   * The public address of the host to create. You can specify a domain name or an IP address.
+   * > This parameter is required if **ActiveAddressType** is set to **Public**.
    * 
    * @example
    * 172.16.XX.XX
@@ -58,8 +54,7 @@ export class CreateHostRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Bastionhost instance where you want to create the host.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * > You can call [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -77,9 +72,8 @@ export class CreateHostRequest extends $dara.Model {
   instanceMemberId?: number;
   /**
    * @remarks
-   * The region ID of the ECS instance or the host in the dedicated cluster.
-   * 
-   * > This parameter is required when **Source** is set to **Ecs** or **Rds**.
+   * The region ID of the ECS instance or dedicated cluster host.  
+   * > This parameter is required if **Source** is set to **Ecs** or **Rds**.
    * 
    * @example
    * cn-hangzhou
@@ -87,9 +81,8 @@ export class CreateHostRequest extends $dara.Model {
   instanceRegionId?: string;
   /**
    * @remarks
-   * The ID of the network domain to which the host belongs.
-   * 
-   * > Call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html)operation to obtain this parameter.
+   * The ID of the network domain to which the host to create belongs.
+   * > You can call [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) to query the network domain ID.
    * 
    * @example
    * 1
@@ -97,10 +90,8 @@ export class CreateHostRequest extends $dara.Model {
   networkDomainId?: string;
   /**
    * @remarks
-   * The operating system of the host. Valid values:
-   * 
+   * The operating system of the host to create. Valid values:
    * - **Linux**
-   * 
    * - **Windows**
    * 
    * This parameter is required.
@@ -111,9 +102,13 @@ export class CreateHostRequest extends $dara.Model {
   OSType?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the Bastionhost instance where you want to create the host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -121,13 +116,10 @@ export class CreateHostRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The source of the host. Valid values:
-   * 
-   * - **Local**: a local host
-   * 
-   * - **Ecs**: an ECS instance
-   * 
-   * - **Rds**: a host in an ApsaraDB RDS dedicated cluster
+   * The source of the host to create. Valid values:
+   * - **Local**: on-premises host.
+   * - **Ecs**: ECS instance.
+   * - **Rds**: ApsaraDB RDS dedicated cluster host.
    * 
    * This parameter is required.
    * 
@@ -137,9 +129,8 @@ export class CreateHostRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or the host in the dedicated cluster.
-   * 
-   * > This parameter is required when **Source** is set to **Ecs** or **Rds**.
+   * The instance ID of the ECS instance or dedicated cluster host.  
+   * > This parameter is required if **Source** is set to **Ecs** or **Rds**.
    * 
    * @example
    * i-dfabfda
@@ -157,6 +148,7 @@ export class CreateHostRequest extends $dara.Model {
       instanceRegionId: 'InstanceRegionId',
       networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
@@ -175,6 +167,7 @@ export class CreateHostRequest extends $dara.Model {
       instanceRegionId: 'string',
       networkDomainId: 'string',
       OSType: 'string',
+      projectId: 'number',
       regionId: 'string',
       source: 'string',
       sourceInstanceId: 'string',

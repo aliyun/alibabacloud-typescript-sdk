@@ -23,6 +23,7 @@ export class ModifyUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host in which you want to modify the information about the user group.
@@ -57,6 +58,7 @@ export class ModifyUserGroupRequest extends $dara.Model {
     return {
       comment: 'Comment',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
       userGroupName: 'UserGroupName',
@@ -67,6 +69,7 @@ export class ModifyUserGroupRequest extends $dara.Model {
     return {
       comment: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
       userGroupName: 'string',

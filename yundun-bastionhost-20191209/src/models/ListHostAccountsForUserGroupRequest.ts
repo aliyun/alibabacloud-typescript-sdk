@@ -53,6 +53,7 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to query the host accounts to be managed by the specified user group on the specified host.
@@ -82,6 +83,7 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -94,6 +96,7 @@ export class ListHostAccountsForUserGroupRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

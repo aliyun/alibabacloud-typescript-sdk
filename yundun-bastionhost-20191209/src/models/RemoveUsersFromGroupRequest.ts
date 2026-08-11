@@ -15,6 +15,7 @@ export class RemoveUsersFromGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host for which you want to remove users from the user group.
@@ -52,6 +53,7 @@ export class RemoveUsersFromGroupRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
       userIds: 'UserIds',
@@ -61,6 +63,7 @@ export class RemoveUsersFromGroupRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
       userIds: 'string',

@@ -95,6 +95,8 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
    * 5
    */
   networkDomainId?: string;
+  projectId?: string;
+  projectName?: string;
   /**
    * @remarks
    * The source of the database. Valid values:
@@ -131,6 +133,8 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
       databasePublicAddress: 'DatabasePublicAddress',
       databaseType: 'DatabaseType',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
     };
@@ -148,6 +152,8 @@ export class ListDatabasesForUserGroupResponseBodyDatabases extends $dara.Model 
       databasePublicAddress: 'string',
       databaseType: 'string',
       networkDomainId: 'string',
+      projectId: 'string',
+      projectName: 'string',
       source: 'string',
       sourceInstanceId: 'string',
     };

@@ -67,6 +67,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
    * Linux
    */
   OSType?: string;
+  projectName?: string;
   /**
    * @remarks
    * The source of the host.
@@ -108,6 +109,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
       hostPrivateAddress: 'HostPrivateAddress',
       hostPublicAddress: 'HostPublicAddress',
       OSType: 'OSType',
+      projectName: 'ProjectName',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
       sourceInstanceState: 'SourceInstanceState',
@@ -123,6 +125,7 @@ export class ListOperationHostsResponseBodyHosts extends $dara.Model {
       hostPrivateAddress: 'string',
       hostPublicAddress: 'string',
       OSType: 'string',
+      projectName: 'string',
       source: 'string',
       sourceInstanceId: 'string',
       sourceInstanceState: 'string',

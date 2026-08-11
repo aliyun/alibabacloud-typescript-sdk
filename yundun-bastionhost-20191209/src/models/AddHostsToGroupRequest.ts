@@ -6,8 +6,7 @@ export class AddHostsToGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the asset group to which you want to add hosts.
-   * 
-   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+   * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class AddHostsToGroupRequest extends $dara.Model {
   hostGroupId?: string;
   /**
    * @remarks
-   * The IDs of the hosts that you want to add to the asset group. Specify a JSON string. You can specify up to 100 host IDs.
-   * 
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
+   * The IDs of the hosts that you want to add to the asset group. This parameter is a JSON-formatted string. A maximum of 100 host IDs are supported.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query host IDs.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,8 @@ export class AddHostsToGroupRequest extends $dara.Model {
   hostIds?: string;
   /**
    * @remarks
-   * The ID of the bastion host whose asset group you want to add hosts to.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host where the asset group to which you want to add hosts resides.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -41,9 +38,13 @@ export class AddHostsToGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host whose asset group you want to add hosts to.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host instance where the asset group to which you want to add hosts resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -54,6 +55,7 @@ export class AddHostsToGroupRequest extends $dara.Model {
       hostGroupId: 'HostGroupId',
       hostIds: 'HostIds',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -63,6 +65,7 @@ export class AddHostsToGroupRequest extends $dara.Model {
       hostGroupId: 'string',
       hostIds: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

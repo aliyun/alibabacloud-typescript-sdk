@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the control policy. The remarks can be up to 500 characters in length.
+   * The description of the control policy. Maximum length: 500 characters.
    * 
    * @example
    * comment
@@ -13,9 +13,8 @@ export class CreatePolicyRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to create a control policy.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the bastion host instance for which you want to create a control policy.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class CreatePolicyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the control policy. The name can be up to 128 characters in length.
+   * The name of the control policy. Maximum length: 128 characters.
    * 
    * This parameter is required.
    * 
@@ -37,9 +36,8 @@ export class CreatePolicyRequest extends $dara.Model {
    * @remarks
    * The priority of the control policy.
    * 
-   * - Valid values: 1 to 100. The default value is 1, which indicates the highest priority.
-   * 
-   * - You can configure the same priority for different control policies. If multiple control policies have the same priority, the control policy that is created at the latest point in time has the highest priority. If a command control policy and a command approval policy contain the same commands, the commands are prioritized in descending order: reject, allow, and approve. In access control policies, a blacklist has a higher priority than a whitelist.
+   * - Valid values: 1 to 100. Default value: 1, which indicates the policy priority.
+   * - Different control policies can have the same priority. If multiple control policies have the same priority, the most recently created policy has the policy priority. Within a single policy, if the same command is configured in both command control and command approval, the priority from high to low is: reject, allow, and approval.
    * 
    * @example
    * 1
@@ -47,9 +45,13 @@ export class CreatePolicyRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host for which you want to create a control policy.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-shanghai
@@ -61,6 +63,7 @@ export class CreatePolicyRequest extends $dara.Model {
       instanceId: 'InstanceId',
       policyName: 'PolicyName',
       priority: 'Priority',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -71,6 +74,7 @@ export class CreatePolicyRequest extends $dara.Model {
       instanceId: 'string',
       policyName: 'string',
       priority: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

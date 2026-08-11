@@ -40,6 +40,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -66,6 +67,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
       keyword: 'Keyword',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       scheduleType: 'ScheduleType',
     };
@@ -77,6 +79,7 @@ export class ListTodoOpsTaskApprovalsRequest extends $dara.Model {
       keyword: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       scheduleType: 'string',
     };

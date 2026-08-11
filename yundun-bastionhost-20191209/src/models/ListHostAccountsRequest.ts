@@ -63,6 +63,7 @@ export class ListHostAccountsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The protocol of the host account that you want to query.<br> Valid values:
@@ -93,6 +94,7 @@ export class ListHostAccountsRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       protocolName: 'ProtocolName',
       regionId: 'RegionId',
     };
@@ -106,6 +108,7 @@ export class ListHostAccountsRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       protocolName: 'string',
       regionId: 'string',
     };

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatabaseAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database account.
+   * The database account ID.
    * 
    * @example
    * 40

@@ -39,6 +39,7 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -54,6 +55,7 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
       hostAccountIds: 'HostAccountIds',
       hostShareKeyId: 'HostShareKeyId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -63,6 +65,7 @@ export class DetachHostAccountsFromHostShareKeyRequest extends $dara.Model {
       hostAccountIds: 'string',
       hostShareKeyId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

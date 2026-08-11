@@ -61,6 +61,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  isDefault?: string;
   /**
    * @remarks
    * Specifies whether SSL is supported. Valid values:
@@ -69,12 +70,14 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * 
    * - **false**
    * 
-   * This parameter is required.
-   * 
    * @example
    * true
    */
   isSSL?: string;
+  isSyncEmailAttr?: string;
+  isSyncMobileAttr?: string;
+  isSyncNameAttr?: string;
+  isSyncOuAsUserGroup?: string;
   /**
    * @remarks
    * The field that is used to indicate the mobile phone number of a user on the AD server.
@@ -129,6 +132,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   server?: string;
+  serverName?: string;
   /**
    * @remarks
    * The address of the secondary AD server.
@@ -137,6 +141,8 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * 192.168.XX.XX
    */
   standbyServer?: string;
+  syncInterval?: string;
+  userSourceId?: string;
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
@@ -145,14 +151,22 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
       emailMapping: 'EmailMapping',
       filter: 'Filter',
       instanceId: 'InstanceId',
+      isDefault: 'IsDefault',
       isSSL: 'IsSSL',
+      isSyncEmailAttr: 'IsSyncEmailAttr',
+      isSyncMobileAttr: 'IsSyncMobileAttr',
+      isSyncNameAttr: 'IsSyncNameAttr',
+      isSyncOuAsUserGroup: 'IsSyncOuAsUserGroup',
       mobileMapping: 'MobileMapping',
       nameMapping: 'NameMapping',
       password: 'Password',
       port: 'Port',
       regionId: 'RegionId',
       server: 'Server',
+      serverName: 'ServerName',
       standbyServer: 'StandbyServer',
+      syncInterval: 'SyncInterval',
+      userSourceId: 'UserSourceId',
     };
   }
 
@@ -164,14 +178,22 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
       emailMapping: 'string',
       filter: 'string',
       instanceId: 'string',
+      isDefault: 'string',
       isSSL: 'string',
+      isSyncEmailAttr: 'string',
+      isSyncMobileAttr: 'string',
+      isSyncNameAttr: 'string',
+      isSyncOuAsUserGroup: 'string',
       mobileMapping: 'string',
       nameMapping: 'string',
       password: 'string',
       port: 'string',
       regionId: 'string',
       server: 'string',
+      serverName: 'string',
       standbyServer: 'string',
+      syncInterval: 'string',
+      userSourceId: 'string',
     };
   }
 

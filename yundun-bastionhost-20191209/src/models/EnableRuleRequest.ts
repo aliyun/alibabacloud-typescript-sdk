@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EnableRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The bastion host ID.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The ID of the bastion host instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,13 @@ export class EnableRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -27,9 +30,8 @@ export class EnableRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the authorization rule that you want to enable.
-   * 
-   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+   * The ID of the authorization rule to enable.
+   * > You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the rule ID.
    * 
    * This parameter is required.
    * 
@@ -40,6 +42,7 @@ export class EnableRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       ruleId: 'RuleId',
     };
@@ -48,6 +51,7 @@ export class EnableRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       ruleId: 'string',
     };

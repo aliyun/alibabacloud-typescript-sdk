@@ -53,6 +53,7 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host whose user you want to query.
@@ -82,6 +83,7 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
       mode: 'Mode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userId: 'UserId',
     };
@@ -94,6 +96,7 @@ export class ListHostGroupsForUserRequest extends $dara.Model {
       mode: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userId: 'string',
     };

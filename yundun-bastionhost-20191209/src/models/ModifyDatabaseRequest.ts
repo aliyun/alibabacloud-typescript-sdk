@@ -87,6 +87,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
    * 2
    */
   networkDomainId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host that manages the database to modify.
@@ -118,6 +119,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
       databasePublicAddress: 'DatabasePublicAddress',
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       sourceInstanceId: 'SourceInstanceId',
     };
@@ -134,6 +136,7 @@ export class ModifyDatabaseRequest extends $dara.Model {
       databasePublicAddress: 'string',
       instanceId: 'string',
       networkDomainId: 'string',
+      projectId: 'number',
       regionId: 'string',
       sourceInstanceId: 'string',
     };

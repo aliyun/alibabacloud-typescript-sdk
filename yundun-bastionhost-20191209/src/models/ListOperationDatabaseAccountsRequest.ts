@@ -33,6 +33,7 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
    * bastionhost-cn-2r42t9cvf0i
    */
   instanceId?: string;
+  operationProjectId?: string;
   /**
    * @remarks
    * The page number. Default value: **1**.
@@ -67,6 +68,7 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
       databaseAccountName: 'DatabaseAccountName',
       databaseId: 'DatabaseId',
       instanceId: 'InstanceId',
+      operationProjectId: 'OperationProjectId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -78,6 +80,7 @@ export class ListOperationDatabaseAccountsRequest extends $dara.Model {
       databaseAccountName: 'string',
       databaseId: 'string',
       instanceId: 'string',
+      operationProjectId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       regionId: 'string',

@@ -51,6 +51,7 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
    * 14SZ!******
    */
   password?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host that manages the database account to modify.
@@ -68,6 +69,7 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
       databaseSchema: 'DatabaseSchema',
       instanceId: 'InstanceId',
       password: 'Password',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -79,6 +81,7 @@ export class ModifyDatabaseAccountRequest extends $dara.Model {
       databaseSchema: 'string',
       instanceId: 'string',
       password: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

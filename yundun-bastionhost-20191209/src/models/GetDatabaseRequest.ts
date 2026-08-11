@@ -27,6 +27,7 @@ export class GetDatabaseRequest extends $dara.Model {
    * bastionhost-cn-wwo36qbv601
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host that manages the database to query.
@@ -41,6 +42,7 @@ export class GetDatabaseRequest extends $dara.Model {
     return {
       databaseId: 'DatabaseId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetDatabaseRequest extends $dara.Model {
     return {
       databaseId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

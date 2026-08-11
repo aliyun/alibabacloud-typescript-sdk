@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
-   * The exact asset address to search for in the pending approval list.
+   * The exact address of the asset pending approval for O&M.
    * 
    * @example
    * 10.167.XX.XX
@@ -42,6 +42,11 @@ export class ListOperationTicketsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
    * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
@@ -55,6 +60,7 @@ export class ListOperationTicketsRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -65,6 +71,7 @@ export class ListOperationTicketsRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new host.
+   * The ID of the host that was created.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateHostResponseBody extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC9BF0F4-8983-491A-BC8C-1B4DD94976DE

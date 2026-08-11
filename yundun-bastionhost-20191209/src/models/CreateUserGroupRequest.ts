@@ -23,6 +23,7 @@ export class CreateUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host for which you want to create a user group.
@@ -47,6 +48,7 @@ export class CreateUserGroupRequest extends $dara.Model {
     return {
       comment: 'Comment',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupName: 'UserGroupName',
     };
@@ -56,6 +58,7 @@ export class CreateUserGroupRequest extends $dara.Model {
     return {
       comment: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupName: 'string',
     };

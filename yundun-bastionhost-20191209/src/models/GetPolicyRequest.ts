@@ -27,6 +27,7 @@ export class GetPolicyRequest extends $dara.Model {
    * 3
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host instance.
@@ -41,6 +42,7 @@ export class GetPolicyRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetPolicyRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

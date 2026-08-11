@@ -104,6 +104,7 @@ export class SetPolicyAccessTimeRangeConfigRequest extends $dara.Model {
    * 13
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -119,6 +120,7 @@ export class SetPolicyAccessTimeRangeConfigRequest extends $dara.Model {
       accessTimeRangeConfig: 'AccessTimeRangeConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -128,6 +130,7 @@ export class SetPolicyAccessTimeRangeConfigRequest extends $dara.Model {
       accessTimeRangeConfig: SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig,
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

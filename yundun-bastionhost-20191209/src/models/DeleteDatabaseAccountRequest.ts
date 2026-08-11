@@ -27,6 +27,7 @@ export class DeleteDatabaseAccountRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host from which you want to delete the database account.
@@ -41,6 +42,7 @@ export class DeleteDatabaseAccountRequest extends $dara.Model {
     return {
       databaseAccountId: 'DatabaseAccountId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class DeleteDatabaseAccountRequest extends $dara.Model {
     return {
       databaseAccountId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

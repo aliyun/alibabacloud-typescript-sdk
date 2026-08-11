@@ -27,6 +27,7 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host to which the user belongs.
@@ -53,6 +54,7 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
     return {
       hostGroupId: 'HostGroupId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userId: 'UserId',
     };
@@ -62,6 +64,7 @@ export class ListHostGroupAccountNamesForUserRequest extends $dara.Model {
     return {
       hostGroupId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userId: 'string',
     };

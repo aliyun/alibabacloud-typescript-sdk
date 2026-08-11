@@ -73,6 +73,7 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The ID of the region where the bastion host instance is located.
@@ -104,6 +105,7 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
       OSType: 'OSType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -118,6 +120,7 @@ export class ListHostsForUserGroupRequest extends $dara.Model {
       OSType: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

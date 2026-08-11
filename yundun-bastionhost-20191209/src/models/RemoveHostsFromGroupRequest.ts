@@ -39,6 +39,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host whose asset group you want to manage.
@@ -54,6 +55,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
       hostGroupId: 'HostGroupId',
       hostIds: 'HostIds',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -63,6 +65,7 @@ export class RemoveHostsFromGroupRequest extends $dara.Model {
       hostGroupId: 'string',
       hostIds: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

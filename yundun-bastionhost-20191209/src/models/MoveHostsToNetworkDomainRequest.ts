@@ -6,8 +6,6 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the hosts that you want to add to the network domain.
-   * 
-   * This parameter is required.
    */
   hostIds?: string[];
   /**
@@ -34,6 +32,7 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
    * 2
    */
   networkDomainId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -49,6 +48,7 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
       hostIds: 'HostIds',
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -58,6 +58,7 @@ export class MoveHostsToNetworkDomainRequest extends $dara.Model {
       hostIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       networkDomainId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

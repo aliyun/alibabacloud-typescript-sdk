@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The host account IDs.
-   * 
-   * > You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
+   * The list of host account IDs.
+   * > This parameter is required. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to obtain this parameter.
    * 
    * @example
    * ["1","2","3"]
@@ -15,9 +14,8 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
   hostAccountIds?: string;
   /**
    * @remarks
-   * The shared key ID.
-   * 
-   * > You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+   * The ID of the host shared key.
+   * > This parameter is required. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to obtain this parameter.
    * 
    * @example
    * 10267
@@ -25,7 +23,7 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
   hostShareKeyId?: string;
   /**
    * @remarks
-   * The ID of the bastion host. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host. You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -35,7 +33,12 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host. For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -46,6 +49,7 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
       hostAccountIds: 'HostAccountIds',
       hostShareKeyId: 'HostShareKeyId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -55,6 +59,7 @@ export class AttachHostAccountsToHostShareKeyRequest extends $dara.Model {
       hostAccountIds: 'string',
       hostShareKeyId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

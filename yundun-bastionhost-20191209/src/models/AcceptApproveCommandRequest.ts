@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AcceptApproveCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command that you want to approve.
-   * 
-   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+   * The ID of the command to be approved for execution.
+   * > You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query all command IDs that require approval.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class AcceptApproveCommandRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The ID of the bastion host.
-   * 
-   * > You can call the DescribeInstances operation to query the ID of the bastion host.
+   * The instance ID of the bastion host.
+   * > You can call the DescribeInstances operation to obtain the bastion host instance ID.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,13 @@ export class AcceptApproveCommandRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,6 +43,7 @@ export class AcceptApproveCommandRequest extends $dara.Model {
     return {
       commandId: 'CommandId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +52,7 @@ export class AcceptApproveCommandRequest extends $dara.Model {
     return {
       commandId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

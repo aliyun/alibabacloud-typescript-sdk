@@ -35,6 +35,7 @@ export class RejectOperationTicketRequest extends $dara.Model {
    * 2
    */
   operationTicketId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -50,6 +51,7 @@ export class RejectOperationTicketRequest extends $dara.Model {
       comment: 'Comment',
       instanceId: 'InstanceId',
       operationTicketId: 'OperationTicketId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -59,6 +61,7 @@ export class RejectOperationTicketRequest extends $dara.Model {
       comment: 'string',
       instanceId: 'string',
       operationTicketId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

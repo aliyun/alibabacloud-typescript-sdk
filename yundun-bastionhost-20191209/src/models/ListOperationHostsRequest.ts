@@ -43,6 +43,7 @@ export class ListOperationHostsRequest extends $dara.Model {
    * Linux
    */
   OSType?: string;
+  operationProjectId?: string;
   /**
    * @remarks
    * The number of the page to return. The default value is 1.
@@ -109,6 +110,7 @@ export class ListOperationHostsRequest extends $dara.Model {
       hostName: 'HostName',
       instanceId: 'InstanceId',
       OSType: 'OSType',
+      operationProjectId: 'OperationProjectId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -124,6 +126,7 @@ export class ListOperationHostsRequest extends $dara.Model {
       hostName: 'string',
       instanceId: 'string',
       OSType: 'string',
+      operationProjectId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       regionId: 'string',

@@ -25,10 +25,12 @@ export class GetInstanceADAuthServerRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  userSourceId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      userSourceId: 'UserSourceId',
     };
   }
 
@@ -36,6 +38,7 @@ export class GetInstanceADAuthServerRequest extends $dara.Model {
     return {
       instanceId: 'string',
       regionId: 'string',
+      userSourceId: 'string',
     };
   }
 

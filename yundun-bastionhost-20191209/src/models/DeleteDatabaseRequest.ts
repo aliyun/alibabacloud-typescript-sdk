@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database that you want to delete.
-   * 
-   * > You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+   * The instance ID of the database that you want to delete.
+   * > You can invoke the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DeleteDatabaseRequest extends $dara.Model {
   databaseId?: string;
   /**
    * @remarks
-   * The ID of the bastion host from which you want to delete the database.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host where the database instance that you want to delete resides.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,13 @@ export class DeleteDatabaseRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,6 +43,7 @@ export class DeleteDatabaseRequest extends $dara.Model {
     return {
       databaseId: 'DatabaseId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +52,7 @@ export class DeleteDatabaseRequest extends $dara.Model {
     return {
       databaseId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

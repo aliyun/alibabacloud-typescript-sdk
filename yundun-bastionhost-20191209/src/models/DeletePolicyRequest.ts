@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bastion host whose control policy you want to delete.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host where the control policy to be deleted resides.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -18,8 +17,7 @@ export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the control policy to be deleted.
-   * 
-   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+   * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,13 @@ export class DeletePolicyRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,6 +43,7 @@ export class DeletePolicyRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +52,7 @@ export class DeletePolicyRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -25,6 +25,7 @@ export class DeleteNetworkDomainRequest extends $dara.Model {
    * 2
    */
   networkDomainId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host whose network domain you want to delete.
@@ -39,6 +40,7 @@ export class DeleteNetworkDomainRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -47,6 +49,7 @@ export class DeleteNetworkDomainRequest extends $dara.Model {
     return {
       instanceId: 'string',
       networkDomainId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

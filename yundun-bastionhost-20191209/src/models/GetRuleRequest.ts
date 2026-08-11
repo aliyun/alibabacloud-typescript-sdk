@@ -15,6 +15,7 @@ export class GetRuleRequest extends $dara.Model {
    * bastionhost-cn-wwo35essw07
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -40,6 +41,7 @@ export class GetRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       ruleId: 'RuleId',
     };
@@ -48,6 +50,7 @@ export class GetRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       ruleId: 'string',
     };

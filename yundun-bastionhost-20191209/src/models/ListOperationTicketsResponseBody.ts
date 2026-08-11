@@ -21,7 +21,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   applyUsername?: string;
   /**
    * @remarks
-   * The remarks entered by the O&M engineer when submitting the O&M application.
+   * The remarks provided by the O&M engineer when submitting the O&M application.
    * 
    * @example
    * Comment
@@ -29,7 +29,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   approveComment?: string;
   /**
    * @remarks
-   * The ID of the asset account requested for O&M.
+   * The ID of the asset account for which O&M is requested.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAccountId?: string;
   /**
    * @remarks
-   * The logon name of the asset account requested for O&M.
+   * The logon name of the asset account for which O&M is requested.
    * 
    * @example
    * root
@@ -45,7 +45,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAccountName?: string;
   /**
    * @remarks
-   * The address of the asset requested for O&M.
+   * The address of the asset for which O&M is requested.
    * 
    * @example
    * 10.167.XX.XX
@@ -53,7 +53,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetAddress?: string;
   /**
    * @remarks
-   * The ID of the asset requested for O&M.
+   * The ID of the asset for which O&M is requested.
    * 
    * @example
    * 2
@@ -61,7 +61,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetId?: string;
   /**
    * @remarks
-   * The name of the asset requested for O&M.
+   * The name of the asset for which O&M is requested.
    * 
    * @example
    * poros-test
@@ -69,7 +69,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetName?: string;
   /**
    * @remarks
-   * The network domain ID of the asset requested for O&M.
+   * The ID of the network domain to which the requested asset belongs.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetNetworkDomainId?: string;
   /**
    * @remarks
-   * The operating system type of the asset requested for O&M.
+   * The operating system type of the asset for which O&M is requested.
    * 
    * @example
    * Linux
@@ -85,11 +85,11 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetOs?: string;
   /**
    * @remarks
-   * The name of the asset source to which the requested O&M asset belongs. Valid values:
+   * The name of the asset source to which the requested asset belongs. Valid values:
    * - **Local**: local host
    * - **Ecs**: ECS instance
    * - **Rds**: ApsaraDB RDS instance
-   * - Name of a third-party asset source.
+   * - Name of a third-party asset source
    * 
    * @example
    * Local
@@ -97,7 +97,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   assetSource?: string;
   /**
    * @remarks
-   * The ID of the asset source to which the requested O&M asset belongs.
+   * The ID of the asset source to which the requested asset belongs.
    * 
    * @example
    * 1
@@ -115,8 +115,8 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
    * @remarks
    * The logon count limit requested by the O&M engineer. Valid values:
    * 
-   * - **0**: No logon count limit. The O&M engineer can log on an unlimited number of times within the validity period.
-   * - **1**: The O&M engineer can log on only once within the validity period.
+   * - **0**: no limit on the number of logons. The O&M engineer can log on an unlimited number of times within the validity period.
+   * - **1**: the O&M engineer can log on only once within the validity period.
    * 
    * @example
    * 0
@@ -150,7 +150,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
   operationTicketId?: string;
   /**
    * @remarks
-   * The protocol name requested for O&M.
+   * The protocol name for the requested O&M.
    * 
    * @example
    * SSH
@@ -160,7 +160,7 @@ export class ListOperationTicketsResponseBodyOperationTickets extends $dara.Mode
    * @remarks
    * The approval status. Valid values:
    * 
-   * - Normal: pending approval.
+   * - Normal: pending approval
    * 
    * @example
    * Normal

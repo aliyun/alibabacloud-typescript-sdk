@@ -89,6 +89,7 @@ export class ModifyHostAccountRequest extends $dara.Model {
    * Normal
    */
   privilegeType?: string;
+  projectId?: number;
   /**
    * @remarks
    * Specifies the region ID of the Bastionhost instance where the host account to be queried resides.
@@ -123,6 +124,7 @@ export class ModifyHostAccountRequest extends $dara.Model {
       password: 'Password',
       privateKey: 'PrivateKey',
       privilegeType: 'PrivilegeType',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       rotationMode: 'RotationMode',
     };
@@ -138,6 +140,7 @@ export class ModifyHostAccountRequest extends $dara.Model {
       password: 'string',
       privateKey: 'string',
       privilegeType: 'string',
+      projectId: 'number',
       regionId: 'string',
       rotationMode: 'string',
     };

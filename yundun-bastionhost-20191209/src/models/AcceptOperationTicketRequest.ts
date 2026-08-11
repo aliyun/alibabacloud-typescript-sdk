@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AcceptOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The review description.
+   * The approval remarks.
    * 
    * @example
    * Comment
@@ -13,15 +13,13 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The maximum number of logons allowed. Valid values:
+   * The limit on the number of logons allowed. Valid values:
    * 
-   * - **0**: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for unlimited times during the validity period.
+   * - **0**: No limit on the number of logons. The O&M engineer can log on an unlimited number of times during the validity period.
    * 
-   * - **1**: The O\\&M engineer can log on to the specified asset only once during the validity period.
-   * 
-   * > * You can set this parameter only to 0 if you review an O\\&M application on a database.
-   * >
-   * > * If you do not specify this parameter, the default value 0 is used.
+   * - **1**: The O&M engineer can log on only once during the validity period.
+   * > - The logon limit for database asset O&M approval can only be set to unlimited.
+   * > - If an empty character string is passed, the default value is unlimited.
    * 
    * @example
    * 1
@@ -29,7 +27,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   effectCount?: string;
   /**
    * @remarks
-   * The end time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the validity period for logon (in seconds, UNIX timestamp format).
    * 
    * @example
    * 1679393152
@@ -37,7 +35,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   effectEndTime?: string;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the validity period for logon (in seconds, UNIX timestamp format).
    * 
    * @example
    * 1685600242
@@ -45,9 +43,8 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   effectStartTime?: string;
   /**
    * @remarks
-   * The ID of the bastion host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the bastion host instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -57,7 +54,8 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the O\\&M application that you want to approve. You can call the ListOperationTickets operation to query the IDs of all O\\&M applications that require review.
+   * The ID of the O&M request to approve.
+   * > You can call the [ListOperationTickets](https://help.aliyun.com/document_detail/2584313.html) operation to query all OperationTicketId values that require approval.
    * 
    * This parameter is required.
    * 
@@ -67,9 +65,13 @@ export class AcceptOperationTicketRequest extends $dara.Model {
   operationTicketId?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -83,6 +85,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
       effectStartTime: 'EffectStartTime',
       instanceId: 'InstanceId',
       operationTicketId: 'OperationTicketId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -95,6 +98,7 @@ export class AcceptOperationTicketRequest extends $dara.Model {
       effectStartTime: 'string',
       instanceId: 'string',
       operationTicketId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

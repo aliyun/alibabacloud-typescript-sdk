@@ -97,6 +97,7 @@ export class ModifyHostRequest extends $dara.Model {
    * default
    */
   prefKex?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to modify the information about the host.
@@ -118,6 +119,7 @@ export class ModifyHostRequest extends $dara.Model {
       networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
       prefKex: 'PrefKex',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -133,6 +135,7 @@ export class ModifyHostRequest extends $dara.Model {
       networkDomainId: 'string',
       OSType: 'string',
       prefKex: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

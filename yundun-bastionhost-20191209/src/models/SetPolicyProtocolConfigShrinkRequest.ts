@@ -27,6 +27,7 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
    * 61
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The protocol control configuration.
@@ -48,6 +49,7 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       protocolConfigShrink: 'ProtocolConfig',
       regionId: 'RegionId',
     };
@@ -57,6 +59,7 @@ export class SetPolicyProtocolConfigShrinkRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       protocolConfigShrink: 'string',
       regionId: 'string',
     };

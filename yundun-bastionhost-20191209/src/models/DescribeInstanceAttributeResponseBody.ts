@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAttributeResponseBodyInstanceAttributePorts extends $dara.Model {
   /**
    * @remarks
-   * The custom port defined by the user.
+   * The custom port.
    * 
-   * > Only SSH and RDP ports can be modified. If no custom O&M port is configured for the bastion host, the value is the same as the standard port.
+   * > Only SSH and RDP support modification. If no custom O&M port is configured for the bastion host, the value is the same as the standard port.
    * 
    * @example
    * 600xx
@@ -89,7 +89,15 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttributeWhiteListPoli
 }
 
 export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * The AI credit status (Available/Exhausted).
+   */
   aiCreditStatus?: string;
+  /**
+   * @remarks
+   * The intelligent O&M module switch (Enable/Disable).
+   */
   aiOpsModule?: string;
   /**
    * @remarks
@@ -122,7 +130,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   bandwidthPackage?: string;
   /**
    * @remarks
-   * The status of the database O&M feature.
+   * The database O&M status.
    * - **Enable**: Database O&M is supported.
    * - **Disable**: Database O&M is not supported.
    * 
@@ -135,12 +143,12 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
    * The description of the instance.
    * 
    * @example
-   * Test API
+   * TestAPI
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI). An ENI is a virtual network interface controller (NIC) that can be attached to the bastion host instance.
+   * The ID of the elastic network interfaces (ENIs). This is the network interface controller (NIC) ID bound to the instance.
    * 
    * @example
    * eni-bp1455jrzwm7moaxxxxx
@@ -148,7 +156,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   eniInstanceId?: string;
   /**
    * @remarks
-   * The timestamp when the bastion host instance expires. Unit: milliseconds.
+   * The expiration timestamp of the bastion host instance. Unit: milliseconds.
    * 
    * @example
    * 1578326400000
@@ -156,7 +164,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   expireTime?: number;
   /**
    * @remarks
-   * The status of the HSM hardware encryption module. Indicates whether the bastion host is integrated with HSM.
+   * The HSM hardware encryption module status. Indicates whether the bastion host is integrated with HSM.
    */
   HSMModule?: string;
   /**
@@ -236,9 +244,9 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   modifyPasswordModule?: string;
   /**
    * @remarks
-   * The status of the network domain proxy feature.
-   * - **Enable**: The network domain proxy mode is supported.
-   * - **Disable**: The network domain proxy mode is not supported.
+   * The network domain proxy status.
+   * - **Enable**: Network domain proxy mode is supported.
+   * - **Disable**: Network domain proxy mode is not supported.
    * 
    * @example
    * Enable
@@ -256,7 +264,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   privateExportIps?: string[];
   /**
    * @remarks
-   * The list of IP addresses in the internal whitelist.
+   * The list of internal whitelist IP addresses.
    */
   privateWhiteList?: string[];
   /**
@@ -329,7 +337,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the secondary vSwitch associated with the bastion host instance.
+   * The ID of the secondary vSwitch bound to the bastion host instance.
    * 
    * @example
    * vsw-uf6cmnae7hu5****
@@ -353,7 +361,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   storage?: number;
   /**
    * @remarks
-   * The VPC ID associated with the instance.
+   * The VPC ID bound to the instance.
    * 
    * @example
    * vpc-bp1c85tzgqu1bf5bxxxxx
@@ -361,7 +369,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   vpcId?: string;
   /**
    * @remarks
-   * The vSwitch ID associated with the instance.
+   * The vSwitch ID bound to the instance.
    * 
    * @example
    * vsw-bp1xfwzzfti0kjbfxxxxx
@@ -369,7 +377,7 @@ export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dar
   vswitchId?: string;
   /**
    * @remarks
-   * The status of the Web Terminal feature.
+   * The Web Terminal status.
    * - **Enable**: Web remote connection is supported.
    * - **Disable**: Web remote connection is not supported.
    * 
@@ -519,7 +527,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceAttribute?: DescribeInstanceAttributeResponseBodyInstanceAttribute;
   /**
    * @remarks
-   * The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 082FAB35-6AB9-4FD5-8750-D36673548E76

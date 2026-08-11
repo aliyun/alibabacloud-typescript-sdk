@@ -60,6 +60,7 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
    * bastionhost-cn-7mz2v120f0y
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -86,6 +87,7 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
     return {
       databases: 'Databases',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -95,6 +97,7 @@ export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
     return {
       databases: { 'type': 'array', 'itemType': DetachDatabaseAccountsFromUserGroupRequestDatabases },
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

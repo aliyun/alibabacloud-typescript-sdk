@@ -25,6 +25,7 @@ export class RenewAssetOperationTokenRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  token?: string;
   /**
    * @remarks
    * The ID of the O\\&M token that you want to renew.
@@ -39,6 +40,7 @@ export class RenewAssetOperationTokenRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      token: 'Token',
       tokenId: 'TokenId',
     };
   }
@@ -47,6 +49,7 @@ export class RenewAssetOperationTokenRequest extends $dara.Model {
     return {
       instanceId: 'string',
       regionId: 'string',
+      token: 'string',
       tokenId: 'string',
     };
   }

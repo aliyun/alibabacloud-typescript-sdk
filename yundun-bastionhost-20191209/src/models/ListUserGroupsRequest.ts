@@ -31,6 +31,7 @@ export class ListUserGroupsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to query user groups.
@@ -54,6 +55,7 @@ export class ListUserGroupsRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupName: 'UserGroupName',
     };
@@ -64,6 +66,7 @@ export class ListUserGroupsRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupName: 'string',
     };

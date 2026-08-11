@@ -27,6 +27,7 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
    * 1
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -71,6 +72,7 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       scopeType: 'ScopeType',
       userGroupIds: 'UserGroupIds',
@@ -82,6 +84,7 @@ export class SetPolicyUserScopeRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
       scopeType: 'string',
       userGroupIds: { 'type': 'array', 'itemType': 'string' },

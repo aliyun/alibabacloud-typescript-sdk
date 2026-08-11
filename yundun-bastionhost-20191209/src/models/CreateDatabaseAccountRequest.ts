@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The username of the database account to be created. The username can be up to 128 characters in length.
+   * The name of the database account to create. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,8 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   databaseAccountName?: string;
   /**
    * @remarks
-   * The ID of the database for which you want to create a database account.
-   * 
-   * > You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+   * The instance ID of the database for which you want to create an account.
+   * > You can invoke the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   databaseId?: string;
   /**
    * @remarks
-   * The name of the database. This parameter is required for PostgreSQL and Oracle databases.
+   * The database name. This parameter is required when the database corresponding to DatabaseId is PostgreSQL or Oracle.
    * 
    * @example
    * orcl
@@ -35,9 +34,8 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   databaseSchema?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to create a database account.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the bastion host instance for which you want to create a database account.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -48,9 +46,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The logon attribute. This parameter is required for Oracle databases. Valid values:
-   * 
    * - SERVICENAME
-   * 
    * - SID
    * 
    * @example
@@ -59,7 +55,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   loginAttribute?: string;
   /**
    * @remarks
-   * The password of the database account to be created.
+   * The password of the database account to create.
    * 
    * @example
    * MCQ******
@@ -67,9 +63,13 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
    * The region ID of the bastion host for which you want to create a database account.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-shanghai
@@ -83,6 +83,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
       instanceId: 'InstanceId',
       loginAttribute: 'LoginAttribute',
       password: 'Password',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -95,6 +96,7 @@ export class CreateDatabaseAccountRequest extends $dara.Model {
       instanceId: 'string',
       loginAttribute: 'string',
       password: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

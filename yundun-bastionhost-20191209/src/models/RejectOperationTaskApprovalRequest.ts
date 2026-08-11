@@ -26,6 +26,7 @@ export class RejectOperationTaskApprovalRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -39,6 +40,7 @@ export class RejectOperationTaskApprovalRequest extends $dara.Model {
     return {
       approveId: 'ApproveId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -47,6 +49,7 @@ export class RejectOperationTaskApprovalRequest extends $dara.Model {
     return {
       approveId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -15,6 +15,7 @@ export class DeleteRuleRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host from which you want to delete the authorization rule.
@@ -40,6 +41,7 @@ export class DeleteRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       ruleId: 'RuleId',
     };
@@ -48,6 +50,7 @@ export class DeleteRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       ruleId: 'string',
     };

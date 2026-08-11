@@ -41,6 +41,7 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
    * bastionhost-cn-st220aw***
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host for which you want to change the portal type of the host.
@@ -56,6 +57,7 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
       activeAddressType: 'ActiveAddressType',
       hostIds: 'HostIds',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -65,6 +67,7 @@ export class ModifyHostsActiveAddressTypeRequest extends $dara.Model {
       activeAddressType: 'string',
       hostIds: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -174,6 +174,7 @@ export class ModifyRuleRequest extends $dara.Model {
    * bastionhost-cn-zmb2y9ydw08
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host to which the authorization rule to modify belongs.
@@ -221,6 +222,7 @@ export class ModifyRuleRequest extends $dara.Model {
       hostGroups: 'HostGroups',
       hosts: 'Hosts',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
@@ -238,6 +240,7 @@ export class ModifyRuleRequest extends $dara.Model {
       hostGroups: { 'type': 'array', 'itemType': ModifyRuleRequestHostGroups },
       hosts: { 'type': 'array', 'itemType': ModifyRuleRequestHosts },
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       ruleId: 'string',
       ruleName: 'string',

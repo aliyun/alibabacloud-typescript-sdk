@@ -27,6 +27,7 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
@@ -53,6 +54,7 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
     return {
       hostGroupId: 'HostGroupId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -62,6 +64,7 @@ export class ListHostGroupAccountNamesForUserGroupRequest extends $dara.Model {
     return {
       hostGroupId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

@@ -65,6 +65,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
@@ -117,6 +118,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
@@ -132,6 +134,7 @@ export class ListOperationDatabasesRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       source: 'string',
       sourceInstanceId: 'string',

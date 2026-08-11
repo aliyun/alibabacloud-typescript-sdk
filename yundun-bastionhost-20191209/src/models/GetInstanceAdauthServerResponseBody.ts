@@ -55,6 +55,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
    * true
    */
   hasPassword?: boolean;
+  isDefault?: boolean;
   /**
    * @remarks
    * Indicates whether SSL is supported. Valid values:
@@ -67,6 +68,11 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
    * true
    */
   isSSL?: boolean;
+  isSyncEmailAttr?: boolean;
+  isSyncMobileAttr?: boolean;
+  isSyncNameAttr?: boolean;
+  isSyncOuAsUserGroup?: boolean;
+  latestSyncTime?: number;
   /**
    * @remarks
    * The field that is used to indicate the mobile phone number of a user on the AD server.
@@ -99,6 +105,7 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
    * 192.168.XX.XX
    */
   server?: string;
+  serverName?: string;
   /**
    * @remarks
    * The address of the secondary AD server.
@@ -107,6 +114,8 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
    * 192.168.XX.XX
    */
   standbyServer?: string;
+  syncInterval?: number;
+  userSourceId?: string;
   static names(): { [key: string]: string } {
     return {
       account: 'Account',
@@ -115,12 +124,21 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
       emailMapping: 'EmailMapping',
       filter: 'Filter',
       hasPassword: 'HasPassword',
+      isDefault: 'IsDefault',
       isSSL: 'IsSSL',
+      isSyncEmailAttr: 'IsSyncEmailAttr',
+      isSyncMobileAttr: 'IsSyncMobileAttr',
+      isSyncNameAttr: 'IsSyncNameAttr',
+      isSyncOuAsUserGroup: 'IsSyncOuAsUserGroup',
+      latestSyncTime: 'LatestSyncTime',
       mobileMapping: 'MobileMapping',
       nameMapping: 'NameMapping',
       port: 'Port',
       server: 'Server',
+      serverName: 'ServerName',
       standbyServer: 'StandbyServer',
+      syncInterval: 'SyncInterval',
+      userSourceId: 'UserSourceId',
     };
   }
 
@@ -132,12 +150,21 @@ export class GetInstanceADAuthServerResponseBodyAD extends $dara.Model {
       emailMapping: 'string',
       filter: 'string',
       hasPassword: 'boolean',
+      isDefault: 'boolean',
       isSSL: 'boolean',
+      isSyncEmailAttr: 'boolean',
+      isSyncMobileAttr: 'boolean',
+      isSyncNameAttr: 'boolean',
+      isSyncOuAsUserGroup: 'boolean',
+      latestSyncTime: 'number',
       mobileMapping: 'string',
       nameMapping: 'string',
       port: 'number',
       server: 'string',
+      serverName: 'string',
       standbyServer: 'string',
+      syncInterval: 'number',
+      userSourceId: 'string',
     };
   }
 

@@ -49,7 +49,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token to start the next query.
+   * The token for the next query.
    * 
    * @example
    * 6EwFJmScBXFFC3nf.9Rq7HzA7APx7GWLbkZbjHrR6Pq39w
@@ -65,6 +65,13 @@ export class ListTagResourcesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aek2jpqvnr6yd3a
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -76,7 +83,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The type of resource.
+   * The resource type definition.
    * 
    * The only valid value is INSTANCE, which indicates a Bastionhost instance.
    * 
@@ -88,7 +95,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

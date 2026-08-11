@@ -29,6 +29,7 @@ export class DetachHostAccountsFromUserGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host in which you want to revoke permissions on the specified hosts and host accounts from the user group.
@@ -55,6 +56,7 @@ export class DetachHostAccountsFromUserGroupRequest extends $dara.Model {
     return {
       hosts: 'Hosts',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -64,6 +66,7 @@ export class DetachHostAccountsFromUserGroupRequest extends $dara.Model {
     return {
       hosts: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

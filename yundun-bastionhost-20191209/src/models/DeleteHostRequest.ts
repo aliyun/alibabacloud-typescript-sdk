@@ -6,8 +6,7 @@ export class DeleteHostRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the host that you want to delete.
-   * 
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DeleteHostRequest extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * The ID of the bastion host on which you want to delete the host.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the bastion host where the host that you want to delete resides.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,13 @@ export class DeleteHostRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to delete the host.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host instance where the host that you want to delete resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,6 +43,7 @@ export class DeleteHostRequest extends $dara.Model {
     return {
       hostId: 'HostId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +52,7 @@ export class DeleteHostRequest extends $dara.Model {
     return {
       hostId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -71,6 +71,7 @@ export class ListHostsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: string;
   /**
    * @remarks
    * The region ID of the bastion host on which you want to query hosts.
@@ -124,6 +125,7 @@ export class ListHostsRequest extends $dara.Model {
       OSType: 'OSType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
@@ -140,6 +142,7 @@ export class ListHostsRequest extends $dara.Model {
       OSType: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'string',
       regionId: 'string',
       source: 'string',
       sourceInstanceId: 'string',

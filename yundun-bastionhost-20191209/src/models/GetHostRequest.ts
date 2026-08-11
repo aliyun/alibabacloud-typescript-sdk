@@ -27,6 +27,7 @@ export class GetHostRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host in which you want to query the host.
@@ -41,6 +42,7 @@ export class GetHostRequest extends $dara.Model {
     return {
       hostId: 'HostId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetHostRequest extends $dara.Model {
     return {
       hostId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

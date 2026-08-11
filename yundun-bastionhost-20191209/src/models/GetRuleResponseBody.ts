@@ -121,15 +121,18 @@ export class GetRuleResponseBodyRuleHostsHostAccounts extends $dara.Model {
    * 9
    */
   hostAccountId?: string;
+  hostAccountName?: string;
   static names(): { [key: string]: string } {
     return {
       hostAccountId: 'HostAccountId',
+      hostAccountName: 'HostAccountName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       hostAccountId: 'string',
+      hostAccountName: 'string',
     };
   }
 

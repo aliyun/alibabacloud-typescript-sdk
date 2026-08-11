@@ -54,6 +54,7 @@ export class ListDatabaseAccountsForUserGroupRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -83,6 +84,7 @@ export class ListDatabaseAccountsForUserGroupRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -95,6 +97,7 @@ export class ListDatabaseAccountsForUserGroupRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

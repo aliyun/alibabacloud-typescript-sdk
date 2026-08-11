@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkDomainRequestProxies extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the proxy server.
+   * The address of the proxy server.
    * 
    * @example
    * ``47.104.**.**``
@@ -15,9 +15,8 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
    * @remarks
    * The node type of the proxy server. Valid values:
    * 
-   * - **Master**: primary proxy server.
-   * 
-   * - **Slave**: secondary proxy server.
+   * - Master: primary proxy server.
+   * - Slave: secondary proxy server.
    * 
    * @example
    * Master
@@ -25,7 +24,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The Base64-encoded password of the proxy server.
+   * The Base64-encoded password of the proxy server account.
    * 
    * @example
    * UWdi******Ng==
@@ -33,7 +32,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The port of the proxy server.
+   * The Server Port of the proxy server.
    * 
    * @example
    * 22
@@ -42,12 +41,9 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
   /**
    * @remarks
    * The proxy type. Valid values:
-   * 
-   * - **SSHProxy**
-   * 
-   * - **HTTPProxy**
-   * 
-   * - **Socks5Proxy**
+   * - SSHProxy: SSH proxy.
+   * - HTTPProxy: HTTP proxy.
+   * - Socks5Proxy: SOCKS proxy.
    * 
    * @example
    * SSHProxy
@@ -55,7 +51,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The username of the proxy server.
+   * The account of the proxy server.
    * 
    * @example
    * root
@@ -95,7 +91,7 @@ export class CreateNetworkDomainRequestProxies extends $dara.Model {
 export class CreateNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the network domain. The remarks can be up to 500 characters in length.
+   * The description of the network domain. The description can be up to 500 characters in length.
    * 
    * @example
    * comment
@@ -103,9 +99,8 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the bastion host for which you want to create a network domain.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The instance ID of the Bastionhost instance for which you want to create a network domain.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -115,7 +110,7 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the network domain that you want to create. The name can be up to 128 characters in length.
+   * The name of the network domain to create. The name can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -125,11 +120,9 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   networkDomainName?: string;
   /**
    * @remarks
-   * The connection mode of the network domain to be created. Valid values:
-   * 
-   * - Direct
-   * 
-   * - Proxy
+   * The type of the network domain to create. Valid values:
+   * - Direct: direct connection. Bastionhost is directly connected to the asset network without an intermediate proxy server.
+   * - Proxy: proxy connection. If the network where the assets reside is not connected to the Bastionhost network, you can use a proxy server to forward network requests and manage assets in different network environments.
    * 
    * This parameter is required.
    * 
@@ -139,14 +132,18 @@ export class CreateNetworkDomainRequest extends $dara.Model {
   networkDomainType?: string;
   /**
    * @remarks
-   * The information about the proxy servers.
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The proxy server information.
    */
   proxies?: CreateNetworkDomainRequestProxies[];
   /**
    * @remarks
-   * The region ID of the bastion host for which you want to create a network domain.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance for which you want to create a network domain.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -158,6 +155,7 @@ export class CreateNetworkDomainRequest extends $dara.Model {
       instanceId: 'InstanceId',
       networkDomainName: 'NetworkDomainName',
       networkDomainType: 'NetworkDomainType',
+      projectId: 'ProjectId',
       proxies: 'Proxies',
       regionId: 'RegionId',
     };
@@ -169,6 +167,7 @@ export class CreateNetworkDomainRequest extends $dara.Model {
       instanceId: 'string',
       networkDomainName: 'string',
       networkDomainType: 'string',
+      projectId: 'number',
       proxies: { 'type': 'array', 'itemType': CreateNetworkDomainRequestProxies },
       regionId: 'string',
     };

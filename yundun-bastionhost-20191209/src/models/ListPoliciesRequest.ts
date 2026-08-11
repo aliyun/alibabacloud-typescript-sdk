@@ -42,6 +42,7 @@ export class ListPoliciesRequest extends $dara.Model {
    * 123
    */
   policyName?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -58,6 +59,7 @@ export class ListPoliciesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       policyName: 'PolicyName',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -68,6 +70,7 @@ export class ListPoliciesRequest extends $dara.Model {
       pageNumber: 'string',
       pageSize: 'string',
       policyName: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

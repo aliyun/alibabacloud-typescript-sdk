@@ -143,6 +143,7 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
    * Proxy
    */
   networkDomainType?: string;
+  projectId?: number;
   /**
    * @remarks
    * The information about the proxy servers in the network domain.
@@ -165,6 +166,7 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
       networkDomainId: 'NetworkDomainId',
       networkDomainName: 'NetworkDomainName',
       networkDomainType: 'NetworkDomainType',
+      projectId: 'ProjectId',
       proxies: 'Proxies',
       regionId: 'RegionId',
     };
@@ -177,6 +179,7 @@ export class ModifyNetworkDomainRequest extends $dara.Model {
       networkDomainId: 'string',
       networkDomainName: 'string',
       networkDomainType: 'string',
+      projectId: 'number',
       proxies: { 'type': 'array', 'itemType': ModifyNetworkDomainRequestProxies },
       regionId: 'string',
     };

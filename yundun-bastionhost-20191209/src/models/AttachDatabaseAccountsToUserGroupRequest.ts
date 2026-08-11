@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachDatabaseAccountsToUserGroupRequestDatabases extends $dara.Model {
   /**
    * @remarks
-   * An array of database account IDs.
+   * The array of database account IDs.
    */
   databaseAccountIds?: string[];
   /**
    * @remarks
-   * The ID of the database instance on which you want to grant permissions.
+   * The ID of the database instance to authorize.
    * 
    * @example
    * 58
@@ -45,16 +45,14 @@ export class AttachDatabaseAccountsToUserGroupRequestDatabases extends $dara.Mod
 export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * An array of database objects.
-   * 
-   * > You can specify up to 10 databases and 10 database accounts. If you do not specify any database accounts, permissions are granted on the entire database.
+   * The array of database objects.
+   * >A maximum of 10 databases and 10 database accounts are supported. You can leave the database accounts unspecified. If no accounts are specified, permissions are granted at the database level.
    */
   databases?: AttachDatabaseAccountsToUserGroupRequestDatabases[];
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the instance ID.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -64,9 +62,13 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -74,7 +76,7 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user group to which to grant the permissions.
+   * The ID of the user group to which you want to grant permissions.
    * 
    * This parameter is required.
    * 
@@ -86,6 +88,7 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
     return {
       databases: 'Databases',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       userGroupId: 'UserGroupId',
     };
@@ -95,6 +98,7 @@ export class AttachDatabaseAccountsToUserGroupRequest extends $dara.Model {
     return {
       databases: { 'type': 'array', 'itemType': AttachDatabaseAccountsToUserGroupRequestDatabases },
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       userGroupId: 'string',
     };

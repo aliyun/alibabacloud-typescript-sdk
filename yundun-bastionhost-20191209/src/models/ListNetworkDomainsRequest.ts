@@ -53,6 +53,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
@@ -70,6 +71,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
       networkDomainType: 'NetworkDomainType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -81,6 +83,7 @@ export class ListNetworkDomainsRequest extends $dara.Model {
       networkDomainType: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

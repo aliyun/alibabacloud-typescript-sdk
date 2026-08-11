@@ -7,8 +7,6 @@ export class ModifyHostShareKeyRequest extends $dara.Model {
    * @remarks
    * The ID of the shared key whose information you want to modify.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10247
    */
@@ -51,6 +49,7 @@ export class ModifyHostShareKeyRequest extends $dara.Model {
    * LBYTnpR3Jmd2hMbmNBMGRmdWV2RW5oVXpCUmp3VkM0dGoKa0J2QlNRSHU2bytrMFBudlZvdlMzdGlBbXo5NkRzdUJDcDFFZVFJREFRQUJBb0lCQUNPZGNjK0lGUnNJd3VkYQpjT3VOSm5SK1BxWnlNZGVIaWFOcDc4SUxFd2NLZDNMZmlUWlYxc0d2Q21uTW0vQ3ZiS2NrZ0U1VjZxQVExRGZQCnI******
    */
   privateKey?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -68,6 +67,7 @@ export class ModifyHostShareKeyRequest extends $dara.Model {
       instanceId: 'InstanceId',
       passPhrase: 'PassPhrase',
       privateKey: 'PrivateKey',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -79,6 +79,7 @@ export class ModifyHostShareKeyRequest extends $dara.Model {
       instanceId: 'string',
       passPhrase: 'string',
       privateKey: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

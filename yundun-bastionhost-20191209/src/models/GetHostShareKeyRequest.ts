@@ -27,6 +27,7 @@ export class GetHostShareKeyRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -41,6 +42,7 @@ export class GetHostShareKeyRequest extends $dara.Model {
     return {
       hostShareKeyId: 'HostShareKeyId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetHostShareKeyRequest extends $dara.Model {
     return {
       hostShareKeyId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

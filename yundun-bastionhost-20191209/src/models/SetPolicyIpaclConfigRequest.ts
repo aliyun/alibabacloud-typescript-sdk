@@ -88,6 +88,7 @@ export class SetPolicyIPAclConfigRequest extends $dara.Model {
    * 3
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -103,6 +104,7 @@ export class SetPolicyIPAclConfigRequest extends $dara.Model {
       IPAclConfig: 'IPAclConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -112,6 +114,7 @@ export class SetPolicyIPAclConfigRequest extends $dara.Model {
       IPAclConfig: SetPolicyIPAclConfigRequestIPAclConfig,
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

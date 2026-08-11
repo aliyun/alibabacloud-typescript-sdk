@@ -43,6 +43,7 @@ export class ModifyHostGroupRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host whose asset group you want to modify.
@@ -59,6 +60,7 @@ export class ModifyHostGroupRequest extends $dara.Model {
       hostGroupId: 'HostGroupId',
       hostGroupName: 'HostGroupName',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -69,6 +71,7 @@ export class ModifyHostGroupRequest extends $dara.Model {
       hostGroupId: 'string',
       hostGroupName: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

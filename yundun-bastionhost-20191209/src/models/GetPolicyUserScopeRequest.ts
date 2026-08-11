@@ -27,6 +27,7 @@ export class GetPolicyUserScopeRequest extends $dara.Model {
    * 1
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host to which the control policy to query belongs.
@@ -41,6 +42,7 @@ export class GetPolicyUserScopeRequest extends $dara.Model {
     return {
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetPolicyUserScopeRequest extends $dara.Model {
     return {
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

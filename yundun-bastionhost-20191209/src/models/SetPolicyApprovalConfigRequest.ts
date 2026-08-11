@@ -70,6 +70,7 @@ export class SetPolicyApprovalConfigRequest extends $dara.Model {
    * 7
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -85,6 +86,7 @@ export class SetPolicyApprovalConfigRequest extends $dara.Model {
       approvalConfig: 'ApprovalConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -94,6 +96,7 @@ export class SetPolicyApprovalConfigRequest extends $dara.Model {
       approvalConfig: SetPolicyApprovalConfigRequestApprovalConfig,
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

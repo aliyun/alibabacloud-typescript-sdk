@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHostAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the host account that you want to remove.
-   * 
-   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+   * The ID of the host account that you want to delete.
+   * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,8 @@ export class DeleteHostAccountRequest extends $dara.Model {
   hostAccountId?: string;
   /**
    * @remarks
-   * The ID of the bastion host from which you want to remove the host account.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+   * The ID of the Bastionhost instance where the host account that you want to delete resides.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,13 @@ export class DeleteHostAccountRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host from which you want to remove the host account.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the Bastionhost instance where the host account resides.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,6 +43,7 @@ export class DeleteHostAccountRequest extends $dara.Model {
     return {
       hostAccountId: 'HostAccountId',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +52,7 @@ export class DeleteHostAccountRequest extends $dara.Model {
     return {
       hostAccountId: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

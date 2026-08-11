@@ -49,6 +49,7 @@ export class ModifyPolicyRequest extends $dara.Model {
    * 3
    */
   priority?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host to which the control policy to modify belongs.
@@ -66,6 +67,7 @@ export class ModifyPolicyRequest extends $dara.Model {
       policyId: 'PolicyId',
       policyName: 'PolicyName',
       priority: 'Priority',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -77,6 +79,7 @@ export class ModifyPolicyRequest extends $dara.Model {
       policyId: 'string',
       policyName: 'string',
       priority: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

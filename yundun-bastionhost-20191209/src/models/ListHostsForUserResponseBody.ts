@@ -67,6 +67,8 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
    * Linux
    */
   OSType?: string;
+  projectId?: string;
+  projectName?: string;
   static names(): { [key: string]: string } {
     return {
       activeAddressType: 'ActiveAddressType',
@@ -76,6 +78,8 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
       hostPrivateAddress: 'HostPrivateAddress',
       hostPublicAddress: 'HostPublicAddress',
       OSType: 'OSType',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
     };
   }
 
@@ -88,6 +92,8 @@ export class ListHostsForUserResponseBodyHosts extends $dara.Model {
       hostPrivateAddress: 'string',
       hostPublicAddress: 'string',
       OSType: 'string',
+      projectId: 'string',
+      projectName: 'string',
     };
   }
 

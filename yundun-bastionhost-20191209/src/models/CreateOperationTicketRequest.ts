@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOperationTicketRequest extends $dara.Model {
   /**
    * @remarks
-   * The comments on the ticket.
+   * The remarks of the request.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
   approveComment?: string;
   /**
    * @remarks
-   * The logon name of the asset account for the O\\&M request.
+   * The logon name of the asset account for which you want to request O&M access.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,8 @@ export class CreateOperationTicketRequest extends $dara.Model {
   assetAccountName?: string;
   /**
    * @remarks
-   * The ID of the asset for which to request O\\&M.
-   * 
-   * > Call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) and [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operations to obtain this parameter.
+   * The ID of the asset for which you want to request O&M access.
+   * > You can call the [ListOperationDatabases](https://help.aliyun.com/document_detail/2758856.html) or [ListOperationHosts](https://help.aliyun.com/document_detail/2758857.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -37,9 +36,8 @@ export class CreateOperationTicketRequest extends $dara.Model {
   assetId?: string;
   /**
    * @remarks
-   * The end time of the validity period for the logon request. This value is a UNIX timestamp. Unit: seconds.
-   * 
-   * > The end time must be later than the start time.
+   * The end time of the validity period for the logon request. Unit: seconds. The value is a UNIX timestamp.
+   * > The end time of the validity period must be later than the start time.
    * 
    * @example
    * 1679393152
@@ -47,7 +45,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
   effectEndTime?: number;
   /**
    * @remarks
-   * The start time of the validity period for the logon request. This value is a UNIX timestamp. Unit: seconds.
+   * The start time of the validity period for the logon request. Unit: seconds. The value is a UNIX timestamp.
    * 
    * @example
    * 1685600242
@@ -55,9 +53,8 @@ export class CreateOperationTicketRequest extends $dara.Model {
   effectStartTime?: number;
   /**
    * @remarks
-   * The ID of the Bastionhost instance.
-   * 
-   * > Call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the bastion host.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -67,11 +64,9 @@ export class CreateOperationTicketRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the ticket is valid for a single logon. Valid values:
-   * 
-   * - **true**: The ticket is valid for a single logon.
-   * 
-   * - **false**: The ticket is valid for multiple logons within the validity period.
+   * The number of logon times allowed. Valid values:
+   * - **true**: Only one logon is allowed within the validity period.
+   * - **false**: Unlimited logons are allowed within the validity period.
    * 
    * @example
    * false
@@ -79,18 +74,17 @@ export class CreateOperationTicketRequest extends $dara.Model {
   isOneTimeEffect?: boolean;
   /**
    * @remarks
-   * The name of the protocol for the O\\&M request. Valid values:
-   * 
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The name of the protocol for which you want to request O&M access. Valid values:
    * - SSH
-   * 
    * - RDP
-   * 
    * - MySQL
-   * 
    * - PostgreSQL
-   * 
    * - Oracle
-   * 
    * - SQLServer
    * 
    * This parameter is required.
@@ -101,9 +95,8 @@ export class CreateOperationTicketRequest extends $dara.Model {
   protocolName?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance.
-   * 
-   * > For more information about regions and zones, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the bastion host.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -118,6 +111,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
       effectStartTime: 'EffectStartTime',
       instanceId: 'InstanceId',
       isOneTimeEffect: 'IsOneTimeEffect',
+      projectId: 'ProjectId',
       protocolName: 'ProtocolName',
       regionId: 'RegionId',
     };
@@ -132,6 +126,7 @@ export class CreateOperationTicketRequest extends $dara.Model {
       effectStartTime: 'number',
       instanceId: 'string',
       isOneTimeEffect: 'boolean',
+      projectId: 'number',
       protocolName: 'string',
       regionId: 'string',
     };

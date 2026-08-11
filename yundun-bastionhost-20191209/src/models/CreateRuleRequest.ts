@@ -174,6 +174,7 @@ export class CreateRuleRequest extends $dara.Model {
    * bastionhost-cn-5yd2ymfsa0e
    */
   instanceId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -213,6 +214,7 @@ export class CreateRuleRequest extends $dara.Model {
       hostGroups: 'HostGroups',
       hosts: 'Hosts',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
       ruleName: 'RuleName',
       userGroupIds: 'UserGroupIds',
@@ -229,6 +231,7 @@ export class CreateRuleRequest extends $dara.Model {
       hostGroups: { 'type': 'array', 'itemType': CreateRuleRequestHostGroups },
       hosts: { 'type': 'array', 'itemType': CreateRuleRequestHosts },
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
       ruleName: 'string',
       userGroupIds: { 'type': 'array', 'itemType': 'string' },

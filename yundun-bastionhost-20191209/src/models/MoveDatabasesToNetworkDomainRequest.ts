@@ -6,8 +6,6 @@ export class MoveDatabasesToNetworkDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the databases that you want to add to the network domain.
-   * 
-   * This parameter is required.
    */
   databaseIds?: string[];
   /**
@@ -34,6 +32,7 @@ export class MoveDatabasesToNetworkDomainRequest extends $dara.Model {
    * 3
    */
   networkDomainId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -49,6 +48,7 @@ export class MoveDatabasesToNetworkDomainRequest extends $dara.Model {
       databaseIds: 'DatabaseIds',
       instanceId: 'InstanceId',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -58,6 +58,7 @@ export class MoveDatabasesToNetworkDomainRequest extends $dara.Model {
       databaseIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       networkDomainId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

@@ -34,6 +34,7 @@ export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
    * 3
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -49,6 +50,7 @@ export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
       IPAclConfigShrink: 'IPAclConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -58,6 +60,7 @@ export class SetPolicyIPAclConfigShrinkRequest extends $dara.Model {
       IPAclConfigShrink: 'string',
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

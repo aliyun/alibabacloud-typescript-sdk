@@ -87,6 +87,8 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
    * 2
    */
   networkDomainId?: string;
+  projectId?: string;
+  projectName?: string;
   /**
    * @remarks
    * The database type. Valid values:
@@ -122,6 +124,8 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
       databasePublicAddress: 'DatabasePublicAddress',
       databaseType: 'DatabaseType',
       networkDomainId: 'NetworkDomainId',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
       source: 'Source',
       sourceInstanceId: 'SourceInstanceId',
     };
@@ -138,6 +142,8 @@ export class ListDatabasesForUserResponseBodyDatabases extends $dara.Model {
       databasePublicAddress: 'string',
       databaseType: 'string',
       networkDomainId: 'string',
+      projectId: 'string',
+      projectName: 'string',
       source: 'string',
       sourceInstanceId: 'string',
     };

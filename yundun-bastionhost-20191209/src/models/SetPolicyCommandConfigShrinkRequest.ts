@@ -36,6 +36,7 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
    * 45
    */
   policyId?: string;
+  projectId?: number;
   /**
    * @remarks
    * The region ID of the bastion host.
@@ -51,6 +52,7 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
       commandConfigShrink: 'CommandConfig',
       instanceId: 'InstanceId',
       policyId: 'PolicyId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -60,6 +62,7 @@ export class SetPolicyCommandConfigShrinkRequest extends $dara.Model {
       commandConfigShrink: 'string',
       instanceId: 'string',
       policyId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

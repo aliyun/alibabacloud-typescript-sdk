@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks of the asset group. The remarks can be up to 500 characters in length.
+   * The description of the asset group. The description can be up to 500 characters in length.
    * 
    * @example
    * Local host group
@@ -23,9 +23,8 @@ export class CreateHostGroupRequest extends $dara.Model {
   hostGroupName?: string;
   /**
    * @remarks
-   * The ID of the bastion host on which you want to create an asset group.
-   * 
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+   * The instance ID of the bastion host where you want to create the asset group.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -35,9 +34,13 @@ export class CreateHostGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the bastion host on which you want to create an asset group.
-   * 
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The project ID.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The region ID of the bastion host instance where you want to create the asset group.
+   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -48,6 +51,7 @@ export class CreateHostGroupRequest extends $dara.Model {
       comment: 'Comment',
       hostGroupName: 'HostGroupName',
       instanceId: 'InstanceId',
+      projectId: 'ProjectId',
       regionId: 'RegionId',
     };
   }
@@ -57,6 +61,7 @@ export class CreateHostGroupRequest extends $dara.Model {
       comment: 'string',
       hostGroupName: 'string',
       instanceId: 'string',
+      projectId: 'number',
       regionId: 'string',
     };
   }

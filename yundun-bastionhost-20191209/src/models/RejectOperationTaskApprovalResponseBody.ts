@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RejectOperationTaskApprovalResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The error code. OK indicates success. Other values indicate errors.
+   * 
    * @example
    * OK
    */
