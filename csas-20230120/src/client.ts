@@ -13,8 +13,8 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      public: "csas.aliyuncs.com",
       'cn-hangzhou': "csas.aliyuncs.com",
+      public: "csas.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("csas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -264,6 +264,58 @@ export default class Client extends OpenApi {
   async createClientUser(request: $_model.CreateClientUserRequest): Promise<$_model.CreateClientUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createClientUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a domain name list.
+   * 
+   * @remarks
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+   * 
+   * @param request - CreateDomainMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDomainMetaResponse
+   */
+  async createDomainMetaWithOptions(request: $_model.CreateDomainMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDomainMetaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listType)) {
+      body["ListType"] = request.listType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDomainMeta",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDomainMetaResponse>(await this.callApi(params, req, runtime), new $_model.CreateDomainMetaResponse({}));
+  }
+
+  /**
+   * Creates a domain name list.
+   * 
+   * @remarks
+   * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+   * 
+   * @param request - CreateDomainMetaRequest
+   * @returns CreateDomainMetaResponse
+   */
+  async createDomainMeta(request: $_model.CreateDomainMetaRequest): Promise<$_model.CreateDomainMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDomainMetaWithOptions(request, runtime);
   }
 
   /**
@@ -1510,6 +1562,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a domain name list.
+   * 
+   * @remarks
+   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+   * 
+   * @param request - DeleteDomainMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainMetaResponse
+   */
+  async deleteDomainMetaWithOptions(request: $_model.DeleteDomainMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDomainMetaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listId)) {
+      body["ListId"] = request.listId;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      body["ListType"] = request.listType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDomainMeta",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDomainMetaResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDomainMetaResponse({}));
+  }
+
+  /**
+   * Deletes a domain name list.
+   * 
+   * @remarks
+   * Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+   * 
+   * @param request - DeleteDomainMetaRequest
+   * @returns DeleteDomainMetaResponse
+   */
+  async deleteDomainMeta(request: $_model.DeleteDomainMetaRequest): Promise<$_model.DeleteDomainMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDomainMetaWithOptions(request, runtime);
+  }
+
+  /**
    * Delete a dynamic route from your current Alibaba Cloud account.
    * 
    * @param request - DeleteDynamicRouteRequest
@@ -2615,6 +2719,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the phone number whitelist for visitor admission SMS logon.
+   * 
+   * @remarks
+   * Retrieves all phone numbers in the whitelist.
+   * 
+   * @param request - GetNacPortalSmsPhoneWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNacPortalSmsPhoneWhitelistResponse
+   */
+  async getNacPortalSmsPhoneWhitelistWithOptions(request: $_model.GetNacPortalSmsPhoneWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNacPortalSmsPhoneWhitelistResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNacPortalSmsPhoneWhitelist",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNacPortalSmsPhoneWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.GetNacPortalSmsPhoneWhitelistResponse({}));
+  }
+
+  /**
+   * Retrieves the phone number whitelist for visitor admission SMS logon.
+   * 
+   * @remarks
+   * Retrieves all phone numbers in the whitelist.
+   * 
+   * @param request - GetNacPortalSmsPhoneWhitelistRequest
+   * @returns GetNacPortalSmsPhoneWhitelistResponse
+   */
+  async getNacPortalSmsPhoneWhitelist(request: $_model.GetNacPortalSmsPhoneWhitelistRequest): Promise<$_model.GetNacPortalSmsPhoneWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNacPortalSmsPhoneWhitelistWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a private access diagnostic task.
    * 
    * @param request - GetPADiagnosisTaskRequest
@@ -3304,6 +3449,70 @@ export default class Client extends OpenApi {
   async listConnectors(request: $_model.ListConnectorsRequest): Promise<$_model.ListConnectorsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listConnectorsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of domain name lists.
+   * 
+   * @remarks
+   * Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+   * 
+   * @param request - ListDomainMetasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainMetasResponse
+   */
+  async listDomainMetasWithOptions(request: $_model.ListDomainMetasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainMetasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.defaultTemplate)) {
+      query["DefaultTemplate"] = request.defaultTemplate;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      query["ListType"] = request.listType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDomainMetas",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDomainMetasResponse>(await this.callApi(params, req, runtime), new $_model.ListDomainMetasResponse({}));
+  }
+
+  /**
+   * Queries the list of domain name lists.
+   * 
+   * @remarks
+   * Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+   * 
+   * @param request - ListDomainMetasRequest
+   * @returns ListDomainMetasResponse
+   */
+  async listDomainMetas(request: $_model.ListDomainMetasRequest): Promise<$_model.ListDomainMetasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDomainMetasWithOptions(request, runtime);
   }
 
   /**
@@ -5345,6 +5554,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the name of a domain name list.
+   * 
+   * @param request - UpdateDomainMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainMetaResponse
+   */
+  async updateDomainMetaWithOptions(request: $_model.UpdateDomainMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDomainMetaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listId)) {
+      body["ListId"] = request.listId;
+    }
+
+    if (!$dara.isNull(request.listType)) {
+      body["ListType"] = request.listType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDomainMeta",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDomainMetaResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDomainMetaResponse({}));
+  }
+
+  /**
+   * Updates the name of a domain name list.
+   * 
+   * @param request - UpdateDomainMetaRequest
+   * @returns UpdateDomainMetaResponse
+   */
+  async updateDomainMeta(request: $_model.UpdateDomainMetaRequest): Promise<$_model.UpdateDomainMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDomainMetaWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies a dynamic route in your Alibaba Cloud account.
    * 
    * @param request - UpdateDynamicRouteRequest
@@ -5534,6 +5793,58 @@ export default class Client extends OpenApi {
   async updateIdpDepartment(request: $_model.UpdateIdpDepartmentRequest): Promise<$_model.UpdateIdpDepartmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIdpDepartmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the phone number whitelist for visitor access SMS logon.
+   * 
+   * @remarks
+   * - A maximum of 1024 phone numbers are supported.
+   * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+   * - You must update all phone numbers at once. Incremental updates are not supported.
+   * 
+   * @param request - UpdateNacPortalSmsPhoneWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNacPortalSmsPhoneWhitelistResponse
+   */
+  async updateNacPortalSmsPhoneWhitelistWithOptions(request: $_model.UpdateNacPortalSmsPhoneWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNacPortalSmsPhoneWhitelistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.phones)) {
+      query["Phones"] = request.phones;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNacPortalSmsPhoneWhitelist",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNacPortalSmsPhoneWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNacPortalSmsPhoneWhitelistResponse({}));
+  }
+
+  /**
+   * Updates the phone number whitelist for visitor access SMS logon.
+   * 
+   * @remarks
+   * - A maximum of 1024 phone numbers are supported.
+   * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+   * - You must update all phone numbers at once. Incremental updates are not supported.
+   * 
+   * @param request - UpdateNacPortalSmsPhoneWhitelistRequest
+   * @returns UpdateNacPortalSmsPhoneWhitelistResponse
+   */
+  async updateNacPortalSmsPhoneWhitelist(request: $_model.UpdateNacPortalSmsPhoneWhitelistRequest): Promise<$_model.UpdateNacPortalSmsPhoneWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNacPortalSmsPhoneWhitelistWithOptions(request, runtime);
   }
 
   /**

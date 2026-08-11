@@ -29,8 +29,20 @@ export class IdpSyncConfigIdpDepartmentInfos extends $dara.Model {
 }
 
 export class IdpSyncConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether automatic synchronization is enabled.
+   */
   autoSyncEnabled?: boolean;
+  /**
+   * @remarks
+   * The names of the departments selected for synchronization. The names have a one-to-one relationship with IdpDepartmentIds.
+   */
   idpDepartmentInfos?: IdpSyncConfigIdpDepartmentInfos[];
+  /**
+   * @remarks
+   * The scheduled synchronization interval, in seconds.
+   */
   scheduleSyncIntervalSecond?: number;
   userSyncEnabled?: boolean;
   static names(): { [key: string]: string } {
