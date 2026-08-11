@@ -13,12 +13,16 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   apiNameLike?: string;
   /**
    * @remarks
-   * The consumer group ID. If specified, the authorization rules of the consumer group are queried.
+   * The consumer group ID. If specified, the authorization rules for the consumer group are queried.
    * 
    * @example
    * csg-8c13d2b4f8a1
    */
   consumerGroupId?: string;
+  /**
+   * @remarks
+   * The consumer group name for fuzzy match.
+   */
   consumerGroupNameLike?: string;
   /**
    * @remarks

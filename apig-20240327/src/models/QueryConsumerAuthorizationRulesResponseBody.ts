@@ -12,7 +12,7 @@ import { HttpRoute } from "./HttpRoute";
 export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The API operation information.
+   * The operation information.
    */
   operationInfo?: HttpApiOperationInfo;
   /**

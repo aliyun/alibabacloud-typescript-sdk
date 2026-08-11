@@ -13,31 +13,31 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "apig.us-west-1.aliyuncs.com",
-      'us-east-1': "apig.us-east-1.aliyuncs.com",
-      'me-east-1': "apig.me-east-1.aliyuncs.com",
-      'me-central-1': "apig.me-central-1.aliyuncs.com",
-      'eu-west-1': "apig.eu-west-1.aliyuncs.com",
-      'eu-central-1': "apig.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "apig.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "apig.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "apig.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai': "apig.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "apig.cn-qingdao.aliyuncs.com",
-      'cn-hongkong': "apig.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "apig.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou': "apig.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "apig.cn-guangzhou.aliyuncs.com",
-      'cn-chengdu': "apig.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "apig.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "apig.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "apig.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "apig.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "apig.ap-southeast-3.aliyuncs.com",
       'ap-southeast-2': "apig.ap-southeast-2.aliyuncs.com",
-      'ap-southeast-1': "apig.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-6': "apig.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "apig.ap-southeast-7.aliyuncs.com",
+      'cn-guangzhou': "apig.cn-guangzhou.aliyuncs.com",
+      'cn-heyuan': "apig.cn-heyuan.aliyuncs.com",
+      'cn-shenzhen': "apig.cn-shenzhen.aliyuncs.com",
+      'cn-wulanchabu': "apig.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "apig.cn-beijing.aliyuncs.com",
       'ap-northeast-2': "apig.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "apig.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "apig.cn-chengdu.aliyuncs.com",
+      'cn-qingdao': "apig.cn-qingdao.aliyuncs.com",
+      'cn-shanghai': "apig.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "apig.cn-hongkong.aliyuncs.com",
+      'ap-southeast-1': "apig.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "apig.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "apig.ap-southeast-5.aliyuncs.com",
+      'cn-zhangjiakou': "apig.cn-zhangjiakou.aliyuncs.com",
+      'cn-hangzhou': "apig.cn-hangzhou.aliyuncs.com",
+      'us-west-1': "apig.us-west-1.aliyuncs.com",
+      'us-east-1': "apig.us-east-1.aliyuncs.com",
+      'eu-central-1': "apig.eu-central-1.aliyuncs.com",
+      'eu-west-1': "apig.eu-west-1.aliyuncs.com",
+      'me-east-1': "apig.me-east-1.aliyuncs.com",
+      'me-central-1': "apig.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("apig", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -308,6 +308,144 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量导出HTTP API
+   * 
+   * @param request - BatchExportHttpApisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchExportHttpApisResponse
+   */
+  async batchExportHttpApisWithOptions(request: $_model.BatchExportHttpApisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchExportHttpApisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiIds)) {
+      body["apiIds"] = request.apiIds;
+    }
+
+    if (!$dara.isNull(request.apiType)) {
+      body["apiType"] = request.apiType;
+    }
+
+    if (!$dara.isNull(request.extensionConfig)) {
+      body["extensionConfig"] = request.extensionConfig;
+    }
+
+    if (!$dara.isNull(request.format)) {
+      body["format"] = request.format;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchExportHttpApis",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/batch-export`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchExportHttpApisResponse>(await this.callApi(params, req, runtime), new $_model.BatchExportHttpApisResponse({}));
+  }
+
+  /**
+   * 批量导出HTTP API
+   * 
+   * @param request - BatchExportHttpApisRequest
+   * @returns BatchExportHttpApisResponse
+   */
+  async batchExportHttpApis(request: $_model.BatchExportHttpApisRequest): Promise<$_model.BatchExportHttpApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchExportHttpApisWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量导入HTTP API
+   * 
+   * @param request - BatchImportHttpApisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchImportHttpApisResponse
+   */
+  async batchImportHttpApisWithOptions(request: $_model.BatchImportHttpApisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchImportHttpApisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowUpdate)) {
+      body["allowUpdate"] = request.allowUpdate;
+    }
+
+    if (!$dara.isNull(request.apiType)) {
+      body["apiType"] = request.apiType;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.specFileUrl)) {
+      body["specFileUrl"] = request.specFileUrl;
+    }
+
+    if (!$dara.isNull(request.specOssConfig)) {
+      body["specOssConfig"] = request.specOssConfig;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
+    }
+
+    if (!$dara.isNull(request.withGatewayExtension)) {
+      body["withGatewayExtension"] = request.withGatewayExtension;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchImportHttpApis",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/batch-import`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchImportHttpApisResponse>(await this.callApi(params, req, runtime), new $_model.BatchImportHttpApisResponse({}));
+  }
+
+  /**
+   * 批量导入HTTP API
+   * 
+   * @param request - BatchImportHttpApisRequest
+   * @returns BatchImportHttpApisResponse
+   */
+  async batchImportHttpApis(request: $_model.BatchImportHttpApisRequest): Promise<$_model.BatchImportHttpApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchImportHttpApisWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3055,6 +3193,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询批量导出任务
+   * 
+   * @param request - GetBatchExportTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchExportTaskResponse
+   */
+  async getBatchExportTaskWithOptions(taskId: string, request: $_model.GetBatchExportTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBatchExportTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBatchExportTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-api-batch-export-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBatchExportTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetBatchExportTaskResponse({}));
+  }
+
+  /**
+   * 查询批量导出任务
+   * 
+   * @param request - GetBatchExportTaskRequest
+   * @returns GetBatchExportTaskResponse
+   */
+  async getBatchExportTask(taskId: string, request: $_model.GetBatchExportTaskRequest): Promise<$_model.GetBatchExportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBatchExportTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * 查询批量操作任务
+   * 
+   * @param request - GetBatchImportTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchImportTaskResponse
+   */
+  async getBatchImportTaskWithOptions(taskId: string, request: $_model.GetBatchImportTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBatchImportTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBatchImportTask",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-api-batch-import-tasks/${$dara.URL.percentEncode(taskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBatchImportTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetBatchImportTaskResponse({}));
+  }
+
+  /**
+   * 查询批量操作任务
+   * 
+   * @param request - GetBatchImportTaskRequest
+   * @returns GetBatchImportTaskResponse
+   */
+  async getBatchImportTask(taskId: string, request: $_model.GetBatchImportTaskRequest): Promise<$_model.GetBatchImportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBatchImportTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves an API consumer.
    * 
    * @param headers - map
@@ -4288,6 +4504,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAiModelProvidersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询批量导出任务列表
+   * 
+   * @param request - ListBatchExportTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchExportTasksResponse
+   */
+  async listBatchExportTasksWithOptions(request: $_model.ListBatchExportTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBatchExportTasksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["statuses"] = request.statuses;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBatchExportTasks",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-api-batch-export-tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBatchExportTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListBatchExportTasksResponse({}));
+  }
+
+  /**
+   * 查询批量导出任务列表
+   * 
+   * @param request - ListBatchExportTasksRequest
+   * @returns ListBatchExportTasksResponse
+   */
+  async listBatchExportTasks(request: $_model.ListBatchExportTasksRequest): Promise<$_model.ListBatchExportTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBatchExportTasksWithOptions(request, headers, runtime);
   }
 
   /**

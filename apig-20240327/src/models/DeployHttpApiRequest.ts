@@ -63,8 +63,8 @@ export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP
-   * - HTTPS
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -156,7 +156,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The existing service configurations. In the single-service scenario, only one entry is allowed. In scenarios such as by-ratio or by-content, multiple entries are allowed.
+   * The existing service configurations. In the single service scenario, only one entry is allowed. In the by-ratio or by-content scenarios, multiple entries are allowed.
    * 
    * **if can be null:**
    * true
@@ -200,7 +200,7 @@ export class DeployHttpApiRequestRestApiConfigEnvironment extends $dara.Model {
 export class DeployHttpApiRequestRestApiConfigOperationDeployments extends $dara.Model {
   /**
    * @remarks
-   * The action type.
+   * The operation type.
    * 
    * @example
    * Publish
@@ -243,7 +243,7 @@ export class DeployHttpApiRequestRestApiConfig extends $dara.Model {
    * The publish description.
    * 
    * @example
-   * 用户服务API发布。
+   * User service API publish
    */
   description?: string;
   /**
