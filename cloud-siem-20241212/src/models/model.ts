@@ -27,6 +27,9 @@ export { GetNormalizationSchemaResponseBodyNormalizationSchemaNormalizationSchem
 export { GetNormalizationSchemaResponseBodyNormalizationSchema } from './GetNormalizationSchemaResponseBody';
 export { GetResponseRuleStatisticResponseBodyResponseStatistic } from './GetResponseRuleStatisticResponseBody';
 export { GetUserConfigResponseBodyUser } from './GetUserConfigResponseBody';
+export { ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts } from './ListAlertAggregationsResponseBody';
+export { ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts } from './ListAlertAggregationsResponseBody';
+export { ListAlertAggregationsResponseBodyAlertAggregations } from './ListAlertAggregationsResponseBody';
 export { ListAlertsResponseBodyAlerts } from './ListAlertsResponseBody';
 export { ListAutoDisposeEntitiesResponseBodyAutoDecisionEntities } from './ListAutoDisposeEntitiesResponseBody';
 export { ListDataConnectorsResponseBodyDataConnector } from './ListDataConnectorsResponseBody';
@@ -203,6 +206,9 @@ export { GetResponseRuleStatisticResponse } from './GetResponseRuleStatisticResp
 export { GetUserConfigRequest } from './GetUserConfigRequest';
 export { GetUserConfigResponseBody } from './GetUserConfigResponseBody';
 export { GetUserConfigResponse } from './GetUserConfigResponse';
+export { ListAlertAggregationsRequest } from './ListAlertAggregationsRequest';
+export { ListAlertAggregationsResponseBody } from './ListAlertAggregationsResponseBody';
+export { ListAlertAggregationsResponse } from './ListAlertAggregationsResponse';
 export { ListAlertsRequest } from './ListAlertsRequest';
 export { ListAlertsResponseBody } from './ListAlertsResponseBody';
 export { ListAlertsResponse } from './ListAlertsResponse';

@@ -14,7 +14,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   detectionRuleIds?: string[];
   /**
    * @remarks
-   * The end time as a UNIX timestamp in milliseconds (ms).
+   * The timestamp of the end time, in milliseconds (ms).
    * 
    * @example
    * 1749090526055
@@ -31,10 +31,6 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * - 0: Unhandled.
-   * - 1: Handling.
-   * - 5: Handling failed.
-   * - 10: Handled.
    * 
    * @example
    * 0
@@ -60,9 +56,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   incidentUuidsShrink?: string;
   /**
    * @remarks
-   * The language type of the response messages. Valid values:
-   * - **zh** (default): Chinese.
-   * - **en**: English.
+   * The language type of the response message. Valid values:
    * 
    * @example
    * zh
@@ -70,7 +64,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 10
@@ -87,8 +81,6 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort direction. Valid values:
-   * - **desc** (default): Descending order.
-   * - **asc**: Ascending order.
    * 
    * @example
    * desc
@@ -96,9 +88,9 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * The name of the field used to sort the list.
-   * - GmtModified: Event update time (default).
-   * - ThreatScore: Threat score.
+   * The field by which the list is sorted.
+   * - GmtModified: event update time (default).
+   * - ThreatScore: threat score.
    * 
    * @example
    * GmtModified
@@ -132,8 +124,6 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the threat analysis data management center is located. Select the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets are located in the Chinese mainland.
-   * - ap-southeast-1: Your assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -157,7 +147,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   relateEntityId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The user ID that the administrator switches to for viewing from another member\\"s perspective.
    * 
    * @example
    * 113091674488****
@@ -166,8 +156,6 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The view type. Valid values:
-   * - 0: The view of the current Alibaba Cloud account.
-   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -175,7 +163,7 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The start time as a UNIX timestamp in milliseconds (ms).
+   * The timestamp of the start time, in milliseconds (ms).
    * 
    * @example
    * 1690102943000
@@ -184,11 +172,6 @@ export class ListIncidentsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: Critical.
-   * - 4: High.
-   * - 3: Medium.
-   * - 2: Low.
-   * - 1: Informational.
    * 
    * @example
    * 5

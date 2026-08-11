@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
-   * 
+   * The language of the response. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -17,7 +15,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return for a single request.
+   * The maximum number of data records to read in this request.
    * 
    * @example
    * 50
@@ -25,7 +23,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. If you do not specify this parameter, the query starts from the first page.
+   * The pagination token that marks the position from which to start reading. If this parameter is left empty, data is read from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -33,11 +31,9 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the data management center of Cloud SIEM is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - `cn-hangzhou`: China (Hangzhou). For assets in the Chinese mainland.
-   * 
-   * - `ap-southeast-1`: Asia Pacific SE 1 (Singapore). For assets in overseas regions.
+   * The region where the data management center of the threat analysis feature is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: the Chinese mainland.
+   * - ap-southeast-1: outside China.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +41,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The action configuration for the automatic response rule.
+   * The action configuration of the automated response rule.
    * 
    * @example
    * [{"actionType":"doPlaybook","playbookName":"block waf IP","playbookUuid":"system_aliyun_waf_whole_process_book","disposeParam":{"period":"7d"}}]
@@ -53,19 +49,14 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseActionConfig?: string;
   /**
    * @remarks
-   * The action for the automatic response rule. Valid values:
+   * The action type of the automated response rule. Valid values:
    * 
-   * - `doPlaybook`: Executes a playbook.
-   * 
-   * - `changeEventStatus`: Updates the event status.
-   * 
-   * - `changeThreatLevel`: Updates the event threat level.
-   * 
-   * - `addEventTag`: Adds an event tag.
-   * 
-   * - `deleteEventTag`: Deletes an event tag.
-   * 
-   * - `alertWhitelist`: Adds the alert to a whitelist.
+   * - doPlaybook: execute a playbook.
+   * - changeEventStatus: update the event status.
+   * - changeThreatLevel: update the event threat level.
+   * - addEventTag: add an event label.
+   * - deleteEventTag: delete an event label.
+   * - alertWhitelist: add the alert to the whitelist.
    * 
    * @example
    * alertWhitelist
@@ -73,7 +64,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseActionType?: string;
   /**
    * @remarks
-   * The trigger conditions for the rule.
+   * The trigger condition configuration of the rule.
    * 
    * @example
    * [{"left":{"value":"threat_level"},"operator":"equals","right":{"value":"suspicious"}}]
@@ -81,7 +72,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseExecutionCondition?: string;
   /**
    * @remarks
-   * The ID of the automatic response rule.
+   * The ID of the automated response rule.
    * 
    * @example
    * 440918
@@ -89,7 +80,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseRuleId?: string;
   /**
    * @remarks
-   * The name of the automatic response rule.
+   * The name of the automated response rule.
    * 
    * @example
    * Send Notification When Generating Urgent Incident
@@ -97,19 +88,19 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseRuleName?: string;
   /**
    * @remarks
-   * The execution priority of the automatic response rule.
+   * The execution priority of the automated response rule.
    * 
    * @example
    * 1
    */
   responseRulePriority?: number;
+  responseRuleRemark?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The status of the automated response rule. Valid values:
    * 
-   * - `0`: disabled
-   * 
-   * - `100`: enabled
+   * - 0: disabled.
+   * - 100: enabled.
    * 
    * @example
    * 0
@@ -117,13 +108,11 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseRuleStatus?: number;
   /**
    * @remarks
-   * The trigger for the automatic response rule. Valid values:
+   * The trigger type of the automated response rule. Valid values:
    * 
-   * - `event`: The rule is triggered when an event occurs.
-   * 
-   * - `event_update`: The rule is triggered when an event is updated.
-   * 
-   * - `alert`: The rule is triggered when an alert is generated.
+   * - event: event occurred.
+   * - event_update: event updated.
+   * - alert: alert occurred.
    * 
    * @example
    * event
@@ -141,6 +130,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
       responseRuleId: 'ResponseRuleId',
       responseRuleName: 'ResponseRuleName',
       responseRulePriority: 'ResponseRulePriority',
+      responseRuleRemark: 'ResponseRuleRemark',
       responseRuleStatus: 'ResponseRuleStatus',
       responseTriggerType: 'ResponseTriggerType',
     };
@@ -158,6 +148,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
       responseRuleId: 'string',
       responseRuleName: 'string',
       responseRulePriority: 'number',
+      responseRuleRemark: 'string',
       responseRuleStatus: 'number',
       responseTriggerType: 'string',
     };

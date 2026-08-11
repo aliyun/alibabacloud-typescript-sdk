@@ -13,7 +13,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The configuration of the action that is performed if the automated response rule is triggered.
+   * The action configuration of the automatic response rule.
    * 
    * @example
    * [{"actionType":"doPlaybook","playbookName":"block waf IP","playbookUuid":"system_aliyun_waf_whole_process_book","disposeParam":{"period":"7d"}}]
@@ -21,19 +21,14 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseActionConfig?: string;
   /**
    * @remarks
-   * The type of the action. Valid values:
+   * The action type of the automatic response rule. Valid values:
    * 
-   * - `doPlaybook`: executes a playbook.
-   * 
-   * - `changeEventStatus`: changes the status of an event.
-   * 
-   * - `changeThreatLevel`: changes the threat level of an event.
-   * 
-   * - `addEventTag`: adds a tag to an event.
-   * 
-   * - `deleteEventTag`: removes a tag from an event.
-   * 
-   * - `alertWhitelist`: adds an alert to the whitelist.
+   * - doPlaybook: execute a playbook
+   * - changeEventStatus: update event status
+   * - changeThreatLevel: update event threat level
+   * - addEventTag: add an event label
+   * - deleteEventTag: delete an event label
+   * - alertWhitelist: add alert to whitelist
    * 
    * @example
    * doPlaybook
@@ -41,7 +36,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseActionType?: string;
   /**
    * @remarks
-   * The trigger condition of the rule.
+   * The trigger condition configuration of the rule.
    * 
    * @example
    * [{"left":{"value":"threat_level"},"operator":"equals","right":{"value":"suspicious"}}]
@@ -49,7 +44,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseExecutionCondition?: string;
   /**
    * @remarks
-   * The ID of the automated response rule.
+   * The ID of the automatic response rule.
    * 
    * @example
    * 403235
@@ -57,7 +52,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseRuleId?: string;
   /**
    * @remarks
-   * The name of the automated response rule.
+   * The name of the automatic response rule.
    * 
    * @example
    * Send Notification When Generating Urgent Incident
@@ -65,19 +60,19 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseRuleName?: string;
   /**
    * @remarks
-   * The priority of the automated response rule.
+   * The execution priority of the automatic response rule.
    * 
    * @example
    * 1
    */
   responseRulePriority?: number;
+  responseRuleRemark?: string;
   /**
    * @remarks
-   * The status of the automated response rule. Valid values:
+   * The status of the automatic response rule. Valid values:
    * 
-   * - `0`: disabled.
-   * 
-   * - `100`: enabled.
+   * - 0: disabled
+   * - 100: enabled
    * 
    * @example
    * 0
@@ -87,9 +82,8 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
    * @remarks
    * The type of the response rule. Valid values:
    * 
-   * - `preset`: a predefined rule.
-   * 
-   * - `custom`: a custom rule.
+   * - preset: predefined
+   * - custom: custom
    * 
    * @example
    * custom
@@ -97,13 +91,11 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseRuleType?: string;
   /**
    * @remarks
-   * The trigger type of the automated response rule. Valid values:
+   * The trigger type of the automatic response rule. Valid values:
    * 
-   * - `event`: triggered when an event occurs.
-   * 
-   * - `event_update`: triggered when an event is updated.
-   * 
-   * - `alert`: triggered when an alert is generated.
+   * - event: event occurred
+   * - event_update: event updated
+   * - alert: alert occurred
    * 
    * @example
    * event
@@ -111,7 +103,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseTriggerType?: string;
   /**
    * @remarks
-   * The time when the rule was updated.
+   * The time when the rule was last updated.
    * 
    * @example
    * 1769843323000
@@ -126,6 +118,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
       responseRuleId: 'ResponseRuleId',
       responseRuleName: 'ResponseRuleName',
       responseRulePriority: 'ResponseRulePriority',
+      responseRuleRemark: 'ResponseRuleRemark',
       responseRuleStatus: 'ResponseRuleStatus',
       responseRuleType: 'ResponseRuleType',
       responseTriggerType: 'ResponseTriggerType',
@@ -142,6 +135,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
       responseRuleId: 'string',
       responseRuleName: 'string',
       responseRulePriority: 'number',
+      responseRuleRemark: 'string',
       responseRuleStatus: 'number',
       responseRuleType: 'string',
       responseTriggerType: 'string',
@@ -161,7 +155,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
 export class ListResponseRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned for the current request.
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 50
@@ -169,7 +163,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position where the current query ends. If this parameter is empty, all data is returned.
+   * The position from which the current call starts reading. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
@@ -195,7 +189,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -203,12 +197,12 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of automated response rules.
+   * The list of automatic response rules.
    */
   responseRules?: ListResponseRulesResponseBodyResponseRules[];
   /**
    * @remarks
-   * The total number of entries that match the query conditions. This parameter is optional and may not always be returned.
+   * The total number of records that match the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 57

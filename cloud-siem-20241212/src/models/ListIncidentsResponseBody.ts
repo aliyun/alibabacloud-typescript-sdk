@@ -15,7 +15,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The detection rule ID.
+   * The ID of the detection rule.
    * 
    * @example
    * dr-qo5ww6ux0uc28*****
@@ -34,7 +34,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentName?: string;
   /**
    * @remarks
-   * The event remark.
+   * The remark of the incident.
    * 
    * @example
    * remark
@@ -43,10 +43,6 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
-   * - 0: Unhandled.
-   * - 1: Handling.
-   * - 5: Handling failed.
-   * - 10: Handled.
    * 
    * @example
    * 0
@@ -62,7 +58,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentTags?: string;
   /**
    * @remarks
-   * The event UUID.
+   * The UUID of the incident.
    * 
    * @example
    * dbb1d7211c9285c862aa89385098****
@@ -78,7 +74,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The number of alerts associated with the event.
+   * The number of alerts associated with the incident.
    * 
    * @example
    * 3
@@ -86,7 +82,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   relateAlertCount?: number;
   /**
    * @remarks
-   * The number of assets associated with the event.
+   * The number of assets associated with the incident.
    * 
    * @example
    * 4
@@ -103,11 +99,6 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - 5: Critical.
-   * - 4: High.
-   * - 3: Medium.
-   * - 2: Low.
-   * - 1: Informational.
    * 
    * @example
    * 2
@@ -179,12 +170,12 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
 export class ListIncidentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of events.
+   * The list of incidents.
    */
   incidents?: ListIncidentsResponseBodyIncidents[];
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 50

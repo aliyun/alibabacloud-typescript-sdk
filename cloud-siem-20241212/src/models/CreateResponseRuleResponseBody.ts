@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResponseRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique request ID.
+   * Id of the request
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

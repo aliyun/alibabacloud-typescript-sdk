@@ -6,10 +6,8 @@ export class CreateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -17,7 +15,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of data records to read in this request.
    * 
    * @example
    * 50
@@ -25,7 +23,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which to start the query. If you do not specify this parameter, the query starts from the beginning.
+   * The pagination token that marks the current reading position. Leave this parameter empty to start reading from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -33,11 +31,9 @@ export class CreateResponseRuleRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The deployment region of the data management center for threat analysis. You must select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
-   * 
-   * - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
+   * The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +41,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The action configuration, specified as a JSON string.
+   * The action configuration of the automatic response rule.
    * 
    * @example
    * [{"actionType":"doPlaybook","playbookName":"block waf IP","playbookUuid":"system_aliyun_waf_whole_process_book","disposeParam":{"period":"7d"}}]
@@ -53,19 +49,14 @@ export class CreateResponseRuleRequest extends $dara.Model {
   responseActionConfig?: string;
   /**
    * @remarks
-   * The action type for the automatic response rule. Valid values:
+   * The action type of the automatic response rule. Valid values:
    * 
-   * - doPlaybook: Runs a playbook.
-   * 
-   * - changeEventStatus: Changes the status of an event.
-   * 
-   * - changeThreatLevel: Changes the threat level of an event.
-   * 
-   * - addEventTag: Adds a tag to an event.
-   * 
-   * - deleteEventTag: Deletes a tag from an event.
-   * 
-   * - alertWhitelist: Adds an alert to the allowlist.
+   * - doPlaybook: execute a playbook.
+   * - changeEventStatus: update the event status.
+   * - changeThreatLevel: update the event threat level.
+   * - addEventTag: add an event label.
+   * - deleteEventTag: delete an event label.
+   * - alertWhitelist: add the alert to the whitelist.
    * 
    * @example
    * doPlaybook
@@ -73,7 +64,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   responseActionType?: string;
   /**
    * @remarks
-   * The trigger conditions for the rule, specified as a JSON string.
+   * The trigger condition configuration of the rule.
    * 
    * @example
    * [{"left":{"value":"threat_level"},"operator":"equals","right":{"value":"suspicious"}}]
@@ -95,15 +86,14 @@ export class CreateResponseRuleRequest extends $dara.Model {
    * 1
    */
   responseRulePriority?: string;
+  responseRuleRemark?: string;
   /**
    * @remarks
-   * The trigger type for the automatic response rule. Valid values:
+   * The trigger type of the automatic response rule. Valid values:
    * 
-   * - event: An event is generated.
-   * 
-   * - event_update: An event is updated.
-   * 
-   * - alert: An alert is generated.
+   * - event: event occurrence.
+   * - event_update: event update.
+   * - alert: alert occurrence.
    * 
    * @example
    * event
@@ -111,7 +101,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
   responseTriggerType?: string;
   /**
    * @remarks
-   * The ID of the member account. An administrator uses this parameter to operate on behalf of the specified member.
+   * The user ID that the administrator switches to for viewing from the perspective of another member.
    * 
    * @example
    * 113091674488****
@@ -119,11 +109,10 @@ export class CreateResponseRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The operational scope. Valid values:
+   * The view type. Valid values:
    * 
-   * - 0: Sets the scope to the current Alibaba Cloud account.
-   * 
-   * - 1: Sets the scope to all accounts in the enterprise.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -140,6 +129,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
       responseExecutionCondition: 'ResponseExecutionCondition',
       responseRuleName: 'ResponseRuleName',
       responseRulePriority: 'ResponseRulePriority',
+      responseRuleRemark: 'ResponseRuleRemark',
       responseTriggerType: 'ResponseTriggerType',
       roleFor: 'RoleFor',
       roleType: 'RoleType',
@@ -157,6 +147,7 @@ export class CreateResponseRuleRequest extends $dara.Model {
       responseExecutionCondition: 'string',
       responseRuleName: 'string',
       responseRulePriority: 'string',
+      responseRuleRemark: 'string',
       responseTriggerType: 'string',
       roleFor: 'number',
       roleType: 'number',
