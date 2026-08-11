@@ -13,10 +13,12 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'eu-central-1': "modelstudio.eu-central-1.aliyuncs.com",
-      'cn-hongkong': "modelstudio.cn-hongkong.aliyuncs.com",
       'cn-beijing': "modelstudio.cn-beijing.aliyuncs.com",
+      'cn-hongkong': "modelstudio.cn-hongkong.aliyuncs.com",
       'ap-southeast-1': "modelstudio.ap-southeast-1.aliyuncs.com",
+      'ap-northeast-1': "modelstudio.ap-northeast-1.aliyuncs.com",
+      'us-east-1': "modelstudio.us-east-1.aliyuncs.com",
+      'eu-central-1': "modelstudio.eu-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("modelstudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1018,6 +1020,241 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries model throttling configurations for a workspace.
+   * 
+   * @param request - ListModelLimitsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelLimitsResponse
+   */
+  async listModelLimitsWithOptions(request: $_model.ListModelLimitsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelLimitsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelLimits",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/models/limits`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelLimitsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelLimitsResponse({}));
+  }
+
+  /**
+   * Queries model throttling configurations for a workspace.
+   * 
+   * @param request - ListModelLimitsRequest
+   * @returns ListModelLimitsResponse
+   */
+  async listModelLimits(request: $_model.ListModelLimitsRequest): Promise<$_model.ListModelLimitsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelLimitsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries model authorizations for a workspace.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+   * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+   * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+   * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+   * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+   * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+   * 
+   * @param request - ListModelPermissionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelPermissionsResponse
+   */
+  async listModelPermissionsWithOptions(request: $_model.ListModelPermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelPermissionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorizationScope)) {
+      query["authorizationScope"] = request.authorizationScope;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelAction)) {
+      query["modelAction"] = request.modelAction;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelPermissions",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/models/permissions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelPermissionsResponse({}));
+  }
+
+  /**
+   * Queries model authorizations for a workspace.
+   * 
+   * @remarks
+   * ## Operation description
+   * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+   * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+   * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+   * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+   * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+   * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+   * 
+   * @param request - ListModelPermissionsRequest
+   * @returns ListModelPermissionsResponse
+   */
+  async listModelPermissions(request: $_model.ListModelPermissionsRequest): Promise<$_model.ListModelPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelPermissionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 模型元数据-查询基础模型列表
+   * 
+   * @param tmpReq - ListModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelsResponse
+   */
+  async listModelsWithOptions(tmpReq: $_model.ListModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListModelsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.capabilities)) {
+      request.capabilitiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.capabilities, "capabilities", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.features)) {
+      request.featuresShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.features, "features", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.providers)) {
+      request.providersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.providers, "providers", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.capabilitiesShrink)) {
+      query["capabilities"] = request.capabilitiesShrink;
+    }
+
+    if (!$dara.isNull(request.contextWindow)) {
+      query["contextWindow"] = request.contextWindow;
+    }
+
+    if (!$dara.isNull(request.featuresShrink)) {
+      query["features"] = request.featuresShrink;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.providersShrink)) {
+      query["providers"] = request.providersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModels",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelsResponse({}));
+  }
+
+  /**
+   * 模型元数据-查询基础模型列表
+   * 
+   * @param request - ListModelsRequest
+   * @returns ListModelsResponse
+   */
+  async listModels(request: $_model.ListModelsRequest): Promise<$_model.ListModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
    * 
    * @param request - ListOrganizationMembersRequest
@@ -1470,6 +1707,114 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateApiKeyWithOptions(apiKeyId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the model throttling configuration for a workspace.
+   * 
+   * @param tmpReq - UpdateModelLimitsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelLimitsResponse
+   */
+  async updateModelLimitsWithOptions(tmpReq: $_model.UpdateModelLimitsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelLimitsResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateModelLimitsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.workspaceLimits)) {
+      request.workspaceLimitsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaceLimits, "workspaceLimits", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceLimitsShrink)) {
+      body["workspaceLimits"] = request.workspaceLimitsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelLimits",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/models/limits`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelLimitsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelLimitsResponse({}));
+  }
+
+  /**
+   * Updates the model throttling configuration for a workspace.
+   * 
+   * @param request - UpdateModelLimitsRequest
+   * @returns UpdateModelLimitsResponse
+   */
+  async updateModelLimits(request: $_model.UpdateModelLimitsRequest): Promise<$_model.UpdateModelLimitsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelLimitsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新业务空间模型授权
+   * 
+   * @param request - UpdateModelPermissionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelPermissionsResponse
+   */
+  async updateModelPermissionsWithOptions(request: $_model.UpdateModelPermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelPermissionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessAllEntities)) {
+      body["accessAllEntities"] = request.accessAllEntities;
+    }
+
+    if (!$dara.isNull(request.models)) {
+      body["models"] = request.models;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelPermissions",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/models/permissions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelPermissionsResponse({}));
+  }
+
+  /**
+   * 更新业务空间模型授权
+   * 
+   * @param request - UpdateModelPermissionsRequest
+   * @returns UpdateModelPermissionsResponse
+   */
+  async updateModelPermissions(request: $_model.UpdateModelPermissionsRequest): Promise<$_model.UpdateModelPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelPermissionsWithOptions(request, headers, runtime);
   }
 
   /**

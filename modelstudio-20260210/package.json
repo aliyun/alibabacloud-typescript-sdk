@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/modelstudio20260210",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",
