@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.Model {
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
-   * 响应敏捷、自适应语气调节、复杂文本处理效果好
+   * Responsive, adaptive tone adjustment, effective complex text processing
    */
   description?: string;
   /**
    * @remarks
-   * 显示名称
+   * The display name.
    * 
    * @example
    * Qwen
@@ -21,7 +21,7 @@ export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.
   displayName?: string;
   /**
    * @remarks
-   * 名称
+   * The model name.
    * 
    * @example
    * QwenVc
@@ -55,12 +55,12 @@ export class ListCloneVoiceModelsResponseBodyDataCloneVoiceModels extends $dara.
 export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 数据列表
+   * The list of voice cloning models.
    */
   cloneVoiceModels?: ListCloneVoiceModelsResponseBodyDataCloneVoiceModels[];
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -68,7 +68,7 @@ export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -76,7 +76,7 @@ export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的记录总数
+   * The total number of records that match the conditions.
    * 
    * @example
    * 0
@@ -115,7 +115,7 @@ export class ListCloneVoiceModelsResponseBodyData extends $dara.Model {
 export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -123,12 +123,12 @@ export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListCloneVoiceModelsResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=392db13c-8901-4a25-b566-91d0d8114cec
@@ -144,12 +144,12 @@ export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -157,7 +157,7 @@ export class ListCloneVoiceModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

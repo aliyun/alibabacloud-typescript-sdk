@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptProfileTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 创建时间，毫秒级时间戳
+   * The creation time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -13,39 +13,39 @@ export class ListScriptProfileTemplatesResponseBodyData extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
-   * 作为调研专员，对服务总体满意度、服务亮点、改进建议、服务效率、员工态度、再次选择意愿进行依次询问，并采集信息。
+   * As a survey specialist, sequentially ask about overall service satisfaction, service highlights, improvement suggestions, service efficiency, employee attitude, and willingness to choose again, and collect information
    */
   description?: string;
   /**
    * @remarks
-   * 标签定义
+   * The label definition.
    * 
    * @example
-   * [{\\"name\\":\\"总体满意度\\",\\"description\\":\\"收集对服务的整体满意度的评价信息\\",\\"candidateValues\\":[\\"非常满意\\",\\"满意\\",\\"一般\\",\\"不满意\\",\\"非常不满意\\"]},{\\"name\\":\\"服务亮点\\",\\"description\\":\\"客户对于服务亮点或者满意的地方的描述\\",\\"candidateValues\\":[]},{\\"name\\":\\"改进建议\\",\\"description\\":\\"客户对于改进意见的描述\\",\\"candidateValues\\":[]},{\\"name\\":\\"服务效率\\",\\"description\\":\\"客户对于服务响应速度和服务完成的时效性的反馈\\",\\"candidateValues\\":[]},{\\"name\\":\\"员工态度\\",\\"description\\":\\"客户对于对于服务人员的专业度和态度的评价\\",\\"candidateValues\\":[]},{\\"name\\":\\"再次选择意愿\\",\\"description\\":\\"客户是否愿意再次选择\\",\\"candidateValues\\":[\\"是\\",\\"否\\"]}]
+   * [{\\"name\\":\\"Overall Satisfaction\\",\\"description\\":\\"Collect evaluation information on overall service satisfaction\\",\\"candidateValues\\":[\\"Very Satisfied\\",\\"Satisfied\\",\\"Average\\",\\"Dissatisfied\\",\\"Very Dissatisfied\\"]},{\\"name\\":\\"Service Highlights\\",\\"description\\":\\"Customer description of service highlights or satisfactory aspects\\",\\"candidateValues\\":[]},{\\"name\\":\\"Improvement Suggestions\\",\\"description\\":\\"Customer description of improvement suggestions\\",\\"candidateValues\\":[]},{\\"name\\":\\"Service Efficiency\\",\\"description\\":\\"Customer feedback on service response speed and timeliness of service completion\\",\\"candidateValues\\":[]},{\\"name\\":\\"Employee Attitude\\",\\"description\\":\\"Customer evaluation of service personnel professionalism and attitude\\",\\"candidateValues\\":[]},{\\"name\\":\\"Willingness to Choose Again\\",\\"description\\":\\"Whether the customer is willing to choose again\\",\\"candidateValues\\":[\\"Yes\\",\\"No\\"]}]
    */
   labels?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
-   * 服务满意度调研
+   * Service Satisfaction Survey
    */
   name?: string;
   /**
    * @remarks
-   * schema定义
+   * The template details.
    * 
    * @example
-   * {\\"name\\":\\"李明\\",\\"gender\\":\\"男\\"}
+   * {\\"name\\":\\"Li Ming\\",\\"gender\\":\\"Male\\"}
    */
   schema?: string;
   /**
    * @remarks
-   * 模板ID
+   * The template ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -53,7 +53,7 @@ export class ListScriptProfileTemplatesResponseBodyData extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * 更新时间，毫秒级时间戳
+   * The update time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -61,10 +61,10 @@ export class ListScriptProfileTemplatesResponseBodyData extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * 变量定义
+   * The variable definition.
    * 
    * @example
-   * [{\\"name\\":\\"name\\",\\"description\\":\\"客户姓名\\"},{\\"name\\":\\"gender\\",\\"description\\":\\"客户性别\\"}]
+   * [{\\"name\\":\\"name\\",\\"description\\":\\"Customer name\\"},{\\"name\\":\\"gender\\",\\"description\\":\\"Customer gender\\"}]
    */
   variables?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class ListScriptProfileTemplatesResponseBodyData extends $dara.Model {
 export class ListScriptProfileTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -113,12 +113,12 @@ export class ListScriptProfileTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListScriptProfileTemplatesResponseBodyData[];
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -126,7 +126,7 @@ export class ListScriptProfileTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=ob-9876543210.
@@ -134,12 +134,12 @@ export class ListScriptProfileTemplatesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -147,7 +147,7 @@ export class ListScriptProfileTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

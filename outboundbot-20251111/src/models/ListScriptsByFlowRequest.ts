@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsByFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * 流程ID
+   * The flow ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b42
@@ -13,7 +13,7 @@ export class ListScriptsByFlowRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04

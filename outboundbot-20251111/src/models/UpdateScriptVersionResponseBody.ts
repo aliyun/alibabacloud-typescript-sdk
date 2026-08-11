@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteCloneVoiceResponseBody extends $dara.Model {
+export class UpdateScriptVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * 返回码
    * 
    * @example
    * OK
@@ -13,15 +13,15 @@ export class DeleteCloneVoiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The UUID of the cloned voice.
+   * 返回数据
    * 
    * @example
-   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
+   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b26
    */
   data?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP状态码
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DeleteCloneVoiceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * 错误信息
    * 
    * @example
    * Instance does not exist. Instance=outb003
@@ -37,12 +37,12 @@ export class DeleteCloneVoiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of variable values in the error message.
+   * 错误信息中的变量值列表
    */
   params?: string[];
   /**
    * @remarks
-   * The request ID.
+   * 请求ID
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -50,7 +50,7 @@ export class DeleteCloneVoiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * 是否调用成功
    * 
    * @example
    * true

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
-   * 询问客户对本次服务的意见和建议
+   * Ask customers for their opinions and suggestions about the service
    */
   description?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -21,15 +21,15 @@ export class UpdateScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
-   * 满意度调研
+   * Satisfaction survey
    */
   name?: string;
   /**
    * @remarks
-   * 场景ID
+   * The script ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloneVoiceModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListCloneVoiceModelsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20

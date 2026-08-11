@@ -16,7 +16,7 @@ export class ListOutboundCallRestrictionsResponseBodyDataOutboundCallRestriction
    * The creator.
    * 
    * @example
-   * 示例值
+   * test
    */
   creator?: string;
   /**
@@ -24,7 +24,7 @@ export class ListOutboundCallRestrictionsResponseBodyDataOutboundCallRestriction
    * The phone number.
    * 
    * @example
-   * 示例值
+   * 134*****
    */
   number?: string;
   /**
@@ -42,7 +42,7 @@ export class ListOutboundCallRestrictionsResponseBodyDataOutboundCallRestriction
    * The remark.
    * 
    * @example
-   * 示例值
+   * test
    */
   remark?: string;
   /**
@@ -189,7 +189,7 @@ export class ListOutboundCallRestrictionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlashSmsAccessProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -13,15 +13,15 @@ export class DeleteFlashSmsAccessProfileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    * 
    * @example
-   * 闪信配置 ID
+   * Flash message configuration ID
    */
   data?: string;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DeleteFlashSmsAccessProfileResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=outb003.
@@ -37,12 +37,12 @@ export class DeleteFlashSmsAccessProfileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -50,7 +50,7 @@ export class DeleteFlashSmsAccessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

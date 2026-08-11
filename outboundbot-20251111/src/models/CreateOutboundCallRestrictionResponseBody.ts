@@ -16,7 +16,7 @@ export class CreateOutboundCallRestrictionResponseBody extends $dara.Model {
    * The response data.
    * 
    * @example
-   * Sample value
+   * xxxx
    */
   data?: string;
   /**

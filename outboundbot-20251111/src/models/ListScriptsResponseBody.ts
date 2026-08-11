@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   /**
    * @remarks
-   * 并发数
+   * The concurrency.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   concurrency?: number;
   /**
    * @remarks
-   * 创建时间，毫秒级时间戳
+   * The creation time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -21,15 +21,15 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * 描述
+   * The description.
    * 
    * @example
-   * 询问用户对本次服务是否满意
+   * Ask the user whether they are satisfied with the service
    */
   description?: string;
   /**
    * @remarks
-   * 草稿版本ID
+   * The draft version ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b60
@@ -37,15 +37,15 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   draftVersionId?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
-   * 满意度调研
+   * Satisfaction Survey
    */
   name?: string;
   /**
    * @remarks
-   * NLU接入类型
+   * The NLU access type.
    * 
    * @example
    * MANAGED
@@ -53,7 +53,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   nluAccessType?: string;
   /**
    * @remarks
-   * NLU引擎类型
+   * The NLU engine type.
    * 
    * @example
    * BEEBOT
@@ -61,7 +61,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   nluEngine?: string;
   /**
    * @remarks
-   * 电话号码
+   * The phone number bound to the scenario.
    * 
    * @example
    * 01057316547
@@ -69,7 +69,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   number?: string;
   /**
    * @remarks
-   * 已发布版本ID
+   * The published version ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b41
@@ -77,7 +77,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   publishedVersionId?: string;
   /**
    * @remarks
-   * 场景ID
+   * The scenario ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -85,7 +85,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * 状态
+   * The scenario status.
    * 
    * @example
    * PUBLISHED
@@ -93,7 +93,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 更新时间，毫秒级时间戳
+   * The update time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -145,7 +145,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
 export class ListScriptsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -153,7 +153,7 @@ export class ListScriptsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -161,12 +161,12 @@ export class ListScriptsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 数据列表
+   * The data list.
    */
   scripts?: ListScriptsResponseBodyDataScripts[];
   /**
    * @remarks
-   * 符合条件的记录总数
+   * The total number of records that match the conditions.
    * 
    * @example
    * 0
@@ -205,7 +205,7 @@ export class ListScriptsResponseBodyData extends $dara.Model {
 export class ListScriptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -213,12 +213,12 @@ export class ListScriptsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListScriptsResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -226,7 +226,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=ob-0987654321
@@ -234,12 +234,12 @@ export class ListScriptsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -247,7 +247,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

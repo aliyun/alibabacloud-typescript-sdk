@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles extends $dara.Model {
   /**
    * @remarks
-   * 接入配置
+   * The provider configuration information.
    * 
    * @example
    * {"apiId":"100235","apiKey":"3aRsPrTsDG3OPNq5","aesKey":"TQChVEAabhaNp2AB","capAppId":"300012117547"}
@@ -13,7 +13,7 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   accessProfile?: string;
   /**
    * @remarks
-   * 接入配置ID
+   * The flash SMS configuration ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -21,7 +21,7 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   accessProfileId?: string;
   /**
    * @remarks
-   * 创建时间，毫秒级时间戳
+   * The creation time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -29,7 +29,13 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   createdTime?: number;
   /**
    * @remarks
-   * 供应商ID
+   * The provider ID. Valid values:\\
+   * Uincall: Beijing Youyin Communication Co., Ltd.\\
+   * ChuangLan: Beijing ChuangLan Cloud Intelligence Information Co., Ltd.\\
+   * ChinaMobile: China Mobile.\\
+   * ShangHaiTianNan: Shanghai Tiannan.\\
+   * HeDao: Galexis.\\
+   * DySms: Alibaba Communication.
    * 
    * @example
    * Uincall
@@ -37,7 +43,7 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   providerId?: string;
   /**
    * @remarks
-   * 供应商名称
+   * The provider name.
    * 
    * @example
    * 北京优音通信有限公司
@@ -45,7 +51,7 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   providerName?: string;
   /**
    * @remarks
-   * 更新时间，毫秒级时间戳
+   * The update time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -85,12 +91,12 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
 export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 数据列表
+   * The data list.
    */
   flashSmsAccessProfiles?: ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles[];
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -98,7 +104,7 @@ export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -106,7 +112,7 @@ export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的记录总数
+   * The total number of records that match the conditions.
    * 
    * @example
    * 0
@@ -145,7 +151,7 @@ export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
 export class ListFlashSmsAccessProfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -153,12 +159,12 @@ export class ListFlashSmsAccessProfilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListFlashSmsAccessProfilesResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -166,7 +172,7 @@ export class ListFlashSmsAccessProfilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=outb001
@@ -174,12 +180,12 @@ export class ListFlashSmsAccessProfilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -187,7 +193,7 @@ export class ListFlashSmsAccessProfilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

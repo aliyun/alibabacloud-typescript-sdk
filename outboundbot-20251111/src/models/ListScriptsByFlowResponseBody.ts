@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsByFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 晓蜜机器人ID
+   * The chatbot ID.
    * 
    * @example
    * chatbot-cn-MQuyjjb666
@@ -13,15 +13,15 @@ export class ListScriptsByFlowResponseBodyData extends $dara.Model {
   chatbotId?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
-   * 满意度调研
+   * Satisfaction Survey
    */
   name?: string;
   /**
    * @remarks
-   * 场景ID
+   * The scenario ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b54
@@ -55,7 +55,7 @@ export class ListScriptsByFlowResponseBodyData extends $dara.Model {
 export class ListScriptsByFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -63,12 +63,12 @@ export class ListScriptsByFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListScriptsByFlowResponseBodyData[];
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class ListScriptsByFlowResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=ob-1234567890
@@ -84,12 +84,12 @@ export class ListScriptsByFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -97,7 +97,7 @@ export class ListScriptsByFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

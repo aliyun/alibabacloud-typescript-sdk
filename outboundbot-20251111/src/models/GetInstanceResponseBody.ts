@@ -24,7 +24,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * The instance description.
    * 
    * @example
-   * This is a large model robot
+   * This is a large language model chatbot
    */
   description?: string;
   /**

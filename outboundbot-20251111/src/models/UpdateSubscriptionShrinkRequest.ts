@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 接入点
+   * The endpoint.
    * 
    * @example
    * rmq-cn-h964u01wh12.cn-hangzhou.rmq.aliyuncs.com:8080
@@ -13,12 +13,12 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * 事件订阅列表
+   * The list of subscription items.
    */
   eventSubscriptionsShrink?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -26,7 +26,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * MQ的实例ID
+   * The instance ID of the message queue.
    * 
    * @example
    * rmq-cn-3g84vpf3712
@@ -34,7 +34,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   mqInstanceId?: string;
   /**
    * @remarks
-   * 消息队列类型
+   * The MSMQ type.
    * 
    * @example
    * ROCKET_MQ_4
@@ -42,7 +42,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   mqType?: string;
   /**
    * @remarks
-   * 田南+伽雷可斯
+   * The password.
    * 
    * @example
    * pa44w0rd
@@ -50,7 +50,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * 生产者ID
+   * The producer ID.
    * 
    * @example
    * GID_123456
@@ -58,7 +58,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   producerId?: string;
   /**
    * @remarks
-   * 主题
+   * The topic.
    * 
    * @example
    * OUTBOUND_BOT_TOPIC
@@ -66,7 +66,7 @@ export class UpdateSubscriptionShrinkRequest extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * 伽雷可斯
+   * The username.
    * 
    * @example
    * admin

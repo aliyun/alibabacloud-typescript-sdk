@@ -13,7 +13,7 @@ export class DeleteOutboundCallRestrictionShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of outbound restriction IDs.
+   * The list of outbound call restriction IDs.
    */
   restrictionIdListShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile extends $dara.Model {
   /**
    * @remarks
-   * 访问密钥
+   * Required when NlsEngine=VOLC.
    * 
    * @example
    * ****
@@ -13,7 +13,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   accessKey?: string;
   /**
    * @remarks
-   * 百炼同时使用
+   * Required when NlsEngine=IFLYTEK or NlsEngine=BAILIAN.
    * 
    * @example
    * a9872e2342952e248727798f642936c7
@@ -21,7 +21,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   apiKey?: string;
   /**
    * @remarks
-   * API密钥
+   * Required when NlsEngine=IFLYTEK.
    * 
    * @example
    * c0358c6e51c1013b446fdeb21a3a5d2e
@@ -29,7 +29,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   apiSecret?: string;
   /**
    * @remarks
-   * 科大讯飞使用
+   * Required when NlsEngine=IFLYTEK or NlsEngine=TENCENT.
    * 
    * @example
    * 9479688350
@@ -37,7 +37,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   appId?: string;
   /**
    * @remarks
-   * 豆包使用
+   * Required when NlsEngine=VOLC.
    * 
    * @example
    * DW0yKRHQEe1nAd8c
@@ -45,15 +45,15 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   appKey?: string;
   /**
    * @remarks
-   * 货拉拉使用
+   * Not currently in use.
    * 
    * @example
-   * 暂无使用
+   * Not currently in use
    */
   asrAppKey?: string;
   /**
    * @remarks
-   * 腾讯云使用，appId 已存在
+   * Required when NlsEngine=TENCENT.
    * 
    * @example
    * sci_r3b3e62udqcujnkerrorqztnpu
@@ -61,7 +61,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   secretId?: string;
   /**
    * @remarks
-   * 密钥
+   * Required when NlsEngine=TENCENT.
    * 
    * @example
    * y5MZfFdW6yBZgJdKonHZBA
@@ -69,10 +69,10 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
   secretKey?: string;
   /**
    * @remarks
-   * TTS服务API Key
+   * Not currently in use.
    * 
    * @example
-   * 暂无使用
+   * Not currently in use
    */
   ttsApiKey?: string;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile e
 export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends $dara.Model {
   /**
    * @remarks
-   * 接入配置ID
+   * The access profile ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -123,12 +123,12 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends 
   accessProfileId?: string;
   /**
    * @remarks
-   * 能力列表
+   * The list of supported capabilities.
    */
   capabilities?: string[];
   /**
    * @remarks
-   * 创建时间，毫秒级时间戳
+   * The creation time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -136,7 +136,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends 
   createdTime?: number;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -144,7 +144,11 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends 
   instanceId?: string;
   /**
    * @remarks
-   * 目前支持IFLYTEK、VOLC
+   * The voice engine vendor. Valid values:
+   * - BAILIAN: Bailian.
+   * - VOLC: Doubao.
+   * - IFLYTEK: iFLYTEK.
+   * - TENCENT: Tencent.
    * 
    * @example
    * BAILIAN
@@ -152,20 +156,20 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends 
   nlsEngine?: string;
   /**
    * @remarks
-   * 引擎显示名称(例如：豆包、货拉拉)
+   * The display name of the voice engine vendor.
    * 
    * @example
-   * 百炼
+   * Bailian
    */
   nlsEngineName?: string;
   /**
    * @remarks
-   * 配置
+   * The configuration.
    */
   profile?: ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfilesProfile;
   /**
    * @remarks
-   * 更新时间，毫秒级时间戳
+   * The update time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -215,7 +219,7 @@ export class ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles extends 
 export class ListVoiceAccessProfilesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -223,7 +227,7 @@ export class ListVoiceAccessProfilesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -231,7 +235,7 @@ export class ListVoiceAccessProfilesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的记录总数
+   * The total number of records that match the conditions.
    * 
    * @example
    * 0
@@ -239,7 +243,7 @@ export class ListVoiceAccessProfilesResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * 数据列表
+   * The data list.
    */
   voiceAccessProfiles?: ListVoiceAccessProfilesResponseBodyDataVoiceAccessProfiles[];
   static names(): { [key: string]: string } {
@@ -275,7 +279,7 @@ export class ListVoiceAccessProfilesResponseBodyData extends $dara.Model {
 export class ListVoiceAccessProfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -283,12 +287,12 @@ export class ListVoiceAccessProfilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListVoiceAccessProfilesResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -296,7 +300,7 @@ export class ListVoiceAccessProfilesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=outb001,.
@@ -304,12 +308,12 @@ export class ListVoiceAccessProfilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -317,7 +321,7 @@ export class ListVoiceAccessProfilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

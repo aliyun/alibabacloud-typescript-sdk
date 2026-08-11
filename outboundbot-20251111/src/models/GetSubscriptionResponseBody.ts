@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSubscriptionResponseBodyDataEventList extends $dara.Model {
   /**
    * @remarks
-   * true 表示禁用，false 表示启用
+   * Indicates whether the event push is disabled. A value of true indicates disabled, and a value of false indicates enabled.
    * 
    * @example
    * true
@@ -13,15 +13,15 @@ export class GetSubscriptionResponseBodyDataEventList extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * 显示名称
+   * The display name.
    * 
    * @example
-   * 振铃
+   * Ringing
    */
   displayName?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
    * Ringing
@@ -55,7 +55,7 @@ export class GetSubscriptionResponseBodyDataEventList extends $dara.Model {
 export class GetSubscriptionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * true 表示禁用，false 表示启用
+   * Indicates whether the event push is disabled. A value of true indicates disabled, and a value of false indicates enabled.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * 接入点
+   * The endpoint.
    * 
    * @example
    * rmq-cn-h964u01wh12.cn-hangzhou.rmq.aliyuncs.com:8080
@@ -71,12 +71,12 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * 事件列表
+   * The list of push content.
    */
   eventList?: GetSubscriptionResponseBodyDataEventList[];
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -84,7 +84,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * MQ的实例ID
+   * The MQ instance ID.
    * 
    * @example
    * rmq-cn-3g84vpf3712
@@ -92,7 +92,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   mqInstanceId?: string;
   /**
    * @remarks
-   * 消息队列类型
+   * The MSMQ type.
    * 
    * @example
    * ROCKET_MQ_4
@@ -100,7 +100,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   mqType?: string;
   /**
    * @remarks
-   * 田南+伽雷可斯
+   * The password.
    * 
    * @example
    * pa44w0rd
@@ -108,7 +108,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * 生产者ID
+   * The producer ID.
    * 
    * @example
    * GID_123456
@@ -116,7 +116,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   producerId?: string;
   /**
    * @remarks
-   * 主题
+   * The topic.
    * 
    * @example
    * OUTBOUND_BOT_TOPIC
@@ -124,7 +124,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * 伽雷可斯
+   * The username.
    * 
    * @example
    * admin
@@ -175,7 +175,7 @@ export class GetSubscriptionResponseBodyData extends $dara.Model {
 export class GetSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -183,12 +183,12 @@ export class GetSubscriptionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: GetSubscriptionResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -196,7 +196,7 @@ export class GetSubscriptionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=ob-1234567890
@@ -204,12 +204,12 @@ export class GetSubscriptionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -217,7 +217,7 @@ export class GetSubscriptionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

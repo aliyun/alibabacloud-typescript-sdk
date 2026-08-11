@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyDataInstances extends $dara.Model {
   /**
    * @remarks
-   * The number of concurrent connections.
+   * The concurrency.
    * 
    * @example
    * 10
@@ -105,7 +105,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
 export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of instances.
+   * The instance list.
    */
   instances?: ListInstancesResponseBodyDataInstances[];
   /**

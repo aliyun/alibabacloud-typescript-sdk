@@ -13,10 +13,10 @@ export class DeleteOutboundCallRestrictionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Not in use.
+   * The response data.
    * 
    * @example
-   * Not in use
+   * xxx
    */
   data?: string;
   /**

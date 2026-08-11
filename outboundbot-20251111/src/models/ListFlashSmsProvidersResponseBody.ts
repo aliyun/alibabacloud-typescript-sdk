@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 配置schema
+   * The provider parameter information.
    * 
    * @example
    * {\\"Pwd\\":{\\"displayName\\":\\"密码\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":2,\\"required\\":true,\\"maxLength\\":64},\\"User\\":{\\"displayName\\":\\"用户\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":1,\\"required\\":true,\\"maxLength\\":64},\\"Account\\":{\\"displayName\\":\\"账号\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":3,\\"required\\":true,\\"maxLength\\":64}}
@@ -13,7 +13,7 @@ export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
   profileSchema?: string;
   /**
    * @remarks
-   * 供应商ID
+   * The provider ID.
    * 
    * @example
    * Uincall
@@ -21,7 +21,7 @@ export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
   providerId?: string;
   /**
    * @remarks
-   * 供应商名称
+   * The provider name.
    * 
    * @example
    * 北京优音通信有限公司
@@ -55,7 +55,7 @@ export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
 export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -63,12 +63,12 @@ export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListFlashSmsProvidersResponseBodyData[];
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=outb003
@@ -84,12 +84,12 @@ export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -97,7 +97,7 @@ export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

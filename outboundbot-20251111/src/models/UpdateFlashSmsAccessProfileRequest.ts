@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFlashSmsAccessProfileRequestAccessProfileDySmsAccessProfiles extends $dara.Model {
   /**
+   * @remarks
+   * The template content.
+   * 
    * @example
-   * 我们联系您，您不在，稍后工作人员会继续联系您，如有打扰，请见谅
+   * We tried to reach you but you were unavailable. Our staff will contact you again shortly. We apologize for any inconvenience
    */
   description?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
+   * @remarks
+   * The signature name.
+   * 
    * @example
-   * 云呼叫中心
+   * Cloud Call Center
    */
   signName?: string;
   /**
+   * @remarks
+   * The template code.
+   * 
    * @example
    * SMS_469075249
    */
@@ -52,77 +64,126 @@ export class UpdateFlashSmsAccessProfileRequestAccessProfileDySmsAccessProfiles 
 
 export class UpdateFlashSmsAccessProfileRequestAccessProfile extends $dara.Model {
   /**
+   * @remarks
+   * Required when ProviderId is set to ShangHaiTianNan or Uincall.
+   * 
    * @example
    * 6004200267
    */
   account?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChinaMobile.
+   * 
    * @example
    * TQChVEAabhaNp2AB
    */
   aesKey?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChuangLan.
+   * 
    * @example
    * N92685567
    */
   apiAccount?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChinaMobile.
+   * 
    * @example
    * 100235
    */
   apiId?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChinaMobile.
+   * 
    * @example
    * 3aRsPrTsDG3OPNq5
    */
   apiKey?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChuangLan.
+   * 
    * @example
    * Rp7hyUbtXMef23
    */
   apiPassword?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChinaMobile.
+   * 
    * @example
    * 300012117547
    */
   capAppId?: string;
+  /**
+   * @remarks
+   * The list of Alibaba Communication configurations. Required when ProviderId is set to DySms.
+   */
   dySmsAccessProfiles?: UpdateFlashSmsAccessProfileRequestAccessProfileDySmsAccessProfiles[];
   /**
+   * @remarks
+   * Required when ProviderId is set to ShangHaiTianNan.
+   * 
    * @example
    * 10690101220
    */
   extno?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChuangLan.
+   * 
    * @example
    * Rp7hyUbtXMef23
    */
   managementPassword?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChuangLan.
+   * 
    * @example
    * chuanglanrobot2
    */
   managementSubUserId?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ChuangLan.
+   * 
    * @example
    * chuanglanrobot
    */
   managementUsername?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to ShangHaiTianNan or HeDao.
+   * 
    * @example
    * nu2DxxfZtY46
    */
   password?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to Uincall.
+   * 
    * @example
    * 828ee92ebc8241d3b37d0238dde6345e
    */
   pwd?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to Uincall.
+   * 
    * @example
    * 6004200267_dev
    */
   user?: string;
   /**
+   * @remarks
+   * Required when ProviderId is set to HeDao.
+   * 
    * @example
    * TEST10
    */
@@ -184,12 +245,12 @@ export class UpdateFlashSmsAccessProfileRequestAccessProfile extends $dara.Model
 export class UpdateFlashSmsAccessProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * 接入配置
+   * The access configuration.
    */
   accessProfile?: UpdateFlashSmsAccessProfileRequestAccessProfile;
   /**
    * @remarks
-   * 接入配置ID
+   * The access configuration ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -197,7 +258,7 @@ export class UpdateFlashSmsAccessProfileRequest extends $dara.Model {
   accessProfileId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -205,7 +266,13 @@ export class UpdateFlashSmsAccessProfileRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 供应商ID
+   * The provider ID. Valid values:
+   * - Uincall: Beijing Youyin Communication Co., Ltd.
+   * - ChuangLan: Beijing Chuanglan Cloud Intelligence Information Co., Ltd.
+   * - ChinaMobile: China Mobile.
+   * - ShangHaiTianNan: Shanghai Tiannan.
+   * - HeDao: Galaxis.
+   * - DySms: Alibaba Communication.
    * 
    * @example
    * Uincall

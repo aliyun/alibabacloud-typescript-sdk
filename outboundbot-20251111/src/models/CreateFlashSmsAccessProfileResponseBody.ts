@@ -16,7 +16,7 @@ export class CreateFlashSmsAccessProfileResponseBody extends $dara.Model {
    * The response data.
    * 
    * @example
-   * Flash message configuration ID
+   * xxxxx
    */
   data?: string;
   /**

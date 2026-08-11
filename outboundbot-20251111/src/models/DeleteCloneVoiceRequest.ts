@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloneVoiceRequest extends $dara.Model {
   /**
    * @remarks
-   * 克隆音色ID
+   * The UUID of the cloned voice.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -13,7 +13,7 @@ export class DeleteCloneVoiceRequest extends $dara.Model {
   cloneVoiceId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04

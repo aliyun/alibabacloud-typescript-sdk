@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishScriptRequest extends $dara.Model {
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -13,7 +13,7 @@ export class PublishScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 场景ID
+   * The scenario ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b89
@@ -21,7 +21,7 @@ export class PublishScriptRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * 版本ID
+   * The version ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b11

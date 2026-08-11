@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of concurrent calls.
+   * The number of concurrent connections.
    * 
    * @example
    * 20

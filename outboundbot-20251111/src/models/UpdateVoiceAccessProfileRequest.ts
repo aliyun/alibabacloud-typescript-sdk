@@ -4,48 +4,75 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateVoiceAccessProfileRequestProfile extends $dara.Model {
   /**
+   * @remarks
+   * Required when NlsEngine is set to VOLC.
+   * 
    * @example
    * ****
    */
   accessKey?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to IFLYTEK or BAILIAN.
+   * 
    * @example
    * a9872e2342952e248727798f642936c7
    */
   apiKey?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to IFLYTEK.
+   * 
    * @example
    * c0358c6e51c1013b446fdeb21a3a5d2e
    */
   apiSecret?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to IFLYTEK or TENCENT.
+   * 
    * @example
    * 9479688350
    */
   appId?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to VOLC.
+   * 
    * @example
    * DW0yKRHQEe1nAd8c
    */
   appKey?: string;
   /**
+   * @remarks
+   * Not currently in use.
+   * 
    * @example
-   * 暂无使用
+   * Not currently in use
    */
   asrAppKey?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to TENCENT.
+   * 
    * @example
    * sci_r3b3e62udqcujnkerrorqztnpu
    */
   secretId?: string;
   /**
+   * @remarks
+   * Required when NlsEngine is set to TENCENT.
+   * 
    * @example
    * y5MZfFdW6yBZgJdKonHZBA
    */
   secretKey?: string;
   /**
+   * @remarks
+   * Not currently in use.
+   * 
    * @example
-   * 暂无使用
+   * Not currently in use
    */
   ttsApiKey?: string;
   static names(): { [key: string]: string } {
@@ -88,7 +115,7 @@ export class UpdateVoiceAccessProfileRequestProfile extends $dara.Model {
 export class UpdateVoiceAccessProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * 接入配置ID
+   * The access profile ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -96,7 +123,7 @@ export class UpdateVoiceAccessProfileRequest extends $dara.Model {
   accessProfileId?: string;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -104,7 +131,12 @@ export class UpdateVoiceAccessProfileRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 目前支持IFLYTEK、VOLC
+   * The voice service provider. Valid values:
+   * 
+   * - BAILIAN: Bailian.
+   * - VOLC: Doubao.
+   * - IFLYTEK: iFLYTEK.
+   * - TENCENT: Tencent.
    * 
    * @example
    * BAILIAN
@@ -112,7 +144,7 @@ export class UpdateVoiceAccessProfileRequest extends $dara.Model {
   nlsEngine?: string;
   /**
    * @remarks
-   * 配置
+   * The vendor configuration information.
    */
   profile?: UpdateVoiceAccessProfileRequestProfile;
   static names(): { [key: string]: string } {

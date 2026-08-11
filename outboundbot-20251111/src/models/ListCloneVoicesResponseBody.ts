@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   /**
    * @remarks
-   * 克隆音色ID
+   * The UUID of the cloned voice.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -13,7 +13,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   cloneVoiceId?: string;
   /**
    * @remarks
-   * 创建时间，毫秒级时间戳
+   * The creation time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -21,7 +21,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -29,7 +29,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 模型名称
+   * The model name.
    * 
    * @example
    * CosyVoice
@@ -37,15 +37,15 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
-   * 测试克隆音
+   * TestClonedVoice
    */
   name?: string;
   /**
    * @remarks
-   * 目前支持IFLYTEK、VOLC
+   * The speech vendor.
    * 
    * @example
    * BAILIAN
@@ -53,7 +53,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   nlsEngine?: string;
   /**
    * @remarks
-   * 状态
+   * The status.
    * 
    * @example
    * Published
@@ -61,7 +61,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 租户ID
+   * The tenant ID.
    * 
    * @example
    * 1308144684576765
@@ -69,7 +69,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 更新时间，毫秒级时间戳
+   * The update time, in millisecond-level timestamp.
    * 
    * @example
    * 1735660800000
@@ -77,7 +77,7 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * 音色
+   * The voice ID.
    * 
    * @example
    * cosyvoice-v3-flash-voicebot2-8aa485413eba42089c873eec1f901d64
@@ -125,12 +125,12 @@ export class ListCloneVoicesResponseBodyDataCloneVoices extends $dara.Model {
 export class ListCloneVoicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 数据列表
+   * The list of cloned voices.
    */
   cloneVoices?: ListCloneVoicesResponseBodyDataCloneVoices[];
   /**
    * @remarks
-   * 页码，从1开始
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class ListCloneVoicesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 每页记录数
+   * The number of records per page.
    * 
    * @example
    * 20
@@ -146,7 +146,7 @@ export class ListCloneVoicesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 符合条件的记录总数
+   * The total number of records that match the conditions.
    * 
    * @example
    * 0
@@ -185,7 +185,7 @@ export class ListCloneVoicesResponseBodyData extends $dara.Model {
 export class ListCloneVoicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 返回码
+   * The return code.
    * 
    * @example
    * OK
@@ -193,12 +193,12 @@ export class ListCloneVoicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The response data.
    */
   data?: ListCloneVoicesResponseBodyData;
   /**
    * @remarks
-   * HTTP状态码
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -206,7 +206,7 @@ export class ListCloneVoicesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 错误信息
+   * The error message.
    * 
    * @example
    * Instance does not exist. Instance=anchashi.
@@ -214,12 +214,12 @@ export class ListCloneVoicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 错误信息中的变量值列表
+   * The list of variable values in the error message.
    */
   params?: string[];
   /**
    * @remarks
-   * 请求ID
+   * The request ID.
    * 
    * @example
    * 019FDAC7-13C5-1B64-A853-999DF105B9EF
@@ -227,7 +227,7 @@ export class ListCloneVoicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 是否调用成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

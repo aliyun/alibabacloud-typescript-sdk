@@ -33,7 +33,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建克隆音色
+   * Creates an instance.
    * 
    * @param request - CreateCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72,7 +72,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建克隆音色
+   * Creates an instance.
    * 
    * @param request - CreateCloneVoiceRequest
    * @returns CreateCloneVoiceResponse
@@ -83,7 +83,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance.
+   * Creates a flash message configuration.
    * 
    * @param tmpReq - CreateFlashSmsAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -128,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an instance.
+   * Creates a flash message configuration.
    * 
    * @param request - CreateFlashSmsAccessProfileRequest
    * @returns CreateFlashSmsAccessProfileResponse
@@ -249,7 +249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建场景
+   * Creates an instance.
    * 
    * @param request - CreateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -292,7 +292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建场景
+   * Creates an instance.
    * 
    * @param request - CreateScriptRequest
    * @returns CreateScriptResponse
@@ -303,7 +303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建场景配置
+   * Creates a scenario configuration.
    * 
    * @param tmpReq - CreateScriptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -384,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建场景配置
+   * Creates a scenario configuration.
    * 
    * @param request - CreateScriptVersionRequest
    * @returns CreateScriptVersionResponse
@@ -395,7 +395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建语音接入配置
+   * Creates an instance.
    * 
    * @param tmpReq - CreateVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -440,7 +440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建语音接入配置
+   * Creates an instance.
    * 
    * @param request - CreateVoiceAccessProfileRequest
    * @returns CreateVoiceAccessProfileResponse
@@ -451,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除克隆音色
+   * Deletes a scene.
    * 
    * @param request - DeleteCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -486,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除克隆音色
+   * Deletes a scene.
    * 
    * @param request - DeleteCloneVoiceRequest
    * @returns DeleteCloneVoiceResponse
@@ -497,7 +497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除闪信配置
+   * Deletes a flash message configuration.
    * 
    * @param request - DeleteFlashSmsAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -532,7 +532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除闪信配置
+   * Deletes a flash message configuration.
    * 
    * @param request - DeleteFlashSmsAccessProfileRequest
    * @returns DeleteFlashSmsAccessProfileResponse
@@ -543,7 +543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an instance.
+   * Retrieves instance details.
    * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -574,7 +574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an instance.
+   * Retrieves instance details.
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -637,7 +637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a scenario.
    * 
    * @param request - DeleteScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -672,7 +672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除场景
+   * Deletes a scenario.
    * 
    * @param request - DeleteScriptRequest
    * @returns DeleteScriptResponse
@@ -683,7 +683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除三方语音配置
+   * Deletes a third-party voice configuration.
    * 
    * @param request - DeleteVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -718,7 +718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除三方语音配置
+   * Deletes a third-party voice configuration.
    * 
    * @param request - DeleteVoiceAccessProfileRequest
    * @returns DeleteVoiceAccessProfileResponse
@@ -729,7 +729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用消息订阅
+   * Disables message subscription.
    * 
    * @param request - DisableSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -760,7 +760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用消息订阅
+   * Disables message subscription.
    * 
    * @param request - DisableSubscriptionRequest
    * @returns DisableSubscriptionResponse
@@ -813,7 +813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取prompt场景模版
+   * Retrieves a prompt scenario template.
    * 
    * @param request - GetScriptProfileTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -848,7 +848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取prompt场景模版
+   * Retrieves a prompt scenario template.
    * 
    * @param request - GetScriptProfileTemplateRequest
    * @returns GetScriptProfileTemplateResponse
@@ -859,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MQ配置
+   * Retrieves the MQ configuration.
    * 
    * @param request - GetSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -890,7 +890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MQ配置
+   * Retrieves the MQ configuration.
    * 
    * @param request - GetSubscriptionRequest
    * @returns GetSubscriptionResponse
@@ -901,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色可用模型列表
+   * Retrieves the list of available models for voice cloning.
    * 
    * @param request - ListCloneVoiceModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -936,7 +936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色可用模型列表
+   * Retrieves the list of available models for voice cloning.
    * 
    * @param request - ListCloneVoiceModelsRequest
    * @returns ListCloneVoiceModelsResponse
@@ -947,7 +947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色列表
+   * Retrieves the list of cloned voices.
    * 
    * @param request - ListCloneVoicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -990,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取克隆音色列表
+   * Retrieves the list of cloned voices.
    * 
    * @param request - ListCloneVoicesRequest
    * @returns ListCloneVoicesResponse
@@ -1001,7 +1001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信配置列表
+   * Retrieves the list of flash SMS configurations.
    * 
    * @param request - ListFlashSmsAccessProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1040,7 +1040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信配置列表
+   * Retrieves the list of flash SMS configurations.
    * 
    * @param request - ListFlashSmsAccessProfilesRequest
    * @returns ListFlashSmsAccessProfilesResponse
@@ -1051,7 +1051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信厂商列表
+   * Retrieves the list of flash message providers.
    * 
    * @param request - ListFlashSmsProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1082,7 +1082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信厂商列表
+   * Retrieves the list of flash message providers.
    * 
    * @param request - ListFlashSmsProvidersRequest
    * @returns ListFlashSmsProvidersResponse
@@ -1093,7 +1093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信模版列表
+   * Retrieves flash SMS templates.
    * 
    * @param request - ListFlashSmsTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1136,7 +1136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取闪信模版列表
+   * Retrieves flash SMS templates.
    * 
    * @param request - ListFlashSmsTemplatesRequest
    * @returns ListFlashSmsTemplatesResponse
@@ -1197,7 +1197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the blacklists and whitelists of an outbound robot.
+   * Retrieves the blacklists and whitelists.
    * 
    * @param request - ListOutboundCallRestrictionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1240,7 +1240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the blacklists and whitelists of an outbound robot.
+   * Retrieves the blacklists and whitelists.
    * 
    * @param request - ListOutboundCallRestrictionsRequest
    * @returns ListOutboundCallRestrictionsResponse
@@ -1251,7 +1251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景配置模板列表
+   * Retrieves the list of scenario configuration templates.
    * 
    * @param request - ListScriptProfileTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1286,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景配置模板列表
+   * Retrieves the list of scenario configuration templates.
    * 
    * @param request - ListScriptProfileTemplatesRequest
    * @returns ListScriptProfileTemplatesResponse
@@ -1297,7 +1297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景列表
+   * Retrieves the details of an instance.
    * 
    * @param tmpReq - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1354,7 +1354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景列表
+   * Retrieves the details of an instance.
    * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse
@@ -1365,7 +1365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据流程ID获取场景列表
+   * Retrieves the list of scenarios associated with a flow by flow ID.
    * 
    * @param request - ListScriptsByFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1400,7 +1400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据流程ID获取场景列表
+   * Retrieves the list of scenarios associated with a flow by flow ID.
    * 
    * @param request - ListScriptsByFlowRequest
    * @returns ListScriptsByFlowResponse
@@ -1411,7 +1411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取系统配置列表
+   * Retrieves the list of system configurations.
    * 
    * @param request - ListSystemConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1450,7 +1450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取系统配置列表
+   * Retrieves the list of system configurations.
    * 
    * @param request - ListSystemConfigsRequest
    * @returns ListSystemConfigsResponse
@@ -1461,7 +1461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语音接入配置列表
+   * Retrieves the list of voice access configurations.
    * 
    * @param request - ListVoiceAccessProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1500,7 +1500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语音接入配置列表
+   * Retrieves the list of voice access configurations.
    * 
    * @param request - ListVoiceAccessProfilesRequest
    * @returns ListVoiceAccessProfilesResponse
@@ -1511,7 +1511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布场景
+   * Updates an instance.
    * 
    * @param request - PublishScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1550,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布场景
+   * Updates an instance.
    * 
    * @param request - PublishScriptRequest
    * @returns PublishScriptResponse
@@ -1561,7 +1561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新克隆音色
+   * Updates an instance.
    * 
    * @param request - UpdateCloneVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1600,7 +1600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新克隆音色
+   * Updates an instance.
    * 
    * @param request - UpdateCloneVoiceRequest
    * @returns UpdateCloneVoiceResponse
@@ -1611,7 +1611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新闪信配置
+   * Updates the flash message configuration.
    * 
    * @param tmpReq - UpdateFlashSmsAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1660,7 +1660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新闪信配置
+   * Updates the flash message configuration.
    * 
    * @param request - UpdateFlashSmsAccessProfileRequest
    * @returns UpdateFlashSmsAccessProfileResponse
@@ -1725,7 +1725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新场景
+   * Updates an instance.
    * 
    * @param request - UpdateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1768,7 +1768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新场景
+   * Updates an instance.
    * 
    * @param request - UpdateScriptRequest
    * @returns UpdateScriptResponse
@@ -1779,7 +1779,105 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新MQ配置
+   * 更新场景配置
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - UpdateScriptVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScriptVersionResponse
+   */
+  async updateScriptVersionWithOptions(tmpReq: $_model.UpdateScriptVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScriptVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateScriptVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.interactionConfig)) {
+      request.interactionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interactionConfig, "InteractionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelConfigs)) {
+      request.labelConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelConfigs, "LabelConfigs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scriptProfile)) {
+      request.scriptProfileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scriptProfile, "ScriptProfile", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.synthesizerConfig)) {
+      request.synthesizerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synthesizerConfig, "SynthesizerConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.transcriberConfig)) {
+      request.transcriberConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcriberConfig, "TranscriberConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.interactionConfigShrink)) {
+      body["InteractionConfig"] = request.interactionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.labelConfigsShrink)) {
+      body["LabelConfigs"] = request.labelConfigsShrink;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.scriptProfileShrink)) {
+      body["ScriptProfile"] = request.scriptProfileShrink;
+    }
+
+    if (!$dara.isNull(request.synthesizerConfigShrink)) {
+      body["SynthesizerConfig"] = request.synthesizerConfigShrink;
+    }
+
+    if (!$dara.isNull(request.transcriberConfigShrink)) {
+      body["TranscriberConfig"] = request.transcriberConfigShrink;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScriptVersion",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScriptVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScriptVersionResponse({}));
+  }
+
+  /**
+   * 更新场景配置
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - UpdateScriptVersionRequest
+   * @returns UpdateScriptVersionResponse
+   */
+  async updateScriptVersion(request: $_model.UpdateScriptVersionRequest): Promise<$_model.UpdateScriptVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateScriptVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates or updates a message queue (MQ) configuration.
    * 
    * @param tmpReq - UpdateSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1848,7 +1946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新MQ配置
+   * Creates or updates a message queue (MQ) configuration.
    * 
    * @param request - UpdateSubscriptionRequest
    * @returns UpdateSubscriptionResponse
@@ -1859,7 +1957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新系统配置
+   * Updates system configurations.
    * 
    * @param tmpReq - UpdateSystemConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1904,7 +2002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新系统配置
+   * Updates system configurations.
    * 
    * @param request - UpdateSystemConfigsRequest
    * @returns UpdateSystemConfigsResponse
@@ -1915,7 +2013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新语音接入配置
+   * Updates an instance.
    * 
    * @param tmpReq - UpdateVoiceAccessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,7 +2062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新语音接入配置
+   * Updates an instance.
    * 
    * @param request - UpdateVoiceAccessProfileRequest
    * @returns UpdateVoiceAccessProfileResponse
