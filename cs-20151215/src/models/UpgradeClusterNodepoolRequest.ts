@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches during the upgrade. This parameter takes effect only when the pause policy is set to `NotPause`.
+   * The upgrade interval between batches. This parameter takes effect only when the pause policy is set to `NotPause`.
    * 
    * Valid values: [5,120]. Unit: minutes.
    * 
-   * You can set this parameter to 0 to specify no interval between batches.
+   * This parameter can be set to 0, which indicates no interval between batches.
    * 
    * @example
    * 5
@@ -17,7 +17,15 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can be updated in parallel per batch. Nodes in the node pool are updated in batches.
+   * The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * 
+   * @example
+   * 0
+   */
+  maxFailedNodes?: number;
+  /**
+   * @remarks
+   * The maximum number of nodes that can be updated in parallel per batch. Node pool updates are performed in batches.
    * 
    * Valid values: [1,10].
    * 
@@ -30,9 +38,9 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
    * The automatic pause policy during node upgrades. Valid values:
-   * - FirstBatch: pauses after the first batch is complete.
-   * - EveryBatch: pauses after each batch is complete.
-   * - NotPause: does not pause.
+   * - FirstBatch: Pauses after the first batch is complete.
+   * - EveryBatch: Pauses after each batch is complete.
+   * - NotPause: Does not pause.
    * 
    * @example
    * NotPause
@@ -41,6 +49,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchInterval: 'batch_interval',
+      maxFailedNodes: 'max_failed_nodes',
       maxParallelism: 'max_parallelism',
       pausePolicy: 'pause_policy',
     };
@@ -49,6 +58,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchInterval: 'number',
+      maxFailedNodes: 'number',
       maxParallelism: 'number',
       pausePolicy: 'string',
     };
@@ -64,6 +74,10 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
 }
 
 export class UpgradeClusterNodepoolRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to ignore warning-level pre-checks.
+   */
   ignoreWarningCheck?: boolean;
   /**
    * @remarks
@@ -75,7 +89,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from the `KubernetesVersion` field.
+   * The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from `KubernetesVersion`.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -83,7 +97,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   kubernetesVersion?: string;
   /**
    * @remarks
-   * The list of nodes to upgrade. If this parameter is not specified, all nodes in the node pool are upgraded.
+   * The list of nodes to upgrade. If not specified, all nodes in the node pool are upgraded by default.
    */
   nodeNames?: string[];
   /**
@@ -109,9 +123,9 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * Specifies whether to use system cloud disk replacement for the upgrade. Valid values:
-   * - true: Uses system cloud disk replacement to upgrade the node pool. ACK reinitializes the nodes based on the current node pool configurations, such as the logon method, labels, taints, operating system image, and runtime version.
-   * - false: Does not use system cloud disk replacement.
+   * Specifies whether to use disk replacement for the upgrade. Valid values:
+   * - true: Uses disk replacement to upgrade the node pool. ACK reinitializes the nodes based on the current node pool configurations, such as logon method, labels, taints, operating system image, and runtime version.
+   * - false: Does not use disk replacement.
    * 
    * Default value: false.
    * 

@@ -90,7 +90,7 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
 export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches during the upgrade. Unit: seconds.
+   * The upgrade interval between batches. Unit: seconds.
    * 
    * @example
    * 0
@@ -98,7 +98,15 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   batchInterval?: number;
   /**
    * @remarks
-   * The maximum number of nodes that can be processed in parallel per batch. Default value: 1.
+   * The maximum number of nodes that are allowed to fail during the rolling process. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * 
+   * @example
+   * 0
+   */
+  maxFailedNodes?: number;
+  /**
+   * @remarks
+   * The maximum number of parallel operations per batch. Default value: 1.
    * 
    * @example
    * 1
@@ -115,6 +123,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchInterval: 'batchInterval',
+      maxFailedNodes: 'maxFailedNodes',
       maxParallelism: 'maxParallelism',
       pausePolicy: 'pausePolicy',
     };
@@ -123,6 +132,7 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchInterval: 'number',
+      maxFailedNodes: 'number',
       maxParallelism: 'number',
       pausePolicy: 'string',
     };
@@ -145,12 +155,12 @@ export class InstallNodePoolComponentsRequest extends $dara.Model {
   components?: InstallNodePoolComponentsRequestComponents[];
   /**
    * @remarks
-   * The list of node names for the rolling update. By default, all nodes are included.
+   * The list of node names for the rolling operation. Default value: all nodes.
    */
   nodeNames?: string[];
   /**
    * @remarks
-   * The rolling update configuration.
+   * The rolling policy configuration.
    */
   rollingPolicy?: InstallNodePoolComponentsRequestRollingPolicy;
   static names(): { [key: string]: string } {

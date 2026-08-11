@@ -13,11 +13,11 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
   minimumClusterVersion?: string;
   /**
    * @remarks
-   * Whether the component can be upgraded to this version.
+   * Indicates whether the component can be upgraded to this version.
    * 
-   * - true: Upgrade is supported.
+   * - true: The upgrade is supported.
    * 
-   * - false: Upgrade is not supported.
+   * - false: The upgrade is not supported.
    * 
    * @example
    * true
@@ -59,12 +59,12 @@ export class DescribeAddonResponseBodyNewerVersions extends $dara.Model {
 export class DescribeAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * CPU architectures supported by the component.
+   * The CPU architectures supported by the component.
    */
   architecture?: string[];
   /**
    * @remarks
-   * Component category.
+   * The component category.
    * 
    * @example
    * network
@@ -72,7 +72,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Custom parameter schema of the component.
+   * The schema of custom parameters for the component.
    * 
    * @example
    * {}
@@ -80,7 +80,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   configSchema?: string;
   /**
    * @remarks
-   * Whether it is installed by default.
+   * Indicates whether the component is installed by default.
    * 
    * @example
    * true
@@ -88,7 +88,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   installByDefault?: boolean;
   /**
    * @remarks
-   * Whether it is a managed component.
+   * Indicates whether the component is managed.
    * 
    * @example
    * false
@@ -96,7 +96,7 @@ export class DescribeAddonResponseBody extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * Component name.
+   * The name of the component.
    * 
    * @example
    * coredns
@@ -104,17 +104,17 @@ export class DescribeAddonResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Information about the latest component versions.
+   * The information about newer versions of the component.
    */
   newerVersions?: DescribeAddonResponseBodyNewerVersions[];
   /**
    * @remarks
-   * Operations supported by the component.
+   * The operations supported by the component.
    */
   supportedActions?: string[];
   /**
    * @remarks
-   * Component version.
+   * The component version.
    * 
    * @example
    * v1.9.3.6-32932850-aliyun

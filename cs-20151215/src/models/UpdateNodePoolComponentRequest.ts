@@ -38,12 +38,20 @@ export class UpdateNodePoolComponentRequestConfig extends $dara.Model {
 export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   /**
    * @remarks
-   * The interval between batches during the upgrade, in seconds.
+   * The interval between batches during the upgrade. Unit: seconds.
    * 
    * @example
    * 0
    */
   batchInterval?: number;
+  /**
+   * @remarks
+   * The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+   * 
+   * @example
+   * 0
+   */
+  maxFailedNodes?: number;
   /**
    * @remarks
    * The maximum number of nodes that can be updated in parallel per batch. Default value: 1.
@@ -63,6 +71,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       batchInterval: 'batchInterval',
+      maxFailedNodes: 'maxFailedNodes',
       maxParallelism: 'maxParallelism',
       pausePolicy: 'pausePolicy',
     };
@@ -71,6 +80,7 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       batchInterval: 'number',
+      maxFailedNodes: 'number',
       maxParallelism: 'number',
       pausePolicy: 'string',
     };
@@ -88,12 +98,12 @@ export class UpdateNodePoolComponentRequestRollingPolicy extends $dara.Model {
 export class UpdateNodePoolComponentRequest extends $dara.Model {
   /**
    * @remarks
-   * The node component configuration.
+   * The configuration of the node component.
    */
   config?: UpdateNodePoolComponentRequestConfig;
   /**
    * @remarks
-   * Specifies whether to disable rolling updates. Default value: false. When set to false, updating the baseline configuration triggers a rolling update of nodes.
+   * Specifies whether to disable rolling. Default value: false. If set to false, updating the baseline configuration triggers a rolling update of nodes.
    */
   disableRolling?: boolean;
   /**
@@ -111,7 +121,7 @@ export class UpdateNodePoolComponentRequest extends $dara.Model {
   nodeNames?: string[];
   /**
    * @remarks
-   * The rolling update configuration.
+   * The rolling update policy.
    */
   rollingPolicy?: UpdateNodePoolComponentRequestRollingPolicy;
   /**

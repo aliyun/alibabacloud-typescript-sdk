@@ -14,21 +14,13 @@ export class CreateClusterRequestAuditLogConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable the cluster audit log feature.
    * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
-   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The [SLS Project](https://help.aliyun.com/document_detail/48873.html) that contains the cluster audit log [Logstore](https://help.aliyun.com/document_detail/48873.html).
-   * 
-   * - Default value: `k8s-log-{clusterid}`.
-   * 
-   * - After the cluster audit log feature is enabled, a Logstore for cluster audit logs is created in the specified SLS Project.
+   * The [Simple Log Service project](https://help.aliyun.com/document_detail/48873.html) that contains the [Logstore](https://help.aliyun.com/document_detail/48873.html) for cluster audit logs.
    * 
    * @example
    * k8s-log-c2345xxxxxxxxxxxx
@@ -62,10 +54,6 @@ export class CreateClusterRequestAutoMode extends $dara.Model {
    * @remarks
    * Specifies whether to enable intelligent managed mode.
    * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
-   * 
    * @example
    * true
    */
@@ -94,11 +82,7 @@ export class CreateClusterRequestAutoMode extends $dara.Model {
 export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for control plane nodes. Takes effect when the billing method is `PrePaid`.
-   * - true: Enable auto-renewal.
-   * - false: Do not enable auto-renewal.
-   * 
-   * Default value: true.
+   * Specifies whether to enable auto-renewal for control plane nodes. This parameter is valid only when charge_type is set to `PrePaid`.
    * 
    * @example
    * true
@@ -106,11 +90,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period of control plane nodes.
-   * 
-   * Valid values: {1, 2, 3, 6, 12}. Unit: months.
-   * 
-   * Default value: 1.
+   * The auto-renewal duration of control plane nodes.
    * 
    * @example
    * 1
@@ -120,11 +100,6 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * The billing method of control plane nodes.
    * 
-   * - `PrePaid`: Subscription.
-   * - `PostPaid`: Pay-as-you-go.
-   * 
-   * Default value: `PostPaid`.
-   * 
    * @example
    * PostPaid
    */
@@ -133,25 +108,13 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * Specifies whether to install CloudMonitor on nodes.
    * 
-   * - true: Installs the CloudMonitor agent.
-   * 
-   * - false: Does not install the CloudMonitor agent.
-   * 
-   * Default value: false.
-   * 
    * @example
    * false
    */
   cloudMonitorFlags?: boolean;
   /**
    * @remarks
-   * The node CPU management policy.
-   * 
-   * - static: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-   * 
-   * - none: Uses the existing default CPU affinity scheme.
-   * 
-   * Default value: none.
+   * The CPU management policy for nodes.
    * 
    * @example
    * none
@@ -188,12 +151,12 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
-   * The node instance types.
+   * The instance types of nodes.
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The key pair name. Mutually exclusive with login_password.
+   * The name of the key pair. Specify either this parameter or login_password.
    * 
    * @example
    * ack
@@ -201,7 +164,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * The SSH logon password. Must be 8 to 30 characters in length and contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters. Mutually exclusive with key_pair.
+   * The SSH logon password. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Specify either this parameter or key_pair.
    * 
    * @example
    * ********
@@ -209,7 +172,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * **This field is deprecated.** The node service port range.
+   * **[Deprecated]** The node service port range.
    * 
    * @example
    * 30000-32767
@@ -217,11 +180,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   nodePortRange?: string;
   /**
    * @remarks
-   * The subscription duration of control plane nodes. Valid and required when the billing method is `PrePaid`.
-   * 
-   * Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}. Unit: months.
-   * 
-   * Default value: 1.
+   * The subscription duration of control plane nodes. This parameter is valid and required only when charge_type is set to `PrePaid`.
    * 
    * @example
    * 1
@@ -229,9 +188,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The subscription period unit of control plane nodes. Valid and required when the billing method is `PrePaid`.
-   * 
-   * Valid value: `Month`. Currently, only monthly periods are supported.
+   * The unit of the subscription duration of control plane nodes. This parameter is valid and required only when charge_type is set to `PrePaid`.
    * 
    * @example
    * Month
@@ -239,9 +196,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * **This field is deprecated.** The container runtime for control plane nodes. Valid values:
-   * 
-   * containerd: The Containerd runtime, which supports all cluster versions.
+   * **[Deprecated]** The runtime name of control plane nodes. Valid values:
    * 
    * @example
    * containerd
@@ -251,12 +206,6 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable Alibaba Cloud OS security hardening.
    * 
-   * - true: Enables Alibaba Cloud OS security hardening.
-   * 
-   * - false: Does not enable Alibaba Cloud OS security hardening.
-   * 
-   * Default value: false.
-   * 
    * @example
    * false
    */
@@ -265,21 +214,13 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * The number of control plane nodes.
    * 
-   * Valid values: `3` or `5`.
-   * 
    * @example
    * 3
    */
   size?: number;
   /**
    * @remarks
-   * Specifies whether to enable MLPS 2.0 security hardening.
-   * 
-   * - true: Enables MLPS 2.0 security hardening.
-   * 
-   * - false: Does not enable MLPS 2.0 security hardening.
-   * 
-   * Default value: false.
+   * Specifies whether to enable MLPS security hardening.
    * 
    * @example
    * false
@@ -287,13 +228,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   socEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable burst (performance burst) for the node system cloud disk.
-   * 
-   * - true: Enabled.
-   * 
-   * - false: Not enabled.
-   * 
-   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`.
+   * Specifies whether to enable burst (performance burst) for the system cloud disk of nodes.
    * 
    * @example
    * true
@@ -301,13 +236,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The node system disk type.
-   * 
-   * - `cloud_efficiency`: Ultra disk.
-   * - `cloud_ssd`: Standard SSD.
-   * - `cloud_essd`: ESSD.
-   * - `cloud_auto`: ESSD AutoPL.
-   * - `cloud_essd
+   * The type of the system cloud disk for nodes.
    * 
    * @example
    * cloud_ssd
@@ -315,9 +244,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks.
-   * 
-   * The performance level varies based on the cloud disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level of the system cloud disk. This parameter takes effect only for ESSD disks.
    * 
    * @example
    * PL1
@@ -325,11 +252,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS for the node system cloud disk.
-   * 
-   * Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50000}.
-   * 
-   * This parameter is supported only when `system_disk_category` is set to `cloud_auto`.
+   * The provisioned read/write IOPS of the system cloud disk for nodes.
    * 
    * @example
    * 1000
@@ -337,11 +260,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the node system cloud disk.
-   * 
-   * Valid values: [40,500\\]. Unit: GiB.
-   * 
-   * Default value: `120`.
+   * The size of the system cloud disk for nodes.
    * 
    * @example
    * 120
@@ -349,7 +268,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The automatic snapshot backup policy for nodes.
+   * The automatic snapshot policy for nodes.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -433,7 +352,7 @@ export class CreateClusterRequestControlPlaneConfig extends $dara.Model {
 export class CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
   /**
    * @remarks
-   * The VPCs where the internal domain name record resolution takes effect.
+   * The VPCs in which the internal domain name DNS resolution takes effect.
    */
   bindVpcs?: string[];
   static names(): { [key: string]: string } {
@@ -503,12 +422,12 @@ export class CreateClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig 
 export class CreateClusterRequestControlPlaneEndpointsConfig extends $dara.Model {
   /**
    * @remarks
-   * The internal DNS configuration for the cluster. Applicable to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. When internal domain name access is not enabled, node-side system components access the API Server through the CLB IP address.
+   * The internal DNS configuration of the cluster. This applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. If the internal domain name access is not enabled, node-side system components access the API Server through the CLB IP address.
    */
   internalDnsConfig?: CreateClusterRequestControlPlaneEndpointsConfigInternalDnsConfig;
   /**
    * @remarks
-   * The cluster endpoint configuration. When this field is specified, the endpoint_public_access and load_balancer_id parameters do not take effect. ACK only supports automatic creation of NLB instances. To specify a CLB/NLB, use load_balancers_config to specify the instance ID.
+   * The cluster connection configuration. When this field is specified, the endpoint_public_access and load_balancer_id parameters do not take effect.
    */
   loadBalancersConfig?: CreateClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig[];
   static names(): { [key: string]: string } {
@@ -544,9 +463,6 @@ export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $dara
   /**
    * @remarks
    * The cluster auto-upgrade frequency. Valid values:
-   * - patch: Automatically upgrades to the available patch version of the current minor version. The new Kubernetes version does not contain breaking changes.
-   * - stable: Automatically upgrades to the latest patch version of the second-latest minor version. The new Kubernetes version may involve API and feature changes, but its stability has been widely validated.
-   * - rapid: Automatically upgrades to the latest patch version of the latest minor version to gain access to new Kubernetes community features faster.
    * 
    * @example
    * stable
@@ -555,10 +471,6 @@ export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $dara
   /**
    * @remarks
    * Specifies whether to enable cluster auto-upgrade.
-   * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
    * 
    * @example
    * true
@@ -620,11 +532,7 @@ export class CreateClusterRequestOperationPolicy extends $dara.Model {
 export class CreateClusterRequestRrsaConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable RRSA.
-   * 
-   * - true: Enable.
-   * 
-   * - false: Do not enable.
+   * Specifies whether to enable the RRSA feature.
    * 
    * @example
    * true
@@ -654,7 +562,7 @@ export class CreateClusterRequestRrsaConfig extends $dara.Model {
 export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   /**
    * @remarks
-   * The data cloud disk type.
+   * The type of the data disk.
    * 
    * This parameter is required.
    * 
@@ -664,12 +572,7 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the data cloud disk. Valid values:
-   * 
-   * - `true`: Encrypts the data cloud disk.
-   * - `false`: Does not encrypt the data cloud disk.
-   * 
-   * Default value: `false`.
+   * Specifies whether to encrypt the data disk. Valid values:
    * 
    * @example
    * true
@@ -677,7 +580,7 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The performance level of the node data cloud disk. This parameter takes effect only for [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level of the data cloud disk for nodes. This parameter takes effect only for [standard SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -685,7 +588,7 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size. Valid values: 40 to 32767. Unit: GiB.
+   * The size of the data disk. Valid values: 40 to 32767. Unit: GiB.
    * 
    * This parameter is required.
    * 
@@ -723,46 +626,19 @@ export class CreateClusterRequestWorkerDataDisks extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * 【**该字段已废弃**】注册集群 API Server SLB 访问控制列表。
+   * **[Deprecated]** The access control list for the API Server SLB of the registered cluster.
    * 
    * @deprecated
    */
   accessControlList?: string[];
   /**
    * @remarks
-   * The list of cluster components. Specify the components to install when creating a cluster using `addons`.
-   * 
-   * **Network component**: Required. Choose between Flannel and Terway network types:
-   * 
-   * - Flannel network: [{"name":"flannel","config":""}\\].
-   * - Terway network: [{"name": "terway-eniip","config": ""}\\].
-   * 
-   * **Storage component**: Optional. Only the `csi` type is supported:
-   * 
-   * `csi`: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}\\].
-   * 
-   * **Log component**: Optional. We recommend that you enable this component. If the log service is not enabled, the cluster audit feature is unavailable.
-   * 
-   * - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
-   * - Create a new `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\"}"}\\].
-   * 
-   * **Ingress component**: Optional. ACK dedicated clusters install the Ingress component `nginx-ingress-controller` by default.
-   * 
-   * - Install Ingress with public network access: [{"name":"nginx-ingress-controller","config":"{\\"IngressSlbNetworkType\\":\\"internet\\"}"}\\].
-   * - Disable default Ingress installation: [{"name": "nginx-ingress-controller","config": "","disabled": true}\\].
-   * 
-   * **Event Center**: Optional. Enabled by default.
-   * 
-   * The Event Center provides storage, query, and alerting capabilities for Kubernetes events. The Logstore associated with the Kubernetes Event Center is free for 90 days. For more information about the free policy, see [Create and use the Kubernetes event center](https://help.aliyun.com/document_detail/150476.html).
-   * 
-   * Example of enabling the Event Center: [{"name":"ack-node-problem-detector","config":"{\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
+   * The list of cluster components. Use `addons` to specify the components to install when creating a cluster.
    */
   addons?: Addon[];
   /**
    * @remarks
-   * A ServiceAccount is the access credential for communication between a Pod and the cluster API Server. The `api-audiences` is the valid request `token` identity, used by the `apiserver` to authenticate whether a request `token` is valid. Multiple `audiences` are supported, separated by commas (,).
-   * 
-   * For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+   * A ServiceAccount is the access credential for communication between a pod and the cluster API server. The `api-audiences` parameter specifies the valid request `token` identities used by the `apiserver` to authenticate whether a request `token` is valid. You can specify multiple `audience` values separated by commas (,).
    * 
    * @example
    * kubernetes.default.svc
@@ -780,16 +656,7 @@ export class CreateClusterRequest extends $dara.Model {
   autoMode?: CreateClusterRequestAutoMode;
   /**
    * @remarks
-   * 【**该字段已废弃**】
-   * 
-   * 是否开启自动续费，当`charge_type`取值为`PrePaid`时才生效。取值：
-   * 
-   * - `true`：自动续费。
-   * - `false`：不自动续费。
-   * 
-   * 默认值：`false`。
-   * 
-   * 该字段于2024年10月15日存在变更，更多信息，请参见[关于集群创建接口CreateCluster参数行为变更的公告](https://help.aliyun.com/document_detail/2849194.html)。
+   * **[Deprecated]**
    * 
    * @example
    * true
@@ -799,13 +666,7 @@ export class CreateClusterRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * 【**该字段已废弃**】
-   * 
-   * 自动续费周期，当选择预付费和自动续费时才生效。当`PeriodUnit=Month`时，取值范围：{1, 2, 3, 6, 12}。
-   * 
-   * 默认值：1。
-   * 
-   * 该字段于2024年10月15日存在变更，更多信息，请参见[关于集群创建接口CreateCluster参数行为变更的公告](https://help.aliyun.com/document_detail/2849194.html)。
+   * **[Deprecated]**
    * 
    * @example
    * 1
@@ -815,19 +676,7 @@ export class CreateClusterRequest extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * 【**该字段已废弃**】
-   * 
-   * API Server所使用的CLB实例的付费类型，默认值为PostPaid。取值：
-   * - PostPaid：按量付费。
-   * - PrePaid：包年包月，新建CLB付费类型已不支持，存量不影响。
-   * 
-   * >Notice: 
-   * 
-   * - 该字段于2024年10月15日存在变更，更多信息，请参见[关于集群创建接口CreateCluster参数行为变更的公告](https://help.aliyun.com/document_detail/2849194.html)。
-   * - 自2024年12月01日起，新创建的CLB实例不再支持包年包月付费类型，同时将新增收取实例费。
-   * </notice>
-   * <props="china">详细信息请参见[【产品公告】关于取消新增集群API Server负载均衡CLB包年包月付费的公告](https://help.aliyun.com/document_detail/2851191.html)、[传统型负载均衡CLB计费项调整公告](https://help.aliyun.com/document_detail/2839797.html)。
-   * <props="intl">详细信息请参见[传统型负载均衡CLB计费项调整公告](https://help.aliyun.com/document_detail/2839797.html)。
+   * **[Deprecated]**
    * 
    * @example
    * PostPaid
@@ -837,7 +686,7 @@ export class CreateClusterRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configurations, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
+   * **[Deprecated]** For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * false
@@ -847,14 +696,7 @@ export class CreateClusterRequest extends $dara.Model {
   cisEnabled?: boolean;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane node configurations, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configurations, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool` instead.
-   * 
-   * Specifies whether to install the CloudMonitor agent on the cluster. Valid values:
-   * 
-   * - `true`: Installs the CloudMonitor agent.
-   * - `false`: Does not install the CloudMonitor agent.
-   * 
-   * Default value: `false`.
+   * **[Deprecated]** For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool` instead.
    * 
    * @example
    * false
@@ -864,9 +706,7 @@ export class CreateClusterRequest extends $dara.Model {
   cloudMonitorFlags?: boolean;
   /**
    * @remarks
-   * The cluster local domain.
-   * 
-   * Naming rules: The domain consists of one or more parts separated by periods (.). Each part can be up to 63 characters in length and can contain lowercase letters, digits, and hyphens (-). Each part must start and end with a lowercase letter or digit.
+   * The cluster local domain name.
    * 
    * @example
    * cluster.local
@@ -874,17 +714,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterDomain?: string;
   /**
    * @remarks
-   * After you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification. Valid values:
-   * 
-   * - `ack.standard`: Basic (selected by default when the value is empty)
-   * - `ack.pro.small`: Pro
-   * - `ack.pro.xlarge`: Pro XL
-   * - `ack.pro.2xlarge`: Pro 2XL
-   * - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to enable the whitelist)
-   * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and fixing control plane resources, they ensure that API concurrency and Pod scheduling capabilities remain at a deterministic high level, suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
-   * 
-   * For information about the management fees for Pro and Provisioned Control Plane clusters, see <props="china">[Cluster management fee](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fee](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+   * If you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specifications. Valid values:
    * 
    * @example
    * ack.pro.small
@@ -893,8 +723,6 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * - `Kubernetes`: ACK dedicated cluster.
-   * - `ManagedKubernetes`: ACK managed cluster types, including ACK managed clusters (Pro and Basic), ACK Serverless clusters (Pro and Basic), ACK Edge clusters (Pro and Basic), and ACK Lingjun clusters (Pro).
-   * - `ExternalKubernetes`: registered cluster.
    * 
    * @example
    * Kubernetes
@@ -902,11 +730,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The Pod network CIDR block. It must be a valid private CIDR block, specifically the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16. It cannot overlap with the VPC CIDR block or CIDR blocks used by existing Kubernetes clusters in the VPC. It cannot be modified after creation.
-   * 
-   * For information about cluster network planning, see [ACK managed cluster network planning](https://help.aliyun.com/document_detail/86500.html).
-   * 
-   * > This field is required for Flannel clusters.
+   * The pod network CIDR block. It must be a valid private CIDR block, which includes the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. It cannot overlap with the CIDR blocks used by the VPC or existing Kubernetes clusters in the VPC. It cannot be modified after the cluster is created.
    * 
    * @example
    * 172.20.0.0/16
@@ -914,24 +738,22 @@ export class CreateClusterRequest extends $dara.Model {
   containerCidr?: string;
   /**
    * @remarks
-   * The ACK dedicated cluster control plane configuration.
+   * The control plane configuration for ACK dedicated clusters.
    */
   controlPlaneConfig?: CreateClusterRequestControlPlaneConfig;
   /**
    * @remarks
-   * The cluster endpoint configuration.
+   * The cluster connection configuration.
    */
   controlPlaneEndpointsConfig?: CreateClusterRequestControlPlaneEndpointsConfig;
   /**
    * @remarks
    * The list of component names that specifies which control plane components to collect logs from.
-   * 
-   * By default, logs are collected from kube-apiserver, kube-controller-manager, kube-scheduler, and cloud-controller-manager.
    */
   controlplaneLogComponents?: string[];
   /**
    * @remarks
-   * The Simple Log Service project for control plane component logs. You can use an existing project for log storage or have the system automatically create a project. If you choose automatic creation, a Simple Log Service project named `k8s-log-{ClusterID}` is created.
+   * The Simple Log Service project for control plane component logs. You can use an existing project for log storage or allow the system to automatically create a project. If you choose automatic creation, a Simple Log Service project named `k8s-log-{ClusterID}` is automatically created.
    * 
    * @example
    * k8s-log-xxx
@@ -939,7 +761,7 @@ export class CreateClusterRequest extends $dara.Model {
   controlplaneLogProject?: string;
   /**
    * @remarks
-   * The number of days for log retention of control plane component logs.
+   * The number of days for control plane component log retention.
    * 
    * @example
    * 30
@@ -947,14 +769,7 @@ export class CreateClusterRequest extends $dara.Model {
   controlplaneLogTtl?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `cpu_policy` parameter under `control_plane_config` instead. For node pool configurations, use the `cpu_policy` parameter under `kubernetes_config` in `nodepool` instead.
-   * 
-   * The node CPU management policy. The following policies are supported for cluster versions 1.12.6 and later:
-   * 
-   * - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-   * - `none`: Uses the existing default CPU affinity scheme.
-   * 
-   * Default value: `none`.
+   * **[Deprecated]** For cluster control plane configuration, use the cpu_policy parameter under `control_plane_config` instead. For node pool configuration, use the cpu_policy parameter under `kubernetes_config` in `nodepool` instead.
    * 
    * @example
    * none
@@ -964,9 +779,7 @@ export class CreateClusterRequest extends $dara.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * **This field is deprecated.** Use the `extra_sans` parameter instead.
-   * 
-   * The custom certificate Subject Alternative Name (SAN). Separate multiple IP addresses or domain names with commas (,).
+   * **[Deprecated]** Use the `extra_sans` parameter instead.
    * 
    * @example
    * cs.aliyun.com
@@ -976,12 +789,7 @@ export class CreateClusterRequest extends $dara.Model {
   customSan?: string;
   /**
    * @remarks
-   * Specifies whether to enable cluster deletion protection, which prevents the cluster from being accidentally deleted through the console or API. Valid values:
-   * 
-   * - `true`: Enable cluster deletion protection. The cluster cannot be deleted through the console or API.
-   * - `false`: Do not enable cluster deletion protection. The cluster can be deleted through the console or API.
-   * 
-   * Default value: `false`.
+   * Specifies whether to enable deletion protection for the cluster to prevent accidental deletion through the console or API. Valid values:
    * 
    * @example
    * true
@@ -989,15 +797,7 @@ export class CreateClusterRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * 【**该字段已废弃**】集群创建失败时默认不会进行回滚，您需要自行清理创建失败的集群。
-   * 
-   * 集群创建失败是否回滚。取值：
-   * 
-   * - `true`：当集群创建失败时，进行回滚操作。
-   * - `false`：当集群创建失败时，不进行回滚操作。
-   * 
-   * 
-   * 默认值：`true`。
+   * **[Deprecated]** When cluster creation fails, rollback is not performed by default. You must manually clean up the failed cluster.
    * 
    * @example
    * true
@@ -1007,13 +807,7 @@ export class CreateClusterRequest extends $dara.Model {
   disableRollback?: boolean;
   /**
    * @remarks
-   * 【**该字段已废弃**】请使用参数`rrsa_config`代替。
-   * 
-   * 是否启用RRSA功能。
-   * 
-   * - true：开启。
-   * 
-   * - false：不开启。
+   * **[Deprecated]** Use the `rrsa_config` parameter instead.
    * 
    * @example
    * false
@@ -1023,9 +817,7 @@ export class CreateClusterRequest extends $dara.Model {
   enableRrsa?: boolean;
   /**
    * @remarks
-   * The KMS key ID used to encrypt data disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
-   * 
-   * > This feature only takes effect in ACK Pro managed clusters.
+   * The KMS key ID used to encrypt data cloud disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
    * 
    * @example
    * 0fe64791-55eb-4fc7-84c5-c6c7cdca****
@@ -1033,12 +825,7 @@ export class CreateClusterRequest extends $dara.Model {
   encryptionProviderKey?: string;
   /**
    * @remarks
-   * Specifies whether to public network access. Exposes the API Server through an EIP to public network access to the cluster.
-   * 
-   * - `true`: Public network access.
-   * - `false`: Do not public network access. If not enabled, the cluster API Server cannot be accessed from the Internet.
-   * 
-   * Default value: `false`.
+   * Specifies whether to public network access. The API Server is exposed through an EIP to public network access to the cluster.
    * 
    * @example
    * true
@@ -1051,20 +838,7 @@ export class CreateClusterRequest extends $dara.Model {
   extraSans?: string[];
   /**
    * @remarks
-   * 【**该字段已废弃**】创建集群时不支持选择已有节点，如需添加已有节点到集群，请先创建节点池，并调用[AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html)接口操作。
-   * 
-   * 使用已有实例创建集群时，是否对实例进行数据盘挂载，取值：
-   * 
-   * - `true`：将容器和镜像存储在数据盘，数据盘内原有数据将丢失，请注意备份数据。
-   * 
-   * - `false`：不将容器和镜像存储在数据盘。
-   * 
-   * 默认值：`false`。
-   * 
-   * 数据盘挂载规则：
-   * 
-   * - 如果ECS已挂载数据盘，且最后一块数据盘的文件系统未初始化，系统会自动将该数据盘格式化为ext4，用来存放内容/var/lib/docker、/var/lib/kubelet。
-   * - 如果ECS未挂载数据盘，则不会挂载新的数据盘。
+   * **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
    * 
    * @example
    * false
@@ -1074,9 +848,7 @@ export class CreateClusterRequest extends $dara.Model {
   formatDisk?: boolean;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `image_id` parameter under `control_plane_config` instead. For node pool configurations, use the `image_id` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The custom node image. The system image is used by default. When a custom image is selected, it replaces the default system image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
+   * **[Deprecated]** For cluster control plane configuration, use the `image_id` parameter under `control_plane_config` instead. For node pool configuration, use the `image_id` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * m-bp16z7xko3vvv8gt****
@@ -1086,21 +858,7 @@ export class CreateClusterRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】集群控制面配置请使用`control_plane_config`下的`image_type`参数代替；节点池配置请使用`nodepool`中`scaling_group`下的`image_type`参数代替。
-   * 
-   * 操作系统发行版类型，推荐使用该字段指定节点操作系统。取值：
-   * 
-   * - CentOS
-   * - AliyunLinux
-   * - AliyunLinux Qboot
-   * - AliyunLinuxUEFI
-   * - AliyunLinux3
-   * - Windows
-   * - WindowsCore
-   * - AliyunLinux3Arm64
-   * - ContainerOS
-   * 
-   * 默认值：`CentOS`。
+   * **[Deprecated]** For cluster control plane configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * AliyunLinux
@@ -1110,36 +868,22 @@ export class CreateClusterRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】创建集群时不支持选择已有节点，如需添加已有节点到集群，请先创建节点池，并调用[AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html)接口操作。
-   * 
-   * 
-   * 使用已有节点创建集群时，需要指定ECS实例列表，该实例会作为Worker节点加入集群。
-   * 
-   * > 使用已有实例创建集群时，该字段必填。
+   * **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
    * 
    * @deprecated
    */
   instances?: string[];
   /**
    * @remarks
-   * The IP protocol stack of the cluster.
+   * The IP stack of the cluster.
    * 
    * @example
-   * 可选值：
-   * ipv4（单栈）
-   * dual（双栈），默认值为ipv4。
+   * Valid values:
    */
   ipStack?: string;
   /**
    * @remarks
-   * Specifies whether to use automatic creation of an advanced security group. Takes effect when `security_group_id` is empty.
-   * 
-   * > When using a basic security group, the total number of nodes and Terway Pods in the cluster cannot exceed 2000. Therefore, when creating a Terway network type cluster, we recommend using an advanced security group.
-   * 
-   * - `true`: Create and use an advanced security group.
-   * - `false`: Use a basic security group.
-   * 
-   * Default value: `true`.
+   * Specifies whether to enable automatic creation of an advanced security group. This parameter takes effect only when `security_group_id` is empty.
    * 
    * @example
    * true
@@ -1147,14 +891,7 @@ export class CreateClusterRequest extends $dara.Model {
   isEnterpriseSecurityGroup?: boolean;
   /**
    * @remarks
-   * 【**该字段已废弃**】创建集群时不支持选择已有节点，如需添加已有节点到集群，请先创建节点池，并调用[AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html)接口操作。
-   * 
-   * 使用已有实例创建集群时，是否保留实例名称。
-   * 
-   * - `true`：保留。
-   * - `false`：不保留，会用系统规则进行替换。
-   * 
-   * 默认值：`true`。
+   * **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
    * 
    * @example
    * true
@@ -1164,9 +901,7 @@ export class CreateClusterRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `key_pair` parameter under `control_plane_config` instead. For node pool configurations, use the `key_pair` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The key pair name. Mutually exclusive with `login_password`.
+   * **[Deprecated]** For cluster control plane configuration, use the key_pair parameter under `control_plane_config` instead. For node pool configuration, use the key_pair parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * security-key
@@ -1176,11 +911,7 @@ export class CreateClusterRequest extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * The cluster version, which is consistent with the Kubernetes community baseline version. We recommend that you select the latest version. If you do not specify this parameter, the latest version is used by default.
-   * 
-   * You can create clusters of the latest three versions. Call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query supported cluster versions.
-   * 
-   * For more information about Kubernetes versions supported by ACK, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
+   * The cluster version, which is consistent with the Kubernetes community baseline version. Use the latest version. If you do not specify this parameter, the latest version is used by default.
    * 
    * @example
    * 1.32.1-aliyun.1
@@ -1188,8 +919,7 @@ export class CreateClusterRequest extends $dara.Model {
   kubernetesVersion?: string;
   /**
    * @remarks
-   * The CLB instance ID for API Server access. When this parameter is specified, automatic creation of the API Server CLB is not performed.
-   * > Ensure that the CLB instance has no other dependencies (such as listeners or backend servers). Shared and Internet-facing CLB instances are not supported.
+   * The CLB instance ID used for API Server access. When this parameter is specified, automatic creation of the API Server CLB is skipped.
    * 
    * @example
    * lb-wz9t256gqa3vbouk****
@@ -1197,17 +927,7 @@ export class CreateClusterRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * 【**该参数已废弃**】CLB按使用量计费，该参数不生效。
-   * 
-   * 负载均衡规格，取值：
-   * - slb.s1.small
-   * - slb.s2.small
-   * - slb.s2.medium
-   * - slb.s3.small
-   * - slb.s3.medium
-   * - slb.s3.large
-   * 
-   * 默认值：`slb.s2.small`。
+   * **[Deprecated]** CLB is billed on a pay-by-usage basis. This parameter does not take effect.
    * 
    * @example
    * slb.s2.small
@@ -1217,7 +937,7 @@ export class CreateClusterRequest extends $dara.Model {
   loadBalancerSpec?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】集群开启日志服务，只针对ACK Serverless集群生效，且取值必须是`SLS`。
+   * **[Deprecated]** Enables the log service for the cluster. This parameter takes effect only for ACK Serverless clusters, and the value must be `SLS`.
    * 
    * @example
    * SLS
@@ -1227,9 +947,7 @@ export class CreateClusterRequest extends $dara.Model {
   loggingType?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `login_password` parameter under `control_plane_config` instead. For node pool configurations, use the `login_password` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The SSH logon password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * **[Deprecated]** For cluster control plane configuration, use the login_password parameter under `control_plane_config` instead. For node pool configuration, use the login_password parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * null
@@ -1244,14 +962,7 @@ export class CreateClusterRequest extends $dara.Model {
   maintenanceWindow?: MaintenanceWindow;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `auto_renew` parameter under `control_plane_config` instead.
-   * 
-   * Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
-   * 
-   * - `true`: Enables auto-renewal.
-   * - `false`: Disables auto-renewal.
-   * 
-   * Default value: `true`.
+   * **[Deprecated]** For cluster control plane configuration, use the auto_renew parameter under `control_plane_config` instead.
    * 
    * @example
    * true
@@ -1261,13 +972,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterAutoRenew?: boolean;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `auto_renew_period` parameter under `control_plane_config` instead.
-   * 
-   * The auto-renewal period for master nodes. This parameter takes effect and is required when the subscription billing method is selected.
-   * 
-   * Valid values: {1, 2, 3, 6, 12}.
-   * 
-   * Default value: 1.
+   * **[Deprecated]** For cluster control plane configuration, use the auto_renew_period parameter under `control_plane_config` instead.
    * 
    * @example
    * 1
@@ -1277,11 +982,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterAutoRenewPeriod?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `size` parameter under `control_plane_config` instead.
-   * 
-   * The number of master nodes. Valid values: `3` or `5`.
-   * 
-   * Default value: `3`.
+   * **[Deprecated]** For cluster control plane configuration, use the size parameter under `control_plane_config` instead.
    * 
    * @example
    * 3
@@ -1291,14 +992,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterCount?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `instance_charge_type` parameter under `control_plane_config` instead.
-   * 
-   * The billing method for master nodes. Valid values:
-   * 
-   * - `PrePaid`: subscription.
-   * - `PostPaid`: pay-as-you-go.
-   * 
-   * Default value: `PostPaid`.
+   * **[Deprecated]** For cluster control plane configuration, use the instance_charge_type parameter under `control_plane_config` instead.
    * 
    * @example
    * PrePaid
@@ -1308,22 +1002,14 @@ export class CreateClusterRequest extends $dara.Model {
   masterInstanceChargeType?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `instance_types` parameter under `control_plane_config` instead.
-   * 
-   * The instance types for master nodes. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * **[Deprecated]** For cluster control plane configuration, use the instance_types parameter under `control_plane_config` instead.
    * 
    * @deprecated
    */
   masterInstanceTypes?: string[];
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `unit` parameter under `control_plane_config` instead.
-   * 
-   * The subscription duration for master nodes. This parameter takes effect and is required only when `master_instance_charge_type` is set to `PrePaid`.
-   * 
-   * Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
-   * 
-   * Default value: 1.
+   * **[Deprecated]** For cluster control plane configuration, use the `unit` parameter under `control_plane_config` instead.
    * 
    * @example
    * 1
@@ -1333,11 +1019,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterPeriod?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `period_unit` parameter under `control_plane_config` instead.
-   * 
-   * The billing period unit for master nodes. This parameter is required when the billing method is `PrePaid`.
-   * 
-   * Valid values: `Month`. Only monthly billing is supported.
+   * **[Deprecated]** For cluster control plane configuration, use the period_unit parameter under `control_plane_config` instead.
    * 
    * @example
    * Month
@@ -1347,15 +1029,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterPeriodUnit?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `system_disk_category` parameter under `control_plane_config` instead.
-   * 
-   * The system cloud disk type for master nodes. Valid values:
-   * 
-   * - `cloud_efficiency`: ultra cloud disk.
-   * - `cloud_ssd`: standard SSD.
-   * - `cloud_essd`: ESSD.
-   * 
-   * Default value: `cloud_ssd`. The default value may vary by zone.
+   * **[Deprecated]** For cluster control plane configuration, use the system_disk_category parameter under `control_plane_config` instead.
    * 
    * @example
    * cloud_ssd
@@ -1365,9 +1039,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskCategory?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `system_disk_performance_level` parameter under `control_plane_config` instead.
-   * 
-   * The performance level of the system cloud disk for cluster master nodes. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the cloud disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
+   * **[Deprecated]** For cluster control plane configuration, use the system_disk_performance_level parameter under `control_plane_config` instead.
    * 
    * @example
    * PL1
@@ -1377,11 +1049,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `system_disk_size` parameter under `control_plane_config` instead.
-   * 
-   * The system cloud disk size for master nodes. Valid values: [40,500\\]. Unit: GiB.
-   * 
-   * Default value: `120`.
+   * **[Deprecated]** For cluster control plane configuration, use the system_disk_size parameter under `control_plane_config` instead.
    * 
    * @example
    * 120
@@ -1391,9 +1059,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskSize?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `system_disk_snapshot_policy_id` parameter under `control_plane_config` instead.
-   * 
-   * The automatic snapshot policy ID for the master node system cloud disk.
+   * **[Deprecated]** For cluster control plane configuration, use the system_disk_snapshot_policy_id parameter under `control_plane_config` instead.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -1403,11 +1069,7 @@ export class CreateClusterRequest extends $dara.Model {
   masterSystemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
-   * **This field is deprecated.** Use the `vswitch_ids` parameter instead.
-   * 
-   * The list of vSwitch IDs for master nodes. The number of vSwitches ranges from [1,3\\]. To ensure high availability, select three vSwitches distributed across different zones.
-   * 
-   * The number of specified instance types must match the value of `master_count` and correspond one-to-one with the elements in `master_vswitch_ids`.
+   * **[Deprecated]** Use the `vswitch_ids` parameter instead.
    * 
    * @deprecated
    */
@@ -1424,7 +1086,7 @@ export class CreateClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】请使用参数`snat_entry`代替。
+   * **[Deprecated]** Use the `snat_entry` parameter instead.
    * 
    * @example
    * true
@@ -1434,9 +1096,7 @@ export class CreateClusterRequest extends $dara.Model {
   natGateway?: boolean;
   /**
    * @remarks
-   * The number of IP addresses per node, determined by specifying the network CIDR mask. Only takes effect for Flannel network type clusters.
-   * 
-   * Default value: `26`.
+   * The number of node IP addresses, determined by specifying the network CIDR block. This parameter takes effect only for Flannel network type clusters.
    * 
    * @example
    * 25
@@ -1444,7 +1104,7 @@ export class CreateClusterRequest extends $dara.Model {
   nodeCidrMask?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
+   * **[Deprecated]** For node pool configuration, use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
    * 
    * @example
    * null
@@ -1454,9 +1114,7 @@ export class CreateClusterRequest extends $dara.Model {
   nodeNameMode?: string;
   /**
    * @remarks
-   * The node service port range. Valid values: [30000,65535\\].
-   * 
-   * Default value: `30000-32767`.
+   * The node service port. Valid port range: [30000,65535\\].
    * 
    * @example
    * 30000~32767
@@ -1471,9 +1129,7 @@ export class CreateClusterRequest extends $dara.Model {
   nodepools?: Nodepool[];
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `desired_size` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The number of worker nodes. Valid values: [0, 100\\].
+   * **[Deprecated]** For node pool configuration, use the desired_size parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 3
@@ -1488,13 +1144,7 @@ export class CreateClusterRequest extends $dara.Model {
   operationPolicy?: CreateClusterRequestOperationPolicy;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane node configurations, use the `image_type` parameter under `control_plane_config` instead. For node pool configurations, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The operating system platform type. Valid values:
-   * - Windows
-   * - Linux
-   * 
-   * Default value: `Linux`.
+   * **[Deprecated]** For cluster control plane node configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * Linux
@@ -1504,15 +1154,7 @@ export class CreateClusterRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】
-   * 
-   * 购买时长。包年包月时长，当charge_type取值为PrePaid时才生效，且为必选值。
-   * 
-   * 取值范围：{1, 2, 3, 6, 12, 24, 36, 48, 60}。
-   * 
-   * 默认值：1。
-   * 
-   * 该字段于2024年10月15日存在变更，更多信息，请参见[关于集群创建接口CreateCluster参数行为变更的公告](https://help.aliyun.com/document_detail/2849194.html)。
+   * **[Deprecated]**
    * 
    * @example
    * 1
@@ -1522,13 +1164,7 @@ export class CreateClusterRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * 【**该字段已废弃**】
-   * 
-   * 付费周期，当付费类型为PrePaid的时候，需要指定周期。
-   * 
-   * 取值：Month，当前仅支持以月为周期。
-   * 
-   * 该字段于2024年10月15日存在变更，更多信息，请参见[关于集群创建接口CreateCluster参数行为变更的公告](https://help.aliyun.com/document_detail/2849194.html)。
+   * **[Deprecated]**
    * 
    * @example
    * Month
@@ -1538,18 +1174,7 @@ export class CreateClusterRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `platform` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The operating system distribution. Valid values:
-   * 
-   * - CentOS
-   * - AliyunLinux
-   * - QbootAliyunLinux
-   * - Qboot
-   * - Windows
-   * - WindowsCore
-   * 
-   * Default value: `CentOS`.
+   * **[Deprecated]** For node pool configuration, use the `platform` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * CentOS
@@ -1559,19 +1184,14 @@ export class CreateClusterRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * **This field is deprecated.** When you select Terway as the network plugin, you must assign vSwitches for Pod IP allocation. Each Pod vSwitch corresponds to a worker node vSwitch, and the Pod vSwitch and the worker node vSwitch must be in the same zone.
-   * > The CIDR block mask of the Pod vSwitch should not exceed 19 and must not exceed 25. Otherwise, the number of Pod IP addresses available in the cluster network is very limited, which affects normal cluster usage.
+   * **[Deprecated]** When you select Terway as the network plugin, you must specify vSwitches for pod IP address allocation. Each pod vSwitch corresponds to a worker node vSwitch, and the pod vSwitch and the worker node vSwitch must be in the same zone.
    * 
    * @deprecated
    */
   podVswitchIds?: string[];
   /**
    * @remarks
-   * When you set `cluster_type` to `ManagedKubernetes` (ACK managed cluster types), you can further specify the cluster subtype.
-   * - `Default`: ACK managed cluster, including ACK clusters (Pro and Basic).
-   * - `Edge`: ACK Edge cluster, including ACK Edge clusters (Pro and Basic).
-   * - `Serverless`: ACK Serverless cluster, including ACK Serverless clusters (Pro and Basic).
-   * - `Lingjun`: ACK Lingjun cluster, available in Pro.
+   * If you set `cluster_type` to `ManagedKubernetes`, which indicates an ACK managed cluster, you can further specify the cluster subtype.
    * 
    * @example
    * Default
@@ -1579,14 +1199,7 @@ export class CreateClusterRequest extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The kube-proxy mode.
-   * 
-   * - `iptables`: A mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured using iptables rules. However, performance is average and significantly affected by scale. Suitable for clusters with a small number of Services.
-   * - `ipvs`: A high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured using the Linux IPVS module. Suitable for clusters with a large number of Services that require high-performance load balancing.
-   * - `nftables`: A next-generation kube-proxy mode that implements Service discovery and load balancing based on Linux nftables, serving as a modern replacement for iptables. Compared to iptables, nftables offers better network performance, more efficient rule updates, and improved behavior in large-scale Service scenarios.  
-   * Only supported for clusters running version 1.35 or later. The Kubernetes community deprecated IPVS starting from version 1.35. For new clusters, use nftables for longer-term community support.
-   * 
-   * Default value: `ipvs`.
+   * The kube-proxy proxy mode.
    * 
    * @example
    * ipvs
@@ -1594,16 +1207,14 @@ export class CreateClusterRequest extends $dara.Model {
   proxyMode?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `rds_instances` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The list of RDS instances. Select the RDS instances that you want to add to the whitelist. Go to the RDS console to add the container pod CIDR block and node CIDR block. Configuring RDS instances may fail if the instances are not in the running state.
+   * **[Deprecated]** For node pool configuration, use the `rds_instances` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @deprecated
    */
   rdsInstances?: string[];
   /**
    * @remarks
-   * The region ID of the cluster. For more information, see [Regions supported by Container Service](https://help.aliyun.com/document_detail/216938.html).
+   * The region ID of the cluster. For details, see [Regions supported by container service](https://help.aliyun.com/document_detail/216938.html).
    * 
    * This parameter is required.
    * 
@@ -1613,7 +1224,7 @@ export class CreateClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID of the cluster, used to isolate different resources.
+   * The resource group ID of the cluster, which is used to isolate different resources.
    * 
    * @example
    * rg-acfm3mkrure****
@@ -1621,22 +1232,19 @@ export class CreateClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The RRSA configuration.
+   * The RRSA feature configuration.
    */
   rrsaConfig?: CreateClusterRequestRrsaConfig;
   /**
    * @remarks
-   * The container runtime of the cluster. Supported runtimes include containerd, sandboxed containers, and Docker.
-   * > Kubernetes 1.24 no longer supports Docker as a built-in container runtime.
-   * 
-   * For more information, see [Comparison among Docker, containerd, and sandboxed container runtimes](https://help.aliyun.com/document_detail/160313.html).
+   * The container runtime in the cluster. Supported runtimes include containerd, sandboxed containers, and Docker.
    * 
    * @deprecated
    */
   runtime?: Runtime;
   /**
    * @remarks
-   * The security group ID. Specify this parameter when creating a cluster with an existing security group. Mutually exclusive with `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
+   * The security group ID. Specify this parameter when you use an existing security group to create a cluster. This parameter and `is_enterprise_security_group` are mutually exclusive. Cluster nodes are automatically added to this security group.
    * 
    * @example
    * sg-bp1bdue0qc1g7k****
@@ -1644,14 +1252,7 @@ export class CreateClusterRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane configurations, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configurations, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * Alibaba Cloud OS security hardening. Valid values:
-   * 
-   * - `true`: Enables Alibaba Cloud OS security hardening.
-   * - `false`: Does not enable Alibaba Cloud OS security hardening.
-   * 
-   * Default value: `false`.
+   * **[Deprecated]** For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * false
@@ -1661,9 +1262,7 @@ export class CreateClusterRequest extends $dara.Model {
   securityHardeningOs?: boolean;
   /**
    * @remarks
-   * A ServiceAccount is the access credential for communication between a Pod and the cluster API Server. The `service-account-issuer` is the issuer identity in the `serviceaccount token`, which is the `iss` field in the `token payload`.
-   * 
-   * For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+   * A ServiceAccount is the access credential for communication between a pod and the cluster API server. The `service-account-issuer` is the issuer identity in the `serviceaccount token`, which is the `iss` field in the `token payload`.
    * 
    * @example
    * kubernetes.default.svc
@@ -1671,9 +1270,7 @@ export class CreateClusterRequest extends $dara.Model {
   serviceAccountIssuer?: string;
   /**
    * @remarks
-   * The Service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, 192.168.0.0/16-24. It cannot overlap with the VPC CIDR block 10.1.0.0/21 or CIDR blocks used by existing Kubernetes clusters in the VPC. It cannot be modified after creation.
-   * 
-   * Default value: 172.19.0.0/20.
+   * The Service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24.
    * 
    * @example
    * 172.21.0.0/20
@@ -1681,26 +1278,14 @@ export class CreateClusterRequest extends $dara.Model {
   serviceCidr?: string;
   /**
    * @remarks
-   * 【**该字段已废弃**】集群内服务发现类型，用于在`ACK Serverless`集群中指定服务发现方式。
-   * 
-   * - `CoreDNS`：使用Kubernetes原生标准服务发现组件CoreDNS，需要在集群部署一组容器用于DNS解析。默认采用两个0.25 Core 512 MiB规格的ECI实例。
-   * - `PrivateZone`：使用阿里云PrivateZone产品提供服务发现能力，需要开启PrivateZone服务。
-   * 
-   * 默认值：不开启。
+   * **[Deprecated]** The service discovery types within the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
    * 
    * @deprecated
    */
   serviceDiscoveryTypes?: string[];
   /**
    * @remarks
-   * Settings for configuring SNAT for the VPC. Valid values:
-   * 
-   * - `true`: Use automatic creation of a NAT gateway and configure SNAT rules. Set this to `true` if nodes and applications in the cluster need to access the Internet.
-   * - `false`: Do not create a NAT gateway or SNAT rules. Nodes and applications in the cluster cannot access the Internet.
-   * 
-   * > If this is not enabled during cluster creation and Internet access is needed later, you can [manually enable it](https://help.aliyun.com/document_detail/178480.html).
-   * 
-   * Default value: `false`.
+   * Specifies whether to configure SNAT for the VPC. Valid values:
    * 
    * @example
    * false
@@ -1708,15 +1293,7 @@ export class CreateClusterRequest extends $dara.Model {
   snatEntry?: boolean;
   /**
    * @remarks
-   * **This field is deprecated.** For control plane node configurations, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configurations, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * MLPS 2.0 security hardening. For more information, see [ACK MLPS 2.0 security hardening usage instructions](https://help.aliyun.com/document_detail/196148.html).
-   * 
-   * Valid values:
-   * - `true`: Enables MLPS 2.0 security hardening.
-   * - `false`: Does not enable MLPS 2.0 security hardening.
-   * 
-   * Default value: `false`.
+   * **[Deprecated]** For cluster control plane node configuration, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configuration, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * false
@@ -1726,11 +1303,7 @@ export class CreateClusterRequest extends $dara.Model {
   socEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable public SSH logon. Used to log on to the master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
-   * - `true`: Enable.
-   * - `false`: Do not enable.
-   * 
-   * Default value: `false`.
+   * Specifies whether to enable public SSH logon. This is used to log on to the master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
    * 
    * @example
    * true
@@ -1739,27 +1312,18 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The node tags. Tag definition rules:
-   * 
-   * - Tags are composed of case-sensitive key-value pairs. You can set up to 20 tags.
-   * - Tag keys cannot be duplicated and can be up to 64 characters in length. Tag values can be empty and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun", "acs:", "https://", or "http://". For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    */
   tags?: Tag[];
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `taints` parameter under `kubernetes_config` in `nodepool` instead.
-   * 
-   * The node taint information. Taints and tolerations work together to prevent pods from being scheduled to inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+   * **[Deprecated]** For node pool configuration, use the `taints` parameter under `kubernetes_config` in `nodepool` instead.
    * 
    * @deprecated
    */
   taints?: Taint[];
   /**
    * @remarks
-   * 【**该字段已废弃**】集群创建失败时默认不会进行回滚，您需要自行清理创建失败的集群。
-   * 
-   * 集群创建超时时间，单位分钟。
-   * 
-   * 默认值：`60`。
+   * **[Deprecated]** When cluster creation fails, rollback is not performed by default. You must manually clean up the failed cluster.
    * 
    * @example
    * 60
@@ -1769,7 +1333,7 @@ export class CreateClusterRequest extends $dara.Model {
   timeoutMins?: number;
   /**
    * @remarks
-   * The time zone used by the cluster. See [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
+   * The time zone used by the cluster. For more information, see [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
    * 
    * @example
    * Asia/Shanghai
@@ -1785,7 +1349,7 @@ export class CreateClusterRequest extends $dara.Model {
   userCa?: string;
   /**
    * @remarks
-   * **This field is deprecated.** The custom node data.
+   * **[Deprecated]** The custom node data.
    * 
    * @example
    * IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
@@ -1795,7 +1359,7 @@ export class CreateClusterRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The VPC used by the cluster. You must provide a VPC when creating a cluster.
+   * The VPC used by the cluster. You must provide a VPC when you create a cluster.
    * 
    * @example
    * vpc-2zeik9h3ahvv2zz95****
@@ -1803,19 +1367,12 @@ export class CreateClusterRequest extends $dara.Model {
   vpcid?: string;
   /**
    * @remarks
-   * The vSwitches for cluster nodes. This field is required when creating a zero-node managed cluster.
+   * The vSwitches for cluster nodes. This field is required when you create a zero-node managed cluster.
    */
   vswitchIds?: string[];
   /**
    * @remarks
-   * 【**该字段已废弃**】节点池配置请使用`nodepool`中`scaling_group`下的`auto_renew`参数代替。
-   * 
-   * Worker节点是否开启自动续费，当`worker_instance_charge_type`取值为`PrePaid`时才生效，取值：
-   * 
-   * - `true`：自动续费。
-   * - `false`：不自动续费。
-   * 
-   * 默认值：`true`。
+   * **[Deprecated]** For node pool configuration, use the auto_renew parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * true
@@ -1825,12 +1382,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerAutoRenew?: boolean;
   /**
    * @remarks
-   * 【**该字段已废弃**】节点池配置请使用`nodepool`中`scaling_group`下的`auto_renew_period`参数代替。
-   * 
-   * 
-   * Worker节点自动续费周期，当选择包年包月付费类型时才生效，且为必选值。
-   * 
-   * 取值范围：{1, 2, 3, 6, 12}。
+   * **[Deprecated]** For node pool configuration, use the auto_renew_period parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 1
@@ -1840,23 +1392,14 @@ export class CreateClusterRequest extends $dara.Model {
   workerAutoRenewPeriod?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `data_disks` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The data cloud disk type, size, and other configurations for worker nodes.
+   * **[Deprecated]** For node pool configuration, use the data_disks parameter under `scaling_group` in `nodepool` instead.
    * 
    * @deprecated
    */
   workerDataDisks?: CreateClusterRequestWorkerDataDisks[];
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `instance_charge_type` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The billing method for worker nodes. Valid values:
-   * 
-   * - `PrePaid`: subscription.
-   * - `PostPaid`: pay-as-you-go.
-   * 
-   * Default value: pay-as-you-go.
+   * **[Deprecated]** For node pool configuration, use the instance_charge_type parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * PrePaid
@@ -1866,18 +1409,14 @@ export class CreateClusterRequest extends $dara.Model {
   workerInstanceChargeType?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `instance_types` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The instance configuration for worker nodes.
+   * **[Deprecated]** For node pool configuration, use the instance_types parameter under `scaling_group` in `nodepool` instead.
    * 
    * @deprecated
    */
   workerInstanceTypes?: string[];
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `period` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The subscription duration for worker nodes. This parameter takes effect and is required only when `worker_
+   * **[Deprecated]** For node pool configuration, use the period parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 1
@@ -1887,11 +1426,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerPeriod?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `period_unit` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The billing period unit for worker nodes. This parameter is required when the billing method is `PrePaid`.
-   * 
-   * Valid values: `Month`. Only monthly billing is supported.
+   * **[Deprecated]** For node pool configuration, use the period_unit parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * Month
@@ -1901,17 +1436,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerPeriodUnit?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `system_disk_category` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The system cloud disk type for worker nodes. For more information, see [Block storage overview](https://help.aliyun.com/document_detail/63136.html).
-   * 
-   * Valid values:
-   * 
-   * - `cloud_efficiency`: ultra cloud disk.
-   * - `cloud_ssd`: standard SSD.
-   * 
-   * 
-   * Default value: `cloud_ssd`.
+   * **[Deprecated]** For node pool configuration, use the system_disk_category parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * cloud_efficiency
@@ -1921,16 +1446,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskCategory?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `system_disk_performance_level` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * When the system cloud disk is an ESSD, you can set the performance level (PL) of the ESSD. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
-   * 
-   * Valid values:
-   * 
-   * - PL0
-   * - PL1
-   * - PL2
-   * - PL3
+   * **[Deprecated]** For node pool configuration, use the system_disk_performance_level parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * PL1
@@ -1940,15 +1456,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `system_disk_size` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The system cloud disk size for worker nodes. Unit: GiB.
-   * 
-   * Valid values: [40,500\\].
-   * 
-   * The value must be greater than or equal to max{40, ImageSize}.
-   * 
-   * Default value: `120`.
+   * **[Deprecated]** For node pool configuration, use the system_disk_size parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * 120
@@ -1958,9 +1466,7 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskSize?: number;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `system_disk_snapshot_policy_id` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The automatic snapshot policy ID for the worker node system cloud disk.
+   * **[Deprecated]** For node pool configuration, use the system_disk_snapshot_policy_id parameter under `scaling_group` in `nodepool` instead.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -1970,22 +1476,14 @@ export class CreateClusterRequest extends $dara.Model {
   workerSystemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
-   * **This field is deprecated.** For node pool configurations, use the `vswitch_ids` parameter under `scaling_group` in `nodepool` instead.
-   * 
-   * The list of vSwitches used by cluster nodes. Each node corresponds to one value.
-   * 
-   * When creating a zero-node managed cluster, the `worker_vswitch_ids` field is not required, but you must provide `vswitch_ids`.
+   * **[Deprecated]** For node pool configuration, use the vswitch_ids parameter under `scaling_group` in `nodepool` instead.
    * 
    * @deprecated
    */
   workerVswitchIds?: string[];
   /**
    * @remarks
-   * 【**该字段已废弃**】请使用`zone_ids`参数代替。
-   * 
-   * 集群所属地域的可用区ID。此参数为ACK托管类的集群特有参数。
-   * 
-   * 当创建ACK托管类的集群时，如果未指定`vpc_id`和`vswitch_ids`，必须为集群指定`zone_id`，用于自动在该可用区创建VPC网络资源；指定`vpc_id`和`vswitch_ids`时，该参数无效。
+   * **[Deprecated]** Use the `zone_ids` parameter instead.
    * 
    * @example
    * cn-beiji****
@@ -1995,7 +1493,7 @@ export class CreateClusterRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone IDs of the region where the cluster resides. This parameter is specific to ACK managed cluster types.
+   * The zone IDs of the cluster region. This parameter is specific to ACK managed clusters.
    */
   zoneIds?: string[];
   static names(): { [key: string]: string } {
