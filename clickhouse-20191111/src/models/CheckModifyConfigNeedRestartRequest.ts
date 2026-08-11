@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckModifyConfigNeedRestartRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration parameters to change.
+   * The configuration parameters to be modified.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CheckModifyConfigNeedRestartRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query the information of all clusters in the target region, including the cluster ID.
+   * The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all clusters in the specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 

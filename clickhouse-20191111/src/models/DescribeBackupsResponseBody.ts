@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The end time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+   * The time when the backup ended.
+   * Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2021-11-22T18:28:41Z
@@ -13,7 +14,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   backupEndTime?: string;
   /**
    * @remarks
-   * The data backup task ID.
+   * The ID of the backup task.
    * 
    * @example
    * 117403****
@@ -21,7 +22,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup method. The value is always **Physical**, which indicates a physical backup.
+   * The backup method. The value is **Physical**, which indicates physical backup.
    * 
    * @example
    * Physical
@@ -29,11 +30,18 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   backupMethod?: string;
   /**
    * @remarks
-   * The number of cluster nodes.
+   * The backup type. Valid values: manual (manual backup) and scheduled (automatic backup).
    * 
-   * - For a single-replica edition cluster, the value is an integer from 1 to 48.
+   * @example
+   * manual
+   */
+  backupScheduleType?: string;
+  /**
+   * @remarks
+   * The number of nodes in the cluster.
    * 
-   * - For a double-replica edition cluster, the value is an integer from 1 to 24.
+   * - Single-replica edition: valid values: 1 to 48.
+   * - Master-replica cluster: valid values: 1 to 24.
    * 
    * @example
    * {"shard_count": 4}
@@ -41,7 +49,8 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   backupSetInfo?: string;
   /**
    * @remarks
-   * The backup size. Unit: MB.
+   * The backup size.
+   * Unit: MB.
    * 
    * @example
    * 131072
@@ -49,7 +58,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   backupSize?: number;
   /**
    * @remarks
-   * The start time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+   * The time when the backup started. Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2021-11-22T18:28:22Z
@@ -59,8 +68,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
    * @remarks
    * The backup status. Valid values:
    * 
-   * - **Success**: The backup is successful.
-   * 
+   * - **Success**: The backup is complete.
    * - **Failure**: The backup failed.
    * 
    * @example
@@ -72,7 +80,6 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
    * The backup type. Valid values:
    * 
    * - **FullBackup**: full backup.
-   * 
    * - **IncrementalBackup**: incremental backup.
    * 
    * @example
@@ -89,7 +96,8 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+   * The expiration time of the backup set.
+   * Format: yyyy-MM-ddTHH:mmZ (UTC).
    * 
    * @example
    * 2022-07-22T18:28:41Z
@@ -100,6 +108,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
       backupEndTime: 'BackupEndTime',
       backupId: 'BackupId',
       backupMethod: 'BackupMethod',
+      backupScheduleType: 'BackupScheduleType',
       backupSetInfo: 'BackupSetInfo',
       backupSize: 'BackupSize',
       backupStartTime: 'BackupStartTime',
@@ -115,6 +124,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
       backupEndTime: 'string',
       backupId: 'string',
       backupMethod: 'string',
+      backupScheduleType: 'string',
       backupSetInfo: 'string',
       backupSize: 'number',
       backupStartTime: 'string',
@@ -153,9 +163,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
    * The number of entries per page. Valid values:
    * 
    * - **30** (default)
-   * 
    * - **50**
-   * 
    * - **100**
    * 
    * @example
@@ -172,7 +180,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

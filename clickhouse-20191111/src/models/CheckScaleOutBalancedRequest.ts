@@ -46,6 +46,17 @@ export class CheckScaleOutBalancedRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The specification change type. Valid values:
+   * - ScaleOut: horizontal scale-out
+   * - ScaleIn: horizontal scale-in
+   * - MultiAzUpgrade: upgrade to multi-active zone deployment
+   * - DiskDownGrade: cloud disk downgrade.
+   * 
+   * @example
+   * ScaleOut
+   */
   scalingType?: string;
   static names(): { [key: string]: string } {
     return {

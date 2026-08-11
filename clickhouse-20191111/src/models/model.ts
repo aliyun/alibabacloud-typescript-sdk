@@ -25,6 +25,7 @@ export { DescribeColumnsResponseBodyItems } from './DescribeColumnsResponseBody'
 export { DescribeConfigHistoryResponseBodyConfigHistoryItems } from './DescribeConfigHistoryResponseBody';
 export { DescribeDBClusterAccessWhiteListResponseBodyDBClusterAccessWhiteListIPArray } from './DescribeDbclusterAccessWhiteListResponseBody';
 export { DescribeDBClusterAccessWhiteListResponseBodyDBClusterAccessWhiteList } from './DescribeDbclusterAccessWhiteListResponseBody';
+export { DescribeDBClusterAttributeResponseBodyDBClusterLangfuseInstanceIds } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyDBClusterTagsTag } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyDBClusterTags } from './DescribeDbclusterAttributeResponseBody';
