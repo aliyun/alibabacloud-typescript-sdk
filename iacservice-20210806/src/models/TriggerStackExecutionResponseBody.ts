@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerStackExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * F2D40488-3F74-568B-87EC-1C04D098DF8B
@@ -13,7 +13,7 @@ export class TriggerStackExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Unique ID of the trigger.
+   * The unique ID of the trigger.
    * 
    * @example
    * event-xxxx

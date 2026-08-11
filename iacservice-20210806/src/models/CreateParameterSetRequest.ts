@@ -11,13 +11,18 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a secret parameter. Secret parameters are hidden in API responses and on the console, and are stored with encryption.
+   */
   secret?: boolean;
   /**
    * @remarks
-   * The parameter set status. Valid values:
+   * The parameter status. Valid values:
    * 
-   * - HAS_VALUE (default): Defines a specific value.
-   * - EXPLICIT_NULL: Explicitly sets the value to null.
+   * HAS_VALUE (default): Defines a specific value.
+   * 
+   * EXPLICIT_NULL: Explicitly sets the value to null.
    * 
    * @example
    * HAS_VALUE
@@ -25,7 +30,7 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The parameter type. Valid values: string, number, bool, map(string), and list(string).
+   * The parameter type (string/number/bool/map(string)/list(string)).
    * 
    * @example
    * string
@@ -71,7 +76,7 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
 export class CreateParameterSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
    * 
    * This parameter is required.
    * 
@@ -81,7 +86,7 @@ export class CreateParameterSetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the parameter set. Maximum length: 1024 characters.
+   * The description of the parameter set. Maximum length: 1,024 characters.
    * 
    * @example
    * This is parameterSet

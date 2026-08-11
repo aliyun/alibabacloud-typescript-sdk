@@ -17,7 +17,7 @@ export class ListResourceTypesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The keyword for searching resource codes or names. Fuzzy match is supported.
+   * The keyword for searching resource code or name. Fuzzy match is supported.
    * 
    * @example
    * vpc
@@ -51,7 +51,7 @@ export class ListResourceTypesRequest extends $dara.Model {
    * @remarks
    * The order in which resource types are returned. Valid values:
    * - Normal (default): returned in normal order.
-   * - Top: returned in order of popularity.
+   * - Top: returned in order of popular access.
    * 
    * @example
    * Normal
@@ -59,9 +59,9 @@ export class ListResourceTypesRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The status filter list. Valid values:
+   * The status list for filtering. Valid values:
    * - Available
-   * - Deprecated.
+   * - Deprecated
    * 
    * @example
    * Available,Deprecated
@@ -85,7 +85,7 @@ export class ListResourceTypesRequest extends $dara.Model {
   supportTerraformer?: boolean;
   /**
    * @remarks
-   * The Terraform provider version. If this parameter is left empty, the latest version is used by default.
+   * The Terraform Provider version. If this parameter is left empty, the latest version is used by default.
    * 
    * @example
    * 1.227.0
@@ -93,7 +93,7 @@ export class ListResourceTypesRequest extends $dara.Model {
   terraformProviderVersion?: string;
   /**
    * @remarks
-   * The Terraform resources.
+   * The list of Terraform resources.
    */
   terraformResourceTypes?: string[];
   static names(): { [key: string]: string } {

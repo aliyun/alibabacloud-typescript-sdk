@@ -45,7 +45,7 @@ export class UpdateTaskAttributeRequestGroupInfo extends $dara.Model {
 export class UpdateTaskAttributeRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the task.
+   * The tag key of the node.
    * 
    * @example
    * TestKey
@@ -53,7 +53,7 @@ export class UpdateTaskAttributeRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the task.
+   * The tag value of the node.
    * 
    * @example
    * TestValue
@@ -85,7 +85,7 @@ export class UpdateTaskAttributeRequestTags extends $dara.Model {
 export class UpdateTaskAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically execute the task. Default value: false.
+   * Specifies whether to automatically execute the node. Default value: false.
    * - true: After the preview is complete (terraform plan), the execution (terraform apply) is automatically performed without manual confirmation.
    * - false: After the preview is complete (terraform plan), manual confirmation is required before the execution (terraform apply) starts.
    * 
@@ -105,7 +105,7 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   autoDestroy?: boolean;
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * this is description
@@ -128,7 +128,7 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   groupInfo?: UpdateTaskAttributeRequestGroupInfo;
   /**
    * @remarks
-   * Specifies whether to use a state file. Default value: false. This parameter is applicable when the template originates from resource export. Only one task can use this parameter.
+   * Specifies whether to use a state file. Default value: false. This parameter applies to templates that originate from resource export. Only one node can use this parameter.
    * 
    * @example
    * false
@@ -144,11 +144,11 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
-   * The task name. The name must meet the following requirements:
+   * The node name. The name must meet the following requirements:
    * 
    * - The name must be 2 to 128 characters in length.
-   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
-   * - The name must be unique among all tasks under the current account.
+   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+   * - The name must be unique among all node resources within the current account.
    * 
    * @example
    * TaskName
@@ -169,22 +169,33 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * Specifies whether to skip enum value validation. Default value: false.
+   * Specifies whether to skip enumeration value validation. Default value: false.
    * 
    * @example
    * false
    */
   skipPropertyValidation?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip region validation. Valid values: true indicates skipping, false indicates not skipping.
+   */
   skipRegionValidation?: boolean;
   /**
    * @remarks
-   * The list of tags for the task.
+   * The list of tags for the node.
    */
   tags?: UpdateTaskAttributeRequestTags[];
+  /**
+   * @remarks
+   * The Terraform Provider version. Use the **ListTerraformProviderVersions** API to query the list of supported versions.
+   * 
+   * @example
+   * 1.248.0
+   */
   terraformProviderVersion?: string;
   /**
    * @remarks
-   * The Terraform version. Call the **ListAvailableTerraformVersions** operation to obtain the list of supported versions. Default value: 1.5.7.
+   * The Terraform version. Use the **ListAvailableTerraformVersions** API to obtain the list of supported versions. Default value: 1.5.7.
    * 
    * @example
    * 1.5.7
@@ -192,14 +203,14 @@ export class UpdateTaskAttributeRequest extends $dara.Model {
   terraformVersion?: string;
   /**
    * @remarks
-   * The job trigger method. Valid values:
+   * The job trigger method.
    * 
-   * - Manual: manually triggered (default).
+   * - Manual: manual trigger (default).
    * - NewVersion: triggered when a new template version is published.
    * - ParameterSetUpdated: triggered when the parameter set content changes or the parameter set attach relationship changes.
-   * - Auto: automatically triggered when the task\\"s own properties change, such as task creation, execution version change, or job trigger policy change (when changed from another value to Auto).
+   * - Auto: automatically triggered when the node properties change, such as creating a node, changing the execution version, or changing the job trigger policy (when changed from another method to Auto).
    * 
-   * The **ramRole** parameter is required when the trigger method is not manual.
+   * The **ramRole** parameter is required for non-manual triggers.
    * 
    * @example
    * Manual

@@ -30,7 +30,7 @@ export class ListJobsResponseBodyJobsConfig extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
-   * The resource change details.
+   * The resource change content.
    * 
    * @example
    * +0 ~0 -0
@@ -81,7 +81,7 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
   config?: ListJobsResponseBodyJobsConfig;
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the job was created, in UTC in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-05T02:13:43Z
@@ -107,8 +107,8 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
    * @remarks
    * The execution type. Valid values:
    * 
-   * - Manual: manual execution. This is the default value.
-   * - Auto: automatic execution.
+   * - Manual: Manual execution (default).
+   * - Auto: Automatic execution.
    * 
    * @example
    * Manual
@@ -137,18 +137,18 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
    * - Pending: The initial status after the job is created.
    * - PlanQueued: After the job is created, if no workflow is available, the job is queued.
    * - Planning: The resource job is in the Plan execution phase.
-   * - ConfigProactiveInProgress: Compliance pre-check is in progress. The compliance pre-check feature must be enabled for the account.
-   * - ConfigProactiveSuccess: Compliance pre-check succeeded. The compliance pre-check feature must be enabled for the account.
-   * - Planned: The resource job has completed the Plan execution.
-   * - PlannedAndFinished: After the Plan execution is complete, no diff is found. This is a final status.
-   * - Confirmed: The resource job is waiting for confirmation after the Plan execution is complete.
+   * - ConfigProactiveInProgress: Compliance pre-check is in progress. The account must have the compliance pre-check feature enabled.
+   * - ConfigProactiveSuccess: Compliance pre-check succeeded. The account must have the compliance pre-check feature enabled.
+   * - Planned: The resource job has completed Plan execution.
+   * - PlannedAndFinished: After Plan execution is completed, no diff is found. This is a final status.
+   * - Confirmed: The resource job is waiting for confirmation after Plan execution is completed.
    * - ApplyQueued: During job execution, if no workflow is available, the job is queued.
    * - Applying: The resource job is in the Apply execution phase.
-   * - Applied: The resource job has completed the Apply execution. This is a final status.
+   * - Applied: The resource job has completed Apply execution. This is a final status.
    * - Errored: The job execution encountered an error. This is a final status.
    * - Canceled: The job execution was canceled. This is a final status.
    * - Discarded: The plan of the resource job was discarded. This is a final status.
-   * - ConfigProactiveFailure: Compliance pre-check failed. The compliance pre-check feature must be enabled for the account.
+   * - ConfigProactiveFailure: Compliance pre-check failed. The account must have the compliance pre-check feature enabled.
    * 
    * @example
    * Errored
@@ -225,7 +225,7 @@ export class ListJobsResponseBodyJobs extends $dara.Model {
 export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of jobs.
+   * The list of job information.
    */
   jobs?: ListJobsResponseBodyJobs[];
   /**
@@ -238,7 +238,7 @@ export class ListJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20

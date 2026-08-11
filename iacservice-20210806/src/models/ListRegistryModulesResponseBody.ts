@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model {
   /**
    * @remarks
-   * The permission. A value of private indicates that the module is private.
+   * The permission. private: private.
    * 
    * @example
    * private
@@ -13,7 +13,7 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
   acl?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the format of YYYY-MM-DD HH:mm:ss. The returned value does not include a time zone identifier.
    * 
    * @example
    * 2025-06-10 16:16:04
@@ -21,7 +21,7 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The description of the registry module.
+   * The description of the Registry module.
    * 
    * @example
    * description
@@ -37,7 +37,7 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
   downloads?: number;
   /**
    * @remarks
-   * The name of the registry module.
+   * The name of the Registry module.
    * 
    * @example
    * ModuleName
@@ -53,7 +53,7 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
   namespaceName?: string;
   /**
    * @remarks
-   * The provider type. A value of alicloud indicates Alibaba Cloud.
+   * The provider type. alicloud: Alibaba Cloud.
    * 
    * @example
    * alicloud
@@ -61,7 +61,7 @@ export class ListRegistryModulesResponseBodyRegistryModules extends $dara.Model 
   provider?: string;
   /**
    * @remarks
-   * The list of accounts with which the registry module is shared.
+   * The list of accounts with which the Registry module is shared.
    */
   sharedAccounts?: number[];
   /**
@@ -169,7 +169,7 @@ export class ListRegistryModulesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of registry modules.
+   * The list of Registry modules.
    */
   registryModules?: ListRegistryModulesResponseBodyRegistryModules[];
   /**

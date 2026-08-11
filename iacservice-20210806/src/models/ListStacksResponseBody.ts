@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStacksResponseBodyStacks extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-05-07T02:21:28Z
@@ -39,9 +39,9 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The path of the configuration source. The value cannot exceed 1000 characters.
-   * - If the source is OSS, the value is in the format oss::<file link> and must be a zip file, such as oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-   * - If the source is IAC_SERVICE_MODULE, the value is a template ID, such as mod-xxxxx.
+   * The path value of the configuration source. The value cannot exceed 1000 characters.
+   * - If the source is OSS, the value is in the format oss::<file link> and must be a zip file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
+   * - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -76,15 +76,15 @@ export class ListStacksResponseBodyStacks extends $dara.Model {
    * The stack status.
    * | Name | Description |
    * |------|------|
-   * | Creating | Being created |
-   * | Created | Creation complete |
-   * | Waiting | Waiting for deployment |
-   * | Deploying | Being deployed |
-   * | Deployed | Deployment complete |
-   * | Errored | Deployment failed |
-   * | Deleting | Being deleted |
-   * | Deleted | Deleted |
-   * | DeleteFailed | Deletion failed |.
+   * | Creating | Being created. |
+   * | Created | Created. |
+   * | Waiting | Waiting for deployment. |
+   * | Deploying | Being deployed. |
+   * | Deployed | Deployed. |
+   * | Errored | Deployment failed. |
+   * | Deleting | Being deleted. |
+   * | Deleted | Deleted. |
+   * | DeleteFailed | Deletion failed. |
    * 
    * @example
    * Deployed

@@ -15,7 +15,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsConfig extends $dara.Mode
   autoApply?: boolean;
   /**
    * @remarks
-   * Specifies whether this is a destroy job.
+   * Indicates whether this is a destroy job.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsOutputs extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The expression, which can reference component outputs. Format: component.{component name}.{component output name}.
+   * The expression that can reference component outputs, in the format: component.{component name}.{component output name}.
    * 
    * @example
    * component.sls.project_name
@@ -139,6 +139,12 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is sensitive. Sensitive parameter values are not visible in the console or API.
+   * - true: Sensitive.
+   * - false: Not sensitive.
+   */
   sensitive?: boolean;
   /**
    * @remarks
@@ -291,10 +297,10 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputs extends $dara
   /**
    * @remarks
    * The change type of the component. Valid values:
-   * - create: all resource changes in the component are additions.
-   * - delete: all resource changes in the component are deletions.
-   * - read: all resource changes in the component are read operations.
-   * - update: resource changes in the component include two or more types among additions, deletions, and read operations.
+   * - create: All resource changes in the component are creations.
+   * - delete: All resource changes in the component are deletions.
+   * - read: All resource changes in the component are reads.
+   * - update: Resource changes in the component include two or more types among creation, deletion, and read.
    * 
    * @example
    * update
@@ -302,7 +308,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputs extends $dara
   moduleAction?: string;
   /**
    * @remarks
-   * The number of resources to be added, updated, and destroyed in this deployment.
+   * The number of resources to be created, updated, and destroyed in this deployment.
    */
   moduleActionDetail?: GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDetail;
   /**
@@ -367,7 +373,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   configVersion?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, in the format of YYYY-MM-DDTHH:mm:ssZ (ISO 8601).
    * 
    * @example
    * 2026-04-01T12:10:18Z
@@ -383,7 +389,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   deploymentName?: string;
   /**
    * @remarks
-   * The deployment number. The deployment number of each stack starts from 1 and increments each time a deployment is triggered.
+   * The deployment number. The deployment number for each stack starts from 1 and increments each time a deployment is successfully triggered.
    * 
    * @example
    * 1
@@ -409,9 +415,9 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
    * @remarks
    * The execution type.
    * 
-   * Manual: manual execution (default).
+   * Manual: Manual execution (default).
    * 
-   * Auto: automatic execution.
+   * Auto: Automatic execution.
    * 
    * @example
    * Manual
@@ -453,14 +459,14 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
    * The deployment status.
    * | Name | Description |
    * |------|------|
-   * | Pending | The initial status after a deployment is created. |
+   * | Pending | The initial status after the deployment is created. |
    * | PriorityQueued | The deployment is queued by priority. |
-   * | PlanQueued | The deployment is queued because no workflow is available after the deployment is created. |
+   * | PlanQueued | The deployment is queued because no workflow is available after creation. |
    * | ApplyQueued | The deployment is queued because no workflow is available during execution. |
    * | Planning | The resource deployment is in the Plan phase. |
    * | Planned | The resource deployment has completed the Plan phase. |
-   * | ConfigProactiveInProgress | A compliance pre-check is in progress. |
-   * | ConfigProactiveSuccess | The compliance pre-check succeeded. |
+   * | ConfigProactiveInProgress | Compliance pre-check is in progress. |
+   * | ConfigProactiveSuccess | Compliance pre-check succeeded. |
    * | DetectInProgress | Drift detection is in progress. |
    * | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
    * | Importing | The resource deployment is in the Import phase. |
@@ -473,9 +479,9 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
    * | Applying | The resource deployment is in the Apply phase. |
    * | Applied | The resource deployment has completed the Apply phase. |
    * | Discarded | The resource deployment has been discarded and is in a final status. |
-   * | Errored | The deployment encountered an error and is in a final status. |
-   * | ConfigProactiveFailure | The compliance pre-check failed. |
-   * | Canceled | The deployment has been canceled and is in a final status. |.
+   * | Errored | The deployment execution encountered an error and is in a final status. |
+   * | ConfigProactiveFailure | Compliance pre-check failed. |
+   * | Canceled | The deployment execution has been canceled and is in a final status. |
    * 
    * @example
    * Pending

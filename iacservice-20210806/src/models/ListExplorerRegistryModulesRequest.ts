@@ -28,6 +28,9 @@ export class ListExplorerRegistryModulesRequest extends $dara.Model {
    * The name of the module.
    * 
    * Note: The module name is not necessarily the same as the product name or resource name.
+   * 
+   * @example
+   * vpc
    */
   moduleName?: string;
   /**

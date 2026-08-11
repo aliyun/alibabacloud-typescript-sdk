@@ -11,13 +11,17 @@ export class GetParameterSetResponseBodyParameterSetParameters extends $dara.Mod
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is secret. Secret parameters are hidden in API responses and console displays, and are stored with encryption.
+   */
   secret?: boolean;
   /**
    * @remarks
-   * The status of the parameter. Valid values:
+   * The parameter set status. Valid values:
    * 
    * - HAS_VALUE (default): A specific value is defined.
-   * - EXPLICIT_NULL: The value is explicitly set to null.
+   * - EXPLICIT_NULL: Explicitly set to null.
    * 
    * @example
    * HAS_VALUE
@@ -25,7 +29,7 @@ export class GetParameterSetResponseBodyParameterSetParameters extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The type of the parameter. Valid values: string, number, bool, map(string), and list(string).
+   * The type of the parameter (string/number/bool/map(string)/list(string)).
    * 
    * @example
    * string
@@ -71,7 +75,7 @@ export class GetParameterSetResponseBodyParameterSetParameters extends $dara.Mod
 export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.Model {
   /**
    * @remarks
-   * The time when the parameter set was created.
+   * The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-04-24T22:58:50Z
@@ -79,7 +83,7 @@ export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The resource ID. When the resource type is ModuleVersion, the ID is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * The resource ID. When the resource type is ModuleVersion, the ID is composed of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
    * 
    * @example
    * mod-433aead756057101546eb5d50c1
@@ -89,8 +93,8 @@ export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.M
    * @remarks
    * The resource type. Valid values:
    * 
-   * - Module: template
-   * - ModuleVersion: template version
+   * - Module: template.
+   * - ModuleVersion: template version.
    * - Task: task.
    * 
    * @example
@@ -125,7 +129,7 @@ export class GetParameterSetResponseBodyParameterSetRelationList extends $dara.M
 export class GetParameterSetResponseBodyParameterSet extends $dara.Model {
   /**
    * @remarks
-   * The time when the parameter set was created.
+   * The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-01-30T02:14:16Z
@@ -149,7 +153,7 @@ export class GetParameterSetResponseBodyParameterSet extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the parameter set.
+   * The parameter set ID.
    * 
    * @example
    * pts-3b6cb9fa4751afff9c5e4e01624b9

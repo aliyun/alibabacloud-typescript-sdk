@@ -65,7 +65,7 @@ export class ListTasksResponseBodyTasksGroupInfo extends $dara.Model {
 export class ListTasksResponseBodyTasksTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the task.
+   * The task tag key.
    * 
    * @example
    * name
@@ -73,7 +73,7 @@ export class ListTasksResponseBodyTasksTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag key of the module.
+   * The tag key of the template.
    * 
    * @example
    * name
@@ -89,7 +89,7 @@ export class ListTasksResponseBodyTasksTags extends $dara.Model {
   tagValue?: string;
   /**
    * @remarks
-   * The tag value of the task.
+   * The task tag value.
    * 
    * @example
    * iac-demo
@@ -133,7 +133,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   autoApply?: boolean;
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created, in UTC in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-11T15:09:53Z
@@ -149,7 +149,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   currentJobId?: string;
   /**
    * @remarks
-   * The current job status.
+   * The status of the current job.
    * 
    * @example
    * Pending
@@ -157,7 +157,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   currentJobStatus?: string;
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources are included.
+   * Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources exist.
    * 
    * @example
    * false
@@ -170,7 +170,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   groupInfo?: ListTasksResponseBodyTasksGroupInfo;
   /**
    * @remarks
-   * The latest version of the module.
+   * The latest version number of the template.
    * 
    * @example
    * v3
@@ -178,7 +178,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   latestModuleVersion?: string;
   /**
    * @remarks
-   * The module ID.
+   * The template ID.
    * 
    * @example
    * mod-518855d9a058c331e9c60bc0ce
@@ -186,7 +186,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   moduleId?: string;
   /**
    * @remarks
-   * The module name.
+   * The template name.
    * 
    * @example
    * mod-name
@@ -194,7 +194,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   moduleName?: string;
   /**
    * @remarks
-   * The module version.
+   * The template version.
    * 
    * @example
    * v1
@@ -212,8 +212,8 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - Available: The task is available, and no job is running.
-   * - Running: The task is running, and the current job is in progress.
+   * - Available: The task is in an available state with no job running.
+   * - Running: The task is in a running state with a current job in progress.
    * 
    * @example
    * Running
@@ -296,7 +296,7 @@ export class ListTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20
@@ -317,7 +317,7 @@ export class ListTasksResponseBody extends $dara.Model {
   tasks?: ListTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 55

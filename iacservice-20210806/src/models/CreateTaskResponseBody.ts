@@ -13,7 +13,7 @@ export class CreateTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The node ID.
+   * The task ID.
    * 
    * @example
    * task-433aead756057fffeaba4828f5195

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class JobsStatusDetailValue extends $dara.Model {
   /**
    * @remarks
-   * 备注
+   * The comment.
    * 
    * @example
    * comment
@@ -13,7 +13,7 @@ export class JobsStatusDetailValue extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 作业执行结果
+   * The job execution result.
    * 
    * @example
    * Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
@@ -21,7 +21,7 @@ export class JobsStatusDetailValue extends $dara.Model {
   jobResult?: string;
   /**
    * @remarks
-   * 到达状态时间
+   * The time when the status was reached, in the format of YYYY-MM-DD HH:mm:ss. The returned value does not include a time zone identifier.
    * 
    * @example
    * 2022-06-13 17:11:34

@@ -5,20 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a secret parameter. Secret parameters are hidden in API responses and console displays, and are stored with encryption.
+   */
   secret?: boolean;
   /**
    * @remarks
    * The parameter set status. Valid values:
    * 
-   * HAS_VALUE (default): A specific value is defined.
+   * - HAS_VALUE (default): A specific value is defined.
    * 
-   * EXPLICIT_NULL: The value is explicitly set to null.
+   * - EXPLICIT_NULL: Explicitly set to null.
    * 
    * @example
    * HAS_VALUE
@@ -34,7 +38,7 @@ export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.
   type?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * cn-beijing
@@ -72,7 +76,7 @@ export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.
 export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-06-09T03:46:18Z
@@ -80,7 +84,7 @@ export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The resource ID. When the resource type is ModuleVersion, the value is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * The resource ID. When the resource type is ModuleVersion, the ID is composed of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
    * 
    * @example
    * task-433aead756057ffdf5326bf1e12ed
@@ -90,8 +94,8 @@ export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dar
    * @remarks
    * The resource type. Valid values:
    * 
-   * - Module: template
-   * - ModuleVersion: template version
+   * - Module: template.
+   * - ModuleVersion: template version.
    * - Task: task.
    * 
    * @example
@@ -126,7 +130,7 @@ export class ListParameterSetsResponseBodyParameterSetsRelationList extends $dar
 export class ListParameterSetsResponseBodyParameterSets extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-05-14T10:05:19Z
@@ -171,7 +175,7 @@ export class ListParameterSetsResponseBodyParameterSets extends $dara.Model {
   parameters?: ListParameterSetsResponseBodyParameterSetsParameters[];
   /**
    * @remarks
-   * The relationships associated with the parameter set.
+   * The associated resources.
    */
   relationList?: ListParameterSetsResponseBodyParameterSetsRelationList[];
   static names(): { [key: string]: string } {
@@ -224,7 +228,7 @@ export class ListParameterSetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 20

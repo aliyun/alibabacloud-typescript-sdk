@@ -171,7 +171,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   autoDestroy?: boolean;
   /**
    * @remarks
-   * The time when the task was created.
+   * The time when the task was created, in UTC in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2022-06-15T02:44:37Z
@@ -203,7 +203,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * this is description
@@ -216,7 +216,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   groupInfo?: GetTaskResponseBodyTaskGroupInfo;
   /**
    * @remarks
-   * Specifies whether to use a state file. Default value: false. This parameter is applicable to templates that originate from resource export. Only one task can use this parameter at a time.
+   * Specifies whether to use a state file. Default value: false. This parameter applies to templates that originate from resource export. Only one task can use this parameter at a time.
    * 
    * @example
    * false
@@ -283,13 +283,17 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * false
    */
   skipPropertyValidation?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to skip region validation. Valid values: true and false.
+   */
   skipRegionValidation?: boolean;
   /**
    * @remarks
    * The task status. Valid values:
    * 
    * - Available: the task is available and no job is running.
-   * - Running: a job is currently running.
+   * - Running: the task is running and a job is in progress.
    * 
    * @example
    * Running

@@ -8,7 +8,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * The description.
    * 
    * @example
-   * 路由表
+   * Route Table
    */
   description?: string;
   /**
@@ -43,6 +43,13 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * https://vpc.console.aliyun.com/vpc/${RegionId}/route-tables
    */
   resourceListPageUrl?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud resource type in the format of ALIYUN::\\<cloud service>::\\<resource type>.
+   * 
+   * @example
+   * ALIYUN::VPC::VPC
+   */
   resourceType?: string;
   /**
    * @remarks
@@ -78,7 +85,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
   supportTerraformer?: string;
   /**
    * @remarks
-   * The Terraform provider version.
+   * The Terraform Provider version.
    * 
    * @example
    * 1.248.0
@@ -97,7 +104,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * The title.
    * 
    * @example
-   * 路由表
+   * Route Table
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -172,7 +179,7 @@ export class ListResourceTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    */
   resourceTypes?: ListResourceTypesResponseBodyResourceTypes[];
   /**

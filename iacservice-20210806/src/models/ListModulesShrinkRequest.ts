@@ -13,12 +13,19 @@ export class ListModulesShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported for template names.
+   * The search keyword. Supports fuzzy match on template names.
    * 
    * @example
    * key
    */
   keyword?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * ModuleName
+   */
   moduleName?: string;
   /**
    * @remarks

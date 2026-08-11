@@ -12,6 +12,9 @@ export class ListStacksRequest extends $dara.Model {
    */
   keyword?: string;
   /**
+   * @remarks
+   * The key ID.
+   * 
    * @example
    * 21a90f5d-a469-4ac4-a8ea-f6e1e7470e6f
    */
@@ -42,7 +45,7 @@ export class ListStacksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 20
@@ -53,16 +56,16 @@ export class ListStacksRequest extends $dara.Model {
    * The stack status.
    * | Name | Description |
    * |------|------|
-   * | Creating | Being created |
-   * | Created | Creation complete |
-   * | Waiting | Waiting for deployment |
-   * | Deploying | Being deployed |
-   * | Deployed | Deployment complete |
-   * | Errored | Deployment failed |
-   * | Deleting | Being deleted |
-   * | Deleted | Deleted |
-   * | DeleteFailed | Deletion failed |
-   * | DetectTriggered | Drift detection triggered |.
+   * | Creating | Being created. |
+   * | Created | Created. |
+   * | Waiting | Waiting for deployment. |
+   * | Deploying | Being deployed. |
+   * | Deployed | Deployed. |
+   * | Errored | Deployment failed. |
+   * | Deleting | Being deleted. |
+   * | Deleted | Deleted. |
+   * | DeleteFailed | Deletion failed. |
+   * | DetectTriggered | Drift detection triggered. |
    * 
    * @example
    * Deployed

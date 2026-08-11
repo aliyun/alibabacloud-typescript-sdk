@@ -11,13 +11,18 @@ export class UpdateParameterSetAttributeRequestParameters extends $dara.Model {
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a secret parameter. Secret parameters are hidden in API responses and console displays, and are stored with encryption.
+   */
   secret?: boolean;
   /**
    * @remarks
-   * The parameter set status. Valid values:
+   * The parameter set status. Valid values: 
    * 
-   * - HAS_VALUE (default): Defines a specific value.
-   * - EXPLICIT_NULL: Explicitly set to null.
+   * HAS_VALUE (default): Defines a specific value. 
+   * 
+   * EXPLICIT_NULL: Explicitly set to null.
    * 
    * @example
    * HAS_VALUE
@@ -25,7 +30,7 @@ export class UpdateParameterSetAttributeRequestParameters extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The parameter type. Valid values: string, number, bool, map(string), and list(string).
+   * The parameter type (string/number/bool/map(string)/list(string)).
    * 
    * @example
    * string

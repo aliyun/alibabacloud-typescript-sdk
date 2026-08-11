@@ -2,18 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateParameterSetResponseBody extends $dara.Model {
+export class SetEncryptionConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameter set ID.
-   * 
-   * @example
-   * pts-3b6cb9fa4751afff89a4b73779e0d
-   */
-  parameterSetId?: string;
-  /**
-   * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 7FA0FF4A-ABD4-54F6-BEAC-B4273EBA10A2
@@ -21,14 +13,12 @@ export class CreateParameterSetResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      parameterSetId: 'parameterSetId',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parameterSetId: 'string',
       requestId: 'string',
     };
   }

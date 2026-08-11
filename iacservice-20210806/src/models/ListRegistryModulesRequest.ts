@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistryModulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. Fuzzy search by module name is supported.
+   * The search keyword. Fuzzy match on module names is supported.
    * 
    * @example
    * key
@@ -29,12 +29,19 @@ export class ListRegistryModulesRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
    * 
    * @example
    * NFzbQCa7/yd7rAuSo5xZb54dD+2BRJj42DLT6GrZysw=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The filter condition for Registry module status.
+   * 
+   * @example
+   * Available
+   */
   status?: string;
   /**
    * @remarks

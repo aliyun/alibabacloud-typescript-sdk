@@ -6,6 +6,7 @@ export class GetResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
+   * 
    * - zh-CN: Chinese.
    * - en-US: English.
    * 
@@ -17,7 +18,7 @@ export class GetResourceTypeRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to filter out read-only properties.
+   * Specifies whether to filter read-only properties.
    * 
    * @example
    * false
@@ -25,7 +26,7 @@ export class GetResourceTypeRequest extends $dara.Model {
   filterReadOnly?: boolean;
   /**
    * @remarks
-   * The Terraform provider version. If left empty, the latest version is used by default.
+   * The Terraform provider version. If this parameter is left empty, the latest version is used by default.
    * 
    * @example
    * 1.227.0

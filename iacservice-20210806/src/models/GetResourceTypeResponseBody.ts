@@ -124,6 +124,13 @@ export class GetResourceTypeResponseBodyResourceType extends $dara.Model {
    * https://vpc.console.aliyun.com/vpc/${RegionId}/route-tables
    */
   resourceListPageUrl?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud resource type, in the format of ALIYUN::<cloud service>::<resource type>.
+   * 
+   * @example
+   * ALIYUN::VPC::VPC
+   */
   resourceType?: string;
   /**
    * @remarks

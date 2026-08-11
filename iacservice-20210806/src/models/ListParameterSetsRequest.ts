@@ -12,6 +12,9 @@ export class ListParameterSetsRequest extends $dara.Model {
    */
   keyword?: string;
   /**
+   * @remarks
+   * The key ID.
+   * 
    * @example
    * 21a90f5d-a469-4ac4-a8ea-f6e1e7470e6f
    */
@@ -26,7 +29,7 @@ export class ListParameterSetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 20

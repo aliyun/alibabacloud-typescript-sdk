@@ -21,7 +21,7 @@ export class GetStackDeploymentsRequest extends $dara.Model {
   deploymentName?: string;
   /**
    * @remarks
-   * The deployment number. The deployment number of each stack starts from 1 and increments each time a deployment is triggered.
+   * The deployment number. The deployment number for each stack starts from 1 and increments each time a deployment is successfully triggered.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetStackDeploymentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 20
@@ -48,14 +48,14 @@ export class GetStackDeploymentsRequest extends $dara.Model {
    * The deployment status.
    * | Name | Description |
    * |------|------|
-   * | Pending | The initial status after a deployment is created. |
+   * | Pending | The initial status after the deployment is created. |
    * | PriorityQueued | The deployment is queued by priority. |
-   * | PlanQueued | The deployment is queued because no workflow is available after the deployment is created. |
+   * | PlanQueued | The deployment is queued because no workflow is available after creation. |
    * | ApplyQueued | The deployment is queued because no workflow is available during execution. |
    * | Planning | The resource deployment is in the Plan phase. |
    * | Planned | The resource deployment has completed the Plan phase. |
-   * | ConfigProactiveInProgress | A compliance pre-check is in progress. |
-   * | ConfigProactiveSuccess | The compliance pre-check succeeded. |
+   * | ConfigProactiveInProgress | Compliance pre-check is in progress. |
+   * | ConfigProactiveSuccess | Compliance pre-check succeeded. |
    * | DetectInProgress | Drift detection is in progress. |
    * | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
    * | Importing | The resource deployment is in the Import phase. |
@@ -68,9 +68,9 @@ export class GetStackDeploymentsRequest extends $dara.Model {
    * | Applying | The resource deployment is in the Apply phase. |
    * | Applied | The resource deployment has completed the Apply phase. |
    * | Discarded | The resource deployment has been discarded and is in a final status. |
-   * | Errored | The deployment encountered an error and is in a final status. |
-   * | ConfigProactiveFailure | The compliance pre-check failed. |
-   * | Canceled | The deployment has been canceled and is in a final status. |.
+   * | Errored | The deployment execution encountered an error and is in a final status. |
+   * | ConfigProactiveFailure | Compliance pre-check failed. |
+   * | Canceled | The deployment execution has been canceled and is in a final status. |
    * 
    * @example
    * Applied

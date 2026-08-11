@@ -13,20 +13,23 @@ export class ListTasksShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The keyword for fuzzy search by task ID or task name.
+   * The keyword used to perform a fuzzy search by task ID or task name.
    * 
    * @example
    * key
    */
   keyword?: string;
   /**
+   * @remarks
+   * The key ID.
+   * 
    * @example
    * 21a90f5d-a469-4ac4-a8ea-f6e1e7470e6f
    */
   kmsKeyId?: string;
   /**
    * @remarks
-   * The module ID.
+   * The template ID.
    * 
    * @example
    * mod-1525e992f1b62139d1c437d64ae
@@ -42,7 +45,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20
@@ -62,10 +65,10 @@ export class ListTasksShrinkRequest extends $dara.Model {
    * 
    * - Planning: The job is in the Plan execution phase.
    * - Planned: The job has completed the Plan execution.
-   * - PlannedAndFinished: After the Plan execution is completed, no diff is found, and the job enters the final state.
+   * - PlannedAndFinished: After the Plan execution is complete, no diff is found. The job is in a final state.
    * - Applying: The job is in the Apply execution phase.
    * - Applied: The job has completed the Apply execution.
-   * - Errored: The job execution encountered errors and entered the final state.
+   * - Errored: The job execution encountered an error and entered a final state.
    * 
    * @example
    * Errored
