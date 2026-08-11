@@ -4,66 +4,110 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnterpriseContactAddRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * xxx
    */
   appName?: string;
   /**
+   * @remarks
+   * Specifies whether to asynchronously verify the email address. Set this parameter to true for API calls. Otherwise, the verification code is synchronously verified. Call the SendAsyncEmailCaptcha operation to send a verification link.
+   * 
    * @example
    * true
    */
   asyncEmailVerify?: boolean;
   /**
+   * @remarks
+   * Specifies whether to asynchronously verify the mobile phone number. Set this parameter to true for API calls. Otherwise, the verification code is synchronously verified. Call the SendAsyncMobileCaptcha operation to send a verification link.
+   * 
    * @example
    * true
    */
   asyncMobileVerify?: boolean;
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * xxx@xxx.xx
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
    * @example
    * 1xxxxxxxxxx
    */
   contactMobile?: string;
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * xxx
    */
   contactName?: string;
   /**
+   * @remarks
+   * The position of the contact. Valid values:
+   * - TECH_MANAGER: technical manager.
+   * - MAINTAIN_MANAGER: O&M manager.
+   * - PROJECT_MANAGER: project manager.
+   * - FINANCE_MANAGER: finance manager.
+   * - OTHER: other.
+   * 
    * @example
    * 1
    */
   contactPosition?: string;
   /**
+   * @remarks
+   * The email verification code.
+   * 
    * @example
    * null
    */
   emailCode?: string;
   /**
+   * @remarks
+   * The SMS verification code.
+   * 
    * @example
    * null
    */
   mobileCode?: string;
   /**
+   * @remarks
+   * The entity ID of the cross-enterprise management object.
+   * 
    * @example
    * xxx
    */
   orientedEcId?: string;
   /**
+   * @remarks
+   * The ID of the enterprise to which you have switched.
+   * 
    * @example
    * xxx
    */
   orientedLeId?: string;
   /**
+   * @remarks
+   * The sales site ID of the cross-enterprise management object.
+   * 
    * @example
    * null
    */
   orientedNbId?: string;
   /**
+   * @remarks
+   * Specifies whether the contact is a public contact. This operation sets this parameter to true by default.
+   * 
    * @example
    * true
    */

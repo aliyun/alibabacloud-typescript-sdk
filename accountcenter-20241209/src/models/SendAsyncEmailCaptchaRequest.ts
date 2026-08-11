@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendAsyncEmailCaptchaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * xxx
    */
   appName?: string;
   /**
+   * @remarks
+   * The contact information.
+   * 
    * @example
    * xxx
    */
   contactInfo?: string;
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * xxx
    */

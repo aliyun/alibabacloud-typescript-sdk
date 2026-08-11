@@ -2,48 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class EnterpriseContactDeleteResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The status code.
-   * 
-   * @example
-   * 200
-   */
+export class EnterpriseOrgDeleteNodeResponseBody extends $dara.Model {
   code?: string;
-  /**
-   * @remarks
-   * The processing result.
-   * 
-   * @example
-   * true
-   */
   data?: boolean;
-  /**
-   * @remarks
-   * The message.
-   * 
-   * @example
-   * Success
-   */
   message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36E0A548-4BA3-549B-8855-22E3F5C6D47E
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
-   * 
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

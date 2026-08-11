@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class AccountContactQueryDetailResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * xxx@xxx.xx
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * xxx
    */
   contactId?: number;
   /**
+   * @remarks
+   * The mobile phone number of the contact.
+   * 
    * @example
    * 1xxxxxxxxxx
    */
   contactMobile?: string;
   /**
+   * @remarks
+   * The contact name.
+   * 
    * @example
    * xxx
    */
   contactName?: string;
   /**
+   * @remarks
+   * The position of the contact.
+   * 
    * @example
    * 4
    */
   contactPosition?: string;
   /**
+   * @remarks
+   * The customer ID. This parameter is compatible with the legacy model.
+   * 
    * @example
    * xxx
    */
   customerId?: string;
   /**
+   * @remarks
+   * Indicates whether the email address is verified.
+   * 
    * @example
    * true
    */
   emailConfirmed?: boolean;
   /**
+   * @remarks
+   * The entity ID.
+   * 
    * @example
    * xxx
    */
@@ -52,31 +76,49 @@ export class AccountContactQueryDetailResponseBodyData extends $dara.Model {
    */
   entityType?: string;
   /**
+   * @remarks
+   * Indicates whether the contact has subscriptions when querying contact details.
+   * 
    * @example
    * xxx
    */
   hasSubscription?: boolean;
   /**
+   * @remarks
+   * Indicates whether the mobile phone number is verified.
+   * 
    * @example
    * true
    */
   mobileConfirmed?: boolean;
   /**
+   * @remarks
+   * Indicates whether the contact is a shared contact.
+   * 
    * @example
    * false
    */
   sharedContact?: boolean;
   /**
+   * @remarks
+   * The owner of the contact.
+   * 
    * @example
    * xxx
    */
   uid?: string;
   /**
+   * @remarks
+   * The time when the contact was last modified.
+   * 
    * @example
    * xxx
    */
   updateDate?: number;
   /**
+   * @remarks
+   * The user who last modified the contact.
+   * 
    * @example
    * xxx
    */
@@ -132,22 +174,40 @@ export class AccountContactQueryDetailResponseBodyData extends $dara.Model {
 
 export class AccountContactQueryDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The operation result.
+   */
   data?: AccountContactQueryDetailResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Successful!
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DA632E90-32DB-52DE-823B-4A182169D954
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * True
    */

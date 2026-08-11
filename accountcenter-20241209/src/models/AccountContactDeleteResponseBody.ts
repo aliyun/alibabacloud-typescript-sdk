@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class AccountContactDeleteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The result data.
+   * 
    * @example
    * {\\"count\\": 1}
    */
   data?: boolean;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Successful!
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8CCD6B37-98E7-5A68-B1F7-A900C9BFF45C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * True
    */

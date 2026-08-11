@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-southeast-1': "accountcenter-intl.aliyuncs.com",
+      'cn-hangzhou': "accountcenter.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("accountcenter", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加私有联系人
+   * Creates an account contact.
+   * 
+   * @remarks
+   * Creates an account contact.
    * 
    * @param request - AccountContactAddRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -109,7 +116,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加私有联系人
+   * Creates an account contact.
+   * 
+   * @remarks
+   * Creates an account contact.
    * 
    * @param request - AccountContactAddRequest
    * @returns AccountContactAddResponse
@@ -120,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除私有联系人
+   * Delete a private contact.
    * 
    * @param request - AccountContactDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -167,7 +177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除私有联系人
+   * Delete a private contact.
    * 
    * @param request - AccountContactDeleteRequest
    * @returns AccountContactDeleteResponse
@@ -178,7 +188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改私有联系人
+   * Modify a private contact.
    * 
    * @param request - AccountContactEditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改私有联系人
+   * Modify a private contact.
    * 
    * @param request - AccountContactEditRequest
    * @returns AccountContactEditResponse
@@ -272,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人详情
+   * Queries the details of a contact.
    * 
    * @param request - AccountContactQueryDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -319,7 +329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人详情
+   * Queries the details of a contact.
    * 
    * @param request - AccountContactQueryDetailRequest
    * @returns AccountContactQueryDetailResponse
@@ -330,7 +340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人列表
+   * Queries the contact list.
    * 
    * @param request - AccountContactQueryPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人列表
+   * Queries the contact list.
    * 
    * @param request - AccountContactQueryPageListRequest
    * @returns AccountContactQueryPageListResponse
@@ -1374,7 +1384,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加企业联系人
+   * Adds an enterprise contact.
+   * 
+   * @remarks
+   * Creates an enterprise public contact.
+   * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactAddRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1453,7 +1467,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加企业联系人
+   * Adds an enterprise contact.
+   * 
+   * @remarks
+   * Creates an enterprise public contact.
+   * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactAddRequest
    * @returns EnterpriseContactAddResponse
@@ -1464,7 +1482,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除企业联系人
+   * Deletes an enterprise contact.
+   * 
+   * @remarks
+   * Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactDeleteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1511,7 +1532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除企业联系人
+   * Deletes an enterprise contact.
+   * 
+   * @remarks
+   * Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactDeleteRequest
    * @returns EnterpriseContactDeleteResponse
@@ -1522,7 +1546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改私企业联系人
+   * Modifies a private enterprise contact.
+   * 
+   * @remarks
+   * Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactEditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1605,7 +1632,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改私企业联系人
+   * Modifies a private enterprise contact.
+   * 
+   * @remarks
+   * Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
    * 
    * @param request - EnterpriseContactEditRequest
    * @returns EnterpriseContactEditResponse
@@ -1616,7 +1646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人详情
+   * Queries the details of a contact.
+   * 
+   * @remarks
+   * Queries the details of a single enterprise contact.
    * 
    * @param request - EnterpriseContactQueryDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1663,7 +1696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人详情
+   * Queries the details of a contact.
+   * 
+   * @remarks
+   * Queries the details of a single enterprise contact.
    * 
    * @param request - EnterpriseContactQueryDetailRequest
    * @returns EnterpriseContactQueryDetailResponse
@@ -1674,7 +1710,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人列表
+   * Query the contact list.
+   * 
+   * @remarks
+   * Query enterprise contacts by page.
    * 
    * @param request - EnterpriseContactQueryPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1743,7 +1782,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询联系人列表
+   * Query the contact list.
+   * 
+   * @remarks
+   * Query enterprise contacts by page.
    * 
    * @param request - EnterpriseContactQueryPageListRequest
    * @returns EnterpriseContactQueryPageListResponse
@@ -1751,6 +1793,194 @@ export default class Client extends OpenApi {
   async enterpriseContactQueryPageList(request: $_model.EnterpriseContactQueryPageListRequest): Promise<$_model.EnterpriseContactQueryPageListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enterpriseContactQueryPageListWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建组织节点
+   * 
+   * @param tmpReq - EnterpriseOrgCreateNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseOrgCreateNodeResponse
+   */
+  async enterpriseOrgCreateNodeWithOptions(tmpReq: $_model.EnterpriseOrgCreateNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseOrgCreateNodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnterpriseOrgCreateNodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["Ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.isOpenApi)) {
+      body["IsOpenApi"] = request.isOpenApi;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.nodeName)) {
+      body["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      body["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.parentNodeId)) {
+      body["ParentNodeId"] = request.parentNodeId;
+    }
+
+    if (!$dara.isNull(request.parentNodeType)) {
+      body["ParentNodeType"] = request.parentNodeType;
+    }
+
+    if (!$dara.isNull(request.showCompleteInfo)) {
+      body["ShowCompleteInfo"] = request.showCompleteInfo;
+    }
+
+    if (!$dara.isNull(request.treeId)) {
+      body["TreeId"] = request.treeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseOrgCreateNode",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseOrgCreateNodeResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseOrgCreateNodeResponse({}));
+  }
+
+  /**
+   * 创建组织节点
+   * 
+   * @param request - EnterpriseOrgCreateNodeRequest
+   * @returns EnterpriseOrgCreateNodeResponse
+   */
+  async enterpriseOrgCreateNode(request: $_model.EnterpriseOrgCreateNodeRequest): Promise<$_model.EnterpriseOrgCreateNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseOrgCreateNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除组织节点
+   * 
+   * @param tmpReq - EnterpriseOrgDeleteNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseOrgDeleteNodeResponse
+   */
+  async enterpriseOrgDeleteNodeWithOptions(tmpReq: $_model.EnterpriseOrgDeleteNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseOrgDeleteNodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnterpriseOrgDeleteNodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["Ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.isOpenApi)) {
+      body["IsOpenApi"] = request.isOpenApi;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      body["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.showCompleteInfo)) {
+      body["ShowCompleteInfo"] = request.showCompleteInfo;
+    }
+
+    if (!$dara.isNull(request.treeId)) {
+      body["TreeId"] = request.treeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseOrgDeleteNode",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseOrgDeleteNodeResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseOrgDeleteNodeResponse({}));
+  }
+
+  /**
+   * 删除组织节点
+   * 
+   * @param request - EnterpriseOrgDeleteNodeRequest
+   * @returns EnterpriseOrgDeleteNodeResponse
+   */
+  async enterpriseOrgDeleteNode(request: $_model.EnterpriseOrgDeleteNodeRequest): Promise<$_model.EnterpriseOrgDeleteNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseOrgDeleteNodeWithOptions(request, runtime);
   }
 
   /**
@@ -1815,6 +2045,98 @@ export default class Client extends OpenApi {
   async enterpriseOrgQueryLoadTree(request: $_model.EnterpriseOrgQueryLoadTreeRequest): Promise<$_model.EnterpriseOrgQueryLoadTreeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enterpriseOrgQueryLoadTreeWithOptions(request, runtime);
+  }
+
+  /**
+   * 重命名组织节点
+   * 
+   * @param tmpReq - EnterpriseOrgRenameNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnterpriseOrgRenameNodeResponse
+   */
+  async enterpriseOrgRenameNodeWithOptions(tmpReq: $_model.EnterpriseOrgRenameNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnterpriseOrgRenameNodeResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnterpriseOrgRenameNodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "Ext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["Ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.isOpenApi)) {
+      body["IsOpenApi"] = request.isOpenApi;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.nodeName)) {
+      body["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      body["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.orientedEcId)) {
+      body["OrientedEcId"] = request.orientedEcId;
+    }
+
+    if (!$dara.isNull(request.orientedLeId)) {
+      body["OrientedLeId"] = request.orientedLeId;
+    }
+
+    if (!$dara.isNull(request.orientedNbId)) {
+      body["OrientedNbId"] = request.orientedNbId;
+    }
+
+    if (!$dara.isNull(request.showCompleteInfo)) {
+      body["ShowCompleteInfo"] = request.showCompleteInfo;
+    }
+
+    if (!$dara.isNull(request.treeId)) {
+      body["TreeId"] = request.treeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnterpriseOrgRenameNode",
+      version: "2024-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnterpriseOrgRenameNodeResponse>(await this.callApi(params, req, runtime), new $_model.EnterpriseOrgRenameNodeResponse({}));
+  }
+
+  /**
+   * 重命名组织节点
+   * 
+   * @param request - EnterpriseOrgRenameNodeRequest
+   * @returns EnterpriseOrgRenameNodeResponse
+   */
+  async enterpriseOrgRenameNode(request: $_model.EnterpriseOrgRenameNodeRequest): Promise<$_model.EnterpriseOrgRenameNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enterpriseOrgRenameNodeWithOptions(request, runtime);
   }
 
   /**
@@ -2642,7 +2964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号中心发送异步验证邮件
+   * Sends an asynchronous email verification message to verify the email address of a specified contact.
+   * 
+   * @remarks
+   * Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
    * 
    * @param request - SendAsyncEmailCaptchaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2681,7 +3006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号中心发送异步验证邮件
+   * Sends an asynchronous email verification message to verify the email address of a specified contact.
+   * 
+   * @remarks
+   * Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
    * 
    * @param request - SendAsyncEmailCaptchaRequest
    * @returns SendAsyncEmailCaptchaResponse
@@ -2692,7 +3020,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号中心发送异步验证短信
+   * Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+   * 
+   * @remarks
+   * Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
    * 
    * @param request - SendAsyncMobileCaptchaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,7 +3062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号中心发送异步验证短信
+   * Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+   * 
+   * @remarks
+   * Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
    * 
    * @param request - SendAsyncMobileCaptchaRequest
    * @returns SendAsyncMobileCaptchaResponse

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AccountContactEditResponseBodyDataErrorList extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * MOBILE_CODE_ILLEGAL
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Cause of the diagnostic issue.
+   * 
    * @example
    * MOBILE_CODE_ILLEGAL
    */
   errorDesc?: string;
   /**
+   * @remarks
+   * Exception field
+   * 
    * @example
    * MOBILE_VERIFY_CODE
    */
@@ -45,12 +54,22 @@ export class AccountContactEditResponseBodyDataErrorList extends $dara.Model {
 
 export class AccountContactEditResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Contact ID
+   * 
    * @example
    * xxx
    */
   contactId?: number;
+  /**
+   * @remarks
+   * Error codes.
+   */
   errorList?: AccountContactEditResponseBodyDataErrorList[];
   /**
+   * @remarks
+   * Whether successful
+   * 
    * @example
    * {\\"TeamDesktops\\": [], \\"PrivateDesktops\\": [], \\"UnallocatedTeamDesktops\\": []}
    */
@@ -85,22 +104,38 @@ export class AccountContactEditResponseBodyData extends $dara.Model {
 
 export class AccountContactEditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Data result of the current category statistics
+   */
   data?: AccountContactEditResponseBodyData;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * E4E192DF-798B-58AE-B8BF-EBC15E2E85F2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values: true: succeeded. false: failed.
+   * 
    * @example
    * True
    */

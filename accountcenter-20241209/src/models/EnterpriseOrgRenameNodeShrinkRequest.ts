@@ -2,64 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class EnterpriseContactQueryDetailRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The application name.
-   * 
-   * @example
-   * xxx
-   */
+export class EnterpriseOrgRenameNodeShrinkRequest extends $dara.Model {
   appName?: string;
-  /**
-   * @remarks
-   * The contact ID.
-   * 
-   * @example
-   * xxx
-   */
-  contactId?: number;
-  /**
-   * @remarks
-   * The entity ID of the cross-enterprise management object.
-   * 
-   * @example
-   * null
-   */
+  bizName?: string;
+  extShrink?: string;
+  isOpenApi?: boolean;
+  nodeId?: string;
+  nodeName?: string;
+  nodeType?: string;
   orientedEcId?: string;
-  /**
-   * @remarks
-   * The enterprise currently switched to.
-   * 
-   * @example
-   * null
-   */
   orientedLeId?: string;
-  /**
-   * @remarks
-   * The marketplace ID of the cross-enterprise management object.
-   * 
-   * @example
-   * null
-   */
   orientedNbId?: string;
+  showCompleteInfo?: boolean;
+  treeId?: number;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
-      contactId: 'ContactId',
+      bizName: 'BizName',
+      extShrink: 'Ext',
+      isOpenApi: 'IsOpenApi',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeType: 'NodeType',
       orientedEcId: 'OrientedEcId',
       orientedLeId: 'OrientedLeId',
       orientedNbId: 'OrientedNbId',
+      showCompleteInfo: 'ShowCompleteInfo',
+      treeId: 'TreeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appName: 'string',
-      contactId: 'number',
+      bizName: 'string',
+      extShrink: 'string',
+      isOpenApi: 'boolean',
+      nodeId: 'string',
+      nodeName: 'string',
+      nodeType: 'string',
       orientedEcId: 'string',
       orientedLeId: 'string',
       orientedNbId: 'string',
+      showCompleteInfo: 'boolean',
+      treeId: 'number',
     };
   }
 

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnterpriseContactEditResponseBodyDataErrorList extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MOBILE_CODE_ILLEGAL
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The description of the diagnosed issue.
+   * 
    * @example
    * Mobile Code Illegal
    */
   errorDesc?: string;
   /**
+   * @remarks
+   * The field with an exception.
+   * 
    * @example
    * MOBILE_VERIFY_CODE
    */
@@ -45,12 +54,22 @@ export class EnterpriseContactEditResponseBodyDataErrorList extends $dara.Model 
 
 export class EnterpriseContactEditResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The contact ID.
+   * 
    * @example
    * xxx
    */
   contactId?: number;
+  /**
+   * @remarks
+   * The error message reported by the backup server.
+   */
   errorList?: EnterpriseContactEditResponseBodyDataErrorList[];
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */
@@ -85,22 +104,40 @@ export class EnterpriseContactEditResponseBodyData extends $dara.Model {
 
 export class EnterpriseContactEditResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The data result of the current category statistics.
+   */
   data?: EnterpriseContactEditResponseBodyData;
   /**
+   * @remarks
+   * The result message of the call.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 516C2364-18B7-5BAC-9288-AAEA85EEA351
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * True
    */

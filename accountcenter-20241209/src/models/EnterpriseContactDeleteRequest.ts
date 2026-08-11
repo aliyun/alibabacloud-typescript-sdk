@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnterpriseContactDeleteRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * xxx
    */
   appName?: string;
   /**
+   * @remarks
+   * The ID of the contact to delete. You can call EnterpriseQueryPageList to query contact information by paging.
+   * 
    * @example
    * xxx
    */
   contactId?: number;
   /**
+   * @remarks
+   * The entity ID of the cross-enterprise management object.
+   * 
    * @example
    * null
    */
   orientedEcId?: string;
   /**
+   * @remarks
+   * The enterprise currently switched to.
+   * 
    * @example
    * null
    */
   orientedLeId?: string;
   /**
+   * @remarks
+   * The marketplace ID of the cross-enterprise management object.
+   * 
    * @example
    * null
    */
