@@ -33,6 +33,10 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
    * 2022-08-12T17:08Z
    */
   endTime?: string;
+  /**
+   * @example
+   * XIHE
+   */
   engineType?: string;
   /**
    * @remarks

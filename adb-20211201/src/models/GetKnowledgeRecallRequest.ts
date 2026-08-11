@@ -31,11 +31,17 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
    * 5
    */
   topk?: number;
+  /**
+   * @remarks
+   * The username. Only files that this user has permission to access are recalled.
+   */
+  user?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       question: 'Question',
       topk: 'Topk',
+      user: 'User',
     };
   }
 
@@ -44,6 +50,7 @@ export class GetKnowledgeRecallRequest extends $dara.Model {
       DBClusterId: 'string',
       question: 'string',
       topk: 'number',
+      user: 'string',
     };
   }
 

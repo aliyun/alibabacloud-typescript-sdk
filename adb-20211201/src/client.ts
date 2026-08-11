@@ -57,21 +57,21 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "adb.ap-northeast-1.aliyuncs.com",
       'me-east-1': "adb.ap-northeast-1.aliyuncs.com",
       'rus-west-1-pop': "adb.ap-northeast-1.aliyuncs.com",
-      'na-south-1': "adb.na-south-1.aliyuncs.com",
-      'me-central-1': "adb.me-central-1.aliyuncs.com",
-      'eu-west-1': "adb.eu-west-1.aliyuncs.com",
-      'eu-central-1': "adb.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "adb.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "adb.cn-wulanchabu.aliyuncs.com",
-      'cn-huhehaote': "adb.cn-huhehaote.aliyuncs.com",
-      'cn-guangzhou': "adb.cn-guangzhou.aliyuncs.com",
       'cn-chengdu': "adb.cn-chengdu.aliyuncs.com",
-      'ap-southeast-7': "adb.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "adb.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "adb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "adb.ap-southeast-3.aliyuncs.com",
+      'cn-wulanchabu': "adb.cn-wulanchabu.aliyuncs.com",
+      'cn-zhangjiakou': "adb.cn-zhangjiakou.aliyuncs.com",
       'ap-northeast-2': "adb.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "adb.ap-northeast-1.aliyuncs.com",
+      'cn-guangzhou': "adb.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-3': "adb.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "adb.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "adb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "adb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "adb.ap-southeast-7.aliyuncs.com",
+      'eu-west-1': "adb.eu-west-1.aliyuncs.com",
+      'eu-central-1': "adb.eu-central-1.aliyuncs.com",
+      'na-south-1': "adb.na-south-1.aliyuncs.com",
+      'me-central-1': "adb.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -776,6 +776,66 @@ export default class Client extends OpenApi {
   async checkSampleDataSet(request: $_model.CheckSampleDataSetRequest): Promise<$_model.CheckSampleDataSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkSampleDataSetWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables log synchronization to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - CloseLogSyncToSLSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseLogSyncToSLSResponse
+   */
+  async closeLogSyncToSLSWithOptions(request: $_model.CloseLogSyncToSLSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseLogSyncToSLSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseLogSyncToSLS",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloseLogSyncToSLSResponse>(await this.callApi(params, req, runtime), new $_model.CloseLogSyncToSLSResponse({}));
+  }
+
+  /**
+   * Disables log synchronization to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - CloseLogSyncToSLSRequest
+   * @returns CloseLogSyncToSLSResponse
+   */
+  async closeLogSyncToSLS(request: $_model.CloseLogSyncToSLSRequest): Promise<$_model.CloseLogSyncToSLSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.closeLogSyncToSLSWithOptions(request, runtime);
   }
 
   /**
@@ -10843,6 +10903,10 @@ export default class Client extends OpenApi {
       query["Topk"] = request.topk;
     }
 
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10921,6 +10985,66 @@ export default class Client extends OpenApi {
   async getLakeStorage(request: $_model.GetLakeStorageRequest): Promise<$_model.GetLakeStorageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLakeStorageWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the log synchronization configuration.
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - GetLogSyncToSLSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogSyncToSLSResponse
+   */
+  async getLogSyncToSLSWithOptions(request: $_model.GetLogSyncToSLSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogSyncToSLSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLogSyncToSLS",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLogSyncToSLSResponse>(await this.callApi(params, req, runtime), new $_model.GetLogSyncToSLSResponse({}));
+  }
+
+  /**
+   * Retrieves the log synchronization configuration.
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - GetLogSyncToSLSRequest
+   * @returns GetLogSyncToSLSResponse
+   */
+  async getLogSyncToSLS(request: $_model.GetLogSyncToSLSRequest): Promise<$_model.GetLogSyncToSLSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLogSyncToSLSWithOptions(request, runtime);
   }
 
   /**
@@ -15129,6 +15253,74 @@ export default class Client extends OpenApi {
   async modifyUserEniVswitchOptions(request: $_model.ModifyUserEniVswitchOptionsRequest): Promise<$_model.ModifyUserEniVswitchOptionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyUserEniVswitchOptionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables log synchronization to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - OpenLogSyncToSLSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenLogSyncToSLSResponse
+   */
+  async openLogSyncToSLSWithOptions(request: $_model.OpenLogSyncToSLSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenLogSyncToSLSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetLogStore)) {
+      query["TargetLogStore"] = request.targetLogStore;
+    }
+
+    if (!$dara.isNull(request.targetProject)) {
+      query["TargetProject"] = request.targetProject;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenLogSyncToSLS",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenLogSyncToSLSResponse>(await this.callApi(params, req, runtime), new $_model.OpenLogSyncToSLSResponse({}));
+  }
+
+  /**
+   * Enables log synchronization to Simple Log Service (SLS).
+   * 
+   * @remarks
+   * - Central public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+   * 
+   * @param request - OpenLogSyncToSLSRequest
+   * @returns OpenLogSyncToSLSResponse
+   */
+  async openLogSyncToSLS(request: $_model.OpenLogSyncToSLSRequest): Promise<$_model.OpenLogSyncToSLSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openLogSyncToSLSWithOptions(request, runtime);
   }
 
   /**

@@ -221,6 +221,7 @@ export { GetDatabaseObjectsResponseBodyData } from './GetDatabaseObjectsResponse
 export { GetKnowledgeRecallResponseBodyData } from './GetKnowledgeRecallResponseBody';
 export { GetLakeStorageResponseBodyDataPermissions } from './GetLakeStorageResponseBody';
 export { GetLakeStorageResponseBodyData } from './GetLakeStorageResponseBody';
+export { GetLogSyncToSLSResponseBodyData } from './GetLogSyncToSlsresponseBody';
 export { GetSparkAppAttemptLogResponseBodyData } from './GetSparkAppAttemptLogResponseBody';
 export { GetSparkAppLogResponseBodyData } from './GetSparkAppLogResponseBody';
 export { GetSparkAppMetricsResponseBodyDataScanMetrics } from './GetSparkAppMetricsResponseBody';
@@ -352,6 +353,9 @@ export { CheckFormationSchemaExistsResponse } from './CheckFormationSchemaExists
 export { CheckSampleDataSetRequest } from './CheckSampleDataSetRequest';
 export { CheckSampleDataSetResponseBody } from './CheckSampleDataSetResponseBody';
 export { CheckSampleDataSetResponse } from './CheckSampleDataSetResponse';
+export { CloseLogSyncToSLSRequest } from './CloseLogSyncToSlsrequest';
+export { CloseLogSyncToSLSResponseBody } from './CloseLogSyncToSlsresponseBody';
+export { CloseLogSyncToSLSResponse } from './CloseLogSyncToSlsresponse';
 export { ConfigureResultExportRequest } from './ConfigureResultExportRequest';
 export { ConfigureResultExportShrinkRequest } from './ConfigureResultExportShrinkRequest';
 export { ConfigureResultExportResponseBody } from './ConfigureResultExportResponseBody';
@@ -809,6 +813,9 @@ export { GetKnowledgeRecallResponse } from './GetKnowledgeRecallResponse';
 export { GetLakeStorageRequest } from './GetLakeStorageRequest';
 export { GetLakeStorageResponseBody } from './GetLakeStorageResponseBody';
 export { GetLakeStorageResponse } from './GetLakeStorageResponse';
+export { GetLogSyncToSLSRequest } from './GetLogSyncToSlsrequest';
+export { GetLogSyncToSLSResponseBody } from './GetLogSyncToSlsresponseBody';
+export { GetLogSyncToSLSResponse } from './GetLogSyncToSlsresponse';
 export { GetSemanticViewRequest } from './GetSemanticViewRequest';
 export { GetSemanticViewResponseBody } from './GetSemanticViewResponseBody';
 export { GetSemanticViewResponse } from './GetSemanticViewResponse';
@@ -1010,6 +1017,9 @@ export { ModifySqlTemplatePositionResponse } from './ModifySqlTemplatePositionRe
 export { ModifyUserEniVswitchOptionsRequest } from './ModifyUserEniVswitchOptionsRequest';
 export { ModifyUserEniVswitchOptionsResponseBody } from './ModifyUserEniVswitchOptionsResponseBody';
 export { ModifyUserEniVswitchOptionsResponse } from './ModifyUserEniVswitchOptionsResponse';
+export { OpenLogSyncToSLSRequest } from './OpenLogSyncToSlsrequest';
+export { OpenLogSyncToSLSResponseBody } from './OpenLogSyncToSlsresponseBody';
+export { OpenLogSyncToSLSResponse } from './OpenLogSyncToSlsresponse';
 export { PreloadSparkAppMetricsRequest } from './PreloadSparkAppMetricsRequest';
 export { PreloadSparkAppMetricsResponseBody } from './PreloadSparkAppMetricsResponseBody';
 export { PreloadSparkAppMetricsResponse } from './PreloadSparkAppMetricsResponse';

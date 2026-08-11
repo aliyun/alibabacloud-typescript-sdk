@@ -2,58 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
+export class GetLogSyncToSLSResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries.
+   * The log synchronization status. Valid values:
+   * - on: Synchronization is enabled.
+   * - off: Synchronization is disabled.
    * 
    * @example
-   * 5
+   * off
    */
-  count?: number;
+  status?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The Simple Log Service Logstore.
    * 
    * @example
-   * recall 5 files
+   * adbmysql-audit-log
    */
-  message?: string;
+  targetLogStore?: string;
   /**
    * @remarks
-   * The recall results.
-   */
-  results?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The Tracing Analysis ID.
+   * The Simple Log Service project.
    * 
    * @example
-   * qf_c41fc27697d3
+   * log-service-****-cn-shenzhen
    */
-  traceId?: string;
+  targetProject?: string;
   static names(): { [key: string]: string } {
     return {
-      count: 'Count',
-      message: 'Message',
-      results: 'Results',
-      traceId: 'TraceId',
+      status: 'Status',
+      targetLogStore: 'TargetLogStore',
+      targetProject: 'TargetProject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      count: 'number',
-      message: 'string',
-      results: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      traceId: 'string',
+      status: 'string',
+      targetLogStore: 'string',
+      targetProject: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.results)) {
-      $dara.Model.validateArray(this.results);
-    }
     super.validate();
   }
 
@@ -62,15 +54,15 @@ export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetKnowledgeRecallResponseBody extends $dara.Model {
+export class GetLogSyncToSLSResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
    */
-  data?: GetKnowledgeRecallResponseBodyData;
+  data?: GetLogSyncToSLSResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -85,7 +77,7 @@ export class GetKnowledgeRecallResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: GetKnowledgeRecallResponseBodyData,
+      data: GetLogSyncToSLSResponseBodyData,
       requestId: 'string',
     };
   }
