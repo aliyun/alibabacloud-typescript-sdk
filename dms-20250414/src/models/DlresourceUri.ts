@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DLResourceUri extends $dara.Model {
   /**
    * @remarks
-   * The resource type. Valid values:
-   * 
+   * The type of the resource. Valid values:
    * - ARCHIVE
-   * 
    * - JAR
-   * 
    * - FILE
    * 
    * @example

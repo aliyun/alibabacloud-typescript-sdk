@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PartitionError extends $dara.Model {
   /**
    * @remarks
-   * The details of the error.
+   * The error details.
    * 
    * @example
    * auth failed

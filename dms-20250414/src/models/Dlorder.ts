@@ -13,7 +13,7 @@ export class DLOrder extends $dara.Model {
   col?: string;
   /**
    * @remarks
-   * The position of the column in the sort order.
+   * The position of the column in the sort.
    * 
    * @example
    * 1

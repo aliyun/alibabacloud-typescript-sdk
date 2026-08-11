@@ -21,7 +21,7 @@ export class DLColumn extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The data type of the column. Valid values include array, bigint, binary, boolean, char, date, decimal, double, float, int, interval, map, set, smallint, string, struct, timestamp, tinyint, union, and varchar.
+   * The data type of the column. Valid values: array, bigint, binary, boolean, char, date, decimal, double, float, int, interval, map, set, smallint, string, struct, timestamp, tinyint, union, and varchar.
    * 
    * @example
    * string

@@ -13,7 +13,7 @@ export class DLDatabase extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
-   * The ID of the database.
+   * The database ID.
    * 
    * @example
    * 19
