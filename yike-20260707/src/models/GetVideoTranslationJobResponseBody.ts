@@ -4,51 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   /**
+   * @remarks
+   * The duration of the input video, in seconds.
+   * 
    * @example
    * 10.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The editing project ID.
+   * 
    * @example
    * ba50304145fd411c827239c398820267
    */
   editingProjectId?: string;
   /**
+   * @remarks
+   * Optional. The error code returned when the task ultimately fails.
+   * 
    * @example
    * InvalidInput
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Optional. The error message returned when the task ultimately fails.
+   * 
    * @example
    * Input is invalid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The normalized Input JSON.
+   * 
    * @example
    * {"Video":"https://example.com/input.mp4"}
    */
   input?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * vtj_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The normalized JobParameters JSON, including default values.
+   * 
    * @example
    * {"NeedDetext":true,"SubtitleFrom":"default","SourceLanguage":"zh","TargetLanguage":"en","NeedVisualTranslate":true}
    */
   jobParameters?: string;
   /**
+   * @remarks
+   * The normalized task type.
+   * 
    * @example
    * VoiceTranslate
    */
   jobType?: string;
   /**
+   * @remarks
+   * The JSON string of the final task result.
+   * 
    * @example
    * {"AiResult":{"ResultMap":{"ja":{"EditingProjectId":"editing-project-xxx","MediaURL":"https://example.com/bucket/prefix/ja/result.mp4"}}}}
    */
   output?: string;
   /**
+   * @remarks
+   * The task status. Valid values: Created, Queuing, Executing, Finished, and Failed.
+   * 
    * @example
    * Executing
    */
@@ -93,8 +123,15 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
 }
 
 export class GetVideoTranslationJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The video translation task.
+   */
   job?: GetVideoTranslationJobResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-id
    */

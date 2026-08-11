@@ -27,6 +27,7 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  productionId?: string;
   /**
    * @remarks
    * The sort field and sort order. Separate multiple values with commas (,).
@@ -49,13 +50,16 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
    * Ascending
    */
   sortOrder?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      productionId: 'ProductionId',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -64,8 +68,10 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
       keyword: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      productionId: 'string',
       sortBy: 'string',
       sortOrder: 'string',
+      workspaceId: 'string',
     };
   }
 
