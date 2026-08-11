@@ -13,24 +13,24 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'me-east-1': "eflo-controller.me-east-1.aliyuncs.com",
-      'eu-central-1': "eflo-controller.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "eflo-controller.cn-zhangjiakou.aliyuncs.com",
       'cn-wulanchabu': "eflo-controller.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "eflo-controller.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "eflo-controller.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-beijing': "eflo-controller.cn-beijing.aliyuncs.com",
       'cn-shanghai': "eflo-controller.cn-shanghai.aliyuncs.com",
-      'cn-huhehaote': "eflo-controller.cn-huhehaote.aliyuncs.com",
       'cn-hongkong': "eflo-controller.cn-hongkong.aliyuncs.com",
       'cn-heyuan': "eflo-controller.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou': "eflo-controller.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "eflo-controller.cn-guangzhou.aliyuncs.com",
-      'cn-beijing': "eflo-controller.cn-beijing.aliyuncs.com",
-      'ap-southeast-8': "eflo-controller.ap-sourtheast-8.aliyuncs.com",
-      'ap-southeast-7': "eflo-controller.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-3': "eflo-controller.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "eflo-controller.ap-southeast-1.aliyuncs.com",
+      'cn-zhangjiakou': "eflo-controller.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "eflo-controller.cn-shenzhen.aliyuncs.com",
       'ap-northeast-1': "eflo-controller.ap-northeast-1.aliyuncs.com",
+      'cn-guangzhou': "eflo-controller.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-1': "eflo-controller.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "eflo-controller.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "eflo-controller.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-7': "eflo-controller.ap-southeast-7.aliyuncs.com",
+      'cn-hangzhou': "eflo-controller.cn-hangzhou.aliyuncs.com",
+      'ap-southeast-8': "eflo-controller.ap-southeast-8.aliyuncs.com",
+      'eu-central-1': "eflo-controller.eu-central-1.aliyuncs.com",
+      'me-east-1': "eflo-controller.me-east-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "eflo-controller.cn-shanghai-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eflo-controller", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1320,6 +1320,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+   * 
+   * @remarks
+   * The returned results include the following:
+   * - The processing status of each node with configuration drift
+   * - The processing result, status, and reason for each node
+   * - The refreshed and skipped properties for each node
+   * 
+   * @param tmpReq - DescribeNodeGroupRefreshTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNodeGroupRefreshTaskResponse
+   */
+  async describeNodeGroupRefreshTaskWithOptions(tmpReq: $_model.DescribeNodeGroupRefreshTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNodeGroupRefreshTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeNodeGroupRefreshTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeStatuses)) {
+      request.nodeStatusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeStatuses, "NodeStatuses", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeGroupRefreshTaskId)) {
+      body["NodeGroupRefreshTaskId"] = request.nodeGroupRefreshTaskId;
+    }
+
+    if (!$dara.isNull(request.nodeStatusesShrink)) {
+      body["NodeStatuses"] = request.nodeStatusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNodeGroupRefreshTask",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNodeGroupRefreshTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNodeGroupRefreshTaskResponse({}));
+  }
+
+  /**
+   * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+   * 
+   * @remarks
+   * The returned results include the following:
+   * - The processing status of each node with configuration drift
+   * - The processing result, status, and reason for each node
+   * - The refreshed and skipped properties for each node
+   * 
+   * @param request - DescribeNodeGroupRefreshTaskRequest
+   * @returns DescribeNodeGroupRefreshTaskResponse
+   */
+  async describeNodeGroupRefreshTask(request: $_model.DescribeNodeGroupRefreshTaskRequest): Promise<$_model.DescribeNodeGroupRefreshTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNodeGroupRefreshTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Describes the constraints for a node type.
    * 
    * @param request - DescribeNodeTypeRequest
@@ -2342,6 +2414,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries nodes with configuration drift within a node group and the drift details.
+   * 
+   * @remarks
+   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+   * 
+   * @param tmpReq - ListNodeGroupDriftedNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeGroupDriftedNodesResponse
+   */
+  async listNodeGroupDriftedNodesWithOptions(tmpReq: $_model.ListNodeGroupDriftedNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodeGroupDriftedNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListNodeGroupDriftedNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeIds)) {
+      request.nodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIds, "NodeIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.nodeIdsShrink)) {
+      body["NodeIds"] = request.nodeIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodeGroupDriftedNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodeGroupDriftedNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListNodeGroupDriftedNodesResponse({}));
+  }
+
+  /**
+   * Queries nodes with configuration drift within a node group and the drift details.
+   * 
+   * @remarks
+   * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+   * 
+   * @param request - ListNodeGroupDriftedNodesRequest
+   * @returns ListNodeGroupDriftedNodesResponse
+   */
+  async listNodeGroupDriftedNodes(request: $_model.ListNodeGroupDriftedNodesRequest): Promise<$_model.ListNodeGroupDriftedNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNodeGroupDriftedNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a paging list of node group configuration refresh tasks.
+   * 
+   * @remarks
+   * If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+   * 
+   * @param tmpReq - ListNodeGroupRefreshTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeGroupRefreshTasksResponse
+   */
+  async listNodeGroupRefreshTasksWithOptions(tmpReq: $_model.ListNodeGroupRefreshTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodeGroupRefreshTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListNodeGroupRefreshTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      body["Statuses"] = request.statusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodeGroupRefreshTasks",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodeGroupRefreshTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListNodeGroupRefreshTasksResponse({}));
+  }
+
+  /**
+   * Queries a paging list of node group configuration refresh tasks.
+   * 
+   * @remarks
+   * If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+   * 
+   * @param request - ListNodeGroupRefreshTasksRequest
+   * @returns ListNodeGroupRefreshTasksResponse
+   */
+  async listNodeGroupRefreshTasks(request: $_model.ListNodeGroupRefreshTasksRequest): Promise<$_model.ListNodeGroupRefreshTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNodeGroupRefreshTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Query Node Group Information Under the Cluster
    * 
    * @param request - ListNodeGroupsRequest
@@ -2676,6 +2884,76 @@ export default class Client extends OpenApi {
   async rebootNodes(request: $_model.RebootNodesRequest): Promise<$_model.RebootNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+   * 
+   * @remarks
+   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+   * Limits:
+   * - A node group can have only one running node group configuration refresh task at a time.
+   * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+   * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+   * 
+   * @param tmpReq - RefreshNodeGroupNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshNodeGroupNodesResponse
+   */
+  async refreshNodeGroupNodesWithOptions(tmpReq: $_model.RefreshNodeGroupNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshNodeGroupNodesResponse> {
+    tmpReq.validate();
+    let request = new $_model.RefreshNodeGroupNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeIds)) {
+      request.nodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIds, "NodeIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxDisruptiveAction)) {
+      body["MaxDisruptiveAction"] = request.maxDisruptiveAction;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.nodeIdsShrink)) {
+      body["NodeIds"] = request.nodeIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RefreshNodeGroupNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RefreshNodeGroupNodesResponse>(await this.callApi(params, req, runtime), new $_model.RefreshNodeGroupNodesResponse({}));
+  }
+
+  /**
+   * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+   * 
+   * @remarks
+   * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+   * Limits:
+   * - A node group can have only one running node group configuration refresh task at a time.
+   * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+   * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+   * 
+   * @param request - RefreshNodeGroupNodesRequest
+   * @returns RefreshNodeGroupNodesResponse
+   */
+  async refreshNodeGroupNodes(request: $_model.RefreshNodeGroupNodesRequest): Promise<$_model.RefreshNodeGroupNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.refreshNodeGroupNodesWithOptions(request, runtime);
   }
 
   /**
