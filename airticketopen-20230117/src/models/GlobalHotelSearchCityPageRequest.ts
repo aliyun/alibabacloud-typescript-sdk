@@ -25,7 +25,7 @@ export class GlobalHotelSearchCityPageRequest extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The country code in ISO 3166-1 alpha-2 format.
+   * The country code (ISO 3166-1 alpha-2).
    * 
    * @example
    * CN
@@ -33,7 +33,7 @@ export class GlobalHotelSearchCityPageRequest extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * The pagination offset, starting from 0.
+   * The pagination offset (starts from 0).
    * 
    * @example
    * 0

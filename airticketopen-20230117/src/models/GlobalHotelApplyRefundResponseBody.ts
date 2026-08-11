@@ -105,12 +105,12 @@ export class GlobalHotelApplyRefundResponseBodyDataTotalRefundAmount extends $da
 export class GlobalHotelApplyRefundResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The after-sales refund order ID.
+   * The after-sales refund order number.
    * 
    * @example
-   * 100001
+   * RF202606290001
    */
-  sellRefundOrderId?: number;
+  refundOrderNo?: string;
   /**
    * @remarks
    * The total penalty amount.
@@ -131,7 +131,7 @@ export class GlobalHotelApplyRefundResponseBodyData extends $dara.Model {
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
-      sellRefundOrderId: 'SellRefundOrderId',
+      refundOrderNo: 'RefundOrderNo',
       totalPenaltyAmount: 'TotalPenaltyAmount',
       totalRefundAmount: 'TotalRefundAmount',
       tracerId: 'TracerId',
@@ -140,7 +140,7 @@ export class GlobalHotelApplyRefundResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sellRefundOrderId: 'number',
+      refundOrderNo: 'string',
       totalPenaltyAmount: GlobalHotelApplyRefundResponseBodyDataTotalPenaltyAmount,
       totalRefundAmount: GlobalHotelApplyRefundResponseBodyDataTotalRefundAmount,
       tracerId: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties extends $dara.Model {
   /**
    * @remarks
-   * The currency code. This parameter is valid only when the penalty type is AMOUNT.
+   * The currency code (present only for AMOUNT type penalties).
    * 
    * @example
    * USD
@@ -13,12 +13,12 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
   currency?: string;
   /**
    * @remarks
-   * The effective end time in UTC millisecond timestamp.
+   * The effective end time (UTC millisecond timestamp).
    * 
    * @example
    * 1672617600000
    */
-  end?: number;
+  end?: string;
   /**
    * @remarks
    * The penalty type.
@@ -29,7 +29,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value, which can be a percentage, amount, or number of nights.
+   * The penalty value (percentage, amount, or number of nights).
    * 
    * @example
    * 50
@@ -37,12 +37,12 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
   penaltyValue?: string;
   /**
    * @remarks
-   * The effective start time in UTC millisecond timestamp.
+   * The effective start time (UTC millisecond timestamp).
    * 
    * @example
    * 1672531200000
    */
-  start?: number;
+  start?: string;
   /**
    * @remarks
    * TracerId
@@ -65,10 +65,10 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
   static types(): { [key: string]: any } {
     return {
       currency: 'string',
-      end: 'number',
+      end: 'string',
       penaltyType: 'string',
       penaltyValue: 'string',
-      start: 'number',
+      start: 'string',
       tracerId: 'string',
     };
   }
@@ -85,7 +85,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties 
 export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy extends $dara.Model {
   /**
    * @remarks
-   * The list of cancellation penalties.
+   * The list of cancellation penalty details.
    */
   penalties?: GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicyPenalties[];
   /**
@@ -132,88 +132,48 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy extends $
   }
 }
 
-export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurrency extends $dara.Model {
+export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency code.
+   * The amount in the smallest currency unit.
+   * 
+   * @example
+   * 10000
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The currency.
    * 
    * @example
    * USD
    */
-  currencyCode?: string;
+  currency?: string;
   /**
    * @remarks
-   * DefaultFractionDigits
+   * null
    * 
    * @example
-   * 1
+   * null
    */
-  defaultFractionDigits?: number;
-  /**
-   * @remarks
-   * NumericCode
-   * 
-   * @example
-   * 1
-   */
-  numericCode?: number;
+  tracerId?: string;
   static names(): { [key: string]: string } {
     return {
-      currencyCode: 'CurrencyCode',
-      defaultFractionDigits: 'DefaultFractionDigits',
-      numericCode: 'NumericCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currencyCode: 'string',
-      defaultFractionDigits: 'number',
-      numericCode: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice extends $dara.Model {
-  /**
-   * @remarks
-   * cent
-   * 
-   * @example
-   * 1
-   */
-  cent?: number;
-  /**
-   * @remarks
-   * The currency.
-   */
-  currency?: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurrency;
-  static names(): { [key: string]: string } {
-    return {
-      cent: 'Cent',
+      amount: 'Amount',
       currency: 'Currency',
+      tracerId: 'TracerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cent: 'number',
-      currency: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPriceCurrency,
+      amount: 'string',
+      currency: 'string',
+      tracerId: 'string',
     };
   }
 
   validate() {
-    if(this.currency && typeof (this.currency as any).validate === 'function') {
-      (this.currency as any).validate();
-    }
     super.validate();
   }
 
@@ -236,10 +196,19 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices extends $d
    * The price.
    */
   price?: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice;
+  /**
+   * @remarks
+   * null
+   * 
+   * @example
+   * null
+   */
+  tracerId?: string;
   static names(): { [key: string]: string } {
     return {
       date: 'Date',
       price: 'Price',
+      tracerId: 'TracerId',
     };
   }
 
@@ -247,6 +216,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices extends $d
     return {
       date: 'string',
       price: GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPricesPrice,
+      tracerId: 'string',
     };
   }
 
@@ -312,18 +282,18 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoMeal extends $dara.Mod
   }
 }
 
-export class GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice extends $dara.Model {
+export class GlobalHotelQueryOrderResponseBodyDataItemInfoTotalPrice extends $dara.Model {
   /**
    * @remarks
    * The amount in the smallest currency unit.
    * 
    * @example
-   * 10000
+   * 574
    */
   amount?: string;
   /**
    * @remarks
-   * The currency code in ISO 4217 format.
+   * The currency code (ISO 4217).
    * 
    * @example
    * USD
@@ -331,10 +301,10 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice exte
   currency?: string;
   /**
    * @remarks
-   * TracerId
+   * null
    * 
    * @example
-   * TracerId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -370,7 +340,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
   cancelPolicy?: GlobalHotelQueryOrderResponseBodyDataItemInfoCancelPolicy;
   /**
    * @remarks
-   * The check-in date in yyyy-MM-dd format.
+   * The check-in date (yyyy-MM-dd).
    * 
    * @example
    * 2026-07-01
@@ -386,7 +356,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
   checkInNumber?: number;
   /**
    * @remarks
-   * The check-out date in yyyy-MM-dd format.
+   * The check-out date (yyyy-MM-dd).
    * 
    * @example
    * 2026-07-03
@@ -414,7 +384,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
    * @remarks
    * The total selling price.
    */
-  sellingTotalPrice?: GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice;
+  totalPrice?: GlobalHotelQueryOrderResponseBodyDataItemInfoTotalPrice;
   static names(): { [key: string]: string } {
     return {
       cancelPolicy: 'CancelPolicy',
@@ -424,7 +394,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
       dailyPrices: 'DailyPrices',
       meal: 'Meal',
       roomCount: 'RoomCount',
-      sellingTotalPrice: 'SellingTotalPrice',
+      totalPrice: 'TotalPrice',
     };
   }
 
@@ -437,7 +407,7 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
       dailyPrices: { 'type': 'array', 'itemType': GlobalHotelQueryOrderResponseBodyDataItemInfoDailyPrices },
       meal: GlobalHotelQueryOrderResponseBodyDataItemInfoMeal,
       roomCount: 'number',
-      sellingTotalPrice: GlobalHotelQueryOrderResponseBodyDataItemInfoSellingTotalPrice,
+      totalPrice: GlobalHotelQueryOrderResponseBodyDataItemInfoTotalPrice,
     };
   }
 
@@ -451,8 +421,8 @@ export class GlobalHotelQueryOrderResponseBodyDataItemInfo extends $dara.Model {
     if(this.meal && typeof (this.meal as any).validate === 'function') {
       (this.meal as any).validate();
     }
-    if(this.sellingTotalPrice && typeof (this.sellingTotalPrice as any).validate === 'function') {
-      (this.sellingTotalPrice as any).validate();
+    if(this.totalPrice && typeof (this.totalPrice as any).validate === 'function') {
+      (this.totalPrice as any).validate();
     }
     super.validate();
   }
@@ -473,7 +443,7 @@ export class GlobalHotelQueryOrderResponseBodyDataPaymentAmount extends $dara.Mo
   amount?: string;
   /**
    * @remarks
-   * The currency code in ISO 4217 format.
+   * The currency code (ISO 4217).
    * 
    * @example
    * USD
@@ -520,12 +490,12 @@ export class GlobalHotelQueryOrderResponseBodyDataPayment extends $dara.Model {
   amount?: GlobalHotelQueryOrderResponseBodyDataPaymentAmount;
   /**
    * @remarks
-   * The payment completion time in UTC millisecond timestamp.
+   * The payment completion time (UTC millisecond timestamp).
    * 
    * @example
    * 1672531200000
    */
-  gmtPaid?: number;
+  gmtPaid?: string;
   /**
    * @remarks
    * The payment method.
@@ -554,7 +524,7 @@ export class GlobalHotelQueryOrderResponseBodyDataPayment extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       amount: GlobalHotelQueryOrderResponseBodyDataPaymentAmount,
-      gmtPaid: 'number',
+      gmtPaid: 'string',
       paymentMethod: 'string',
       paymentTransactionId: 'string',
     };
@@ -583,7 +553,7 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalPenaltyAmount
   amount?: string;
   /**
    * @remarks
-   * The currency code in ISO 4217 format.
+   * The currency code (ISO 4217).
    * 
    * @example
    * USD
@@ -633,7 +603,7 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount 
   amount?: string;
   /**
    * @remarks
-   * The currency code in ISO 4217 format.
+   * The currency code (ISO 4217).
    * 
    * @example
    * USD
@@ -675,12 +645,20 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount 
 export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the refund order, in UTC millisecond timestamp.
+   * The refund order creation time (UTC millisecond timestamp).
    * 
    * @example
    * 1672531200000
    */
-  gmtCreate?: number;
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The external refund order number.
+   * 
+   * @example
+   * RF202606290001
+   */
+  refundOrderNo?: string;
   /**
    * @remarks
    * The refund transaction ID.
@@ -691,20 +669,12 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Mod
   refundTransactionId?: string;
   /**
    * @remarks
-   * The reason for rejection.
+   * The rejection reason.
    * 
    * @example
    * Supplier rejected
    */
   rejectReason?: string;
-  /**
-   * @remarks
-   * The external refund order number.
-   * 
-   * @example
-   * RF202606290001
-   */
-  sellRefundOrderNo?: string;
   /**
    * @remarks
    * The unified refund status.
@@ -726,9 +696,9 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Mod
   static names(): { [key: string]: string } {
     return {
       gmtCreate: 'GmtCreate',
+      refundOrderNo: 'RefundOrderNo',
       refundTransactionId: 'RefundTransactionId',
       rejectReason: 'RejectReason',
-      sellRefundOrderNo: 'SellRefundOrderNo',
       status: 'Status',
       totalPenaltyAmount: 'TotalPenaltyAmount',
       totalRefundAmount: 'TotalRefundAmount',
@@ -737,10 +707,10 @@ export class GlobalHotelQueryOrderResponseBodyDataRefundOrders extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      gmtCreate: 'number',
+      gmtCreate: 'string',
+      refundOrderNo: 'string',
       refundTransactionId: 'string',
       rejectReason: 'string',
-      sellRefundOrderNo: 'string',
       status: 'string',
       totalPenaltyAmount: GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalPenaltyAmount,
       totalRefundAmount: GlobalHotelQueryOrderResponseBodyDataRefundOrdersTotalRefundAmount,
@@ -836,7 +806,7 @@ export class GlobalHotelQueryOrderResponseBodyDataRoomStays extends $dara.Model 
   roomIndex?: number;
   /**
    * @remarks
-   * The delivery status. Valid values: PENDING_CHECKIN, CHECKED_IN, CHECKED_OUT, and CANCELLED. The value is null before the delivery is created.
+   * The fulfillment status (PENDING_CHECKIN/CHECKED_IN/CHECKED_OUT/CANCELLED). The value is null before the fulfillment is created.
    * 
    * @example
    * CHECKED_IN
@@ -891,12 +861,12 @@ export class GlobalHotelQueryOrderResponseBodyData extends $dara.Model {
   externalOrderNo?: string;
   /**
    * @remarks
-   * The creation time in UTC millisecond timestamp.
+   * The creation time (UTC millisecond timestamp).
    * 
    * @example
    * 1672531200000
    */
-  gmtCreate?: number;
+  gmtCreate?: string;
   /**
    * @remarks
    * The item information.
@@ -969,7 +939,7 @@ export class GlobalHotelQueryOrderResponseBodyData extends $dara.Model {
     return {
       buyerId: 'string',
       externalOrderNo: 'string',
-      gmtCreate: 'number',
+      gmtCreate: 'string',
       itemInfo: GlobalHotelQueryOrderResponseBodyDataItemInfo,
       orderNo: 'string',
       payment: GlobalHotelQueryOrderResponseBodyDataPayment,
@@ -1026,7 +996,7 @@ export class GlobalHotelQueryOrderResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The unique identifier of the request.
    * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
@@ -1034,7 +1004,7 @@ export class GlobalHotelQueryOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties extends $dara.Model {
   /**
+   * @remarks
+   * The currency code. This field has a value only when the penalty type is AMOUNT.
+   * 
    * @example
    * USD
    */
   currency?: string;
   /**
+   * @remarks
+   * The effective end time as a UTC millisecond timestamp.
+   * 
    * @example
    * 1672617600000
    */
-  end?: number;
+  end?: string;
   /**
+   * @remarks
+   * The penalty type (PERCENT/NIGHTS/NON_CANCELLABLE).
+   * 
    * @example
    * PERCENTAGE
    */
   penaltyType?: string;
   /**
+   * @remarks
+   * The penalty value (percentage, amount, or number of nights). This field is not present when PenaltyType is NON_CANCELLABLE.
+   * 
    * @example
    * 50
    */
   penaltyValue?: string;
   /**
+   * @remarks
+   * The effective start time as a UTC millisecond timestamp.
+   * 
    * @example
    * 1672531200000
    */
-  start?: number;
+  start?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -47,10 +65,10 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalti
   static types(): { [key: string]: any } {
     return {
       currency: 'string',
-      end: 'number',
+      end: 'string',
       penaltyType: 'string',
       penaltyValue: 'string',
-      start: 'number',
+      start: 'string',
       tracerId: 'string',
     };
   }
@@ -65,13 +83,23 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalti
 }
 
 export class GlobalHotelValidatePriceResponseBodyDataCancellationPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cancellation penalty details.
+   */
   penalties?: GlobalHotelValidatePriceResponseBodyDataCancellationPoliciesPenalties[];
   /**
+   * @remarks
+   * The cancellation policy type (FREE_CANCEL/CONDITIONAL/NON_REFUNDABLE).
+   * 
    * @example
    * FREE_CANCELLATION
    */
   policyType?: string;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -104,26 +132,35 @@ export class GlobalHotelValidatePriceResponseBodyDataCancellationPolicies extend
   }
 }
 
-export class GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices extends $dara.Model {
+export class GlobalHotelValidatePriceResponseBodyDataDailyPricesPrice extends $dara.Model {
   /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
    * @example
-   * 5000
+   * 574
    */
   amount?: string;
   /**
+   * @remarks
+   * The currency code (ISO 4217).
+   * 
    * @example
-   * 2026-07-01
+   * USD
    */
-  date?: string;
+  currency?: string;
   /**
+   * @remarks
+   * null
+   * 
    * @example
-   * TracerId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
-      date: 'Date',
+      currency: 'Currency',
       tracerId: 'TracerId',
     };
   }
@@ -131,7 +168,7 @@ export class GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices extend
   static types(): { [key: string]: any } {
     return {
       amount: 'string',
-      date: 'string',
+      currency: 'string',
       tracerId: 'string',
     };
   }
@@ -145,45 +182,98 @@ export class GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices extend
   }
 }
 
-export class GlobalHotelValidatePriceResponseBodyDataPricing extends $dara.Model {
+export class GlobalHotelValidatePriceResponseBodyDataDailyPrices extends $dara.Model {
   /**
+   * @remarks
+   * The date in yyyy-MM-dd format, in the local time zone of the hotel.
+   * 
    * @example
-   * USD
+   * 2026-08-16
    */
-  currency?: string;
-  nightlyPrices?: GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices[];
+  date?: string;
   /**
-   * @example
-   * 10000
+   * @remarks
+   * The price for the night.
    */
-  totalAmount?: string;
+  price?: GlobalHotelValidatePriceResponseBodyDataDailyPricesPrice;
   /**
+   * @remarks
+   * null
+   * 
    * @example
-   * TracerId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
-      currency: 'Currency',
-      nightlyPrices: 'NightlyPrices',
-      totalAmount: 'TotalAmount',
+      date: 'Date',
+      price: 'Price',
       tracerId: 'TracerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currency: 'string',
-      nightlyPrices: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataPricingNightlyPrices },
-      totalAmount: 'string',
+      date: 'string',
+      price: GlobalHotelValidatePriceResponseBodyDataDailyPricesPrice,
       tracerId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.nightlyPrices)) {
-      $dara.Model.validateArray(this.nightlyPrices);
+    if(this.price && typeof (this.price as any).validate === 'function') {
+      (this.price as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalHotelValidatePriceResponseBodyDataTotalPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The amount in the smallest currency unit.
+   * 
+   * @example
+   * 574
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The currency code (ISO 4217).
+   * 
+   * @example
+   * USD
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * null
+   * 
+   * @example
+   * null
+   */
+  tracerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      currency: 'Currency',
+      tracerId: 'TracerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      currency: 'string',
+      tracerId: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -193,14 +283,33 @@ export class GlobalHotelValidatePriceResponseBodyDataPricing extends $dara.Model
 }
 
 export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The cancellation policies.
+   */
   cancellationPolicies?: GlobalHotelValidatePriceResponseBodyDataCancellationPolicies[];
   /**
+   * @remarks
+   * The list of daily prices.
+   */
+  dailyPrices?: GlobalHotelValidatePriceResponseBodyDataDailyPrices[];
+  /**
+   * @remarks
+   * The price validation result ID, used for subsequent order creation.
+   * 
    * @example
    * itemOffer_123
    */
   itemOfferId?: string;
-  pricing?: GlobalHotelValidatePriceResponseBodyDataPricing;
   /**
+   * @remarks
+   * The total selling price.
+   */
+  totalPrice?: GlobalHotelValidatePriceResponseBodyDataTotalPrice;
+  /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */
@@ -208,8 +317,9 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cancellationPolicies: 'CancellationPolicies',
+      dailyPrices: 'DailyPrices',
       itemOfferId: 'ItemOfferId',
-      pricing: 'Pricing',
+      totalPrice: 'TotalPrice',
       tracerId: 'TracerId',
     };
   }
@@ -217,8 +327,9 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cancellationPolicies: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataCancellationPolicies },
+      dailyPrices: { 'type': 'array', 'itemType': GlobalHotelValidatePriceResponseBodyDataDailyPrices },
       itemOfferId: 'string',
-      pricing: GlobalHotelValidatePriceResponseBodyDataPricing,
+      totalPrice: GlobalHotelValidatePriceResponseBodyDataTotalPrice,
       tracerId: 'string',
     };
   }
@@ -227,8 +338,11 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
     if(Array.isArray(this.cancellationPolicies)) {
       $dara.Model.validateArray(this.cancellationPolicies);
     }
-    if(this.pricing && typeof (this.pricing as any).validate === 'function') {
-      (this.pricing as any).validate();
+    if(Array.isArray(this.dailyPrices)) {
+      $dara.Model.validateArray(this.dailyPrices);
+    }
+    if(this.totalPrice && typeof (this.totalPrice as any).validate === 'function') {
+      (this.totalPrice as any).validate();
     }
     super.validate();
   }
@@ -239,28 +353,47 @@ export class GlobalHotelValidatePriceResponseBodyData extends $dara.Model {
 }
 
 export class GlobalHotelValidatePriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The business data.
+   */
   data?: GlobalHotelValidatePriceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * CreateOrderFailed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建订单失败
+   * Failed to create order
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 260E4F99-983D-1919-834C-5C42E98E5B2B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */

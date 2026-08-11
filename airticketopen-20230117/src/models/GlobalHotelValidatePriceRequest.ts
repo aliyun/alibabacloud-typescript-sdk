@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelValidatePriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The distributor account ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GlobalHotelValidatePriceRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
+   * The number of adults per room.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,25 @@ export class GlobalHotelValidatePriceRequest extends $dara.Model {
    */
   adults?: number;
   /**
+   * @remarks
+   * The number of children per room.
+   * 
    * @example
    * 0
    */
   children?: number;
   /**
+   * @remarks
+   * The list of children ages.
+   * 
    * @example
    * [8]
    */
   childrenAges?: number[];
   /**
    * @remarks
+   * The offer key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +51,8 @@ export class GlobalHotelValidatePriceRequest extends $dara.Model {
   itemOfferKey?: string;
   /**
    * @remarks
+   * The number of rooms.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +60,9 @@ export class GlobalHotelValidatePriceRequest extends $dara.Model {
    */
   roomCount?: number;
   /**
+   * @remarks
+   * TracerId
+   * 
    * @example
    * TracerId
    */

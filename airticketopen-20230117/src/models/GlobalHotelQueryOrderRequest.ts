@@ -15,7 +15,7 @@ export class GlobalHotelQueryOrderRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
-   * The external order number. At least one of ExternalOrderNo and OrderNo is required.
+   * The external order number. You must specify at least one of ExternalOrderNo and OrderNo.
    * 
    * @example
    * EXT_ORDER_001
@@ -23,7 +23,7 @@ export class GlobalHotelQueryOrderRequest extends $dara.Model {
   externalOrderNo?: string;
   /**
    * @remarks
-   * The sales order number. At least one of OrderNo and ExternalOrderNo is required.
+   * The sales order number. You must specify at least one of OrderNo and ExternalOrderNo.
    * 
    * @example
    * SO202606290001

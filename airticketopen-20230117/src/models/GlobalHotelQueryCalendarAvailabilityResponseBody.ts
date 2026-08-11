@@ -3,62 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { DataHotelsValue } from "./DataHotelsValue";
 
 
-export class GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * HOTEL_NOT_FOUND
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error description.
-   * 
-   * @example
-   * The hotel does not exist
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The standard hotel ID.
-   * 
-   * @example
-   * H001
-   */
-  standardHotelId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      standardHotelId: 'StandardHotelId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      standardHotelId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GlobalHotelQueryCalendarAvailabilityResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The list of failed hotels (in partial success mode).
-   */
-  failedHotels?: GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels[];
   /**
    * @remarks
    * The calendar quotes grouped by standard hotel ID.
@@ -74,7 +19,6 @@ export class GlobalHotelQueryCalendarAvailabilityResponseBodyData extends $dara.
   tracerId?: string;
   static names(): { [key: string]: string } {
     return {
-      failedHotels: 'FailedHotels',
       hotels: 'Hotels',
       tracerId: 'TracerId',
     };
@@ -82,16 +26,12 @@ export class GlobalHotelQueryCalendarAvailabilityResponseBodyData extends $dara.
 
   static types(): { [key: string]: any } {
     return {
-      failedHotels: { 'type': 'array', 'itemType': GlobalHotelQueryCalendarAvailabilityResponseBodyDataFailedHotels },
       hotels: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DataHotelsValue } },
       tracerId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.failedHotels)) {
-      $dara.Model.validateArray(this.failedHotels);
-    }
     if(this.hotels) {
       $dara.Model.validateMap(this.hotels);
     }

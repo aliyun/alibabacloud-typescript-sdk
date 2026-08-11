@@ -2,15 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DataHotelsValueRoomsLowestSellingPrice extends $dara.Model {
+export class DataHotelsValueRoomsLowestPrice extends $dara.Model {
   /**
    * @remarks
-   * The amount.
+   * The amount in the smallest currency unit.
    * 
    * @example
-   * 100.00
+   * 287
    */
-  amount?: number;
+  amount?: string;
   /**
    * @remarks
    * The currency code.
@@ -21,10 +21,10 @@ export class DataHotelsValueRoomsLowestSellingPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * traceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -37,7 +37,7 @@ export class DataHotelsValueRoomsLowestSellingPrice extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      amount: 'number',
+      amount: 'string',
       currency: 'string',
       tracerId: 'string',
     };
@@ -55,23 +55,23 @@ export class DataHotelsValueRoomsLowestSellingPrice extends $dara.Model {
 export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model {
   /**
    * @remarks
-   * The effective start time, in UTC millisecond timestamp.
+   * The effective start time (UTC millisecond timestamp).
    * 
    * @example
    * 1672531200000
    */
-  start?: number;
+  start?: string;
   /**
    * @remarks
-   * The effective end time, in UTC millisecond timestamp.
+   * The effective end time (UTC millisecond timestamp).
    * 
    * @example
    * 1672617600000
    */
-  end?: number;
+  end?: string;
   /**
    * @remarks
-   * The penalty type. Valid values: PERCENTAGE, AMOUNT, and NIGHTS.
+   * The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
    * 
    * @example
    * PERCENTAGE
@@ -79,7 +79,7 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage, amount, or number of nights).
+   * The penalty value (percentage/amount/nights).
    * 
    * @example
    * 50
@@ -87,7 +87,7 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
   penaltyValue?: string;
   /**
    * @remarks
-   * The currency. This parameter has a value only when PenaltyType is set to AMOUNT.
+   * The currency code (present only when the penalty type is AMOUNT).
    * 
    * @example
    * USD
@@ -114,8 +114,8 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
-      start: 'number',
-      end: 'number',
+      start: 'string',
+      end: 'string',
       penaltyType: 'string',
       penaltyValue: 'string',
       currency: 'string',
@@ -135,7 +135,7 @@ export class DataHotelsValueRoomsOffersCancelPolicyPenalties extends $dara.Model
 export class DataHotelsValueRoomsOffersCancelPolicy extends $dara.Model {
   /**
    * @remarks
-   * The policy type. Valid values: NON_REFUNDABLE, FREE_CANCELLATION, and PARTIAL_REFUND.
+   * The policy type (NON_REFUNDABLE/FREE_CANCELLATION/PARTIAL_REFUND).
    * 
    * @example
    * FREE_CANCELLATION
@@ -182,15 +182,15 @@ export class DataHotelsValueRoomsOffersCancelPolicy extends $dara.Model {
   }
 }
 
-export class DataHotelsValueRoomsOffersSellingTotalPrice extends $dara.Model {
+export class DataHotelsValueRoomsOffersTotalPrice extends $dara.Model {
   /**
    * @remarks
-   * The amount.
+   * The amount in the smallest currency unit.
    * 
    * @example
-   * 100.00
+   * 287
    */
-  amount?: number;
+  amount?: string;
   /**
    * @remarks
    * The currency code.
@@ -201,10 +201,10 @@ export class DataHotelsValueRoomsOffersSellingTotalPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * TraceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -217,7 +217,7 @@ export class DataHotelsValueRoomsOffersSellingTotalPrice extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      amount: 'number',
+      amount: 'string',
       currency: 'string',
       tracerId: 'string',
     };
@@ -232,15 +232,15 @@ export class DataHotelsValueRoomsOffersSellingTotalPrice extends $dara.Model {
   }
 }
 
-export class DataHotelsValueRoomsOffersSellingDailyPricesPrice extends $dara.Model {
+export class DataHotelsValueRoomsOffersDailyPricesPrice extends $dara.Model {
   /**
    * @remarks
-   * The amount.
+   * The amount in the smallest currency unit.
    * 
    * @example
-   * 100.00
+   * 287
    */
-  amount?: number;
+  amount?: string;
   /**
    * @remarks
    * The currency code.
@@ -251,10 +251,10 @@ export class DataHotelsValueRoomsOffersSellingDailyPricesPrice extends $dara.Mod
   currency?: string;
   /**
    * @remarks
-   * traceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -267,7 +267,7 @@ export class DataHotelsValueRoomsOffersSellingDailyPricesPrice extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      amount: 'number',
+      amount: 'string',
       currency: 'string',
       tracerId: 'string',
     };
@@ -282,26 +282,26 @@ export class DataHotelsValueRoomsOffersSellingDailyPricesPrice extends $dara.Mod
   }
 }
 
-export class DataHotelsValueRoomsOffersSellingDailyPrices extends $dara.Model {
+export class DataHotelsValueRoomsOffersDailyPrices extends $dara.Model {
   /**
    * @remarks
-   * The check-in date.
+   * The check-in date (yyyy-MM-dd, time zone: hotel local time zone).
    * 
    * @example
-   * 2026-07-01
+   * 2026-08-16
    */
   date?: string;
   /**
    * @remarks
    * The price for the day.
    */
-  price?: DataHotelsValueRoomsOffersSellingDailyPricesPrice;
+  price?: DataHotelsValueRoomsOffersDailyPricesPrice;
   /**
    * @remarks
-   * TraceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -315,7 +315,7 @@ export class DataHotelsValueRoomsOffersSellingDailyPrices extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       date: 'string',
-      price: DataHotelsValueRoomsOffersSellingDailyPricesPrice,
+      price: DataHotelsValueRoomsOffersDailyPricesPrice,
       tracerId: 'string',
     };
   }
@@ -335,7 +335,7 @@ export class DataHotelsValueRoomsOffersSellingDailyPrices extends $dara.Model {
 export class DataHotelsValueRoomsOffers extends $dara.Model {
   /**
    * @remarks
-   * The item-level offer identifier (price verification key, passed through as-is).
+   * The item-level offer identifier (price verification key, pass through as-is).
    * 
    * @example
    * itemOffer_123
@@ -346,7 +346,7 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
    * The rate plan name.
    * 
    * @example
-   * Room with breakfast
+   * Breakfast included
    */
   ratePlanName?: string;
   /**
@@ -374,12 +374,12 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
    * @remarks
    * The total selling price.
    */
-  sellingTotalPrice?: DataHotelsValueRoomsOffersSellingTotalPrice;
+  totalPrice?: DataHotelsValueRoomsOffersTotalPrice;
   /**
    * @remarks
-   * The list of daily selling prices.
+   * The list of daily prices.
    */
-  sellingDailyPrices?: DataHotelsValueRoomsOffersSellingDailyPrices[];
+  dailyPrices?: DataHotelsValueRoomsOffersDailyPrices[];
   /**
    * @remarks
    * The number of available rooms.
@@ -390,7 +390,7 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
   availableRooms?: number;
   /**
    * @remarks
-   * The maximum number of guests.
+   * The maximum number of guests allowed.
    * 
    * @example
    * 3
@@ -398,7 +398,7 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
   maxOccupancy?: number;
   /**
    * @remarks
-   * The confirmation type. Valid values: INSTANT_CONFIRM and NON_INSTANT_CONFIRM.
+   * The confirmation type (INSTANT_CONFIRM/NON_INSTANT_CONFIRM).
    * 
    * @example
    * INSTANT_CONFIRM
@@ -411,8 +411,8 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
       mealType: 'MealType',
       mealCount: 'MealCount',
       cancelPolicy: 'CancelPolicy',
-      sellingTotalPrice: 'SellingTotalPrice',
-      sellingDailyPrices: 'SellingDailyPrices',
+      totalPrice: 'TotalPrice',
+      dailyPrices: 'DailyPrices',
       availableRooms: 'AvailableRooms',
       maxOccupancy: 'MaxOccupancy',
       confirmType: 'ConfirmType',
@@ -426,8 +426,8 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
       mealType: 'string',
       mealCount: 'number',
       cancelPolicy: DataHotelsValueRoomsOffersCancelPolicy,
-      sellingTotalPrice: DataHotelsValueRoomsOffersSellingTotalPrice,
-      sellingDailyPrices: { 'type': 'array', 'itemType': DataHotelsValueRoomsOffersSellingDailyPrices },
+      totalPrice: DataHotelsValueRoomsOffersTotalPrice,
+      dailyPrices: { 'type': 'array', 'itemType': DataHotelsValueRoomsOffersDailyPrices },
       availableRooms: 'number',
       maxOccupancy: 'number',
       confirmType: 'string',
@@ -438,11 +438,11 @@ export class DataHotelsValueRoomsOffers extends $dara.Model {
     if(this.cancelPolicy && typeof (this.cancelPolicy as any).validate === 'function') {
       (this.cancelPolicy as any).validate();
     }
-    if(this.sellingTotalPrice && typeof (this.sellingTotalPrice as any).validate === 'function') {
-      (this.sellingTotalPrice as any).validate();
+    if(this.totalPrice && typeof (this.totalPrice as any).validate === 'function') {
+      (this.totalPrice as any).validate();
     }
-    if(Array.isArray(this.sellingDailyPrices)) {
-      $dara.Model.validateArray(this.sellingDailyPrices);
+    if(Array.isArray(this.dailyPrices)) {
+      $dara.Model.validateArray(this.dailyPrices);
     }
     super.validate();
   }
@@ -463,18 +463,18 @@ export class DataHotelsValueRooms extends $dara.Model {
   standardRoomId?: string;
   /**
    * @remarks
-   * The lowest selling price for the room type on the day.
+   * The lowest price for the room type on the day.
    */
-  lowestSellingPrice?: DataHotelsValueRoomsLowestSellingPrice;
+  lowestPrice?: DataHotelsValueRoomsLowestPrice;
   /**
    * @remarks
-   * The list of all available offers for the room type. Calendar quotes cannot be used for price verification, so itemOfferKey is not returned.
+   * The list of all available offers for the room type.
    */
   offers?: DataHotelsValueRoomsOffers[];
   static names(): { [key: string]: string } {
     return {
       standardRoomId: 'StandardRoomId',
-      lowestSellingPrice: 'LowestSellingPrice',
+      lowestPrice: 'LowestPrice',
       offers: 'Offers',
     };
   }
@@ -482,14 +482,14 @@ export class DataHotelsValueRooms extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       standardRoomId: 'string',
-      lowestSellingPrice: DataHotelsValueRoomsLowestSellingPrice,
+      lowestPrice: DataHotelsValueRoomsLowestPrice,
       offers: { 'type': 'array', 'itemType': DataHotelsValueRoomsOffers },
     };
   }
 
   validate() {
-    if(this.lowestSellingPrice && typeof (this.lowestSellingPrice as any).validate === 'function') {
-      (this.lowestSellingPrice as any).validate();
+    if(this.lowestPrice && typeof (this.lowestPrice as any).validate === 'function') {
+      (this.lowestPrice as any).validate();
     }
     if(Array.isArray(this.offers)) {
       $dara.Model.validateArray(this.offers);
@@ -510,7 +510,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
    * @example
    * 1672531200000
    */
-  start?: number;
+  start?: string;
   /**
    * @remarks
    * The effective end time (UTC millisecond timestamp).
@@ -518,7 +518,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
    * @example
    * 1672617600000
    */
-  end?: number;
+  end?: string;
   /**
    * @remarks
    * The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
@@ -529,7 +529,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   penaltyType?: string;
   /**
    * @remarks
-   * The penalty value (percentage/amount/number of nights).
+   * The penalty value (percentage/amount/nights).
    * 
    * @example
    * 50
@@ -537,7 +537,7 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
   penaltyValue?: string;
   /**
    * @remarks
-   * The currency code (only applicable when the penalty type is AMOUNT).
+   * The currency code. This field has a value only when the penalty type is AMOUNT.
    * 
    * @example
    * USD
@@ -564,8 +564,8 @@ export class DataHotelsValueOffersCancelPolicyPenalties extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      start: 'number',
-      end: 'number',
+      start: 'string',
+      end: 'string',
       penaltyType: 'string',
       penaltyValue: 'string',
       currency: 'string',
@@ -632,15 +632,15 @@ export class DataHotelsValueOffersCancelPolicy extends $dara.Model {
   }
 }
 
-export class DataHotelsValueOffersSellingTotalPrice extends $dara.Model {
+export class DataHotelsValueOffersTotalPrice extends $dara.Model {
   /**
    * @remarks
-   * The amount.
+   * The amount in the smallest currency unit.
    * 
    * @example
-   * 100.00
+   * 287
    */
-  amount?: number;
+  amount?: string;
   /**
    * @remarks
    * The currency code.
@@ -651,10 +651,10 @@ export class DataHotelsValueOffersSellingTotalPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * TraceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -667,7 +667,7 @@ export class DataHotelsValueOffersSellingTotalPrice extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      amount: 'number',
+      amount: 'string',
       currency: 'string',
       tracerId: 'string',
     };
@@ -682,15 +682,15 @@ export class DataHotelsValueOffersSellingTotalPrice extends $dara.Model {
   }
 }
 
-export class DataHotelsValueOffersSellingDailyPricesPrice extends $dara.Model {
+export class DataHotelsValueOffersDailyPricesPrice extends $dara.Model {
   /**
    * @remarks
-   * The amount.
+   * The amount in the smallest currency unit.
    * 
    * @example
-   * 100.00
+   * 287
    */
-  amount?: number;
+  amount?: string;
   /**
    * @remarks
    * The currency code.
@@ -701,10 +701,10 @@ export class DataHotelsValueOffersSellingDailyPricesPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * TraceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -717,7 +717,7 @@ export class DataHotelsValueOffersSellingDailyPricesPrice extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      amount: 'number',
+      amount: 'string',
       currency: 'string',
       tracerId: 'string',
     };
@@ -732,26 +732,26 @@ export class DataHotelsValueOffersSellingDailyPricesPrice extends $dara.Model {
   }
 }
 
-export class DataHotelsValueOffersSellingDailyPrices extends $dara.Model {
+export class DataHotelsValueOffersDailyPrices extends $dara.Model {
   /**
    * @remarks
-   * The check-in date.
+   * The check-in date in yyyy-MM-dd format, based on the hotel local time zone.
    * 
    * @example
-   * 2026-07-01
+   * 2026-08-16
    */
   date?: string;
   /**
    * @remarks
    * The price for the day.
    */
-  price?: DataHotelsValueOffersSellingDailyPricesPrice;
+  price?: DataHotelsValueOffersDailyPricesPrice;
   /**
    * @remarks
-   * TraceId
+   * null
    * 
    * @example
-   * TraceId
+   * null
    */
   tracerId?: string;
   static names(): { [key: string]: string } {
@@ -765,7 +765,7 @@ export class DataHotelsValueOffersSellingDailyPrices extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       date: 'string',
-      price: DataHotelsValueOffersSellingDailyPricesPrice,
+      price: DataHotelsValueOffersDailyPricesPrice,
       tracerId: 'string',
     };
   }
@@ -785,7 +785,7 @@ export class DataHotelsValueOffersSellingDailyPrices extends $dara.Model {
 export class DataHotelsValueOffers extends $dara.Model {
   /**
    * @remarks
-   * The item-domain offer identifier (price verification key, passed through as-is).
+   * The item offer key used for price verification. Pass through this value as-is.
    * 
    * @example
    * itemOffer_123
@@ -796,7 +796,7 @@ export class DataHotelsValueOffers extends $dara.Model {
    * The rate plan name.
    * 
    * @example
-   * Breakfast Included
+   * Breakfast included
    */
   ratePlanName?: string;
   /**
@@ -817,19 +817,19 @@ export class DataHotelsValueOffers extends $dara.Model {
   mealCount?: number;
   /**
    * @remarks
-   * The cancellation and modification policy.
+   * The cancellation policy.
    */
   cancelPolicy?: DataHotelsValueOffersCancelPolicy;
   /**
    * @remarks
    * The total selling price.
    */
-  sellingTotalPrice?: DataHotelsValueOffersSellingTotalPrice;
+  totalPrice?: DataHotelsValueOffersTotalPrice;
   /**
    * @remarks
-   * The list of daily selling prices.
+   * The list of daily prices.
    */
-  sellingDailyPrices?: DataHotelsValueOffersSellingDailyPrices[];
+  dailyPrices?: DataHotelsValueOffersDailyPrices[];
   /**
    * @remarks
    * The number of available rooms.
@@ -861,8 +861,8 @@ export class DataHotelsValueOffers extends $dara.Model {
       mealType: 'MealType',
       mealCount: 'MealCount',
       cancelPolicy: 'CancelPolicy',
-      sellingTotalPrice: 'SellingTotalPrice',
-      sellingDailyPrices: 'SellingDailyPrices',
+      totalPrice: 'TotalPrice',
+      dailyPrices: 'DailyPrices',
       availableRooms: 'AvailableRooms',
       maxOccupancy: 'MaxOccupancy',
       confirmType: 'ConfirmType',
@@ -876,8 +876,8 @@ export class DataHotelsValueOffers extends $dara.Model {
       mealType: 'string',
       mealCount: 'number',
       cancelPolicy: DataHotelsValueOffersCancelPolicy,
-      sellingTotalPrice: DataHotelsValueOffersSellingTotalPrice,
-      sellingDailyPrices: { 'type': 'array', 'itemType': DataHotelsValueOffersSellingDailyPrices },
+      totalPrice: DataHotelsValueOffersTotalPrice,
+      dailyPrices: { 'type': 'array', 'itemType': DataHotelsValueOffersDailyPrices },
       availableRooms: 'number',
       maxOccupancy: 'number',
       confirmType: 'string',
@@ -888,11 +888,11 @@ export class DataHotelsValueOffers extends $dara.Model {
     if(this.cancelPolicy && typeof (this.cancelPolicy as any).validate === 'function') {
       (this.cancelPolicy as any).validate();
     }
-    if(this.sellingTotalPrice && typeof (this.sellingTotalPrice as any).validate === 'function') {
-      (this.sellingTotalPrice as any).validate();
+    if(this.totalPrice && typeof (this.totalPrice as any).validate === 'function') {
+      (this.totalPrice as any).validate();
     }
-    if(Array.isArray(this.sellingDailyPrices)) {
-      $dara.Model.validateArray(this.sellingDailyPrices);
+    if(Array.isArray(this.dailyPrices)) {
+      $dara.Model.validateArray(this.dailyPrices);
     }
     super.validate();
   }
@@ -905,7 +905,7 @@ export class DataHotelsValueOffers extends $dara.Model {
 export class DataHotelsValue extends $dara.Model {
   /**
    * @remarks
-   * The check-in date in the format of yyyy-MM-dd.
+   * The check-in date (yyyy-MM-dd).
    * 
    * @example
    * 2026-01-01
@@ -913,7 +913,7 @@ export class DataHotelsValue extends $dara.Model {
   checkInDate?: string;
   /**
    * @remarks
-   * The check-out date in the format of yyyy-MM-dd.
+   * The check-out date (yyyy-MM-dd).
    * 
    * @example
    * 2026-01-02

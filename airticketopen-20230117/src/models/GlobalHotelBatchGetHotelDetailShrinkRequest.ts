@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelBatchGetHotelDetailShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the distributor account.
+   * The distributor account ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GlobalHotelBatchGetHotelDetailShrinkRequest extends $dara.Model {
   accountNo?: number;
   /**
    * @remarks
-   * The language. For example, en or zh.
+   * The language (such as en or zh).
    * 
    * @example
    * en

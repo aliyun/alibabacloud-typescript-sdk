@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model {
   /**
    * @remarks
-   * The Chinese name of the city.
+   * The Chinese name.
    * 
    * @example
    * 北京市
@@ -29,7 +29,7 @@ export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model
   country?: number;
   /**
    * @remarks
-   * The country code in ISO 3166-1 alpha-2 format.
+   * The country code (ISO 3166-1 alpha-2).
    * 
    * @example
    * CN
@@ -37,7 +37,7 @@ export class GlobalHotelSearchCityPageResponseBodyDataCities extends $dara.Model
   countryCode?: string;
   /**
    * @remarks
-   * The English name of the city.
+   * The English name.
    * 
    * @example
    * Beijing
