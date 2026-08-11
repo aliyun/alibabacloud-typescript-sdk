@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResultDatabasesFunctionsValue extends $dara.Model {
   /**
+   * @remarks
+   * The name of the function.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The signature.
+   * 
    * @example
    * gfasdds2****2wfrkv
    */

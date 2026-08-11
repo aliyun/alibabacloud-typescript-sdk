@@ -4,41 +4,67 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFolderResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1719221186114
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1719221186114
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The folder ID.
+   * 
    * @example
    * 25030
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ha-cn-pl32rf0****
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the entry is a folder. Valid values:
+   * - true: The entry is a folder.
+   * - false: The entry is not a folder.
+   * 
    * @example
    * True
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The parent level ID.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -91,7 +117,7 @@ export class CreateFolderResponseBodyResult extends $dara.Model {
 export class CreateFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
@@ -99,7 +125,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * NodeVO
+   * The returned result.
    */
   result?: CreateFolderResponseBodyResult;
   static names(): { [key: string]: string } {

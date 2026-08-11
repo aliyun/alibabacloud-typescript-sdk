@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the directory.
+   * The directory name.
    * 
    * @example
    * /schemas/device_event_xt_schema.json
@@ -13,7 +13,7 @@ export class CreateConfigFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the file.
+   * The OSS storage address.
    * 
    * @example
    * oss://xxx/xxxx/xxx
@@ -21,7 +21,7 @@ export class CreateConfigFileRequest extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The path of the parent directory.
+   * The parent file path.
    * 
    * @example
    * /

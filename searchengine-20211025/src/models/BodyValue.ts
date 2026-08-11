@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BodyValue extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to suspend all pushes.
+   * Pauses all deployments.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class BodyValue extends $dara.Model {
   pauseAll?: boolean;
   /**
    * @remarks
-   * Specifies whether to suspend the push for the new full index version.
+   * Pauses the deployment of new full index versions.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class BodyValue extends $dara.Model {
   pauseIndex?: boolean;
   /**
    * @remarks
-   * Specifies whether to suspend the push for the incremental indexes.
+   * Pauses the deployment of incremental batches.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class BodyValue extends $dara.Model {
   pauseIndexBatch?: boolean;
   /**
    * @remarks
-   * Specifies whether to suspend the push for the configuration.
+   * Pauses configuration deployments.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class BodyValue extends $dara.Model {
   pauseBiz?: boolean;
   /**
    * @remarks
-   * Specifies whether to suspend the push for the real-time incremental indexes.
+   * Pauses real-time incremental updates.
    * 
    * @example
    * true

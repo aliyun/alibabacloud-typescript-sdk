@@ -8,7 +8,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * The billing method.
    * 
    * @example
-   * PrePaid
+   * POSTPAY
    */
   chargeType?: string;
   /**
@@ -16,7 +16,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * The commodity code of the instance.
    * 
    * @example
-   * ha3-code
+   * opensearch_ha3post_public_cn
    */
   commodityCode?: string;
   /**
@@ -56,7 +56,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * ha-cn-0ju2s170b03
+   * ha-cn-pl32rf0****
    */
   instanceId?: string;
   /**
@@ -72,7 +72,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-aeky6hthboewpuy
+   * ha-cn-pl32rf0****
    */
   resourceGroupId?: string;
   /**
@@ -80,7 +80,7 @@ export class UpdateInstanceResponseBodyResult extends $dara.Model {
    * The instance status.
    * 
    * @example
-   * Running
+   * READY
    */
   status?: string;
   /**

@@ -8,7 +8,7 @@ export class GetIndexVersionResponseBodyResultIndexVersions extends $dara.Model 
    * The ID of the offline deployment.
    * 
    * @example
-   * " "
+   * 2648
    */
   buildDeployId?: string;
   /**
@@ -24,7 +24,7 @@ export class GetIndexVersionResponseBodyResultIndexVersions extends $dara.Model 
    * The name of the index table.
    * 
    * @example
-   * table4
+   * test_api
    */
   indexName?: string;
   /**
@@ -68,7 +68,7 @@ export class GetIndexVersionResponseBodyResult extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * ayoss-cn-zhangjiakou-b
+   * hz_pre_vpc_domain_1
    */
   cluster?: string;
   /**

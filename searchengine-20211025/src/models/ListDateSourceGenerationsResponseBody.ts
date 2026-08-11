@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the offline deployment.
+   * The offline deployment ID.
    * 
    * @example
    * 122
@@ -13,7 +13,7 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
   buildDeployId?: number;
   /**
    * @remarks
-   * The timestamp that was generated when the index building was started.
+   * The start time of the build index operation.
    * 
    * @example
    * 1626143673
@@ -21,15 +21,15 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The path of the dumped index in the Apsara File Storage for HDFS file system.
+   * The storage path of the dump table index file.
    * 
    * @example
-   * ""
+   * hdfs://opensearch/dump.json
    */
   dataDumpRoot?: string;
   /**
    * @remarks
-   * The ID of the full index version.
+   * The full index version.
    * 
    * @example
    * 1626143930
@@ -37,12 +37,23 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
   generation?: number;
   /**
    * @remarks
-   * The shards of the index version. The value is a key-value pair in which the key indicates the index name and the value indicates the number of shards. The number of value shards.
+   * The export type. Valid values:
+   * 
+   * - api (default): restores to HDFS.
+   * - oss: exports to OSS.
+   * - odps: exports to ODPS.
+   * 
+   * This parameter has a value only when the dump table is restored from an index. The value is empty for common tables.
+   */
+  outPutType?: string;
+  /**
+   * @remarks
+   * Key: the index name. Value: the number of shards.
    */
   partition?: { [key: string]: number };
   /**
    * @remarks
-   * The status of the index version.
+   * The status.
    * 
    * @example
    * STOPPED
@@ -50,7 +61,7 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The start timestamp from which incremental data is retrieved.
+   * The incremental timestamp.
    * 
    * @example
    * 1626143673
@@ -62,6 +73,7 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
       createTime: 'createTime',
       dataDumpRoot: 'dataDumpRoot',
       generation: 'generation',
+      outPutType: 'outPutType',
       partition: 'partition',
       status: 'status',
       timestamp: 'timestamp',
@@ -74,6 +86,7 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
       createTime: 'number',
       dataDumpRoot: 'string',
       generation: 'number',
+      outPutType: 'string',
       partition: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       status: 'string',
       timestamp: 'number',
@@ -95,7 +108,7 @@ export class ListDateSourceGenerationsResponseBodyResult extends $dara.Model {
 export class ListDateSourceGenerationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
@@ -103,7 +116,7 @@ export class ListDateSourceGenerationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List
+   * The returned results.
    */
   result?: ListDateSourceGenerationsResponseBodyResult[];
   static names(): { [key: string]: string } {

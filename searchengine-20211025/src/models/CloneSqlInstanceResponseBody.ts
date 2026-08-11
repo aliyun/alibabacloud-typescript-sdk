@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloneSqlInstanceResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1719221186114
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1719221186114
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * -cn-pl32rf0****
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether this is a directory. Valid values: - true: yes. - false: no.
+   * 
    * @example
    * True
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name of the SQL instance.
+   * 
    * @example
    * general
    */
   name?: string;
   /**
+   * @remarks
+   * The parent task ID.
+   * 
    * @example
    * 1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -91,7 +115,7 @@ export class CloneSqlInstanceResponseBodyResult extends $dara.Model {
 export class CloneSqlInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 10D5E615-69F7-5F49-B850-00169ADE513C
@@ -99,7 +123,7 @@ export class CloneSqlInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * NodeVO
+   * The returned result.
    */
   result?: CloneSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

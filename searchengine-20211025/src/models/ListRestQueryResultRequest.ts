@@ -13,7 +13,7 @@ export class ListRestQueryResultRequest extends $dara.Model {
   indexName?: string;
   /**
    * @remarks
-   * The rest query statement.
+   * The REST query.
    * 
    * @example
    * query%3Drelation_id%3A%221151274675_2%22%26%26cluster%3Dgeneral%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson

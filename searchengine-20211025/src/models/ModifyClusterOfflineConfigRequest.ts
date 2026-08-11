@@ -21,7 +21,7 @@ export class ModifyClusterOfflineConfigRequest extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * test1
+   * ha-cn-pl32rf0****_test_api
    */
   dataSourceName?: string;
   /**
@@ -29,7 +29,7 @@ export class ModifyClusterOfflineConfigRequest extends $dara.Model {
    * The type of the data source. Valid values: odps: MaxCompute. swift: Swift. unKnow: unknown type.
    * 
    * @example
-   * maxComputer
+   * odps
    */
   dataSourceType?: string;
   /**
@@ -61,7 +61,7 @@ export class ModifyClusterOfflineConfigRequest extends $dara.Model {
    * This parameter is required when index building for full data in a MaxCompute data source is triggered.
    * 
    * @example
-   * 20211202
+   * ds=20211202
    */
   partition?: string;
   /**

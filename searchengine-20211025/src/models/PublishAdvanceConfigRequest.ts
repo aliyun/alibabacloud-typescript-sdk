@@ -14,7 +14,7 @@ export class PublishAdvanceConfigRequestFilesConfig extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The variables.
+   * The variable list.
    */
   variables?: { [key: string]: FilesConfigVariablesValue };
   static names(): { [key: string]: string } {
@@ -46,12 +46,12 @@ export class PublishAdvanceConfigRequestFilesConfig extends $dara.Model {
 export class PublishAdvanceConfigRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * The information about the advanced configuration.
+   * The advanced configuration information.
    */
   config?: PublishAdvanceConfigRequestFilesConfig;
   /**
    * @remarks
-   * The directory name.
+   * The folder name.
    * 
    * @example
    * /clusters
@@ -67,7 +67,12 @@ export class PublishAdvanceConfigRequestFiles extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+   * The operation type. Valid values:
+   * 
+   * - UPDATE: updates the file.
+   * - DELETE: deletes the file.
+   * 
+   * Default value: UPDATE.
    * 
    * @example
    * UPDATE
@@ -75,7 +80,7 @@ export class PublishAdvanceConfigRequestFiles extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The path of the Object Storage Service (OSS) object.
+   * The OSS file path.
    * 
    * @example
    * oss://opensearch/test.json
@@ -83,7 +88,7 @@ export class PublishAdvanceConfigRequestFiles extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The path of the parent directory.
+   * The parent file path.
    * 
    * @example
    * /
@@ -134,7 +139,7 @@ export class PublishAdvanceConfigRequest extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The files.
+   * The file information.
    */
   files?: PublishAdvanceConfigRequestFiles[];
   static names(): { [key: string]: string } {

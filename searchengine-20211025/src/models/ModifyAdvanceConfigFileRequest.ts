@@ -9,17 +9,17 @@ export class ModifyAdvanceConfigFileRequest extends $dara.Model {
    * The file content.
    * 
    * @example
-   * "ha3"
+   * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
    */
   content?: string;
   /**
    * @remarks
-   * The variables.
+   * The list of variables.
    */
   variables?: { [key: string]: VariablesValue };
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * This parameter is required.
    * 

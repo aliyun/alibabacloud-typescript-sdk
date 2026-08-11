@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelResponseBodyResultContentRequestHeader extends $dara.Model {
   /**
+   * @remarks
+   * Authentication information. The format is Bearer access_token.
+   * 
    * @example
    * Bearer OS-v0********6vvs
    */
   authorization?: string;
   /**
+   * @remarks
+   * The HTTP request\\"s content type.
+   * 
    * @example
    * application/json
    */
@@ -38,6 +44,9 @@ export class GetModelResponseBodyResultContentRequestHeader extends $dara.Model 
 
 export class GetModelResponseBodyResultContentRequestParametersBuild extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * query
    */
@@ -65,6 +74,9 @@ export class GetModelResponseBodyResultContentRequestParametersBuild extends $da
 
 export class GetModelResponseBodyResultContentRequestParametersSearch extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * document
    */
@@ -91,7 +103,15 @@ export class GetModelResponseBodyResultContentRequestParametersSearch extends $d
 }
 
 export class GetModelResponseBodyResultContentRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Parameters for the index building phase.
+   */
   build?: GetModelResponseBodyResultContentRequestParametersBuild;
+  /**
+   * @remarks
+   * Parameters for the query phase.
+   */
   search?: GetModelResponseBodyResultContentRequestParametersSearch;
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +144,17 @@ export class GetModelResponseBodyResultContentRequestParameters extends $dara.Mo
 
 export class GetModelResponseBodyResultContentRequestUrlParams extends $dara.Model {
   /**
+   * @remarks
+   * Parameters passed during index building.
+   * 
    * @example
    * key: value
    */
   build?: { [key: string]: any };
   /**
+   * @remarks
+   * Parameters passed during a query.
+   * 
    * @example
    * key: value
    */
@@ -163,13 +189,28 @@ export class GetModelResponseBodyResultContentRequestUrlParams extends $dara.Mod
 }
 
 export class GetModelResponseBodyResultContentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP request header.
+   */
   header?: GetModelResponseBodyResultContentRequestHeader;
+  /**
+   * @remarks
+   * Define parameters here if they differ between the build and search phases.
+   */
   parameters?: GetModelResponseBodyResultContentRequestParameters;
   /**
+   * @remarks
+   * The request body\\"s template string.
+   * 
    * @example
    * {\\"input\\": [\\"%{input}\\"], \\"input_type\\": \\"%{input_type}\\"}
    */
   requestBody?: string;
+  /**
+   * @remarks
+   * URL parameters. Some model services require you to pass parameters in the URL.
+   */
   urlParams?: GetModelResponseBodyResultContentRequestUrlParams;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +250,9 @@ export class GetModelResponseBodyResultContentRequest extends $dara.Model {
 
 export class GetModelResponseBodyResultContentResponse extends $dara.Model {
   /**
+   * @remarks
+   * The method to parse the result. This is described in JSONPath format.
+   * 
    * @example
    * $.result.embeddings[*].embedding
    */
@@ -236,23 +280,51 @@ export class GetModelResponseBodyResultContentResponse extends $dara.Model {
 
 export class GetModelResponseBodyResultContent extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP method to access the model service. PUT and POST are supported.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * test
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - a. Text embedding: text_embedding
+   * 
+   * - b. Text sparse embedding: text_sparse_embedding
+   * 
+   * - c. Image embedding: image_embedding
+   * 
+   * - d. Image content analysis: image_analyze
+   * 
    * @example
    * text_embedding
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The request configuration.
+   */
   request?: GetModelResponseBodyResultContentRequest;
+  /**
+   * @remarks
+   * The method to parse the result. This is described in JSONPath format.
+   */
   response?: GetModelResponseBodyResultContentResponse;
   /**
+   * @remarks
+   * The model service endpoint.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -295,38 +367,75 @@ export class GetModelResponseBodyResultContent extends $dara.Model {
 }
 
 export class GetModelResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The model configuration.
+   */
   content?: GetModelResponseBodyResultContent;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-05-21 16:05:26
    */
   createTime?: string;
   /**
+   * @remarks
+   * The model dimension.
+   * 
    * @example
    * 128
    */
   dimension?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The model status.
+   * 
+   * - ok: Normal
+   * 
+   * - error: Abnormal
+   * 
    * @example
    * ok
    */
   status?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - a. Text embedding: text_embedding
+   * 
+   * - b. Text sparse embedding: text_sparse_embedding
+   * 
+   * - c. Image embedding: image_embedding
+   * 
+   * - d. Image content analysis: image_analyze
+   * 
    * @example
    * text_embedding
    */
   type?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2024-05-21 16:05:26
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The model\\"s access URL.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -371,10 +480,17 @@ export class GetModelResponseBodyResult extends $dara.Model {
 
 export class GetModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 38b079f1-7846-4226-8c90-3e2644b5c52b
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The model configuration.
+   */
   result?: GetModelResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

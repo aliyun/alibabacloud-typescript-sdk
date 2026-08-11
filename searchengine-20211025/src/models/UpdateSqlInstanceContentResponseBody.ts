@@ -4,57 +4,97 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateSqlInstanceContentResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The combined parameters.
+   * 
    * @example
    * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
    */
   combineParams?: string;
+  /**
+   * @remarks
+   * The comments.
+   * 
+   * @example
+   * Confirm and Execute
+   */
   comment?: string;
   /**
+   * @remarks
+   * The SQL content.
+   * 
    * @example
    * select * from test
    */
   content?: string;
   /**
+   * @remarks
+   * The dynamic parameters.
+   * 
    * @example
    * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
    */
   dynamicParams?: string;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 1719221186114
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the instance was last modified.
+   * 
    * @example
    * 1719221186114
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 1
    */
   instanceId?: number;
   /**
+   * @remarks
+   * The parameters in the key-value pairs.
+   * 
    * @example
    * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
    */
   kvpairs?: string;
   /**
+   * @remarks
+   * The ID of the related template.
+   * 
    * @example
    * 1
    */
   relatedTemplateId?: number;
   /**
+   * @remarks
+   * The static parameters.
+   * 
    * @example
    * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
    */
   staticParams?: string;
   /**
+   * @remarks
+   * The template parameters.
+   * 
    * @example
    * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
    */
   templateParams?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -105,7 +145,7 @@ export class UpdateSqlInstanceContentResponseBodyResult extends $dara.Model {
 export class UpdateSqlInstanceContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * E45380E8-994A-5402-9806-F114B3295FCF
@@ -113,7 +153,7 @@ export class UpdateSqlInstanceContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * InstanceVersionVO
+   * The data returned.
    */
   result?: UpdateSqlInstanceContentResponseBodyResult;
   static names(): { [key: string]: string } {

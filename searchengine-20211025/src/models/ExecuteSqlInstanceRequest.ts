@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecuteSqlInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The combined parameters.
+   */
   combineParam?: { [key: string]: any };
   /**
    * @remarks
+   * The SQL content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,13 +19,32 @@ export class ExecuteSqlInstanceRequest extends $dara.Model {
    */
   content?: string;
   /**
+   * @remarks
+   * The data source server room.
+   * 
    * @example
    * vpc_hz_domain_1
    */
   domain?: string;
+  /**
+   * @remarks
+   * The dynamic parameters.
+   */
   dynamicParam?: { [key: string]: any };
+  /**
+   * @remarks
+   * The key-value struct.
+   */
   kvpair?: { [key: string]: any };
+  /**
+   * @remarks
+   * The SQL execution parameters.
+   */
   params?: { [key: string]: any };
+  /**
+   * @remarks
+   * The static parameters.
+   */
   staticParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

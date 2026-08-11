@@ -8,7 +8,7 @@ export class GetAdvanceConfigResponseBodyResultFiles extends $dara.Model {
    * The file path.
    * 
    * @example
-   * ""
+   * /cluster
    */
   fullPathName?: string;
   /**
@@ -16,7 +16,7 @@ export class GetAdvanceConfigResponseBodyResultFiles extends $dara.Model {
    * Indicates whether the file is a directory.
    * 
    * @example
-   * True
+   * true
    */
   isDir?: boolean;
   /**
@@ -24,7 +24,7 @@ export class GetAdvanceConfigResponseBodyResultFiles extends $dara.Model {
    * Indicates whether the file is a container.
    * 
    * @example
-   * True
+   * true
    */
   isTemplate?: boolean;
   /**
@@ -32,7 +32,7 @@ export class GetAdvanceConfigResponseBodyResultFiles extends $dara.Model {
    * The file name.
    * 
    * @example
-   * ha-cn-2r42ostoc01_qrs
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -84,7 +84,7 @@ export class GetAdvanceConfigResponseBodyResult extends $dara.Model {
    * The description of the advanced configuration.
    * 
    * @example
-   * close alarm, chiji id 37080
+   * Custom remarks
    */
   desc?: string;
   /**
@@ -97,7 +97,7 @@ export class GetAdvanceConfigResponseBodyResult extends $dara.Model {
    * The name of the advanced configuration.
    * 
    * @example
-   * ha-cn-0ju2s170b03_qrs
+   * my_index
    */
   name?: string;
   /**
@@ -105,7 +105,7 @@ export class GetAdvanceConfigResponseBodyResult extends $dara.Model {
    * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
    * 
    * @example
-   * 0,1,3,6,8
+   * used
    */
   status?: string;
   /**
@@ -113,7 +113,7 @@ export class GetAdvanceConfigResponseBodyResult extends $dara.Model {
    * The time when the advanced configuration was updated.
    * 
    * @example
-   * ""
+   * 2024-05-21 16:05:26
    */
   updateTime?: number;
   static names(): { [key: string]: string } {

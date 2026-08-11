@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSqlInstanceNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the SQL instance.
+   * 
    * This parameter is required.
    * 
    * @example

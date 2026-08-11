@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySearcherReplicaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * e1eef569-1ff7-4bf8-acf7-1cecca9894ce
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the operation. This object is empty in the current version.
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

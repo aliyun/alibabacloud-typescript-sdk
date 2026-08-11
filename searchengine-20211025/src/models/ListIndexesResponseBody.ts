@@ -8,7 +8,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
    * The AccessKey ID of the MaxCompute data source.
    * 
    * @example
-   * root
+   * L***p
    */
   accessKey?: string;
   /**
@@ -16,7 +16,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
    * The AccessKey secret of the MaxCompute data source.
    * 
    * @example
-   * root123
+   * 5**9a6
    */
   accessSecret?: string;
   /**
@@ -27,20 +27,45 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
    * ha3test-oss
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the data catalog for the DLF data source.
+   * 
+   * @example
+   * clg-paimon-21cc136237a6457f8618f5f82d116d7e
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database name of the DLF data source.
+   * 
+   * @example
+   * dlf_test
+   */
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute data source.
+   * Information about the MaxCompute data source.
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The file format for OSS.
+   * 
+   * - ha3
+   * 
+   * - json
+   * 
+   * @example
+   * ha3
+   */
   format?: string;
   /**
    * @remarks
-   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * Information about the saro data source.
    * 
    * @example
    * TEST_dump_demo_sj_na61hunbu2_share_holo
@@ -48,7 +73,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
   namespace?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) path.
+   * Information about the OSS data source.
    * 
    * @example
    * /test_opensearch/sift_oss_test.data
@@ -56,15 +81,15 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
   ossPath?: string;
   /**
    * @remarks
-   * The shard name.
+   * The data partition.
    * 
    * @example
-   * ds=12345
+   * ds=20231220
    */
   partition?: string;
   /**
    * @remarks
-   * The file path in the Apsara File Storage for HDFS file system.
+   * Information about the Hadoop Distributed File System (HDFS) data source.
    * 
    * @example
    * http://test_opensearch/sift_oss_test.data
@@ -72,7 +97,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The name of the MaxCompute project.
    * 
    * @example
    * tisplus_dev
@@ -80,12 +105,19 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * Information about the saro or MaxCompute data source.
    * 
    * @example
    * dump_odps_demo
    */
   table?: string;
+  /**
+   * @remarks
+   * The tag of the DLF data source.
+   * 
+   * @example
+   * test_tag
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,7 +169,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $dara.Mod
 export class ListIndexesResponseBodyResultDataSourceInfoSaroConfig extends $dara.Model {
   /**
    * @remarks
-   * The namespace of the SARO data source.
+   * The namespace of the saro data source.
    * 
    * @example
    * TEST_dump_demo_sj_na61hunbu2_share_holo
@@ -145,7 +177,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoSaroConfig extends $dara
   namespace?: string;
   /**
    * @remarks
-   * The name of the SARO table.
+   * The name of the saro data table.
    * 
    * @example
    * dump_odps_demo
@@ -177,7 +209,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoSaroConfig extends $dara
 export class ListIndexesResponseBodyResultDataSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the automatic full indexing feature is enabled.
+   * Indicates whether to automatically build a full index.
    * 
    * @example
    * true
@@ -185,28 +217,28 @@ export class ListIndexesResponseBodyResultDataSourceInfo extends $dara.Model {
   autoBuildIndex?: boolean;
   /**
    * @remarks
-   * The configuration of MaxCompute data sources.
+   * The configurations of the MaxCompute data source.
    */
   config?: ListIndexesResponseBodyResultDataSourceInfoConfig;
   /**
    * @remarks
-   * The data center in which the data source is deployed.
+   * The offline deployment.
    * 
    * @example
-   * test
+   * vpc_hz_domain_2
    */
   domain?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
-   * index1
+   * ha-cn-pl32rf0****_test_api
    */
   name?: string;
   /**
    * @remarks
-   * The number of resources used for data update.
+   * The number of resources for data updates.
    * 
    * @example
    * 2
@@ -214,12 +246,12 @@ export class ListIndexesResponseBodyResultDataSourceInfo extends $dara.Model {
   processPartitionCount?: number;
   /**
    * @remarks
-   * The configurations of the SARO data source.
+   * The configurations of the saro data source.
    */
   saroConfig?: ListIndexesResponseBodyResultDataSourceInfoSaroConfig;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * The type of the data source. Valid values: odps (MaxCompute), swift, saro, oss (Object Storage Service), and unKnow.
    * 
    * @example
    * odps
@@ -267,18 +299,18 @@ export class ListIndexesResponseBodyResultDataSourceInfo extends $dara.Model {
 export class ListIndexesResponseBodyResultVersionsFiles extends $dara.Model {
   /**
    * @remarks
-   * The full path of the file.
+   * The name of the folder after a full-text index is created.
    * 
    * @example
-   * " "
+   * /qrs.json
    */
   fullPathName?: string;
   /**
    * @remarks
-   * Indicates whether the file is a directory.
+   * Indicates whether a folder exists.
    * 
    * @example
-   * True
+   * true
    */
   isDir?: boolean;
   /**
@@ -286,7 +318,7 @@ export class ListIndexesResponseBodyResultVersionsFiles extends $dara.Model {
    * Indicates whether the file is a template.
    * 
    * @example
-   * True
+   * true
    */
   isTemplate?: boolean;
   /**
@@ -294,7 +326,7 @@ export class ListIndexesResponseBodyResultVersionsFiles extends $dara.Model {
    * The file name.
    * 
    * @example
-   * ha-cn-7mz2iv7sq01_qrs
+   * qrs.json
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -327,52 +359,58 @@ export class ListIndexesResponseBodyResultVersionsFiles extends $dara.Model {
 export class ListIndexesResponseBodyResultVersions extends $dara.Model {
   /**
    * @remarks
-   * The description of the index version.
+   * The description.
    * 
    * @example
-   * close alarm, by 3.9.2 hotfix workflow
+   * Index Note
    */
   desc?: string;
   /**
    * @remarks
-   * The files.
+   * The list of file names.
    */
   files?: ListIndexesResponseBodyResultVersionsFiles[];
   /**
    * @remarks
-   * The name of the index version.
+   * The version name.
    * 
    * @example
-   * ha-cn-7pp2ngv4s02_qrs
+   * test
    */
   name?: string;
   /**
    * @remarks
-   * The status of the index version. Valid values:
+   * The status.
    * 
-   * *   NEW: The index version is created.
-   * *   PUBLISH: The index version is normal.
-   * *   IN_USE: The index version is in use.
-   * *   NOT_USE: The index version is not used.
-   * *   STOP_USE: The index version is being stopped.
-   * *   RESTORE_USE: The index version is being restored.
-   * *   FAIL: The index version failed to be created.
+   * - NEW: The index is being created.
+   * 
+   * - PUBLISH: The index is in the Normal state.
+   * 
+   * - IN_USE: The index is in use.
+   * 
+   * - NOT_USE: The index is not in use.
+   * 
+   * - STOP_USE: The index is being stopped.
+   * 
+   * - RESTORE_USE: The index is being resumed.
+   * 
+   * - FAIL: The index failed.
    * 
    * @example
-   * 2
+   * PUBLISH
    */
   status?: string;
   /**
    * @remarks
-   * The time when the index version was updated.
+   * The update time.
    * 
    * @example
-   * " "
+   * 2024-06-20 08:52:54
    */
   updateTime?: number;
   /**
    * @remarks
-   * The ID of the index version. If the index version is modified, the returned value is null.
+   * The version ID. This parameter is null for an edit version.
    * 
    * @example
    * 1
@@ -415,19 +453,26 @@ export class ListIndexesResponseBodyResultVersions extends $dara.Model {
 export class ListIndexesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The index schema, which is a JSON string.
+   * The schema in the JSON format.
    * 
    * @example
    * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
    */
   content?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-05-21 16:05:26
+   */
   createTime?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source.
    * 
    * @example
-   * ha-cn-7mz2kvu2c01_table4
+   * ha-cn-pl32rf0****_test_api
    */
   dataSource?: string;
   /**
@@ -440,20 +485,20 @@ export class ListIndexesResponseBodyResult extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * note
    */
   description?: string;
   /**
    * @remarks
-   * The deployment name of the index.
+   * The deployment name of the data source.
    * 
    * @example
-   * test
+   * vpc_hz_domain_1
    */
   domain?: string;
   /**
    * @remarks
-   * The time when full data in the index was last updated.
+   * The time when the full index was switched.
    * 
    * @example
    * 2023-07-05 10:40:38
@@ -461,7 +506,7 @@ export class ListIndexesResponseBodyResult extends $dara.Model {
   fullUpdateTime?: string;
   /**
    * @remarks
-   * The full version of the index.
+   * The full version, which is the index version.
    * 
    * @example
    * 1688523414
@@ -469,7 +514,7 @@ export class ListIndexesResponseBodyResult extends $dara.Model {
   fullVersion?: number;
   /**
    * @remarks
-   * The time when incremental data in the index was last updated.
+   * The time of the incremental update.
    * 
    * @example
    * 2023-07-05 10:58:33
@@ -485,10 +530,10 @@ export class ListIndexesResponseBodyResult extends $dara.Model {
   indexSize?: number;
   /**
    * @remarks
-   * The index ststus. Valid values: NEW and PUBLISH.
+   * NEW, PUBLISH
    * 
    * @example
-   * " "
+   * PUBLISH
    */
   indexStatus?: string;
   /**
@@ -501,16 +546,23 @@ export class ListIndexesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of shards.
+   * The number of data shards.
    * 
    * @example
    * 2
    */
   partition?: number;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 2024-05-21 16:05:26
+   */
   updateTime?: string;
   /**
    * @remarks
-   * The index versions.
+   * The list of versions.
    */
   versions?: ListIndexesResponseBodyResultVersions[];
   static names(): { [key: string]: string } {
@@ -579,7 +631,7 @@ export class ListIndexesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of indexes.
+   * The list of index details.
    */
   result?: ListIndexesResponseBodyResult[];
   static names(): { [key: string]: string } {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The result.
+   * The result set.
    */
   result?: any[];
   /**
    * @remarks
-   * The total number of entries returned
+   * The total number of records.
    * 
    * @example
    * 5
@@ -45,7 +45,7 @@ export class ListLogsResponseBodyResult extends $dara.Model {
 export class ListLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
@@ -53,7 +53,7 @@ export class ListLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ListResult
+   * The returned result.
    */
   result?: ListLogsResponseBodyResult;
   static names(): { [key: string]: string } {

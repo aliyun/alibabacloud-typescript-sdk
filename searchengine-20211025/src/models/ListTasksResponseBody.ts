@@ -13,7 +13,7 @@ export class ListTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned result.
    * 
    * @example
    * {}

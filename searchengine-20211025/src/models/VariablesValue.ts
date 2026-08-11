@@ -7,18 +7,18 @@ import * as $dara from '@darabonba/typescript';
 export class VariablesValueFuncValue extends $dara.Model {
   /**
    * @remarks
-   * The class name of the function variable.
+   * The method class name.
    * 
    * @example
-   * ""
+   * ModifyFile
    */
   funcClassName?: string;
   /**
    * @remarks
-   * The template of the function variable.
+   * The template.
    * 
    * @example
-   * ""
+   * test-template
    */
   template?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class VariablesValueFuncValue extends $dara.Model {
 export class VariablesValue extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the variable is not allowed to be modified.
+   * Specifies whether modification is not allowed.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class VariablesValue extends $dara.Model {
   disableModify?: boolean;
   /**
    * @remarks
-   * Specifies whether the variable is modified.
+   * Indicates whether the variable has been modified.
    * 
    * @example
    * false
@@ -66,31 +66,30 @@ export class VariablesValue extends $dara.Model {
    * The variable value.
    * 
    * @example
-   * ""
+   * qrs_connection_timeout
    */
   value?: string;
   /**
    * @remarks
-   * The description of the variable.
+   * The description.
    * 
    * @example
-   * ""
+   * 超时时间
    */
   description?: string;
   /**
    * @remarks
-   * The template value of the variable.
+   * The template value.
    * 
    * @example
-   * ""
+   * 800
    */
   templateValue?: string;
   /**
    * @remarks
-   * The variable type. Valid values:
-   * 
-   * *   NORMAL: common variable
-   * *   FUNCTION: function variable
+   * The type. Valid values:
+   * - NORMAL: normal variable
+   * - FUNCTION: function variable
    * 
    * @example
    * NORMAL
@@ -98,7 +97,7 @@ export class VariablesValue extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The function variables.
+   * The function variable.
    */
   funcValue?: VariablesValueFuncValue;
   static names(): { [key: string]: string } {

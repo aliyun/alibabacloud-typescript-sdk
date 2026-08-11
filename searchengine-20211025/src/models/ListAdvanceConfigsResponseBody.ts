@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdvanceConfigsResponseBodyResultFiles extends $dara.Model {
   /**
    * @remarks
-   * The absolute path in which the file is stored.
+   * The absolute path.
    * 
    * @example
    * /path/wpd/nae
@@ -13,7 +13,9 @@ export class ListAdvanceConfigsResponseBodyResultFiles extends $dara.Model {
   fullPathName?: string;
   /**
    * @remarks
-   * Indicates whether the file is a directory. Valid values: true and false.
+   * Specifies whether the file is a directory. Valid values:
+   * \\- \\`true\\`
+   * \\- \\`false\\`
    * 
    * @example
    * true
@@ -21,7 +23,9 @@ export class ListAdvanceConfigsResponseBodyResultFiles extends $dara.Model {
   isDir?: boolean;
   /**
    * @remarks
-   * Indicates whether the file is a template. Valid values: true and false.
+   * Specifies whether the file is a template. Valid values:
+   * \\- \\`true\\`
+   * \\- \\`false\\`
    * 
    * @example
    * true
@@ -65,15 +69,23 @@ export class ListAdvanceConfigsResponseBodyResultFiles extends $dara.Model {
 export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * *   The type of the advanced configuration. Valid values: -ONLINE: online configuration
-   * *   \\-ONLINE_CAVA: online Cava configuration
-   * *   \\-ONLINE_PLUGIN: online plug-in configuration
-   * *   \\-ONLINE_QUERY: query configuration
-   * *   \\-OFFLINE_DICT: offline dictionary configuration
-   * *   \\-OFFLINE_TABLE: offline table configuration
-   * *   \\-OFFLINE_COMMON: offline configuration
-   * *   \\-OFFLINE_PLUGIN: offline plug-in configuration
-   * *   \\-OFFLINE_INDEX: index configuration
+   * - ONLINE: online configuration
+   * 
+   * - ONLINE_CAVA: online Cava configuration
+   * 
+   * - ONLINE_PLUGIN: online plugin
+   * 
+   * - ONLINE_QUERY: query configuration
+   * 
+   * - OFFLINE_DICT: offline dictionary configuration
+   * 
+   * - OFFLINE_TABLE: offline table configuration
+   * 
+   * - OFFLINE_COMMON: common offline configuration
+   * 
+   * - OFFLINE_PLUGIN: offline plugin
+   * 
+   * - OFFLINE_INDEX: index configuration
    * 
    * @example
    * ONLINE
@@ -81,7 +93,7 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   advanceConfigType?: string;
   /**
    * @remarks
-   * The content of the advanced configuration that is returned.
+   * The configuration content. This parameter is returned for HTTP and Git requests.
    * 
    * @example
    * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
@@ -97,7 +109,7 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who created the advanced configuration.
+   * The ID of the user who created the configuration.
    * 
    * @example
    * 123456
@@ -105,15 +117,15 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description of the advanced configuration.
+   * The description.
    * 
    * @example
-   * test
+   * Custom Description
    */
   desc?: string;
   /**
    * @remarks
-   * The files.
+   * A list of files.
    */
   files?: ListAdvanceConfigsResponseBodyResultFiles[];
   /**
@@ -126,7 +138,11 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+   * The status of the advanced configuration. Valid values:
+   * \\- \\`drafting\\`: The configuration is a draft.
+   * \\- \\`used\\`: The configuration is in use.
+   * \\- \\`unused\\`: The configuration is not in use.
+   * \\- \\`trash\\`: The configuration is being deleted.
    * 
    * @example
    * drafting
@@ -134,7 +150,7 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the advanced configuration was updated.
+   * The update time.
    * 
    * @example
    * 1631070464000
@@ -183,7 +199,7 @@ export class ListAdvanceConfigsResponseBodyResult extends $dara.Model {
 export class ListAdvanceConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4FB0325E-8C37-5525-96AC-0333523170A3
@@ -191,7 +207,7 @@ export class ListAdvanceConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The advanced configurations.
+   * The returned result.
    */
   result?: ListAdvanceConfigsResponseBodyResult[];
   static names(): { [key: string]: string } {

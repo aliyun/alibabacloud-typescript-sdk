@@ -8,7 +8,7 @@ export class ListClusterNamesResponseBodyResult extends $dara.Model {
    * The description of the cluster.
    * 
    * @example
-   * ha3_test
+   * Custom description
    */
   description?: string;
   /**
@@ -24,7 +24,7 @@ export class ListClusterNamesResponseBodyResult extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * my_index
+   * hz_pre_vpc_domain_1
    */
   name?: string;
   static names(): { [key: string]: string } {

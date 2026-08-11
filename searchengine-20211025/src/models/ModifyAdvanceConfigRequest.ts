@@ -13,7 +13,7 @@ export class ModifyAdvanceConfigRequestFiles extends $dara.Model {
   fullPathName?: string;
   /**
    * @remarks
-   * Specifies whether the file is a directory.
+   * Indicates whether the path specifies a directory.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ModifyAdvanceConfigRequestFiles extends $dara.Model {
   isDir?: boolean;
   /**
    * @remarks
-   * Specifies whether the file is a template.
+   * Indicates whether the file is a template.
    * 
    * @example
    * true
@@ -65,10 +65,10 @@ export class ModifyAdvanceConfigRequestFiles extends $dara.Model {
 export class ModifyAdvanceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the advanced configuration that is returned.
+   * The content of the configuration. This parameter is not empty for HTTP and Git requests.
    * 
    * @example
-   * ""
+   * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
    */
   content?: string;
   /**
@@ -84,25 +84,25 @@ export class ModifyAdvanceConfigRequest extends $dara.Model {
    * The description of the advanced configuration.
    * 
    * @example
-   * test
+   * Custom Configuration
    */
   desc?: string;
   /**
    * @remarks
-   * The files.
+   * The list of files.
    */
   files?: ModifyAdvanceConfigRequestFiles[];
   /**
    * @remarks
-   * The name of the advanced configuration.
+   * The name of the configuration.
    * 
    * @example
-   * ha-cn-zvp2qr1sk01_qrs
+   * ha-cn-pl32rf0****_offline_adv_edit
    */
   name?: string;
   /**
    * @remarks
-   * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+   * The status of the configuration. Valid values: drafting, used, unused, and trash.
    * 
    * @example
    * used
@@ -110,7 +110,7 @@ export class ModifyAdvanceConfigRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the advanced configuration was updated.
+   * The time when the configuration was updated.
    * 
    * @example
    * 2024-02-27T07:50:55Z

@@ -8,7 +8,7 @@ export class GetClusterResponseBodyResultDataNode extends $dara.Model {
    * The name of the Searcher worker.
    * 
    * @example
-   * test
+   * general
    */
   name?: string;
   /**
@@ -58,7 +58,7 @@ export class GetClusterResponseBodyResultQueryNode extends $dara.Model {
    * The name of the QRS worker.
    * 
    * @example
-   * test
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
@@ -129,7 +129,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The effective advanced configuration version.
    * 
    * @example
-   * test_yyds_data1
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   currentAdvanceConfigVersion?: string;
   /**
@@ -137,7 +137,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The effective online configuration version.
    * 
    * @example
-   * test_yyds_data1
+   * ha-cn-pl32rf0****_online_adv_v1
    */
   currentOnlineConfigVersion?: string;
   /**
@@ -150,7 +150,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The description of the cluster.
    * 
    * @example
-   * fzz_test
+   * Custom description
    */
   description?: string;
   /**
@@ -158,7 +158,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The latest advanced configuration version.
    * 
    * @example
-   * test_yyds_data1
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   latestAdvanceConfigVersion?: string;
   /**
@@ -166,7 +166,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The latest online configuration version.
    * 
    * @example
-   * test_yyds_data1
+   * ha-cn-pl32rf0****_online_adv_v1
    */
   latestOnlineConfigVersion?: string;
   /**
@@ -174,7 +174,7 @@ export class GetClusterResponseBodyResult extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * general
+   * bj_vpc_domain_2
    */
   name?: string;
   /**

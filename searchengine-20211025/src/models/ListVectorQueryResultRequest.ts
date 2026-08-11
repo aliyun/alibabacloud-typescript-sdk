@@ -8,7 +8,7 @@ export class ListVectorQueryResultRequest extends $dara.Model {
    * The request body.
    * 
    * @example
-   * {}
+   * {"tableName":"api","ids":["1"]}
    */
   body?: { [key: string]: any };
   path?: string;

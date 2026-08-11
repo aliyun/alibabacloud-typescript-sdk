@@ -13,7 +13,7 @@ export class CreateConfigDirRequest extends $dara.Model {
   dirName?: string;
   /**
    * @remarks
-   * The path of the parent directory.
+   * The parent file path.
    * 
    * @example
    * /

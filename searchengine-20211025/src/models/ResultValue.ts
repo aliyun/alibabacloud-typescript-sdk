@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResultValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether all pushes are suspended.
+   * Specifies whether to pause deployments to all destinations.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ResultValue extends $dara.Model {
   pauseAll?: boolean;
   /**
    * @remarks
-   * Indicates whether the push is suspended for the new full index version.
+   * Specifies whether to pause deployments of new full indexes.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ResultValue extends $dara.Model {
   pauseIndex?: boolean;
   /**
    * @remarks
-   * Indicates whether the push is suspended for the incremental indexes.
+   * Specifies whether to pause deployments of incremental batches.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ResultValue extends $dara.Model {
   pauseIndexBatch?: boolean;
   /**
    * @remarks
-   * Indicates whether the push is suspended for the configuration.
+   * Specifies whether to pause configuration deployments.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ResultValue extends $dara.Model {
   pauseBiz?: boolean;
   /**
    * @remarks
-   * Indicates whether the push is suspended for the real-time incremental indexes.
+   * Specifies whether to pause real-time incremental updates.
    * 
    * @example
    * true

@@ -32,7 +32,7 @@ export class ModifyNodeConfigRequest extends $dara.Model {
    * The traffic percentage.
    * 
    * @example
-   * -100
+   * 100
    */
   flowRatio?: number;
   /**
@@ -64,7 +64,7 @@ export class ModifyNodeConfigRequest extends $dara.Model {
    * The name of the data source. Valid values: -search: search for data. -not_search: do not search for data.
    * 
    * @example
-   * ha-cn-2r42ostoc01_0704
+   * search
    */
   dataSourceName?: string;
   /**
@@ -74,23 +74,27 @@ export class ModifyNodeConfigRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ha-cn-zvp2iv9a401_qrs
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
    * @remarks
    * The type of the algorithm. Valid values:
    * 
-   * *   pop: a popularity model.
-   * *   cp: a category prediction model.
-   * *   hot: a top search model.
-   * *   hint: a hint model.
-   * *   suggest: a drop-down suggestions model.
+   * - pop: a popularity model.
+   * 
+   * - cp: a category prediction model.
+   * 
+   * - hot: a top search model.
+   * 
+   * - hint: a hint model.
+   * 
+   * - suggest: a drop-down suggestions model.
    * 
    * This parameter is required.
    * 
    * @example
-   * " "
+   * hot
    */
   type?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BuildIndexResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The ID of the request.
    * 
    * @example
    * 407BFD91-DE7D-50BA-8F88-CDE52A3B5E46
@@ -13,7 +13,7 @@ export class BuildIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of clusters
+   * The returned result.
    * 
    * @example
    * {}

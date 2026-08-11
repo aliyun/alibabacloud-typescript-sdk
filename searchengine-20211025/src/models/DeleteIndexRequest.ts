@@ -10,7 +10,7 @@ export class DeleteIndexRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ha-cn-pl32rf0js04_test
+   * ha-cn-pl32rf0****_ test_api
    */
   dataSource?: string;
   /**

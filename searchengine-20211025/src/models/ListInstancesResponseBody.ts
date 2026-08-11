@@ -91,30 +91,44 @@ export class ListInstancesResponseBodyResultDataSourceDetails extends $dara.Mode
 }
 
 export class ListInstancesResponseBodyResultNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelist for the public domain name.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   allow?: string;
   /**
    * @remarks
-   * The instance endpoint.
+   * The gateway endpoint.
    * 
    * @example
-   * ""
+   * ha-cn-35t3r****.ha.aliyuncs.com
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The public domain name.
+   * 
+   * @example
+   * ha-cn-35t3ni****.public.ha.aliyuncs.com
+   */
   publicEndpoint?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the virtual switch.
    * 
    * @example
-   * vsw-bp11ldcf59q2nbwkqgj6z
+   * vsw-bp11ldcf59q2n****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the instance is deployed.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
-   * vpc-wz9axk41d9vffoc79x0oe
+   * vpc-wz9axk41d9vff****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -147,10 +161,45 @@ export class ListInstancesResponseBodyResultNetwork extends $dara.Model {
 }
 
 export class ListInstancesResponseBodyResultSpecQrsResource extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type. Valid values:local_ssd: local solid-state drive (SSD)cloud: disk
+   * 
+   * @example
+   * local_ssd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 1
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The storage space of the node in GB.
+   * 
+   * @example
+   * 100
+   */
   disk?: number;
+  /**
+   * @remarks
+   * The memory size in GB.
+   * 
+   * @example
+   * 10
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 3
+   */
   nodeCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -182,10 +231,45 @@ export class ListInstancesResponseBodyResultSpecQrsResource extends $dara.Model 
 }
 
 export class ListInstancesResponseBodyResultSpecSearchResource extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type. Valid values:local_ssd: local SSDcloud: disk
+   * 
+   * @example
+   * local_ssd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The number of CPU cores.
+   * 
+   * @example
+   * 1
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The storage space of the node in GB.
+   * 
+   * @example
+   * 100
+   */
   disk?: number;
+  /**
+   * @remarks
+   * The memory size in GB.
+   * 
+   * @example
+   * 10
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 3
+   */
   nodeCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -217,7 +301,15 @@ export class ListInstancesResponseBodyResultSpecSearchResource extends $dara.Mod
 }
 
 export class ListInstancesResponseBodyResultSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The specifications of the query nodes.
+   */
   qrsResource?: ListInstancesResponseBodyResultSpecQrsResource;
+  /**
+   * @remarks
+   * The specifications of the data nodes.
+   */
   searchResource?: ListInstancesResponseBodyResultSpecSearchResource;
   static names(): { [key: string]: string } {
     return {
@@ -254,7 +346,7 @@ export class ListInstancesResponseBodyResultTags extends $dara.Model {
    * The tag key.
    * 
    * @example
-   * env
+   * opensearch
    */
   key?: string;
   /**
@@ -262,7 +354,7 @@ export class ListInstancesResponseBodyResultTags extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * oboms-disk
+   * opensearch
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -294,15 +386,15 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
    * The billing method.
    * 
    * @example
-   * PrePaid
+   * POSTPAY
    */
   chargeType?: string;
   /**
    * @remarks
-   * The commodity code of the instance.
+   * The commodity code.
    * 
    * @example
-   * ""
+   * opensearch_ha3post_public_cn
    */
   commodityCode?: string;
   /**
@@ -319,13 +411,20 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * Emergency test
+   * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The edition of the instance.vector: Vector Search Editionengine: Retrieval Engine Edition
+   * 
+   * @example
+   * vector
+   */
   edition?: string;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The expiration time.
    * 
    * @example
    * 1634885083
@@ -333,7 +432,7 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * Indicates whether an overdue payment is involved.
+   * Indicates whether the instance has an overdue payment.
    * 
    * @example
    * false
@@ -341,15 +440,15 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
   inDebt?: boolean;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
-   * ha-cn-2r42n8oh001
+   * ha-cn-pl32rf0****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The lock state of the instance.
+   * The lock status.
    * 
    * @example
    * Unlock
@@ -357,41 +456,66 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The network information of the instance.
+   * The network information of the search engine instance.
    */
   network?: ListInstancesResponseBodyResultNetwork;
+  /**
+   * @remarks
+   * Indicates whether the instance is a standalone instance.
+   * 
+   * @example
+   * false
+   */
   noQrs?: boolean;
   /**
    * @remarks
    * The ID of the resource group.
    * 
    * @example
-   * rg-aekzgpiswzbksdi
+   * ha-cn-pl32rf0****
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The specifications of the nodes.
+   */
   spec?: ListInstancesResponseBodyResultSpec;
   /**
    * @remarks
-   * The instance status.
+   * The status of the instance.
    * 
    * @example
-   * 2
+   * READY
    */
   status?: string;
   /**
    * @remarks
-   * The tags of the instance.
+   * The tags.
    */
   tags?: ListInstancesResponseBodyResultTags[];
   /**
    * @remarks
-   * The time when the instance was updated.
+   * The time when the instance was last updated.
    * 
    * @example
    * 2018-12-06T11:17:49.0
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * admin
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The version of the engine.
+   * 
+   * @example
+   * ha3_3.10.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -465,7 +589,7 @@ export class ListInstancesResponseBodyResult extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request
+   * The ID of the request.
    * 
    * @example
    * 89B968E6-1E41-58DF-BB25-5F98ECC759CE
@@ -473,12 +597,12 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * The returned result.
    */
   result?: ListInstancesResponseBodyResult[];
   /**
    * @remarks
-   * The total number of entries returned
+   * The total number of entries.
    * 
    * @example
    * 5

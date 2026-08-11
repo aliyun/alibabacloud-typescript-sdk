@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAdvanceConfigFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
@@ -13,7 +13,7 @@ export class ModifyAdvanceConfigFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned result.
    * 
    * @example
    * {}

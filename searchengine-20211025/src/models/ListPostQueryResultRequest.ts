@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListPostQueryResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The request structure.
    * 
    * @example
-   * {}
+   * {"assemblyQuery":"query=id:1&&cluster=general&&config=start:0,hit:10,format:json"}
    */
   body?: { [key: string]: any };
   /**
    * @remarks
-   * The query type. Valid values: sql: SQL query. ha3: Havenask query.
+   * sql: SQL query. ha3: HA3 query.
    * 
    * @example
    * ha3

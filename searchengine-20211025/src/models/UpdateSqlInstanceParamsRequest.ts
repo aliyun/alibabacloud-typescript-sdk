@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSqlInstanceParamsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The combined parameters.
+   */
   combineParam?: { [key: string]: any };
+  /**
+   * @remarks
+   * The dynamic parameters.
+   */
   dynamicParam?: { [key: string]: any };
+  /**
+   * @remarks
+   * The key-value (KV) configuration of the instance.
+   */
   kvpair?: { [key: string]: any };
+  /**
+   * @remarks
+   * The parameters to modify.
+   */
   params?: { [key: string]: any };
+  /**
+   * @remarks
+   * The static parameters.
+   */
   staticParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

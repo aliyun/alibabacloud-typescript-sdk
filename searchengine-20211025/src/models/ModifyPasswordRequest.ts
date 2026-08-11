@@ -8,7 +8,7 @@ export class ModifyPasswordRequest extends $dara.Model {
    * The password.
    * 
    * @example
-   * ******************************
+   * testPassword
    */
   password?: string;
   /**
@@ -16,7 +16,7 @@ export class ModifyPasswordRequest extends $dara.Model {
    * The username.
    * 
    * @example
-   * "username"
+   * testUserName
    */
   username?: string;
   static names(): { [key: string]: string } {

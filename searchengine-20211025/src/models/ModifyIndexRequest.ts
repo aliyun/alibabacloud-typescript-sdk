@@ -6,7 +6,7 @@ import { ConfigValue } from "./ConfigValue";
 export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
    * L***p
@@ -14,7 +14,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The AccessKey secret of the ODPS data source.
    * 
    * @example
    * 5**9a6
@@ -22,26 +22,49 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   accessSecret?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The data catalog ID for DLF data sources.
+   * 
+   * @example
+   * test-catalog
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database for DLF data sources.
+   * 
+   * @example
+   * test-database
+   */
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute data source.
+   * The ODPS endpoint.
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The OSS file format type. Valid values:
+   * - ha3
+   * - json.
+   * 
+   * @example
+   * ha3
+   */
   format?: string;
   /**
    * @remarks
-   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * The namespace for saro data sources.
    * 
    * @example
    * test-namespace
@@ -49,7 +72,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) path.
+   * The path for OSS data sources.
    * 
    * @example
    * /opensearch/oss.json
@@ -57,7 +80,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table. Example: ds=20180102.
+   * The ODPS partition. Example: ds=20180102.
    * 
    * @example
    * ds=20230114
@@ -65,7 +88,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The file path in the Apsara File Storage for HDFS file system.
+   * The path for HDFS data sources.
    * 
    * @example
    * test-hdfs-path
@@ -73,7 +96,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The ODPS data source project name.
    * 
    * @example
    * bbt_algo_pai
@@ -81,13 +104,29 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * The table name for saro or ODPS data sources.
    * 
    * @example
    * item
    */
   table?: string;
+  /**
+   * @remarks
+   * The table format for DLF data sources.
+   * 
+   * @example
+   * paimon
+   * lance
+   * object
+   */
   tableFormat?: string;
+  /**
+   * @remarks
+   * The tag for DLF data sources.
+   * 
+   * @example
+   * test-tag
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,7 +180,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $dara.Model {
 export class ModifyIndexRequestDataSourceInfoSaroConfig extends $dara.Model {
   /**
    * @remarks
-   * The namespace to which the SARO data source belongs.
+   * The namespace of the saro data source.
    * 
    * @example
    * flink-test-fjx-default
@@ -149,7 +188,7 @@ export class ModifyIndexRequestDataSourceInfoSaroConfig extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the SARO table.
+   * The saro data table name.
    * 
    * @example
    * device_event_shy_summary_
@@ -181,7 +220,7 @@ export class ModifyIndexRequestDataSourceInfoSaroConfig extends $dara.Model {
 export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic full indexing feature.
+   * Specifies whether to enable automatic full indexing.
    * 
    * @example
    * true
@@ -189,7 +228,7 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   autoBuildIndex?: boolean;
   /**
    * @remarks
-   * The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
+   * The index rebuild mode. Valid values: api (push data source through API) and indexRecover (recover data source from the index).
    * 
    * @example
    * api
@@ -197,12 +236,12 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   buildMode?: string;
   /**
    * @remarks
-   * The configurations of the MaxCompute data source.
+   * The ODPS datasource config.
    */
   config?: ModifyIndexRequestDataSourceInfoConfig;
   /**
    * @remarks
-   * The start timestamp from which incremental data is retrieved.
+   * The timestamp for incremental data tracking.
    * 
    * @example
    * 1709715164
@@ -210,7 +249,7 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   dataTimeSec?: number;
   /**
    * @remarks
-   * The offline deployment name of the data source.
+   * The offline deployment.
    * 
    * @example
    * vpc_hz_domain_1
@@ -218,25 +257,39 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the index version from which data is restored.
+   * The generation of the dump table when recovering the data source from the index.
    * 
    * @example
-   * 4
+   * 1718698593
    */
   generation?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
-   * ha-cn-35t3n1yuj0d_index_1
+   * ha-cn-pl32rf0****_index_1
    */
   name?: string;
+  /**
+   * @remarks
+   * The file path selected for index rebuilding from an OSS data source.
+   * 
+   * @example
+   * /opensearch/oss.json
+   */
   ossDataPath?: string;
+  /**
+   * @remarks
+   * The ODPS data source partition. This parameter is required when the data source type is ODPS.
+   * 
+   * @example
+   * ds=20230114
+   */
   partition?: string;
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently processed.
+   * The number of concurrent full-indexing processes.
    * 
    * @example
    * 2
@@ -244,7 +297,7 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   processParallelNum?: number;
   /**
    * @remarks
-   * The number of resources used for data update.
+   * The number of resources for data updates.
    * 
    * @example
    * 4
@@ -252,12 +305,12 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
   processPartitionCount?: number;
   /**
    * @remarks
-   * The configurations of the SARO data source.
+   * The saro datasource config.
    */
   saroConfig?: ModifyIndexRequestDataSourceInfoSaroConfig;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * The data source type. Valid values: odps, swift, saro, oss, and unKnow.
    * 
    * @example
    * odps
@@ -317,7 +370,7 @@ export class ModifyIndexRequestDataSourceInfo extends $dara.Model {
 export class ModifyIndexRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently built.
+   * The number of concurrent full-indexing build threads.
    * 
    * @example
    * 2
@@ -330,15 +383,15 @@ export class ModifyIndexRequest extends $dara.Model {
   cluster?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * The name of the configuration file.
+   * The cluster.json file name.
    * 
    * @example
-   * ha-cn-35t3r02iq03@ha-cn-35t3r02iq03_test_api@hz_pre_vpc_domain_1@test_api@index_config_v1
+   * ha-cn-pl32rf0****@a-cn-pl32rf0****_test_api@hz_pre_vpc_domain_1@test_api@index_config_v1
    */
   clusterConfigName?: string;
   /**
    * @remarks
-   * The information about the offline configuration.
+   * The offline configuration information.
    */
   config?: { [key: string]: ConfigValue };
   /**
@@ -351,37 +404,55 @@ export class ModifyIndexRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source.
    * 
    * @example
-   * ha-cn-35t3n1yuj0d_index_1
+   * ha-cn-pl32rf0****_index_1
    */
   dataSource?: string;
   /**
    * @remarks
-   * The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
+   * The data source information. This parameter is required for the new version of AISearch.
    */
   dataSourceInfo?: ModifyIndexRequestDataSourceInfo;
   /**
    * @remarks
-   * The description of the data source.
+   * The description.
    * 
    * @example
-   * test
+   * "test"
    */
   description?: string;
   /**
    * @remarks
-   * The name of the data center in which the data source is deployed.
+   * The data source deployment.
    * 
    * @example
    * vpc_hz_domain_1
    */
   domain?: string;
+  /**
+   * @remarks
+   * The extended content for field configurations. key: vector (vector field), embeding (field requiring embedding), or description (remarks field). value: ["schema field name"].
+   * 
+   * @example
+   * {
+   *         "vector":
+   *         [
+   *             "source_image_vector"
+   *         ],
+   *         "embeding":
+   *         [
+   *             "source_image"
+   *         ],
+   *         "description":
+   *         []
+   *     }
+   */
   extend?: { [key: string]: any };
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently merged.
+   * The number of concurrent full-indexing merge threads.
    * 
    * @example
    * 2
@@ -389,7 +460,7 @@ export class ModifyIndexRequest extends $dara.Model {
   mergeParallelNum?: number;
   /**
    * @remarks
-   * The number of shards.
+   * The data partition.
    * 
    * @example
    * 2
@@ -397,7 +468,7 @@ export class ModifyIndexRequest extends $dara.Model {
   partition?: number;
   /**
    * @remarks
-   * The push mode of the configuration. By default, only the configuration is pushed.
+   * The push configuration mode. Default value: push configuration only.
    * 
    * @example
    * PUSH_ONLY
@@ -405,12 +476,13 @@ export class ModifyIndexRequest extends $dara.Model {
   pushMode?: string;
   /**
    * @remarks
-   * Specifies whether to check the validity of input parameters. Default value: false.
+   * Specifies whether to only validate the input parameters without performing the actual operation. Default value: false.
    * 
    * Valid values:
    * 
-   * *   **true**: checks only the validity of input parameters.
-   * *   **false**: checks the validity of input parameters and creates an attribution configuration.
+   * - **true**: Only validates the parameter validity.
+   * 
+   * - **false**: Validates the parameter validity and creates the attribution configuration.
    * 
    * @example
    * true

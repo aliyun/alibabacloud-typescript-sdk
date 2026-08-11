@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySearcherReplicaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of shards for a data node.
+   * 
    * @example
    * 2
    */
   partition?: number;
   /**
+   * @remarks
+   * The number of replicas for a data node.
+   * 
    * @example
    * 2
    */

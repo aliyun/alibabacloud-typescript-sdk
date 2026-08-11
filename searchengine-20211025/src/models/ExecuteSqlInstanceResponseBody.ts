@@ -4,41 +4,67 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteSqlInstanceResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1719221186114
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1719220182844
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 22
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * ha-cn-pl32rf0****
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the entry is a directory. Valid values:
+   * - true: The entry is a directory.
+   * - false: The entry is not a directory.
+   * 
    * @example
    * true
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The parent task ID.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -91,7 +117,7 @@ export class ExecuteSqlInstanceResponseBodyResult extends $dara.Model {
 export class ExecuteSqlInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * FE03180A-0E29-5474-8A86-33F0683294A4
@@ -99,7 +125,7 @@ export class ExecuteSqlInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * NodeVO
+   * The returned result.
    */
   result?: ExecuteSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

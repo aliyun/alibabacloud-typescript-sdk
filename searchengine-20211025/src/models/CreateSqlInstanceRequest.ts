@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The SQL instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateSqlInstanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The unique identifier of the parent work item.
+   * 
    * This parameter is required.
    * 
    * @example

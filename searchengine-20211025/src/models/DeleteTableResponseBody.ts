@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * The request ID.
    * 
    * @example
    * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
@@ -13,7 +13,7 @@ export class DeleteTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Map
+   * The returned result.
    * 
    * @example
    * {}

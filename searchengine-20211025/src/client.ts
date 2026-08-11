@@ -11,7 +11,17 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'ap-southeast-1': "searchengine.ap-southeast-1.aliyuncs.com",
+      'cn-beijing': "searchengine.cn-beijing.aliyuncs.com",
+      'cn-hangzhou': "searchengine.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "searchengine.cn-shanghai.aliyuncs.com",
+      'cn-shenzhen': "searchengine.cn-shenzhen.aliyuncs.com",
+      'cn-hongkong': "searchengine.cn-hongkong.aliyuncs.com",
+      'cn-zhangjiakou': "searchengine.cn-zhangjiakou.aliyuncs.com",
+      'eu-central-1': "searchengine.eu-central-1.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("searchengine", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,13 +40,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers reindexing.
+   * Rebuilds an index.
    * 
    * @remarks
    * ## Method
-   *     POST
+   * ```
+   * POST
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/actions/build-index
+   * ```
+   * /openapi/ha3/instances/{instanceId}/actions/build-index
+   * ```
    * 
    * @param request - BuildIndexRequest
    * @param headers - map
@@ -101,13 +115,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers reindexing.
+   * Rebuilds an index.
    * 
    * @remarks
    * ## Method
-   *     POST
+   * ```
+   * POST
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/actions/build-index
+   * ```
+   * /openapi/ha3/instances/{instanceId}/actions/build-index
+   * ```
    * 
    * @param request - BuildIndexRequest
    * @returns BuildIndexResponse
@@ -119,7 +137,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更换实例资源组
+   * Changes the resource group of an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/actions/change-resource-group
+   * ```
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -156,7 +184,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更换实例资源组
+   * Changes the resource group of an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/actions/change-resource-group
+   * ```
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -168,6 +206,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Clones an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/clone
+   * ```
+   * 
    * @param request - CloneSqlInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -203,6 +253,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Clones an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/clone
+   * ```
+   * 
    * @param request - CloneSqlInstanceRequest
    * @returns CloneSqlInstanceResponse
    */
@@ -213,6 +275,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases
+   * ```.
+   * 
    * @param request - CreateAliasRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -254,6 +328,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases
+   * ```.
+   * 
    * @param request - CreateAliasRequest
    * @returns CreateAliasResponse
    */
@@ -264,13 +350,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster.
+   * Add a cluster.
    * 
    * @remarks
-   * ### [](#method)Method
-   * `POST`
-   * ### [](#uri)URI
-   * `/openapi/ha3/instances/{instanceId}/clusters`
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters
+   * ```
    * 
    * @param request - CreateClusterRequest
    * @param headers - map
@@ -319,13 +409,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster.
+   * Add a cluster.
    * 
    * @remarks
-   * ### [](#method)Method
-   * `POST`
-   * ### [](#uri)URI
-   * `/openapi/ha3/instances/{instanceId}/clusters`
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/clusters
+   * ```
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -337,6 +431,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file directory in an advanced configuration.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+   * ```.
+   * 
    * @param request - CreateConfigDirRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -372,6 +478,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file directory in an advanced configuration.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+   * ```.
+   * 
    * @param request - CreateConfigDirRequest
    * @returns CreateConfigDirResponse
    */
@@ -382,6 +500,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file with advanced configurations.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```.
+   * 
    * @param request - CreateConfigFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,6 +551,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a file with advanced configurations.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```.
+   * 
    * @param request - CreateConfigFileRequest
    * @returns CreateConfigFileResponse
    */
@@ -431,7 +573,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates data sources.
+   * Creates a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources
+   * ```.
    * 
    * @param request - CreateDataSourceRequest
    * @param headers - map
@@ -490,7 +642,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates data sources.
+   * Creates a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources
+   * ```.
    * 
    * @param request - CreateDataSourceRequest
    * @returns CreateDataSourceResponse
@@ -502,6 +664,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders
+   * ```.
+   * 
    * @param request - CreateFolderRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -541,6 +715,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders
+   * ```.
+   * 
    * @param request - CreateFolderRequest
    * @returns CreateFolderResponse
    */
@@ -654,13 +840,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Havenask instance.
+   * Creates a Wentian engine instance.
    * 
    * @remarks
-   * ### [](#)Method
-   * `POST`
-   * ### [](#uri)URI
-   * `/api/instances?dryRun=false`
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances
+   * ```.
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -709,13 +899,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Havenask instance.
+   * Creates a Wentian engine instance.
    * 
    * @remarks
-   * ### [](#)Method
-   * `POST`
-   * ### [](#uri)URI
-   * `/api/instances?dryRun=false`
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances
+   * ```.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -727,7 +921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型信息
+   * Creates a model.
    * 
    * @param request - CreateModelRequest
    * @param headers - map
@@ -770,7 +964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型信息
+   * Creates a model.
    * 
    * @param request - CreateModelRequest
    * @returns CreateModelResponse
@@ -782,7 +976,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a public endpoint.
+   * Enables the public domain name.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url
+   * ```.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -807,7 +1011,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a public endpoint.
+   * Enables the public domain name.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url
+   * ```.
    * @returns CreatePublicUrlResponse
    */
   async createPublicUrl(instanceId: string): Promise<$_model.CreatePublicUrlResponse> {
@@ -817,6 +1031,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances
+   * ```.
+   * 
    * @param request - CreateSqlInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -852,6 +1078,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances
+   * ```.
+   * 
    * @param request - CreateSqlInstanceRequest
    * @returns CreateSqlInstanceResponse
    */
@@ -863,6 +1101,16 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an index table.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables
+   * ```.
    * 
    * @param request - CreateTableRequest
    * @param headers - map
@@ -939,6 +1187,16 @@ export default class Client extends OpenApi {
   /**
    * Creates an index table.
    * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables
+   * ```.
+   * 
    * @param request - CreateTableRequest
    * @returns CreateTableResponse
    */
@@ -949,7 +1207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调试模型
+   * Debugs a model.
    * 
    * @param request - DebugModelRequest
    * @param headers - map
@@ -988,7 +1246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调试模型
+   * Debugs a model.
    * 
    * @param request - DebugModelRequest
    * @returns DebugModelResponse
@@ -1047,6 +1305,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+   * ```.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAliasResponse
@@ -1070,6 +1340,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+   * ```.
    * @returns DeleteAliasResponse
    */
   async deleteAlias(instanceId: string, alias: string): Promise<$_model.DeleteAliasResponse> {
@@ -1079,6 +1360,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an advanced configuration folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+   * ```.
+   * 
    * @param request - DeleteConfigDirRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1114,6 +1407,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an advanced configuration folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir
+   * ```.
+   * 
    * @param request - DeleteConfigDirRequest
    * @returns DeleteConfigDirResponse
    */
@@ -1124,6 +1429,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an advanced configuration file.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```.
+   * 
    * @param request - DeleteConfigFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1159,6 +1476,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an advanced configuration file.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```.
+   * 
    * @param request - DeleteConfigFileRequest
    * @returns DeleteConfigFileResponse
    */
@@ -1216,6 +1545,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFolderResponse
@@ -1239,6 +1580,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}
+   * ```
    * @returns DeleteFolderResponse
    */
   async deleteFolder(instanceId: string, database: string, folderId: string): Promise<$_model.DeleteFolderResponse> {
@@ -1403,7 +1755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1428,7 +1780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型
+   * Deletes a model.
    * @returns DeleteModelResponse
    */
   async deleteModel(instanceId: string, modelName: string): Promise<$_model.DeleteModelResponse> {
@@ -1438,7 +1790,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公网域名
+   * Deletes a public domain name.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url
+   * ```.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,7 +1825,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除公网域名
+   * Deletes a public domain name.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url
+   * ```.
    * @returns DeletePublicUrlResponse
    */
   async deletePublicUrl(instanceId: string): Promise<$_model.DeletePublicUrlResponse> {
@@ -1473,6 +1845,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSqlInstanceResponse
@@ -1496,6 +1880,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+   * ```
    * @returns DeleteSqlInstanceResponse
    */
   async deleteSqlInstance(instanceId: string, database: string, sqlInstanceId: string): Promise<$_model.DeleteSqlInstanceResponse> {
@@ -1505,7 +1900,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an index table.
+   * Delete an index table.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1530,7 +1935,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an index table.
+   * Delete an index table.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
    * @returns DeleteTableResponse
    */
   async deleteTable(instanceId: string, tableName: string): Promise<$_model.DeleteTableResponse> {
@@ -1541,6 +1956,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries available regions.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/regions
+   * ```
    * 
    * @param request - DescribeRegionsRequest
    * @param headers - map
@@ -1575,6 +2000,16 @@ export default class Client extends OpenApi {
   /**
    * Queries available regions.
    * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/regions
+   * ```
+   * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
@@ -1585,6 +2020,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/execution
+   * ```
+   * 
    * @param request - ExecuteSqlInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1640,6 +2087,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Executes a SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/actions/execution
+   * ```
+   * 
    * @param request - ExecuteSqlInstanceRequest
    * @returns ExecuteSqlInstanceResponse
    */
@@ -1709,9 +2168,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
    * 
    * @param request - GetAdvanceConfigRequest
    * @param headers - map
@@ -1748,9 +2211,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
    * 
    * @param request - GetAdvanceConfigRequest
    * @returns GetAdvanceConfigResponse
@@ -1766,9 +2233,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
    * 
    * @param request - GetAdvanceConfigFileRequest
    * @param headers - map
@@ -1805,9 +2276,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
    * 
    * @param request - GetAdvanceConfigFileRequest
    * @returns GetAdvanceConfigFileResponse
@@ -1819,7 +2294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Query a cluster.
    * 
    * @remarks
    * ### Method
@@ -1850,7 +2325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a cluster.
+   * Query a cluster.
    * 
    * @remarks
    * ### Method
@@ -1960,7 +2435,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源部署信息
+   * Retrieves the deployment information for a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1985,7 +2470,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源部署信息
+   * Retrieves the deployment information for a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+   * ```
    * @returns GetDataSourceDeployResponse
    */
   async getDataSourceDeploy(instanceId: string, deployName: string, dataSourceName: string): Promise<$_model.GetDataSourceDeployResponse> {
@@ -1995,6 +2490,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the schema of a database.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/tables/{tableName}/schema
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatabaseSchemaResponse
@@ -2018,6 +2525,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the schema of a database.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/tables/{tableName}/schema
+   * ```
    * @returns GetDatabaseSchemaResponse
    */
   async getDatabaseSchema(instanceId: string, database: string, tableName: string): Promise<$_model.GetDatabaseSchemaResponse> {
@@ -2078,13 +2596,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an index table version.
+   * Retrieves the details of an index version.
    * 
    * @remarks
-   * ## [](#)Method
-   *     GET
-   * ## [](#uri)URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+   * ## Method
+   * ```
+   * GET
+   * ```
+   * ## URI
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+   * ```
    * 
    * @param request - GetFileRequest
    * @param headers - map
@@ -2117,13 +2639,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an index table version.
+   * Retrieves the details of an index version.
    * 
    * @remarks
-   * ## [](#)Method
-   *     GET
-   * ## [](#uri)URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+   * ## Method
+   * ```
+   * GET
+   * ```
+   * ## URI
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
+   * ```
    * 
    * @param request - GetFileRequest
    * @returns GetFileResponse
@@ -2135,13 +2661,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an index version.
+   * Retrieves the details of an index table version.
    * 
    * @remarks
-   * ## [](#)Method
-   *     GET
-   * ## [](#uri)URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ## Method
+   * ```
+   * GET
+   * ```
+   * ## URI
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2166,13 +2696,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an index version.
+   * Retrieves the details of an index table version.
    * 
    * @remarks
-   * ## [](#)Method
-   *     GET
-   * ## [](#uri)URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ## Method
+   * ```
+   * GET
+   * ```
+   * ## URI
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ```
    * @returns GetIndexResponse
    */
   async getIndex(instanceId: string, indexName: string): Promise<$_model.GetIndexResponse> {
@@ -2183,6 +2717,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the online effective policy of an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2208,6 +2752,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the online effective policy of an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+   * ```
    * @returns GetIndexOnlineStrategyResponse
    */
   async getIndexOnlineStrategy(instanceId: string, dataSourceName: string, deployName: string, indexName: string): Promise<$_model.GetIndexOnlineStrategyResponse> {
@@ -2264,14 +2818,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance based on the instance ID.
+   * Retrieves the details of an instance by its ID.
    * 
    * @remarks
-   * ### [](#)Method
+   * ### Method
    * ```java
    * GET
    * ```
-   * ### [](#uri)URI
+   * ### URI
    * ```java
    * /openapi/ha3/instances/{instanceId}
    * ```
@@ -2299,14 +2853,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance based on the instance ID.
+   * Retrieves the details of an instance by its ID.
    * 
    * @remarks
-   * ### [](#)Method
+   * ### Method
    * ```java
    * GET
    * ```
-   * ### [](#uri)URI
+   * ### URI
    * ```java
    * /openapi/ha3/instances/{instanceId}
    * ```
@@ -2319,13 +2873,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例ID和模型名称查询特定模型的详细配置信息。
+   * Queries the detailed configuration of a specific model by instance ID and model name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
-   * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
-   * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+   * ## Request description
+   * - This API retrieves the details of a specific model in an instance, such as its model type, URL, and status.
+   * - Ensure that the provided `instanceId` and `modelName` are valid. Otherwise, an error is returned or the resource cannot be found.
+   * - The response includes the model content, such as request headers and parameters. It also contains the creation and update times. This information helps you understand the model\\"s configuration and its current status.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2350,13 +2904,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例ID和模型名称查询特定模型的详细配置信息。
+   * Queries the detailed configuration of a specific model by instance ID and model name.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
-   * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
-   * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+   * ## Request description
+   * - This API retrieves the details of a specific model in an instance, such as its model type, URL, and status.
+   * - Ensure that the provided `instanceId` and `modelName` are valid. Otherwise, an error is returned or the resource cannot be found.
+   * - The response includes the model content, such as request headers and parameters. It also contains the creation and update times. This information helps you understand the model\\"s configuration and its current status.
    * @returns GetModelResponse
    */
   async getModel(instanceId: string, modelName: string): Promise<$_model.GetModelResponse> {
@@ -2366,7 +2920,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the configuration information of a node.
+   * Retrieves the configuration information of a node.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node-config
+   * ```.
    * 
    * @param request - GetNodeConfigRequest
    * @param headers - map
@@ -2407,7 +2971,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the configuration information of a node.
+   * Retrieves the configuration information of a node.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/node-config
+   * ```.
    * 
    * @param request - GetNodeConfigRequest
    * @returns GetNodeConfigResponse
@@ -2419,6 +2993,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves SQL instance information.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+   * ```.
+   * 
    * @param request - GetSqlInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2450,6 +3036,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves SQL instance information.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}
+   * ```.
+   * 
    * @param request - GetSqlInstanceRequest
    * @returns GetSqlInstanceResponse
    */
@@ -2460,7 +3058,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an index table.
+   * Get index table information.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2485,7 +3093,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an index table.
+   * Get index table information.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
    * @returns GetTableResponse
    */
   async getTable(instanceId: string, tableName: string): Promise<$_model.GetTableResponse> {
@@ -2496,6 +3114,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the status of an index version based on the ID of the full index version.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions/{generationId}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2521,6 +3149,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the status of an index version based on the ID of the full index version.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions/{generationId}
+   * ```
    * @returns GetTableGenerationResponse
    */
   async getTableGeneration(instanceId: string, tableName: string, generationId: string): Promise<$_model.GetTableGenerationResponse> {
@@ -2530,13 +3168,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in an advanced configuration directory.
+   * Retrieves the list of files in an advanced configuration directory.
    * 
    * @remarks
-   * ## Method
-   * `GET`
-   * ## URI
-   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}
+   * ```.
    * 
    * @param request - ListAdvanceConfigDirRequest
    * @param headers - map
@@ -2569,13 +3211,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in an advanced configuration directory.
+   * Retrieves the list of files in an advanced configuration directory.
    * 
    * @remarks
-   * ## Method
-   * `GET`
-   * ## URI
-   * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}
+   * ```.
    * 
    * @param request - ListAdvanceConfigDirRequest
    * @returns ListAdvanceConfigDirResponse
@@ -2587,11 +3233,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of advanced configurations.
+   * Retrieves a list of advanced configurations.
    * 
    * @remarks
-   * ## Sample requests
-   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs?type=online
+   * ```
    * 
    * @param request - ListAdvanceConfigsRequest
    * @param headers - map
@@ -2644,11 +3296,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of advanced configurations.
+   * Retrieves a list of advanced configurations.
    * 
    * @remarks
-   * ## Sample requests
-   * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs?type=online
+   * ```
    * 
    * @param request - ListAdvanceConfigsRequest
    * @returns ListAdvanceConfigsResponse
@@ -2660,6 +3318,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists table aliases.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAliasesResponse
@@ -2683,6 +3353,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists table aliases.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases
+   * ```
    * @returns ListAliasesResponse
    */
   async listAliases(instanceId: string): Promise<$_model.ListAliasesResponse> {
@@ -2998,6 +3679,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the existing databases.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDatabasesResponse
@@ -3021,6 +3714,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the existing databases.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases
+   * ```
    * @returns ListDatabasesResponse
    */
   async listDatabases(instanceId: string): Promise<$_model.ListDatabasesResponse> {
@@ -3030,13 +3734,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical index versions of a data source.
+   * Retrieves the historical data backflow information of a data source.
    * 
    * @remarks
    * ### Method
-   * `GET`
+   * ```java
+   * GET
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}
+   * ```
    * 
    * @param request - ListDateSourceGenerationsRequest
    * @param headers - map
@@ -3073,13 +3781,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the historical index versions of a data source.
+   * Retrieves the historical data backflow information of a data source.
    * 
    * @remarks
    * ### Method
-   * `GET`
+   * ```java
+   * GET
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}
+   * ```
    * 
    * @param request - ListDateSourceGenerationsRequest
    * @returns ListDateSourceGenerationsResponse
@@ -3091,6 +3803,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists data recovery records.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/list-recover-records
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIndexRecoverRecordsResponse
@@ -3114,6 +3838,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists data recovery records.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/list-recover-records
+   * ```
    * @returns ListIndexRecoverRecordsResponse
    */
   async listIndexRecoverRecords(indexName: string, instanceId: string): Promise<$_model.ListIndexRecoverRecordsResponse> {
@@ -3123,13 +3858,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the index list.
+   * Retrieves a list of indexes.
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes
+   * ```
    * 
    * @param request - ListIndexesRequest
    * @param headers - map
@@ -3174,13 +3913,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the index list.
+   * Retrieves a list of indexes.
    * 
    * @remarks
    * ## Method
-   *     GET
+   * ```
+   * GET
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes
+   * ```
    * 
    * @param request - ListIndexesRequest
    * @returns ListIndexesResponse
@@ -3249,13 +3992,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @remarks
-   * ### [](#)Method
-   * `GET`
-   * ### [](#uri)URI
-   * `/openapi/ha3/instances`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances
+   * ```
    * 
    * @param tmpReq - ListInstancesRequest
    * @param headers - map
@@ -3334,13 +4081,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Retrieves a list of instances.
    * 
    * @remarks
-   * ### [](#)Method
-   * `GET`
-   * ### [](#uri)URI
-   * `/openapi/ha3/instances`
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances
+   * ```
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -3352,6 +4103,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the logs of an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/logs
+   * ```
+   * 
    * @param request - ListLogsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3403,6 +4166,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the logs of an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/logs
+   * ```
+   * 
    * @param request - ListLogsRequest
    * @returns ListLogsResponse
    */
@@ -3413,11 +4188,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例ID查询指定条件下的模型列表。
+   * Queries a list of models that meet specified conditions by instance ID.
    * 
    * @remarks
-   * ## 请求说明
-   * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+   * ## Operation description
+   * This API operation retrieves a list of models from a specified instance. You can filter results by model name, type, and pagination parameters. Provide the instance ID as a path parameter. Other filter conditions are optional query parameters.
    * 
    * @param request - ListModelsRequest
    * @param headers - map
@@ -3462,11 +4237,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例ID查询指定条件下的模型列表。
+   * Queries a list of models that meet specified conditions by instance ID.
    * 
    * @remarks
-   * ## 请求说明
-   * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+   * ## Operation description
+   * This API operation retrieves a list of models from a specified instance. You can filter results by model name, type, and pagination parameters. Provide the instance ID as a path parameter. Other filter conditions are optional query parameters.
    * 
    * @param request - ListModelsRequest
    * @returns ListModelsResponse
@@ -3478,7 +4253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an online configuration.
+   * Query an online configuration.
    * 
    * @remarks
    * ### Method
@@ -3521,7 +4296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an online configuration.
+   * Query an online configuration.
    * 
    * @remarks
    * ### Method
@@ -3543,6 +4318,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries pause policies.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/pause-policies
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPausePolicysResponse
@@ -3566,6 +4353,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries pause policies.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/pause-policies
+   * ```
    * @returns ListPausePolicysResponse
    */
   async listPausePolicys(instanceId: string): Promise<$_model.ListPausePolicysResponse> {
@@ -3575,7 +4373,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回引擎版使用POST请求获取搜索测试结果
+   * Retrieves the results of a search test for a Retrieval-Augmented Generation Edition instance by sending a POST request.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/query
+   * ```
    * 
    * @param request - ListPostQueryResultRequest
    * @param headers - map
@@ -3614,7 +4422,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回引擎版使用POST请求获取搜索测试结果
+   * Retrieves the results of a search test for a Retrieval-Augmented Generation Edition instance by sending a POST request.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/query
+   * ```
    * 
    * @param request - ListPostQueryResultRequest
    * @returns ListPostQueryResultResponse
@@ -3687,7 +4505,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回引擎版获取rest查询搜索测试结果
+   * Retrieves the test results of a REST search query for a Retrieval Engine Edition instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/rest-query
+   * ```
    * 
    * @param request - ListRestQueryResultRequest
    * @param headers - map
@@ -3724,7 +4552,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 召回引擎版获取rest查询搜索测试结果
+   * Retrieves the test results of a REST search query for a Retrieval Engine Edition instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/rest-query
+   * ```
    * 
    * @param request - ListRestQueryResultRequest
    * @returns ListRestQueryResultResponse
@@ -3736,7 +4574,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过数据源配置获取schema信息
+   * Retrieves a list of schemas based on a data synchronization configuration.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/schemas
+   * ```
    * 
    * @param request - ListSchemasRequest
    * @param headers - map
@@ -3797,7 +4645,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过数据源配置获取schema信息
+   * Retrieves a list of schemas based on a data synchronization configuration.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/schemas
+   * ```
    * 
    * @param request - ListSchemasRequest
    * @returns ListSchemasResponse
@@ -3810,6 +4668,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of index versions.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3835,6 +4703,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of index versions.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/index_versions
+   * ```
    * @returns ListTableGenerationsResponse
    */
   async listTableGenerations(instanceId: string, tableName: string): Promise<$_model.ListTableGenerationsResponse> {
@@ -3845,6 +4723,16 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of index tables.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables
+   * ```
    * 
    * @param request - ListTablesRequest
    * @param headers - map
@@ -3879,6 +4767,16 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of index tables.
    * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables
+   * ```
+   * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
    */
@@ -3889,7 +4787,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Queries the tags attached to one or more resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param headers - map
@@ -3944,7 +4852,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查标签接口
+   * Queries the tags attached to one or more resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3956,7 +4874,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群任务列表（数据源+集群）
+   * Retrieves the change history for an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tasks
+   * ```
    * 
    * @param request - ListTasksRequest
    * @param headers - map
@@ -3993,7 +4921,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群任务列表（数据源+集群）
+   * Retrieves the change history for an instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * GET
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tasks
+   * ```
    * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
@@ -4005,7 +4943,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向量检索版获取向量查询搜索测试结果
+   * Retrieves the results of a vector query test in Vector Search Edition.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/vector-query
+   * ```
    * 
    * @param request - ListVectorQueryResultRequest
    * @param headers - map
@@ -4052,7 +5000,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向量检索版获取向量查询搜索测试结果
+   * Retrieves the results of a vector query test in Vector Search Edition.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/vector-query
+   * ```
    * 
    * @param request - ListVectorQueryResultRequest
    * @returns ListVectorQueryResultResponse
@@ -4064,6 +5022,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the content of HTTP or Git files.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
+   * 
    * @param request - ModifyAdvanceConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4119,6 +5089,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the content of HTTP or Git files.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
+   * ```
+   * 
    * @param request - ModifyAdvanceConfigRequest
    * @returns ModifyAdvanceConfigResponse
    */
@@ -4129,13 +5111,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the advanced configurations.
+   * Modifies a dictionary.
    * 
    * @remarks
    * ## Method
-   *     put
+   * ```
+   * PUT
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```
    * 
    * @param request - ModifyAdvanceConfigFileRequest
    * @param headers - map
@@ -4178,13 +5164,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the advanced configurations.
+   * Modifies a dictionary.
    * 
    * @remarks
    * ## Method
-   *     put
+   * ```
+   * PUT
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
+   * ```
+   * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file
+   * ```
    * 
    * @param request - ModifyAdvanceConfigFileRequest
    * @returns ModifyAdvanceConfigFileResponse
@@ -4196,6 +5186,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a table alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+   * ```
+   * 
    * @param request - ModifyAliasRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4231,6 +5233,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a table alias.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/aliases/{alias}
+   * ```
+   * 
    * @param request - ModifyAliasRequest
    * @returns ModifyAliasResponse
    */
@@ -4302,7 +5316,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request syntax
-   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   * ```
+   * PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   * ```
    * 
    * @param request - ModifyClusterOfflineConfigRequest
    * @param headers - map
@@ -4371,7 +5387,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request syntax
-   *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   * ```
+   * PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+   * ```
    * 
    * @param request - ModifyClusterOfflineConfigRequest
    * @returns ModifyClusterOfflineConfigResponse
@@ -4444,7 +5462,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据源部署信息
+   * Modifies the deployment information of a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+   * ```.
    * 
    * @param request - ModifyDataSourceDeployRequest
    * @param headers - map
@@ -4503,7 +5531,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据源部署信息
+   * Modifies the deployment information of a data source.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}
+   * ```.
    * 
    * @param request - ModifyDataSourceDeployRequest
    * @returns ModifyDataSourceDeployResponse
@@ -4582,7 +5620,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑索引表
+   * Modifies an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ```.
    * 
    * @param request - ModifyIndexRequest
    * @param headers - map
@@ -4669,7 +5717,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑索引表
+   * Modifies an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}
+   * ```.
    * 
    * @param request - ModifyIndexRequest
    * @returns ModifyIndexResponse
@@ -4682,6 +5740,16 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the online policy of an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+   * ```
    * 
    * @param request - ModifyIndexOnlineStrategyRequest
    * @param headers - map
@@ -4715,6 +5783,16 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the online policy of an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/deploys/{deployName}/indexes/{indexName}/online-strategy
+   * ```
    * 
    * @param request - ModifyIndexOnlineStrategyRequest
    * @returns ModifyIndexOnlineStrategyResponse
@@ -4847,7 +5925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改模型详情，修改模型状态
+   * Modifies the details and status of a model.
    * 
    * @param request - ModifyModelRequest
    * @param headers - map
@@ -4890,7 +5968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改模型详情，修改模型状态
+   * Modifies the details and status of a model.
    * 
    * @param request - ModifyModelRequest
    * @returns ModifyModelResponse
@@ -4902,7 +5980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a node.
+   * Modify a node.
    * 
    * @remarks
    * ### Method
@@ -4983,7 +6061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a node.
+   * Modify a node.
    * 
    * @remarks
    * ### Method
@@ -5070,13 +6148,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的密码
+   * Modifies the password of an instance.
    * 
    * @remarks
    * ### Method
-   * `PUT`
+   * ```java
+   * PUT
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/password`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/password
+   * ```.
    * 
    * @param request - ModifyPasswordRequest
    * @param headers - map
@@ -5113,13 +6195,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的密码
+   * Modifies the password of an instance.
    * 
    * @remarks
    * ### Method
-   * `PUT`
+   * ```java
+   * PUT
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/password`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/password
+   * ```.
    * 
    * @param request - ModifyPasswordRequest
    * @returns ModifyPasswordResponse
@@ -5131,6 +6217,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the pause policy.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/pause-policies
+   * ```
+   * 
    * @param request - ModifyPausePolicyRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5162,6 +6260,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the pause policy.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/pause-policies
+   * ```
+   * 
    * @param request - ModifyPausePolicyRequest
    * @returns ModifyPausePolicyResponse
    */
@@ -5172,7 +6282,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改公网域名访问白名单
+   * Modifies the public domain name whitelist.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url-ip-list
+   * ```
    * 
    * @param request - ModifyPublicUrlIpListRequest
    * @param headers - map
@@ -5205,7 +6325,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改公网域名访问白名单
+   * Modifies the public domain name whitelist.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/public-url-ip-list
+   * ```
    * 
    * @param request - ModifyPublicUrlIpListRequest
    * @returns ModifyPublicUrlIpListResponse
@@ -5217,11 +6347,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过指定实例ID来修改数据节点的副本或分片数量。
+   * Modifies the number of replicas or shards for data nodes in an instance.
    * 
    * @remarks
-   * ## 请求说明
-   * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+   * ## Request description
+   * This API lets you modify the number of replicas or shards for data nodes in a specific instance. When you make a request, provide the instance ID. In the request body, specify the number of replicas (`replica`) or shards (`partition`). These parameters are optional, but you must specify at least one of them to update the instance.
    * 
    * @param request - ModifySearcherReplicaRequest
    * @param headers - map
@@ -5258,11 +6388,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过指定实例ID来修改数据节点的副本或分片数量。
+   * Modifies the number of replicas or shards for data nodes in an instance.
    * 
    * @remarks
-   * ## 请求说明
-   * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+   * ## Request description
+   * This API lets you modify the number of replicas or shards for data nodes in a specific instance. When you make a request, provide the instance ID. In the request body, specify the number of replicas (`replica`) or shards (`partition`). These parameters are optional, but you must specify at least one of them to update the instance.
    * 
    * @param request - ModifySearcherReplicaRequest
    * @returns ModifySearcherReplicaResponse
@@ -5275,6 +6405,16 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies an index table.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
    * 
    * @param request - ModifyTableRequest
    * @param headers - map
@@ -5339,6 +6479,16 @@ export default class Client extends OpenApi {
   /**
    * Modifies an index table.
    * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}
+   * ```
+   * 
    * @param request - ModifyTableRequest
    * @returns ModifyTableResponse
    */
@@ -5349,17 +6499,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a version of advanced configurations.
+   * Publishes an advanced version.
    * 
    * @remarks
-   * ## Method
-   * ~~~
+   * ### Method
+   * ```java
    * POST
-   * ~~~
-   * ## URI
-   * ~~~
+   * ```
+   * ### URI
+   * ```java
    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-   * ~~~
+   * ```.
    * 
    * @param request - PublishAdvanceConfigRequest
    * @param headers - map
@@ -5396,17 +6546,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a version of advanced configurations.
+   * Publishes an advanced version.
    * 
    * @remarks
-   * ## Method
-   * ~~~
+   * ### Method
+   * ```java
    * POST
-   * ~~~
-   * ## URI
-   * ~~~
+   * ```
+   * ### URI
+   * ```java
    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
-   * ~~~
+   * ```.
    * 
    * @param request - PublishAdvanceConfigRequest
    * @returns PublishAdvanceConfigResponse
@@ -5422,9 +6572,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     POST
+   * ```
+   * POST
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   * ```
    * 
    * @param request - PublishIndexVersionRequest
    * @param headers - map
@@ -5461,9 +6615,13 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Method
-   *     POST
+   * ```
+   * POST
+   * ```
    * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   * ```
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
+   * ```
    * 
    * @param request - PublishIndexVersionRequest
    * @returns PublishIndexVersionResponse
@@ -5475,6 +6633,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Pushes documents.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/actions/bulk
+   * ```
+   * 
    * @param request - PushDocumentsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5507,6 +6677,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Pushes documents.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/actions/bulk
+   * ```
+   * 
    * @param request - PushDocumentsRequest
    * @returns PushDocumentsResponse
    */
@@ -5517,13 +6699,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores data from an index.
+   * Recovers data from an index.
    * 
    * @remarks
    * ### Method
-   * `POST`
+   * ```java
+   * POST
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/recover-index`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/recover-index
+   * ```
    * 
    * @param request - RecoverIndexRequest
    * @param headers - map
@@ -5533,6 +6719,10 @@ export default class Client extends OpenApi {
   async recoverIndexWithOptions(instanceId: string, request: $_model.RecoverIndexRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RecoverIndexResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bucket)) {
+      body["bucket"] = request.bucket;
+    }
+
     if (!$dara.isNull(request.buildDeployId)) {
       body["buildDeployId"] = request.buildDeployId;
     }
@@ -5547,6 +6737,34 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.indexName)) {
       body["indexName"] = request.indexName;
+    }
+
+    if (!$dara.isNull(request.odpsAccessId)) {
+      body["odpsAccessId"] = request.odpsAccessId;
+    }
+
+    if (!$dara.isNull(request.odpsAccessKey)) {
+      body["odpsAccessKey"] = request.odpsAccessKey;
+    }
+
+    if (!$dara.isNull(request.odpsPartition)) {
+      body["odpsPartition"] = request.odpsPartition;
+    }
+
+    if (!$dara.isNull(request.odpsProject)) {
+      body["odpsProject"] = request.odpsProject;
+    }
+
+    if (!$dara.isNull(request.odpsTable)) {
+      body["odpsTable"] = request.odpsTable;
+    }
+
+    if (!$dara.isNull(request.outPutType)) {
+      body["outPutType"] = request.outPutType;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      body["path"] = request.path;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5568,13 +6786,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores data from an index.
+   * Recovers data from an index.
    * 
    * @remarks
    * ### Method
-   * `POST`
+   * ```java
+   * POST
+   * ```
    * ### URI
-   * `/openapi/ha3/instances/{instanceId}/recover-index`
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/recover-index
+   * ```
    * 
    * @param request - RecoverIndexRequest
    * @returns RecoverIndexResponse
@@ -5587,6 +6809,16 @@ export default class Client extends OpenApi {
 
   /**
    * Rebuilds an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/reindex
+   * ```.
    * 
    * @param request - ReindexRequest
    * @param headers - map
@@ -5628,6 +6860,16 @@ export default class Client extends OpenApi {
 
   /**
    * Rebuilds an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/tables/{tableName}/reindex
+   * ```.
    * 
    * @param request - ReindexRequest
    * @returns ReindexResponse
@@ -5694,6 +6936,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renames a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}/name
+   * ```
+   * 
    * @param request - RenameFolderRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5725,6 +6979,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renames a folder.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/folders/{folderId}/name
+   * ```
+   * 
    * @param request - RenameFolderRequest
    * @returns RenameFolderResponse
    */
@@ -5735,6 +7001,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/startIndex
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartIndexResponse
@@ -5758,6 +7036,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/startIndex
+   * ```
    * @returns StartIndexResponse
    */
   async startIndex(instanceId: string, indexName: string): Promise<$_model.StartIndexResponse> {
@@ -5767,6 +7056,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/stopIndex
+   * ```
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopIndexResponse
@@ -5790,6 +7091,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops an index.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/indexes/{indexName}/stopIndex
+   * ```
    * @returns StopIndexResponse
    */
   async stopIndex(instanceId: string, indexName: string): Promise<$_model.StopIndexResponse> {
@@ -5854,7 +7166,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds or updates tags for multiple resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -5895,7 +7217,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标签接口
+   * Adds or updates tags for multiple resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * POST
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -5907,7 +7239,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Removes tags from a batch of resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -5962,7 +7304,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删标签接口
+   * Removes tags from a batch of resources.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * DELETE
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/resource-tags
+   * ```
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -6039,6 +7391,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the content of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/content
+   * ```
+   * 
    * @param request - UpdateSqlInstanceContentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6070,6 +7434,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the content of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/content
+   * ```
+   * 
    * @param request - UpdateSqlInstanceContentRequest
    * @returns UpdateSqlInstanceContentResponse
    */
@@ -6080,6 +7456,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the name of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/name
+   * ```
+   * 
    * @param request - UpdateSqlInstanceNameRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6111,6 +7499,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the name of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/name
+   * ```
+   * 
    * @param request - UpdateSqlInstanceNameRequest
    * @returns UpdateSqlInstanceNameResponse
    */
@@ -6121,6 +7521,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the parameters of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/params
+   * ```
+   * 
    * @param request - UpdateSqlInstanceParamsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6168,6 +7580,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the parameters of an SQL instance.
+   * 
+   * @remarks
+   * ### Method
+   * ```java
+   * PUT
+   * ```
+   * ### URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}/sql-studio/databases/{database}/sql-instances/{sqlInstanceId}/params
+   * ```
+   * 
    * @param request - UpdateSqlInstanceParamsRequest
    * @returns UpdateSqlInstanceParamsResponse
    */

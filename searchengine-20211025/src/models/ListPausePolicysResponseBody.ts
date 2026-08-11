@@ -14,7 +14,7 @@ export class ListPausePolicysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned result.
    */
   result?: { [key: string]: ResultValue };
   static names(): { [key: string]: string } {

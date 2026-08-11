@@ -8,7 +8,7 @@ export class ModifyFileRequest extends $dara.Model {
    * The file content.
    * 
    * @example
-   * ""
+   * {\\"partition\\":1}
    */
   content?: string;
   /**
@@ -16,7 +16,7 @@ export class ModifyFileRequest extends $dara.Model {
    * The number of shards.
    * 
    * @example
-   * ds=20220713
+   * 1
    */
   partition?: number;
   /**

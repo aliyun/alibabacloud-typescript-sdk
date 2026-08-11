@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeConfigResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the index is effective online.
+   * Indicates whether the index is active online.
    * 
    * @example
-   * 1
+   * true
    */
   active?: boolean;
   /**
@@ -16,7 +16,7 @@ export class GetNodeConfigResponseBodyResult extends $dara.Model {
    * The number of data replicas.
    * 
    * @example
-   * 2
+   * 1
    */
   dataDuplicateNumber?: number;
   /**
@@ -24,23 +24,23 @@ export class GetNodeConfigResponseBodyResult extends $dara.Model {
    * The number of data shards.
    * 
    * @example
-   * 2
+   * 1
    */
   dataFragmentNumber?: number;
   /**
    * @remarks
-   * The traffic percentage.
+   * The traffic ratio.
    * 
    * @example
-   * 0
+   * 100
    */
   flowRatio?: number;
   /**
    * @remarks
-   * The minimum service ratio.
+   * The minimum service percentage.
    * 
    * @example
-   * 100
+   * 50
    */
   minServicePercent?: number;
   /**
@@ -85,7 +85,7 @@ export class GetNodeConfigResponseBodyResult extends $dara.Model {
 export class GetNodeConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -93,7 +93,7 @@ export class GetNodeConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result set.
+   * The returned result.
    */
   result?: GetNodeConfigResponseBodyResult;
   static names(): { [key: string]: string } {

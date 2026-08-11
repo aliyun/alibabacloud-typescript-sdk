@@ -13,7 +13,7 @@ export class ListSchemasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The response data.
    * 
    * @example
    * {}

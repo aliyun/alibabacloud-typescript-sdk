@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPublicUrlIpListRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The request body. Key: publicUrlAllow.
    */
   body?: { [key: string]: string };
   static names(): { [key: string]: string } {

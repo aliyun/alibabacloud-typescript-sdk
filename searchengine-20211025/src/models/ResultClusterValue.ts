@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResultClusterValue extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently built.
+   * The concurrency for full indexing.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ResultClusterValue extends $dara.Model {
   buildParallelNum?: number;
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently merged.
+   * The concurrency for full merging.
    * 
    * @example
    * 2

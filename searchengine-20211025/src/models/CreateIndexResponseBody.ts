@@ -13,7 +13,7 @@ export class CreateIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * The result of the request.
    * 
    * @example
    * {}

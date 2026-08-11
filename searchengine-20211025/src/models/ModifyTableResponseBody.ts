@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * FE03180A-0E29-5474-8A86-33F0683294A4
@@ -13,7 +13,7 @@ export class ModifyTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Map
+   * The returned result.
    * 
    * @example
    * {}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end tim. The value is a timestamp in seconds.
+   * The end of the time range to query. This is a UNIX timestamp in seconds.
    * 
    * @example
    * 1710432000
@@ -13,7 +13,7 @@ export class ListLogsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of entries per num. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListLogsRequest extends $dara.Model {
   pageNum?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page. The default value is 10.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListLogsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The query statement
+   * The search statement.
    * 
    * @example
    * status: 200 AND totalTime > 0.01
@@ -37,7 +37,7 @@ export class ListLogsRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The start time. The value is a timestamp in seconds.
+   * The start of the time range to query. This is a UNIX timestamp in seconds.
    * 
    * @example
    * 1706340600
@@ -45,7 +45,7 @@ export class ListLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * -push   -select
+   * The log type. Valid values: \\`select\\` (query logs) and \\`push\\` (write logs).
    * 
    * @example
    * push

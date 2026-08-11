@@ -4,33 +4,55 @@ import { ResultDatabasesFunctionsValue } from "./ResultDatabasesFunctionsValue";
 
 
 export class ListDatabasesResponseBodyResultDatabasesSqlInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the subdirectories.
+   */
   children?: any[];
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 12190
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the item is a folder. A value of 1 indicates that the item is a folder. A value of 0 indicates that it is not a folder.
+   * 
    * @example
    * true
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name of the SQL instance.
+   * 
    * @example
    * general
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent node.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -82,33 +104,55 @@ export class ListDatabasesResponseBodyResultDatabasesSqlInstances extends $dara.
 }
 
 export class ListDatabasesResponseBodyResultDatabasesTables extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the subdirectories.
+   */
   children?: any[];
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 56
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the item is a folder. A value of 1 indicates that the item is a folder. A value of 0 indicates that it is not a folder.
+   * 
    * @example
    * true
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * general
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent node.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -160,33 +204,55 @@ export class ListDatabasesResponseBodyResultDatabasesTables extends $dara.Model 
 }
 
 export class ListDatabasesResponseBodyResultDatabasesTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the subdirectories.
+   */
   children?: any[];
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the item is a folder. A value of 1 indicates that the item is a folder. A value of 0 indicates that it is not a folder.
+   * 
    * @example
    * true
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name of the template.
+   * 
    * @example
    * c26_schema
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent node.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
@@ -239,13 +305,32 @@ export class ListDatabasesResponseBodyResultDatabasesTemplates extends $dara.Mod
 
 export class ListDatabasesResponseBodyResultDatabases extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * general
    */
   database?: string;
+  /**
+   * @remarks
+   * The information about the functions.
+   */
   functions?: { [key: string]: ResultDatabasesFunctionsValue[] };
+  /**
+   * @remarks
+   * The information about the SQL instances.
+   */
   sqlInstances?: ListDatabasesResponseBodyResultDatabasesSqlInstances[];
+  /**
+   * @remarks
+   * The information about the tables.
+   */
   tables?: ListDatabasesResponseBodyResultDatabasesTables[];
+  /**
+   * @remarks
+   * The information about the templates.
+   */
   templates?: ListDatabasesResponseBodyResultDatabasesTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -289,6 +374,10 @@ export class ListDatabasesResponseBodyResultDatabases extends $dara.Model {
 }
 
 export class ListDatabasesResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * A list of databases.
+   */
   databases?: ListDatabasesResponseBodyResultDatabases[];
   static names(): { [key: string]: string } {
     return {
@@ -317,7 +406,7 @@ export class ListDatabasesResponseBodyResult extends $dara.Model {
 export class ListDatabasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * E45380E8-994A-5402-9806-F114B3295FCF
@@ -325,7 +414,7 @@ export class ListDatabasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * NodeTreeVO
+   * The returned result.
    */
   result?: ListDatabasesResponseBodyResult;
   static names(): { [key: string]: string } {

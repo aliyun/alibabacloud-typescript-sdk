@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReindexRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
+   * The timestamp in seconds. This parameter is of the INT type. This parameter is required when the data source uses API push.
    * 
    * @example
    * 1640867288
@@ -13,7 +13,7 @@ export class ReindexRequest extends $dara.Model {
   dataTimeSec?: number;
   /**
    * @remarks
-   * oss data path
+   * The OSS file path.
    * 
    * @example
    * oss://opensearch
@@ -21,7 +21,7 @@ export class ReindexRequest extends $dara.Model {
   ossDataPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * The partition. This parameter is required when the data source is MaxCompute.
    * 
    * @example
    * ds=20220713

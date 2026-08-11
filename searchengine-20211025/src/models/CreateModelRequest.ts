@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateModelRequestContentRequestHeader extends $dara.Model {
   /**
+   * @remarks
+   * The authentication information. Format: Bearer access_token
+   * 
    * @example
    * Bearer OS-v0********6vvs
    */
   authorization?: string;
   /**
+   * @remarks
+   * The content type of the HTTP request.
+   * 
    * @example
    * application/json
    */
@@ -38,6 +44,9 @@ export class CreateModelRequestContentRequestHeader extends $dara.Model {
 
 export class CreateModelRequestContentRequestParametersBuild extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * query
    */
@@ -65,6 +74,9 @@ export class CreateModelRequestContentRequestParametersBuild extends $dara.Model
 
 export class CreateModelRequestContentRequestParametersSearch extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * document
    */
@@ -91,7 +103,15 @@ export class CreateModelRequestContentRequestParametersSearch extends $dara.Mode
 }
 
 export class CreateModelRequestContentRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters for the index building phase.
+   */
   build?: CreateModelRequestContentRequestParametersBuild;
+  /**
+   * @remarks
+   * The parameters for the query phase.
+   */
   search?: CreateModelRequestContentRequestParametersSearch;
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +144,17 @@ export class CreateModelRequestContentRequestParameters extends $dara.Model {
 
 export class CreateModelRequestContentRequestUrlParams extends $dara.Model {
   /**
+   * @remarks
+   * The parameters passed during index building.
+   * 
    * @example
    * key: value
    */
   build?: { [key: string]: any };
   /**
+   * @remarks
+   * The parameters passed during a query.
+   * 
    * @example
    * key: value
    */
@@ -163,13 +189,28 @@ export class CreateModelRequestContentRequestUrlParams extends $dara.Model {
 }
 
 export class CreateModelRequestContentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP header for accessing the model service.
+   */
   header?: CreateModelRequestContentRequestHeader;
+  /**
+   * @remarks
+   * If the parameters in the request body are different for the build and search phases, define them in this parameter.
+   */
   parameters?: CreateModelRequestContentRequestParameters;
   /**
+   * @remarks
+   * The template string for the request body.
+   * 
    * @example
    * {\\"input\\": [\\"%{input}\\"], \\"input_type\\": \\"%{input_type}\\"}
    */
   requestBody?: string;
+  /**
+   * @remarks
+   * The parameters in the URL. Some model services require that parameters are passed in the URL.
+   */
   urlParams?: CreateModelRequestContentRequestUrlParams;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +250,9 @@ export class CreateModelRequestContentRequest extends $dara.Model {
 
 export class CreateModelRequestContentResponse extends $dara.Model {
   /**
+   * @remarks
+   * The JSONPath expression to extract embeddings from the response.
+   * 
    * @example
    * $.result.embeddings[*].embedding
    */
@@ -236,23 +280,51 @@ export class CreateModelRequestContentResponse extends $dara.Model {
 
 export class CreateModelRequestContent extends $dara.Model {
   /**
+   * @remarks
+   * The dimension of the model. This parameter is required if \\`modelType\\` is \\`text_embedding\\` or \\`image_embedding\\`.
+   * 
    * @example
    * 128
    */
   dimension?: number;
   /**
+   * @remarks
+   * The HTTP method to access the model service. Supported methods: PUT and POST.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - a. Text embedding: text_embedding
+   * 
+   * - b. Text sparse embedding: text_sparse_embedding
+   * 
+   * - c. Image embedding: image_embedding
+   * 
+   * - d. Image content analysis: image_analyze
+   * 
    * @example
    * text_embedding
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The model request body.
+   */
   request?: CreateModelRequestContentRequest;
+  /**
+   * @remarks
+   * The configuration for parsing the response. Use JSONPath format.
+   */
   response?: CreateModelRequestContentResponse;
   /**
+   * @remarks
+   * The endpoint of the model service.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -295,9 +367,15 @@ export class CreateModelRequestContent extends $dara.Model {
 }
 
 export class CreateModelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The model details.
+   */
   content?: CreateModelRequestContent;
   /**
    * @remarks
+   * The model name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -305,6 +383,9 @@ export class CreateModelRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run. The default value is false.
+   * 
    * @example
    * true
    */

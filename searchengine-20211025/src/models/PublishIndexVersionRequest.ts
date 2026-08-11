@@ -8,7 +8,10 @@ export class PublishIndexVersionRequest extends $dara.Model {
    * The request body.
    * 
    * @example
-   * {}
+   * {
+   * "dataSource": "ha-cn-pl32rf0****_test_api",
+   * "desc": "Remarks"
+   * }
    */
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {

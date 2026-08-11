@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDatabaseSchemaResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The name of the field.
+   * 
    * @example
    * id
    */
   fieldName?: string;
   /**
+   * @remarks
+   * The type of the field.
+   * 
    * @example
    * STRING
    */
   fieldType?: string;
   /**
+   * @remarks
+   * The details of the field type.
+   * 
    * @example
    * FT_UINT64
    */
   fieldTypeDetail?: { [key: string]: any };
   /**
+   * @remarks
+   * The name of the index.
+   * 
    * @example
    * test_tusou_v2
    */
   indexName?: string;
   /**
+   * @remarks
+   * The type of the index.
+   * 
    * @example
    * NUMBER
    */
@@ -63,7 +78,7 @@ export class GetDatabaseSchemaResponseBodyResult extends $dara.Model {
 export class GetDatabaseSchemaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The ID of the request.
    * 
    * @example
    * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
@@ -71,7 +86,7 @@ export class GetDatabaseSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List
+   * The result.
    */
   result?: GetDatabaseSchemaResponseBodyResult[];
   static names(): { [key: string]: string } {

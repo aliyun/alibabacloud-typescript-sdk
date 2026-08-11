@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigValueFilesConfigVariablesValue extends $dara.Model {
   /**
    * @remarks
-   * The description of the variable.
+   * Description
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ConfigValueFilesConfigVariablesValue extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the variable is not allowed to be modified.
+   * Whether the user can modify this
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ConfigValueFilesConfigVariablesValue extends $dara.Model {
   disableModify?: boolean;
   /**
    * @remarks
-   * Specifies whether the variable is modified.
+   * Whether this has been modified
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ConfigValueFilesConfigVariablesValue extends $dara.Model {
   isModify?: boolean;
   /**
    * @remarks
-   * The variable type. Valid values: NORMAL: common variable. FUNCTION: function variable.
+   * Normal variable: NORMAL, function variable: FUNCTION
    * 
    * @example
    * NORMAL
@@ -37,7 +37,7 @@ export class ConfigValueFilesConfigVariablesValue extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The variable value.
+   * Variable
    * 
    * @example
    * test

@@ -82,7 +82,7 @@ export class ListDataSourceSchemasResponseBodyResult extends $dara.Model {
    * The field name.
    * 
    * @example
-   * test
+   * id
    */
   name?: string;
   /**

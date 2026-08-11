@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the file in full path
+   * The full path of the file.
    * 
    * This parameter is required.
    * 

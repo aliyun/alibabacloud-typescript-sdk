@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceRequestConfig extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
    * L***p
@@ -13,7 +13,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The AccessKey secret of the ODPS data source.
    * 
    * @example
    * 5**9a6
@@ -21,7 +21,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   accessSecret?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * oss bucket
    * 
    * @example
    * opensearch
@@ -31,7 +31,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
+   * The endpoint of the ODPS data source or the OSS data source.
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
@@ -47,7 +47,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The path of the OSS object.
+   * The OSS file path.
    * 
    * @example
    * /opensearch/search
@@ -55,7 +55,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table.
+   * The ODPS partition.
    * 
    * @example
    * ds=20220713
@@ -63,7 +63,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The file path in the Apsara File Storage for HDFS file system.
+   * The HDFS file path.
    * 
    * @example
    * test-hdfs-path
@@ -71,7 +71,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The project name of the ODPS data source.
    * 
    * @example
    * kubenest
@@ -79,7 +79,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * The ODPS table name.
    * 
    * @example
    * item
@@ -134,7 +134,7 @@ export class CreateDataSourceRequestConfig extends $dara.Model {
 export class CreateDataSourceRequestSaroConfig extends $dara.Model {
   /**
    * @remarks
-   * The namespace of the SARO data source.
+   * The namespace of the Saro data source.
    * 
    * @example
    * igraph-cn-x0r3e3abe02
@@ -142,7 +142,7 @@ export class CreateDataSourceRequestSaroConfig extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the SARO table.
+   * The Saro data table name.
    * 
    * @example
    * index_hdfs
@@ -174,7 +174,7 @@ export class CreateDataSourceRequestSaroConfig extends $dara.Model {
 export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically rebuild the index.
+   * Specifies whether to automatically rebuild indexes.
    * 
    * @example
    * true
@@ -187,7 +187,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   config?: CreateDataSourceRequestConfig;
   /**
    * @remarks
-   * The data center in which the data source is deployed.
+   * The data center where the data source resides.
    * 
    * @example
    * vpc_hz_domain_1
@@ -203,7 +203,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configurations of the SARO data source.
+   * The Saro datasource config.
    */
   saroConfig?: CreateDataSourceRequestSaroConfig;
   /**
@@ -216,7 +216,9 @@ export class CreateDataSourceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+   * Specifies whether to perform a dry run (only validates whether the data source is valid). Valid values:
+   * - true: performs a dry run.
+   * - false: does not perform a dry run.
    * 
    * @example
    * true

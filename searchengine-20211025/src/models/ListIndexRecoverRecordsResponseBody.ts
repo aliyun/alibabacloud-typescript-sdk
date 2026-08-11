@@ -8,12 +8,12 @@ export class ListIndexRecoverRecordsResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * test
+   * Custom Configuration
    */
   desc?: string;
   /**
    * @remarks
-   * The time when the index version was published.
+   * The time when the publish was completed.
    * 
    * @example
    * 2024-06-07 16:43:00
@@ -21,7 +21,7 @@ export class ListIndexRecoverRecordsResponseBody extends $dara.Model {
   finishedTime?: string;
   /**
    * @remarks
-   * The ID of the full index version.
+   * The full index version.
    * 
    * @example
    * 1708674867

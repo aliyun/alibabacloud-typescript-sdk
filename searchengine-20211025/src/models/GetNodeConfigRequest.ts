@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetNodeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the cluster
+   * The cluster name.
    * 
    * @example
    * vpc_sh_domain_2
@@ -23,10 +23,10 @@ export class GetNodeConfigRequest extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * *   qrs: Query Result Searcher (QRS) worker
-   * *   search: Search worker
-   * *   index: index
-   * *   cluster: cluster
+   * - qrs: query node
+   * - search: data node
+   * - index: index node
+   * - cluster: cluster.
    * 
    * @example
    * index

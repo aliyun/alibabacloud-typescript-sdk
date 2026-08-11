@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListSchemasRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
-   * ak
+   * L***p
    */
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The alias of an ODPS data source.
    * 
    * @example
-   * as
+   * 5**9a6
    */
   accessSecret?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute data source.
+   * The endpoint of the ODPS data source.
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
@@ -29,15 +29,15 @@ export class ListSchemasRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The namespace of the SARO data source.
+   * The namespace of the Saro data source.
    * 
    * @example
-   * igraph-cn-tl32wnrhi04
+   * imm
    */
   namespace?: string;
   /**
    * @remarks
-   * The shard name.
+   * The data partition.
    * 
    * @example
    * dt=20230520
@@ -45,15 +45,15 @@ export class ListSchemasRequest extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The name of the ODPS data source project.
    * 
    * @example
-   * start-flask-v3-obcc
+   * sec_odps
    */
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * The name of the table in the Saro or ODPS data source.
    * 
    * @example
    * item
@@ -61,7 +61,7 @@ export class ListSchemasRequest extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * odps, swift, saro, oss, unknown
    * 
    * This parameter is required.
    * 

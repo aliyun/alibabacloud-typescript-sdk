@@ -3,16 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIndexesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the data catalog for the Data Lake Formation (DLF) data source.
+   * 
+   * @example
+   * clg-paimon-765e9e2d43ab4fccbf095853a661eafc
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database of the DLF data source.
+   * 
+   * @example
+   * dlf_test
+   */
   database?: string;
   /**
    * @remarks
-   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * Specifies whether to use the new version of the console page.
    * 
    * @example
    * true
    */
   newMode?: boolean;
+  /**
+   * @remarks
+   * The data table of the DLF data source.
+   * 
+   * @example
+   * rag
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {

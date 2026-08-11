@@ -8,7 +8,9 @@ export class ModifyClusterDescRequest extends $dara.Model {
    * The request body.
    * 
    * @example
-   * {}
+   * {
+   *     "description": "Custom description"
+   * }
    */
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {

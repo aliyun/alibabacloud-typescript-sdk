@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * OSSBucket
    * 
    * @example
-   * test
+   * test-bucket
    */
   ossBucket?: string;
   /**
    * @remarks
-   * The OSS endpoint.
+   * The OSS region endpoint.
    * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
@@ -21,10 +21,10 @@ export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $da
   ossEndpoint?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
-   * uid
+   * 1062017779051424
    */
   uid?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $da
 export class CreateTableRequestDataProcessConfigParams extends $dara.Model {
   /**
    * @remarks
-   * The source of the data to be vectorized.
+   * The vectorization information source.
    */
   srcFieldConfig?: CreateTableRequestDataProcessConfigParamsSrcFieldConfig;
   /**
@@ -113,7 +113,9 @@ export class CreateTableRequestDataProcessConfig extends $dara.Model {
   dstField?: string;
   /**
    * @remarks
-   * The method used to process the field. Valid values: copy and vectorize. A value of copy specifies that the value of the source field is copied to the destination field. A value of vectorize specifies that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+   * The field processing method. Valid values:
+   * - copy: copies the source field to the destination field.
+   * - vectorize: vectorizes the source field by using a model and stores the vector in the destination field.
    * 
    * @example
    * vectorize
@@ -121,7 +123,7 @@ export class CreateTableRequestDataProcessConfig extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The information about the model.
+   * The model configuration.
    */
   params?: CreateTableRequestDataProcessConfigParams;
   /**
@@ -165,33 +167,47 @@ export class CreateTableRequestDataProcessConfig extends $dara.Model {
 export class CreateTableRequestDataSourceConfig extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
-   * ak
+   * L***p
    */
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The AccessKey secret of the ODPS data source.
    * 
    * @example
-   * as
+   * 5**9a6
    */
   accessSecret?: string;
   /**
    * @remarks
-   * The OSS bucket.
+   * oss bucket
    * 
    * @example
-   * antsys-flytest-ci
+   * test-bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The catalog name of the DLF data source.
+   * 
+   * @example
+   * test_catalog
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database of the DLF data source.
+   * 
+   * @example
+   * opensearch_db
+   */
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute data source.
+   * The access endpoint.
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
@@ -199,15 +215,24 @@ export class CreateTableRequestDataSourceConfig extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) path.
+   * The file format type.
    * 
    * @example
-   * oss://opensearch
+   * ha3
+   * json
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The OSS data source path.
+   * 
+   * @example
+   * /opensearch/test.txt
    */
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * The partition. This parameter is required when the data source is ODPS.
    * 
    * @example
    * ds=20220713
@@ -215,21 +240,45 @@ export class CreateTableRequestDataSourceConfig extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The relative path.
    * 
    * @example
-   * project_20210220122847_3218
+   * /test
+   */
+  path?: string;
+  /**
+   * @remarks
+   * The project name of the ODPS data source.
+   * 
+   * @example
+   * test_project
    */
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * The table name of the ODPS or DLF data source.
    * 
    * @example
    * test56
    */
   table?: string;
+  /**
+   * @remarks
+   * The table format of the DLF data source.
+   * 
+   * @example
+   * paimon
+   * lance
+   * object
+   */
   tableFormat?: string;
+  /**
+   * @remarks
+   * The tag of the DLF data source.
+   * 
+   * @example
+   * test
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -239,8 +288,10 @@ export class CreateTableRequestDataSourceConfig extends $dara.Model {
       catalog: 'catalog',
       database: 'database',
       endpoint: 'endpoint',
+      format: 'format',
       ossPath: 'ossPath',
       partition: 'partition',
+      path: 'path',
       project: 'project',
       table: 'table',
       tableFormat: 'tableFormat',
@@ -256,8 +307,10 @@ export class CreateTableRequestDataSourceConfig extends $dara.Model {
       catalog: 'string',
       database: 'string',
       endpoint: 'string',
+      format: 'string',
       ossPath: 'string',
       partition: 'string',
+      path: 'string',
       project: 'string',
       table: 'string',
       tableFormat: 'string',
@@ -277,7 +330,7 @@ export class CreateTableRequestDataSourceConfig extends $dara.Model {
 export class CreateTableRequestDataSource extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically rebuild the index.
+   * Specifies whether auto index rebuilding is enabled.
    * 
    * @example
    * true
@@ -285,12 +338,12 @@ export class CreateTableRequestDataSource extends $dara.Model {
   autoBuildIndex?: boolean;
   /**
    * @remarks
-   * The configurations of the data source.
+   * The datasource config.
    */
   config?: CreateTableRequestDataSourceConfig;
   /**
    * @remarks
-   * The start timestamp from which incremental data is retrieved.
+   * The timestamp for incremental data tracking.
    * 
    * @example
    * 1715160176
@@ -298,7 +351,7 @@ export class CreateTableRequestDataSource extends $dara.Model {
   dataTimeSec?: number;
   /**
    * @remarks
-   * The data source type. Valid values: odps, swift, and oss.
+   * The data source type. Only odps, swift, and oss are supported. Valid values: odps, swift, saro, oss, and unKnow.
    * 
    * @example
    * odps
@@ -353,7 +406,7 @@ export class CreateTableRequestVectorIndexAdvanceParams extends $dara.Model {
   linearBuildThreshold?: string;
   /**
    * @remarks
-   * The minimum number of retrieved candidate sets.
+   * The minimum number of candidate documents for recall.
    * 
    * @example
    * 20000
@@ -361,7 +414,7 @@ export class CreateTableRequestVectorIndexAdvanceParams extends $dara.Model {
   minScanDocCnt?: string;
   /**
    * @remarks
-   * The index retrieval parameters.
+   * The index search parameters.
    * 
    * @example
    * {}
@@ -397,12 +450,12 @@ export class CreateTableRequestVectorIndexAdvanceParams extends $dara.Model {
 export class CreateTableRequestVectorIndex extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the index schema.
+   * The index structure configuration.
    */
   advanceParams?: CreateTableRequestVectorIndexAdvanceParams;
   /**
    * @remarks
-   * The dimension of the vector.
+   * The vector dimensions.
    * 
    * @example
    * 128
@@ -418,10 +471,10 @@ export class CreateTableRequestVectorIndex extends $dara.Model {
   distanceType?: string;
   /**
    * @remarks
-   * The name of the index schema.
+   * The index structure name.
    * 
    * @example
-   * case_index
+   * test_index
    */
   indexName?: string;
   /**
@@ -434,7 +487,7 @@ export class CreateTableRequestVectorIndex extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The field that stores the indexes of the elements in sparse vectors.
+   * The sparse vector index field.
    * 
    * @example
    * sparse_indices
@@ -442,7 +495,7 @@ export class CreateTableRequestVectorIndex extends $dara.Model {
   sparseIndexField?: string;
   /**
    * @remarks
-   * The field that stores the elements in sparse vectors.
+   * The sparse vector value field.
    * 
    * @example
    * sparse_values
@@ -458,7 +511,7 @@ export class CreateTableRequestVectorIndex extends $dara.Model {
   vectorField?: string;
   /**
    * @remarks
-   * The vector retrieval algorithm.
+   * The vector index algorithm.
    * 
    * @example
    * Qc
@@ -507,12 +560,12 @@ export class CreateTableRequestVectorIndex extends $dara.Model {
 export class CreateTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The configurations about field processing.
+   * The field processing configuration.
    */
   dataProcessConfig?: CreateTableRequestDataProcessConfig[];
   /**
    * @remarks
-   * The number of resources used for data update.
+   * The number of data update resources.
    * 
    * @example
    * 1
@@ -520,12 +573,12 @@ export class CreateTableRequest extends $dara.Model {
   dataProcessorCount?: number;
   /**
    * @remarks
-   * The configurations of the data source.
+   * The datasource config.
    */
   dataSource?: CreateTableRequestDataSource;
   /**
    * @remarks
-   * The fields.
+   * The field schema. The key is the field name.
    */
   fieldSchema?: { [key: string]: string };
   /**
@@ -533,7 +586,7 @@ export class CreateTableRequest extends $dara.Model {
    * The index name.
    * 
    * @example
-   * index_1
+   * api_index_1
    */
   name?: string;
   /**
@@ -554,24 +607,30 @@ export class CreateTableRequest extends $dara.Model {
   primaryKey?: string;
   /**
    * @remarks
-   * The instance schema. If this parameter is specified, the parameters about the index are not required.
+   * The raw schema. If you specify this parameter, the value is used directly as the HA3 schema structure without manual assembly.
    * 
    * @example
    * {}
    */
   rawSchema?: string;
+  /**
+   * @remarks
+   * The template type.
+   * 
+   * @example
+   * videoSearcher
+   */
   scene?: string;
   /**
    * @remarks
-   * The index schema.
+   * The index structure.
    */
   vectorIndex?: CreateTableRequestVectorIndex[];
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to perform a dry run (only validates whether the data source is valid). Valid values:
+   * - true: performs a dry run.
+   * - false: does not perform a dry run.
    * 
    * @example
    * true

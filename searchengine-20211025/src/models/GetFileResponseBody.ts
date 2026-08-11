@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The file content.
+   * The content of the file.
    * 
    * @example
-   * None
+   * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
    */
   content?: string;
   /**
@@ -16,12 +16,12 @@ export class GetFileResponseBodyResult extends $dara.Model {
    * The data source.
    * 
    * @example
-   * ha-cn-2r42p5oi202_xijie_test
+   * ha-cn-pl32rf0****_test_api
    */
   dataSource?: string;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    */
   extend?: { [key: string]: string[] };
   /**
@@ -29,15 +29,15 @@ export class GetFileResponseBodyResult extends $dara.Model {
    * The full path of the file.
    * 
    * @example
-   * ""
+   * /schema.json
    */
   fullPathName?: string;
   /**
    * @remarks
-   * Indicates whether the file is a directory.
+   * Indicates whether the path points to a directory.
    * 
    * @example
-   * True
+   * true
    */
   isDir?: boolean;
   /**
@@ -45,7 +45,7 @@ export class GetFileResponseBodyResult extends $dara.Model {
    * The file name.
    * 
    * @example
-   * ha-cn-2r42ostoc01_qrs
+   * testFile
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class GetFileResponseBodyResult extends $dara.Model {
    * The number of shards.
    * 
    * @example
-   * ds=20210828
+   * 2
    */
   partition?: number;
   static names(): { [key: string]: string } {

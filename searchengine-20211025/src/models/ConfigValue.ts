@@ -6,7 +6,7 @@ import { ConfigValueFilesConfigVariablesValue } from "./ConfigValueFilesConfigVa
 export class ConfigValueFilesConfig extends $dara.Model {
   /**
    * @remarks
-   * The file content.
+   * File content for dictionary configuration
    * 
    * @example
    * $dictContent
@@ -14,7 +14,7 @@ export class ConfigValueFilesConfig extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The variables.
+   * Variable
    */
   variables?: { [key: string]: ConfigValueFilesConfigVariablesValue };
   static names(): { [key: string]: string } {
@@ -46,7 +46,7 @@ export class ConfigValueFilesConfig extends $dara.Model {
 export class ConfigValueFiles extends $dara.Model {
   /**
    * @remarks
-   * The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+   * Operation type. Valid values: UPDATE (update) and DELETE (delete). Default value: UPDATE.
    * 
    * @example
    * UPDATE
@@ -54,7 +54,7 @@ export class ConfigValueFiles extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The path of the parent directory.
+   * The path of the parent directory
    * 
    * @example
    * /
@@ -62,20 +62,20 @@ export class ConfigValueFiles extends $dara.Model {
   parentFullPath?: string;
   /**
    * @remarks
-   * The file name.
+   * File name
    * 
    * @example
-   * /intervene_dict/中文-通用分析器.dict
+   * /intervene_dict/analyzer.dict
    */
   fileName?: string;
   /**
    * @remarks
-   * The configuration to be modified.
+   * The configuration for this update
    */
   config?: ConfigValueFilesConfig;
   /**
    * @remarks
-   * The directory name.
+   * Directory name
    * 
    * @example
    * /test
@@ -116,7 +116,7 @@ export class ConfigValueFiles extends $dara.Model {
 export class ConfigValue extends $dara.Model {
   /**
    * @remarks
-   * The description of the offline configuration.
+   * Remarks
    * 
    * @example
    * test
@@ -124,7 +124,7 @@ export class ConfigValue extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The files to be modified.
+   * List of modified files
    */
   files?: ConfigValueFiles[];
   static names(): { [key: string]: string } {

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSqlInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance version.
+   * 
    * @example
    * 1
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelsResponseBodyResultContentRequestHeader extends $dara.Model {
   /**
+   * @remarks
+   * The authentication information. Format: Bearer access_token.
+   * 
    * @example
    * Bearer OS-v0********6vvs
    */
   authorization?: string;
   /**
+   * @remarks
+   * The HTTP request content type.
+   * 
    * @example
    * application/json
    */
@@ -38,6 +44,9 @@ export class ListModelsResponseBodyResultContentRequestHeader extends $dara.Mode
 
 export class ListModelsResponseBodyResultContentRequestParametersBuild extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * query
    */
@@ -65,6 +74,9 @@ export class ListModelsResponseBodyResultContentRequestParametersBuild extends $
 
 export class ListModelsResponseBodyResultContentRequestParametersSearch extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * document
    */
@@ -91,7 +103,15 @@ export class ListModelsResponseBodyResultContentRequestParametersSearch extends 
 }
 
 export class ListModelsResponseBodyResultContentRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters for the index building phase.
+   */
   build?: ListModelsResponseBodyResultContentRequestParametersBuild;
+  /**
+   * @remarks
+   * The parameters for the query phase.
+   */
   search?: ListModelsResponseBodyResultContentRequestParametersSearch;
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +144,17 @@ export class ListModelsResponseBodyResultContentRequestParameters extends $dara.
 
 export class ListModelsResponseBodyResultContentRequestUrlParams extends $dara.Model {
   /**
+   * @remarks
+   * The parameters passed during index building.
+   * 
    * @example
    * key: value
    */
   build?: { [key: string]: any };
   /**
+   * @remarks
+   * The parameters passed during queries.
+   * 
    * @example
    * key: value
    */
@@ -163,13 +189,28 @@ export class ListModelsResponseBodyResultContentRequestUrlParams extends $dara.M
 }
 
 export class ListModelsResponseBodyResultContentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP header for accessing the model service.
+   */
   header?: ListModelsResponseBodyResultContentRequestHeader;
+  /**
+   * @remarks
+   * The parameters that need to be differentiated between the build and search phases in the body. Define them in this parameter.
+   */
   parameters?: ListModelsResponseBodyResultContentRequestParameters;
   /**
+   * @remarks
+   * The template string of the request body.
+   * 
    * @example
    * {\\"input\\": [\\"%{input}\\"], \\"input_type\\": \\"%{input_type}\\"}
    */
   requestBody?: string;
+  /**
+   * @remarks
+   * The parameters in the URL. Some model services require parameters to be passed through the URL.
+   */
   urlParams?: ListModelsResponseBodyResultContentRequestUrlParams;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +250,9 @@ export class ListModelsResponseBodyResultContentRequest extends $dara.Model {
 
 export class ListModelsResponseBodyResultContentResponse extends $dara.Model {
   /**
+   * @remarks
+   * Specifies how to parse the result information, described in JSON path format.
+   * 
    * @example
    * $.result.embeddings[*].embedding
    */
@@ -236,23 +280,48 @@ export class ListModelsResponseBodyResultContentResponse extends $dara.Model {
 
 export class ListModelsResponseBodyResultContent extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP method for accessing the model service. PUT and POST are supported.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * test
    */
   modelName?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - a. Text embedding: text_embedding
+   * - b. Text sparse embedding: text_sparse_embedding
+   * - c. Image embedding: image_embedding
+   * - d. Image content analysis: image_analyze.
+   * 
    * @example
    * text_embedding
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The request configuration information.
+   */
   request?: ListModelsResponseBodyResultContentRequest;
+  /**
+   * @remarks
+   * Specifies how to parse the result information, described in JSON path format.
+   */
   response?: ListModelsResponseBodyResultContentResponse;
   /**
+   * @remarks
+   * The access URL of the model service.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -295,38 +364,70 @@ export class ListModelsResponseBodyResultContent extends $dara.Model {
 }
 
 export class ListModelsResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The content information of the model.
+   */
   content?: ListModelsResponseBodyResultContent;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2024-05-21 16:05:26
    */
   createTime?: string;
   /**
+   * @remarks
+   * The dimension of the model.
+   * 
    * @example
    * 128
    */
   dimension?: number;
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The model status. Valid values:
+   *  * ok: The model is available.
+   *  * forbidden: The model is unavailable.
+   * 
    * @example
    * ok
    */
   status?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - a. Text embedding: text_embedding
+   * - b. Text sparse embedding: text_sparse_embedding
+   * - c. Image embedding: image_embedding
+   * - d. Image content analysis: image_analyze.
+   * 
    * @example
    * text_embedding
    */
   type?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 2024-05-21 16:05:26
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The access URL of the model service.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -371,12 +472,22 @@ export class ListModelsResponseBodyResult extends $dara.Model {
 
 export class ListModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 38b079f1-7846-4226-8c90-3e2644b5c52b
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The model list. For more information, see Model.
+   */
   result?: ListModelsResponseBodyResult[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 14
    */

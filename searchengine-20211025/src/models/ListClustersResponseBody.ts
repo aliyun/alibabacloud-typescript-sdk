@@ -8,7 +8,7 @@ export class ListClustersResponseBodyResultDataNode extends $dara.Model {
    * The name of the Searcher worker.
    * 
    * @example
-   * ha-cn-8ed2k7brm05_qrs
+   * general
    */
   name?: string;
   /**
@@ -24,7 +24,7 @@ export class ListClustersResponseBodyResultDataNode extends $dara.Model {
    * The ID of the partition that is stored on the Searcher worker.
    * 
    * @example
-   * dt=20220216
+   * 1
    */
   partition?: number;
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class ListClustersResponseBodyResultQueryNode extends $dara.Model {
    * The name of the QRS worker.
    * 
    * @example
-   * test_0704
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
@@ -74,7 +74,7 @@ export class ListClustersResponseBodyResultQueryNode extends $dara.Model {
    * The ID of the partition that is stored on the QRS worker.
    * 
    * @example
-   * dt=20211216
+   * 1
    */
   partition?: number;
   static names(): { [key: string]: string } {
@@ -113,7 +113,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The time when the configuration was updated.
    * 
    * @example
-   * " "
+   * 2024-05-21 16:05:26
    */
   configUpdateTime?: string;
   /**
@@ -129,7 +129,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The effective advanced configuration version.
    * 
    * @example
-   * " "
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   currentAdvanceConfigVersion?: string;
   /**
@@ -145,7 +145,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The effective online configuration version.
    * 
    * @example
-   * " "
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   currentOnlineConfigVersion?: string;
   /**
@@ -166,7 +166,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The description of the cluster.
    * 
    * @example
-   * fzz_test
+   * Custom description
    */
   description?: string;
   /**
@@ -174,7 +174,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The latest advanced configuration version.
    * 
    * @example
-   * " "
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   latestAdvanceConfigVersion?: string;
   /**
@@ -190,7 +190,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The latest online configuration version.
    * 
    * @example
-   * " "
+   * ha-cn-pl32rf0****_offline_adv_v1
    */
   latestOnlineConfigVersion?: string;
   /**
@@ -206,7 +206,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * ha-cn-7pp2pcna701_qrs
+   * hz_pre_vpc_domain_1
    */
   name?: string;
   /**
@@ -219,7 +219,7 @@ export class ListClustersResponseBodyResult extends $dara.Model {
    * The cluster status. Valid values: running: The cluster is running. starting: The cluster is being started. stopping: The cluster is being stopped. stopped: The cluster is stopped.
    * 
    * @example
-   * "starting"
+   * running
    */
   status?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAliasRequest extends $dara.Model {
   /**
    * @remarks
-   * alias name
+   * The alias.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class CreateAliasRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * index name
+   * The associated index.
    * 
    * @example
    * index
@@ -21,7 +21,7 @@ export class CreateAliasRequest extends $dara.Model {
   index?: string;
   /**
    * @remarks
-   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * Specifies whether the new version of the console page is used.
    * 
    * @example
    * true

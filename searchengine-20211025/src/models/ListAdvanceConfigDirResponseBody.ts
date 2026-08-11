@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdvanceConfigDirResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The absolute path in which the file is stored.
+   * The full path.
    * 
    * @example
-   * "/path/wpd/nae"
+   * /path/wpd/nae
    */
   fullPathName?: string;
   /**
    * @remarks
-   * Indicates whether the file is a directory. Valid values: true and false.
+   * Indicates whether the entry is a directory. Valid values: - true: The entry is a directory. - false: The entry is not a directory.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListAdvanceConfigDirResponseBodyResult extends $dara.Model {
   isDir?: boolean;
   /**
    * @remarks
-   * Indicates whether the file is a template. Valid values: **true** and **false**.
+   * Indicates whether the entry is a template. Valid values: - **true**: The entry is a template. - **false**: The entry is not a template.
    * 
    * @example
    * true
@@ -32,7 +32,7 @@ export class ListAdvanceConfigDirResponseBodyResult extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * file_name_1
+   * hz_pre_vpc_domain_1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class ListAdvanceConfigDirResponseBodyResult extends $dara.Model {
 export class ListAdvanceConfigDirResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -73,7 +73,7 @@ export class ListAdvanceConfigDirResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The advanced configuration files.
+   * The returned result.
    */
   result?: ListAdvanceConfigDirResponseBodyResult[];
   static names(): { [key: string]: string } {

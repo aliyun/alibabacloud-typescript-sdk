@@ -8,7 +8,7 @@ export class ListDataSourcesResponseBodyResult extends $dara.Model {
    * The data center in which the data source is deployed.
    * 
    * @example
-   * test
+   * vpc_hz_domain_1
    */
   domain?: string;
   /**
@@ -29,7 +29,7 @@ export class ListDataSourcesResponseBodyResult extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * data_source_name
+   * ha-cn-pl32rf0****_test_api
    */
   name?: string;
   /**

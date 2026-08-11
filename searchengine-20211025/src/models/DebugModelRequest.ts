@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DebugModelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The input of the model.
+   * 
+   * @example
+   * test
+   */
   input?: string;
   /**
+   * @remarks
+   * Specifies whether to perform an online query. Set this parameter to true to use the search configuration. Set this parameter to false to use the build configuration.
+   * 
    * @example
    * true
    */

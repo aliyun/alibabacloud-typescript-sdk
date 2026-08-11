@@ -8,7 +8,7 @@ export class ModifyIndexPartitionRequestIndexInfos extends $dara.Model {
    * The index name.
    * 
    * @example
-   * atest2
+   * test_api
    */
   indexName?: string;
   /**
@@ -58,7 +58,7 @@ export class ModifyIndexPartitionRequest extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * test1
+   * ha-cn-pl32rf0****_test_api
    */
   dataSourceName?: string;
   /**
@@ -66,7 +66,7 @@ export class ModifyIndexPartitionRequest extends $dara.Model {
    * The data center.
    * 
    * @example
-   * pre_domain_1
+   * sz_vpc_domain_1
    */
   domainName?: string;
   /**

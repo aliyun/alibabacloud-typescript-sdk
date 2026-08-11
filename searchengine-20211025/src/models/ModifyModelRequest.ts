@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyModelRequestContentRequestHeader extends $dara.Model {
   /**
+   * @remarks
+   * The authentication information. Format: Bearer access_token
+   * 
    * @example
    * Bearer OS-v0********6vvs
    */
   authorization?: string;
   /**
+   * @remarks
+   * The content type of the HTTP request.
+   * 
    * @example
    * application/json
    */
@@ -38,6 +44,9 @@ export class ModifyModelRequestContentRequestHeader extends $dara.Model {
 
 export class ModifyModelRequestContentRequestParametersBuild extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * query
    */
@@ -65,6 +74,9 @@ export class ModifyModelRequestContentRequestParametersBuild extends $dara.Model
 
 export class ModifyModelRequestContentRequestParametersSearch extends $dara.Model {
   /**
+   * @remarks
+   * The input type.
+   * 
    * @example
    * document
    */
@@ -91,7 +103,15 @@ export class ModifyModelRequestContentRequestParametersSearch extends $dara.Mode
 }
 
 export class ModifyModelRequestContentRequestParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters for the index building phase.
+   */
   build?: ModifyModelRequestContentRequestParametersBuild;
+  /**
+   * @remarks
+   * The parameters for the query phase.
+   */
   search?: ModifyModelRequestContentRequestParametersSearch;
   static names(): { [key: string]: string } {
     return {
@@ -124,11 +144,17 @@ export class ModifyModelRequestContentRequestParameters extends $dara.Model {
 
 export class ModifyModelRequestContentRequestUrlParams extends $dara.Model {
   /**
+   * @remarks
+   * The parameters for the index building phase.
+   * 
    * @example
    * key: value
    */
   build?: { [key: string]: any };
   /**
+   * @remarks
+   * The parameters for the query phase.
+   * 
    * @example
    * key: value
    */
@@ -163,13 +189,28 @@ export class ModifyModelRequestContentRequestUrlParams extends $dara.Model {
 }
 
 export class ModifyModelRequestContentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP header to access the model service.
+   */
   header?: ModifyModelRequestContentRequestHeader;
+  /**
+   * @remarks
+   * Specifies parameters that are different for the build and search phases.
+   */
   parameters?: ModifyModelRequestContentRequestParameters;
   /**
+   * @remarks
+   * The template string for the request body.
+   * 
    * @example
    * {\\"input\\": [\\"%{input}\\"], \\"input_type\\": \\"%{input_type}\\"}
    */
   requestBody?: string;
+  /**
+   * @remarks
+   * The parameters in the URL. Some model services require parameters to be passed in the URL.
+   */
   urlParams?: ModifyModelRequestContentRequestUrlParams;
   static names(): { [key: string]: string } {
     return {
@@ -209,6 +250,9 @@ export class ModifyModelRequestContentRequest extends $dara.Model {
 
 export class ModifyModelRequestContentResponse extends $dara.Model {
   /**
+   * @remarks
+   * The JSONPath expression used to parse the embeddings from the result.
+   * 
    * @example
    * $.result.embeddings[*].embedding
    */
@@ -236,23 +280,51 @@ export class ModifyModelRequestContentResponse extends $dara.Model {
 
 export class ModifyModelRequestContent extends $dara.Model {
   /**
+   * @remarks
+   * The dimension of the model.
+   * 
    * @example
    * 128
    */
   dimension?: number;
   /**
+   * @remarks
+   * The HTTP method to access the model service. Valid values are PUT and POST.
+   * 
    * @example
    * POST
    */
   method?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
+   * - Text embedding: text_embedding
+   * 
+   * - Text sparse embedding: text_sparse_embedding
+   * 
+   * - Image embedding: image_embedding
+   * 
+   * - Image content parsing: image_analyze
+   * 
    * @example
    * text_embedding
    */
   modelType?: string;
+  /**
+   * @remarks
+   * The model request body.
+   */
   request?: ModifyModelRequestContentRequest;
+  /**
+   * @remarks
+   * The JSONPath expression used to parse the result.
+   */
   response?: ModifyModelRequestContentResponse;
   /**
+   * @remarks
+   * The endpoint of the model service.
+   * 
    * @example
    * http://***.platform-cn-shanghai.opensearch.aliyuncs.com/v3/openapi/workspaces/default/text-embedding/ops-text-embedding-001
    */
@@ -295,13 +367,27 @@ export class ModifyModelRequestContent extends $dara.Model {
 }
 
 export class ModifyModelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The model details.
+   */
   content?: ModifyModelRequestContent;
   /**
+   * @remarks
+   * The model status.
+   * 
+   * - ok: The model is active.
+   * 
+   * - forbidden: The model is unavailable.
+   * 
    * @example
    * ok
    */
   status?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a check. The default value is false.
+   * 
    * @example
    * true
    */

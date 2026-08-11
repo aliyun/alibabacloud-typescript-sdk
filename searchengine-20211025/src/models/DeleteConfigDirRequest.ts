@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigDirRequest extends $dara.Model {
   /**
    * @remarks
-   * The directory name.
+   * The folder name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteConfigDirRequest extends $dara.Model {
   dirName?: string;
   /**
    * @remarks
-   * The path of the parent directory.
+   * The path of the parent folder.
    * 
    * This parameter is required.
    * 

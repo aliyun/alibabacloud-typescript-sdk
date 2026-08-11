@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAliasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The ID of the request.
    * 
    * @example
    * F6E3D968-529C-5C40-AFDD-133A8B8FD930
@@ -13,7 +13,7 @@ export class ModifyAliasResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Map
+   * The returned result.
    * 
    * @example
    * {}

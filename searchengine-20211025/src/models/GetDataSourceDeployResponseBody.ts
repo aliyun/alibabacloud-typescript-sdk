@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataSourceDeployResponseBodyResultExtendHdfs extends $dara.Model {
   /**
+   * @remarks
+   * The path of the HDFS data source.
+   * 
    * @example
    * dist-dmj-job/src/main/java
    */
@@ -30,6 +33,10 @@ export class GetDataSourceDeployResponseBodyResultExtendHdfs extends $dara.Model
 }
 
 export class GetDataSourceDeployResponseBodyResultExtendOdps extends $dara.Model {
+  /**
+   * @remarks
+   * The partition information of the data source.
+   */
   partitions?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -57,6 +64,9 @@ export class GetDataSourceDeployResponseBodyResultExtendOdps extends $dara.Model
 
 export class GetDataSourceDeployResponseBodyResultExtendOss extends $dara.Model {
   /**
+   * @remarks
+   * The path of the OSS data source.
+   * 
    * @example
    * oss://opensearch
    */
@@ -84,11 +94,17 @@ export class GetDataSourceDeployResponseBodyResultExtendOss extends $dara.Model 
 
 export class GetDataSourceDeployResponseBodyResultExtendSaro extends $dara.Model {
   /**
+   * @remarks
+   * The path of the HDFS data source.
+   * 
    * @example
    * dist-dmj-job/src/main/java
    */
   path?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 0.6.0
    */
@@ -117,9 +133,25 @@ export class GetDataSourceDeployResponseBodyResultExtendSaro extends $dara.Model
 }
 
 export class GetDataSourceDeployResponseBodyResultExtend extends $dara.Model {
+  /**
+   * @remarks
+   * The HDFS information.
+   */
   hdfs?: GetDataSourceDeployResponseBodyResultExtendHdfs;
+  /**
+   * @remarks
+   * The information about the MaxCompute data source.
+   */
   odps?: GetDataSourceDeployResponseBodyResultExtendOdps;
+  /**
+   * @remarks
+   * The OSS information.
+   */
   oss?: GetDataSourceDeployResponseBodyResultExtendOss;
+  /**
+   * @remarks
+   * The information about the SARO data source.
+   */
   saro?: GetDataSourceDeployResponseBodyResultExtendSaro;
   static names(): { [key: string]: string } {
     return {
@@ -163,10 +195,18 @@ export class GetDataSourceDeployResponseBodyResultExtend extends $dara.Model {
 export class GetDataSourceDeployResponseBodyResultProcessor extends $dara.Model {
   /**
    * @remarks
-   * The startup parameters of the process.
+   * The startup parameters for the process.
    * 
    * @example
-   * {}
+   * {
+   * 	"processInfos": [],
+   * 	"groupId": "opensearch",
+   * 	"containerConfigs": [],
+   * 	"priority": {
+   * 		"minor_priority": 0,
+   * 		"major_priority": 64
+   * 	}
+   * }
    */
   args?: string;
   /**
@@ -174,7 +214,33 @@ export class GetDataSourceDeployResponseBodyResultProcessor extends $dara.Model 
    * The resource information.
    * 
    * @example
-   * {}
+   * [{
+   * 	"_bs_role": "processor.*.inc",
+   * 	"priority": {
+   * 		"major_priority": 32,
+   * 		"minor_priority": 0
+   * 	},
+   * 	"slotResources": [{
+   * 		"slotResources": [{
+   * 			"amount": 200,
+   * 			"name": "cpu"
+   * 		}, {
+   * 			"amount": 8192,
+   * 			"name": "mem"
+   * 		}, {
+   * 			"amount": 0,
+   * 			"name": "T4"
+   * 		}, {
+   * 			"amount": 10,
+   * 			"type": "SCALAR",
+   * 			"name": "disk_ratio_9999"
+   * 		}, {
+   * 			"amount": 20480,
+   * 			"type": "SCALAR",
+   * 			"name": "disk_size_9999"
+   * 		}]
+   * 	}]
+   * }]
    */
   resource?: string;
   static names(): { [key: string]: string } {
@@ -206,7 +272,7 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $dara.Model {
    * The AccessKey ID of the MaxCompute data source.
    * 
    * @example
-   * ak
+   * L***p
    */
   accessKey?: string;
   /**
@@ -214,15 +280,15 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $dara.Model {
    * The AccessKey secret of the MaxCompute data source.
    * 
    * @example
-   * as
+   * 5**9a6
    */
   accessSecret?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The OSS bucket.
    * 
    * @example
-   * antsys-miniapp-chongwen-static
+   * test-oss-bucket
    */
   bucket?: string;
   catalog?: string;
@@ -236,37 +302,49 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $dara.Model {
    */
   endpoint?: string;
   /**
+   * @remarks
+   * Information related to SARO.
+   * 
    * @example
    * lazada-campaign-flink
    */
   namespace?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) path.
+   * Information related to the OSS data source.
    * 
    * @example
-   * oss://opensearch
+   * /opensearch/test.json
    */
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table. Example: ds=20180102.
+   * The partition of the MaxCompute data source. For example: ds=20180102
    * 
    * @example
    * ds=20220926
    */
   partition?: string;
   /**
+   * @remarks
+   * Information related to HDFS.
+   * 
    * @example
    * /beiming_xobject/dwd_xobjectsandbox__list_create_action_by_new/
    */
   path?: string;
   /**
+   * @remarks
+   * The name of the MaxCompute project.
+   * 
    * @example
    * wireless_1688_personal_rec
    */
   project?: string;
   /**
+   * @remarks
+   * The name of the table in the SARO or MaxCompute data source.
+   * 
    * @example
    * behavior
    */
@@ -323,15 +401,15 @@ export class GetDataSourceDeployResponseBodyResultSwift extends $dara.Model {
    * The topic.
    * 
    * @example
-   * topic
+   * ha-cn-pl32rf0****_test_api
    */
   topic?: string;
   /**
    * @remarks
-   * zk
+   * The ZooKeeper service.
    * 
    * @example
-   * zk
+   * test-zk
    */
   zk?: string;
   static names(): { [key: string]: string } {
@@ -359,24 +437,31 @@ export class GetDataSourceDeployResponseBodyResultSwift extends $dara.Model {
 
 export class GetDataSourceDeployResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether automatic full indexing is enabled.
+   * 
    * @example
    * true
    */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The extended content of the field configuration. The key can be \\`vector\\` for vector fields or \\`embedding\\` for fields that require embedding.
+   */
   extend?: GetDataSourceDeployResponseBodyResultExtend;
   /**
    * @remarks
-   * The parameters of the process.
+   * The processor parameters.
    */
   processor?: GetDataSourceDeployResponseBodyResultProcessor;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source information.
    */
   storage?: GetDataSourceDeployResponseBodyResultStorage;
   /**
    * @remarks
-   * The information about the incremental data source Swift.
+   * The information about incremental data from Swift.
    */
   swift?: GetDataSourceDeployResponseBodyResultSwift;
   static names(): { [key: string]: string } {
@@ -423,7 +508,7 @@ export class GetDataSourceDeployResponseBodyResult extends $dara.Model {
 export class GetDataSourceDeployResponseBody extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -431,7 +516,7 @@ export class GetDataSourceDeployResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned result.
    */
   result?: GetDataSourceDeployResponseBodyResult;
   static names(): { [key: string]: string } {

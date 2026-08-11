@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestDataNode extends $dara.Model {
   /**
    * @remarks
-   * The number of Searcher workers.
+   * The number of data nodes.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class CreateClusterRequestDataNode extends $dara.Model {
   number?: number;
   /**
    * @remarks
-   * The number of shards.
+   * The number of partitions.
    * 
    * @example
    * 2
@@ -45,7 +45,7 @@ export class CreateClusterRequestDataNode extends $dara.Model {
 export class CreateClusterRequestQueryNode extends $dara.Model {
   /**
    * @remarks
-   * The number of QRS workers.
+   * The number of query nodes.
    * 
    * @example
    * 2
@@ -75,7 +75,7 @@ export class CreateClusterRequestQueryNode extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic connection.
+   * Specifies whether to automatically mount the cluster.
    * 
    * @example
    * true
@@ -83,15 +83,15 @@ export class CreateClusterRequest extends $dara.Model {
   autoLoad?: boolean;
   /**
    * @remarks
-   * The details of the Searcher workers.
+   * The details of the data node.
    */
   dataNode?: CreateClusterRequestDataNode;
   /**
    * @remarks
-   * The description of the cluster.
+   * The cluster description.
    * 
    * @example
-   * "ha-tets"
+   * Custom description
    */
   description?: string;
   /**
@@ -99,12 +99,12 @@ export class CreateClusterRequest extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * ha-cn-zvp2qr1sk01_qrs
+   * hz_pre_vpc_domain_1
    */
   name?: string;
   /**
    * @remarks
-   * The details of the Query Result Searcher (QRS) workers.
+   * The details of the query node.
    */
   queryNode?: CreateClusterRequestQueryNode;
   static names(): { [key: string]: string } {

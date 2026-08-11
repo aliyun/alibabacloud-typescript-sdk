@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDataSourceDeployRequestExtendHdfs extends $dara.Model {
   /**
    * @remarks
-   * The path of the Apsara File Storage for HDFS data source.
+   * The HDFS data source path.
    * 
    * @example
    * ymsh-service/src/main/java/cn/ymsh/util/jd
@@ -35,7 +35,7 @@ export class ModifyDataSourceDeployRequestExtendHdfs extends $dara.Model {
 export class ModifyDataSourceDeployRequestExtendOdps extends $dara.Model {
   /**
    * @remarks
-   * The partitions in the MaxCompute table.
+   * The partition information of the data source.
    */
   partitions?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class ModifyDataSourceDeployRequestExtendOdps extends $dara.Model {
 export class ModifyDataSourceDeployRequestExtendOss extends $dara.Model {
   /**
    * @remarks
-   * The path of the OSS data source.
+   * The OSS data source path.
    * 
    * @example
    * oss://test
@@ -95,7 +95,7 @@ export class ModifyDataSourceDeployRequestExtendOss extends $dara.Model {
 export class ModifyDataSourceDeployRequestExtendSaro extends $dara.Model {
   /**
    * @remarks
-   * The path of the SARO data source.
+   * The path.
    * 
    * @example
    * /
@@ -103,7 +103,7 @@ export class ModifyDataSourceDeployRequestExtendSaro extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The version number of the SARO data source.
+   * The version number.
    * 
    * @example
    * 1
@@ -135,22 +135,22 @@ export class ModifyDataSourceDeployRequestExtendSaro extends $dara.Model {
 export class ModifyDataSourceDeployRequestExtend extends $dara.Model {
   /**
    * @remarks
-   * The information about the Apsara File Storage for HDFS data source.
+   * The HDFS information.
    */
   hdfs?: ModifyDataSourceDeployRequestExtendHdfs;
   /**
    * @remarks
-   * The information about the MaxCompute data source.
+   * The ODPS data source information.
    */
   odps?: ModifyDataSourceDeployRequestExtendOdps;
   /**
    * @remarks
-   * The information about the OSS data source.
+   * The OSS information.
    */
   oss?: ModifyDataSourceDeployRequestExtendOss;
   /**
    * @remarks
-   * The information about the SARO data source. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * The Saro data source information.
    */
   saro?: ModifyDataSourceDeployRequestExtendSaro;
   static names(): { [key: string]: string } {
@@ -195,10 +195,18 @@ export class ModifyDataSourceDeployRequestExtend extends $dara.Model {
 export class ModifyDataSourceDeployRequestProcessor extends $dara.Model {
   /**
    * @remarks
-   * The startup parameters of the process.
+   * The process startup parameters.
    * 
    * @example
-   * {}
+   * {
+   * 	"processInfos": [],
+   * 	"groupId": "opensearch",
+   * 	"containerConfigs": [],
+   * 	"priority": {
+   * 		"minor_priority": 0,
+   * 		"major_priority": 64
+   * 	}
+   * }
    */
   args?: string;
   /**
@@ -206,7 +214,33 @@ export class ModifyDataSourceDeployRequestProcessor extends $dara.Model {
    * The resource information.
    * 
    * @example
-   * {}
+   * [{
+   * 	"_bs_role": "processor.*.inc",
+   * 	"priority": {
+   * 		"major_priority": 32,
+   * 		"minor_priority": 0
+   * 	},
+   * 	"slotResources": [{
+   * 		"slotResources": [{
+   * 			"amount": 200,
+   * 			"name": "cpu"
+   * 		}, {
+   * 			"amount": 8192,
+   * 			"name": "mem"
+   * 		}, {
+   * 			"amount": 0,
+   * 			"name": "T4"
+   * 		}, {
+   * 			"amount": 10,
+   * 			"type": "SCALAR",
+   * 			"name": "disk_ratio_9999"
+   * 		}, {
+   * 			"amount": 20480,
+   * 			"type": "SCALAR",
+   * 			"name": "disk_size_9999"
+   * 		}]
+   * 	}]
+   * }]
    */
   resource?: string;
   static names(): { [key: string]: string } {
@@ -235,33 +269,47 @@ export class ModifyDataSourceDeployRequestProcessor extends $dara.Model {
 export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
-   * ak
+   * L***p
    */
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The AccessKey secret of the ODPS data source.
    * 
    * @example
-   * as
+   * 5**9a6
    */
   accessSecret?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The bucket name.
    * 
    * @example
    * test-bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The data catalog name of the DLF data source.
+   * 
+   * @example
+   * test-catalog
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database of the DLF data source.
+   * 
+   * @example
+   * test-database
+   */
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute data source.
+   * odps endpoint
    * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
@@ -269,7 +317,7 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * The namespace. This parameter is related to Saro.
    * 
    * @example
    * dp-dev
@@ -277,7 +325,7 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) path.
+   * The path. This parameter is related to the OSS data source.
    * 
    * @example
    * /opensearch
@@ -285,7 +333,7 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table.
+   * The partition information.
    * 
    * @example
    * ds=20220713
@@ -293,7 +341,7 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The file path in the Apsara File Storage for HDFS file system.
+   * The path. This parameter is related to HDFS.
    * 
    * @example
    * /ude_jobs/iflow_offline_data_access
@@ -301,7 +349,7 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The project name of the ODPS data source.
    * 
    * @example
    * kubenest
@@ -309,13 +357,29 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The name of the MaxCompute table that is used as the data source.
+   * The table name. This parameter is related to Saro or ODPS.
    * 
    * @example
    * item
    */
   table?: string;
+  /**
+   * @remarks
+   * The table format of the DLF data source.
+   * 
+   * @example
+   * paimon
+   * lance
+   * object
+   */
   tableFormat?: string;
+  /**
+   * @remarks
+   * The tag of the DLF data source.
+   * 
+   * @example
+   * test
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -367,10 +431,10 @@ export class ModifyDataSourceDeployRequestStorage extends $dara.Model {
 export class ModifyDataSourceDeployRequestSwift extends $dara.Model {
   /**
    * @remarks
-   * The topic.
+   * topic
    * 
    * @example
-   * ha-cn-0ju2rps6c08_api
+   * ha-cn-pl32rf0****_test_api
    */
   topic?: string;
   /**
@@ -407,7 +471,7 @@ export class ModifyDataSourceDeployRequestSwift extends $dara.Model {
 export class ModifyDataSourceDeployRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic full indexing feature.
+   * Specifies whether to enable automatic full indexing.
    * 
    * @example
    * true
@@ -420,22 +484,24 @@ export class ModifyDataSourceDeployRequest extends $dara.Model {
   extend?: ModifyDataSourceDeployRequestExtend;
   /**
    * @remarks
-   * The parameters of the process.
+   * The process parameters.
    */
   processor?: ModifyDataSourceDeployRequestProcessor;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source information.
    */
   storage?: ModifyDataSourceDeployRequestStorage;
   /**
    * @remarks
-   * The information about the incremental data source Swift.
+   * The incremental Swift information.
    */
   swift?: ModifyDataSourceDeployRequestSwift;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values: true and false.
+   * Specifies whether to perform a dry run (only validates whether the data source is valid). Valid values:
+   * - true: performs a dry run.
+   * - false: does not perform a dry run.
    * 
    * @example
    * true
@@ -443,7 +509,7 @@ export class ModifyDataSourceDeployRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the full index version.
+   * The full index version.
    * 
    * @example
    * 1708674867

@@ -29,7 +29,7 @@ export class GetDataSourceResponseBodyResult extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * my_index
+   * ha-cn-pl32rf0****_test_api
    */
   name?: string;
   /**
@@ -37,7 +37,7 @@ export class GetDataSourceResponseBodyResult extends $dara.Model {
    * The status of the data source. Valid values: new: The data source is being created. publish: The data source is in the normal state. trash: The data source is being deleted.
    * 
    * @example
-   * NEW
+   * new
    */
   status?: string;
   /**

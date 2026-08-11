@@ -8,7 +8,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesConfigStatusList ex
    * The time when the configuration was last updated.
    * 
    * @example
-   * ""
+   * 2024-05-21 16:05:26
    */
   configUpdateTime?: string;
   /**
@@ -200,7 +200,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
    * The time when full data in the index was last updated.
    * 
    * @example
-   * " "
+   * 2024-05-21 16:05:26
    */
   fullUpdateTime?: string;
   /**
@@ -208,7 +208,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
    * The time when the full index version was generated.
    * 
    * @example
-   * 123423
+   * 1718846192
    */
   fullVersion?: number;
   /**
@@ -216,7 +216,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
    * The time when incremental data in the index was last updated.
    * 
    * @example
-   * ""
+   * 2024-05-21 16:05:26
    */
   incUpdateTime?: string;
   /**
@@ -224,7 +224,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
    * The time when the incremental index version was generated.
    * 
    * @example
-   * 123423
+   * 1718846192
    */
   incVersion?: number;
   /**
@@ -255,7 +255,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
    * The name of the QRS worker.
    * 
    * @example
-   * ha-cn-c4d2rq7nt04_qrs
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
@@ -354,7 +354,7 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesServiceStatus exten
    * The name of the QRS worker.
    * 
    * @example
-   * ha-cn-0ju2s170b03_qrs
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
@@ -448,7 +448,7 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNodeConfigStatusList ex
    * The time when the configuration was last updated.
    * 
    * @example
-   * " "
+   * 2024-05-21 16:05:26
    */
   configUpdateTime?: string;
   /**
@@ -472,7 +472,7 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNodeConfigStatusList ex
    * The cluster name.
    * 
    * @example
-   * ha-cn-zvp2qr1sk01_qrs
+   * vpc_hz_domain_1
    */
   name?: string;
   /**
@@ -534,7 +534,7 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNodeServiceStatus exten
    * The cluster name.
    * 
    * @example
-   * ha-cn-c4d2rq7nt04_qrs
+   * vpc_hz_domain_1
    */
   name?: string;
   /**

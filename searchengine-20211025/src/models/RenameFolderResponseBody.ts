@@ -4,48 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class RenameFolderResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The time when the folder was created.
+   * 
    * @example
    * 1719221186114
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the folder was last modified.
+   * 
    * @example
    * 1719221186114
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The primary key ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the item is a folder. Valid values: \\`true\\` and \\`false\\`.
+   * 
    * @example
    * True
    */
   isDir?: number;
   /**
+   * @remarks
+   * The name of the folder.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
    * @example
    * -1
    */
   parent?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1
    */
   templateId?: number;
   /**
    * @remarks
-   * table, instance, template, function
+   * The type of the item. Valid values: \\`table\\`, \\`instance\\`, \\`template\\`, and \\`function\\`.
    * 
    * @example
    * template
@@ -91,7 +115,7 @@ export class RenameFolderResponseBodyResult extends $dara.Model {
 export class RenameFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 10D5E615-69F7-5F49-B850-00169ADE513C
@@ -99,7 +123,7 @@ export class RenameFolderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * NodeVO
+   * The returned data.
    */
   result?: RenameFolderResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class FilesConfigVariablesValue extends $dara.Model {
   /**
    * @remarks
-   * The description of the variable.
+   * 变量描述
    * 
    * @example
-   * Custom variable
+   * 自定义变量
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether the variable is not allowed to be modified.
+   * 是否可被用户修改
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class FilesConfigVariablesValue extends $dara.Model {
   disableModify?: boolean;
   /**
    * @remarks
-   * Specifies whether the variable is modified.
+   * 变量是否被修改过
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class FilesConfigVariablesValue extends $dara.Model {
   isModify?: boolean;
   /**
    * @remarks
-   * The variable type. Valid values: NORMAL: common variable. FUNCTION: function variable.
+   * 类型：普通变量-NORMAL； function变量-FUNCTION
    * 
    * @example
    * NORMAL
@@ -37,7 +37,7 @@ export class FilesConfigVariablesValue extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The variable value.
+   * 变量值
    * 
    * @example
    * test

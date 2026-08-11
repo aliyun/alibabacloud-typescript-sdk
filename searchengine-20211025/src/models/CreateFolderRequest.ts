@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFolderRequest extends $dara.Model {
   /**
    * @remarks
+   * The folder name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateFolderRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The parent category ID (required). If left empty, the default value is 1.
+   * 
    * This parameter is required.
    * 
    * @example

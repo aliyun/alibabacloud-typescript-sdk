@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRestQueryResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
@@ -13,7 +13,7 @@ export class ListRestQueryResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned result.
    * 
    * @example
    * {}

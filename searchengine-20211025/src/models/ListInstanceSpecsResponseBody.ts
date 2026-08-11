@@ -24,7 +24,7 @@ export class ListInstanceSpecsResponseBodyResult extends $dara.Model {
    * The memory of the instance. Unit: GB.
    * 
    * @example
-   * 4
+   * 16
    */
   mem?: number;
   /**

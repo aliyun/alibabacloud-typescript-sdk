@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListModelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The model name.
+   * 
    * @example
    * test1
    */
   name?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * text_embedding
    */

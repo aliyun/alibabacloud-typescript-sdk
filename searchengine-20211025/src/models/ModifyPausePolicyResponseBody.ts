@@ -13,7 +13,7 @@ export class ModifyPausePolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned data.
    * 
    * @example
    * {}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAliasRequest extends $dara.Model {
   /**
    * @remarks
-   * alias name
+   * The alias.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ModifyAliasRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * index name
+   * The index to associate with the alias.
    * 
    * @example
    * index

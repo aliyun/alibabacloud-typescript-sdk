@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the MaxCompute data source.
+   * The AccessKey ID of the ODPS data source.
    * 
    * @example
    * L***p
@@ -13,7 +13,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the MaxCompute data source.
+   * The AccessKey secret of the ODPS data source.
    * 
    * @example
    * 5**9a6
@@ -21,26 +21,51 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   accessSecret?: string;
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
    */
   bucket?: string;
+  /**
+   * @remarks
+   * The data catalog ID of the DLF data source.
+   * 
+   * @example
+   * test-catalog
+   */
   catalog?: string;
+  /**
+   * @remarks
+   * The database of the DLF data source.
+   * 
+   * @example
+   * test-database
+   */
   database?: string;
   /**
    * @remarks
-   * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
+   * The endpoint of the ODPS or OSS data source.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The format of the OSS file.
+   * 
+   * - ha3
+   * 
+   * - json
+   * 
+   * @example
+   * ha3
+   */
   format?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The namespace.
    * 
    * @example
    * test-namespace
@@ -48,7 +73,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The path of the OSS object.
+   * The path of the OSS file.
    * 
    * @example
    * /opensearch/oss.json
@@ -56,7 +81,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   ossPath?: string;
   /**
    * @remarks
-   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * This parameter is required if the data source type is ODPS.
    * 
    * @example
    * ds=20230114
@@ -64,7 +89,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   partition?: string;
   /**
    * @remarks
-   * The path of the Apsara File Storage for HDFS data source.
+   * The path of the HDFS data source.
    * 
    * @example
    * test-hdfs-path
@@ -72,7 +97,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The name of the MaxCompute project that is used as the data source.
+   * The name of the ODPS project.
    * 
    * @example
    * bbt_algo_pai
@@ -80,13 +105,29 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * bbt_rec_swing_u2i2i_score_be_v1
    */
   table?: string;
+  /**
+   * @remarks
+   * The table format of the DLF data source.
+   * 
+   * @example
+   * paimon
+   * lance
+   * object
+   */
   tableFormat?: string;
+  /**
+   * @remarks
+   * The tag of the DLF data source.
+   * 
+   * @example
+   * test-tag
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -140,18 +181,18 @@ export class CreateIndexRequestDataSourceInfoConfig extends $dara.Model {
 export class CreateIndexRequestDataSourceInfoSaroConfig extends $dara.Model {
   /**
    * @remarks
-   * The namespace of the SARO data source.
+   * The namespace of the Saro data source. This feature is available only for internal use.
    * 
    * @example
-   * flink-test-fjx-default
+   * test
    */
   namespace?: string;
   /**
    * @remarks
-   * The name of the SARO table.
+   * The name of the Saro data table. This feature is available only for internal use.
    * 
    * @example
-   * device_event_shy_summary_
+   * tableA
    */
   tableName?: string;
   static names(): { [key: string]: string } {
@@ -180,7 +221,7 @@ export class CreateIndexRequestDataSourceInfoSaroConfig extends $dara.Model {
 export class CreateIndexRequestDataSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic full indexing.
+   * Specifies whether to automatically trigger a full indexing.
    * 
    * @example
    * true
@@ -188,12 +229,12 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
   autoBuildIndex?: boolean;
   /**
    * @remarks
-   * The information about the MaxCompute data source.
+   * ODPS-related configurations.
    */
   config?: CreateIndexRequestDataSourceInfoConfig;
   /**
    * @remarks
-   * The start timestamp from which incremental data is retrieved.
+   * The UNIX timestamp for incremental data.
    * 
    * @example
    * 1709715164
@@ -201,7 +242,7 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
   dataTimeSec?: number;
   /**
    * @remarks
-   * The data center in which the data source is deployed.
+   * The offline data center.
    * 
    * @example
    * vpc_hz_domain_1
@@ -212,12 +253,12 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * ha-cn-35t3n1yuj0d_index_1
+   * ha-cn-35t3n1y****_index_1
    */
   name?: string;
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently processed.
+   * The concurrency for full data processing.
    * 
    * @example
    * 2
@@ -225,7 +266,7 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
   processParallelNum?: number;
   /**
    * @remarks
-   * The number of resources used for data update.
+   * The number of resources for data updates.
    * 
    * @example
    * 4
@@ -233,18 +274,28 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
   processPartitionCount?: number;
   /**
    * @remarks
-   * The configurations of the SARO data source.
+   * The configuration of the Saro data source.
    */
   saroConfig?: CreateIndexRequestDataSourceInfoSaroConfig;
+  /**
+   * @remarks
+   * The template type.
+   * 
+   * @example
+   * videoSearcher
+   */
   scene?: string;
   /**
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   odps
-   * *   swift
-   * *   saro
-   * *   oss
+   * - odps
+   * 
+   * - swift
+   * 
+   * - saro
+   * 
+   * - oss
    * 
    * @example
    * odps
@@ -298,7 +349,7 @@ export class CreateIndexRequestDataSourceInfo extends $dara.Model {
 export class CreateIndexRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently built.
+   * The concurrency for full index building.
    * 
    * @example
    * 2
@@ -317,17 +368,17 @@ export class CreateIndexRequest extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * test1
+   * ha-cn-35t3n1y****_index_1
    */
   dataSource?: string;
   /**
    * @remarks
-   * The information about the data source. This parameter is required for an OpenSearch Vector Search Edition instance of the new version.
+   * Information about the data source. This parameter is required for new versions of Vector Search Edition.
    */
   dataSourceInfo?: CreateIndexRequestDataSourceInfo;
   /**
    * @remarks
-   * The data center in which the data source is deployed.
+   * The data center of the data source.
    * 
    * @example
    * vpc_hz_domain_1
@@ -335,7 +386,11 @@ export class CreateIndexRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The extended content of the field configuration. key specifies the vector field and the field that requires embedding.
+   * The extended field configuration.
+   * 
+   * - key: The field type. Valid values: \\`vector\\` (vector field), \\`embeding\\` (field that requires embedding), and \\`description\\` (description field).
+   * 
+   * - value: The name of the field in the schema, such as \\`["field_name"]\\`.
    * 
    * @example
    * {
@@ -354,7 +409,7 @@ export class CreateIndexRequest extends $dara.Model {
   extend?: { [key: string]: any };
   /**
    * @remarks
-   * The maximum number of full indexes that can be concurrently merged.
+   * The concurrency for full index merging.
    * 
    * @example
    * 2
@@ -362,10 +417,10 @@ export class CreateIndexRequest extends $dara.Model {
   mergeParallelNum?: number;
   /**
    * @remarks
-   * The index name.
+   * The name of the index.
    * 
    * @example
-   * ha-cn-zvp2qr1sk01_qrs
+   * index_1
    */
   name?: string;
   /**
@@ -373,15 +428,16 @@ export class CreateIndexRequest extends $dara.Model {
    * The number of data shards.
    * 
    * @example
-   * 20211202
+   * 2
    */
   partition?: number;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+   * Specifies whether to perform a dry run. A dry run only checks whether the data source is valid. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

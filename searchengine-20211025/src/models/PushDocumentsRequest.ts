@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PushDocumentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body.
+   * The request body parameters.
    */
   body?: any[];
   /**

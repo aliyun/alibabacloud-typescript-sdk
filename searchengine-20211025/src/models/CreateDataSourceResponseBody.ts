@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 10D5E615-69F7-5F49-B850-00169ADE513C
@@ -13,7 +13,7 @@ export class CreateDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    * 
    * @example
    * {}

@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that indicates the end of the time range to query.
+   * The end time.
    * 
    * @example
-   * 1690423741577
+   * 1718846192
    */
   end?: number;
   /**
    * @remarks
-   * The timestamp that indicates the beginning of the time range to query.
+   * The start time.
    * 
    * @example
-   * 1687238865434
+   * 1718846192
    */
   start?: number;
   static names(): { [key: string]: string } {

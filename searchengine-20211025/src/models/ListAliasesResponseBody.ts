@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAliasesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * alias name
+   * The alias.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class ListAliasesResponseBodyResult extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * index name
+   * The associated index.
    * 
    * @example
    * index
@@ -45,7 +45,7 @@ export class ListAliasesResponseBodyResult extends $dara.Model {
 export class ListAliasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 10D5E615-69F7-5F49-B850-00169ADE513C
@@ -53,7 +53,7 @@ export class ListAliasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List
+   * The result.
    */
   result?: ListAliasesResponseBodyResult[];
   static names(): { [key: string]: string } {

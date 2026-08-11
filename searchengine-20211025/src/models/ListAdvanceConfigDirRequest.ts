@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdvanceConfigDirRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the directory
+   * The directory name.
    * 
    * This parameter is required.
    * 

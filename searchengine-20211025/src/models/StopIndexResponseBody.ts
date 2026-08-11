@@ -13,7 +13,7 @@ export class StopIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The index map.
+   * The returned result.
    * 
    * @example
    * {}

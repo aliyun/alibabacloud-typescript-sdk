@@ -13,7 +13,7 @@ export class DeleteFolderResponseBodyResult extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result
+   * The returned result.
    */
   result?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DeleteFolderResponseBodyResult extends $dara.Model {
 export class DeleteFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
@@ -53,7 +53,7 @@ export class DeleteFolderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response<Map<String, String>>
+   * The returned result.
    */
   result?: DeleteFolderResponseBodyResult;
   static names(): { [key: string]: string } {

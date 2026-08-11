@@ -8,15 +8,15 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
+   * Filters instances by description. Fuzzy matching is supported.
    * 
    * @example
-   * Havenask instance
+   * searchengine instance
    */
   description?: string;
   /**
    * @remarks
-   * The instance type. Valid values: vector: OpenSearch Vector Search Edition instance. engine: OpenSearch Retrieval Engine Edition instance.
+   * The edition of the instance. Valid values: vector (Vector Search Edition) and engine (Retrieval Engine Edition).
    * 
    * @example
    * vector
@@ -24,15 +24,15 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
-   * ha-cn-83570439y0n
+   * ha-cn-pl32rf0****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. The default value is 1.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+   * The number of entries to return on each page. The default value is 10. The value must be in the range of 1 to 50.
    * 
    * @example
    * 10
@@ -48,7 +48,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekzgpiswzbksdi
@@ -57,7 +57,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
   table?: string;
   /**
    * @remarks
-   * The tags of the instance.
+   * The tags.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSqlInstanceResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -13,7 +13,7 @@ export class DeleteSqlInstanceResponseBodyResult extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result.
+   * The returned data.
    */
   result?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DeleteSqlInstanceResponseBodyResult extends $dara.Model {
 export class DeleteSqlInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -53,7 +53,7 @@ export class DeleteSqlInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response<Map<String, String>>
+   * The returned data.
    */
   result?: DeleteSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

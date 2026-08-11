@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class BuildIndexRequest extends $dara.Model {
   /**
    * @remarks
-   * The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
+   * The method to rebuild the index. Valid values: api and indexRecover.
    * 
    * @example
-   * indexRecover
+   * api
    */
   buildMode?: string;
   /**
@@ -16,7 +16,7 @@ export class BuildIndexRequest extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * my_data_source
+   * ha-cn-pl32rf0****_test_api
    */
   dataSourceName?: string;
   /**
@@ -24,12 +24,12 @@ export class BuildIndexRequest extends $dara.Model {
    * The type of the data source.
    * 
    * @example
-   * swift
+   * odps
    */
   dataSourceType?: string;
   /**
    * @remarks
-   * The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
+   * The UNIX timestamp in seconds. This parameter is an integer. This parameter is required if data is pushed to the data source using an API.
    * 
    * @example
    * 1640867288
@@ -37,15 +37,15 @@ export class BuildIndexRequest extends $dara.Model {
   dataTimeSec?: number;
   /**
    * @remarks
-   * The data center in which the data source is deployed.
+   * The data center of the data source.
    * 
    * @example
-   * test
+   * sz_vpc_domain_1
    */
   domain?: string;
   /**
    * @remarks
-   * The data restoration version.
+   * The backfill ID.
    * 
    * @example
    * 160131146
@@ -53,13 +53,27 @@ export class BuildIndexRequest extends $dara.Model {
   generation?: number;
   /**
    * @remarks
-   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * Required if dataSourceType is set to odps.
    * 
    * @example
-   * 20201010
+   * ds=20201010
    */
   partition?: string;
+  /**
+   * @remarks
+   * The relative path.
+   * 
+   * @example
+   * /test/dir
+   */
   path?: string;
+  /**
+   * @remarks
+   * The tag of the Data Lake Formation (DLF) data source.
+   * 
+   * @example
+   * test
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {

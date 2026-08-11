@@ -8,7 +8,7 @@ export class ListClusterTasksResponseBodyResultTags extends $dara.Model {
    * The tag content.
    * 
    * @example
-   * succeed in handling request
+   * test-tag
    */
   msg?: string;
   /**
@@ -16,7 +16,7 @@ export class ListClusterTasksResponseBodyResultTags extends $dara.Model {
    * The tag level.
    * 
    * @example
-   * " "
+   * 1
    */
   tagLevel?: string;
   static names(): { [key: string]: string } {
@@ -48,7 +48,7 @@ export class ListClusterTasksResponseBodyResultTaskNodes extends $dara.Model {
    * The time when the task was complete.
    * 
    * @example
-   * " "
+   * 2024-06-17 18:40:48
    */
   finishDate?: string;
   /**
@@ -56,7 +56,7 @@ export class ListClusterTasksResponseBodyResultTaskNodes extends $dara.Model {
    * The ordinal number of the task.
    * 
    * @example
-   * 100
+   * 4
    */
   index?: number;
   /**
@@ -64,7 +64,7 @@ export class ListClusterTasksResponseBodyResultTaskNodes extends $dara.Model {
    * The task name.
    * 
    * @example
-   * general
+   * publish config version
    */
   name?: string;
   /**
@@ -72,7 +72,7 @@ export class ListClusterTasksResponseBodyResultTaskNodes extends $dara.Model {
    * The task status.
    * 
    * @example
-   * 2
+   * SUCCESS
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -108,7 +108,11 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The additional attributes of the card.
    * 
    * @example
-   * " "
+   * {
+   * 	"consoleVersion": "",
+   * 	"domain": "hz_pre_vpc_domain_1",
+   * 	"configType": "offline"
+   * }
    */
   extraAttribute?: string;
   /**
@@ -116,7 +120,13 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The field3 field that was passed when the FSM was created.
    * 
    * @example
-   * " "
+   * {
+   * 	"ha-cn-pl32rf0****_offline_adv": 1,
+   * 	"ha-cn-pl32rf0****_offline_plugin": 1,
+   * 	"ha-cn-pl32rf0****_table_ha-cn-35t3r02iq03_test_api": 1,
+   * 	"ha-cn-pl32rf0****@ha-cn-pl32rf0****_test_api@hz_pre_vpc_domain_1@test_api@index_config": 1,
+   * 	"ha-cn-pl32rf0****_offline_dict": 1
+   * }
    */
   field3?: string;
   /**
@@ -124,7 +134,7 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The ID of the finite state machine (FSM).
    * 
    * @example
-   * tisplus_opensearch@datasource_flow_fsm@1865410598556969-ha-cn-zvp2ljiwe01_api2@bj_vpc_domain_1@null@MANUAL-ha-cn-zvp2ljiwe01_api2@1649729867698@028315
+   * tisplus_opensearch@datasource_flow_fsm@1865410598556969-ha-cn-pl32rf0****_api2@bj_vpc_domain_1@null@MANUAL-ha-cn-pl32rf0****_api2@1649729867698@028315
    */
   fsmId?: string;
   /**
@@ -132,7 +142,7 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The change group type.
    * 
    * @example
-   * " "
+   * Table_Update
    */
   groupType?: string;
   /**
@@ -140,7 +150,7 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The card name.
    * 
    * @example
-   * ha-cn-pl32rf0js04_qrs
+   * ha-cn-pl32rf0****_qrs
    */
   name?: string;
   /**
@@ -174,7 +184,7 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The card type.
    * 
    * @example
-   * qrs
+   * mra_table_config_trace_fsm
    */
   type?: string;
   /**
@@ -182,7 +192,7 @@ export class ListClusterTasksResponseBodyResult extends $dara.Model {
    * The user who triggered the generation of the FSM process.
    * 
    * @example
-   * " "
+   * admin
    */
   user?: string;
   static names(): { [key: string]: string } {

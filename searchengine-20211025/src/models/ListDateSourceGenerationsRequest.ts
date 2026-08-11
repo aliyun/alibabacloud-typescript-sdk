@@ -15,10 +15,10 @@ export class ListDateSourceGenerationsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies the index versions to be returned. Valid values:
+   * The valid status. Default value: true.
    * 
-   * 1.  true (default): returns the index versions that are complete and not expired.
-   * 2.  false: returns all index versions.
+   * 1. true: Returns generations for which the task is completed and not expired.
+   * 2. false: Returns all generations.
    * 
    * @example
    * true

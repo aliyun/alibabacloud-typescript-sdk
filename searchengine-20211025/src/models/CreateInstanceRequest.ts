@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceRequestComponents extends $dara.Model {
   /**
    * @remarks
-   * The code of the specification, which must be consistent with the value that you specify on the buy page.
+   * The specification code, which is consistent with the sales parameters.
    * 
    * @example
-   * ""
+   * searcherdocsize
    */
   code?: string;
   /**
    * @remarks
-   * The value of the specification.
+   * The data entered in the control.
    * 
    * @example
-   * ""
+   * 200
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -53,7 +53,7 @@ export class CreateInstanceRequestOrder extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The billing duration. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 12.
+   * The billing cycle. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 12.
    * 
    * @example
    * 29
@@ -61,10 +61,10 @@ export class CreateInstanceRequestOrder extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The unit of the billing duration. Valid values: Month and Year.
+   * The unit of the billing cycle. Valid values: Month and Year.
    * 
    * @example
-   * ""
+   * Month
    */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
@@ -121,20 +121,20 @@ export class CreateInstanceRequestTags extends $dara.Model {
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the instance. Valid values: PREPAY: subscription. If you set this parameter to PREPAY, make sure that your Alibaba Cloud account supports balance payment or credit card payment. Otherwise, the system returns the InvalidPayMethod error message. If you set this parameter to PREPAY, you must also specify paymentInfo. POSTPAY: pay-as-you-go. This billing method is not supported.
+   * The billing method of the instance. Valid values: PREPAY: subscription. If you select this billing method, make sure that your account supports balance payment or credit payment. Otherwise, the InvalidPayMethod error is returned. You must also specify the paymentInfo parameter. POSTPAY: pay-as-you-go (currently not supported).
    * 
    * @example
-   * ""
+   * PREPAY
    */
   chargeType?: string;
   /**
    * @remarks
-   * The information about the instance specification.
+   * The list of specification information related to the instance.
    */
   components?: CreateInstanceRequestComponents[];
   /**
    * @remarks
-   * The billing information.
+   * The payment information.
    */
   order?: CreateInstanceRequestOrder;
   resourceGroupId?: string;

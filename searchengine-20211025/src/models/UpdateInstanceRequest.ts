@@ -8,7 +8,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
    * The code of the specification, which must be consistent with the value that you specify on the buy page.
    * 
    * @example
-   * 200
+   * searcherdocsizesum
    */
   code?: string;
   /**
@@ -16,7 +16,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
    * The value of the specification.
    * 
    * @example
-   * ""
+   * 200
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -53,7 +53,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * ""
+   * Instance description
    */
   description?: string;
   /**
@@ -61,7 +61,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * The type of the order. Valid values: UPGRADE and DOWNGRADE. UPGRADE upgrades the instance specifications. DOWNGRADE: downgrades the instance specifications.
    * 
    * @example
-   * ""
+   * UPGRAGE
    */
   orderType?: string;
   static names(): { [key: string]: string } {

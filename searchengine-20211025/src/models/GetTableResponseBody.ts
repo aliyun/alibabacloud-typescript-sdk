@@ -13,7 +13,7 @@ export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig ext
   ossBucket?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) endpoint.
+   * OSS region endpoint.
    * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
@@ -21,7 +21,7 @@ export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig ext
   ossEndpoint?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * Cloud account ID
    * 
    * @example
    * uid
@@ -55,12 +55,12 @@ export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig ext
 export class GetTableResponseBodyResultDataProcessConfigParams extends $dara.Model {
   /**
    * @remarks
-   * The source of the data to be vectorized.
+   * Vectorization information source
    */
   srcFieldConfig?: GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig;
   /**
    * @remarks
-   * The data type.
+   * Data type
    * 
    * @example
    * image
@@ -68,7 +68,7 @@ export class GetTableResponseBodyResultDataProcessConfigParams extends $dara.Mod
   vectorModal?: string;
   /**
    * @remarks
-   * The vectorization model.
+   * Vectorization model
    * 
    * @example
    * clip
@@ -105,7 +105,7 @@ export class GetTableResponseBodyResultDataProcessConfigParams extends $dara.Mod
 export class GetTableResponseBodyResultDataProcessConfig extends $dara.Model {
   /**
    * @remarks
-   * The destination field.
+   * Target field
    * 
    * @example
    * source_image_vector
@@ -113,7 +113,7 @@ export class GetTableResponseBodyResultDataProcessConfig extends $dara.Model {
   dstField?: string;
   /**
    * @remarks
-   * The method used to process the field. Valid values: copy and vectorize. A value of copy indicates that the value of the source field is copied to the destination field. A value of vectorize indicates that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+   * Field processing method (copy: copies the source field to the target field, vectorize: vectorizes the source field using a model and stores the vector in the target field)
    * 
    * @example
    * vectorize
@@ -121,12 +121,12 @@ export class GetTableResponseBodyResultDataProcessConfig extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * The information about the model.
+   * Model configuration information
    */
   params?: GetTableResponseBodyResultDataProcessConfigParams;
   /**
    * @remarks
-   * The source field.
+   * Source field
    * 
    * @example
    * source_image
@@ -180,41 +180,65 @@ export class GetTableResponseBodyResultDataSourceConfig extends $dara.Model {
    */
   accessSecret?: string;
   /**
+   * @remarks
+   * OSS namespace
+   * 
    * @example
    * heytea-ops-oss
    */
   bucket?: string;
   /**
+   * @remarks
+   * ODPS-related
+   * 
    * @example
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
   /**
+   * @remarks
+   * saro-related
+   * 
    * @example
    * namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * OSS file path
+   * 
    * @example
    * /opensearch_index_data/sift_oss_test.data
    */
   ossPath?: string;
   /**
+   * @remarks
+   * Partition information
+   * 
    * @example
    * ds=20220808
    */
   partition?: string;
   /**
+   * @remarks
+   * HDFS-related
+   * 
    * @example
    * vendor/sebastian/comparator/src/exceptions
    */
   path?: string;
   /**
+   * @remarks
+   * ODPS data source project name
+   * 
    * @example
    * dp_pdm_marketing_prod
    */
   project?: string;
   /**
+   * @remarks
+   * saro/ODPS data source table name
+   * 
    * @example
    * test_add
    */
@@ -260,17 +284,30 @@ export class GetTableResponseBodyResultDataSourceConfig extends $dara.Model {
 
 export class GetTableResponseBodyResultDataSource extends $dara.Model {
   /**
+   * @remarks
+   * Whether to automatically rebuild the index
+   * 
    * @example
    * true
    */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * Data source configuration
+   */
   config?: GetTableResponseBodyResultDataSourceConfig;
   /**
+   * @remarks
+   * Incremental data timestamp
+   * 
    * @example
    * 1715160176
    */
   dataTimeSec?: number;
   /**
+   * @remarks
+   * Data source type: only supports three types: odps, swift, and oss (odps, swift, saro, oss, unKnow)
+   * 
    * @example
    * odps
    */
@@ -308,15 +345,26 @@ export class GetTableResponseBodyResultDataSource extends $dara.Model {
 export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $dara.Model {
   /**
    * @remarks
-   * The index building parameters.
+   * Index building parameters
    * 
    * @example
-   * {}
+   * {
+   *   "proxima.qc.builder.quantizer_class": "Int8QuantizerConverter",
+   *   "proxima.qc.builder.quantize_by_centroid": true,
+   *   "proxima.qc.builder.optimizer_class": "BruteForceBuilder",
+   *   "proxima.qc.builder.thread_count": 10,
+   *   "proxima.qc.builder.optimizer_params": {
+   *     "proxima.linear.builder.column_major_order": true
+   *   },
+   *   "proxima.qc.builder.store_original_features": false,
+   *   "proxima.qc.builder.train_sample_count": 3000000,
+   *   "proxima.qc.builder.train_sample_ratio": 0.5
+   * }
    */
   buildIndexParams?: string;
   /**
    * @remarks
-   * The threshold for linear building.
+   * Linear build threshold
    * 
    * @example
    * 5000
@@ -324,7 +372,7 @@ export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $dara.Mo
   linearBuildThreshold?: string;
   /**
    * @remarks
-   * The minimum number of retrieved candidate sets.
+   * Minimum number of recall candidates
    * 
    * @example
    * 20000
@@ -332,10 +380,10 @@ export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $dara.Mo
   minScanDocCnt?: string;
   /**
    * @remarks
-   * The index retrieval parameters.
+   * Index search parameters
    * 
    * @example
-   * {}
+   * {"proxima.qc.searcher.scan_ratio":0.01}
    */
   searchIndexParams?: string;
   static names(): { [key: string]: string } {
@@ -368,12 +416,12 @@ export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $dara.Mo
 export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the index schema.
+   * Index structure configuration
    */
   advanceParams?: GetTableResponseBodyResultVectorIndexAdvanceParams;
   /**
    * @remarks
-   * The dimension of the vector.
+   * Vector dimension
    * 
    * @example
    * 128
@@ -381,7 +429,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   dimension?: string;
   /**
    * @remarks
-   * The distance type.
+   * Distance type
    * 
    * @example
    * SquaredEuclidean
@@ -389,7 +437,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   distanceType?: string;
   /**
    * @remarks
-   * The name of the index schema.
+   * Index structure name
    * 
    * @example
    * test_odps
@@ -397,7 +445,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   indexName?: string;
   /**
    * @remarks
-   * The namespace field.
+   * Namespace field
    * 
    * @example
    * namespace
@@ -405,7 +453,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The field that stores the indexes of the elements in sparse vectors.
+   * Sparse vector index field
    * 
    * @example
    * sparse_indices
@@ -413,7 +461,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   sparseIndexField?: string;
   /**
    * @remarks
-   * The field that stores the elements in sparse vectors.
+   * Sparse vector value field
    * 
    * @example
    * sparse_values
@@ -421,7 +469,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   sparseValueField?: string;
   /**
    * @remarks
-   * The vector field.
+   * Vector field
    * 
    * @example
    * source_image_vector
@@ -429,7 +477,7 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
   vectorField?: string;
   /**
    * @remarks
-   * The vector retrieval algorithm.
+   * Vector index algorithm
    * 
    * @example
    * Qc
@@ -478,43 +526,62 @@ export class GetTableResponseBodyResultVectorIndex extends $dara.Model {
 export class GetTableResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The configurations about field processing.
+   * Field processing configuration
    */
   dataProcessConfig?: GetTableResponseBodyResultDataProcessConfig[];
   /**
+   * @remarks
+   * Number of data update resources
+   * 
    * @example
    * 1
    */
   dataProcessorCount?: number;
+  /**
+   * @remarks
+   * Data source configuration
+   */
   dataSource?: GetTableResponseBodyResultDataSource;
   /**
    * @remarks
-   * The field. The value is a key-value pair in which the key indicates the field name and value indicates the field type.
+   * Field map collection, key: field name, value: field type
    */
   fieldSchema?: { [key: string]: string };
   /**
+   * @remarks
+   * Index name
+   * 
    * @example
    * test_oss
    */
   name?: string;
   /**
+   * @remarks
+   * Number of data shards
+   * 
    * @example
    * 1
    */
   partitionCount?: number;
   /**
+   * @remarks
+   * Primary key field
+   * 
    * @example
    * id
    */
   primaryKey?: string;
   /**
+   * @remarks
+   * If the user provides rawSchema, it is used directly as the HA3 schema structure without manual assembly
+   * 
    * @example
    * {}
    */
   rawSchema?: string;
   /**
    * @remarks
-   * The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+   * Index table status (NEW, PUBLISH, IN_USE: normal status after the recall engine version is created successfully, NOT_USE, STOP_USE, RESTORE_USE, FAIL: status when a new version of the vector retrieval version fails to create an index for the first time)
    * 
    * @example
    * IN_USE
@@ -522,7 +589,7 @@ export class GetTableResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The index schema.
+   * Index structure
    */
   vectorIndex?: GetTableResponseBodyResultVectorIndex[];
   static names(): { [key: string]: string } {
@@ -579,7 +646,7 @@ export class GetTableResponseBodyResult extends $dara.Model {
 export class GetTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * Request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -587,7 +654,7 @@ export class GetTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * Response result
    */
   result?: GetTableResponseBodyResult;
   static names(): { [key: string]: string } {

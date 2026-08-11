@@ -8,7 +8,7 @@ export class CreateInstanceResponseBodyResult extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * ha-cn-2r42ppr7901
+   * ha-cn-pl32rf0****
    */
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class CreateInstanceResponseBodyResult extends $dara.Model {
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request
+   * The request ID.
    * 
    * @example
    * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
@@ -43,7 +43,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * The returned result.
    */
   result?: CreateInstanceResponseBodyResult;
   static names(): { [key: string]: string } {

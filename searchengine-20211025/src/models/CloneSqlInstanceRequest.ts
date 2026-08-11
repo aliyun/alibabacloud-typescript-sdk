@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CloneSqlInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CloneSqlInstanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The ID of the target folder.
+   * 
    * This parameter is required.
    * 
    * @example
