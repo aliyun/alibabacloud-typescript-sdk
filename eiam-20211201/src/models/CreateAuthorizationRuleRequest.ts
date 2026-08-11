@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The scope of authorized resources. Valid values:
+   * The authorization resource scope. Valid values:
+   * 
    * - global: all resources under the project.
    * - custom: specified resources under the project.
    * 
@@ -25,7 +26,15 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleName?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The scenario label of the authorization rule. The label can be up to 64 characters in length.
+   * 
+   * @example
+   * privileged_cloud_account
+   */
+  authorizationRuleScenarioLabel?: string;
+  /**
+   * @remarks
+   * Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -65,6 +74,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
     return {
       authorizationResourceScope: 'AuthorizationResourceScope',
       authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleScenarioLabel: 'AuthorizationRuleScenarioLabel',
       clientToken: 'ClientToken',
       description: 'Description',
       instanceId: 'InstanceId',
@@ -76,6 +86,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
     return {
       authorizationResourceScope: 'string',
       authorizationRuleName: 'string',
+      authorizationRuleScenarioLabel: 'string',
       clientToken: 'string',
       description: 'string',
       instanceId: 'string',

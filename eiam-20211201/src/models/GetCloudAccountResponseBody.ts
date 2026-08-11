@@ -155,6 +155,40 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
   }
 }
 
+export class GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError extends $dara.Model {
+  /**
+   * @remarks
+   * The failure error code.
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The failure message.
+   */
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   /**
    * @remarks
@@ -209,6 +243,11 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  cloudAccountRoleCreationType?: string;
+  /**
+   * @remarks
+   * The cloud account site.
+   */
   cloudAccountSite?: string;
   /**
    * @remarks
@@ -246,6 +285,26 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The list of associated privilege application IDs.
+   */
+  privilegeApplicationIds?: string[];
+  /**
+   * @remarks
+   * The reason for the privilege hosting or removal failure.
+   */
+  privilegeHostingError?: GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError;
+  /**
+   * @remarks
+   * The privilege hosting state, which indicates whether the privilege capability is available.
+   */
+  privilegeHostingState?: string;
+  /**
+   * @remarks
+   * The privilege switch status, which indicates whether the privilege capability is enabled.
+   */
+  privilegeStatus?: string;
+  /**
+   * @remarks
    * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
@@ -261,11 +320,16 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
       cloudAccountName: 'CloudAccountName',
       cloudAccountProviderConfig: 'CloudAccountProviderConfig',
       cloudAccountProviderName: 'CloudAccountProviderName',
+      cloudAccountRoleCreationType: 'CloudAccountRoleCreationType',
       cloudAccountSite: 'CloudAccountSite',
       cloudAccountVendorType: 'CloudAccountVendorType',
       createTime: 'CreateTime',
       description: 'Description',
       instanceId: 'InstanceId',
+      privilegeApplicationIds: 'PrivilegeApplicationIds',
+      privilegeHostingError: 'PrivilegeHostingError',
+      privilegeHostingState: 'PrivilegeHostingState',
+      privilegeStatus: 'PrivilegeStatus',
       updateTime: 'UpdateTime',
     };
   }
@@ -279,11 +343,16 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
       cloudAccountName: 'string',
       cloudAccountProviderConfig: GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig,
       cloudAccountProviderName: 'string',
+      cloudAccountRoleCreationType: 'string',
       cloudAccountSite: 'string',
       cloudAccountVendorType: 'string',
       createTime: 'number',
       description: 'string',
       instanceId: 'string',
+      privilegeApplicationIds: { 'type': 'array', 'itemType': 'string' },
+      privilegeHostingError: GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError,
+      privilegeHostingState: 'string',
+      privilegeStatus: 'string',
       updateTime: 'number',
     };
   }
@@ -294,6 +363,12 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
     }
     if(this.cloudAccountProviderConfig && typeof (this.cloudAccountProviderConfig as any).validate === 'function') {
       (this.cloudAccountProviderConfig as any).validate();
+    }
+    if(Array.isArray(this.privilegeApplicationIds)) {
+      $dara.Model.validateArray(this.privilegeApplicationIds);
+    }
+    if(this.privilegeHostingError && typeof (this.privilegeHostingError as any).validate === 'function') {
+      (this.privilegeHostingError as any).validate();
     }
     super.validate();
   }

@@ -13,13 +13,13 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'eu-central-1': "eiam.eu-central-1.aliyuncs.com",
       'cn-hongkong': "eiam.cn-hongkong.aliyuncs.com",
+      'ap-northeast-2': "eiam.ap-northeast-2.aliyuncs.com",
+      'ap-southeast-1': "eiam.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "eiam.ap-southeast-5.aliyuncs.com",
       'cn-hangzhou': "eiam.cn-hangzhou.aliyuncs.com",
       'cn-beijing': "eiam.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "eiam.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-1': "eiam.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "eiam.ap-northeast-2.aliyuncs.com",
+      'eu-central-1': "eiam.eu-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eiam", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1486,6 +1486,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.authorizationRuleName)) {
       query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!$dara.isNull(request.authorizationRuleScenarioLabel)) {
+      query["AuthorizationRuleScenarioLabel"] = request.authorizationRuleScenarioLabel;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -7867,7 +7871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query information about an authorization rule.
+   * Queries the information about an authorization rule.
    * 
    * @param request - GetAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7902,7 +7906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query information about an authorization rule.
+   * Queries the information about an authorization rule.
    * 
    * @param request - GetAuthorizationRuleRequest
    * @returns GetAuthorizationRuleResponse
@@ -11167,7 +11171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud accounts by using paging.
+   * Queries one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11210,7 +11214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about one or more cloud accounts by using paging.
+   * Queries one or more cloud accounts by using paging.
    * 
    * @param request - ListCloudAccountsRequest
    * @returns ListCloudAccountsResponse
@@ -13960,7 +13964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an application from an authorization rule.
+   * Removes a group from an authorization rule.
    * 
    * @param request - RemoveGroupFromAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13999,7 +14003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an application from an authorization rule.
+   * Removes a group from an authorization rule.
    * 
    * @param request - RemoveGroupFromAuthorizationRuleRequest
    * @returns RemoveGroupFromAuthorizationRuleResponse

@@ -105,6 +105,7 @@ export { GetClientPublicKeyResponseBodyClientPublicKey } from './GetClientPublic
 export { GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason } from './GetCloudAccountResponseBody';
 export { GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResult } from './GetCloudAccountResponseBody';
 export { GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig } from './GetCloudAccountResponseBody';
+export { GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError } from './GetCloudAccountResponseBody';
 export { GetCloudAccountResponseBodyCloudAccount } from './GetCloudAccountResponseBody';
 export { GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResultErrorReason } from './GetCloudAccountRoleResponseBody';
 export { GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult } from './GetCloudAccountRoleResponseBody';
@@ -290,6 +291,7 @@ export { ListCloudAccountRolesResponseBodyCloudAccountRoles } from './ListCloudA
 export { ListCloudAccountsRequestFilter } from './ListCloudAccountsRequest';
 export { ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason } from './ListCloudAccountsResponseBody';
 export { ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResult } from './ListCloudAccountsResponseBody';
+export { ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError } from './ListCloudAccountsResponseBody';
 export { ListCloudAccountsResponseBodyCloudAccounts } from './ListCloudAccountsResponseBody';
 export { ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications } from './ListConditionalAccessPoliciesResponseBody';
 export { ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones } from './ListConditionalAccessPoliciesResponseBody';

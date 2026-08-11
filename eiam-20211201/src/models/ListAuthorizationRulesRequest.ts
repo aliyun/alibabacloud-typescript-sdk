@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The name of the field to filter. Valid values:
+   * The name of the filter field. Valid values:
    * 
-   * - AuthorizationRuleId: the ID of the authorization rule.
-   * 
-   * - AuthorizationRuleNameStartWith: the leftmost characters of the authorization rule name.
+   * - AuthorizationRuleId: the authorization rule ID.
+   * - AuthorizationRuleNameStartWith: the prefix of the authorization rule name for fuzzy match.
    * 
    * @example
    * AuthorizationRuleId
@@ -17,7 +16,7 @@ export class ListAuthorizationRulesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of values for the field to filter.
+   * The values of the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -54,7 +53,7 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   filter?: ListAuthorizationRulesRequestFilter[];
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -64,9 +63,9 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of records per page.
    * 
-   * - If you do not specify this parameter, the default value is 20.
+   * - If this parameter is not specified, the default value is 20.
    * 
    * - The maximum value is 100.
    * 
@@ -76,9 +75,9 @@ export class ListAuthorizationRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that identifies the start of the next page of results.
+   * The token that marks the starting position of the next page.
    * 
-   * - If you do not specify this parameter, the system returns the first page of results.
+   * - If this parameter is not specified, the query starts from the first page.
    * 
    * @example
    * NTxxxxxexample

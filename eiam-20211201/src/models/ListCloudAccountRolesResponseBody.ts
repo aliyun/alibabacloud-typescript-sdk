@@ -13,7 +13,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRolesCloudAccountRoleH
   errorCode?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * There is no permission.
@@ -50,7 +50,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRolesCloudAccountRoleH
   errorReason?: ListCloudAccountRolesResponseBodyCloudAccountRolesCloudAccountRoleHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The last check time, in UNIX timestamp format. Unit: milliseconds.
+   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -59,8 +59,8 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRolesCloudAccountRoleH
   /**
    * @remarks
    * The health check result of the cloud role. Valid values:
-   * - success: succeeded.
-   * - failed: failed.
+   * - success: Success.
+   * - failed: Failed.
    * 
    * @example
    * success
@@ -103,6 +103,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
    * ca_01kmegjc11qa1txxxxx
    */
   cloudAccountId?: string;
+  cloudAccountRoleCreationType?: string;
   /**
    * @remarks
    * The cloud role identifier.
@@ -114,9 +115,9 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   /**
    * @remarks
    * The health status of the cloud role. Valid values:
-   * - healthy: healthy.
-   * - unhealthy: unhealthy.
-   * - unknown: unknown.
+   * - healthy: Healthy.
+   * - unhealthy: Unhealthy.
+   * - unknown: Unknown.
    * 
    * @example
    * healthy
@@ -165,7 +166,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   cloudAccountRoleUsageType?: string;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the cloud role was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1719320115000
@@ -173,7 +174,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The cloud role description.
+   * The description of the cloud role.
    * 
    * @example
    * cloud_account_role_description
@@ -189,9 +190,9 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The cloud role status. Valid values:
-   * - enabled: enabled.
-   * - disable: disabled.
+   * The status of the cloud role. Valid values:
+   * - enabled: Enabled.
+   * - disable: Disabled.
    * 
    * @example
    * enabled
@@ -199,7 +200,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The last update time, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the cloud role was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1719320117000
@@ -208,6 +209,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       cloudAccountId: 'CloudAccountId',
+      cloudAccountRoleCreationType: 'CloudAccountRoleCreationType',
       cloudAccountRoleExternalId: 'CloudAccountRoleExternalId',
       cloudAccountRoleHealth: 'CloudAccountRoleHealth',
       cloudAccountRoleHealthCheckResult: 'CloudAccountRoleHealthCheckResult',
@@ -226,6 +228,7 @@ export class ListCloudAccountRolesResponseBodyCloudAccountRoles extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       cloudAccountId: 'string',
+      cloudAccountRoleCreationType: 'string',
       cloudAccountRoleExternalId: 'string',
       cloudAccountRoleHealth: 'string',
       cloudAccountRoleHealthCheckResult: ListCloudAccountRolesResponseBodyCloudAccountRolesCloudAccountRoleHealthCheckResult,
@@ -261,7 +264,7 @@ export class ListCloudAccountRolesResponseBody extends $dara.Model {
   cloudAccountRoles?: ListCloudAccountRolesResponseBodyCloudAccountRoles[];
   /**
    * @remarks
-   * The number of rows per page in the paging query.
+   * The maximum number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -269,7 +272,7 @@ export class ListCloudAccountRolesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The token returned for the current request.
    * 
    * @example
    * NTxxxexample
@@ -285,7 +288,7 @@ export class ListCloudAccountRolesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries returned.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Authorization rule ID.
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

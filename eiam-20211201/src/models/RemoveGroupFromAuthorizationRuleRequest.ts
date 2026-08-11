@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveGroupFromAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the authorization rule.
+   * The authorization rule ID.
    * 
    * This parameter is required.
    * 

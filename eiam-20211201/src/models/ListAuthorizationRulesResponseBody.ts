@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.Model {
   /**
    * @remarks
-   * The scope of resources to authorize. Valid values:
-   * 
-   * - global: global resources in the project
-   * 
-   * - custom: resources in a specific project
+   * The authorization resource scope. Valid values:
+   * - global: all resources under the project
+   * - custom: specified resources under the project
    * 
    * @example
    * global
@@ -17,11 +15,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationResourceScope?: string;
   /**
    * @remarks
-   * The type of authorization rule creation. Valid values:
-   * 
+   * The creation type of the authorization rule. Valid values:
    * - system_init: created by the system
-   * 
-   * - user_custom: created by a user
+   * - user_custom: created by the user
    * 
    * @example
    * user_custom
@@ -29,7 +25,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleCreationType?: string;
   /**
    * @remarks
-   * The ID of the authorization rule.
+   * The authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -37,7 +33,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The name of the authorization rule.
+   * The authorization rule name.
    * 
    * @example
    * test-name
@@ -45,7 +41,12 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleName?: string;
   /**
    * @remarks
-   * The ID of the subject associated with the authorization rule.
+   * The scenario label of the authorization rule.
+   */
+  authorizationRuleScenarioLabel?: string;
+  /**
+   * @remarks
+   * The subject ID associated with the authorization rule.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -53,11 +54,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleSubjectId?: string;
   /**
    * @remarks
-   * The scope of subjects for the authorization rule. Valid values:
-   * 
-   * - shared: applies to all subjects, such as accounts and applications
-   * 
-   * - exclusive: applies only to a specific subject
+   * The subject scope of the authorization rule. Valid values:
+   * - shared: supports all subjects, including accounts and applications
+   * - exclusive: exclusive type
    * 
    * @example
    * shared
@@ -65,11 +64,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleSubjectScope?: string;
   /**
    * @remarks
-   * The type of subject associated with the authorization rule. This parameter takes effect only when AuthorizationRuleSubjectScope is exclusive. Valid values:
-   * 
-   * - application
-   * 
-   * - user
+   * The subject type associated with the authorization rule. This parameter takes effect only when the subject scope is exclusive. Valid values:
+   * - application: application
+   * - user: account
    * 
    * @example
    * user
@@ -77,7 +74,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   authorizationRuleSubjectType?: string;
   /**
    * @remarks
-   * The time when the authorization rule was created, in Unix timestamp format. Unit: milliseconds.
+   * The creation time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -93,7 +90,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -101,7 +98,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the project associated with the authorization rule.
+   * The project ID associated with the authorization rule.
    * 
    * @example
    * iprj_system_default
@@ -109,11 +106,9 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   projectId?: string;
   /**
    * @remarks
-   * The status of the authorization rule. Valid values:
-   * 
-   * - enabled
-   * 
-   * - disabled
+   * The authorization rule status. Valid values:
+   * - enabled: enabled
+   * - disabled: disabled
    * 
    * @example
    * enabled
@@ -121,7 +116,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
   status?: string;
   /**
    * @remarks
-   * The time when the authorization rule was last updated, in Unix timestamp format. Unit: milliseconds.
+   * The last update time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -133,6 +128,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
       authorizationRuleCreationType: 'AuthorizationRuleCreationType',
       authorizationRuleId: 'AuthorizationRuleId',
       authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleScenarioLabel: 'AuthorizationRuleScenarioLabel',
       authorizationRuleSubjectId: 'AuthorizationRuleSubjectId',
       authorizationRuleSubjectScope: 'AuthorizationRuleSubjectScope',
       authorizationRuleSubjectType: 'AuthorizationRuleSubjectType',
@@ -151,6 +147,7 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $dara.
       authorizationRuleCreationType: 'string',
       authorizationRuleId: 'string',
       authorizationRuleName: 'string',
+      authorizationRuleScenarioLabel: 'string',
       authorizationRuleSubjectId: 'string',
       authorizationRuleSubjectScope: 'string',
       authorizationRuleSubjectType: 'string',
@@ -180,7 +177,7 @@ export class ListAuthorizationRulesResponseBody extends $dara.Model {
   authorizationRules?: ListAuthorizationRulesResponseBodyAuthorizationRules[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in the paging query.
    * 
    * @example
    * 20
@@ -188,7 +185,7 @@ export class ListAuthorizationRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned by this call. Use it in the next call to retrieve the next page of results.
+   * The token returned for the next page query.
    * 
    * @example
    * NTxxxexample
@@ -196,7 +193,7 @@ export class ListAuthorizationRulesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -204,7 +201,7 @@ export class ListAuthorizationRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 100

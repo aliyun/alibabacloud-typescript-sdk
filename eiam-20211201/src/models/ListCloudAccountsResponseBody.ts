@@ -13,7 +13,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * There is no permission.
@@ -50,7 +50,7 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   errorReason?: ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
+   * The last check time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -59,8 +59,8 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
   /**
    * @remarks
    * The health check result of the cloud account. Valid values:
-   * - success: The health check succeeded.
-   * - failed: The health check failed.
+   * - success: Succeeded.
+   * - failed: Failed.
    * 
    * @example
    * success
@@ -86,6 +86,40 @@ export class ListCloudAccountsResponseBodyCloudAccountsCloudAccountHealthCheckRe
     if(this.errorReason && typeof (this.errorReason as any).validate === 'function') {
       (this.errorReason as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError extends $dara.Model {
+  /**
+   * @remarks
+   * The failure error code.
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The failure message.
+   */
+  errorMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -143,6 +177,10 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  /**
+   * @remarks
+   * The cloud account site.
+   */
   cloudAccountSite?: string;
   /**
    * @remarks
@@ -156,7 +194,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   cloudAccountVendorType?: string;
   /**
    * @remarks
-   * The time when the cloud account was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830225000
@@ -164,7 +202,7 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the cloud account.
+   * The cloud account description.
    * 
    * @example
    * cloud_accout_description
@@ -180,7 +218,27 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time when the cloud account was last updated. The value is a UNIX timestamp in milliseconds.
+   * The list of associated privileged access application IDs.
+   */
+  privilegeApplicationIds?: string[];
+  /**
+   * @remarks
+   * The reason for the privilege hosting or removal failure.
+   */
+  privilegeHostingError?: ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError;
+  /**
+   * @remarks
+   * The privilege hosting state, which indicates whether the account has privileged access capabilities.
+   */
+  privilegeHostingState?: string;
+  /**
+   * @remarks
+   * The privilege switch status, which indicates whether the privileged access capability is available.
+   */
+  privilegeStatus?: string;
+  /**
+   * @remarks
+   * The last update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830227000
@@ -199,6 +257,10 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
       createTime: 'CreateTime',
       description: 'Description',
       instanceId: 'InstanceId',
+      privilegeApplicationIds: 'PrivilegeApplicationIds',
+      privilegeHostingError: 'PrivilegeHostingError',
+      privilegeHostingState: 'PrivilegeHostingState',
+      privilegeStatus: 'PrivilegeStatus',
       updateTime: 'UpdateTime',
     };
   }
@@ -216,6 +278,10 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
       createTime: 'number',
       description: 'string',
       instanceId: 'string',
+      privilegeApplicationIds: { 'type': 'array', 'itemType': 'string' },
+      privilegeHostingError: ListCloudAccountsResponseBodyCloudAccountsPrivilegeHostingError,
+      privilegeHostingState: 'string',
+      privilegeStatus: 'string',
       updateTime: 'number',
     };
   }
@@ -223,6 +289,12 @@ export class ListCloudAccountsResponseBodyCloudAccounts extends $dara.Model {
   validate() {
     if(this.cloudAccountHealthCheckResult && typeof (this.cloudAccountHealthCheckResult as any).validate === 'function') {
       (this.cloudAccountHealthCheckResult as any).validate();
+    }
+    if(Array.isArray(this.privilegeApplicationIds)) {
+      $dara.Model.validateArray(this.privilegeApplicationIds);
+    }
+    if(this.privilegeHostingError && typeof (this.privilegeHostingError as any).validate === 'function') {
+      (this.privilegeHostingError as any).validate();
     }
     super.validate();
   }
@@ -240,7 +312,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   cloudAccounts?: ListCloudAccountsResponseBodyCloudAccounts[];
   /**
    * @remarks
-   * The number of rows per page when paging is used.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 20
@@ -248,7 +320,7 @@ export class ListCloudAccountsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token returned for the current call to indicate the starting position of the next page.
+   * The token returned for the current call.
    * 
    * @example
    * NTxxxexample

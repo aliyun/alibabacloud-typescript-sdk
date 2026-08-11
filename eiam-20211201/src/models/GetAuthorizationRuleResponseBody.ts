@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Model {
   /**
    * @remarks
-   * Authorization resource scope. Valid values:
-   * 
-   * - global: Global resources under the project
-   * 
-   * - custom: Resources within the specified project scope
+   * The authorization resource scope. Valid values:
+   * - global: All resources under the project.
+   * - custom: Specified resources within the project scope.
    * 
    * @example
    * global
@@ -17,11 +15,9 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationResourceScope?: string;
   /**
    * @remarks
-   * Authorization rule creation type. Valid values:
-   * 
-   * - system_init: System created
-   * 
-   * - user_custom: User created
+   * The creation type of the authorization rule. Valid values:
+   * - system_init: Created by the system.
+   * - user_custom: Created by the user.
    * 
    * @example
    * user_custom
@@ -29,7 +25,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleCreationType?: string;
   /**
    * @remarks
-   * Authorization rule ID.
+   * The authorization rule ID.
    * 
    * @example
    * arrule_01kf143ug06fg7m9f43u7vahxxxx
@@ -37,7 +33,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleId?: string;
   /**
    * @remarks
-   * Authorization rule name.
+   * The authorization rule name.
    * 
    * @example
    * test-name
@@ -45,7 +41,12 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleName?: string;
   /**
    * @remarks
-   * Subject ID associated with the authorization rule.
+   * The scenario label of the authorization rule.
+   */
+  authorizationRuleScenarioLabel?: string;
+  /**
+   * @remarks
+   * The subject ID associated with the authorization rule.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -53,11 +54,9 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectId?: string;
   /**
    * @remarks
-   * Authorization rule subject scope. Valid values:
-   * 
-   * - shared: Shared type, supports all subjects, including accounts and applications
-   * 
-   * - exclusive: Exclusive type
+   * The subject scope of the authorization rule. Valid values:
+   * - shared: Shared type, which supports all subjects, including accounts and applications.
+   * - exclusive: Exclusive type.
    * 
    * @example
    * shared
@@ -65,11 +64,9 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectScope?: string;
   /**
    * @remarks
-   * Subject type associated with the authorization rule. Valid when the authorization rule subject scope is exclusive. Valid values:
-   * 
-   * - application: Application
-   * 
-   * - user: Account
+   * The subject type associated with the authorization rule. This parameter is valid only when the authorization rule subject scope is exclusive. Valid values:
+   * - application: Application.
+   * - user: Account.
    * 
    * @example
    * user
@@ -77,7 +74,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectType?: string;
   /**
    * @remarks
-   * Creation time, in UNIX timestamp format, in milliseconds.
+   * The creation time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -85,7 +82,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   createTime?: number;
   /**
    * @remarks
-   * Authorization rule description.
+   * The description of the authorization rule.
    * 
    * @example
    * this is a test
@@ -93,7 +90,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -101,7 +98,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * Project ID associated with the authorization rule.
+   * The project ID associated with the authorization rule.
    * 
    * @example
    * iprj_system_default
@@ -109,11 +106,9 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * Authorization rule status. Valid values:
-   * 
-   * - enabled: Enabled
-   * 
-   * - disabled: Disabled
+   * The authorization rule status. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -121,7 +116,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * Last update time, in UNIX timestamp format, in milliseconds.
+   * The last update time, in UNIX timestamp format, measured in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -133,6 +128,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
       authorizationRuleCreationType: 'AuthorizationRuleCreationType',
       authorizationRuleId: 'AuthorizationRuleId',
       authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleScenarioLabel: 'AuthorizationRuleScenarioLabel',
       authorizationRuleSubjectId: 'AuthorizationRuleSubjectId',
       authorizationRuleSubjectScope: 'AuthorizationRuleSubjectScope',
       authorizationRuleSubjectType: 'AuthorizationRuleSubjectType',
@@ -151,6 +147,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
       authorizationRuleCreationType: 'string',
       authorizationRuleId: 'string',
       authorizationRuleName: 'string',
+      authorizationRuleScenarioLabel: 'string',
       authorizationRuleSubjectId: 'string',
       authorizationRuleSubjectScope: 'string',
       authorizationRuleSubjectType: 'string',
@@ -175,12 +172,12 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
 export class GetAuthorizationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Authorization rule object.
+   * The authorization rule object.
    */
   authorizationRule?: GetAuthorizationRuleResponseBodyAuthorizationRule;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

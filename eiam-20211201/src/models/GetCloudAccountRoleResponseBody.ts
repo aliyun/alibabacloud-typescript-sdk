@@ -50,7 +50,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHeal
   errorReason?: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last health check. The value is a UNIX timestamp in milliseconds.
+   * The last check time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -105,6 +105,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
    * ca_01kmegjc11qa1txxxxx
    */
   cloudAccountId?: string;
+  cloudAccountRoleCreationType?: string;
   /**
    * @remarks
    * The cloud role identifier.
@@ -167,7 +168,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   cloudAccountRoleUsageType?: string;
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * The creation time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1719320115000
@@ -201,7 +202,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The last update time. The value is a UNIX timestamp in milliseconds.
+   * The last update time, in UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830227000
@@ -210,6 +211,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   static names(): { [key: string]: string } {
     return {
       cloudAccountId: 'CloudAccountId',
+      cloudAccountRoleCreationType: 'CloudAccountRoleCreationType',
       cloudAccountRoleExternalId: 'CloudAccountRoleExternalId',
       cloudAccountRoleHealth: 'CloudAccountRoleHealth',
       cloudAccountRoleHealthCheckResult: 'CloudAccountRoleHealthCheckResult',
@@ -228,6 +230,7 @@ export class GetCloudAccountRoleResponseBodyCloudAccountRole extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       cloudAccountId: 'string',
+      cloudAccountRoleCreationType: 'string',
       cloudAccountRoleExternalId: 'string',
       cloudAccountRoleHealth: 'string',
       cloudAccountRoleHealthCheckResult: GetCloudAccountRoleResponseBodyCloudAccountRoleCloudAccountRoleHealthCheckResult,
