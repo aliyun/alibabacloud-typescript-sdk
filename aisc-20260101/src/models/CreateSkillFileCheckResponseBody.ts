@@ -3,10 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSkillFileCheckResponseBodyDataUploadResults extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned when the file fails to be uploaded.
+   * 
+   * @example
+   * Network error.
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The SHA256 value of the uploaded file.
+   * 
+   * @example
+   * 514f44ebed1d0c1df5e16a116080b64b
+   */
   fileHash?: string;
+  /**
+   * @remarks
+   * The name of the file.
+   * 
+   * @example
+   * test-file
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The unique ID of the uploaded file. You can use this ID to query the task result.
+   * 
+   * @example
+   * 1824jcadg01bsl10b
+   */
   identifyId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,9 +75,34 @@ export class CreateSkillFileCheckResponseBodyDataUploadResults extends $dara.Mod
 }
 
 export class CreateSkillFileCheckResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of files that failed to be uploaded.
+   * 
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @remarks
+   * The ID of the root task returned after the task is submitted.
+   * 
+   * @example
+   * c6e7fa8a77df6e182ac3fcf1478ab83a
+   */
   rootTaskId?: string;
+  /**
+   * @remarks
+   * The number of files that are uploaded.
+   * 
+   * @example
+   * 10
+   */
   successCount?: number;
+  /**
+   * @remarks
+   * The upload results.
+   */
   uploadResults?: CreateSkillFileCheckResponseBodyDataUploadResults[];
   static names(): { [key: string]: string } {
     return {
@@ -73,7 +135,18 @@ export class CreateSkillFileCheckResponseBodyData extends $dara.Model {
 }
 
 export class CreateSkillFileCheckResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The task creation result.
+   */
   data?: CreateSkillFileCheckResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9FDE3D6F-26BD-5937-B0E5-8F47962B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

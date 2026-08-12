@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfigDetail extends $dara.Model {
   /**
+   * @remarks
+   * The detected content.
+   * 
    * @example
    * allowed-tools: Bash(agent-browser:*)
    */
   content?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * The skill configuration allows Bash execution via agent-browser:* pattern without requiring user confirmation. This enables potentially dangerous command execution through the browser automation CLI.
    */
   description?: string;
   /**
+   * @remarks
+   * The check item name.
+   * 
    * @example
    * Dangerous Tools Without Confirmation
    */
   itemName?: string;
   /**
+   * @remarks
+   * The line number of the detected content.
+   * 
    * @example
    * 2555
    */
@@ -51,6 +63,10 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of risk details.
+   */
   detail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfigDetail[];
   static names(): { [key: string]: string } {
     return {
@@ -78,21 +94,38 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetailResult extends $dara.Model {
   /**
+   * @remarks
+   * The confidence score. Valid values: 0 to 100.
+   * 
    * @example
    * 25
    */
   confidence?: number;
   /**
+   * @remarks
+   * The result description.
+   * 
    * @example
    * Suspicious attacks.
    */
   description?: string;
   /**
+   * @remarks
+   * The label information.
+   * 
    * @example
    * attack
    */
   label?: string;
   /**
+   * @remarks
+   * The risk level. Valid values:
+   * 
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
+   * - **none**: No risk.
+   * 
    * @example
    * high
    */
@@ -126,17 +159,35 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetail extends $dara.Model {
   /**
+   * @remarks
+   * The risk level. Valid values:
+   * 
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
+   * - **none**: No risk.
+   * 
    * @example
    * high
    */
   level?: string;
+  /**
+   * @remarks
+   * The list of result details.
+   */
   result?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetailResult[];
   /**
+   * @remarks
+   * The processing suggestion.
+   * 
    * @example
    * block
    */
   suggestion?: string;
   /**
+   * @remarks
+   * The risk type.
+   * 
    * @example
    * promptAttack
    */
@@ -172,8 +223,15 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrail extends $dara.Model {
+  /**
+   * @remarks
+   * The list of risk details.
+   */
   detail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetail[];
   /**
+   * @remarks
+   * The processing suggestion.
+   * 
    * @example
    * block
    */
@@ -206,10 +264,17 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtSensitiveDetail extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * aliyun_ak_24
    */
   desc?: string;
+  /**
+   * @remarks
+   * The list of sensitive information.
+   */
   result?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -238,6 +303,10 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtSensitive extends $dara.Model {
+  /**
+   * @remarks
+   * The list of risk details.
+   */
   detail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtSensitiveDetail[];
   static names(): { [key: string]: string } {
     return {
@@ -265,16 +334,25 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtVirus extends $dara.Model {
   /**
+   * @remarks
+   * The extended information field. This is a reserved parameter.
+   * 
    * @example
    * {}
    */
   ext?: string;
   /**
+   * @remarks
+   * The risk score. Maximum value: 100.
+   * 
    * @example
    * 100
    */
   score?: number;
   /**
+   * @remarks
+   * The virus type.
+   * 
    * @example
    * Backdoor
    */
@@ -305,9 +383,25 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration detection risks.
+   */
   config?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfig;
+  /**
+   * @remarks
+   * The safety guardrail detection risks.
+   */
   guardrail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrail;
+  /**
+   * @remarks
+   * The sensitive information risks.
+   */
   sensitive?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtSensitive;
+  /**
+   * @remarks
+   * The virus detection risks.
+   */
   virus?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtVirus[];
   static names(): { [key: string]: string } {
     return {
@@ -349,13 +443,23 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The file detection risk list.
+   */
   ext?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * /home/97e55e6af371836f/
    */
   path?: string;
   /**
+   * @remarks
+   * The result type.
+   * 
    * @example
    * file
    */
@@ -389,6 +493,10 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult extends $dara.Model {
+  /**
+   * @remarks
+   * The file detection risk information.
+   */
   riskInfo?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -415,6 +523,10 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult exten
 }
 
 export class ListSubTasksResponseBodyDataTaskResultMessage extends $dara.Model {
+  /**
+   * @remarks
+   * The skill check task result.
+   */
   skillCheckResult?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResult;
   static names(): { [key: string]: string } {
     return {
@@ -442,22 +554,38 @@ export class ListSubTasksResponseBodyDataTaskResultMessage extends $dara.Model {
 
 export class ListSubTasksResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The hash value of the uploaded file.
+   * 
    * @example
    * 03d1f08455e965cac0351eaa59256fd9
    */
   fileHash?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 4190063324899520
    */
   id?: number;
   /**
+   * @remarks
+   * The detection target.
+   * 
    * @example
    * c7acb2f1264e4467887ef8f4c36c44ca1
    */
   target?: string;
+  /**
+   * @remarks
+   * The task result information.
+   */
   taskResultMessage?: ListSubTasksResponseBodyDataTaskResultMessage;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * success
    */
@@ -496,21 +624,33 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
 
 export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of data entries displayed on the current page.
+   * 
    * @example
    * 1
    */
   count?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records in the query result.
+   * 
    * @example
    * 1
    */
@@ -543,9 +683,20 @@ export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
 }
 
 export class ListSubTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of task results.
+   */
   data?: ListSubTasksResponseBodyData[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageInfo?: ListSubTasksResponseBodyPageInfo;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 9FDE3D6F-26BD-5937-B0E5-8F47962B****
    */
