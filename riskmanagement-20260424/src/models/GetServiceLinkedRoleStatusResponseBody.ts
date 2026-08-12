@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceLinkedRoleStatusResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The authorization status. Valid values:
+   * 
+   * - **true**: authorized
+   * - **false**: not authorized
+   * 
    * @example
    * true
    */
@@ -31,22 +37,43 @@ export class GetServiceLinkedRoleStatusResponseBodyData extends $dara.Model {
 
 export class GetServiceLinkedRoleStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * - **200**: Succeeded.
+   * - **Other (400, 500)**: Failed.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: GetServiceLinkedRoleStatusResponseBodyData;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FBDD713-00A5-5C98-B661-3FD31A349B6E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.                                
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

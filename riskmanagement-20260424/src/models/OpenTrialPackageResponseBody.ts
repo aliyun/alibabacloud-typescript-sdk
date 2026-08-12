@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class OpenTrialPackageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Security Center request ID.
+   * 
    * @example
    * 5F4B631D-0358-5B7B-8B84-FB924138ED91
    */
@@ -31,22 +34,38 @@ export class OpenTrialPackageResponseBodyData extends $dara.Model {
 
 export class OpenTrialPackageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The operation result.
+   */
   data?: OpenTrialPackageResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 855FCC89-0B13-5FC0-AAD2-120878081C1C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

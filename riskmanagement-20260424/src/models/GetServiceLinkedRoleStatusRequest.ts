@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceLinkedRoleStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The authorization type. Valid values:
+   * 
+   * - **SecuritySense**: security check authorization
+   * - **DisposalTool**: threat removal tool authorization
+   * - **SensePosture**: security posture authorization
+   * 
    * This parameter is required.
    * 
    * @example

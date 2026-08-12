@@ -4,11 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class OpenTrialPackageRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically disable the trial plan when it expires.
+   * 
+   * - **1**: Enabled.
+   * - **0**: Disabled.
+   * 
+   * Default value: 1.
+   * 
    * @example
    * 0
    */
   autoCloseSwitch?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-guangzhou
    */

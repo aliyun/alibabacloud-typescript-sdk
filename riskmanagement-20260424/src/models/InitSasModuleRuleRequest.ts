@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitSasModuleRuleRequestInstances extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores of the asset.
+   * 
    * @example
    * 4
    */
   cores?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * i-gw85zjrhsg2sgex7ovfx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region of the cloud phone.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The UUID of the instance.
+   * 
    * @example
    * 168d374e-f449-4d0b-9556-14f233fa7171
    */
@@ -52,17 +64,33 @@ export class InitSasModuleRuleRequestInstances extends $dara.Model {
 
 export class InitSasModuleRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic binding. Valid values:
+   * 
+   * - **0**: Disabled.
+   * - **1**: Enabled.
+   * 
    * @example
    * 0
    */
   autoBind?: number;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instances?: InitSasModuleRuleRequestInstances[];
   /**
+   * @remarks
+   * Specifies whether to use the trial version.
+   * 
    * @example
    * false
    */
   isTrial?: boolean;
   /**
+   * @remarks
+   * The region ID of the access control instance.
+   * 
    * @example
    * cn-guangzhou
    */

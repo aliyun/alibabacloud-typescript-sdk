@@ -4,126 +4,202 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryResourceControlEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The action name code.
+   * 
    * @example
    * shutdown
    */
   actionCode?: string;
   /**
+   * @remarks
+   * The collection of control action name codes.
+   * 
    * @example
    * shutdown
    */
   actionCodes?: string[];
   /**
+   * @remarks
+   * The internationalization language.
+   * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
+   * @remarks
+   * The product.
+   * 
    * @example
    * ecs
    */
   businessCode?: string;
+  businessCodes?: string[];
   /**
+   * @remarks
+   * The collection of event name code prefixes.
+   * 
    * @example
    * [\\"BANFF\\"]
    */
   caseCodesPrefix?: string[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * short.industry.taobao.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The event name code.
+   * 
    * @example
    * BANFF_ECS_PE_ECS_MINING_SHUTDOWN
    */
   eventCode?: string;
   /**
+   * @remarks
+   * The collection of event name codes.
+   * 
    * @example
    * ["BANFF_ECS_PE_ECS_MINING_SHUTDOWN"]
    */
   eventCodes?: string[];
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 2PTOHhN3YUeaPWzq9FLmpdZ9EOW
    */
   eventId?: string;
   /**
+   * @remarks
+   * The collection of event IDs.
+   * 
    * @example
    * [\\"7ac74fbfe06b2b85bb470083b7a05fb7\\",\\"1180c5bbff0a385b00d2cf73e3371d11\\"]
    */
   eventIdList?: string[];
   /**
+   * @remarks
+   * The collection of excluded control action name codes.
+   * 
    * @example
    * [\\"shutdown\\"]
    */
   excludeActionCodes?: string[];
   /**
+   * @remarks
+   * The collection of excluded event name codes.
+   * 
    * @example
    * [\\"TEST_CASE\\"]
    */
   excludeEventCodes?: string[];
   /**
+   * @remarks
+   * The collection of excluded event reasons.
+   * 
    * @example
-   * [\\"挖矿告警\\",\\"挖矿管控事件\\",\\"挖矿\\"]
+   * [\\"Cryptomining alert\\",\\"Cryptomining control event\\",\\"Cryptomining\\"]
    */
   excludeReasons?: string[];
   /**
+   * @remarks
+   * The collection of included event reasons.
+   * 
    * @example
-   * [\\"挖矿告警\\",\\"挖矿管控事件\\",\\"挖矿\\"]
+   * [\\"Cryptomining alert\\",\\"Cryptomining control event\\",\\"Cryptomining\\"]
    */
   includeReasons?: string[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rm-0iw73ro05vcwn6ntq
    */
   instanceId?: string;
   /**
+   * @remarks
+   * IP
+   * 
    * @example
    * 12.3*.22.11
    */
   ip?: string;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The penalty end time.
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   punishEndTime?: string;
   /**
+   * @remarks
+   * The penalty start time.
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   punishStartTime?: string;
   /**
+   * @remarks
+   * The event reason.
+   * 
    * @example
-   * 挖矿
+   * Cryptomining.
    */
   reason?: string;
   /**
+   * @remarks
+   * The collection of event source codes.
+   * 
    * @example
    * [\\"MRM\\"]
    */
   sourceCodes?: string[];
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Executing
    */
   status?: string;
   /**
+   * @remarks
+   * The collection of task statuses.
+   * 
    * @example
    * [\\"Executing\\"]
    */
   statusList?: string[];
   /**
+   * @remarks
+   * The control URL.
+   * 
    * @example
    * https://qimg.xiaohongshu.com/circe/1040g1v831qggp28ln0705oft1i6k1jil889lhso?imageView2/2/w/1080/format/jpg
    */
@@ -134,6 +210,7 @@ export class QueryResourceControlEventsRequest extends $dara.Model {
       actionCodes: 'ActionCodes',
       aliyunLang: 'AliyunLang',
       businessCode: 'BusinessCode',
+      businessCodes: 'BusinessCodes',
       caseCodesPrefix: 'CaseCodesPrefix',
       current: 'Current',
       domain: 'Domain',
@@ -164,6 +241,7 @@ export class QueryResourceControlEventsRequest extends $dara.Model {
       actionCodes: { 'type': 'array', 'itemType': 'string' },
       aliyunLang: 'string',
       businessCode: 'string',
+      businessCodes: { 'type': 'array', 'itemType': 'string' },
       caseCodesPrefix: { 'type': 'array', 'itemType': 'string' },
       current: 'number',
       domain: 'string',
@@ -191,6 +269,9 @@ export class QueryResourceControlEventsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.actionCodes)) {
       $dara.Model.validateArray(this.actionCodes);
+    }
+    if(Array.isArray(this.businessCodes)) {
+      $dara.Model.validateArray(this.businessCodes);
     }
     if(Array.isArray(this.caseCodesPrefix)) {
       $dara.Model.validateArray(this.caseCodesPrefix);

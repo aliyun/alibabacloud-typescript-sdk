@@ -4,12 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePostPaidBindRelRequestSdkRequestBindAction extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to bind all assets. Default value: **false**. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   bindAll?: boolean;
+  /**
+   * @remarks
+   * The list of specified server UUIDs.
+   * > Number of items <= 1000. Number of items >= 0.
+   */
   uuidList?: string[];
   /**
+   * @remarks
+   * The Security Center protection edition to bind. Valid values:
+   * 
+   * - **1**: Free Edition.
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.
+   * - **7**: Ultimate Edition.
+   * 
    * @example
    * 1
    */
@@ -44,17 +64,38 @@ export class UpdatePostPaidBindRelRequestSdkRequestBindAction extends $dara.Mode
 
 export class UpdatePostPaidBindRelRequestSdkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to automatically bind newly added assets. Valid values:
+   * 
+   * - **0**: Disabled.
+   * - **1**: Enabled.
+   * 
    * @example
    * 1
    */
   autoBind?: number;
   /**
+   * @remarks
+   * The edition to automatically bind when new assets are added. Valid values:
+   * - **1**: Free Edition. 
+   * - **3**: Enterprise Edition.
+   * - **5**: Advanced Edition.
+   * - **6**: Anti-virus Edition.    
+   * - **7**: Ultimate Edition.
+   * 
    * @example
    * 3
    */
   autoBindVersion?: number;
+  /**
+   * @remarks
+   * The list of binding action parameters.
+   */
   bindAction?: UpdatePostPaidBindRelRequestSdkRequestBindAction[];
   /**
+   * @remarks
+   * Specifies whether to forcibly upgrade the edition.
+   * 
    * @example
    * false
    */
@@ -91,10 +132,17 @@ export class UpdatePostPaidBindRelRequestSdkRequest extends $dara.Model {
 
 export class UpdatePostPaidBindRelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-huhehaote
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request parameters.
+   */
   sdkRequest?: UpdatePostPaidBindRelRequestSdkRequest;
   static names(): { [key: string]: string } {
     return {

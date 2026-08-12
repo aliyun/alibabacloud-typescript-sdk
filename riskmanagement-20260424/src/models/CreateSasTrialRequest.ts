@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSasTrialRequestSdkRequestRequestForm extends $dara.Model {
   /**
+   * @remarks
+   * The reason for applying for the trial.
+   * 
    * @example
    * for poc
    */
@@ -31,22 +34,54 @@ export class CreateSasTrialRequestSdkRequestRequestForm extends $dara.Model {
 
 export class CreateSasTrialRequestSdkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the request is from the ECS console. Valid values:
+   * - **true**: The request is from the ECS console.
+   * - **false**: The request is not from the ECS console.
+   * 
    * @example
    * true
    */
   fromEcs?: boolean;
   /**
+   * @remarks
+   * The language of the request and response. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
+   * 
    * @example
    * en
    */
   lang?: string;
+  /**
+   * @remarks
+   * The reason for applying for the trial.
+   */
   requestForm?: CreateSasTrialRequestSdkRequestRequestForm;
   /**
+   * @remarks
+   * The trial type. Valid values:
+   * - **0**: trial not allowed
+   * - **1**: first trial
+   * - **2**: second trial
+   * 
+   * 
+   * > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter. The trial can be started only when the value is not 0.
+   * 
    * @example
    * 1
    */
   tryType?: number;
   /**
+   * @remarks
+   * The trial edition. Valid values:
+   * - **3**: Enterprise Edition.
+   * - **7**: Ultimate Edition.
+   * 
+   * > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
+   * 
    * @example
    * 3
    */
@@ -85,10 +120,17 @@ export class CreateSasTrialRequestSdkRequest extends $dara.Model {
 
 export class CreateSasTrialRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the access control instance. You can call the DescribeRegions operation to query the region ID.
+   * 
    * @example
    * cn-shenzhen
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request.
+   */
   sdkRequest?: CreateSasTrialRequestSdkRequest;
   static names(): { [key: string]: string } {
     return {

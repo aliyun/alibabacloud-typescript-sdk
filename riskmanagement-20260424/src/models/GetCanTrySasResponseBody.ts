@@ -4,12 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCanTrySasResponseBodyDataBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the user is eligible for a free trial. Valid values:
+   * - **1**: Eligible.
+   * - **0**: Not eligible.
+   * 
    * @example
    * 1
    */
   canTry?: number;
+  /**
+   * @remarks
+   * The list of editions available for trial.
+   */
   canTryVersions?: number[];
   /**
+   * @remarks
+   * The trial type. Valid values:
+   * - **0**: Trial is not allowed.
+   * - **1**: First trial.
+   * - **2**: Second trial.
+   * 
    * @example
    * 1
    */
@@ -43,8 +58,15 @@ export class GetCanTrySasResponseBodyDataBodyData extends $dara.Model {
 }
 
 export class GetCanTrySasResponseBodyDataBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data.
+   */
   data?: GetCanTrySasResponseBodyDataBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 0EBD97B8-65AD-52C8-94D5-A0F81E7D70D0
    */
@@ -76,6 +98,10 @@ export class GetCanTrySasResponseBodyDataBody extends $dara.Model {
 }
 
 export class GetCanTrySasResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The message body.
+   */
   body?: GetCanTrySasResponseBodyDataBody;
   static names(): { [key: string]: string } {
     return {
@@ -103,22 +129,41 @@ export class GetCanTrySasResponseBodyData extends $dara.Model {
 
 export class GetCanTrySasResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The detailed information.
+   */
   data?: GetCanTrySasResponseBodyData;
   /**
+   * @remarks
+   * The message. The value is the same as the Code parameter value.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6B48613E-86DE-5411-BDBE-429C80B45F3F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the current API call is successful. This does not indicate whether subsequent business operations are successful.
+   * 
+   * - **true**: Successful.
+   * - **false**: Failed.
+   * 
    * @example
    * true
    */

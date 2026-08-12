@@ -4,11 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCanTrySasRequestSdkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the request is from the ECS console. Valid values:
+   * - **true**: The request is from the ECS console.
+   * - **false**: The request is not from the ECS console.
+   * 
    * @example
    * true
    */
   fromEcs?: boolean;
   /**
+   * @remarks
+   * The language type for the request and response messages. Default value: zh. Valid values:
+   * 
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
    * @example
    * zh
    */
@@ -38,10 +49,17 @@ export class GetCanTrySasRequestSdkRequest extends $dara.Model {
 
 export class GetCanTrySasRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-guangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request parameters.
+   */
   sdkRequest?: GetCanTrySasRequestSdkRequest;
   static names(): { [key: string]: string } {
     return {

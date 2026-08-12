@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSecuritySuggestionListShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters.
+   */
   listConfigRulesRequestShrink?: string;
   static names(): { [key: string]: string } {
     return {

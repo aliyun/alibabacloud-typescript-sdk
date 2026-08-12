@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDisposalToolStatusResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The authorization status. Valid values:
+   * 
+   * - **true**: Authorized.
+   * - **false**: Not authorized.
+   * 
    * @example
    * true
    */
@@ -31,22 +37,41 @@ export class GetDisposalToolStatusResponseBodyData extends $dara.Model {
 
 export class GetDisposalToolStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 indicates success.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetDisposalToolStatusResponseBodyData;
   /**
+   * @remarks
+   * The prompt message.
+   * 
    * @example
    * successful‌
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6D462855-7835-5F91-835E-A62E44EC01CC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.                               
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

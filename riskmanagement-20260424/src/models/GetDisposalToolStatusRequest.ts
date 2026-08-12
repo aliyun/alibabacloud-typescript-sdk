@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDisposalToolStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The authorization type.
+   * 
+   * - **DisposalTool**: one-click disposal authorization type
+   * 
    * @example
    * DisposalTool
    */

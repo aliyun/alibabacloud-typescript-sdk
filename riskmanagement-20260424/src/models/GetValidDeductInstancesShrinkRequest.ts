@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetValidDeductInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-fuzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request parameters.
+   */
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {
     return {

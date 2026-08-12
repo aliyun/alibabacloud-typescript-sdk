@@ -4,26 +4,50 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNotificationContactsResponseBodyDataChannelConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The channel type.
+   * 
    * @example
    * email
    */
   channelType?: string;
   /**
+   * @remarks
+   * Indicates whether the subscription is configured.
+   * 
+   * - **NO**
+   * - **YES**
+   * 
    * @example
    * NO
    */
   checkedState?: string;
   /**
+   * @remarks
+   * Indicates whether the channel is selected by default.
+   * 
+   * - **NO**
+   * - **YES**
+   * 
    * @example
    * NO
    */
   defaultChecked?: string;
   /**
+   * @remarks
+   * The fatigue limit.
+   * 
    * @example
    * 7
    */
   fatigueDayLimit?: number;
   /**
+   * @remarks
+   * Indicates whether the channel is modifiable.
+   * 
+   * - **NO**
+   * - **YES**
+   * 
    * @example
    * NO
    */
@@ -59,46 +83,82 @@ export class GetNotificationContactsResponseBodyDataChannelConfigs extends $dara
 
 export class GetNotificationContactsResponseBodyDataContactInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * 1492387044070147
    */
   aliUid?: number;
   /**
+   * @remarks
+   * Indicates whether the contact is bound.
+   * 
+   * - **true**
+   * - **fasle**
+   * 
    * @example
    * true
    */
   bindContact?: boolean;
   /**
+   * @remarks
+   * The contact email address.
+   * 
    * @example
    * t*@qq.*
    */
   contactEmail?: string;
   /**
+   * @remarks
+   * The Account Center contact ID. A value of 0 indicates the account contact.
+   * 
    * @example
    * 0
    */
   contactId?: number;
   /**
+   * @remarks
+   * The Account Center contact mobile number (masked).
+   * 
    * @example
    * 13580xxx136
    */
   contactMobile?: string;
   /**
+   * @remarks
+   * The Account Center contact name.
+   * 
    * @example
    * shianyu
    */
   contactName?: string;
   /**
+   * @remarks
+   * Indicates whether the email address is verified.
+   * 
+   * - **true**
+   * - **false**
+   * 
    * @example
    * true
    */
   emailConfirmed?: boolean;
   /**
+   * @remarks
+   * Indicates whether the Account Center contact mobile number is verified.
+   * 
+   * - **true**
+   * - **false**
+   * 
    * @example
    * true
    */
   mobileConfirmed?: boolean;
   /**
+   * @remarks
+   * The Account Center contact position.
+   * 
    * @example
    * CEO
    */
@@ -142,41 +202,73 @@ export class GetNotificationContactsResponseBodyDataContactInfoList extends $dar
 
 export class GetNotificationContactsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID.
+   * 
    * @example
    * 1355290655619147
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The message category code.
+   * 
    * @example
    * prod_edu_content
    */
   categoryCode?: string;
   /**
+   * @remarks
+   * The message category description.
+   * 
    * @example
-   * 产品的使用场景、技术分享的相关内容
+   * Product usage scenarios and technical sharing content.
    */
   categoryDesc?: string;
   /**
+   * @remarks
+   * The category group code.
+   * 
    * @example
    * prod_msg
    */
   categoryGroupCode?: string;
   /**
+   * @remarks
+   * The category group name.
+   * 
    * @example
-   * 产品消息
+   * Product messages.
    */
   categoryGroupName?: string;
   /**
+   * @remarks
+   * The message category name.
+   * 
    * @example
-   * 产品教育内容
+   * Product educational content.
    */
   categoryName?: string;
+  /**
+   * @remarks
+   * The channel list.
+   */
   channelConfigs?: GetNotificationContactsResponseBodyDataChannelConfigs[];
   /**
+   * @remarks
+   * Indicates whether all notification methods are selected.
+   * 
+   * - **true**
+   * - **false**
+   * 
    * @example
    * true
    */
   chooseAllChannel?: boolean;
+  /**
+   * @remarks
+   * The general contact list.
+   */
   contactInfoList?: GetNotificationContactsResponseBodyDataContactInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -223,22 +315,44 @@ export class GetNotificationContactsResponseBodyData extends $dara.Model {
 
 export class GetNotificationContactsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
+   * - **200**: Success.
+   * - **Other (400, 500)**: Failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: GetNotificationContactsResponseBodyData[];
   /**
+   * @remarks
+   * The prompt message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FBDD713-00A5-5C98-B661-3FD31A349B6E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * - **true**: Success.
+   * - **false**: Failure.
+   * 
    * @example
    * true
    */

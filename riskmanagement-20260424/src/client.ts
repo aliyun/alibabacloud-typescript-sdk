@@ -12,6 +12,9 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
+    this._endpointMap = {
+      public: "riskmanagement.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("riskmanagement", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-绑定授权到机器
+   * Bindss authorization to machines in Security Center.
    * 
    * @param tmpReq - BindAuthToMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71,7 +74,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-绑定授权到机器
+   * Bindss authorization to machines in Security Center.
    * 
    * @param request - BindAuthToMachineRequest
    * @returns BindAuthToMachineResponse
@@ -82,7 +85,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-初始化云安全中心模块规则
+   * Initializes Security Center module rules.
    * 
    * @param tmpReq - CreateSasTrialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -123,7 +126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-初始化云安全中心模块规则
+   * Initializes Security Center module rules.
    * 
    * @param request - CreateSasTrialRequest
    * @returns CreateSasTrialResponse
@@ -134,7 +137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-创建服务关联角色
+   * Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
    * 
    * @param tmpReq - CreateServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -175,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-创建服务关联角色
+   * Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
    * 
    * @param request - CreateServiceLinkedRoleRequest
    * @returns CreateServiceLinkedRoleResponse
@@ -186,7 +189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建全盘扫描任务
+   * Creates a full disk scan task.
    * 
    * @param request - CreateVirusScanOnceTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -225,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建全盘扫描任务
+   * Creates a full disk scan task.
    * 
    * @param request - CreateVirusScanOnceTaskRequest
    * @returns CreateVirusScanOnceTaskResponse
@@ -236,7 +239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询云安全中心实例列表
+   * Queries the list of Security Center instances.
    * 
    * @param tmpReq - DescribeCloudCenterInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询云安全中心实例列表
+   * Queries the list of Security Center instances.
    * 
    * @param request - DescribeCloudCenterInstancesRequest
    * @returns DescribeCloudCenterInstancesResponse
@@ -288,7 +291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询服务关联角色状态
+   * Queries the status of a service-linked role for Security Center.
    * 
    * @param tmpReq - DescribeServiceLinkedRoleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -329,7 +332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询服务关联角色状态
+   * Queries the status of a service-linked role for Security Center.
    * 
    * @param request - DescribeServiceLinkedRoleStatusRequest
    * @returns DescribeServiceLinkedRoleStatusResponse
@@ -340,7 +343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询安全告警事件
+   * Queries security alert events in Security Center.
    * 
    * @param tmpReq - DescribeSuspEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -381,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查询安全告警事件
+   * Queries security alert events in Security Center.
    * 
    * @param request - DescribeSuspEventsRequest
    * @returns DescribeSuspEventsResponse
@@ -392,7 +395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查看已购买的云安全中心实例的版本详情
+   * Queries the edition details of a purchased Security Center instance.
    * 
    * @param tmpReq - DescribeVersionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -433,7 +436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-查看已购买的云安全中心实例的版本详情
+   * Queries the edition details of a purchased Security Center instance.
    * 
    * @param request - DescribeVersionConfigRequest
    * @returns DescribeVersionConfigResponse
@@ -444,7 +447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取告警记录分析结果
+   * Retrieves the analysis results of alert records.
    * 
    * @param tmpReq - GetAlertRecordAnalysisResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -497,7 +500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取告警记录分析结果
+   * Retrieves the analysis results of alert records.
    * 
    * @param request - GetAlertRecordAnalysisResultRequest
    * @returns GetAlertRecordAnalysisResultResponse
@@ -508,7 +511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用云安全中心部分接口
+   * Calls specific Security Center API operations.
    * 
    * @param tmpReq - GetAliYunSafeCenterResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -609,7 +612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用云安全中心部分接口
+   * Calls specific Security Center API operations.
    * 
    * @param request - GetAliYunSafeCenterResultRequest
    * @returns GetAliYunSafeCenterResultResponse
@@ -620,7 +623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-获取能否试用
+   * Queries whether a user is eligible for a Security Center free trial.
    * 
    * @param tmpReq - GetCanTrySasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -661,7 +664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-获取能否试用
+   * Queries whether a user is eligible for a Security Center free trial.
    * 
    * @param request - GetCanTrySasRequest
    * @returns GetCanTrySasResponse
@@ -672,7 +675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全合规包id
+   * Retrieves the security compliance package ID.
    * 
    * @param request - GetCompliancePackIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -696,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全合规包id
+   * Retrieves the security compliance package ID.
    * 
    * @param request - GetCompliancePackIdRequest
    * @returns GetCompliancePackIdResponse
@@ -707,7 +710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一键处置赋权状态
+   * Retrieves the authorization status for one-click disposal.
    * 
    * @param request - GetDisposalToolStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -738,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一键处置赋权状态
+   * Retrieves the authorization status for one-click disposal.
    * 
    * @param request - GetDisposalToolStatusRequest
    * @returns GetDisposalToolStatusResponse
@@ -749,7 +752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户确认安全联系人记录
+   * Retrieves the record of a user confirming a security contact.
    * 
    * @param request - GetNotificationClickRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -773,7 +776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户确认安全联系人记录
+   * Retrieves the record of a user confirming a security contact.
    * 
    * @param request - GetNotificationClickRecordRequest
    * @returns GetNotificationClickRecordResponse
@@ -784,7 +787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全联系人全部信息
+   * Retrieves all information about security contacts.
    * 
    * @param request - GetNotificationContactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -808,7 +811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全联系人全部信息
+   * Retrieves all information about security contacts.
    * 
    * @param request - GetNotificationContactsRequest
    * @returns GetNotificationContactsResponse
@@ -819,7 +822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全联系人待处理数
+   * Retrieves the number of pending items for security contacts.
    * 
    * @param request - GetNotificationPendNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -843,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全联系人待处理数
+   * Retrieves the number of pending items for security contacts.
    * 
    * @param request - GetNotificationPendNumberRequest
    * @returns GetNotificationPendNumberResponse
@@ -854,7 +857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源管控事件详情
+   * Queries the details of cloud resource control events.
    * 
    * @param tmpReq - GetResourceControlEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -899,7 +902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源管控事件详情
+   * Queries the details of cloud resource control events.
    * 
    * @param request - GetResourceControlEventRequest
    * @returns GetResourceControlEventResponse
@@ -910,7 +913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全体检基础信息
+   * Retrieves the basic information of a security check.
    * 
    * @param request - GetSecurityCheckBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -934,7 +937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全体检基础信息
+   * Retrieves the basic information of a security check.
    * 
    * @param request - GetSecurityCheckBaseInfoRequest
    * @returns GetSecurityCheckBaseInfoResponse
@@ -945,7 +948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全检查结果基础信息
+   * Retrieves the basic information of security check results.
    * 
    * @param request - GetSecurityCheckResultBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -969,7 +972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全检查结果基础信息
+   * Retrieves the basic information of security check results.
    * 
    * @param request - GetSecurityCheckResultBaseInfoRequest
    * @returns GetSecurityCheckResultBaseInfoResponse
@@ -980,7 +983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全优化建议列表
+   * Retrieves a list of security optimization suggestions.
    * 
    * @param tmpReq - GetSecuritySuggestionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1017,7 +1020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全优化建议列表
+   * Retrieves a list of security optimization suggestions.
    * 
    * @param request - GetSecuritySuggestionListRequest
    * @returns GetSecuritySuggestionListResponse
@@ -1028,7 +1031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全优化建议条数
+   * Retrieves the number of security optimization suggestions.
    * 
    * @param request - GetSecuritySuggestionNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1052,7 +1055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全优化建议条数
+   * Retrieves the number of security optimization suggestions.
    * 
    * @param request - GetSecuritySuggestionNumberRequest
    * @returns GetSecuritySuggestionNumberResponse
@@ -1063,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务关联角色状态
+   * Retrieves the status of a service-linked role.
    * 
    * @param request - GetServiceLinkedRoleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1094,7 +1097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务关联角色状态
+   * Retrieves the status of a service-linked role.
    * 
    * @param request - GetServiceLinkedRoleStatusRequest
    * @returns GetServiceLinkedRoleStatusResponse
@@ -1105,7 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-获取有效抵扣实例
+   * Retrieves valid deductible instances for Security Center.
    * 
    * @param tmpReq - GetValidDeductInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1146,7 +1149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-获取有效抵扣实例
+   * Retrieves valid deductible instances for Security Center.
    * 
    * @param request - GetValidDeductInstancesRequest
    * @returns GetValidDeductInstancesResponse
@@ -1157,7 +1160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-初始化云安全中心模块规则
+   * Initializes module rules for Security Center.
    * 
    * @param tmpReq - InitSasModuleRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1206,7 +1209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-初始化云安全中心模块规则
+   * Initializes module rules for Security Center.
    * 
    * @param request - InitSasModuleRuleRequest
    * @returns InitSasModuleRuleResponse
@@ -1217,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全盘扫描结果
+   * Queries the results of a full disk scan.
    * 
    * @param request - ListVirusScanMachineEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1268,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全盘扫描结果
+   * Queries the results of a full disk scan.
    * 
    * @param request - ListVirusScanMachineEventRequest
    * @returns ListVirusScanMachineEventResponse
@@ -1279,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-开启试用套餐
+   * Starts a free trial of Security Center.
    * 
    * @param request - OpenTrialPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1314,7 +1317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-开启试用套餐
+   * Starts a free trial of Security Center.
    * 
    * @param request - OpenTrialPackageRequest
    * @returns OpenTrialPackageResponse
@@ -1325,7 +1328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号安全事件
+   * Queries account security events.
    * 
    * @param request - QueryAccountSafetyIncidentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1388,7 +1391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号安全事件
+   * Queries account security events.
    * 
    * @param request - QueryAccountSafetyIncidentRequest
    * @returns QueryAccountSafetyIncidentResponse
@@ -1399,7 +1402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云上安全指南的订阅状态
+   * Queries the subscription status of the cloud security guide.
    * 
    * @param request - QueryGuideSubStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1423,7 +1426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云上安全指南的订阅状态
+   * Queries the subscription status of the cloud security guide.
    * 
    * @param request - QueryGuideSubStatusRequest
    * @returns QueryGuideSubStatusResponse
@@ -1434,7 +1437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源管控事件
+   * Queries cloud resource control events.
    * 
    * @param tmpReq - QueryResourceControlEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1446,6 +1449,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.actionCodes)) {
       request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.businessCodes)) {
+      request.businessCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessCodes, "BusinessCodes", "json");
     }
 
     if (!$dara.isNull(tmpReq.caseCodesPrefix)) {
@@ -1499,6 +1506,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.businessCode)) {
       query["BusinessCode"] = request.businessCode;
+    }
+
+    if (!$dara.isNull(request.businessCodesShrink)) {
+      query["BusinessCodes"] = request.businessCodesShrink;
     }
 
     if (!$dara.isNull(request.caseCodesPrefixShrink)) {
@@ -1603,7 +1614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源管控事件
+   * Queries cloud resource control events.
    * 
    * @param request - QueryResourceControlEventsRequest
    * @returns QueryResourceControlEventsResponse
@@ -1614,7 +1625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全体检简报
+   * Queries the security check brief.
    * 
    * @param request - QuerySecurityCheckReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1638,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询安全体检简报
+   * Queries the security check brief.
    * 
    * @param request - QuerySecurityCheckReportRequest
    * @returns QuerySecurityCheckReportResponse
@@ -1649,7 +1660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启处置工具授权
+   * Enables disposal tool authorization.
    * 
    * @param request - StartDisposalToolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1680,7 +1691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启处置工具授权
+   * Enables disposal tool authorization.
    * 
    * @param request - StartDisposalToolServiceRequest
    * @returns StartDisposalToolServiceResponse
@@ -1691,7 +1702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启安全体检
+   * Enables security check.
    * 
    * @param request - StartSecurityCheckServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1715,7 +1726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启安全体检
+   * Enables security check.
    * 
    * @param request - StartSecurityCheckServiceRequest
    * @returns StartSecurityCheckServiceResponse
@@ -1726,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请解封
+   * Submits an unblocking request.
    * 
    * @param tmpReq - SubmitApplyRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1783,7 +1794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请解封
+   * Submits an unblocking request.
    * 
    * @param request - SubmitApplyRecordRequest
    * @returns SubmitApplyRecordResponse
@@ -1794,7 +1805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-更新后付费绑定关系
+   * Updates the pay-as-you-go binding relationship for Security Center.
    * 
    * @param tmpReq - UpdatePostPaidBindRelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1835,7 +1846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * sas-更新后付费绑定关系
+   * Updates the pay-as-you-go binding relationship for Security Center.
    * 
    * @param request - UpdatePostPaidBindRelRequest
    * @returns UpdatePostPaidBindRelResponse
@@ -1846,7 +1857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新体检结果
+   * Updates the health check result.
    * 
    * @param request - UpdateSecurityCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1870,7 +1881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新体检结果
+   * Updates the health check result.
    * 
    * @param request - UpdateSecurityCheckResultRequest
    * @returns UpdateSecurityCheckResultResponse

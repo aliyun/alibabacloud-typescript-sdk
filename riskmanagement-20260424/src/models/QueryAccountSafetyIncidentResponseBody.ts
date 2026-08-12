@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAccountSafetyIncidentResponseBodyDataListDateExtras extends $dara.Model {
   /**
+   * @remarks
+   * The time when the alert ended.
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   alertEndTime?: string;
   /**
+   * @remarks
+   * The time when the first alert was triggered.
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   alertStartTime?: string;
   /**
+   * @remarks
+   * The time of the latest detection.
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
@@ -45,77 +57,135 @@ export class QueryAccountSafetyIncidentResponseBodyDataListDateExtras extends $d
 
 export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * The control action name code.
+   * 
    * @example
    * success_service
    */
   actionCode?: string;
   /**
+   * @remarks
+   * The control action name.
+   * 
    * @example
-   * 处罚直接成功
+   * Penalty executed successfully.
    */
   actionName?: string;
   /**
+   * @remarks
+   * The time when the control action was removed.
+   * 
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   antiPunishTime?: string;
+  /**
+   * @remarks
+   * The control action time information.
+   */
   dateExtras?: QueryAccountSafetyIncidentResponseBodyDataListDateExtras;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 4ba4065e0b2206c05f86d5eaa00ae520
    */
   eventId?: string;
   /**
+   * @remarks
+   * The event impact.
+   * 
    * @example
    * ak leak.
    */
   eventImpact?: string;
   /**
+   * @remarks
+   * The control event name.
+   * 
    * @example
    * ak leak.
    */
   eventName?: string;
   /**
+   * @remarks
+   * The event reason.
+   * 
    * @example
    * ak leak.
    */
   eventReason?: string;
   /**
+   * @remarks
+   * The start time of the control action.
+   * 
+   * > Format: yyyy-MM-dd HH:mm:ss
+   * 
    * @example
    * 2026-03-16 15:15:00
    */
   punishTime?: string;
   /**
+   * @remarks
+   * The hardening suggestion.
+   * 
    * @example
    * suggestion
    */
   reinforcement?: string;
   /**
+   * @remarks
+   * The cloud resource ID.
+   * 
    * @example
    * i-2zeanc2b2vgfpbvp60cs
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The control object type.
+   * 
    * @example
    * customer
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * - **Executing**: In progress.
+   * - **Removed**: Removed.
+   * - **Alerting**: Alerting.
+   * - **Ended**: Ended.
+   * 
    * @example
    * Executing
    */
   status?: string;
   /**
+   * @remarks
+   * The handling suggestion.
+   * 
    * @example
    * suggestion
    */
   tip?: string;
   /**
+   * @remarks
+   * The help topic name.
+   * 
    * @example
    * help
    */
   userGuideName?: string;
   /**
+   * @remarks
+   * The help topic URL.
+   * 
    * @example
    * https://xxx.aliyun.com/
    */
@@ -176,16 +246,25 @@ export class QueryAccountSafetyIncidentResponseBodyDataList extends $dara.Model 
 
 export class QueryAccountSafetyIncidentResponseBodyDataPageInfo extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   current?: string;
   /**
+   * @remarks
+   * The number of assets displayed per page when you perform a paging query.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of events.
+   * 
    * @example
    * 20
    */
@@ -216,7 +295,15 @@ export class QueryAccountSafetyIncidentResponseBodyDataPageInfo extends $dara.Mo
 }
 
 export class QueryAccountSafetyIncidentResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The event data.
+   */
   list?: QueryAccountSafetyIncidentResponseBodyDataList[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pageInfo?: QueryAccountSafetyIncidentResponseBodyDataPageInfo;
   static names(): { [key: string]: string } {
     return {
@@ -249,22 +336,43 @@ export class QueryAccountSafetyIncidentResponseBodyData extends $dara.Model {
 
 export class QueryAccountSafetyIncidentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
+   * > 200: The request was successful. Other values (such as 500 or 400): An error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QueryAccountSafetyIncidentResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * successful‌
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FBDD713-00A5-5C98-B661-3FD31A349B6E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - **true**
+   * - **false**
+   * 
    * @example
    * true
    */

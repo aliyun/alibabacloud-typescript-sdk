@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePostPaidBindRelResponseBodyDataBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of servers that are successfully bound.
+   * 
    * @example
    * 1
    */
   bindCount?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 62A7DCE2-7D9C-511B-919E-0F46A9D19AE6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result code.
+   * 
    * @example
    * OK
    */
@@ -44,6 +53,10 @@ export class UpdatePostPaidBindRelResponseBodyDataBody extends $dara.Model {
 }
 
 export class UpdatePostPaidBindRelResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The message body.
+   */
   body?: UpdatePostPaidBindRelResponseBodyDataBody;
   static names(): { [key: string]: string } {
     return {
@@ -71,22 +84,38 @@ export class UpdatePostPaidBindRelResponseBodyData extends $dara.Model {
 
 export class UpdatePostPaidBindRelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the call fails. For more information, see error codes.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: UpdatePostPaidBindRelResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 6E20BFD0-AA91-594F-B5A7-32CED4777DA0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
+   * 
    * @example
    * true
    */

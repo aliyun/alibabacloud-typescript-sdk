@@ -4,11 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSecuritySuggestionListResponseBodyDataConfigRuleListComplianceObject extends $dara.Model {
   /**
+   * @remarks
+   * The compliance evaluation result of the rule. Valid values:
+   * - **COMPLIANT**: Compliant.
+   * - **NON_COMPLIANT**: Non-compliant.
+   * - **NOT_APPLICABLE**: Not applicable.
+   * - **INSUFFICIENT_DATA**: Insufficient data.
+   * 
    * @example
    * NON_COMPLIANT
    */
   complianceType?: string;
   /**
+   * @remarks
+   * The number of evaluations corresponding to the summary result of the rule evaluation.
+   * 
    * @example
    * 2
    */
@@ -38,11 +48,17 @@ export class GetSecuritySuggestionListResponseBodyDataConfigRuleListComplianceOb
 
 export class GetSecuritySuggestionListResponseBodyDataConfigRuleListCreateBy extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the compliance package to which the rule belongs.
+   * 
    * @example
    * cp-fdc8626622af00f9****
    */
   compliancePackId?: string;
   /**
+   * @remarks
+   * The compliance package name.
+   * 
    * @example
    * The name of the compliance package.
    */
@@ -72,11 +88,17 @@ export class GetSecuritySuggestionListResponseBodyDataConfigRuleListCreateBy ext
 
 export class GetSecuritySuggestionListResponseBodyDataConfigRuleListTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key of the rule.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value of the rule.
+   * 
    * @example
    * prod
    */
@@ -106,67 +128,129 @@ export class GetSecuritySuggestionListResponseBodyDataConfigRuleListTags extends
 
 export class GetSecuritySuggestionListResponseBodyDataConfigRuleList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the account to which the rule belongs.
+   * 
    * @example
    * 1625772519123804
    */
   accountId?: number;
   /**
+   * @remarks
+   * The remediation type. Only OOS (CloudOps Orchestration Service) is supported.
+   * 
    * @example
    * OOS
    */
   automationType?: string;
   /**
+   * @remarks
+   * The aggregated compliance result of the rule.
+   * 
    * @example
    * {count=1, complianceType=NON_COMPLIANT}
    */
   compliance?: string;
+  /**
+   * @remarks
+   * The aggregated compliance result of the rule.
+   */
   complianceObject?: GetSecuritySuggestionListResponseBodyDataConfigRuleListComplianceObject;
   /**
+   * @remarks
+   * The ARN of the rule.
+   * 
    * @example
    * acs:config::100931896542****:rule/cr-fdc8626622af00f9****
    */
   configRuleArn?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * cr-bqa2f25bc5ce00af6323
    */
   configRuleId?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * The name of the rule.
    */
   configRuleName?: string;
   /**
+   * @remarks
+   * The rule running status. Valid values:
+   * - **ACTIVE**: Active.
+   * - **DELETING**: Being deleted.
+   * - **EVALUATING**: Being evaluated.
+   * - **INACTIVE**: Inactive.
+   * 
    * @example
    * ACTIVE
    */
   configRuleState?: string;
+  /**
+   * @remarks
+   * The information about the rule creator.
+   */
   createBy?: GetSecuritySuggestionListResponseBodyDataConfigRuleListCreateBy;
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
    * The description of the rule.
    */
   description?: string;
   /**
+   * @remarks
+   * The resource type scope. Multiple resource types are separated by commas (,).
+   * 
    * @example
    * ACS::EIP::EipAddress
    */
   resourceTypesScope?: string;
   /**
+   * @remarks
+   * The risk level of the rule. Valid values:
+   * 
+   * - **1**: High risk.
+   * - **2**: Medium risk.
+   * - **3**: Low risk.
+   * 
    * @example
    * 1
    */
   riskLevel?: number;
   /**
+   * @remarks
+   * The rule identifier.
+   * 
+   * - If the rule uses a managed rule, this parameter is the managed rule name.
+   * 
+   * - If the rule uses a custom function, this parameter is the function ARN.
+   * 
    * @example
    * eip-bandwidth-limit
    */
   sourceIdentifier?: string;
   /**
+   * @remarks
+   * The owner of the rule source. Valid values:
+   * - **CUSTOM_FC**: Custom rule.
+   * - **ALIYUN**: Rule template.
+   * 
    * @example
    * ALIYUN
    */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The tags of the rule.
+   */
   tags?: GetSecuritySuggestionListResponseBodyDataConfigRuleListTags[];
   static names(): { [key: string]: string } {
     return {
@@ -227,18 +311,31 @@ export class GetSecuritySuggestionListResponseBodyDataConfigRuleList extends $da
 }
 
 export class GetSecuritySuggestionListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of rules.
+   */
   configRuleList?: GetSecuritySuggestionListResponseBodyDataConfigRuleList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of rules.
+   * 
    * @example
    * 51
    */
@@ -275,22 +372,44 @@ export class GetSecuritySuggestionListResponseBodyData extends $dara.Model {
 
 export class GetSecuritySuggestionListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
+   * - **200**: Success.
+   * - **Other (400, 500)**: Failure.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: GetSecuritySuggestionListResponseBodyData;
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 855FCC89-0B13-5FC0-AAD2-120878081C1C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * - **true**: The call was successful.         
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

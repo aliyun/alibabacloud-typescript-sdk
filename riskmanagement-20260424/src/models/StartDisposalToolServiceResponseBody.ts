@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartDisposalToolServiceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The message information.
+   * 
    * @example
    * successful‌
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1E0869D6-A5A0-52A6-A924-14070806976C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * - **true**: The call was successful.                               
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

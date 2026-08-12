@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceLinkedRoleShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the Smart Access Gateway instance.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request.
+   */
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {
     return {

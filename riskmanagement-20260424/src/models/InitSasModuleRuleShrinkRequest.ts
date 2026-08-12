@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitSasModuleRuleShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable automatic binding. Valid values:
+   * 
+   * - **0**: Disabled.
+   * - **1**: Enabled.
+   * 
    * @example
    * 0
    */
   autoBind?: number;
+  /**
+   * @remarks
+   * The list of instances.
+   */
   instancesShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to use the trial version.
+   * 
    * @example
    * false
    */
   isTrial?: boolean;
   /**
+   * @remarks
+   * The region ID of the access control instance.
+   * 
    * @example
    * cn-guangzhou
    */

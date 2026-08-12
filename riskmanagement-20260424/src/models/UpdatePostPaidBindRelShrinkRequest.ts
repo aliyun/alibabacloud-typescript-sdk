@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePostPaidBindRelShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-huhehaote
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The Security Center SDK request parameters.
+   */
   sdkRequestShrink?: string;
   static names(): { [key: string]: string } {
     return {
