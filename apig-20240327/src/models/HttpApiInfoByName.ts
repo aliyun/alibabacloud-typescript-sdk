@@ -5,9 +5,6 @@ import { HttpApiApiInfo } from "./HttpApiApiInfo";
 
 export class HttpApiInfoByName extends $dara.Model {
   /**
-   * @remarks
-   * 网关Id
-   * 
    * @example
    * gw-xx
    */

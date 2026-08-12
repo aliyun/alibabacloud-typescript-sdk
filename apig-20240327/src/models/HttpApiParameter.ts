@@ -16,7 +16,7 @@ export class HttpApiParameter extends $dara.Model {
    * The parameter description.
    * 
    * @example
-   * 用户ID
+   * The example description.
    */
   description?: string;
   /**

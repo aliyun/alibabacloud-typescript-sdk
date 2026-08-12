@@ -10,7 +10,7 @@ export class EnvironmentInfo extends $dara.Model {
    * The environment alias.
    * 
    * @example
-   * 测试环境
+   * test-env
    */
   alias?: string;
   /**
@@ -34,7 +34,7 @@ export class EnvironmentInfo extends $dara.Model {
    * The environment descriptiont.
    * 
    * @example
-   * 这是xxx的xx项目测试环境
+   * This is a test environment.
    */
   description?: string;
   /**

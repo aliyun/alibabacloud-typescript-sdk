@@ -213,7 +213,7 @@ export class HttpApiDeployConfigServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The observability-based routing configuration.
+   * The observability metric routing configuration.
    * 
    * **if can be null:**
    * true
@@ -373,7 +373,7 @@ export class HttpApiDeployConfigSubDomains extends $dara.Model {
 export class HttpApiDeployConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto-deploy is enabled.
+   * Specifies whether to automatically deploy.
    * 
    * @example
    * true
@@ -381,7 +381,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   autoDeploy?: boolean;
   /**
    * @remarks
-   * The publishing scenario.
+   * The deployment scenario.
    * 
    * @example
    * SingleService
@@ -399,17 +399,25 @@ export class HttpApiDeployConfig extends $dara.Model {
   customDomainIds?: string[];
   /**
    * @remarks
-   * The list of custom domain name information.
+   * The list of custom domain name details.
    */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
   /**
    * @remarks
-   * The list of environment domain name IDs. If this parameter is not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
+   * Specifies whether to enable gateway system models. This parameter takes effect only when the deployment scenario is AiAutoRouter. Default value: false. If enabled, built-in Qwen candidates from the platform are merged with the user\\"s own candidates.
+   * 
+   * @example
+   * true
+   */
+  enableSystemModels?: boolean;
+  /**
+   * @remarks
+   * The list of environment domain name IDs. If not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
    */
   envDomainIds?: string[];
   /**
    * @remarks
-   * The list of environment domain name information.
+   * The list of environment domain name details.
    */
   envDomainInfos?: HttpApiDeployConfigEnvDomainInfos[];
   /**
@@ -472,7 +480,7 @@ export class HttpApiDeployConfig extends $dara.Model {
   serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
   /**
    * @remarks
-   * The list of subdomain information.
+   * The subdomain content list.
    */
   subDomains?: HttpApiDeployConfigSubDomains[];
   static names(): { [key: string]: string } {
@@ -482,6 +490,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       builtinRouteNames: 'builtinRouteNames',
       customDomainIds: 'customDomainIds',
       customDomainInfos: 'customDomainInfos',
+      enableSystemModels: 'enableSystemModels',
       envDomainIds: 'envDomainIds',
       envDomainInfos: 'envDomainInfos',
       environmentId: 'environmentId',
@@ -503,6 +512,7 @@ export class HttpApiDeployConfig extends $dara.Model {
       builtinRouteNames: { 'type': 'array', 'itemType': 'string' },
       customDomainIds: { 'type': 'array', 'itemType': 'string' },
       customDomainInfos: { 'type': 'array', 'itemType': HttpApiDeployConfigCustomDomainInfos },
+      enableSystemModels: 'boolean',
       envDomainIds: { 'type': 'array', 'itemType': 'string' },
       envDomainInfos: { 'type': 'array', 'itemType': HttpApiDeployConfigEnvDomainInfos },
       environmentId: 'string',

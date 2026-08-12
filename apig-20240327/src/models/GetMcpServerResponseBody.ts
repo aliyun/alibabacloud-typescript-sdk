@@ -325,7 +325,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when type is AssemblyMCP.
+   * The list of assembled sources. This parameter is required when type is AssemblyMCP.
    */
   assembledSources?: GetMcpServerResponseBodyDataAssembledSources[];
   /**
@@ -360,7 +360,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试专用MCP Server
+   * Test MCP Server
    */
   description?: string;
   /**
@@ -415,7 +415,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * The HTTP-to-MCP configuration.
    * 
    * @example
-   * MCP Server配置 base64
+   * MCP Server configuration base64
    */
   mcpServerConfig?: string;
   /**

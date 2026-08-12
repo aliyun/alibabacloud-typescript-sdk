@@ -8,7 +8,7 @@ export class PolicyClassInfo extends $dara.Model {
    * The template alias.
    * 
    * @example
-   * 并发控制
+   * Rate Limit
    */
   alias?: string;
   /**
@@ -45,7 +45,7 @@ export class PolicyClassInfo extends $dara.Model {
    * The template description.
    * 
    * @example
-   * 通过控制并发线程数以保证系统的稳定性。适用于应用内部或下游依赖出现不稳定的场景，例如慢SQL、下游应用响应时间变长等。
+   * Limits the number of requests per unit of time
    */
   description?: string;
   /**

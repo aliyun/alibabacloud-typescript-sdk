@@ -3823,7 +3823,7 @@ export default class Client extends OpenApi {
    * Retrieves an MCP server.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3851,7 +3851,7 @@ export default class Client extends OpenApi {
    * Retrieves an MCP server.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * @returns GetMcpServerResponse
    */
   async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
@@ -4247,7 +4247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -4332,7 +4332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -5256,7 +5256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API operations.
+   * Retrieves the list of API operations.
    * 
    * @param request - ListHttpApiOperationsRequest
    * @param headers - map
@@ -5337,7 +5337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API operations.
+   * Retrieves the list of API operations.
    * 
    * @param request - ListHttpApiOperationsRequest
    * @returns ListHttpApiOperationsResponse
@@ -5634,7 +5634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plug-in mounts.
+   * Retrieves the list of plugin mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -5699,7 +5699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plug-in mounts.
+   * Retrieves the list of plugin mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -7815,7 +7815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HttpApi.
+   * Updates the route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -7872,7 +7872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HttpApi.
+   * Updates the route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse

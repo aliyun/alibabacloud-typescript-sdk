@@ -13,7 +13,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   backendServiceName?: string;
   /**
    * @remarks
-   * Filters the API list by a specific consumer authorization rule ID. The response only includes authorized APIs.
+   * Filters the API list by a specific consumer authorization rule ID. The response includes only authorized APIs.
    * 
    * @example
    * cas-xxx
@@ -29,7 +29,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * Filters route information by domain name ID.
+   * The domain name ID used to filter route information.
    * 
    * @example
    * d-xxx
@@ -45,7 +45,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Specifies whether the request is for a deployment scenario.
+   * Specifies whether this is a deployment scenario.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * Includes consumer authorization information in the response.
+   * Specifies whether to include consumer authorization information in the response.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withAuthPolicyInfo?: boolean;
   /**
    * @remarks
-   * Includes the authorization rule list of the specified consumer ID for each route in the response.
+   * Specifies a consumer ID so that the response includes the authorization rule list for the specified consumer in each route.
    * 
    * @example
    * cs-xxx
@@ -117,7 +117,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * Includes the mount information of the specified plug-in ID for each route in the response.
+   * Specifies a plug-in ID so that the response includes the mount information of the specified plug-in in each route.
    * 
    * @example
    * pl-xxx

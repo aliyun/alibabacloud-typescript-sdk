@@ -7,6 +7,14 @@ import { HttpApiPolicyConfigs } from "./HttpApiPolicyConfigs";
 export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured in the AiAutoRouter scenario, the default model of the AI service is used.
+   * 
+   * @example
+   * qwen-plus
+   */
+  modelName?: string;
+  /**
+   * @remarks
    * The service port. Do not specify this parameter for dynamic ports.
    * 
    * @example
@@ -49,6 +57,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      modelName: 'modelName',
       port: 'port',
       protocol: 'protocol',
       serviceId: 'serviceId',
@@ -59,6 +68,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      modelName: 'string',
       port: 'number',
       protocol: 'string',
       serviceId: 'string',
@@ -177,7 +187,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
    * The route description.
    * 
    * @example
-   * 商品中心服务路由
+   * Product center service route
    */
   description?: string;
   /**

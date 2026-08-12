@@ -529,7 +529,7 @@ export class HttpApiApiInfo extends $dara.Model {
    * The API description.
    * 
    * @example
-   * 测试专用API
+   * for test only
    */
   description?: string;
   enableAuth?: boolean;

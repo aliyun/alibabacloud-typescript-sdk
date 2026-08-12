@@ -6,7 +6,7 @@ import { HttpApiOperationInfo } from "./HttpApiOperationInfo";
 export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of API operations.
+   * The list of operations.
    */
   items?: HttpApiOperationInfo[];
   /**
@@ -74,7 +74,7 @@ export class ListHttpApiOperationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of API operations.
+   * The list of operations.
    */
   data?: ListHttpApiOperationsResponseBodyData;
   /**

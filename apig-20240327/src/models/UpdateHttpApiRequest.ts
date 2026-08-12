@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress class to listen on.
+   * The Ingress Class to listen on.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress status.
+   * Specifies whether to update the address in the Ingress Status.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The base path of the API. The value must start with a forward slash (/).
+   * The API base path, which must start with /.
    * 
    * This parameter is required.
    * 
@@ -108,10 +108,10 @@ export class UpdateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The description of the API.
+   * The API description.
    * 
    * @example
-   * 更新API描述
+   * Updated API description
    */
   description?: string;
   /**
@@ -137,7 +137,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only update the configuration without triggering a redeployment. Set this parameter to true to update the configuration only.
+   * Specifies whether to only modify the configuration without triggering redeployment. A value of true indicates that only the configuration is modified.
    * 
    * @example
    * true

@@ -9,7 +9,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
+   * The plugin mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
    * 
    * @example
    * GatewayRoute
@@ -17,7 +17,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Indicates whether the plug-in mount is enabled.
+   * Indicates whether the plugin mount is enabled.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The plug-in mount ID.
+   * The plugin mount ID.
    * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
@@ -43,12 +43,12 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plug-in type information.
+   * The plugin type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
    * @remarks
-   * The Base64-encoded content of the original plug-in configuration.
+   * The Base64-encoded content of the original plugin configuration.
    * 
    * @example
    * bGltaXRfYnlfaGVhZGVyOiB4LWFwaS1rZXkKbGltaXRfa2V5czoKLSBrZXk6IGV4YW1wbGUta2V5LWEKICBxdWVyeV9wZXJfc2Vjb25kOiAxMAotIGtleTogZXhhbXBsZS1rZXktYgogIHF1ZXJ5X3Blcl9zZWNvbmQ6IDEK
@@ -56,7 +56,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-cvu6r4um1hko3b3ti0a0
@@ -132,7 +132,7 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -140,7 +140,7 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 10

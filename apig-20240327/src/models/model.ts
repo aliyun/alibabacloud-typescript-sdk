@@ -293,6 +293,7 @@ export { ListEnvironmentsResponseBodyData } from './ListEnvironmentsResponseBody
 export { ListExternalServicesResponseBodyDataItemsServices } from './ListExternalServicesResponseBody';
 export { ListExternalServicesResponseBodyDataItems } from './ListExternalServicesResponseBody';
 export { ListExternalServicesResponseBodyData } from './ListExternalServicesResponseBody';
+export { ListGatewayFeaturesResponseBodyDataItemsConstraints } from './ListGatewayFeaturesResponseBody';
 export { ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions } from './ListGatewayFeaturesResponseBody';
 export { ListGatewayFeaturesResponseBodyDataItemsDefinition } from './ListGatewayFeaturesResponseBody';
 export { ListGatewayFeaturesResponseBodyDataItems } from './ListGatewayFeaturesResponseBody';

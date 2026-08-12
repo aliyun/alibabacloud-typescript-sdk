@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListGatewayFeaturesResponseBodyDataItemsConstraints extends $dara.Model {
+  bodyMaxSizeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bodyMaxSizeLimit: 'bodyMaxSizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bodyMaxSizeLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions extends $dara.Model {
   /**
    * @remarks
@@ -226,6 +249,7 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
 }
 
 export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
+  constraints?: ListGatewayFeaturesResponseBodyDataItemsConstraints;
   /**
    * @remarks
    * The parameter definition.
@@ -241,6 +265,7 @@ export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      constraints: 'constraints',
       definition: 'definition',
       value: 'value',
     };
@@ -248,12 +273,16 @@ export class ListGatewayFeaturesResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      constraints: ListGatewayFeaturesResponseBodyDataItemsConstraints,
       definition: ListGatewayFeaturesResponseBodyDataItemsDefinition,
       value: 'string',
     };
   }
 
   validate() {
+    if(this.constraints && typeof (this.constraints as any).validate === 'function') {
+      (this.constraints as any).validate();
+    }
     if(this.definition && typeof (this.definition as any).validate === 'function') {
       (this.definition as any).validate();
     }

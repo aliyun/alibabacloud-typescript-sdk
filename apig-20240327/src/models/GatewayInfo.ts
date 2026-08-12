@@ -8,7 +8,7 @@ export class GatewayInfoVpcInfo extends $dara.Model {
    * The VPC name.
    * 
    * @example
-   * 商品中心预发环境专有网络
+   * test-vpc
    */
   name?: string;
   /**
