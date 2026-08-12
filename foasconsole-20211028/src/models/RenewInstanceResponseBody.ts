@@ -12,11 +12,17 @@ export class RenewInstanceResponseBody extends $dara.Model {
    */
   orderId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

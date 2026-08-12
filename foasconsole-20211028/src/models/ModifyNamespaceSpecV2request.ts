@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNamespaceSpecV2RequestElasticResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class ModifyNamespaceSpecV2RequestElasticResourceSpec extends $dara.Model
   cpu?: number;
   /**
    * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +51,8 @@ export class ModifyNamespaceSpecV2RequestElasticResourceSpec extends $dara.Model
 export class ModifyNamespaceSpecV2RequestGuaranteedResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +61,10 @@ export class ModifyNamespaceSpecV2RequestGuaranteedResourceSpec extends $dara.Mo
   cpu?: number;
   /**
    * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,10 +95,20 @@ export class ModifyNamespaceSpecV2RequestGuaranteedResourceSpec extends $dara.Mo
 }
 
 export class ModifyNamespaceSpecV2Request extends $dara.Model {
+  /**
+   * @remarks
+   * The upper limit of pay-as-you-go resources allocated to the project namespace.
+   */
   elasticResourceSpec?: ModifyNamespaceSpecV2RequestElasticResourceSpec;
+  /**
+   * @remarks
+   * The size of subscription resources allocated to the project namespace.
+   */
   guaranteedResourceSpec?: ModifyNamespaceSpecV2RequestGuaranteedResourceSpec;
   /**
    * @remarks
+   * Specifies whether the project namespace uses zone-disaster recovery.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,22 +117,28 @@ export class ModifyNamespaceSpecV2Request extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * f-cn-wwo36qj4g06
+   * f-cn-wwo36qj****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The project namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * di-593439443804417
+   * di-5934394438****
    */
   namespace?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

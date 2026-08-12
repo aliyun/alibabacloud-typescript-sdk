@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of subscription periods.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RenewInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RenewInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The subscription period.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +36,8 @@ export class RenewInstanceRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

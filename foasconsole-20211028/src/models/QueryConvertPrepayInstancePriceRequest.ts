@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConvertPrepayInstancePriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * f-cn-wwo36qj4g06
+   * f-cn-wwo36qj4****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

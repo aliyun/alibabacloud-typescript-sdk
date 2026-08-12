@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNamespaceRequestResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 30
    */
   cpu?: number;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * @example
    * 120
    */
@@ -44,6 +52,8 @@ export class CreateNamespaceRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +62,8 @@ export class CreateNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,12 +72,18 @@ export class CreateNamespaceRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-shenzhen
    */
   region?: string;
+  /**
+   * @remarks
+   * The resource specifications.
+   */
   resourceSpec?: CreateNamespaceRequestResourceSpec;
   static names(): { [key: string]: string } {
     return {

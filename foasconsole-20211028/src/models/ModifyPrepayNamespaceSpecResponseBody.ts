@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyPrepayNamespaceSpecResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */

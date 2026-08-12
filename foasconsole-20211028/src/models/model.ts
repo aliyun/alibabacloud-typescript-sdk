@@ -79,6 +79,7 @@ export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { ClusterStage } from './ClusterStage';
 export { ClusterState } from './ClusterState';
 export { FlussInstance } from './FlussInstance';
+export { FlussResourceSpec } from './FlussResourceSpec';
 export { FlussVswitch } from './FlussVswitch';
 export { StageWithWeight } from './StageWithWeight';
 export { ConvertHybridInstanceRequest } from './ConvertHybridInstanceRequest';

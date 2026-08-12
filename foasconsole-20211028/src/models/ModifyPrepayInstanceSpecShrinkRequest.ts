@@ -25,6 +25,8 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   haZoneId?: string;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +35,8 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +45,8 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specification information.
+   * 
    * This parameter is required.
    */
   resourceSpecShrink?: string;

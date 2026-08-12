@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceVswitchResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result information.
+   * 
    * @example
    * F2C5B6A8-DD04-51F5-AAD5-BA2FE6FD****
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */

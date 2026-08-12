@@ -7,6 +7,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertHybridInstanceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +17,10 @@ export class ConvertHybridInstanceRequestResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,14 +53,18 @@ export class ConvertHybridInstanceRequestResourceSpec extends $dara.Model {
 export class ConvertHybridInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * sc_flinkserverless_public_cn-7e22ae5sess
+   * sc_flinkserverless_public_cn-7e22*****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +73,8 @@ export class ConvertHybridInstanceRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The maximum resource specifications available for the pay-as-you-go portion of hybrid billing.
+   * 
    * This parameter is required.
    */
   resourceSpec?: ConvertHybridInstanceRequestResourceSpec;

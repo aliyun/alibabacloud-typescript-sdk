@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs for zone-disaster recovery.
+   * 
+   * @example
+   * 20
+   * 
    * **if can be null:**
    * false
    */
   cpu?: number;
   /**
+   * @remarks
+   * The active memory size for zone-disaster recovery.
+   * 
+   * @example
+   * 80
+   * 
    * **if can be null:**
    * false
    */
@@ -38,11 +50,17 @@ export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
 
 export class QueryCreateInstancePriceRequestResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 4
    */
   cpu?: number;
   /**
+   * @remarks
+   * The memory size.
+   * 
    * @example
    * 16
    */
@@ -72,6 +90,9 @@ export class QueryCreateInstancePriceRequestResourceSpec extends $dara.Model {
 
 export class QueryCreateInstancePriceRequestStorageOss extends $dara.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * quicktracing
    */
@@ -98,6 +119,10 @@ export class QueryCreateInstancePriceRequestStorageOss extends $dara.Model {
 }
 
 export class QueryCreateInstancePriceRequestStorage extends $dara.Model {
+  /**
+   * @remarks
+   * The OSS storage information.
+   */
   oss?: QueryCreateInstancePriceRequestStorageOss;
   static names(): { [key: string]: string } {
     return {
@@ -124,14 +149,31 @@ export class QueryCreateInstancePriceRequestStorage extends $dara.Model {
 }
 
 export class QueryCreateInstancePriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The processor architecture.
+   * 
+   * @example
+   * X86
+   */
   architectureType?: string;
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * - **true**: enables auto-renewal.
+   * - **false**: does not enable auto-renewal. (Default)
+   * 
+   * >This parameter is invalid for pay-as-you-go instances.
+   * 
    * @example
    * true
    */
   autoRenew?: boolean;
   /**
    * @remarks
+   * The billing type. Valid values:
+   * 
    * This parameter is required.
    * 
    * @example
@@ -139,45 +181,98 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The number of billing cycles.
+   * 
    * @example
    * 1
    */
   duration?: number;
+  /**
+   * @remarks
+   * The extended reserved field.
+   * 
+   * @example
+   * “”
+   */
   extra?: string;
+  /**
+   * @remarks
+   * Specifies whether to select zone-disaster recovery resources.
+   * 
+   * @example
+   * true
+   */
   ha?: boolean;
   /**
+   * @remarks
+   * The zone-disaster recovery resource specifications.
+   * 
    * **if can be null:**
    * true
    */
   haResourceSpec?: QueryCreateInstancePriceRequestHaResourceSpec;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * rtc-e2e-test-post
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The billing cycle. Subscription instances support only Year and Month. Pay-as-you-go instances support Hour.
+   * 
    * @example
    * Month
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 500041860100636
    */
   promotionCode?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The resource specifications.
+   */
   resourceSpec?: QueryCreateInstancePriceRequestResourceSpec;
+  /**
+   * @remarks
+   * The storage information.
+   */
   storage?: QueryCreateInstancePriceRequestStorage;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * @example
+   * true
+   */
   usePromotionCode?: boolean;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The VPC ID of the user.
+   * 
    * @example
    * vpc-2ze9xoh8qyt1rnxfmfcdi
    */

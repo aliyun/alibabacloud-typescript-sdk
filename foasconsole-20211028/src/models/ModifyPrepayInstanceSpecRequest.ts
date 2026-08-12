@@ -31,6 +31,8 @@ export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $dara.Model {
 export class ModifyPrepayInstanceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +41,9 @@ export class ModifyPrepayInstanceSpecRequestResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size.
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -91,6 +96,8 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   haZoneId?: string;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -99,6 +106,8 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -107,6 +116,8 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specification information.
+   * 
    * This parameter is required.
    */
   resourceSpec?: ModifyPrepayInstanceSpecRequestResourceSpec;

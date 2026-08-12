@@ -56,11 +56,17 @@ export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec exte
 
 export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 10
    */
   cpu?: number;
   /**
+   * @remarks
+   * The memory size.
+   * 
    * @example
    * 40
    */
@@ -90,12 +96,18 @@ export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $dara.
 
 export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.Model {
   /**
+   * @remarks
+   * The number of used CPUs.
+   * 
    * @example
    * 2
    */
   cpu?: number;
   cu?: number;
   /**
+   * @remarks
+   * The amount of used memory.
+   * 
    * @example
    * 4
    */
@@ -127,11 +139,17 @@ export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.
 
 export class DescribeNamespacesResponseBodyNamespacesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * flink
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -162,11 +180,17 @@ export class DescribeNamespacesResponseBodyNamespacesTags extends $dara.Model {
 export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   elasticResourceSpec?: DescribeNamespacesResponseBodyNamespacesElasticResourceSpec;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1629879567394
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1629879567394
    */
@@ -174,17 +198,40 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   guaranteedResourceSpec?: DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec;
   ha?: boolean;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * ns-1
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The resource specification information.
+   */
   resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
+  /**
+   * @remarks
+   * The used resources.
+   */
   resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
   /**
+   * @remarks
+   * The status of the namespace. Valid values:
+   * - CREATING: Being created.
+   * - DELETING: Being deleted.
+   * - MODIFYING: Resource specifications are being modified.
+   * - SUCCESS: The last operation was successful.
+   * - FAILED: The last operation failed.
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeNamespacesResponseBodyNamespacesTags[];
   static names(): { [key: string]: string } {
     return {
@@ -241,33 +288,58 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
 }
 
 export class DescribeNamespacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of namespaces.
+   */
   namespaces?: DescribeNamespacesResponseBodyNamespaces[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */

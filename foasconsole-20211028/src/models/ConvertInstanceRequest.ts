@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $d
   cpu?: number;
   /**
    * @remarks
+   * The memory size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $d
 export class ConvertInstanceRequestNamespaceResourceSpecs extends $dara.Model {
   /**
    * @remarks
+   * The namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class ConvertInstanceRequestNamespaceResourceSpecs extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * The resource specifications.
+   * 
    * This parameter is required.
    */
   resourceSpec?: ConvertInstanceRequestNamespaceResourceSpecsResourceSpec;
@@ -85,6 +93,8 @@ export class ConvertInstanceRequestNamespaceResourceSpecs extends $dara.Model {
 export class ConvertInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of subscription cycles.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +103,8 @@ export class ConvertInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -101,6 +113,8 @@ export class ConvertInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Specifies whether to enable auto-renewal.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,11 +123,15 @@ export class ConvertInstanceRequest extends $dara.Model {
   isAutoRenew?: boolean;
   /**
    * @remarks
+   * The resource specifications of the namespace.
+   * 
    * This parameter is required.
    */
   namespaceResourceSpecs?: ConvertInstanceRequestNamespaceResourceSpecs[];
   /**
    * @remarks
+   * The subscription cycle.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -123,6 +141,8 @@ export class ConvertInstanceRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

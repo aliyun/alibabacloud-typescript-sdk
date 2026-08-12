@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +51,8 @@ export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $dara.Model {
 export class ModifyPrepayNamespaceSpecRequest extends $dara.Model {
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +61,8 @@ export class ModifyPrepayNamespaceSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +71,8 @@ export class ModifyPrepayNamespaceSpecRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +81,8 @@ export class ModifyPrepayNamespaceSpecRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The namespace resource details.
+   * 
    * This parameter is required.
    */
   resourceSpec?: ModifyPrepayNamespaceSpecRequestResourceSpec;

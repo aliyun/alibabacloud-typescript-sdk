@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to delete all resource tags. This parameter is valid only when TagKey is empty. Default value: false.
+   * 
    * @example
    * false
    */
   all?: boolean;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,17 +23,25 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The list of order instance IDs.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Set this parameter to vvpinstance.
+   * 
    * This parameter is required.
    * 
    * @example
    * vvpinstance
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of tag keys. Maximum: 20 subkeys.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {

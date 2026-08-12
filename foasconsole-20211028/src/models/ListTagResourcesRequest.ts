@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * test
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * tag
    */
@@ -38,27 +44,42 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 
 export class ListTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The token for the next query.
+   * 
    * @example
    * 27AE00
    */
   nextToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The order instance IDs.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type. Set the value to vvpinstance.
+   * 
    * This parameter is required.
    * 
    * @example
    * vvpinstance
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag list. A maximum of 20 items are supported.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

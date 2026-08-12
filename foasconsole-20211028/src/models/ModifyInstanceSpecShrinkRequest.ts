@@ -4,14 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceSpecShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the workspace has zone-disaster recovery resources.
+   * 
    * @example
    * true
    */
   ha?: boolean;
+  /**
+   * @remarks
+   * The zone-disaster recovery resource specifications.
+   */
   haResourceSpecShrink?: string;
+  /**
+   * @remarks
+   * The vSwitch group in the secondary zone for zone-disaster recovery.
+   */
   haVSwitchIdsShrink?: string;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +34,8 @@ export class ModifyInstanceSpecShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +44,8 @@ export class ModifyInstanceSpecShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specifications.
+   * 
    * This parameter is required.
    */
   resourceSpecShrink?: string;

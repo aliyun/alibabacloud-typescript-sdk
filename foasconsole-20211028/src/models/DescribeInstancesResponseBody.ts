@@ -441,11 +441,17 @@ export class DescribeInstancesResponseBodyInstancesOssInfo extends $dara.Model {
 
 export class DescribeInstancesResponseBodyInstancesResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 10
    */
   cpu?: number;
   /**
+   * @remarks
+   * The configured memory size.
+   * 
    * @example
    * 40
    */
@@ -475,6 +481,9 @@ export class DescribeInstancesResponseBodyInstancesResourceSpec extends $dara.Mo
 
 export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
    * @example
    * oss_flink
    */
@@ -503,6 +512,10 @@ export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Mode
 export class DescribeInstancesResponseBodyInstancesStorage extends $dara.Model {
   fullyManaged?: boolean;
   orderState?: string;
+  /**
+   * @remarks
+   * The OSS storage information.
+   */
   oss?: DescribeInstancesResponseBodyInstancesStorageOss;
   supportCreateFullyManagedStorage?: boolean;
   supportMigrationProgressDetection?: boolean;
@@ -540,11 +553,17 @@ export class DescribeInstancesResponseBodyInstancesStorage extends $dara.Model {
 
 export class DescribeInstancesResponseBodyInstancesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * flink
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -659,12 +678,25 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   architectureType?: string;
   askClusterId?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * - POST: pay-as-you-go.
+   * - PRE: subscription.
+   * 
    * @example
    * PRE
    */
   chargeType?: string;
   clusterState?: DescribeInstancesResponseBodyInstancesClusterState;
   /**
+   * @remarks
+   * The cluster status. Valid values:
+   * - CREATING: Being created.
+   * - RUNNING: Running.
+   * - DISABLE: Invalid.
+   * - DELETING: Being deleted.
+   * - DELETED: Deleted.
+   * 
    * @example
    * RUNNING
    */
@@ -673,6 +705,9 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   clusterUsedStorage?: DescribeInstancesResponseBodyInstancesClusterUsedStorage;
   elastic?: boolean;
   /**
+   * @remarks
+   * The elastic order ID.
+   * 
    * @example
    * f-cn-e3afbd321
    */
@@ -690,60 +725,111 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
    */
   hostAliases?: DescribeInstancesResponseBodyInstancesHostAliases[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
-   * f-cn-zvp2q0zik06
+   * f-cn-zvp2q0z****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * vvp1
    */
   instanceName?: string;
   monitorType?: string;
   /**
+   * @remarks
+   * The order status. Valid values:
+   * - NOT_INIT: The order is placed but components are not deployed.
+   * - NORMAL: Normal.
+   * - CEASE: Expired.
+   * - RELEASE: Overdue.
+   * 
    * @example
    * NORMAL
    */
   orderState?: string;
   ossInfo?: DescribeInstancesResponseBodyInstancesOssInfo;
   /**
+   * @remarks
+   * The region of the instance.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 1629879567394
    */
   resourceCreateTime?: number;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1637337600000
    */
   resourceExpiredTime?: number;
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
-   * b3690a1655da47
+   * b3690a1655****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource specification information.
+   */
   resourceSpec?: DescribeInstancesResponseBodyInstancesResourceSpec;
+  /**
+   * @remarks
+   * The storage information.
+   */
   storage?: DescribeInstancesResponseBodyInstancesStorage;
+  supportDisasterRecoveryDrill?: boolean;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: DescribeInstancesResponseBodyInstancesTags[];
   /**
+   * @remarks
+   * The ID of the user to whom the instance belongs.
+   * 
    * @example
-   * 1838996687368452
+   * 183899668736****
    */
   uid?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
   vSwitchInfo?: DescribeInstancesResponseBodyInstancesVSwitchInfo[];
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-2ze9*******nxfmfcdi
    */
   vpcId?: string;
   vpcInfo?: DescribeInstancesResponseBodyInstancesVpcInfo;
   /**
+   * @remarks
+   * The zone ID of the instance.
+   * 
    * @example
    * cn-beijing-g
    */
@@ -780,6 +866,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       resourceId: 'ResourceId',
       resourceSpec: 'ResourceSpec',
       storage: 'Storage',
+      supportDisasterRecoveryDrill: 'SupportDisasterRecoveryDrill',
       tags: 'Tags',
       uid: 'Uid',
       vSwitchIds: 'VSwitchIds',
@@ -822,6 +909,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
       resourceId: 'string',
       resourceSpec: DescribeInstancesResponseBodyInstancesResourceSpec,
       storage: DescribeInstancesResponseBodyInstancesStorage,
+      supportDisasterRecoveryDrill: 'boolean',
       tags: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesTags },
       uid: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -887,33 +975,57 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 }
 
 export class DescribeInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the instance group.
+   */
   instances?: DescribeInstancesResponseBodyInstances[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of instances per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * C8DF2A5B-6FBA-5651-A3D4-960F36640E6B
+   * C8DF2A5B-6FBA-5651-A3D4-960F3664****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - true: The request was successful.
+   * - false: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 15
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteNamespaceRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of pricing cycles.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Specifies whether to enable auto-renewal.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,11 +35,15 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   isAutoRenew?: boolean;
   /**
    * @remarks
+   * The resource specifications of the namespace.
+   * 
    * This parameter is required.
    */
   namespaceResourceSpecsShrink?: string;
   /**
    * @remarks
+   * The pricing cycle. Only Year and Month are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +53,8 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs for zone-disaster recovery.
+   * 
+   * @example
+   * 20
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The memory size for zone-disaster recovery.
+   * 
+   * @example
+   * 80
+   */
   memoryGB?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +45,8 @@ export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
 export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs after the specification change.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +55,10 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size after the specification change.
+   * 
+   * >The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,19 +89,34 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
 }
 
 export class QueryModifyInstancePriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to select zone-disaster recovery resources.
+   * 
+   * @example
+   * true
+   */
   ha?: boolean;
   /**
+   * @remarks
+   * The zone-disaster recovery resource description.
+   * 
    * **if can be null:**
    * true
    */
   haResourceSpec?: QueryModifyInstancePriceRequestHaResourceSpec;
   /**
+   * @remarks
+   * The vSwitch group for the zone-disaster recovery secondary zone.
+   * 
    * **if can be null:**
    * true
    */
   haVSwitchIds?: string[];
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -91,6 +126,8 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -99,6 +136,8 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specifications.
+   * 
    * This parameter is required.
    */
   resourceSpec?: QueryModifyInstancePriceRequestResourceSpec;

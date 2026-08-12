@@ -3,19 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to select zone-disaster recovery resources.
+   * 
+   * @example
+   * true
+   */
   ha?: boolean;
   /**
+   * @remarks
+   * The zone-disaster recovery resource description.
+   * 
    * **if can be null:**
    * true
    */
   haResourceSpecShrink?: string;
   /**
+   * @remarks
+   * The vSwitch group for the zone-disaster recovery secondary zone.
+   * 
    * **if can be null:**
    * true
    */
   haVSwitchIdsShrink?: string;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +40,8 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +50,8 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specifications.
+   * 
    * This parameter is required.
    */
   resourceSpecShrink?: string;

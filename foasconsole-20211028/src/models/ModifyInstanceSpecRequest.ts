@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceSpecRequestHaResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * 
    * @example
    * 10
    */
   cpu?: number;
   /**
+   * @remarks
+   * The memory size.
+   * 
+   * >The memory size must be 4 times the number of CPUs.
+   * 
    * @example
    * 40
    */
@@ -39,6 +47,8 @@ export class ModifyInstanceSpecRequestHaResourceSpec extends $dara.Model {
 export class ModifyInstanceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +57,9 @@ export class ModifyInstanceSpecRequestResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size.
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,14 +91,27 @@ export class ModifyInstanceSpecRequestResourceSpec extends $dara.Model {
 
 export class ModifyInstanceSpecRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the workspace has zone-disaster recovery resources.
+   * 
    * @example
    * true
    */
   ha?: boolean;
+  /**
+   * @remarks
+   * The zone-disaster recovery resource specifications.
+   */
   haResourceSpec?: ModifyInstanceSpecRequestHaResourceSpec;
+  /**
+   * @remarks
+   * The vSwitch group in the secondary zone for zone-disaster recovery.
+   */
   haVSwitchIds?: string[];
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +121,8 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +131,8 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The resource specifications.
+   * 
    * This parameter is required.
    */
   resourceSpec?: ModifyInstanceSpecRequestResourceSpec;

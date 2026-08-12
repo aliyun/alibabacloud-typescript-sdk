@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNamespaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
-   * 是否成功
+   * Is successful
    */
   success?: boolean;
   static names(): { [key: string]: string } {

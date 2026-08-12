@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyElasticResourceSpecResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
-   * 211473228320700
+   * 21147322832****
    */
   orderId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * B21DC47E-8928-199A-9F32-36D45E4693B4
+   * B21DC47E-8928-199A-9F32-36D45E4****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */

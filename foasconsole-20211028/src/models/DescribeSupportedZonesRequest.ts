@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSupportedZonesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The processor architecture.
+   * 
+   * @example
+   * X86
+   */
   architectureType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */

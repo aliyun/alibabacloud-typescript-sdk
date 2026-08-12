@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec extends $dara.Model {
   /**
    * @remarks
+   * The number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec 
   cpu?: number;
   /**
    * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +51,8 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec 
 export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dara.Model {
   /**
    * @remarks
+   * The namespace name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +61,8 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dar
   namespace?: string;
   /**
    * @remarks
+   * The resource specifications of the namespace.
+   * 
    * This parameter is required.
    */
   resourceSpec?: QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec;
@@ -85,6 +95,8 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dar
 export class QueryConvertInstancePriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of pricing cycles.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +105,8 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -101,6 +115,8 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Specifies whether to enable auto-renewal.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,11 +125,15 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   isAutoRenew?: boolean;
   /**
    * @remarks
+   * The resource specifications of the namespace.
+   * 
    * This parameter is required.
    */
   namespaceResourceSpecs?: QueryConvertInstancePriceRequestNamespaceResourceSpecs[];
   /**
    * @remarks
+   * The pricing cycle. Only Year and Month are supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -123,6 +143,8 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example

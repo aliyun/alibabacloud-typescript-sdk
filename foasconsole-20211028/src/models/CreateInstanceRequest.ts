@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPUs for zone-disaster recovery.
+   * 
+   * @example
+   * 10
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The memory size for zone-disaster recovery.
+   * 
+   * @example
+   * 40
+   */
   memoryGB?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,11 +44,20 @@ export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
 
 export class CreateInstanceRequestResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs.
+   * > - This parameter is required for subscription workspaces. For pay-as-you-go workspaces, you do not need to specify this parameter.- The number of CPUs for the target project must be less than the remaining CPUs in the workspace (total purchased CPUs minus CPUs already allocated to other projects). Otherwise, an error is returned.
+   * 
    * @example
    * 30
    */
   cpu?: number;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
+   * > The memory size must be 4 times the number of CPUs.
+   * 
    * @example
    * 120
    */
@@ -64,6 +87,9 @@ export class CreateInstanceRequestResourceSpec extends $dara.Model {
 
 export class CreateInstanceRequestStorageOss extends $dara.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket to bind.
+   * 
    * @example
    * oss-flink-cn-shanghai-260343971602724445
    */
@@ -90,7 +116,20 @@ export class CreateInstanceRequestStorageOss extends $dara.Model {
 }
 
 export class CreateInstanceRequestStorage extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to use fully managed storage. You can select only one of fully managed storage or binding an OSS bucket. Valid values:
+   * - true: Use fully managed storage.
+   * - false: Do not use fully managed storage.
+   * 
+   * @example
+   * false
+   */
   fullyManaged?: boolean;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) storage.
+   */
   oss?: CreateInstanceRequestStorageOss;
   static names(): { [key: string]: string } {
     return {
@@ -119,7 +158,21 @@ export class CreateInstanceRequestStorage extends $dara.Model {
 }
 
 export class CreateInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tag
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,14 +198,33 @@ export class CreateInstanceRequestTag extends $dara.Model {
 }
 
 export class CreateInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The processor architecture.
+   * 
+   * @example
+   * X86
+   */
   architectureType?: string;
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values:
+   * 
+   * - **true**: Enabled.
+   * - **false**: Disabled. This is the default value.
+   * 
+   * > This parameter does not take effect for pay-as-you-go instances.
+   * 
    * @example
    * true
    */
   autoRenew?: boolean;
   /**
    * @remarks
+   * The billing method. Valid values:
+   * - POST: pay-as-you-go.
+   * - PRE: subscription.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -160,69 +232,147 @@ export class CreateInstanceRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The subscription duration.
+   * 
+   * > This parameter is required when ChargeType is set to PRE.
+   * 
    * @example
    * 1
    */
   duration?: number;
+  /**
+   * @remarks
+   * The extended field.
+   * 
+   * @example
+   * “”
+   */
   extra?: string;
   /**
+   * @remarks
+   * Specifies whether to use zone-disaster recovery resources.
+   * 
+   * @example
+   * true
+   * 
    * **if can be null:**
    * true
    */
   ha?: boolean;
   /**
+   * @remarks
+   * The zone-disaster recovery resource specifications.
+   * 
    * **if can be null:**
    * true
    */
   haResourceSpec?: CreateInstanceRequestHaResourceSpec;
   /**
+   * @remarks
+   * The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+   * 
    * **if can be null:**
    * true
    */
   haVSwitchIds?: string[];
   /**
    * @remarks
+   * The workspace name. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name cannot end with a hyphen.
+   * 
    * This parameter is required.
    * 
    * @example
    * rtc-e2e-test-pre
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The type of monitoring and alerting service. You can select ARMS or CloudMonitor.
+   * 
+   * @example
+   * TAIHAO
+   */
   monitorType?: string;
   /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * - **year**: year.
+   * - **month**: month.
+   * 
+   * > This parameter is required when ChargeType is set to PRE.
+   * 
    * @example
    * Month
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * 500043499350689
    */
   promotionCode?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxbavps3rpiy
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource specifications.
+   * 
+   * > This parameter is required when ChargeType is set to PRE.
+   */
   resourceSpec?: CreateInstanceRequestResourceSpec;
   /**
    * @remarks
+   * The storage parameters.
+   * 
    * This parameter is required.
    */
   storage?: CreateInstanceRequestStorage;
+  /**
+   * @remarks
+   * The list of tags. A maximum of 20 tags can be specified.
+   */
   tag?: CreateInstanceRequestTag[];
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Use a coupon.
+   * - false: Do not use a coupon.
+   * 
+   * @example
+   * true
+   */
   usePromotionCode?: boolean;
   /**
    * @remarks
+   * The list of vSwitch IDs.
+   * 
    * This parameter is required.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
    * This parameter is required.
    * 
    * @example

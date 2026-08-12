@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNamespacesRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
-   * FLink
+   * Flink
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -44,6 +50,8 @@ export class DescribeNamespacesRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,28 +59,43 @@ export class DescribeNamespacesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The namespace name.
+   * 
    * @example
    * di-590843445844225
    */
   namespace?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: DescribeNamespacesRequestTags[];
   static names(): { [key: string]: string } {
     return {

@@ -10,6 +10,8 @@ export class DescribeNamespacesShrinkRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,28 +19,43 @@ export class DescribeNamespacesShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The namespace name.
+   * 
    * @example
    * di-590843445844225
    */
   namespace?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {

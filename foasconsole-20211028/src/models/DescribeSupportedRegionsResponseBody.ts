@@ -3,16 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSupportedRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * “”
+   */
   description?: string;
+  /**
+   * @remarks
+   * The extended field.
+   * 
+   * @example
+   * “”
+   */
   extra?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The region name.
+   * 
    * @example
-   * 华北2 (北京)
+   * China (Beijing)
    */
   regionName?: string;
   static names(): { [key: string]: string } {
@@ -44,32 +64,57 @@ export class DescribeSupportedRegionsResponseBodyRegions extends $dara.Model {
 
 export class DescribeSupportedRegionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The number of regions per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of region information.
+   */
   regions?: DescribeSupportedRegionsResponseBodyRegions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B21DC47E-8928-199A-9F32-36D45E4693B4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: Successful.
+   * - false: Failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of regions returned.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */

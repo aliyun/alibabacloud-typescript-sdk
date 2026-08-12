@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertHybridInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The order instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * sc_flinkserverless_public_cn-7e22ae5sess
+   * sc_flinkserverless_public_cn-7e22*****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ConvertHybridInstanceShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The maximum resource specifications available for the pay-as-you-go portion of hybrid billing.
+   * 
    * This parameter is required.
    */
   resourceSpecShrink?: string;
