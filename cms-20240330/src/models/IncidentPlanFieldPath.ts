@@ -8,7 +8,7 @@ export class IncidentPlanFieldPath extends $dara.Model {
    * The field alias.
    * 
    * @example
-   * 服务名称
+   * Service name.
    */
   fieldAlias?: string;
   /**

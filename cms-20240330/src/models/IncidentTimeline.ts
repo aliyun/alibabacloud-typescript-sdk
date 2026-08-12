@@ -16,7 +16,7 @@ export class IncidentTimeline extends $dara.Model {
    * The content.
    * 
    * @example
-   * 已通知运维团队进行排查
+   * The operations team has been notified to investigate.
    */
   content?: string;
   /**
@@ -56,7 +56,7 @@ export class IncidentTimeline extends $dara.Model {
    * The timeline title.
    * 
    * @example
-   * 已联系运维团队
+   * The operations team has been contacted.
    */
   title?: string;
   /**

@@ -70,7 +70,7 @@ export class TransformerForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试处理流
+   * Test processing flow.
    */
   transformerName?: string;
   /**

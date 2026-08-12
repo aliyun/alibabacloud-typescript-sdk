@@ -30,7 +30,7 @@ export class IncidentEscalationStageStruct extends $dara.Model {
    * The description.
    * 
    * @example
-   * 负责处理生产环境告警的主负责人
+   * Primary owner responsible for handling production environment alerts.
    */
   description?: string;
   /**
@@ -46,7 +46,7 @@ export class IncidentEscalationStageStruct extends $dara.Model {
    * The name.
    * 
    * @example
-   * 运维团队
+   * Operations team.
    */
   name?: string;
   /**

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlertRuleRcaConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The digital employee name.
+   */
   digitalEmployeeName?: string;
+  /**
+   * @remarks
+   * Indicates whether RCA is enabled.
+   */
   enableRca?: boolean;
   static names(): { [key: string]: string } {
     return {

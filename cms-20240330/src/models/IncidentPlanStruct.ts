@@ -31,7 +31,7 @@ export class IncidentPlanStruct extends $dara.Model {
    * The description of the plan.
    * 
    * @example
-   * 针对数据库连接数过高的应急处理方案
+   * Emergency response plan for excessively high database connection count.
    */
   description?: string;
   /**
@@ -73,7 +73,7 @@ export class IncidentPlanStruct extends $dara.Model {
    * The name of the plan.
    * 
    * @example
-   * 数据库连接数告警预案
+   * Database connection count alert contingency plan.
    */
   name?: string;
   /**

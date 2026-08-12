@@ -9,11 +9,35 @@ import { QueryAlertRulesResourcesFilter } from "./QueryAlertRulesResourcesFilter
 
 
 export class ObserveResourceConfigFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The UModel resource domain filter (exact match).
+   */
   entityDomain?: QueryAlertRulesEntityDomainFilter;
+  /**
+   * @remarks
+   * The UModel entity type filter (set inclusion/exclusion).
+   */
   entityType?: QueryAlertRulesEntityTypeFilter;
+  /**
+   * @remarks
+   * The CloudMonitor namespace filter (exact match).
+   */
   namespace?: QueryAlertRulesNamespaceFilter;
+  /**
+   * @remarks
+   * The CloudMonitor product category filter (exact match).
+   */
   productCategory?: QueryAlertRulesProductCategoryFilter;
+  /**
+   * @remarks
+   * The relationship type filter (set inclusion/exclusion): ALL/UMODEL_ENTITY/CLOUD_INSTANCE/GROUP_V1/GROUP_V2/TAG.
+   */
   relationType?: QueryAlertRulesRelationTypeFilter;
+  /**
+   * @remarks
+   * The resources filter (contains uses OR matching; notContains excludes all).
+   */
   resources?: QueryAlertRulesResourcesFilter;
   static names(): { [key: string]: string } {
     return {

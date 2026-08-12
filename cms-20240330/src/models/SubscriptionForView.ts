@@ -160,7 +160,7 @@ export class SubscriptionForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 订阅测试
+   * Subscription test.
    */
   subscriptionName?: string;
   /**

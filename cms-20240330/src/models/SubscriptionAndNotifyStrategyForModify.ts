@@ -7,11 +7,19 @@ import { SubscriptionOp } from "./SubscriptionOp";
 
 
 export class SubscriptionAndNotifyStrategyForModify extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the subscription. Enabled by default during creation.
+   */
   enabled?: boolean;
   /**
    * @remarks
-   * Optional. If omitted, the backend derives the name from `notifyStrategy`.
+   * Optional. The backend derives the name from notifyStrategy if this parameter is not specified.
    */
   name?: string;
   notifyStrategy?: NotifyStrategyForSNSModify;
@@ -19,17 +27,17 @@ export class SubscriptionAndNotifyStrategyForModify extends $dara.Model {
   subscription?: SubscriptionForSNSModify;
   /**
    * @remarks
-   * For update operations only. Use this parameter to batch create, update, and remove member subscriptions.
+   * Used exclusively for Update operations. Performs batch create, update, or remove adjustments on member subscriptions.
    */
   subscriptions?: SubscriptionOp[];
   /**
    * @remarks
-   * Required for update operations but optional for create operations. If omitted during creation, the backend automatically generates a UUID.
+   * Required for Update. Can be omitted for Create, in which case the backend generates it.
    */
   uuid?: string;
   /**
    * @remarks
-   * Required for update operations. The value must match the current version of the record. If the versions do not match, the request fails with an `OPTIMISTIC_LOCK_FAILED` error.
+   * Required for Update. The value must match the backend record for the write to succeed. If the values do not match, OPTIMISTIC_LOCK_FAILED is returned.
    */
   version?: number;
   static names(): { [key: string]: string } {

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator.
+   */
   comparisonOperator?: string;
+  /**
+   * @remarks
+   * The metric name.
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The collection period, in seconds.
+   */
   period?: number;
+  /**
+   * @remarks
+   * The precondition.
+   */
   preCondition?: string;
+  /**
+   * @remarks
+   * The statistical method.
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold.
+   */
   threshold?: string;
   static names(): { [key: string]: string } {
     return {

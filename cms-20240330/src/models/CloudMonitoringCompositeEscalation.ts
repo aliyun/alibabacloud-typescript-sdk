@@ -6,22 +6,22 @@ import { CloudMonitoringCompositeEscalationEntry } from "./CloudMonitoringCompos
 export class CloudMonitoringCompositeEscalation extends $dara.Model {
   /**
    * @remarks
-   * A single entry in the escalation policy. See the `CloudMonitoringCompositeEscalationEntry` object for details.
+   * The list of multi-condition configurations.
    */
   escalations?: CloudMonitoringCompositeEscalationEntry[];
   /**
    * @remarks
-   * Specifies the logical relationship for evaluating the conditions of the composite alert rule. Valid values: `and` and `or`.
+   * The logical relationship between conditions (AND/OR).
    */
   relation?: string;
   /**
    * @remarks
-   * Specifies the severity level of the alert. For example: `Critical`, `Warning`, and `Info`.
+   * The severity level.
    */
   severity?: string;
   /**
    * @remarks
-   * Specifies the number of times the alert conditions must be met to trigger this escalation policy.
+   * The number of consecutive times the conditions are met before the alert is triggered.
    */
   times?: number;
   static names(): { [key: string]: string } {

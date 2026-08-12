@@ -456,7 +456,7 @@ export class NotifyStrategyForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试策略
+   * Test policy.
    */
   notifyStrategyName?: string;
   /**

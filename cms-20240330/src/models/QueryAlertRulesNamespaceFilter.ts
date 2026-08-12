@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAlertRulesNamespaceFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The exact match.
+   */
   eq?: string;
   static names(): { [key: string]: string } {
     return {

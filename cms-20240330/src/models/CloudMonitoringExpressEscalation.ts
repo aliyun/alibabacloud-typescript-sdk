@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CloudMonitoringExpressEscalation extends $dara.Model {
   /**
    * @remarks
-   * The expression that defines the alert condition.
+   * The raw expression.
    */
   rawExpression?: string;
   /**
    * @remarks
-   * The alert severity that triggers the escalation.
+   * The severity level.
    */
   severity?: string;
   /**
    * @remarks
-   * The number of alert occurrences required to trigger the escalation.
+   * The number of consecutive times the alert is triggered.
    */
   times?: number;
   static names(): { [key: string]: string } {

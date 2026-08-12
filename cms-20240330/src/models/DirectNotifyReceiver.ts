@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DirectNotifyReceiver extends $dara.Model {
+  /**
+   * @remarks
+   * The list of notification channels. This parameter is valid only for person-based types (CONTACT/GROUP/DUTY). Valid values: SMS, CALL, EMAIL.
+   */
   channels?: string[];
+  /**
+   * @remarks
+   * The list of Notification Recipient identifiers. For person-based types, the identifiers are contacts, contact groups, or on-call schedule identifiers. For IM-based types, the identifiers are webhook identifiers.
+   */
   identifiers?: string[];
+  /**
+   * @remarks
+   * The Notification Recipient type. Person-object types (CONTACT/GROUP/DUTY) require channels to specify notification methods. IM-object types (DINGTALK/FEISHU/SLACK/WEIXIN/WEBHOOK) do not require channels.
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {

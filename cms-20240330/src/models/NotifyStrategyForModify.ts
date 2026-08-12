@@ -440,7 +440,7 @@ export class NotifyStrategyForModify extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 策略名称
+   * Policy name.
    */
   notifyStrategyName?: string;
   /**

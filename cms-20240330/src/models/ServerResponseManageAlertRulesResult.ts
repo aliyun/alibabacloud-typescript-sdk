@@ -6,27 +6,23 @@ import { ManageAlertRulesResult } from "./ManageAlertRulesResult";
 export class ServerResponseManageAlertRulesResult extends $dara.Model {
   /**
    * @remarks
-   * The operation status code.
+   * The response code.
    */
   code?: string;
-  /**
-   * @remarks
-   * The result of the operation.
-   */
   data?: ManageAlertRulesResult;
   /**
    * @remarks
-   * A message detailing the outcome of the request, such as a success message or an error description.
+   * The error message.
    */
   message?: string;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If the token is not returned, there are no more results.
+   * The pagination token.
    */
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    */
   pageNumber?: number;
   /**
@@ -36,17 +32,17 @@ export class ServerResponseManageAlertRulesResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique ID for the request. Provide this ID when contacting support for assistance.
+   * The request ID.
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded (`true`) or failed (`false`).
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * The total number of entries.
    */
   total?: number;
   static names(): { [key: string]: string } {

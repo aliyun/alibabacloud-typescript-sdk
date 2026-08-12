@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CloudMonitoringPrometheusEscalation extends $dara.Model {
   /**
    * @remarks
-   * The PromQL expression that defines the alert condition. This parameter is required.
+   * The PromQL query statement.
    */
   promQl?: string;
   /**
    * @remarks
-   * The severity of the alert that triggers the escalation. This parameter is required.
+   * The severity level.
    */
   severity?: string;
   /**
    * @remarks
-   * The number of consecutive times the condition must be met to trigger an escalation. This parameter is required.
+   * The number of consecutive times the alert is triggered.
    */
   times?: number;
   static names(): { [key: string]: string } {

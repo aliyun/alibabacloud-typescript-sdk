@@ -13,48 +13,48 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "metrics.us-west-1.aliyuncs.com",
-      'us-southeast-1': "metrics.us-southeast-1.aliyuncs.com",
-      'us-east-1': "metrics.us-east-1.aliyuncs.com",
-      'na-south-1': "metrics.na-south-1.aliyuncs.com",
-      'me-east-1': "metrics.me-east-1.aliyuncs.com",
-      'me-central-1': "metrics.me-central-1.aliyuncs.com",
-      'eu-west-2': "metrics.eu-west-2.aliyuncs.com",
-      'eu-west-1': "metrics.eu-west-1.aliyuncs.com",
-      'eu-central-1': "metrics.eu-central-1.aliyuncs.com",
-      'cn-zhongwei': "metrics.cn-zhongwei.aliyuncs.com",
-      'cn-zhengzhou-jva': "metrics.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "metrics.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "metrics.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wulanchabu': "metrics.cn-wulanchabu.aliyuncs.com",
-      'cn-wuhan-lr': "metrics.cn-wuhan-lr.aliyuncs.com",
-      'cn-shenzhen-finance-1': "metrics.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "metrics.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "metrics.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "metrics.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "metrics.cn-qingdao.aliyuncs.com",
-      'cn-north-2-gov-1': "metrics.cn-north-2-gov-1.aliyuncs.com",
-      'cn-nanjing': "metrics.cn-nanjing.aliyuncs.com",
-      'cn-huhehaote': "metrics.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "metrics.cn-hongkong.aliyuncs.com",
-      'cn-heyuan-acdr-1': "metrics.cn-heyuan-acdr-1.aliyuncs.com",
-      'cn-heyuan': "metrics.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou-finance': "metrics.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "metrics.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "metrics.cn-guangzhou.aliyuncs.com",
-      'cn-fuzhou': "metrics.cn-fuzhou.aliyuncs.com",
-      'cn-chengdu': "metrics.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "metrics.cn-beijing-finance-1.aliyuncs.com",
       'cn-beijing': "metrics.cn-beijing.aliyuncs.com",
-      'ap-southeast-8': "metrics.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "metrics.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "metrics.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "metrics.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "metrics.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "metrics.ap-southeast-1.aliyuncs.com",
-      'ap-south-1': "metrics.ap-south-1.aliyuncs.com",
+      'cn-zhengzhou-jva': "metrics.cn-zhengzhou-jva.aliyuncs.com",
+      'cn-heyuan': "metrics.cn-heyuan.aliyuncs.com",
+      'cn-zhangjiakou': "metrics.cn-zhangjiakou.aliyuncs.com",
       'ap-northeast-2': "metrics.ap-northeast-2.aliyuncs.com",
       'ap-northeast-1': "metrics.ap-northeast-1.aliyuncs.com",
+      'ap-southeast-1': "metrics.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "metrics.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "metrics.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "metrics.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "metrics.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-8': "metrics.ap-southeast-8.aliyuncs.com",
+      'cn-zhongwei': "metrics.cn-zhongwei.aliyuncs.com",
+      'cn-wulanchabu': "metrics.cn-wulanchabu.aliyuncs.com",
+      'cn-qingdao': "metrics.cn-qingdao.aliyuncs.com",
+      'cn-wuhan-lr': "metrics.cn-wuhan-lr.aliyuncs.com",
+      'cn-shanghai': "metrics.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "metrics.cn-hongkong.aliyuncs.com",
+      'cn-shenzhen': "metrics.cn-shenzhen.aliyuncs.com",
+      'cn-nanjing': "metrics.cn-nanjing.aliyuncs.com",
+      'cn-fuzhou': "metrics.cn-fuzhou.aliyuncs.com",
+      'cn-chengdu': "metrics.cn-chengdu.aliyuncs.com",
+      'cn-guangzhou': "metrics.cn-guangzhou.aliyuncs.com",
+      'cn-huhehaote': "metrics.cn-huhehaote.aliyuncs.com",
+      'cn-hangzhou': "metrics.cn-hangzhou.aliyuncs.com",
+      'us-southeast-1': "metrics.us-southeast-1.aliyuncs.com",
+      'eu-west-1': "metrics.eu-west-1.aliyuncs.com",
+      'eu-west-2': "metrics.eu-west-2.aliyuncs.com",
+      'eu-central-1': "metrics.eu-central-1.aliyuncs.com",
+      'us-east-1': "metrics.us-east-1.aliyuncs.com",
+      'us-west-1': "metrics.us-west-1.aliyuncs.com",
+      'na-south-1': "metrics.na-south-1.aliyuncs.com",
+      'me-east-1': "metrics.me-east-1.aliyuncs.com",
+      'ap-south-1': "metrics.ap-south-1.aliyuncs.com",
+      'me-central-1': "metrics.me-central-1.aliyuncs.com",
+      'cn-hangzhou-finance': "metrics.cn-hangzhou-finance.aliyuncs.com",
+      'cn-shenzhen-finance-1': "metrics.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-beijing-finance-1': "metrics.cn-beijing-finance-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "metrics.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-wulanchabu-gic-1': "metrics.cn-wulanchabu-gic-1.aliyuncs.com",
+      'cn-heyuan-acdr-1': "metrics.cn-heyuan-acdr-1.aliyuncs.com",
+      'cn-north-2-gov-1': "metrics.cn-north-2-gov-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -740,6 +740,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a DataPipeline.
+   * 
+   * @remarks
+   * Creates a data pipeline in a specified workspace.
+   * 
+   * @param request - CreateDataPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataPipelineResponse
+   */
+  async createDataPipelineWithOptions(workspace: string, request: $_model.CreateDataPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataPipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.kind)) {
+      body["kind"] = request.kind;
+    }
+
+    if (!$dara.isNull(request.outputs)) {
+      body["outputs"] = request.outputs;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
+    }
+
+    if (!$dara.isNull(request.processors)) {
+      body["processors"] = request.processors;
+    }
+
+    if (!$dara.isNull(request.sinks)) {
+      body["sinks"] = request.sinks;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataPipelineResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataPipelineResponse({}));
+  }
+
+  /**
+   * Creates a DataPipeline.
+   * 
+   * @remarks
+   * Creates a data pipeline in a specified workspace.
+   * 
+   * @param request - CreateDataPipelineRequest
+   * @returns CreateDataPipelineResponse
+   */
+  async createDataPipeline(workspace: string, request: $_model.CreateDataPipelineRequest): Promise<$_model.CreateDataPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDataPipelineWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * Creates a dataset.
    * 
    * @param request - CreateDatasetRequest
@@ -1401,7 +1476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service for application observability.
+   * Creates an application observability service.
    * 
    * @param request - CreateServiceRequest
    * @param headers - map
@@ -1466,7 +1541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service for application observability.
+   * Creates an application observability service.
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -1637,7 +1712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+   * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
    * 
    * @param request - CreateTicketRequest
    * @param headers - map
@@ -1674,7 +1749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+   * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -2117,6 +2192,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a DataPipeline.
+   * 
+   * @remarks
+   * Deletes a data pipeline from a specified workspace.
+   * 
+   * @param request - DeleteDataPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataPipelineResponse
+   */
+  async deleteDataPipelineWithOptions(workspace: string, pipelineName: string, request: $_model.DeleteDataPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataPipelineResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataPipelineResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataPipelineResponse({}));
+  }
+
+  /**
+   * Deletes a DataPipeline.
+   * 
+   * @remarks
+   * Deletes a data pipeline from a specified workspace.
+   * 
+   * @param request - DeleteDataPipelineRequest
+   * @returns DeleteDataPipelineResponse
+   */
+  async deleteDataPipeline(workspace: string, pipelineName: string, request: $_model.DeleteDataPipelineRequest): Promise<$_model.DeleteDataPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
   }
 
   /**
@@ -2640,7 +2760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Application Monitoring service.
+   * Deletes an application observability service.
    * 
    * @param request - DeleteServiceRequest
    * @param headers - map
@@ -2667,7 +2787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Application Monitoring service.
+   * Deletes an application observability service.
    * 
    * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
@@ -3783,6 +3903,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a DataPipeline.
+   * 
+   * @remarks
+   * Queries the configuration and running status of a data pipeline in a specified workspace.
+   * 
+   * @param request - GetDataPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataPipelineResponse
+   */
+  async getDataPipelineWithOptions(workspace: string, pipelineName: string, request: $_model.GetDataPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataPipelineResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataPipelineResponse>(await this.callApi(params, req, runtime), new $_model.GetDataPipelineResponse({}));
+  }
+
+  /**
+   * Queries a DataPipeline.
+   * 
+   * @remarks
+   * Queries the configuration and running status of a data pipeline in a specified workspace.
+   * 
+   * @param request - GetDataPipelineRequest
+   * @returns GetDataPipelineResponse
+   */
+  async getDataPipeline(workspace: string, pipelineName: string, request: $_model.GetDataPipelineRequest): Promise<$_model.GetDataPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
+  }
+
+  /**
    * Retrieves the details of a specified dataset.
    * 
    * @param request - GetDatasetRequest
@@ -4507,7 +4672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an Application Monitoring service.
+   * Queries an application observability service.
    * 
    * @param request - GetServiceRequest
    * @param headers - map
@@ -4534,7 +4699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an Application Monitoring service.
+   * Queries an application observability service.
    * 
    * @param request - GetServiceRequest
    * @returns GetServiceResponse
@@ -5589,6 +5754,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listContextStoresWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of DataPipelines.
+   * 
+   * @remarks
+   * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+   * 
+   * @param request - ListDataPipelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataPipelinesResponse
+   */
+  async listDataPipelinesWithOptions(workspace: string, request: $_model.ListDataPipelinesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataPipelinesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataPipelines",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataPipelinesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataPipelinesResponse({}));
+  }
+
+  /**
+   * Queries the list of DataPipelines.
+   * 
+   * @remarks
+   * Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+   * 
+   * @param request - ListDataPipelinesRequest
+   * @returns ListDataPipelinesResponse
+   */
+  async listDataPipelines(workspace: string, request: $_model.ListDataPipelinesRequest): Promise<$_model.ListDataPipelinesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDataPipelinesWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -6813,7 +7033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application observability services.
+   * Queries application observability services in batches.
    * 
    * @param tmpReq - ListServicesRequest
    * @param headers - map
@@ -6872,7 +7092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application observability services.
+   * Queries application observability services in batches.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -7127,6 +7347,89 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.openCmsServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Previews a data pipeline.
+   * 
+   * @remarks
+   * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+   * 
+   * @param request - PreviewDataPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewDataPipelineResponse
+   */
+  async previewDataPipelineWithOptions(workspace: string, request: $_model.PreviewDataPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewDataPipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fromTime)) {
+      body["fromTime"] = request.fromTime;
+    }
+
+    if (!$dara.isNull(request.kind)) {
+      body["kind"] = request.kind;
+    }
+
+    if (!$dara.isNull(request.outputs)) {
+      body["outputs"] = request.outputs;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
+    }
+
+    if (!$dara.isNull(request.processors)) {
+      body["processors"] = request.processors;
+    }
+
+    if (!$dara.isNull(request.sinks)) {
+      body["sinks"] = request.sinks;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.toTime)) {
+      body["toTime"] = request.toTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewDataPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline/preview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewDataPipelineResponse>(await this.callApi(params, req, runtime), new $_model.PreviewDataPipelineResponse({}));
+  }
+
+  /**
+   * Previews a data pipeline.
+   * 
+   * @remarks
+   * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+   * 
+   * @param request - PreviewDataPipelineRequest
+   * @returns PreviewDataPipelineResponse
+   */
+  async previewDataPipeline(workspace: string, request: $_model.PreviewDataPipelineRequest): Promise<$_model.PreviewDataPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewDataPipelineWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -7996,6 +8299,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Updates a DataPipeline.
+   * 
+   * @remarks
+   * Modifies a specified data pipeline by using a complete candidate configuration.
+   * 
+   * @param request - UpdateDataPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataPipelineResponse
+   */
+  async updateDataPipelineWithOptions(workspace: string, pipelineName: string, request: $_model.UpdateDataPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataPipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.kind)) {
+      body["kind"] = request.kind;
+    }
+
+    if (!$dara.isNull(request.outputs)) {
+      body["outputs"] = request.outputs;
+    }
+
+    if (!$dara.isNull(request.processors)) {
+      body["processors"] = request.processors;
+    }
+
+    if (!$dara.isNull(request.sinks)) {
+      body["sinks"] = request.sinks;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/datapipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataPipelineResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataPipelineResponse({}));
+  }
+
+  /**
+   * Updates a DataPipeline.
+   * 
+   * @remarks
+   * Modifies a specified data pipeline by using a complete candidate configuration.
+   * 
+   * @param request - UpdateDataPipelineRequest
+   * @returns UpdateDataPipelineResponse
+   */
+  async updateDataPipeline(workspace: string, pipelineName: string, request: $_model.UpdateDataPipelineRequest): Promise<$_model.UpdateDataPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
   }
 
   /**

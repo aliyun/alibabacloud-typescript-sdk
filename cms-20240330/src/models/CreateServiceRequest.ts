@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The `key` of the tag.
+   * The tag `key`.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class CreateServiceRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The `value` of the tag.
+   * The tag `value`.
    * 
    * @example
    * prod
@@ -45,7 +45,7 @@ export class CreateServiceRequestTags extends $dara.Model {
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended properties.
+   * The extended attributes.
    * 
    * @example
    * {"language":"java"}
@@ -69,7 +69,7 @@ export class CreateServiceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The application ID. You do not typically need to specify this parameter.
+   * The application ID. Generally, you do not need to specify this parameter.
    * 
    * @example
    * bx3udsi5ie@ed2ba6beebdb6de
@@ -95,7 +95,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. Do not specify this parameter when you create a service.
+   * The service status. You do not need to specify this parameter when creating a service.
    * 
    * @example
    * Created
@@ -113,7 +113,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * An array of tags.
+   * The tags.
    */
   tags?: CreateServiceRequestTags[];
   static names(): { [key: string]: string } {

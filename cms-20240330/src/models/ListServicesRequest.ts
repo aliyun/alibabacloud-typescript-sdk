@@ -45,7 +45,7 @@ export class ListServicesRequestTags extends $dara.Model {
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return for this request.
+   * The maximum number of entries to return in this request.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is empty, it means you have reached the last page.
+   * The token for the next query. An empty value indicates the last page.
    * 
    * @example
    * 7-b81a-4bc9-bbfa-a50cc6988667
@@ -85,7 +85,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * An array of tags.
+   * The tags.
    * 
    * **if can be null:**
    * true

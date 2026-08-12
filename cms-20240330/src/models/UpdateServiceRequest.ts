@@ -13,7 +13,7 @@ export class UpdateServiceRequest extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The description of the service. This parameter is valid only when serviceType is set to RUM.
+   * The service description. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class UpdateServiceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The status of the service. This parameter is valid only when serviceType is set to RUM.
+   * The service status. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * Stopped

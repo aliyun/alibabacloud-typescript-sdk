@@ -24,7 +24,7 @@ export class IncidentNoteStructOperator extends $dara.Model {
    * The name.
    * 
    * @example
-   * 张三
+   * Zhang San.
    */
   name?: string;
   /**
@@ -68,7 +68,7 @@ export class IncidentNoteStruct extends $dara.Model {
    * The content.
    * 
    * @example
-   * 已联系运维团队，正在排查问题。
+   * The operations team has been contacted and is currently investigating the issue.
    */
   content?: string;
   /**

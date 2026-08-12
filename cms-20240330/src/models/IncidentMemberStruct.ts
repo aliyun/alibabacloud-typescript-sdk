@@ -88,7 +88,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The description.
    * 
    * @example
-   * 通知运维团队
+   * Notify the operations team.
    */
   description?: string;
   /**
@@ -104,7 +104,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The name.
    * 
    * @example
-   * 第一阶段
+   * Phase one.
    */
   name?: string;
   /**
@@ -120,7 +120,7 @@ export class IncidentMemberStructEscalation extends $dara.Model {
    * The title.
    * 
    * @example
-   * 告警升级至运维团队
+   * Alert escalated to the operations team.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -166,7 +166,7 @@ export class IncidentMemberStructScheduleGroup extends $dara.Model {
    * The name.
    * 
    * @example
-   * 夜间值班组
+   * Night shift duty team.
    */
   name?: string;
   static names(): { [key: string]: string } {

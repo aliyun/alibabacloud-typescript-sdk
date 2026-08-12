@@ -4,15 +4,19 @@ import { SubscriptionForModify } from "./SubscriptionForModify";
 
 
 export class SubscriptionOp extends $dara.Model {
+  /**
+   * @remarks
+   * The operation type.
+   */
   op?: string;
   /**
    * @remarks
-   * create/update 必填
+   * Required for create and update operations.
    */
   payload?: SubscriptionForModify;
   /**
    * @remarks
-   * update/remove 必填
+   * Required for update and remove operations.
    */
   uuid?: string;
   static names(): { [key: string]: string } {

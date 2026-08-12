@@ -4,7 +4,15 @@ import { DirectNotifyReceiver } from "./DirectNotifyReceiver";
 
 
 export class SeverityNotifyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The list of notification recipients. Each recipient specifies a type, an identifier, and the enabled channels.
+   */
   receivers?: DirectNotifyReceiver[];
+  /**
+   * @remarks
+   * Specifies whether to send recovery notifications for this severity level. If this parameter is left empty, the value falls back to the top-level sendRecoverNotification parameter.
+   */
   sendRecoverNotification?: boolean;
   static names(): { [key: string]: string } {
     return {

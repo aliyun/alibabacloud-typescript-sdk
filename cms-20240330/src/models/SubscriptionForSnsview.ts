@@ -10,11 +10,15 @@ export class SubscriptionForSNSView extends $dara.Model {
   filterSetting?: FilterSetting;
   mode?: string;
   name?: string;
+  /**
+   * @remarks
+   * The reverse association to SNS (= snsUuid).
+   */
   notifyStrategyUuid?: string;
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+   * Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
    */
   subscribeLegacyEvent?: boolean;
   subscriptionType?: string;

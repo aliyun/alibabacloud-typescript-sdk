@@ -9,7 +9,7 @@ export class IncidentResourceStruct extends $dara.Model {
    * The description.
    * 
    * @example
-   * 生产环境 Web 服务器
+   * Production environment web server.
    */
   description?: string;
   /**

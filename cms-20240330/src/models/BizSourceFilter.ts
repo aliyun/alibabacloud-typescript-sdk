@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BizSourceFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The exact match value.
+   */
   eq?: string;
   static names(): { [key: string]: string } {
     return {

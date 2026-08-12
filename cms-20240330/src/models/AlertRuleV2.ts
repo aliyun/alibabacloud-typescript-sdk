@@ -13,38 +13,120 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 export class AlertRuleV2 extends $dara.Model {
   actionIntegrationConfig?: ActionIntegrationConfig;
+  /**
+   * @remarks
+   * The annotations.
+   */
   annotations?: { [key: string]: string };
   armsIntegrationConfig?: ArmsIntegrationConfig;
+  /**
+   * @remarks
+   * The business source. This field is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
+   */
   bizSource?: string;
   conditionConfig?: ConditionConfigUnified;
+  /**
+   * @remarks
+   * The content template.
+   */
   contentTemplate?: string;
+  /**
+   * @remarks
+   * The creation time in ISO 8601 format. This field is read-only.
+   */
   createdAt?: string;
   datasourceConfig?: DatasourceConfigUnified;
+  /**
+   * @remarks
+   * The data source type. This field is read-only and derived.
+   */
   datasourceType?: string;
+  /**
+   * @remarks
+   * The display name.
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * Specifies whether the alert rule is enabled.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The labels.
+   */
   labels?: { [key: string]: string };
   notifyConfig?: NotifyConfigUnified;
+  /**
+   * @remarks
+   * The notification strategy ID. This field is read-only and derived from the first item in the notification strategy list.
+   */
   notifyStrategyId?: string;
+  /**
+   * @remarks
+   * The observable resource configuration.
+   */
   observeResourceConfig?: ObserveResourceConfig;
   /**
+   * @remarks
+   * **[Deprecated]** Indicates whether the rule applies to all resources of this type. This field is read-only and derived. Use observeResourceConfig.relationType set to ALL for equivalent semantics in new integrations.
+   * 
    * @deprecated
    */
   observeResourceGlobalScope?: boolean;
+  /**
+   * @remarks
+   * The list of observable resource IDs. This field is read-only and derived.
+   */
   observeResourceList?: string[];
   /**
+   * @remarks
+   * **[Deprecated]** The observable resource type. This field is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
+   * 
    * @deprecated
    */
   observeResourceType?: string;
+  /**
+   * @remarks
+   * The partition key. This field is read-only and maintained by the system for rule routing and sharding.
+   */
   partitionKey?: string;
   queryConfig?: QueryConfigUnified;
+  /**
+   * @remarks
+   * The RCA (root cause analysis) configuration.
+   */
   rcaConfig?: AlertRuleRcaConfig;
+  /**
+   * @remarks
+   * The region ID. This field is aligned with V1 AlertRule.regionId. Priority: request body regionId > gateway callerRegionId.
+   */
   regionId?: string;
   scheduleConfig?: ScheduleConfigUnified;
+  /**
+   * @remarks
+   * The severity levels covered by this rule, separated by commas. This field is read-only and derived. The format is the same as the filter.severityLevels query parameter.
+   */
   severityLevels?: string;
+  /**
+   * @remarks
+   * The alert status. This field is read-only.
+   */
   status?: string;
+  /**
+   * @remarks
+   * The update time in ISO 8601 format. This field is read-only.
+   */
   updatedAt?: string;
+  /**
+   * @remarks
+   * The rule UUID. This field is system-generated and read-only.
+   */
   uuid?: string;
+  /**
+   * @remarks
+   * The workspace.
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

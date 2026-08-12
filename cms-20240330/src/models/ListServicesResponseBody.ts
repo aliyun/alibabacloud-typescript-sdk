@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * Additional information.
+   * The extended information.
    * 
    * @example
    * {"language":"java"}
@@ -21,7 +21,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The service description. This parameter is valid only when serviceType is RUM.
+   * The service description. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * workspace api monitor test
@@ -29,7 +29,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name. This parameter is valid only when serviceType is RUM.
+   * The display name. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the ARMS application for backward compatibility.
+   * The ARMS application ID for backward compatibility.
    * 
    * @example
    * kgcsf@192197e828d51aa
@@ -69,7 +69,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. This parameter is valid only when serviceType is RUM.
+   * The service status. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * Running
@@ -135,7 +135,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results returned. The maximum value is 200.
+   * The maximum number of entries returned. Maximum value: 200.
    * 
    * @example
    * 10
@@ -143,7 +143,7 @@ export class ListServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The paging token.
+   * The pagination token.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -159,12 +159,12 @@ export class ListServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of service information.
+   * The list of service information.
    */
   services?: ListServicesResponseBodyServices[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 66

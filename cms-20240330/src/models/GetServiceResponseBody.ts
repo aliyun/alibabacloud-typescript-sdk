@@ -53,7 +53,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The time when the service was created.
+   * The creation time.
    * 
    * @example
    * 2025-05-13T03:32:55Z
@@ -72,12 +72,12 @@ export class GetServiceResponseBodyService extends $dara.Model {
    * The display name. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
-   * demo应用
+   * Demo application
    */
   displayName?: string;
   /**
    * @remarks
-   * The ID of the ARMS application that is compatible with earlier versions.
+   * The ARMS application ID for backward compatibility.
    * 
    * @example
    * by6rjzro2j@0fe8dfa799e5906
@@ -133,7 +133,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The array of tags.
+   * The tags.
    */
   tags?: GetServiceResponseBodyServiceTags[];
   /**

@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ApmFilterConfig extends $dara.Model {
   /**
    * @remarks
-   * The tag key to filter by. For example, to filter traces by region, set this parameter to `RegionId`.
+   * The dimension key.
    * 
    * This parameter is required.
    */
   key?: string;
   /**
    * @remarks
-   * The comparison operator used to match the tag\\"s value. Valid values: `EQUAL` and `NOT_EQUAL`.
+   * The filter type.
    * 
    * This parameter is required.
    */
   type?: string;
   /**
    * @remarks
-   * The value to compare against the tag\\"s value. Used with the `key` and `type` parameters to form a complete filter condition.
+   * The filter value. This can be empty when type is ALL or DISABLED.
    */
   value?: string;
   static names(): { [key: string]: string } {

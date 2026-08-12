@@ -4,7 +4,15 @@ import { SlsJoinCondition } from "./SlsJoinCondition";
 
 
 export class SlsQueryJoin extends $dara.Model {
+  /**
+   * @remarks
+   * The list of join conditions.
+   */
   conditions?: SlsJoinCondition[];
+  /**
+   * @remarks
+   * The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

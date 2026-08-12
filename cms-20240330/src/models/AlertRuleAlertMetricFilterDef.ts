@@ -8,7 +8,7 @@ export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
    * The display name in Chinese.
    * 
    * @example
-   * 在线
+   * Online
    */
   displayNameCn?: string;
   /**
@@ -74,7 +74,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
    * The display name in Chinese.
    * 
    * @example
-   * 应用状态
+   * Application Status
    */
   displayNameCn?: string;
   /**

@@ -17,7 +17,7 @@ export class IncidentEscalationStruct extends $dara.Model {
    * The description.
    * 
    * @example
-   * 当告警未响应时，依次通知运维团队、值班经理、CTO
+   * When an alert is not acknowledged, notify the operations team, on-duty manager, and CTO sequentially.
    */
   description?: string;
   /**
@@ -41,7 +41,7 @@ export class IncidentEscalationStruct extends $dara.Model {
    * The name.
    * 
    * @example
-   * 生产环境告警升级策略
+   * Production Environment Alert Escalation Policy.
    */
   name?: string;
   /**

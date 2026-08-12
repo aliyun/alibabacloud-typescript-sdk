@@ -11,7 +11,7 @@ export class IncidentStruct extends $dara.Model {
    * The content of the event.
    * 
    * @example
-   * 检测到 RDS 实例 rds-bp1234567890abcdef 的连接数达到 1000，已触发告警。
+   * Detected that the connection count of RDS instance rds-bp1234567890abcdef has reached 1000, triggering an alert.
    */
   content?: string;
   /**
@@ -66,7 +66,7 @@ export class IncidentStruct extends $dara.Model {
    * The title of the event.
    * 
    * @example
-   * 数据库连接数过高
+   * Excessively high database connection count.
    */
   title?: string;
   /**

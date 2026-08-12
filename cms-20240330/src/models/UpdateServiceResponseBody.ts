@@ -13,7 +13,7 @@ export class UpdateServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * em87vd@c2e25bcfe0e21ce0***
