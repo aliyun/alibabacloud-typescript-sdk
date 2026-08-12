@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Model {
   /**
    * @remarks
-   * The description of the template.
+   * The description.
    * 
    * @example
    * test0003asdffas
@@ -13,9 +13,8 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
-   * 
-   * > If the value is **0**, the IP address blacklist is permanently valid.
+   * The expiration timestamp, in seconds.
+   * > A value of **0** indicates that the entry is permanently effective.
    * 
    * @example
    * 1662603328
@@ -23,7 +22,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   expiredTime?: number;
   /**
    * @remarks
-   * The time when the IP address in the blacklist was modified.
+   * The time when the blacklisted IP address was last modified.
    * 
    * @example
    * 1665456202000
@@ -39,7 +38,7 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
   ip?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for critical event protection.
+   * The ID of the critical event protection IP blacklist rule.
    * 
    * @example
    * 8508970
@@ -87,12 +86,12 @@ export class DescribeMajorProtectionBlackIpsResponseBodyIpList extends $dara.Mod
 export class DescribeMajorProtectionBlackIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of IP addresses in the blacklist.
+   * The list of blacklisted IP addresses.
    */
   ipList?: DescribeMajorProtectionBlackIpsResponseBodyIpList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 41631674-EEB0-5B02-BEB4-40A758E9B841
@@ -100,7 +99,7 @@ export class DescribeMajorProtectionBlackIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of IP addresses in the blacklist.
+   * The total number of blacklisted IP addresses.
    * 
    * @example
    * 63

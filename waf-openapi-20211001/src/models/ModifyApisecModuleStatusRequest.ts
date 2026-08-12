@@ -17,7 +17,7 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -41,6 +41,8 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
    * @remarks
    * The name of the protected object group to which the protected object is added.
    * 
+   * > You must specify at least one of **Resources** and **ResourceGroups**.
+   * 
    * @example
    * group1
    */
@@ -56,6 +58,8 @@ export class ModifyApisecModuleStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the protected object.
+   * 
+   * > You must specify at least one of **Resources** and **ResourceGroups**.
    * 
    * @example
    * cwaf-***-waf

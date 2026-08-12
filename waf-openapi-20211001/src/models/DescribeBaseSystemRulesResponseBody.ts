@@ -39,11 +39,11 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
    * - **protocol_violation**: protocol violation.
    * - **scanner_behavior**: scanner behavior.
    * - **logic_flaw**: business logic bug.
-   * - **arbitrary_file_reading**: arbitrary file reading.
+   * - **arbitrary_file_reading**: arbitrary file read.
    * - **arbitrary_file_download**: arbitrary file download.
    * - **xxe**: XML external entity injection.
    * - **csrf**: cross-site request forgery.
-   * - **crlf**: CRLF.
+   * - **crlf**: CRLF injection.
    * - **other**: other.
    * 
    * @example
@@ -54,13 +54,13 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * - **super_strict**: Super strict.
+   * - **super_strict**: super strict.
    * 
-   * - **strict**: Strict.
+   * - **strict**: strict.
    * 
-   * - **medium**: Medium.
+   * - **medium**: medium.
    * 
-   * - **loose**: Loose.
+   * - **loose**: loose.
    * 
    * @example
    * super_strict
@@ -97,8 +97,8 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
    * The rule status. Valid values:
-   * - **1**: Disabled.
-   * - **0**: Enabled.
+   * - **1**: disabled.
+   * - **0**: enabled.
    * 
    * @example
    * 1
@@ -106,7 +106,7 @@ export class DescribeBaseSystemRulesResponseBodyRules extends $dara.Model {
   ruleStatus?: number;
   /**
    * @remarks
-   * The time when the rule was last updated.
+   * The time when the rule was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1665460629000

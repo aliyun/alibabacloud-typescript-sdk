@@ -13,7 +13,7 @@ export class CreateDefenseResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the protected object that is created.
+   * The name of the created protected object.
    * 
    * @example
    * cdX.XXX-call.cn-alb

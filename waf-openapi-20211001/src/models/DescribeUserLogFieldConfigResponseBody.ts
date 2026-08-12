@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The additional log fields that are added to the default configuration. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
+   * The list of log fields that are configured in addition to the default log fields, in the format of "a,b,c,...".
    * 
    * @example
    * acl_action,acl_rule_id
@@ -14,14 +14,10 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the log field configuration. Valid values:
-   * 
-   * - **initial**: The log field configuration is being initialized.
-   * 
-   * - **updating**: The log field configuration is being updated.
-   * 
-   * - **failed_finished**: The log field configuration update failed.
-   * 
-   * - **success_finished**: The log field configuration update succeeded.
+   * - **initial**: The configuration is in the initialization state.
+   * - **updating**: The configuration is being updated.
+   * - **failed_finished**: The configuration failed.
+   * - **success_finished**: The configuration succeeded.
    * 
    * @example
    * success_finished
@@ -29,7 +25,7 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   configStatus?: string;
   /**
    * @remarks
-   * The default log fields that are excluded from the log delivery configuration. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
+   * The list of log fields that are excluded from the default log fields, in the format of "a,b,c,...".
    * 
    * @example
    * waf_rule_id,waf_rule_type
@@ -37,7 +33,7 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   delList?: string;
   /**
    * @remarks
-   * The log delivery type. Valid values:
+   * The delivery type. Valid values:
    * 
    * - **sls**: Simple Log Service.
    * 
@@ -47,9 +43,8 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The extended configuration for log delivery. The value is a JSON-formatted string that contains configuration key-value pairs, such as custom request headers.
-   * 
-   * > For more information, see the **ExtendConfig** parameter description in [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~).
+   * The extended configuration for log delivery. The value is a string converted from a JSON object constructed with a series of parameters.
+   * > For more information about the parameters, see the **ExtendConfig** parameter description in the [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~) operation.
    * 
    * @example
    * {\\"request_header\\":\\"Ali-Cdn-Real-Ip\\"}
@@ -57,7 +52,7 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   extendConfig?: string;
   /**
    * @remarks
-   * The complete list of log fields that are delivered. Multiple fields are separated by commas (,) in the `a,b,c,...` format.
+   * The list of log fields to be delivered, in the format of "a,b,c,...".
    * 
    * @example
    * account,acl_action,acl_rule_id,acl_rule_type
@@ -65,9 +60,9 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   fieldList?: string;
   /**
    * @remarks
-   * The log delivery policies. Multiple policies are supported. The value is a JSON-formatted string that contains an array of policy objects.
+   * The log delivery strategy. Multiple strategies are supported. The value is a string converted from a JSON array constructed with a series of parameters.
    * 
-   * > For more information, see the **LogDeliveryStrategy** parameter description in [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~).
+   * > For more information about the parameters, see the **LogDeliveryStrategy** parameter description in the [ModifyUserLogFieldConfig](~~ModifyUserLogFieldConfig~~) operation.
    * 
    * @example
    * [{\\"logType\\":\\"blockLog\\",\\"rate\\":100},{\\"logType\\":\\"normalRequestLog\\",\\"rate\\":100},{\\"logType\\":\\"checkLog\\",\\"rate\\":100}]
@@ -75,7 +70,7 @@ export class DescribeUserLogFieldConfigResponseBody extends $dara.Model {
   logDeliveryStrategy?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 653778B4-4D47-5223-855B-4E******

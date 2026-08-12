@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos extends $dara.Model {
   /**
    * @remarks
-   * The owner account ID of the protected object.
+   * The ID of the asset owner account of the protected object.
    * 
    * @example
    * 125************21

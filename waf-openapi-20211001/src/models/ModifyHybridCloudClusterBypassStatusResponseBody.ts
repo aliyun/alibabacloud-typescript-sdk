@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudClusterBypassStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0

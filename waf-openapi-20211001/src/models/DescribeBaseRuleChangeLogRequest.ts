@@ -7,7 +7,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,9 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the rule names in the response. Valid values:
+   * The language of the rule name. Valid values:
    * 
    * - **zh**: Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -29,7 +28,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number to return when paging. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -37,7 +36,7 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page when paging.
    * 
    * @example
    * 10
@@ -45,11 +44,11 @@ export class DescribeBaseRuleChangeLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

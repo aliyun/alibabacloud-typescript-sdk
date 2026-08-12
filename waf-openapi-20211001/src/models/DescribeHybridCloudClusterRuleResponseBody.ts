@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara.Model {
   /**
    * @remarks
-   * The resource ID of the cluster rule.
+   * The cluster rule resource ID.
    * 
    * @example
    * hdbc-clusterrule-2m*****m0w
@@ -13,21 +13,15 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
   clusterRuleResourceId?: string;
   /**
    * @remarks
-   * The configuration of the traffic routing rule.
+   * The traffic redirection rule configuration:
    * 
-   * - **check_mode**: Defines the traffic scope for the routing rule. Valid values:
-   * 
-   *   - **all**: Routes all traffic.
-   * 
-   *   - **part**: Routes a portion of the traffic.
-   * 
-   * - **type**: The rule\\"s match type. Valid values:
-   * 
-   *   - **exact**: Exact match.
-   * 
-   *   - **regex**: Regular expression match.
-   * 
-   * - **substance**: The value of the rule.
+   * - **check_mode**: the mode selection. Valid values:
+   *   - **all**: full traffic redirection
+   *   - **part**: partial traffic redirection
+   * - **type**: the rule matching type. Valid values:
+   *   - **exact**: exact match
+   *   - **regex**: regular expression
+   * - **substance**: the rule value
    * 
    * @example
    * {\\"check_mode\\":\\"all\\",\\"exclude\\":{\\"exact\\":[],\\"regex\\":[]}}
@@ -35,11 +29,11 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
   ruleConfig?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
+   * The rule status. Valid values:
    * 
-   * - **on**: Enabled.
+   * - **on**: enabled.
    * 
-   * - **off**: Disabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -47,9 +41,9 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
   ruleStatus?: string;
   /**
    * @remarks
-   * The type of the rule.
+   * The rule type. Valid values:
    * 
-   * - pullin: The traffic routing rule.
+   * - pullin: traffic redirection rule
    * 
    * @example
    * pullin
@@ -85,7 +79,7 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $dara
 export class DescribeHybridCloudClusterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the rule.
+   * The rule information.
    */
   clusterRule?: DescribeHybridCloudClusterRuleResponseBodyClusterRule;
   /**

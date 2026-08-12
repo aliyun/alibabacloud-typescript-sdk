@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecSlsProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The names of the projects in Simple Log Service.
+   * The list of Simple Log Service projects.
    */
   projects?: string[];
   /**

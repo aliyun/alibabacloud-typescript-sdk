@@ -218,7 +218,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the IP blacklist for a critical event protection rule.
+   * Clears the IP blacklist for a critical event protection scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - ClearMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -265,7 +268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the IP blacklist for a critical event protection rule.
+   * Clears the IP blacklist for a critical event protection scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - ClearMajorProtectionBlackIpRequest
    * @returns ClearMajorProtectionBlackIpResponse
@@ -462,7 +468,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connects a cloud service to Web Application Firewall (WAF) in cloud native mode. Currently, only ECS and CLB are supported.
+   * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and DDoS.
+   * 
+   * @remarks
+   * Before invoking this operation, complete the following steps:
+   * 1. Confirm that you have a WAF instance. Invoke [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+   * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. For more information, see the "Applicable Scope" section in [ECS Connection](https://help.aliyun.com/document_detail/464617.html), [CLB Connection](https://help.aliyun.com/document_detail/464614.html), and [NLB Connection](https://help.aliyun.com/document_detail/2853925.html). For DDoS connections, verify the domain name scope. For more information, see the "Applicable Scope" section in [DDoS Connection](https://help.aliyun.com/document_detail/3032763.html).
+   * After completing the preceding steps, invoke this operation to connect the cloud service to WAF in cloud native mode.
    * 
    * @param tmpReq - CreateCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -527,7 +539,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connects a cloud service to Web Application Firewall (WAF) in cloud native mode. Currently, only ECS and CLB are supported.
+   * Connects a cloud service to WAF in cloud native mode. Supported cloud services include ECS, CLB, NLB, and DDoS.
+   * 
+   * @remarks
+   * Before invoking this operation, complete the following steps:
+   * 1. Confirm that you have a WAF instance. Invoke [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+   * 2. Confirm that the cloud service to be connected meets the applicable scope. For ECS, CLB, and NLB connections, verify the instance specifications and region. For more information, see the "Applicable Scope" section in [ECS Connection](https://help.aliyun.com/document_detail/464617.html), [CLB Connection](https://help.aliyun.com/document_detail/464614.html), and [NLB Connection](https://help.aliyun.com/document_detail/2853925.html). For DDoS connections, verify the domain name scope. For more information, see the "Applicable Scope" section in [DDoS Connection](https://help.aliyun.com/document_detail/3032763.html).
+   * After completing the preceding steps, invoke this operation to connect the cloud service to WAF in cloud native mode.
    * 
    * @param request - CreateCloudResourceRequest
    * @returns CreateCloudResourceResponse
@@ -916,7 +934,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name to a WAF instance for Website Config protection.
+   * Adds a domain name to a WAF instance for Website Config.
+   * 
+   * @remarks
+   * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+   * - **Domain ownership verification**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must complete domain ownership verification first. Call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then call the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership verification.
+   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is connected to a region in the Chinese mainland, the domain name must have a valid ICP filing.
    * 
    * @param tmpReq - CreateDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -985,7 +1008,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a domain name to a WAF instance for Website Config protection.
+   * Adds a domain name to a WAF instance for Website Config.
+   * 
+   * @remarks
+   * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+   * - **Domain ownership verification**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must complete domain ownership verification first. Call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then call the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership verification.
+   * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is connected to a region in the Chinese mainland, the domain name must have a valid ICP filing.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -1098,7 +1126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
+   * Creates cluster rule information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - CreateHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1153,7 +1184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Hybrid Cloud Web Application Firewall (WAF) cluster rule.
+   * Creates cluster rule information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - CreateHybridCloudClusterRuleRequest
    * @returns CreateHybridCloudClusterRuleResponse
@@ -1242,7 +1276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud log forwarding delivery configuration.
+   * Creates a log delivery configuration for hybrid cloud environments.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
    * 
    * @param request - CreateLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1293,7 +1330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hybrid cloud log forwarding delivery configuration.
+   * Creates a log delivery configuration for hybrid cloud environments.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
    * 
    * @param request - CreateLogDeliveryConfigRequest
    * @returns CreateLogDeliveryConfigResponse
@@ -1304,10 +1344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blacklist for critical event protection.
+   * Adds IP addresses to the IP blacklist for critical event protection in WAF.
    * 
    * @remarks
-   * This operation is available only on the China site (aliyun.com).
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - CreateMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1366,10 +1406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address blacklist for critical event protection.
+   * Adds IP addresses to the IP blacklist for critical event protection in WAF.
    * 
    * @remarks
-   * This operation is available only on the China site (aliyun.com).
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - CreateMajorProtectionBlackIpRequest
    * @returns CreateMajorProtectionBlackIpResponse
@@ -1492,7 +1532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+   * Creates a Web Application Firewall (WAF) 3.0 pay-as-you-go instance.
+   * 
+   * @remarks
+   * Each Alibaba Cloud account can have only one WAF instance in the same region (the Chinese mainland or outside the Chinese mainland). Before calling this operation, call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to check whether a WAF instance already exists in the region specified by **RegionId**. If a pay-as-you-go instance already exists, call the [ReleaseInstance](https://help.aliyun.com/document_detail/2834183.html) operation to release it. If a subscription instance already exists, unsubscribe from it in the WAF console. You can create a new pay-as-you-go instance only after the existing instance is released or unsubscribed.
    * 
    * @param request - CreatePostpaidInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,7 +1570,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
+   * Creates a Web Application Firewall (WAF) 3.0 pay-as-you-go instance.
+   * 
+   * @remarks
+   * Each Alibaba Cloud account can have only one WAF instance in the same region (the Chinese mainland or outside the Chinese mainland). Before calling this operation, call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to check whether a WAF instance already exists in the region specified by **RegionId**. If a pay-as-you-go instance already exists, call the [ReleaseInstance](https://help.aliyun.com/document_detail/2834183.html) operation to release it. If a subscription instance already exists, unsubscribe from it in the WAF console. You can create a new pay-as-you-go instance only after the existing instance is released or unsubscribed.
    * 
    * @param request - CreatePostpaidInstanceRequest
    * @returns CreatePostpaidInstanceResponse
@@ -2250,7 +2296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
+   * Deletes cluster rule information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DeleteHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2293,7 +2342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hybrid cloud cluster rule from a Web Application Firewall (WAF) instance.
+   * Deletes cluster rule information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DeleteHybridCloudClusterRuleRequest
    * @returns DeleteHybridCloudClusterRuleResponse
@@ -2362,7 +2414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery configuration.
+   * Deletes a hybrid cloud log forwarding delivery configuration.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
    * 
    * @param request - DeleteLogDeliveryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2405,7 +2460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery configuration.
+   * Deletes a hybrid cloud log forwarding delivery configuration.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
    * 
    * @param request - DeleteLogDeliveryConfigRequest
    * @returns DeleteLogDeliveryConfigResponse
@@ -2416,7 +2474,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an IP address from the blacklist for critical event protection.
+   * Deletes blacklisted IPs from a critical event protection scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - DeleteMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2467,7 +2528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an IP address from the blacklist for critical event protection.
+   * Deletes blacklisted IPs from a critical event protection scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - DeleteMajorProtectionBlackIpRequest
    * @returns DeleteMajorProtectionBlackIpResponse
@@ -4004,7 +4068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Logstores whose names start with apisec- in Simple Log Service.
+   * Queries the list of Logstores in Simple Log Service.
    * 
    * @param request - DescribeApisecSlsLogStoresRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4051,7 +4115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Logstores whose names start with apisec- in Simple Log Service.
+   * Queries the list of Logstores in Simple Log Service.
    * 
    * @param request - DescribeApisecSlsLogStoresRequest
    * @returns DescribeApisecSlsLogStoresResponse
@@ -4062,7 +4126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the projects whose names start with apisec- in Simple Log Service.
+   * Queries the list of Simple Log Service projects.
    * 
    * @param request - DescribeApisecSlsProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4105,7 +4169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the projects whose names start with apisec- in Simple Log Service.
+   * Queries the list of Simple Log Service projects.
    * 
    * @param request - DescribeApisecSlsProjectsRequest
    * @returns DescribeApisecSlsProjectsResponse
@@ -4306,7 +4370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protection rule change logs on a paginated basis.
+   * Queries the change records of rule group rules by paging.
    * 
    * @param request - DescribeBaseRuleChangeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4357,7 +4421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries protection rule change logs on a paginated basis.
+   * Queries the change records of rule group rules by paging.
    * 
    * @param request - DescribeBaseRuleChangeLogRequest
    * @returns DescribeBaseRuleChangeLogResponse
@@ -4636,7 +4700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of certificates for a user.
+   * Queries the certificate list of a user.
    * 
    * @param request - DescribeCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4691,7 +4755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of certificates for a user.
+   * Queries the certificate list of a user.
    * 
    * @param request - DescribeCertsRequest
    * @returns DescribeCertsResponse
@@ -5750,7 +5814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset owner account of protected objects in multi-account management scenarios.
+   * Queries the asset owner account of a protected object in a multi-account management feature scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that a WAF instance already exists under the current Alibaba Cloud account. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the InstanceId parameter in the response has a value (in the format of waf_v2_public_cn********60f), the instance exists. If no instance exists, call the [CreatePostpaidInstance](https://help.aliyun.com/document_detail/2773874.html) operation to create a pay-as-you-go instance, or log on to the WAF console to purchase an instance.
    * 
    * @param request - DescribeDefenseResourceOwnerUidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5793,7 +5860,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asset owner account of protected objects in multi-account management scenarios.
+   * Queries the asset owner account of a protected object in a multi-account management feature scenario.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that a WAF instance already exists under the current Alibaba Cloud account. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the InstanceId parameter in the response has a value (in the format of waf_v2_public_cn********60f), the instance exists. If no instance exists, call the [CreatePostpaidInstance](https://help.aliyun.com/document_detail/2773874.html) operation to create a pay-as-you-go instance, or log on to the WAF console to purchase an instance.
    * 
    * @param request - DescribeDefenseResourceOwnerUidRequest
    * @returns DescribeDefenseResourceOwnerUidResponse
@@ -6546,7 +6616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Website Config details.
+   * Queries the details of a Website Config.
    * 
    * @param request - DescribeDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6589,7 +6659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Website Config details.
+   * Queries the details of a Website Config.
    * 
    * @param request - DescribeDomainDetailRequest
    * @returns DescribeDomainDetailResponse
@@ -7164,7 +7234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the system status of a node in a hybrid cloud cluster.
+   * Queries the system status of hybrid cloud cluster nodes.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudBasicMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7207,7 +7280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the system status of a node in a hybrid cloud cluster.
+   * Queries the system status of hybrid cloud cluster nodes.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudBasicMonitorRequest
    * @returns DescribeHybridCloudBasicMonitorResponse
@@ -7218,7 +7294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a hybrid cloud cluster rule.
+   * Retrieves the rule information of a hybrid cloud cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7245,7 +7324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a hybrid cloud cluster rule.
+   * Retrieves the rule information of a hybrid cloud cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
    * @returns DescribeHybridCloudClusterRuleResponse
@@ -7330,7 +7412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
+   * Queries the list of machines in a cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudClusterServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7397,7 +7482,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers in a hybrid cloud Web Application Firewall (WAF) cluster.
+   * Queries the list of machines in a cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudClusterServersRequest
    * @returns DescribeHybridCloudClusterServersResponse
@@ -7458,7 +7546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
+   * Queries the list of hybrid cloud node groups added to Web Application Firewall (WAF).
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7473,6 +7564,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterProxyType)) {
       query["ClusterProxyType"] = request.clusterProxyType;
+    }
+
+    if (!$dara.isNull(request.groupDisplayName)) {
+      query["GroupDisplayName"] = request.groupDisplayName;
     }
 
     if (!$dara.isNull(request.groupName)) {
@@ -7521,7 +7616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Hybrid Cloud WAF node groups that are added to Web Application Firewall (WAF).
+   * Queries the list of hybrid cloud node groups added to Web Application Firewall (WAF).
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudGroupsRequest
    * @returns DescribeHybridCloudGroupsResponse
@@ -7532,7 +7630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
+   * Queries the application status of hybrid cloud cluster nodes.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudProcessMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7575,7 +7676,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of applications on nodes in a hybrid cloud Web Application Firewall (WAF) cluster.
+   * Queries the application status of hybrid cloud cluster nodes.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudProcessMonitorRequest
    * @returns DescribeHybridCloudProcessMonitorResponse
@@ -7776,7 +7880,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
+   * Queries the list of hybrid cloud SDKs.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudSdkServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7835,7 +7942,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the hybrid cloud SDK servers that are managed by a Web Application Firewall (WAF) instance.
+   * Queries the list of hybrid cloud SDKs.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudSdkServersRequest
    * @returns DescribeHybridCloudSdkServersResponse
@@ -7846,7 +7956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dictionary of region information supported by hybrid cloud WAF, including ISPs, continents, and cities.
+   * Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudServerRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7893,7 +8006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dictionary of region information supported by hybrid cloud WAF, including ISPs, continents, and cities.
+   * Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudServerRegionsRequest
    * @returns DescribeHybridCloudServerRegionsResponse
@@ -7904,7 +8020,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
+   * Queries the access regions.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudSupportRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7943,7 +8062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions that are supported for hybrid cloud access in Web Application Firewall (WAF).
+   * Queries the access regions.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudSupportRegionsRequest
    * @returns DescribeHybridCloudSupportRegionsResponse
@@ -7955,6 +8077,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the list of unassigned servers in a hybrid cloud cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudUnassignedMachinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8015,6 +8140,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of unassigned servers in a hybrid cloud cluster.
    * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+   * 
    * @param request - DescribeHybridCloudUnassignedMachinesRequest
    * @returns DescribeHybridCloudUnassignedMachinesResponse
    */
@@ -8074,7 +8202,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
+   * Queries the port ranges that a customer is allowed to use for hybrid cloud access. The response includes both HTTP and HTTPS ports.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8113,7 +8244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available HTTP and HTTPS port ranges for hybrid cloud access.
+   * Queries the port ranges that a customer is allowed to use for hybrid cloud access. The response includes both HTTP and HTTPS ports.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - DescribeHybridCloudUserRequest
    * @returns DescribeHybridCloudUserResponse
@@ -8124,7 +8258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
+   * Retrieves the details of a WAF instance in the current Alibaba Cloud account.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8159,7 +8293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the Web Application Firewall (WAF) instance in your Alibaba Cloud account.
+   * Retrieves the details of a WAF instance in the current Alibaba Cloud account.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -8360,7 +8494,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address blacklist for critical event protection in a paginated format.
+   * Queries blacklisted IPs for critical event protection by paged query.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - DescribeMajorProtectionBlackIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8423,7 +8560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP address blacklist for critical event protection in a paginated format.
+   * Queries blacklisted IPs for critical event protection by paged query.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the response parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - DescribeMajorProtectionBlackIpsRequest
    * @returns DescribeMajorProtectionBlackIpsResponse
@@ -9144,7 +9284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
+   * Queries the certificate list of a cloud service instance. This operation returns the certificate list of the current delegated administrator and the user who owns the instance. This operation is used only in multi-account scenarios. For example, if user A is the delegated administrator and has certificate cert1, and cloud service instance lb-xx-1 belongs to member user B and has certificate cert2, when you query instance lb-xx-1, the operation returns both cert1 and cert2.
    * 
    * @param request - DescribeResourceInstanceCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9195,7 +9335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the certificates of a cloud product instance. This operation is available only in multi-account scenarios and returns the certificates of both the delegated administrator and the member that owns the instance. For example, if user A is a delegated administrator with cert1 and the instance lb-xx-1 belongs to member B who has cert2, a query for the instance lb-xx-1 returns both cert1 and cert2.
+   * Queries the certificate list of a cloud service instance. This operation returns the certificate list of the current delegated administrator and the user who owns the instance. This operation is used only in multi-account scenarios. For example, if user A is the delegated administrator and has certificate cert1, and cloud service instance lb-xx-1 belongs to member user B and has certificate cert2, when you query instance lb-xx-1, the operation returns both cert1 and cert2.
    * 
    * @param request - DescribeResourceInstanceCertsRequest
    * @returns DescribeResourceInstanceCertsResponse
@@ -9206,7 +9346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log delivery status for protected objects.
+   * Queries the log delivery status of protected objects.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
    * 
    * @param request - DescribeResourceLogDeliveryStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9249,7 +9392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log delivery status for protected objects.
+   * Queries the log delivery status of protected objects.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
    * 
    * @param request - DescribeResourceLogDeliveryStatusRequest
    * @returns DescribeResourceLogDeliveryStatusResponse
@@ -10476,7 +10622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution of outbound traffic that contains personal information.
+   * Queries the distribution of cross-border traffic that contains personal information.
    * 
    * @param request - DescribeSensitiveOutboundDistributionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10527,7 +10673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the distribution of outbound traffic that contains personal information.
+   * Queries the distribution of cross-border traffic that contains personal information.
    * 
    * @param request - DescribeSensitiveOutboundDistributionRequest
    * @returns DescribeSensitiveOutboundDistributionResponse
@@ -10866,7 +11012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sensitive data statistics for tracing audits.
+   * Queries the sensitive data statistics of tracing watermark audits.
    * 
    * @param request - DescribeSensitiveStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10929,7 +11075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sensitive data statistics for tracing audits.
+   * Queries the sensitive data statistics of tracing watermark audits.
    * 
    * @param request - DescribeSensitiveStatisticRequest
    * @returns DescribeSensitiveStatisticResponse
@@ -11780,7 +11926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
+   * Queries the default log field configuration of a user.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the log service is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.LogService response parameter is true, the log service is enabled. If the log service is not enabled, log on to the WAF console and upgrade the instance to enable the log service.
    * 
    * @param request - DescribeUserLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11823,7 +11972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log field configuration of a Web Application Firewall (WAF) instance, including additional fields, removed fields, delivery strategies, and extended settings.
+   * Queries the default log field configuration of a user.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the log service is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.LogService response parameter is true, the log service is enabled. If the log service is not enabled, log on to the WAF console and upgrade the instance to enable the log service.
    * 
    * @param request - DescribeUserLogFieldConfigRequest
    * @returns DescribeUserLogFieldConfigResponse
@@ -12328,7 +12480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to a resource.
+   * Queries the tags that are attached to a resource.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12375,7 +12527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to a resource.
+   * Queries the tags that are attached to a resource.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -12650,7 +12802,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the API security log subscription settings.
+   * Modifies the API security log subscription.
+   * 
+   * @remarks
+   * Before calling this operation, ensure that you have completed the following steps:
+   * 1. Confirm that the API security feature is enabled. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the API security feature.
+   * 2. Confirm that WAF is authorized to access cloud resources. You can call the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, call the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
+   * 3. Call the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query available Simple Log Service (SLS) projects and Logstores.
+   * After completing the preceding steps, call this operation to configure API security log delivery.
    * 
    * @param request - ModifyApisecLogDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12705,7 +12864,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the API security log subscription settings.
+   * Modifies the API security log subscription.
+   * 
+   * @remarks
+   * Before calling this operation, ensure that you have completed the following steps:
+   * 1. Confirm that the API security feature is enabled. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the API security feature.
+   * 2. Confirm that WAF is authorized to access cloud resources. You can call the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, call the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
+   * 3. Call the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query available Simple Log Service (SLS) projects and Logstores.
+   * After completing the preceding steps, call this operation to configure API security log delivery.
    * 
    * @param request - ModifyApisecLogDeliveryRequest
    * @returns ModifyApisecLogDeliveryResponse
@@ -12717,6 +12883,13 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the subscription status of API security logs.
+   * 
+   * @remarks
+   * Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+   * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
+   * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
+   * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+   * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
    * 
    * @param request - ModifyApisecLogDeliveryStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12764,6 +12937,13 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the subscription status of API security logs.
+   * 
+   * @remarks
+   * Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+   * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
+   * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
+   * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+   * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
    * 
    * @param request - ModifyApisecLogDeliveryStatusRequest
    * @returns ModifyApisecLogDeliveryStatusResponse
@@ -13442,7 +13622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a protection rule.
+   * Modifies the status of a protection rule.
    * 
    * @param request - ModifyDefenseRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13497,7 +13677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a protection rule.
+   * Modifies the status of a protection rule.
    * 
    * @param request - ModifyDefenseRuleStatusRequest
    * @returns ModifyDefenseRuleStatusResponse
@@ -13768,6 +13948,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies the certificate of a domain name.
    * 
+   * @remarks
+   * This operation supports modifying the certificate of a domain name that is added by using CNAME (**AccessType** is set to **share** or **hybrid_cloud_cname**). For domain names added in cloud native mode, call the [ModifyCloudResourceCert](https://help.aliyun.com/document_detail/2990691.html) operation to modify the certificate.
+   * 
    * @param request - ModifyDomainCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDomainCertResponse
@@ -13826,6 +14009,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the certificate of a domain name.
+   * 
+   * @remarks
+   * This operation supports modifying the certificate of a domain name that is added by using CNAME (**AccessType** is set to **share** or **hybrid_cloud_cname**). For domain names added in cloud native mode, call the [ModifyCloudResourceCert](https://help.aliyun.com/document_detail/2990691.html) operation to modify the certificate.
    * 
    * @param request - ModifyDomainCertRequest
    * @returns ModifyDomainCertResponse
@@ -13890,7 +14076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
+   * Modifies cluster information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13985,7 +14174,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates hybrid cloud cluster settings, such as the cluster name, ports, and access mode.
+   * Modifies cluster information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudClusterRequest
    * @returns ModifyHybridCloudClusterResponse
@@ -13996,7 +14188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
+   * Modifies the manual bypass switch for a hybrid cloud SDK integration cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudClusterBypassStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14043,7 +14238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the manual bypass status for a hybrid cloud cluster that is integrated with an SDK.
+   * Modifies the manual bypass switch for a hybrid cloud SDK integration cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudClusterBypassStatusRequest
    * @returns ModifyHybridCloudClusterBypassStatusResponse
@@ -14055,6 +14253,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the rule information of a hybrid cloud cluster.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudClusterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14115,6 +14316,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies the rule information of a hybrid cloud cluster.
    * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+   * 
    * @param request - ModifyHybridCloudClusterRuleRequest
    * @returns ModifyHybridCloudClusterRuleResponse
    */
@@ -14124,7 +14328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information of a cluster group.
+   * Modifies cluster group information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14179,7 +14386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information of a cluster group.
+   * Modifies cluster group information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudGroupRequest
    * @returns ModifyHybridCloudGroupResponse
@@ -14254,6 +14464,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes nodes from a cluster group.
    * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+   * 
    * @param request - ModifyHybridCloudGroupShrinkServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyHybridCloudGroupShrinkServerResponse
@@ -14305,6 +14518,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes nodes from a cluster group.
    * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+   * 
    * @param request - ModifyHybridCloudGroupShrinkServerRequest
    * @returns ModifyHybridCloudGroupShrinkServerResponse
    */
@@ -14314,7 +14530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the traffic redirection status of a hybrid cloud SDK.
+   * Modifies the traffic redirection status of the hybrid cloud SDK.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudSdkPullinStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14353,7 +14572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the traffic redirection status of a hybrid cloud SDK.
+   * Modifies the traffic redirection status of the hybrid cloud SDK.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudSdkPullinStatusRequest
    * @returns ModifyHybridCloudSdkPullinStatusResponse
@@ -14365,6 +14587,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies hybrid cloud node information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14424,6 +14649,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies hybrid cloud node information.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
    * 
    * @param request - ModifyHybridCloudServerRequest
    * @returns ModifyHybridCloudServerResponse
@@ -14496,7 +14724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address blacklist for critical event protection.
+   * Modifies the IP blacklist for a critical event protection scenario.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - ModifyMajorProtectionBlackIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14555,7 +14786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address blacklist for critical event protection.
+   * Modifies the IP blacklist for a critical event protection scenario.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
    * 
    * @param request - ModifyMajorProtectionBlackIpRequest
    * @returns ModifyMajorProtectionBlackIpResponse
@@ -14746,6 +14980,12 @@ export default class Client extends OpenApi {
   /**
    * Modifies the log field configuration of a protected object.
    * 
+   * @remarks
+   * Before you invoke this operation, make sure you have completed the following steps:
+   * 1. Invoke the [DescribeDefenseResourceNames](https://help.aliyun.com/document_detail/2773867.html) operation to obtain the names of created protected objects.
+   * 2. Invoke the [DescribeResourceLogStatus](https://help.aliyun.com/document_detail/461429.html) operation to query the enabling status of logs for the protected object. If logging is not enabled, invoke the [ModifyResourceLogStatus](https://help.aliyun.com/document_detail/461427.html) operation to enable logging (Status=true).
+   * After completing the preceding steps, invoke this operation to modify the log field configuration of the protected object.
+   * 
    * @param request - ModifyResourceLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyResourceLogFieldConfigResponse
@@ -14804,6 +15044,12 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the log field configuration of a protected object.
+   * 
+   * @remarks
+   * Before you invoke this operation, make sure you have completed the following steps:
+   * 1. Invoke the [DescribeDefenseResourceNames](https://help.aliyun.com/document_detail/2773867.html) operation to obtain the names of created protected objects.
+   * 2. Invoke the [DescribeResourceLogStatus](https://help.aliyun.com/document_detail/461429.html) operation to query the enabling status of logs for the protected object. If logging is not enabled, invoke the [ModifyResourceLogStatus](https://help.aliyun.com/document_detail/461427.html) operation to enable logging (Status=true).
+   * After completing the preceding steps, invoke this operation to modify the log field configuration of the protected object.
    * 
    * @param request - ModifyResourceLogFieldConfigRequest
    * @returns ModifyResourceLogFieldConfigResponse
@@ -14964,7 +15210,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
+   * Modifies the default field configuration of the log service for a user.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the log service is activated for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.LogService response parameter is true, the log service is activated. If the log service is not activated, log on to the WAF console and upgrade the instance to activate the log service.
    * 
    * @param request - ModifyUserLogFieldConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15019,7 +15268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default log field configuration of a Web Application Firewall (WAF) instance for log delivery to Simple Log Service.
+   * Modifies the default field configuration of the log service for a user.
+   * 
+   * @remarks
+   * Before calling this operation, make sure that the log service is activated for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.LogService response parameter is true, the log service is activated. If the log service is not activated, log on to the WAF console and upgrade the instance to activate the log service.
    * 
    * @param request - ModifyUserLogFieldConfigRequest
    * @returns ModifyUserLogFieldConfigResponse

@@ -13,11 +13,11 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   backend?: string;
   /**
    * @remarks
-   * Specifies whether to enable public cloud disaster recovery. Valid values:
+   * Specifies whether public cloud disaster recovery is enabled. Valid values:
    * 
-   * - **true**: Enabled.
+   * - **true**: Public cloud disaster recovery is enabled.
    * 
-   * - **false**: Disabled.
+   * - **false**: Public cloud disaster recovery is not enabled.
    * 
    * @example
    * true
@@ -44,7 +44,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number to return when paging is used. Default value: **1**, which indicates the first page.
+   * The page number to return in a paging query. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is used. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10

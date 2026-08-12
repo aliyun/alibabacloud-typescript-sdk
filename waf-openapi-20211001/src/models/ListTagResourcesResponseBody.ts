@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. ALIYUN::WAF::DEFENSERESOURCE is returned.
+   * The resource type. Fixed value: ALIYUN::WAF::DEFENSERESOURCE.
    * 
    * @example
    * ALIYUN::WAF::DEFENSERESOURCE
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
    * @example
    * TagKey1
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
    * @example
    * TayValue1
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query. If NextToken is empty, no more results exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -81,7 +81,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource list.
+   * The list of resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

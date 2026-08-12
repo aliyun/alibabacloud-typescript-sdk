@@ -114,7 +114,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Indicates whether the exclusive IP address feature is enabled. Valid values:
+   * Indicates whether an exclusive IP address is enabled. Valid values:
+   * 
+   * - **true**: An exclusive IP address is enabled.
+   * 
+   * - **false**: An exclusive IP address is not enabled.
    * 
    * @example
    * true
@@ -131,6 +135,10 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   /**
    * @remarks
    * Indicates whether HSTS includes subdomains. Valid values:
+   * 
+   * - **true**: Enabled.
+   * 
+   * - **false**: Not enabled.
    */
   hstsIncludeSubDomain?: boolean;
   /**
@@ -153,6 +161,10 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * Indicates whether HTTP/2 is enabled. Valid values:
    * 
+   * - **true**: HTTP/2 is enabled.
+   * 
+   * - **false**: HTTP/2 is not enabled.
+   * 
    * @example
    * true
    */
@@ -170,6 +182,10 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   /**
    * @remarks
    * Indicates whether IPv6 is enabled. Valid values:
+   * 
+   * - **true**: IPv6 is enabled.
+   * 
+   * - **false**: IPv6 is not enabled.
    * 
    * @example
    * true
@@ -211,6 +227,14 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The TLS version. Valid values:
    * 
+   * - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
+   * 
+   * - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
+   * 
+   * - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
+   * 
+   * - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
+   * 
    * @example
    * tlsv1.2
    */
@@ -219,13 +243,21 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The method that WAF uses to obtain the originating IP address of the client. Valid values:
    * 
+   * - **0**: The client access traffic is not forwarded by other Layer 7 proxies before reaching WAF.
+   * 
+   * - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header field of the request as the client IP address.
+   * 
+   * - **2**: WAF reads the value of a custom header field that you specify in the request as the client IP address.
+   * 
+   * - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
+   * 
    * @example
    * 2
    */
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields used to obtain the client IP address.
+   * The custom header fields used to obtain the client IP address.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -319,6 +351,9 @@ export class DescribeDomainDetailResponseBodyRedirectBackendPorts extends $dara.
   /**
    * @remarks
    * The protocol type of the listener port. Valid values:
+   * 
+   * - **http**: HTTP protocol.
+   * - **https**: HTTPS protocol.
    * 
    * @example
    * http
@@ -477,7 +512,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
   /**
    * @remarks
-   * The secondary back-to-origin addresses of the domain name.
+   * The secondary origin addresses of the domain name.
+   * 
+   * > This parameter is about to be deprecated. Use **BackUpBackendList** to obtain the related information.
    * 
    * @deprecated
    */
@@ -494,13 +531,17 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * Indicates whether forced HTTP back-to-origin is enabled. Valid values:
    * 
+   * - **true**: Forced HTTP back-to-origin is enabled.
+   * 
+   * - **false**: Forced HTTP back-to-origin is not enabled.
+   * 
    * @example
    * true
    */
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * The HTTP/2 back-to-origin setting.
+   * Indicates whether HTTP/2 back-to-origin is enabled.
    * 
    * @example
    * true
@@ -508,7 +549,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   http2Origin?: boolean;
   /**
    * @remarks
-   * The number of concurrent connections for HTTP/2 back-to-origin.
+   * The maximum number of concurrent connections for HTTP/2 back-to-origin.
    * 
    * @example
    * 128
@@ -516,7 +557,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   http2OriginMaxConcurrency?: number;
   /**
    * @remarks
-   * Indicates whether persistent connections are enabled. Valid values:
+   * Specifies whether to keep the connection alive. Valid values:
+   * 
+   * - **true** (default): The connection is kept alive.
+   * 
+   * - **false**: The connection is not kept alive.
    * 
    * @example
    * true
@@ -540,7 +585,13 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The load balancing algorithm used for back-to-origin. Valid values:
+   * The load balancing algorithm used for back-to-origin requests. Valid values:
+   * 
+   * - **iphash**: IP Hash algorithm.
+   * 
+   * - **roundRobin**: round-robin algorithm.
+   * 
+   * - **leastTime**: Least Time algorithm.
    * 
    * @example
    * iphash
@@ -556,7 +607,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   maxBodySize?: number;
   /**
    * @remarks
-   * Indicates whether the feature for preserving the originating IP address of the client is enabled.
+   * Indicates whether the client source IP address preservation feature is enabled.
+   * - **true**: The client source IP address preservation feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
+   * - **false**: The client source IP address preservation feature is not enabled.
    * 
    * @example
    * false
@@ -572,12 +625,16 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The traffic mark fields and values of the domain name, which are used to mark traffic processed by WAF.
+   * The traffic tag fields and values of the domain name, which are used to tag traffic processed by WAF.
    */
   requestHeaders?: DescribeDomainDetailResponseBodyRedirectRequestHeaders[];
   /**
    * @remarks
-   * Indicates whether WAF retries when back-to-origin fails. Valid values:
+   * Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
+   * 
+   * - **true** (default): Retry.
+   * 
+   * - **false**: Do not retry.
    * 
    * @example
    * true
@@ -585,7 +642,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   retry?: boolean;
   /**
    * @remarks
-   * Indicates whether back-to-origin SNI is enabled. Valid values:
+   * Indicates whether Server Name Indication (SNI) is enabled for back-to-origin requests. Valid values:
+   * 
+   * - **true**: SNI is enabled for back-to-origin requests.
+   * 
+   * - **false** (default): SNI is not enabled for back-to-origin requests.
    * 
    * @example
    * true
@@ -601,7 +662,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   sniHost?: string;
   /**
    * @remarks
-   * Indicates whether WAF is allowed to overwrite WL-Proxy-Client-IP. Valid values:
+   * Specifies whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
+   * 
+   * - **true** (default): WAF is allowed to overwrite the header.
+   * 
+   * - **false**: WAF is not allowed to overwrite the header.
    * 
    * @example
    * true
@@ -609,7 +674,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   WLProxyClientIp?: boolean;
   /**
    * @remarks
-   * Indicates whether WAF is allowed to overwrite Web-Server-Type. Valid values:
+   * Specifies whether WAF is allowed to overwrite the Web-Server-Type header. Valid values:
+   * 
+   * - **true** (default): WAF is allowed to overwrite the header.
+   * 
+   * - **false**: WAF is not allowed to overwrite the header.
    * 
    * @example
    * true
@@ -625,7 +694,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * Indicates whether WAF is allowed to overwrite X-Client-IP. Valid values:
+   * Specifies whether WAF is allowed to overwrite X-Client-IP. Valid values:
+   * 
+   * - **true** (default): WAF is allowed to overwrite the header.
+   * 
+   * - **false**: WAF is not allowed to overwrite the header.
    * 
    * @example
    * true
@@ -633,7 +706,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   XClientIp?: boolean;
   /**
    * @remarks
-   * Indicates whether WAF is allowed to overwrite X-True-IP. Valid values:
+   * Specifies whether WAF is allowed to overwrite the X-True-IP header. Valid values:
+   * 
+   * - **true** (default): WAF is allowed to overwrite the header.
+   * 
+   * - **false**: WAF is not allowed to overwrite the header.
    * 
    * @example
    * true
@@ -879,7 +956,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   SM2CertDetail?: DescribeDomainDetailResponseBodySM2CertDetail;
   /**
    * @remarks
-   * The status of the domain name. Valid values:
+   * The domain name status. Valid values:
    * 
    * @example
    * 1

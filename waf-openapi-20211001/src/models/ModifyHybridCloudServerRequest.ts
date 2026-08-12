@@ -20,14 +20,14 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 节点名称
+   * groupTest
    */
   customName?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node ID.
+   * The machine identifier (MID).
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

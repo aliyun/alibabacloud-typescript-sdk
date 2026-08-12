@@ -7,11 +7,9 @@ export class ModifyResourceLogFieldConfigRequest extends $dara.Model {
    * @remarks
    * The log delivery type. Valid values:
    * 
-   * - **sls**: Alibaba Cloud Simple Log Service.
-   * 
-   * - **kafka**: Delivers logs to an external Kafka cluster.
-   * 
-   * - **syslog**: Delivers logs to an external syslog server.
+   * - **sls**: Simple Log Service.
+   * - **kafka**: external delivery to Kafka logs.
+   * - **syslog**: external delivery to Syslog logs.
    * 
    * This parameter is required.
    * 
@@ -21,9 +19,8 @@ export class ModifyResourceLogFieldConfigRequest extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The extension configuration for log delivery. This is a JSON object converted to a string.
-   * 
-   * > For more information, see the description of the **ExtendConfig** parameter.
+   * The log delivery extension configuration. The value is a string converted from a JSON object constructed with a series of parameters.
+   * > For more information, see the **Log delivery extension configuration** parameter description.
    * 
    * @example
    * {\\"request_header\\":\\"Ali-Cdn-Real-Ip\\"}
@@ -31,11 +28,10 @@ export class ModifyResourceLogFieldConfigRequest extends $dara.Model {
   extendConfig?: string;
   /**
    * @remarks
-   * The list of log fields to deliver. Use the \\`a,b,c,...\\` format.
+   * The list of log fields to deliver. Specify the fields in the "a,b,c,..." format.
    * 
-   * > - Include all required log fields. Call [DescribeCommonLogFields](~~DescribeCommonLogFields~~) to view the log fields that WAF Simple Log Service supports.
-   * >
-   * > - If the log fields include **request_header**, use the **ExtendConfig** parameter to specify the request headers to deliver.
+   * >   - All required log fields must be included. You can invoke the [DescribeCommonLogFields](~~DescribeCommonLogFields~~) operation to view the log fields supported by Simple Log Service for WAF. 
+   * > - If the log fields include **request_header**, use the **delivery extension configuration** (**ExtendConfig**) parameter to specify the request headers to deliver.
    * 
    * This parameter is required.
    * 
@@ -47,7 +43,7 @@ export class ModifyResourceLogFieldConfigRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -57,9 +53,9 @@ export class ModifyResourceLogFieldConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The log delivery policies. Multiple policies are supported. This is a JSON array of policy objects converted to a string.
+   * The log delivery strategy. Multiple strategies are supported. The value is a string converted from a JSON array constructed with a series of parameters.
    * 
-   * > For more information, see the description of the **LogDeliveryStrategy** parameter.
+   * > For more information, see the **Log delivery strategy** parameter description.
    * 
    * @example
    * [{\\"logType\\":\\"blockLog\\",\\"rate\\":100},{\\"logType\\":\\"normalRequestLog\\",\\"rate\\":100},{\\"logType\\":\\"checkLog\\",\\"rate\\":100}]

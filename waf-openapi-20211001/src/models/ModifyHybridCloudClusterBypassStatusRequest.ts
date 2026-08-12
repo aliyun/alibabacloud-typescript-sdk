@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * The resource ID of the hybrid cloud cluster.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   clusterResourceId?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -47,11 +47,11 @@ export class ModifyHybridCloudClusterBypassStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The status of the manual bypass. Valid values:
+   * The manual bypass enabling status. Valid values:
    * 
-   * - **on**: The manual bypass is enabled.
+   * - **on**: enabled.
    * 
-   * - **off** (default): The manual bypass is disabled.
+   * - **off (default)**: shutdown.
    * 
    * This parameter is required.
    * 

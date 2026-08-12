@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,8 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address blacklist to be deleted. Supports custom IP addresses or IP address segments in the blacklist, and supports both IPv4 and IPv6. Multiple IP addresses are separated by commas (,). For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
+   * The IP blacklist to delete. Custom IP addresses or CIDR blocks are supported, including both IPv4 and IPv6. Separate multiple IP addresses with commas (,).
+   * For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
    * 
    * This parameter is required.
    * 
@@ -27,11 +28,11 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +48,7 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for critical event protection.
+   * The ID of the IP blacklist rule for critical event protection.
    * 
    * This parameter is required.
    * 
@@ -57,7 +58,9 @@ export class DeleteMajorProtectionBlackIpRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the critical event protection template.
+   * The ID of the critical event protection scenario template.
+   * 
+   * > This parameter requires the ID of a protection template of the critical event protection type. You can create this type of template only after purchasing the critical event protection upgrade.
    * 
    * This parameter is required.
    * 

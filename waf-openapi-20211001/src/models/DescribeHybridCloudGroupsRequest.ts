@@ -13,11 +13,11 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The proxy type of the hybrid cloud cluster. Valid values:
+   * The proxy type of the cluster. Valid values:
    * 
-   * - **service**: SDK-based integration.
+   * - **service**: SDK integration.
    * 
-   * - **cname**: CNAME-based reverse proxy.
+   * - **cname**: reverse proxy.
    * 
    * @example
    * cname
@@ -25,23 +25,33 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   clusterProxyType?: string;
   /**
    * @remarks
-   * The name of the hybrid cloud node group that you want to query.
+   * The name of the hybrid cloud node group to query.
    * 
    * @example
-   * groupName1
+   * testGroup
+   */
+  groupDisplayName?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** Use GroupDisplayName for queries instead.
+   * 
+   * @example
+   * 1
+   * 
+   * @deprecated
    */
   groupName?: number;
   /**
    * @remarks
    * The type of the hybrid cloud node group. Valid values:
    * 
-   * - **protect**: protection node group.
+   * - **protect**: protection.
    * 
-   * - **control**: control node group.
+   * - **control**: management.
    * 
-   * - **storage**: storage node group.
+   * - **storage**: storage.
    * 
-   * - **controlStorage**: control and storage node group.
+   * - **controlStorage**: management and storage.
    * 
    * @example
    * protect
@@ -51,7 +61,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -61,7 +71,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number to return in a paging query. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -69,7 +79,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**.
    * 
    * @example
    * 10
@@ -77,7 +87,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -89,7 +99,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the WAF instance belongs.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -99,6 +109,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       clusterProxyType: 'ClusterProxyType',
+      groupDisplayName: 'GroupDisplayName',
       groupName: 'GroupName',
       groupType: 'GroupType',
       instanceId: 'InstanceId',
@@ -113,6 +124,7 @@ export class DescribeHybridCloudGroupsRequest extends $dara.Model {
     return {
       clusterId: 'number',
       clusterProxyType: 'string',
+      groupDisplayName: 'string',
       groupName: 'number',
       groupType: 'string',
       instanceId: 'string',

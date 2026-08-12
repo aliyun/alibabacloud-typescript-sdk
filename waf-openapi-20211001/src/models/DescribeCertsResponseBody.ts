@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertsResponseBodyCerts extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The expiration time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1976256736582
@@ -13,7 +13,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The effective period. The value is a UNIX timestamp in the format of milliseconds (ms).
    * 
    * @example
    * 1976256836582
@@ -21,7 +21,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+   * The global certificate ID, which is in the format of certificate ID + "-cn-hangzhou". For example, if the certificate ID is 123, the CertIdentifier is "123-cn-hangzhou".
    * 
    * @example
    * 12345-cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * waf1234
@@ -45,7 +45,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The domain name for which the certificate is issued.
+   * The domain name supported by the certificate.
    * 
    * @example
    * www.example.com
@@ -99,12 +99,12 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
 export class DescribeCertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of certificates.
+   * The certificate list.
    */
   certs?: DescribeCertsResponseBodyCerts[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 19511B0D-5AE0-5600-BB8A-DC2C8345****

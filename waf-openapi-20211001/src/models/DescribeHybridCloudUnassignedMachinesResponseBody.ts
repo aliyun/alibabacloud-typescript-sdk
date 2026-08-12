@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines extends $dara.Model {
   /**
    * @remarks
-   * The number of CPU cores of the server.
+   * The number of CPU cores.
    * 
    * @example
    * 16
@@ -13,7 +13,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   cpu?: number;
   /**
    * @remarks
-   * The custom name of the server.
+   * The node name.
    * 
    * @example
    * exampleName
@@ -21,7 +21,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   customName?: string;
   /**
    * @remarks
-   * The hostname of the server.
+   * The hostname.
    * 
    * @example
    * online-xagent1
@@ -37,7 +37,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   ip?: string;
   /**
    * @remarks
-   * The MAC address of the server.
+   * The MAC address of the device.
    * 
    * @example
    * 00163e2686ac
@@ -45,7 +45,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   mac?: string;
   /**
    * @remarks
-   * The memory size of the server. Unit: KB.
+   * The memory size. Unit: KB. The conversion factor is 1000.
    * 
    * @example
    * 31580872
@@ -53,7 +53,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines
   memory?: number;
   /**
    * @remarks
-   * The ID of the server.
+   * The machine identifier (MID).
    * 
    * @example
    * 78db009ab6cf055a9085f9f4****ae3a
@@ -103,7 +103,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of unassigned servers returned.
+   * The total number of entries returned.
    * 
    * @example
    * 28
@@ -111,7 +111,7 @@ export class DescribeHybridCloudUnassignedMachinesResponseBody extends $dara.Mod
   totalCount?: number;
   /**
    * @remarks
-   * The unassigned servers in the hybrid cloud cluster.
+   * The list of unassigned machines in the hybrid cloud cluster.
    */
   unassignedMachines?: DescribeHybridCloudUnassignedMachinesResponseBodyUnassignedMachines[];
   static names(): { [key: string]: string } {

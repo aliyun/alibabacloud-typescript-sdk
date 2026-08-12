@@ -7,6 +7,8 @@ export class DescribePostpayBillsRequest extends $dara.Model {
    * @remarks
    * The end time. The value is a UNIX timestamp (UTC). Unit: seconds.
    * 
+   * > When querying pay-as-you-go bills, **StartTime** and **EndTime** are required parameters. You must specify both to determine the query time range.
+   * 
    * @example
    * 1779195599
    */
@@ -25,7 +27,7 @@ export class DescribePostpayBillsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 24
@@ -35,7 +37,7 @@ export class DescribePostpayBillsRequest extends $dara.Model {
    * @remarks
    * The pagination token for the next page. If a next page exists, this field has a return value.
    * 
-   * > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -43,7 +45,7 @@ export class DescribePostpayBillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The statistical period type for billing.
+   * The statistical period type of the bill.
    * 
    * @example
    * hour
@@ -51,7 +53,7 @@ export class DescribePostpayBillsRequest extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -72,6 +74,8 @@ export class DescribePostpayBillsRequest extends $dara.Model {
   /**
    * @remarks
    * The start time. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * 
+   * > When querying pay-as-you-go bills, **StartTime** and **EndTime** are required parameters. You must specify both to determine the query time range.
    * 
    * @example
    * 1779120000

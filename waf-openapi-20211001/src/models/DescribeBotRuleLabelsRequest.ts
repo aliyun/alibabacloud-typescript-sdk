@@ -7,7 +7,7 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   labelType?: string;
   /**
    * @remarks
-   * The number of entries per page for paging. Valid values: 1 to 200. Default value: 20.
+   * The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20. This parameter is used for paging.
    * 
    * @example
    * 20
@@ -33,9 +33,9 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. If a next page exists, this field has a return value.
+   * The pagination token for the next page. If a value is returned for this parameter, the next page exists.
    * 
-   * > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+   * > If this parameter has a return value, the next page exists. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
@@ -63,7 +63,7 @@ export class DescribeBotRuleLabelsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The bot management protection scenario type.
+   * The type of bot management protection scenario.
    * 
    * @example
    * app

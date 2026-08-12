@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ClearMajorProtectionBlackIpRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ClearMajorProtectionBlackIpRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -29,7 +29,7 @@ export class ClearMajorProtectionBlackIpRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -47,7 +47,9 @@ export class ClearMajorProtectionBlackIpRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the critical event protection template.
+   * The ID of the critical event protection scenario template.
+   * 
+   * > This parameter must be set to the ID of a protection template of the critical event protection type. You can create this type of template only after purchasing the critical event protection upgrade.
    * 
    * This parameter is required.
    * 

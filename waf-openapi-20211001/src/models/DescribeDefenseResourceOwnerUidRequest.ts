@@ -6,8 +6,7 @@ export class DescribeDefenseResourceOwnerUidRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,11 +16,11 @@ export class DescribeDefenseResourceOwnerUidRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: outside tthe Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +36,7 @@ export class DescribeDefenseResourceOwnerUidRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The protected objects to query. Separate multiple protected objects with commas (,). You can query a maximum of 100 protected objects at a time.
+   * The protected objects to query. Separate multiple protected objects with commas (,). A maximum of 100 protected objects can be queried in a single request.
    * 
    * This parameter is required.
    * 

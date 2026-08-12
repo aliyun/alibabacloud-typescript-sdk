@@ -7,7 +7,7 @@ export class DescribeHybridCloudBasicMonitorRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeHybridCloudBasicMonitorRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node ID.
+   * The machine identifier (MID).
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DescribeHybridCloudBasicMonitorRequest extends $dara.Model {
   mid?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

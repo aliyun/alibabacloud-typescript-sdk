@@ -15,7 +15,7 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The hostname of the server that you want to query.
+   * The hostname.
    * 
    * @example
    * online-xagent1
@@ -23,9 +23,9 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address of the server that you want to query.
+   * The IP address of the server.
    * 
    * @example
    * 1.X.X.1
@@ -43,7 +43,7 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number to return in a paged query. Default value: **1**. For more information about paging, see the relevant parameter descriptions.
    * 
    * @example
    * 1
@@ -51,7 +51,7 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page in a paged query. Default value: **10**, which indicates that each page contains 10 entries. For more information about paging, see the relevant parameter descriptions.
    * 
    * @example
    * 10
@@ -59,7 +59,7 @@ export class DescribeHybridCloudUnassignedMachinesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 

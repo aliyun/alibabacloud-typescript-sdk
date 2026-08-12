@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyUserLogFieldConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E2D63742-9BAA-*****

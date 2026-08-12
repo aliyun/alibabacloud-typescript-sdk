@@ -13,7 +13,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   chargeData?: string;
   /**
    * @remarks
-   * The total number of Credits.
+   * The total Credit.
    * 
    * @example
    * 382
@@ -29,7 +29,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   creditChargeData?: string;
   /**
    * @remarks
-   * The total number of SeCUs.
+   * The total SeCU.
    * 
    * @example
    * 51
@@ -45,7 +45,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of Credits consumed by features.
+   * The Credit consumed by features.
    * 
    * @example
    * 375
@@ -53,7 +53,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   functionCredit?: number;
   /**
    * @remarks
-   * The number of SeCUs consumed by features.
+   * The SeCU consumed by features.
    * 
    * @example
    * 30
@@ -69,7 +69,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The number of Credits consumed by traffic processing.
+   * The Credit consumed by traffic processing.
    * 
    * @example
    * 7
@@ -77,7 +77,7 @@ export class DescribePostpayBillsResponseBodyBillDetail extends $dara.Model {
   trafficCredit?: number;
   /**
    * @remarks
-   * The number of SeCUs consumed by traffic processing.
+   * The SeCU consumed by traffic processing.
    * 
    * @example
    * 21
@@ -130,7 +130,7 @@ export class DescribePostpayBillsResponseBody extends $dara.Model {
   billDetail?: DescribePostpayBillsResponseBodyBillDetail[];
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 24

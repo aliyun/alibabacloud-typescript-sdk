@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends $dara.Model {
   /**
    * @remarks
-   * The continent identifier of the server, such as `asiapacific`.
+   * The continent.
    * 
    * @example
    * asiapacific
@@ -15,7 +15,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
    * @remarks
    * The continent code of the protection cluster.
    * 
-   * > For a list of valid codes, see the supplementary description of response parameters.
+   * > For the list of code values, see the supplementary description of response parameters.
    * 
    * @example
    * 410
@@ -23,7 +23,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   continentsValue?: number;
   /**
    * @remarks
-   * The number of CPU cores of the server.
+   * The number of CPU cores.
    * 
    * @example
    * 4
@@ -31,7 +31,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   cpu?: number;
   /**
    * @remarks
-   * The time when the server was created. This value is a UNIX timestamp. Unit: milliseconds.
+   * The creation timestamp, in milliseconds.
    * 
    * @example
    * 1665987186000
@@ -39,15 +39,15 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   createTimestamp?: number;
   /**
    * @remarks
-   * The custom name of the server.
+   * The node name.
    * 
    * @example
-   * 测试组
+   * customTest
    */
   customName?: string;
   /**
    * @remarks
-   * The ID of the node group.
+   * The node group ID.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
    * The name of the node group.
    * 
    * @example
-   * 测试组。
+   * groupTest
    */
   groupName?: string;
   /**
@@ -67,11 +67,11 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
    * 
    * - **protect**: protection.
    * 
-   * - **control**: control.
+   * - **control**: management.
    * 
    * - **storage**: storage.
    * 
-   * - **controlStorage**: control and storage.
+   * - **controlStorage**: management and storage.
    * 
    * @example
    * protect
@@ -79,7 +79,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   groupType?: string;
   /**
    * @remarks
-   * The hostname of the server.
+   * The hostname.
    * 
    * @example
    * qsh5-sec-waf-*****-6
@@ -87,15 +87,15 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   hostName?: string;
   /**
    * @remarks
-   * The IP address of the server.
+   * The IP address.
    * 
    * @example
-   * 1.*.*1。
+   * 1.*.*1
    */
   ip?: string;
   /**
    * @remarks
-   * The running status of the server.
+   * The running status of the machine.
    * 
    * @example
    * running
@@ -103,7 +103,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   jobStatus?: string;
   /**
    * @remarks
-   * The MAC address of the server.
+   * The MAC address.
    * 
    * @example
    * **:**:00:02:eb:c7
@@ -111,7 +111,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   mac?: string;
   /**
    * @remarks
-   * The memory size of the server. Unit: bytes.
+   * The memory data.
    * 
    * @example
    * 33547386880
@@ -119,7 +119,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   memory?: number;
   /**
    * @remarks
-   * The machine ID (MID) of the server.
+   * The machine identifier (MID).
    * 
    * @example
    * 28ab688cd403563e8e173*****79600
@@ -127,15 +127,15 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   mid?: string;
   /**
    * @remarks
-   * The cloud service provider where the server resides.
+   * The cloud service provider.
    * 
    * @example
-   * aliyun。
+   * aliyun
    */
   operator?: string;
   /**
    * @remarks
-   * The carrier code of the server.
+   * The operator value.
    * 
    * @example
    * 0
@@ -143,7 +143,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   operatorValue?: number;
   /**
    * @remarks
-   * The region identifier of the server, such as `beijing`.
+   * The region name.
    * 
    * @example
    * beijing
@@ -151,7 +151,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   regionCode?: string;
   /**
    * @remarks
-   * The numeric code of the region where the server resides.
+   * The region code.
    * 
    * @example
    * 0
@@ -159,7 +159,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   regionCodeValue?: number;
   /**
    * @remarks
-   * The health status of the server in the hybrid cloud cluster.
+   * The machine status.
    * 
    * @example
    * ok
@@ -167,7 +167,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
   status?: string;
   /**
    * @remarks
-   * The time when the server was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+   * The last update timestamp.
    * 
    * @example
    * 1711953897000
@@ -235,7 +235,7 @@ export class DescribeHybridCloudClusterServersResponseBodyClusterServers extends
 export class DescribeHybridCloudClusterServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The servers in the hybrid cloud cluster.
+   * The result list.
    */
   clusterServers?: DescribeHybridCloudClusterServersResponseBodyClusterServers[];
   /**

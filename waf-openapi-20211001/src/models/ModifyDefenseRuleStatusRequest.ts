@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the protection rule. Valid values:
-   * 
-   * - **template** (default): a template protection rule.
-   * 
-   * - **resource**: a rule that is configured for a protected object.
+   * The type of the protection rule.
    * 
    * @example
    * template
@@ -17,9 +13,9 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +25,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -41,7 +37,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -59,11 +55,9 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The new status of the protection rule. Valid values:
-   * 
-   * - **0**: disabled
-   * 
-   * - **1**: enabled
+   * The status of the protection rule to set. Valid values: 
+   * - **0**: Disabled.  
+   * - **1**: Enabled.
    * 
    * This parameter is required.
    * 
@@ -73,7 +67,7 @@ export class ModifyDefenseRuleStatusRequest extends $dara.Model {
   ruleStatus?: number;
   /**
    * @remarks
-   * The ID of the protection template.
+   * The ID of the protection rule template.
    * 
    * @example
    * 7239

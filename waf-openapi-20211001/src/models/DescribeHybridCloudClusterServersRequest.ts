@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
    * The name of the node group.
    * 
    * @example
-   * test
+   * groupTest
    */
   groupName?: string;
   /**
@@ -27,11 +27,11 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
    * 
    * - **protect**: protection.
    * 
-   * - **control**: control.
+   * - **control**: management.
    * 
    * - **storage**: storage.
    * 
-   * - **controlStorage**: control and storage.
+   * - **controlStorage**: management and storage.
    * 
    * @example
    * protect
@@ -39,7 +39,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The hostname of the server that you want to query.
+   * The hostname.
    * 
    * @example
    * online-***wwq
@@ -47,9 +47,9 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address of the server that you want to query.
+   * The IP address of the server.
    * 
    * @example
    * 1.X.X.1
@@ -75,7 +75,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page for paging. Default value: **10**.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -95,7 +95,7 @@ export class DescribeHybridCloudClusterServersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q

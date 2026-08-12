@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of IP addresses that can be added to the match content. For more information about match content, see [Match conditions](https://help.aliyun.com/document_detail/374354.html).
+   * The maximum number of IP addresses that can be added to the match content. For more information about match content, refer to [Match condition description](https://help.aliyun.com/document_detail/374354.html).
    * 
    * @example
    * 100
@@ -13,11 +13,15 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   aclRuleMaxIpCount?: number;
   /**
    * @remarks
-   * Indicates whether scan protection is supported. Valid values:
+   * Indicates whether Agentic API security is enabled.
    * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * @example
+   * true
+   */
+  agenticApisec?: boolean;
+  /**
+   * @remarks
+   * Specifies whether scan protection is supported. Valid values:
    * 
    * @example
    * true
@@ -33,6 +37,14 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   antiScanTemplateMaxCount?: number;
   /**
    * @remarks
+   * Indicates whether API security is enabled.
+   * 
+   * @example
+   * false
+   */
+  apisec?: boolean;
+  /**
+   * @remarks
    * The maximum number of back-to-origin IP addresses that can be configured.
    * 
    * @example
@@ -41,7 +53,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   backendMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether basic protection rules are supported. Valid values:
+   * Specifies whether basic protection rules are supported. Valid values:
    * 
    * - **true**: Supported.
    * 
@@ -69,11 +81,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   baseWafGroupRuleTemplateMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether bot management is supported. Valid values:
-   * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * Specifies whether bot management is supported. Valid values:
    * 
    * @example
    * true
@@ -81,10 +89,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   bot?: boolean;
   /**
    * @remarks
-   * Indicates whether scenario-specific bot protection for apps is supported. Valid values:
-   * 
+   * Indicates whether scenario-specific protection against app crawlers is supported. Valid values:
    * - **true**: Supported.
-   * 
    * - **false**: Not supported.
    * 
    * @example
@@ -101,10 +107,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   botTemplateMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether scenario-specific bot protection for websites is supported. Valid values:
-   * 
+   * Specifies whether scenario-specific protection against web crawlers is supported. Valid values:
    * - **true**: Supported.
-   * 
    * - **false**: Not supported.
    * 
    * @example
@@ -122,7 +126,6 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   /**
    * @remarks
    * Indicates whether custom responses are supported. Valid values:
-   * 
    * - **true**: Supported.
    * 
    * - **false**: Not supported.
@@ -133,7 +136,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customResponse?: boolean;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single custom response template.
+   * The maximum number of protection rules that a single custom response template can contain.
    * 
    * @example
    * 100
@@ -149,8 +152,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customResponseTemplateMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether custom rules are supported. Valid values:
-   * 
+   * Specifies whether custom rules are supported. Valid values:
    * - **true**: Supported.
    * 
    * - **false**: Not supported.
@@ -161,7 +163,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customRule?: boolean;
   /**
    * @remarks
-   * The action string for the custom rule.
+   * The strings included in custom rules.
    * 
    * @example
    * block
@@ -169,7 +171,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customRuleAction?: string;
   /**
    * @remarks
-   * The match condition for the custom rule. For more information, see the description of the **conditions** parameter for **custom_acl** rules in CreateDefenseRule.
+   * The match conditions for custom rules. For more information, refer to the parameter description of **custom rule (custom_acl) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * URL
@@ -177,7 +179,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customRuleCondition?: string;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single custom rule template.
+   * The maximum number of protection rules that a single custom rule template can contain.
    * 
    * @example
    * 100
@@ -185,7 +187,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   customRuleInTemplateMaxCount?: number;
   /**
    * @remarks
-   * The rate limiting object for the custom rule.
+   * The rate limiting object for custom rules.
    * 
    * @example
    * header
@@ -209,7 +211,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   defenseGroupMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of protected objects that can be included in a protection group.
+   * The maximum number of protection objects that a protection group can contain.
    * 
    * @example
    * 100
@@ -217,7 +219,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   defenseObjectInGroupMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of protected objects that can be associated with a template.
+   * The maximum number of protection objects that can be associated with a single template.
    * 
    * @example
    * 100
@@ -225,18 +227,16 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   defenseObjectInTemplateMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of protected objects that can be configured.
+   * The maximum number of protection objects that can be configured.
    * 
    * @example
-   * 20,000
+   * 20000
    */
   defenseObjectMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether data leak prevention is supported. Valid values:
-   * 
+   * Specifies whether data leak prevention is supported. Valid values:
    * - **true**: Supported.
-   * 
    * - **false**: Not supported.
    * 
    * @example
@@ -245,7 +245,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   dlp?: boolean;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single data leak prevention template.
+   * The maximum number of protection rules that a single information leak prevention template can contain.
    * 
    * @example
    * 50
@@ -253,7 +253,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   dlpRuleInTemplateMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of data leak prevention templates that can be configured.
+   * The maximum number of information leak prevention templates that can be configured.
    * 
    * @example
    * 50
@@ -261,9 +261,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   dlpTemplateMaxCount?: number;
   /**
    * @remarks
-   * The pay-as-you-go QPS of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
-   * 
-   * > This parameter has no meaning for pay-as-you-go instances.
+   * The burstable QPS value for the subscription instance with pay-as-you-go billing for burstable capacity. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
+   * > This parameter has no practical meaning for **pay-as-you-go** instances.
    * 
    * @example
    * 2000
@@ -271,11 +270,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   elasticQps?: number;
   /**
    * @remarks
-   * Indicates whether exclusive IP addresses are supported. Valid values:
-   * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * Specifies whether exclusive IP addresses are supported. Valid values:
    * 
    * @example
    * true
@@ -283,9 +278,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * The extra QPS of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
-   * 
-   * > This parameter has no meaning for pay-as-you-go instances.
+   * The extended QPS value of the subscription instance. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
+   * > This parameter is not applicable to **pay-as-you-go** instances.
    * 
    * @example
    * 10000
@@ -293,9 +287,9 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   extendQps?: number;
   /**
    * @remarks
-   * The free queries per second (QPS) of the subscription instance. For more information, see [WAF 3.0 subscription plans](https://help.aliyun.com/document_detail/441231.html).
+   * The free QPS value included in the subscription plan. For more information, see [WAF 3.0 editions](https://help.aliyun.com/document_detail/441231.html).
    * 
-   * > This parameter has no meaning for pay-as-you-go instances.
+   * > This parameter has no practical meaning for **pay-as-you-go** instances.
    * 
    * @example
    * 1000
@@ -303,11 +297,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   freeQps?: number;
   /**
    * @remarks
-   * Indicates whether Global Server Load Balancing (GSLB) is supported. Valid values:
-   * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * Specifies whether Global Server Load Balancing (GSLB) is supported. Valid values:
    * 
    * @example
    * true
@@ -315,7 +305,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   gslb?: boolean;
   /**
    * @remarks
-   * The available HTTP ports. For more information, see [Port numbers supported by WAF]().
+   * The available HTTP port range. For more information, refer to [Ports supported by WAF](https://help.aliyun.com/document_detail/385578.html).
    * 
    * @example
    * 80
@@ -323,7 +313,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   httpPorts?: string;
   /**
    * @remarks
-   * The available HTTPS ports. For more information, see [Port numbers supported by WAF]().
+   * The available HTTPS port range. For more information, refer to [Ports supported by WAF](https://help.aliyun.com/document_detail/385578.html).
    * 
    * @example
    * 443
@@ -331,8 +321,23 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   httpsPorts?: string;
   /**
    * @remarks
-   * Indicates whether the IP address blacklist is supported. Valid values:
+   * Indicates whether hybrid cloud is enabled.
    * 
+   * @example
+   * true
+   */
+  hybridCloud?: boolean;
+  /**
+   * @remarks
+   * The number of hybrid cloud extended nodes.
+   * 
+   * @example
+   * 3
+   */
+  hybridCloudNodeExtend?: number;
+  /**
+   * @remarks
+   * Indicates whether the IP blacklist is supported. Valid values:
    * - **true**: Supported.
    * 
    * - **false**: Not supported.
@@ -351,7 +356,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   ipBlacklistIpInRuleMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single blacklist template.
+   * The maximum number of protection rules that a single blacklist template can contain.
    * 
    * @example
    * 100
@@ -367,11 +372,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   ipBlacklistTemplateMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether IPv6 is supported. Valid values:
-   * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * Specifies whether IPv6 is supported. Valid values:
    * 
    * @example
    * true
@@ -379,11 +380,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   ipv6?: boolean;
   /**
    * @remarks
-   * Indicates whether Simple Log Service is supported. Valid values:
-   * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * Specifies whether the log service is supported. Valid values:
    * 
    * @example
    * true
@@ -391,8 +388,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   logService?: boolean;
   /**
    * @remarks
-   * Indicates whether critical event protection is supported. Valid values:
-   * 
+   * Specifies whether critical event protection is supported. Valid values:
    * - **true**: Supported.
    * 
    * - **false**: Not supported.
@@ -411,9 +407,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   majorProtectionTemplateMaxCount?: number;
   /**
    * @remarks
-   * The traffic billing protection threshold for the pay-as-you-go instance. For more information, see [Traffic billing protection](https://help.aliyun.com/document_detail/2249021.html) for pay-as-you-go instances.
-   * 
-   * > This parameter has no meaning for subscription instances.
+   * The QPS billing protection threshold for the pay-as-you-go edition. For more information, see [Traffic billing protection](https://help.aliyun.com/document_detail/2249021.html) for pay-as-you-go.
+   * > This parameter has no practical meaning for **subscription** instances.
    * 
    * @example
    * 2000
@@ -421,11 +416,15 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   qpsBillingCap?: number;
   /**
    * @remarks
-   * Indicates whether webpage tamper protection is supported. Valid values:
+   * Indicates whether the multi-account management feature is supported.
    * 
-   * - **true**: Supported.
-   * 
-   * - **false**: Not supported.
+   * @example
+   * true
+   */
+  resourceDirectory?: boolean;
+  /**
+   * @remarks
+   * Specifies whether web tamper proofing is supported. Valid values:
    * 
    * @example
    * true
@@ -433,7 +432,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   tamperproof?: boolean;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single webpage tamper protection template.
+   * The maximum number of protection rules that a single web tamper proofing template can contain.
    * 
    * @example
    * 50
@@ -441,7 +440,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   tamperproofRuleInTemplateMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of webpage tamper protection templates that can be configured.
+   * The maximum number of web tamper proofing protection templates that can be configured.
    * 
    * @example
    * 50
@@ -449,15 +448,15 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   tamperproofTemplateMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be imported to the IP address blacklist in a single batch.
+   * The maximum number of IP addresses that can be imported to the IP blacklist in a single bulk import.
    * 
    * @example
-   * 2,000
+   * 2000
    */
   vastIpBlacklistInFileMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be added to the IP address blacklist from the console in a single operation.
+   * The maximum number of IP addresses that can be added to the IP blacklist in a single page operation.
    * 
    * @example
    * 500
@@ -465,15 +464,15 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   vastIpBlacklistInOperationMaxCount?: number;
   /**
    * @remarks
-   * The maximum number of IP addresses that can be added to the IP address blacklist for a single user.
+   * The maximum number of IP blacklist entries that a single user can configure.
    * 
    * @example
-   * 50,000
+   * 50000
    */
   vastIpBlacklistMaxCount?: number;
   /**
    * @remarks
-   * Indicates whether the IP address whitelist is supported. Valid values:
+   * Specifies whether the IP whitelist is supported. Valid values:
    * 
    * - **true**: Supported.
    * 
@@ -485,7 +484,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   whitelist?: boolean;
   /**
    * @remarks
-   * The logical operator for the whitelist rule. For more information, see the description of the **conditions** parameter for **whitelist** rules in CreateDefenseRule.
+   * The logical operators for whitelist rules. For more information, refer to the parameter description of **whitelist rule (whitelist) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * contain
@@ -493,7 +492,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   whitelistLogical?: string;
   /**
    * @remarks
-   * The match field for the whitelist rule. For more information, see the description of the **conditions** parameter for **whitelist** rules in CreateDefenseRule.
+   * The match fields for whitelist rules. For more information, refer to the parameter description of **whitelist rule (whitelist) conditions** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * URL
@@ -501,7 +500,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   whitelistRuleCondition?: string;
   /**
    * @remarks
-   * The maximum number of protection rules that can be included in a single whitelist template.
+   * The maximum number of protection rules that a single whitelist template can contain.
    * 
    * @example
    * 100
@@ -518,8 +517,10 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aclRuleMaxIpCount: 'AclRuleMaxIpCount',
+      agenticApisec: 'AgenticApisec',
       antiScan: 'AntiScan',
       antiScanTemplateMaxCount: 'AntiScanTemplateMaxCount',
+      apisec: 'Apisec',
       backendMaxCount: 'BackendMaxCount',
       baseWafGroup: 'BaseWafGroup',
       baseWafGroupRuleInTemplateMaxCount: 'BaseWafGroupRuleInTemplateMaxCount',
@@ -552,6 +553,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       gslb: 'Gslb',
       httpPorts: 'HttpPorts',
       httpsPorts: 'HttpsPorts',
+      hybridCloud: 'HybridCloud',
+      hybridCloudNodeExtend: 'HybridCloudNodeExtend',
       ipBlacklist: 'IpBlacklist',
       ipBlacklistIpInRuleMaxCount: 'IpBlacklistIpInRuleMaxCount',
       ipBlacklistRuleInTemplateMaxCount: 'IpBlacklistRuleInTemplateMaxCount',
@@ -561,6 +564,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       majorProtection: 'MajorProtection',
       majorProtectionTemplateMaxCount: 'MajorProtectionTemplateMaxCount',
       qpsBillingCap: 'QpsBillingCap',
+      resourceDirectory: 'ResourceDirectory',
       tamperproof: 'Tamperproof',
       tamperproofRuleInTemplateMaxCount: 'TamperproofRuleInTemplateMaxCount',
       tamperproofTemplateMaxCount: 'TamperproofTemplateMaxCount',
@@ -578,8 +582,10 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aclRuleMaxIpCount: 'number',
+      agenticApisec: 'boolean',
       antiScan: 'boolean',
       antiScanTemplateMaxCount: 'number',
+      apisec: 'boolean',
       backendMaxCount: 'number',
       baseWafGroup: 'boolean',
       baseWafGroupRuleInTemplateMaxCount: 'number',
@@ -612,6 +618,8 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       gslb: 'boolean',
       httpPorts: 'string',
       httpsPorts: 'string',
+      hybridCloud: 'boolean',
+      hybridCloudNodeExtend: 'number',
       ipBlacklist: 'boolean',
       ipBlacklistIpInRuleMaxCount: 'number',
       ipBlacklistRuleInTemplateMaxCount: 'number',
@@ -621,6 +629,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       majorProtection: 'boolean',
       majorProtectionTemplateMaxCount: 'number',
       qpsBillingCap: 'number',
+      resourceDirectory: 'boolean',
       tamperproof: 'boolean',
       tamperproofRuleInTemplateMaxCount: 'number',
       tamperproofTemplateMaxCount: 'number',
@@ -647,12 +656,12 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
 export class DescribeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance.
+   * The instance details.
    */
   details?: DescribeInstanceResponseBodyDetails;
   /**
    * @remarks
-   * The edition of the WAF instance.
+   * The WAF edition.
    * 
    * @example
    * default_version
@@ -660,7 +669,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   edition?: string;
   /**
    * @remarks
-   * The expiration time of the instance. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds. Format: ms.
    * 
    * @example
    * 4809859200000
@@ -668,11 +677,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the instance has an overdue payment:
-   * 
-   * - **0**: No.
-   * 
-   * - **1**: Yes.
+   * Indicates whether the current instance has an overdue payment. Valid values:
    * 
    * @example
    * 1
@@ -680,7 +685,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   inDebt?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The WAF instance ID.
    * 
    * @example
    * waf-cn-xxx
@@ -690,26 +695,19 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **POSTPAY**: The instance is a pay-as-you-go instance.
-   * 
-   * - **PREPAY**: The instance is a subscription instance.
-   * 
    * @example
    * POSTPAY
    */
   payType?: string;
   /**
    * @remarks
-   * The processing status of the instance. Valid values:
+   * The instance execution status. Valid values:
+   * - **commodity_converting**: The commodity is being converted.
    * 
-   * - **commodity_converting**: The instance is being upgraded or downgraded.
+   * - **commodity_convert_check_failed**: The commodity conversion check failed.
    * 
-   * - **commodity_convert_check_failed**: The check for the instance upgrade or downgrade fails.
-   * 
-   * - **commodity_convert_process_failed**: The instance upgrade or downgrade fails.
-   * 
-   * - **order_create_failed**: The order fails to be created.
-   * 
+   * - **commodity_convert_process_failed**: The commodity conversion failed.
+   * - **order_create_failed**: The order failed to be created.
    * - **order_pending_payment**: The order is pending payment.
    * 
    * @example
@@ -730,7 +728,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014697B11AE
@@ -738,7 +736,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
+   * The purchase time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1668496310000
@@ -747,12 +745,9 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The current status of the instance. Valid values:
-   * 
    * - **1**: Normal.
-   * 
-   * - **2**: The instance has expired.
-   * 
-   * - **3**: The instance is released.
+   * - **2**: Expired.
+   * - **3**: Released.
    * 
    * @example
    * 1

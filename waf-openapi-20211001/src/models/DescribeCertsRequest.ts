@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the encryption algorithm. Valid values:
+   * The type of encryption algorithm. Valid values:
    * 
-   * - **NotSM2 (default)**: Specifies a non-ShangMi (SM) cryptographic algorithm.
+   * - **NotSM2 (default)**: a non-Chinese cryptographic algorithm.
    * 
-   * - **SM2**: Specifies an SM cryptographic algorithm.
+   * - **SM2**: a Chinese cryptographic algorithm.
    * 
    * @example
    * SM2
@@ -25,9 +25,9 @@ export class DescribeCertsRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeCertsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeCertsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Maximum value: 100.
+   * The number of rows per page in a paged query. Default value: **10**. Maximum value: 100.
    * 
    * @example
    * 10
@@ -53,11 +53,11 @@ export class DescribeCertsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

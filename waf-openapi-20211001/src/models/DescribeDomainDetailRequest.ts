@@ -22,6 +22,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 

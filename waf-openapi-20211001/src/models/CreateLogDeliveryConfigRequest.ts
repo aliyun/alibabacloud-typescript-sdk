@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogDeliveryConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the forwarding delivery configuration. The value is a JSON string constructed from a series of parameters.
+   * The content of the log delivery configuration. The value is a JSON string constructed from a series of parameters.
    * 
-   * > The parameters vary based on the specified **forwarding delivery configuration type** (**DeliveryType**). For more information, see **Parameter description of the forwarding delivery configuration content**.
+   * > The parameters vary based on the specified **delivery type** (**DeliveryType**). For more information, see **Description of delivery configuration content parameters**.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
   deliveryDetail?: string;
   /**
    * @remarks
-   * The name of the forwarding delivery configuration.
+   * The name of the log delivery configuration.
    * 
    * This parameter is required.
    * 
@@ -36,10 +36,10 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
   deliveryName?: string;
   /**
    * @remarks
-   * The type of the forwarding delivery configuration. Valid values:
+   * The type of the log delivery configuration. Valid values:
    * 
-   * - **syslog**: forwards logs to a syslog service.
-   * - **kafka**: forwards logs to a Kafka service.
+   * - **syslog**: delivers logs to a syslog service.
+   * - **kafka**: delivers logs to a Kafka service.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateLogDeliveryConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

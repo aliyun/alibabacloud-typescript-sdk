@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The network access mode of the hybrid cloud cluster. Valid values:
+   * The network access mode. Valid values:
    * 
-   * - **internet**: access over the Internet.
-   * 
-   * - **vpc**: access over a leased line through a virtual private cloud (VPC).
+   * - **internet**: public network access.
+   * - **vpc**: Express Connect private network access.
    * 
    * This parameter is required.
    * 
@@ -19,12 +18,9 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   accessMode?: string;
   /**
    * @remarks
-   * The region in which the leased line resides. This parameter is required when AccessMode is set to vpc. Valid values:
-   * 
+   * The Express Connect access region. Valid values:
    * - **cn-hangzhou**: Hangzhou.
-   * 
-   * - **cn-beijing**: Beijing.
-   * 
+   * - **cn-beiijng**: Beijing.
    * - **cn-shanghai**: Shanghai.
    * 
    * @example
@@ -33,7 +29,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   accessRegion?: string;
   /**
    * @remarks
-   * The name of the hybrid cloud cluster.
+   * The cluster name.
    * 
    * This parameter is required.
    * 
@@ -43,7 +39,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The list of HTTP ports supported by the hybrid cloud cluster. Separate multiple ports with commas (,). Format: **port1,port2,port3**.
+   * The list of available ports for the HTTP protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
    * 
    * This parameter is required.
    * 
@@ -53,7 +49,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   httpPorts?: string;
   /**
    * @remarks
-   * The list of HTTPS ports supported by the hybrid cloud cluster. Separate multiple ports with commas (,). Format: **port1,port2,port3**.
+   * The list of available ports for the HTTPS protocol. The value is a string. If multiple ports are specified, they are returned in the format of **port1,port2,port3**.
    * 
    * This parameter is required.
    * 
@@ -63,7 +59,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   httpsPorts?: string;
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -73,9 +69,9 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The WAF instance ID.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -85,7 +81,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The log fields that are excluded from the response.
+   * The log fields to be returned.
    * 
    * @example
    * log_example
@@ -93,7 +89,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   logFieldsNotReturned?: string;
   /**
    * @remarks
-   * The maximum number of protection nodes that can be added to the hybrid cloud cluster.
+   * The number of protection nodes that can be added to the cluster.
    * 
    * This parameter is required.
    * 
@@ -103,11 +99,10 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   protectionServerCount?: number;
   /**
    * @remarks
-   * Indicates whether the proxy gateway is enabled. Valid values:
+   * The proxy gateway mode. Valid values:
    * 
-   * - **on**: The proxy gateway is enabled.
-   * 
-   * - **off**: The proxy gateway is disabled.
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * off
@@ -115,11 +110,9 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   proxyStatus?: string;
   /**
    * @remarks
-   * The type of the hybrid cloud cluster. Valid values:
-   * 
-   * - **cname**: a reverse proxy cluster.
-   * 
-   * - **service**: a service cluster.
+   * The cluster type. Valid values:
+   * - **cname**: reverse proxy cluster.
+   * - **service**: service-based cluster.
    * 
    * @example
    * service
@@ -139,7 +132,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks of the hybrid cloud cluster.
+   * The remarks.
    * 
    * @example
    * remarkExample
@@ -147,7 +140,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group to which the WAF instance belongs.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -155,7 +148,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The rule configuration in JSON format. This includes settings such as the circuit breaker, request body length limit, and timeout.
+   * The rule configuration.
    * 
    * @example
    * {
@@ -175,11 +168,9 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
   ruleConfig?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * - **on**: The rule is enabled.
-   * 
-   * - **off**: The rule is disabled.
+   * The rule status. Valid values:
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * off
@@ -189,7 +180,7 @@ export class ModifyHybridCloudClusterRequest extends $dara.Model {
    * @remarks
    * The rule type. Valid values:
    * 
-   * - **bypass**: WAF bypasses security checks.
+   * bypass: bypasses security checks and directly allows the request.
    * 
    * @example
    * bypass

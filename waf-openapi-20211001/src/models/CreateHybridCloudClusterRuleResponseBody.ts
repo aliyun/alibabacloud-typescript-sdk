@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHybridCloudClusterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster rule resource.
+   * The cluster rule resource ID.
    * 
    * @example
    * hdbc-clusterrule-*******m0w
@@ -13,7 +13,7 @@ export class CreateHybridCloudClusterRuleResponseBody extends $dara.Model {
   clusterRuleResourceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-CC6E-4F3E-*****-3014697B11AE

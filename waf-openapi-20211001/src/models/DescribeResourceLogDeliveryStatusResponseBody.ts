@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceLogDeliveryStatusResponseBodyLogConfigs extends $dara.Model {
   /**
    * @remarks
-   * The name of the log delivery configuration.
+   * The name of the delivery configuration.
    * 
    * @example
    * export-kafka
@@ -13,11 +13,10 @@ export class DescribeResourceLogDeliveryStatusResponseBodyLogConfigs extends $da
   deliveryName?: string;
   /**
    * @remarks
-   * The type of log delivery for the protected object. Valid values:
+   * The delivery type of the protected object. Valid values:
    * 
-   * - **syslog**: Logs are delivered to a syslog service.
-   * 
-   * - **kafka**: Logs are delivered to a Kafka service.
+   * - **syslog**: delivered to a syslog service.
+   * - **kafka**: delivered to a Kafka service.
    * 
    * @example
    * kafka
@@ -25,7 +24,7 @@ export class DescribeResourceLogDeliveryStatusResponseBodyLogConfigs extends $da
   deliveryType?: string;
   /**
    * @remarks
-   * The name of the protected object, such as a domain name or Application Load Balancer (ALB) instance.
+   * The protected object.
    * 
    * @example
    * test.waf.com-waf
@@ -33,11 +32,11 @@ export class DescribeResourceLogDeliveryStatusResponseBodyLogConfigs extends $da
   resource?: string;
   /**
    * @remarks
-   * Indicates whether log delivery is enabled for the protected object. Valid values:
+   * The log delivery status of the protected object. Valid values:
    * 
-   * - **true**: Log delivery is enabled.
+   * - **true**: enabled.
    * 
-   * - **false**: Log delivery is disabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -73,7 +72,7 @@ export class DescribeResourceLogDeliveryStatusResponseBodyLogConfigs extends $da
 export class DescribeResourceLogDeliveryStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of log delivery configurations for the protected objects.
+   * The list of log delivery configurations for protected objects.
    */
   logConfigs?: DescribeResourceLogDeliveryStatusResponseBodyLogConfigs[];
   /**

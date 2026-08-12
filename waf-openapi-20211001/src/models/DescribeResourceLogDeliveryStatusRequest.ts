@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceLogDeliveryStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
-   * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * The ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class DescribeResourceLogDeliveryStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the WAF instance belongs.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -37,7 +36,7 @@ export class DescribeResourceLogDeliveryStatusRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The protected objects that you want to query. Separate multiple protected objects with commas (,).
+   * The protected objects to query. Separate multiple protected objects with commas (,).
    * 
    * This parameter is required.
    * 

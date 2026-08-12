@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * [Deprecated] The ID of the hybrid cloud cluster.
+   * **[Deprecated]** The ID of the hybrid cloud cluster.
    * 
    * @example
    * 10*
+   * 
+   * @deprecated
    */
   clusterId?: number;
   /**
@@ -23,7 +25,7 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query instance ID of the current WAF instance.
+   * > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -56,13 +58,13 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
    * The traffic redirection rule configuration.
    * 
    * <notice>The mode cannot be modified.</notice>
-   * - **check_mode**: The mode. Valid values:
+   * - **check_mode**: the mode. Valid values:
    *   - **all**: full traffic redirection.
    *   - **part**: partial traffic redirection.
-   * - **type**: The rule matching type. Valid values:
+   * - **type**: the rule matching type. Valid values:
    *   - **exact**: exact match.
    *   - **regex**: regular expression.
-   * - **substance**: The rule value.
+   * - **substance**: the rule value.
    * 
    * @example
    * {\\"check_mode\\": \\"all\\", \\"type\\": \\"exact\\", \\"substance\\": \\"122\\"}
@@ -80,11 +82,13 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * [Deprecated] The rule type. Valid values:
+   * **[Deprecated]** The rule type. Valid values:
    * - **pullin**: traffic redirection configuration.
    * 
    * @example
    * pullin
+   * 
+   * @deprecated
    */
   ruleType?: string;
   static names(): { [key: string]: string } {

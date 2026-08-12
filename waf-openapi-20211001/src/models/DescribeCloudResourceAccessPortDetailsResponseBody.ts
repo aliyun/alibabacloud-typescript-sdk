@@ -67,7 +67,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   key?: string;
   /**
    * @remarks
-   * The value of the specified custom request header field.
+   * The value set for the specified custom request header field.
    * 
    * @example
    * value1
@@ -169,7 +169,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * @remarks
    * The specific reason for the protection exception status. Valid values:
    * 
-   * - **UserUploadCert**: The certificate is manually uploaded.
+   * - **UserUploadCert**: The certificate was manually uploaded.
    * 
    * - **CertNotExistInCertCenter**: The certificate does not exist in SSL Certificates Service.
    * - **CertExpired**: The cloud certificate has expired.
@@ -219,7 +219,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails extends $dara.Model {
   /**
    * @remarks
-   * The list of certificates for the cloud service ports connected to WAF.
+   * The list of certificates for the cloud service port connected to WAF.
    */
   certificates?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates[];
   /**
@@ -301,7 +301,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * @remarks
    * The idle timeout period for keep-alive connections. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
    * 
-   * > Specifies how long an idle keep-alive connection is retained before it is released.
+   * > Specifies how long an idle keep-alive connection remains open before it is released.
    * 
    * @example
    * 10
@@ -324,7 +324,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   maxBodySize?: number;
   /**
    * @remarks
-   * The UID that indicates the resource ownership of the cloud service.
+   * The UID of the cloud service resource ownership.
    * 
    * @example
    * 123
@@ -350,7 +350,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   protocol?: string;
   /**
    * @remarks
-   * The read timeout period. Unit: seconds.
+   * The read timeout period, in seconds.
    * Valid values: 1 to 3600.
    * 
    * @example
@@ -380,7 +380,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * - **InvalidCert**: invalid certificate.
    * 
    * - **ClientCertOpend**: mutual authentication is enabled.
-   * - **NetworkConfigLost**: the cloud service network configuration is abnormal.
+   * - **NetworkConfigLost**: cloud service network configuration exception.
    * 
    * @example
    * InvalidCert
@@ -409,7 +409,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
   TLSVersion?: string;
   /**
    * @remarks
-   * The write timeout period. Unit: seconds.
+   * The write timeout period, in seconds.
    * Valid values: 1 to 3600.
    * 
    * @example
@@ -426,20 +426,22 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * 
    * - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
    * 
+   * - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
+   * 
    * @example
    * 0
    */
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields used to obtain the client IP address, in the format **["header1","header2",...]**.
+   * The list of custom header fields used to obtain the client IP address, in the format **["header1","header2",……]**.
    * 
    * > This parameter is required only when **XffHeaderMode** is set to 2 (WAF reads the value of a custom header field that you specify as the client IP address).
    */
   xffHeaders?: string[];
   /**
    * @remarks
-   * Specifies whether the X-Forward-For-Proto header is used to pass the WAF protocol. Valid values:
+   * Specifies whether the X-Forward-For-Proto header passes the WAF protocol. Valid values:
    * 
    * - **true** (default): The WAF protocol is passed.
    * 

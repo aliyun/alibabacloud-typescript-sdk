@@ -13,7 +13,7 @@ export class DescribeHybridCloudSupportRegionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of regions that are supported for hybrid cloud access.
+   * The list of supported regions.
    */
   supportRegions?: string[];
   static names(): { [key: string]: string } {

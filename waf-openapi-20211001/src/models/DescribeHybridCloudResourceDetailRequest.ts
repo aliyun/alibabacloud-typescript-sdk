@@ -17,7 +17,7 @@ export class DescribeHybridCloudResourceDetailRequest extends $dara.Model {
    * 
    * - **true**: Public cloud disaster recovery is enabled.
    * 
-   * - **false**: Public cloud disaster recovery is disabled.
+   * - **false**: Public cloud disaster recovery is not enabled.
    * 
    * @example
    * true

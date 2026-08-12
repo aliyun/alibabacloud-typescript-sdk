@@ -5,17 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the IP address blacklist.
+   * The description.
    * 
    * @example
-   * test
+   * Protection for major events
    */
   description?: string;
   /**
    * @remarks
-   * The time after which the IP address blacklist becomes invalid. Unit: seconds.
-   * 
-   * > If the value is **0**, the IP address blacklist is permanently valid.
+   * The expiration timestamp, in seconds.
+   * > If the value is **0**, the rule takes effect permanently.
    * 
    * This parameter is required.
    * 
@@ -25,9 +24,9 @@ export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   expiredTime?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +36,7 @@ export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address blacklist to add. You can specify custom IP addresses or CIDR blocks. Both IPv4 and IPv6 addresses are supported. Separate multiple IP addresses with commas (,).
+   * The IP blacklist to add. You can specify custom IP addresses or CIDR blocks. Both IPv4 and IPv6 are supported. Separate multiple IP addresses with commas (,).
    * For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
    * 
    * This parameter is required.
@@ -48,11 +47,11 @@ export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -68,7 +67,7 @@ export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for critical event protection.
+   * The ID of the IP blacklist rule for critical event protection.
    * 
    * This parameter is required.
    * 
@@ -78,7 +77,9 @@ export class ModifyMajorProtectionBlackIpRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the critical event protection template.
+   * The ID of the critical event protection scenario template.
+   * 
+   * > This parameter must be set to the ID of a protection template of the critical event protection type. You can create this type of template only after you purchase the critical event protection upgrade.
    * 
    * This parameter is required.
    * 

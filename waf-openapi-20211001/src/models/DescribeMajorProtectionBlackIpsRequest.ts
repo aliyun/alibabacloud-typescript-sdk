@@ -17,7 +17,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address to query. You can set this parameter to perform a fuzzy query on the added IP address blacklist.
+   * The IP address to query. You can set this parameter to perform a fuzzy match against the added IP blacklist.
    * 
    * @example
    * 192.0.XX.XX
@@ -25,7 +25,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   ipLike?: string;
   /**
    * @remarks
-   * The property by which to sort the results in **descending order**. Valid values:
+   * The sorting attribute. Results are sorted in **descending order** by the specified attribute. Valid values:
    * 
    * - **gmtModified**: sorts by modification time.
    * 
@@ -41,7 +41,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**, which indicates the first page.
+   * The page number to return when paging is used. Default value: **1**, which indicates the first page.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries per page when paging is used. Default value: **10**, which indicates 10 entries per page.
    * 
    * @example
    * 10
@@ -57,11 +57,11 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance is deployed. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
-   * - **ap-southeast-1**: regions outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +69,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The Alibaba Cloud resource group ID.
    * 
    * @example
    * rg-acfm***q
@@ -77,7 +77,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for critical event protection.
+   * The ID of the critical event protection IP blacklist rule.
    * 
    * @example
    * 20013199
@@ -86,6 +86,8 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the critical event protection template.
+   * 
+   * > This parameter requires the ID of a protection template of the critical event protection type. You can create this type of template only after purchasing the critical event protection upgrade separately.
    * 
    * @example
    * 5673

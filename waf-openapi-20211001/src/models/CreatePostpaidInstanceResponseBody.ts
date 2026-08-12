@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePostpaidInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The WAF instance ID.
    * 
    * @example
    * waf_v2_public_cn-x0r****gr1i
@@ -13,7 +13,7 @@ export class CreatePostpaidInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 73A4E786-8235-50C0-9631-87C8****4A36

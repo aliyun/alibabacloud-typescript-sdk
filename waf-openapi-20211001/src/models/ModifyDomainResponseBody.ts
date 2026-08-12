@@ -13,7 +13,7 @@ export class ModifyDomainResponseBodyDomainInfo extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * The domain name to modify.
+   * The domain name to be modified.
    * 
    * @example
    * www.aliyundoc.com

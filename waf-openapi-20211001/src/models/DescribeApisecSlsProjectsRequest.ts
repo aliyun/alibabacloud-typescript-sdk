@@ -7,7 +7,7 @@ export class DescribeApisecSlsProjectsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DescribeApisecSlsProjectsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where logs are stored.
+   * The region ID for log storage.
    * 
-   * > You can call the [DescribeUserSlsLogRegions](https://help.aliyun.com/document_detail/2712598.html) operation to query available log storage regions.
+   * > You can call [DescribeUserSlsLogRegions](https://help.aliyun.com/document_detail/2712598.html) to query the available log storage regions.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeApisecSlsProjectsRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland.
    * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 

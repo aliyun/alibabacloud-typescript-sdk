@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.Model {
   /**
    * @remarks
-   * The name of the hybrid cloud cluster to which the SDK server belongs.
+   * The cluster name.
    * 
    * @example
    * testcluster
@@ -13,7 +13,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   clusterName?: string;
   /**
    * @remarks
-   * The time when the hybrid cloud SDK server was created. This value is a UNIX timestamp in milliseconds.
+   * The timestamp when the entry was created.
    * 
    * @example
    * 1621428205000
@@ -21,7 +21,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The hostname of the hybrid cloud SDK server.
+   * The hostname.
    * 
    * @example
    * qsh5-sec-8-fedd**005
@@ -29,7 +29,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   hostName?: string;
   /**
    * @remarks
-   * The IP address of the hybrid cloud SDK server.
+   * The IP address.
    * 
    * @example
    * 127.0.0.1
@@ -37,7 +37,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   ip?: string;
   /**
    * @remarks
-   * The ID of the SDK server.
+   * The machine identifier (MID).
    * 
    * @example
    * b11327c21790846374051d5d**83c
@@ -45,7 +45,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   mid?: string;
   /**
    * @remarks
-   * The address of the protection group associated with the SDK server.
+   * The IP address of the backend server.
    * 
    * @example
    * 1.1.1.1
@@ -53,11 +53,9 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   protectionGroupAddress?: string;
   /**
    * @remarks
-   * Indicates whether traffic redirection is enabled. Valid values:
-   * 
-   * - **on**: Traffic redirection is enabled.
-   * 
-   * - **off**: Traffic redirection is disabled.
+   * The traffic redirection status. Valid values:
+   * - **on**: enabled.
+   * - **off**: disabled.
    * 
    * @example
    * on
@@ -65,7 +63,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   pullinStatus?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * test-antifaud-2.jqt.wafqax.top-waf
@@ -73,7 +71,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   resourceId?: string;
   /**
    * @remarks
-   * The status of the hybrid cloud SDK server.
+   * The status.
    * 
    * @example
    * 1
@@ -81,7 +79,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The time when the hybrid cloud SDK server was last updated. This value is a UNIX timestamp in milliseconds.
+   * The timestamp when the entry was updated.
    * 
    * @example
    * 1719489906000
@@ -129,7 +127,7 @@ export class DescribeHybridCloudSdkServersResponseBodySdkServers extends $dara.M
 export class DescribeHybridCloudSdkServersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3600F008-2E76-5D0B-BC76-EFBD****6D
@@ -137,12 +135,12 @@ export class DescribeHybridCloudSdkServersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the hybrid cloud SDK servers.
+   * The SDK information.
    */
   sdkServers?: DescribeHybridCloudSdkServersResponseBodySdkServers[];
   /**
    * @remarks
-   * The total number of hybrid cloud SDK servers returned.
+   * The total number of entries.
    * 
    * @example
    * 5

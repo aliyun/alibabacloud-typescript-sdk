@@ -17,13 +17,15 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
    * @remarks
    * The cipher suite type.
    * 
+   * > This parameter is required. You must specify this parameter when you call this operation.
+   * 
    * @example
-   * 0
+   * 1
    */
   cipherSuite?: number;
   /**
    * @remarks
-   * The specific custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
+   * The custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
@@ -33,7 +35,7 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
    * - **true**: TLS 1.3 is supported.
    * 
    * - **false**: TLS 1.3 is not supported.
-   * > - This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be true.
+   * > - This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. If TLSVersion is set to tlsv1.3, this value must be true.
    * 
    * @example
    * true
@@ -64,7 +66,7 @@ export class ModifyDefaultHttpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
