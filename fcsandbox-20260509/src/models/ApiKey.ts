@@ -3,8 +3,6 @@ import * as $dara from '@darabonba/typescript';
 import { IPConfig } from "./Ipconfig";
 
 
-/**
- */
 export class ApiKey extends $dara.Model {
   /**
    * @remarks

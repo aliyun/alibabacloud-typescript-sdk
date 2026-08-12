@@ -13,7 +13,7 @@ export class ListTeamsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of teams to display per page.
+   * The number of teams displayed per page.
    * 
    * @example
    * 20

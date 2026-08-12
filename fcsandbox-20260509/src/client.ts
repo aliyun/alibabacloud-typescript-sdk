@@ -118,6 +118,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a volume.
+   * 
+   * @param request - CreateVolumeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVolumeResponse
+   */
+  async createVolumeWithOptions(request: $_model.CreateVolumeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVolumeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVolume",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/volumes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVolumeResponse>(await this.callApi(params, req, runtime), new $_model.CreateVolumeResponse({}));
+  }
+
+  /**
+   * Creates a volume.
+   * 
+   * @param request - CreateVolumeRequest
+   * @returns CreateVolumeResponse
+   */
+  async createVolume(request: $_model.CreateVolumeRequest): Promise<$_model.CreateVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVolumeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes an API key.
    * 
    * @param request - DeleteApiKeyRequest
@@ -241,6 +281,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 Volume
+   * 
+   * @param request - DeleteVolumeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVolumeResponse
+   */
+  async deleteVolumeWithOptions(volumeID: string, request: $_model.DeleteVolumeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVolumeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVolume",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/volumes/${$dara.URL.percentEncode(volumeID)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVolumeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVolumeResponse({}));
+  }
+
+  /**
+   * 删除 Volume
+   * 
+   * @param request - DeleteVolumeRequest
+   * @returns DeleteVolumeResponse
+   */
+  async deleteVolume(volumeID: string, request: $_model.DeleteVolumeRequest): Promise<$_model.DeleteVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteVolumeWithOptions(volumeID, request, headers, runtime);
+  }
+
+  /**
    * Queries an API key.
    * 
    * @param request - DescribeApiKeyRequest
@@ -361,6 +446,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTeamWithOptions(teamID, request, headers, runtime);
+  }
+
+  /**
+   * 查看 Volume
+   * 
+   * @param request - GetVolumeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVolumeResponse
+   */
+  async getVolumeWithOptions(volumeID: string, request: $_model.GetVolumeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVolumeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVolume",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/volumes/${$dara.URL.percentEncode(volumeID)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVolumeResponse>(await this.callApi(params, req, runtime), new $_model.GetVolumeResponse({}));
+  }
+
+  /**
+   * 查看 Volume
+   * 
+   * @param request - GetVolumeRequest
+   * @returns GetVolumeResponse
+   */
+  async getVolume(volumeID: string, request: $_model.GetVolumeRequest): Promise<$_model.GetVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVolumeWithOptions(volumeID, request, headers, runtime);
   }
 
   /**
@@ -543,6 +673,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询 Volumes
+   * 
+   * @param request - ListVolumesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVolumesResponse
+   */
+  async listVolumesWithOptions(request: $_model.ListVolumesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVolumesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupID)) {
+      query["resourceGroupID"] = request.resourceGroupID;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.teamID)) {
+      query["teamID"] = request.teamID;
+    }
+
+    if (!$dara.isNull(request.userID)) {
+      query["userID"] = request.userID;
+    }
+
+    if (!$dara.isNull(request.volumeName)) {
+      query["volumeName"] = request.volumeName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVolumes",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/volumes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVolumesResponse>(await this.callApi(params, req, runtime), new $_model.ListVolumesResponse({}));
+  }
+
+  /**
+   * 分页查询 Volumes
+   * 
+   * @param request - ListVolumesRequest
+   * @returns ListVolumesResponse
+   */
+  async listVolumes(request: $_model.ListVolumesRequest): Promise<$_model.ListVolumesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVolumesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Resets an API key.
    * 
    * @param request - ResetApiKeyRequest
@@ -699,6 +898,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTeamWithOptions(teamID, request, headers, runtime);
+  }
+
+  /**
+   * 更新 Volume
+   * 
+   * @param request - UpdateVolumeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVolumeResponse
+   */
+  async updateVolumeWithOptions(volumeID: string, request: $_model.UpdateVolumeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVolumeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVolume",
+      version: "2026-05-09",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-05-09/volumes/${$dara.URL.percentEncode(volumeID)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVolumeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVolumeResponse({}));
+  }
+
+  /**
+   * 更新 Volume
+   * 
+   * @param request - UpdateVolumeRequest
+   * @returns UpdateVolumeResponse
+   */
+  async updateVolume(volumeID: string, request: $_model.UpdateVolumeRequest): Promise<$_model.UpdateVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVolumeWithOptions(volumeID, request, headers, runtime);
   }
 
 }

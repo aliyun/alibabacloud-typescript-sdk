@@ -9,11 +9,13 @@ export class UpdateTemplateInput extends $dara.Model {
   containerConfiguration?: ContainerConfiguration;
   logConfiguration?: LogConfiguration;
   networkConfiguration?: NetworkConfiguration;
+  teamID?: string;
   static names(): { [key: string]: string } {
     return {
       containerConfiguration: 'containerConfiguration',
       logConfiguration: 'logConfiguration',
       networkConfiguration: 'networkConfiguration',
+      teamID: 'teamID',
     };
   }
 
@@ -22,6 +24,7 @@ export class UpdateTemplateInput extends $dara.Model {
       containerConfiguration: ContainerConfiguration,
       logConfiguration: LogConfiguration,
       networkConfiguration: NetworkConfiguration,
+      teamID: 'string',
     };
   }
 
