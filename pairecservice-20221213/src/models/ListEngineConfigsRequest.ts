@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListEngineConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment.
    * 
-   * - **Daily**: the development and test environment.
+   * - Daily: daily environment.
    * 
-   * - **Pre**: the pre-production environment.
+   * - Pre: staging environment.
    * 
-   * - **Prod**: the production environment.
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -19,7 +19,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. To obtain this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can obtain the instance ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ListEngineConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the engine configuration.
+   * The engine configuration name.
    * 
    * @example
    * engine_config_v1
@@ -53,11 +53,11 @@ export class ListEngineConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status to filter by. Valid values:
+   * The status filter.
    * 
-   * - **Released**: returns only released configurations.
+   * - Released: released.
    * 
-   * - **Unreleased**: returns only unreleased configurations.
+   * - Unreleased: not released.
    * 
    * @example
    * Released
@@ -65,9 +65,9 @@ export class ListEngineConfigsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version to filter by.
+   * The version filter.
    * 
-   * Set this parameter to `latest` to retrieve the most recently updated version.
+   * latest: the most recently updated version.
    * 
    * @example
    * latest

@@ -5,22 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEngineConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the engine config.
+   * The content of the engine configuration.
    * 
    * @example
    * {}
    */
   configValue?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * this is a test config
+   */
   description?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment. Valid values:
    * 
-   * - `Daily`: The daily environment.
+   * - Daily: daily environment.
    * 
-   * - `Pre`: The pre-production environment.
+   * - Pre: staging environment.
    * 
-   * - `Prod`: The production environment.
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -28,7 +35,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The ID of the instance. You can obtain this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+   * The instance ID. You can obtain the ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
    * 
    * @example
    * pairec-cn-***test
@@ -36,12 +43,20 @@ export class CreateEngineConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the engine config.
+   * The name of the engine configuration.
    * 
    * @example
    * engine_config_v1
    */
   name?: string;
+  /**
+   * @remarks
+   * The type of the engine configuration.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       configValue: 'ConfigValue',
@@ -49,6 +64,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
       environment: 'Environment',
       instanceId: 'InstanceId',
       name: 'Name',
+      type: 'Type',
     };
   }
 
@@ -59,6 +75,7 @@ export class CreateEngineConfigRequest extends $dara.Model {
       environment: 'string',
       instanceId: 'string',
       name: 'string',
+      type: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecallManagementServicesResponseBodyRecallManagementServices extends $dara.Model {
   /**
    * @remarks
-   * The ID of the current recall management service version.
+   * The ID of the currently active recall management service version.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   currentRecallManagementServiceVersionId?: string;
   /**
    * @remarks
-   * The name of the current recall management service version.
+   * The name of the currently active recall management service version.
    * 
    * @example
    * version-1
@@ -21,7 +21,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   currentRecallManagementServiceVersionName?: string;
   /**
    * @remarks
-   * The recall management service description.
+   * The description of the recall management service.
    * 
    * @example
    * this is a test recall
@@ -37,7 +37,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2021-12-15T23:24:33.132+08:00
@@ -45,7 +45,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The recall management service name.
+   * The service name of the recall management service.
    * 
    * @example
    * hot_group_recall
@@ -53,7 +53,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   name?: string;
   /**
    * @remarks
-   * The recall management service ID.
+   * The ID of the recall management service.
    * 
    * @example
    * 3
@@ -62,9 +62,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
   /**
    * @remarks
    * The status. Valid values:
-   * 
    * - Online: online.
-   * 
    * - Offline: offline.
    * 
    * @example
@@ -109,7 +107,7 @@ export class ListRecallManagementServicesResponseBodyRecallManagementServices ex
 export class ListRecallManagementServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not yet available.
+   * This parameter is not currently in effect.
    * 
    * @example
    * 0
@@ -117,7 +115,7 @@ export class ListRecallManagementServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * This parameter is not yet available.
+   * This parameter is not currently in effect.
    * 
    * @example
    * ""
@@ -138,7 +136,7 @@ export class ListRecallManagementServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 10

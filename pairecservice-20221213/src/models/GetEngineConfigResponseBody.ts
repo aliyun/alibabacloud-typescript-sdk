@@ -13,18 +13,21 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The description of the engine configuration.
+   * The description.
+   * 
+   * @example
+   * this is a test config
    */
   description?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment. Valid values:
    * 
-   * - Daily: The daily environment.
+   * - Daily: daily environment.
    * 
-   * - Pre: The pre-production environment.
+   * - Pre: staging environment.
    * 
-   * - Prod: The production environment.
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -32,7 +35,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The time the engine configuration was created.
+   * The creation time.
    * 
    * @example
    * 2024-01-03T02:28:00.000Z
@@ -40,7 +43,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time the engine configuration was last modified.
+   * The update time.
    * 
    * @example
    * 2024-08-27T12:00:00Z
@@ -48,7 +51,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The time the engine configuration was published.
+   * The publish time.
    * 
    * @example
    * 2024-01-03 02:28:00
@@ -74,14 +77,22 @@ export class GetEngineConfigResponseBody extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - Released: Published
+   * - Released: published.
    * 
-   * - UnReleased: Unpublished
+   * - UnReleased: not published.
    * 
    * @example
    * Released
    */
   status?: string;
+  /**
+   * @remarks
+   * The engine configuration type.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       configValue: 'ConfigValue',
@@ -93,6 +104,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
       name: 'Name',
       requestId: 'RequestId',
       status: 'Status',
+      type: 'Type',
     };
   }
 
@@ -107,6 +119,7 @@ export class GetEngineConfigResponseBody extends $dara.Model {
       name: 'string',
       requestId: 'string',
       status: 'string',
+      type: 'string',
     };
   }
 

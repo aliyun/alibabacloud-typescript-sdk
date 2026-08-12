@@ -31,16 +31,28 @@ export class QuerySampleConsistencyJobDifferenceResponseBodyDifferenceHistogram 
 export class QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDifferences extends $dara.Model {
   diffValue?: number;
   itemId?: string;
+  /**
+   * @example
+   * 19
+   */
+  replyTableFeatureRawValue?: string;
   replyTableFeatureValue?: number;
   requestId?: string;
+  /**
+   * @example
+   * 18
+   */
+  sampleTableFeatureRawValue?: string;
   sampleTableFeatureValue?: number;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       diffValue: 'DiffValue',
       itemId: 'ItemId',
+      replyTableFeatureRawValue: 'ReplyTableFeatureRawValue',
       replyTableFeatureValue: 'ReplyTableFeatureValue',
       requestId: 'RequestId',
+      sampleTableFeatureRawValue: 'SampleTableFeatureRawValue',
       sampleTableFeatureValue: 'SampleTableFeatureValue',
       userId: 'UserId',
     };
@@ -50,8 +62,10 @@ export class QuerySampleConsistencyJobDifferenceResponseBodyNumberFeatureDiffere
     return {
       diffValue: 'number',
       itemId: 'string',
+      replyTableFeatureRawValue: 'string',
       replyTableFeatureValue: 'number',
       requestId: 'string',
+      sampleTableFeatureRawValue: 'string',
       sampleTableFeatureValue: 'number',
       userId: 'string',
     };

@@ -16,16 +16,25 @@ export class UpdateEngineConfigRequest extends $dara.Model {
    * }
    */
   configValue?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * update config
+   */
   description?: string;
   /**
    * @remarks
-   * The environment.
+   * The runtime environment.
    * 
-   * - Daily: Daily environment.
+   * Valid values:
    * 
-   * - Pre: Pre-production environment.
+   * - Daily: daily environment.
    * 
-   * - Prod: Production environment.
+   * - Pre: staging environment.
+   * 
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -33,7 +42,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The instance ID. To get the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+   * The instance ID. For information about how to obtain the instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
    * 
    * @example
    * pairec-cn-***test
@@ -41,12 +50,20 @@ export class UpdateEngineConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the engine configuration.
+   * The engine configuration name.
    * 
    * @example
    * engine_config_v1
    */
   name?: string;
+  /**
+   * @remarks
+   * The engine configuration type.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       configValue: 'ConfigValue',
@@ -54,6 +71,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
       environment: 'Environment',
       instanceId: 'InstanceId',
       name: 'Name',
+      type: 'Type',
     };
   }
 
@@ -64,6 +82,7 @@ export class UpdateEngineConfigRequest extends $dara.Model {
       environment: 'string',
       instanceId: 'string',
       name: 'string',
+      type: 'string',
     };
   }
 

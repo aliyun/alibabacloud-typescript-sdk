@@ -21,7 +21,7 @@ export class GetInstanceResourceTableResponseBodyFields extends $dara.Model {
   isPartitionField?: boolean;
   /**
    * @remarks
-   * The meaning of the field.
+   * The field meaning.
    * 
    * @example
    * ""
@@ -75,7 +75,7 @@ export class GetInstanceResourceTableResponseBodyFields extends $dara.Model {
 export class GetInstanceResourceTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of fields in the data table.
+   * The list of fields in the table.
    */
   fields?: GetInstanceResourceTableResponseBodyFields[];
   /**

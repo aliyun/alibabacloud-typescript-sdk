@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEngineConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the engine config.
+   * The engine configuration ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateEngineConfigResponseBody extends $dara.Model {
   engineConfigId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E15A1443-7917-5BE0-AE70-25538ECF398D

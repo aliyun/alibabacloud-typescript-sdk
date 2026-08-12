@@ -13,12 +13,15 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The description of the engine configuration.
+   * The description.
+   * 
+   * @example
+   * what
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the engine configuration.
+   * The engine configuration ID.
    * 
    * @example
    * 2
@@ -26,13 +29,13 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   engineConfigId?: string;
   /**
    * @remarks
-   * The environment. Valid values:
+   * The runtime environment.
    * 
-   * - **Daily**: the development and test environment.
+   * - Daily: daily environment.
    * 
-   * - **Pre**: the pre-production environment.
+   * - Pre: staging environment.
    * 
-   * - **Prod**: the production environment.
+   * - Prod: production environment.
    * 
    * @example
    * Pre
@@ -48,7 +51,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2023-08-27T12:00:00Z
@@ -64,7 +67,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   gmtReleasedTime?: string;
   /**
    * @remarks
-   * The name of the engine configuration.
+   * The engine configuration name.
    * 
    * @example
    * engine_config_v1
@@ -72,11 +75,11 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the engine configuration. Valid values:
+   * The status.
    * 
-   * - **Released**: The configuration has been released.
+   * - Released: released.
    * 
-   * - **Unreleased**: The configuration has not been released.
+   * - UnReleased: not released.
    * 
    * @example
    * Released
@@ -84,7 +87,15 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version of the currently released or most recently updated engine configuration.
+   * The engine configuration type.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version number of the currently released or most recently updated version.
    * 
    * @example
    * 20230509161300
@@ -101,6 +112,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
       gmtReleasedTime: 'GmtReleasedTime',
       name: 'Name',
       status: 'Status',
+      type: 'Type',
       version: 'Version',
     };
   }
@@ -116,6 +128,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
       gmtReleasedTime: 'string',
       name: 'string',
       status: 'string',
+      type: 'string',
       version: 'string',
     };
   }
@@ -132,7 +145,7 @@ export class ListEngineConfigsResponseBodyEngineConfigs extends $dara.Model {
 export class ListEngineConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of engine configurations.
+   * The list of engine configurations.
    */
   engineConfigs?: ListEngineConfigsResponseBodyEngineConfigs[];
   /**
@@ -145,7 +158,7 @@ export class ListEngineConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of elements in the list.
    * 
    * @example
    * 10
