@@ -13,7 +13,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
   fileId?: string;
   /**
    * @remarks
-   * The completion progress of the download task.
+   * The download task completion progress.
    * 
    * @example
    * 70
@@ -32,7 +32,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
    * The title.
    * 
    * @example
-   * CBU阿里通信反馈-声音延迟
+   * CBU_Alibaba_Communication_Feedback-Audio_Delay.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +97,7 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
    * The title.
    * 
    * @example
-   * 批量高阶内存整理_2022_02_17_10
+   * Batch_Advanced_Memory_Optimization_2022_02_17_10
    */
   title?: string;
   static names(): { [key: string]: string } {

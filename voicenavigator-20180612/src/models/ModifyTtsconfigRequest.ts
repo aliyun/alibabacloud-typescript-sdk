@@ -19,6 +19,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
    * 5b358afc
    */
   appKey?: string;
+  backgroundMusicName?: string;
   /**
    * @remarks
    * The TTS engine.
@@ -75,7 +76,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
    * The TTS error correction dictionary.
    * 
    * @example
-   * [{\\"pronunciation\\":\\"环钱\\",\\"word\\":\\"还钱\\"}]
+   * [{\\"pronunciation\\":\\"huanqian\\",\\"word\\":\\"huanqian\\"}]
    */
   ttsOverrides?: string;
   /**
@@ -98,6 +99,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
     return {
       aliCustomizedVoice: 'AliCustomizedVoice',
       appKey: 'AppKey',
+      backgroundMusicName: 'BackgroundMusicName',
       engine: 'Engine',
       engineXunfei: 'EngineXunfei',
       extParams: 'ExtParams',
@@ -115,6 +117,7 @@ export class ModifyTTSConfigRequest extends $dara.Model {
     return {
       aliCustomizedVoice: 'string',
       appKey: 'string',
+      backgroundMusicName: 'string',
       engine: 'string',
       engineXunfei: 'string',
       extParams: 'string',

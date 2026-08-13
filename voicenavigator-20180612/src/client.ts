@@ -13,8 +13,8 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-shanghai': "voicenavigator.cn-shanghai.aliyuncs.com",
       'cn-hangzhou': "voicenavigator.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "voicenavigator.cn-shanghai.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("voicenavigator", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -240,7 +240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Collects a number entered by a user during a call.
+   * Collects digits.
    * 
    * @param request - CollectedNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -287,7 +287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Collects a number entered by a user during a call.
+   * Collects digits.
    * 
    * @param request - CollectedNumberRequest
    * @returns CollectedNumberResponse
@@ -872,7 +872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the TTS configuration.
+   * Queries the text-to-speech (TTS) configuration.
    * 
    * @param request - DescribeTTSConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -880,7 +880,15 @@ export default class Client extends OpenApi {
    */
   async describeTTSConfigWithOptions(request: $_model.DescribeTTSConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTTSConfigResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceOwnerId)) {
+      query["InstanceOwnerId"] = request.instanceOwnerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -889,7 +897,7 @@ export default class Client extends OpenApi {
       version: "2018-06-12",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -899,7 +907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the TTS configuration.
+   * Queries the text-to-speech (TTS) configuration.
    * 
    * @param request - DescribeTTSConfigRequest
    * @returns DescribeTTSConfigResponse
@@ -910,7 +918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+   * Initiates a conversation.
    * 
    * @param request - DialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -969,7 +977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+   * Initiates a conversation.
    * 
    * @param request - DialogueRequest
    * @returns DialogueResponse
@@ -1811,6 +1819,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.appKey)) {
       query["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.backgroundMusicName)) {
+      query["BackgroundMusicName"] = request.backgroundMusicName;
     }
 
     if (!$dara.isNull(request.engine)) {

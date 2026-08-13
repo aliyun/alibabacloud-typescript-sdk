@@ -6,6 +6,9 @@ export class ModifyAsrConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of affected rows.
+   * 
+   * @example
+   * 1
    */
   affectedRows?: number;
   static names(): { [key: string]: string } {

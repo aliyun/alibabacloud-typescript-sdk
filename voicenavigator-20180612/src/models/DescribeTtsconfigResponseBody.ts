@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTTSConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The custom voice ID.
+   * The personalized custom voice ID.
    * 
    * @example
    * dc458bba-5a25-4cbc-b5c2
@@ -19,6 +19,7 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
    * 5b358afc
    */
   appKey?: string;
+  backgroundMusicName?: string;
   /**
    * @remarks
    * The TTS engine.
@@ -70,10 +71,10 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
   speechRate?: number;
   /**
    * @remarks
-   * The TTS error correction dictionary.
+   * The TTS correction dictionary.
    * 
    * @example
-   * [{\\"pronunciation\\":\\"环钱\\",\\"word\\":\\"还钱\\"}]
+   * [{\\"pronunciation\\":\\"huanqian\\",\\"word\\":\\"huaiqian\\"}]
    */
   ttsOverrides?: string;
   /**
@@ -96,6 +97,7 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
     return {
       aliCustomizedVoice: 'AliCustomizedVoice',
       appKey: 'AppKey',
+      backgroundMusicName: 'BackgroundMusicName',
       engine: 'Engine',
       engineXunfei: 'EngineXunfei',
       extParams: 'ExtParams',
@@ -113,6 +115,7 @@ export class DescribeTTSConfigResponseBody extends $dara.Model {
     return {
       aliCustomizedVoice: 'string',
       appKey: 'string',
+      backgroundMusicName: 'string',
       engine: 'string',
       engineXunfei: 'string',
       extParams: 'string',

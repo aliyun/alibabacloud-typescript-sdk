@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed.
+   * The action.
    * 
    * @example
    * Broadcast
@@ -21,7 +21,7 @@ export class DialogueResponseBody extends $dara.Model {
   actionParams?: string;
   /**
    * @remarks
-   * Indicates whether the IVR greeting can be interrupted.
+   * Indicates whether the IVR broadcast can be interrupted.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DialogueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The text to be broadcasted.
+   * The broadcast text.
    * 
    * @example
    * 您好，欢迎致电智能助手

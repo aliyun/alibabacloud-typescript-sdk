@@ -6,10 +6,9 @@ export class GetAsrConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The policy level. Valid values:
-   * 
-   * - 0: system
-   * - 1: tenant
-   * - 2: instance
+   * - 0: system.
+   * - 1: tenant.
+   * - 2: instance.
    * 
    * @example
    * 1

@@ -38,7 +38,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   asrOverrides?: string;
   /**
    * @remarks
-   * The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+   * The hotword ID. View the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
    * 
    * @example
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
@@ -56,6 +56,13 @@ export class ModifyAsrConfigRequest extends $dara.Model {
    * 0
    */
   configLevel?: number;
+  /**
+   * @remarks
+   * The TTS engine.
+   * 
+   * @example
+   * ali
+   */
   engine?: string;
   /**
    * @remarks
@@ -70,7 +77,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
    * NluServiceType
    * 
    * @example
-   * 语音识别
+   * Speech recognition.
    */
   nlsServiceType?: string;
   static names(): { [key: string]: string } {

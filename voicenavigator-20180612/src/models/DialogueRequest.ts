@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DialogueRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation context.
+   * The session context.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class DialogueRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * The ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class DialogueRequest extends $dara.Model {
   emotion?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class DialogueRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the instance.
+   * The Alibaba Cloud account ID of the instance owner.
    * 
    * @example
    * 1426738157626835
@@ -58,7 +58,7 @@ export class DialogueRequest extends $dara.Model {
   instanceOwnerId?: number;
   /**
    * @remarks
-   * The user\\"s input.
+   * The user utterance.
    * 
    * This parameter is required.
    * 

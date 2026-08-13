@@ -6,7 +6,7 @@ export class CollectedNumberRequest extends $dara.Model {
   additionalContext?: string;
   /**
    * @remarks
-   * The ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CollectedNumberRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class CollectedNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the instance owner.
+   * The instance owner ID.
    * 
    * @example
    * 1426738157626835
@@ -34,7 +34,7 @@ export class CollectedNumberRequest extends $dara.Model {
   instanceOwnerId?: number;
   /**
    * @remarks
-   * The number entered by the user.
+   * The phone number.
    * 
    * @example
    * 1500060224

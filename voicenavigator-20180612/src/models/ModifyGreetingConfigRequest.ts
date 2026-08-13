@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGreetingConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The greeting words.
+   * The greeting message.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyGreetingConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent trigger.
+   * The trigger intent.
    * 
    * @example
    * 开始
