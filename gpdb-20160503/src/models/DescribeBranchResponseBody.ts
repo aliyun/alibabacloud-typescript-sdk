@@ -45,7 +45,7 @@ export class DescribeBranchResponseBodyBranchTags extends $dara.Model {
 export class DescribeBranchResponseBodyBranch extends $dara.Model {
   /**
    * @remarks
-   * The branch ID that uniquely identifies a Supabase branch.
+   * The branch ID, which uniquely identifies a Supabase branch.
    * 
    * @example
    * br-xxxx
@@ -85,7 +85,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the branch automatically expires and is deleted, in ISO 8601 UTC format.
+   * The time when the branch expires and is automatically deleted, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-10-08T09:11:12Z
@@ -105,7 +105,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   initSource?: string;
   /**
    * @remarks
-   * Indicates whether the branch is the default branch.
+   * Indicates whether this is the default branch.
    * 
    * @example
    * true
@@ -129,7 +129,7 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
   parentBranchName?: string;
   /**
    * @remarks
-   * The Log Sequence Number (LSN) of the parent branch at the time this branch was created.
+   * The LSN of the parent branch at the time this branch was created.
    * 
    * @example
    * 0/3522648
@@ -175,6 +175,13 @@ export class DescribeBranchResponseBodyBranch extends $dara.Model {
    * Supabase
    */
   serviceType?: string;
+  /**
+   * @remarks
+   * The Supabase project ID that corresponds to the current branch.
+   * 
+   * @example
+   * spb-xxxx
+   */
   spbProjectId?: string;
   /**
    * @remarks

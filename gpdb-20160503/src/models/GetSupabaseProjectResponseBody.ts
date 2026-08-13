@@ -92,6 +92,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * v1.0.3
    */
   instanceVersion?: string;
+  lightweight?: string;
   /**
    * @remarks
    * The billing method. Valid values:
@@ -252,6 +253,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       engineVersion: 'EngineVersion',
       eni: 'Eni',
       instanceVersion: 'InstanceVersion',
+      lightweight: 'Lightweight',
       payType: 'PayType',
       privateConnectUrl: 'PrivateConnectUrl',
       projectDescription: 'ProjectDescription',
@@ -283,6 +285,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       engineVersion: 'string',
       eni: 'string',
       instanceVersion: 'string',
+      lightweight: 'string',
       payType: 'string',
       privateConnectUrl: 'string',
       projectDescription: 'string',

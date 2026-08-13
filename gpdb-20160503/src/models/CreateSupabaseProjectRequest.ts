@@ -89,6 +89,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * PG15
    */
   engineVersion?: string;
+  lightweight?: boolean;
   /**
    * @remarks
    * The billing method. If this parameter is not specified, the default value Free is used.
@@ -214,6 +215,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       clientToken: 'ClientToken',
       diskPerformanceLevel: 'DiskPerformanceLevel',
       engineVersion: 'EngineVersion',
+      lightweight: 'Lightweight',
       payType: 'PayType',
       period: 'Period',
       projectName: 'ProjectName',
@@ -236,6 +238,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
       clientToken: 'string',
       diskPerformanceLevel: 'string',
       engineVersion: 'string',
+      lightweight: 'boolean',
       payType: 'string',
       period: 'string',
       projectName: 'string',

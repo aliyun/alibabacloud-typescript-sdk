@@ -45,7 +45,7 @@ export class ListBranchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The parent branch ID. This parameter specifies the parent branch for a new branch or as a query filter condition.
+   * The parent branch ID. Specifies the parent branch for a new branch or as a query filter condition.
    * 
    * @example
    * br-main
@@ -61,7 +61,7 @@ export class ListBranchesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy search by branch ID or branch name is supported.
+   * The search keyword. Supports fuzzy search by branch ID or branch name.
    * 
    * @example
    * main
