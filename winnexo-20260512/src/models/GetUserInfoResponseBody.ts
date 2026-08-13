@@ -1,0 +1,277 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetUserInfoResponseBodyTenantList extends $dara.Model {
+  /**
+   * @remarks
+   * CRM 类型
+   * 
+   * @example
+   * standard
+   */
+  crmType?: string;
+  /**
+   * @remarks
+   * 租户ID
+   * 
+   * @example
+   * 10000
+   */
+  tenantId?: number;
+  /**
+   * @remarks
+   * 租户名称
+   * 
+   * @example
+   * string_value
+   */
+  tenantName?: string;
+  /**
+   * @remarks
+   * 租户类型
+   * 
+   * @example
+   * normal
+   */
+  tenantType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crmType: 'crmType',
+      tenantId: 'tenantId',
+      tenantName: 'tenantName',
+      tenantType: 'tenantType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crmType: 'string',
+      tenantId: 'number',
+      tenantName: 'string',
+      tenantType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * 用户头像URL
+   * 
+   * @example
+   * https://example.com/avatar.png
+   */
+  avatar?: string;
+  /**
+   * @remarks
+   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * CRM 类型
+   * 
+   * @example
+   * standard
+   */
+  crmType?: string;
+  /**
+   * @remarks
+   * 是否为超级管理员
+   * 
+   * @example
+   * true
+   */
+  isAdmin?: boolean;
+  /**
+   * @remarks
+   * 当前登录租户是否为系统租户（tenantId=10000）
+   * 
+   * @example
+   * true
+   */
+  isSystemTenant?: boolean;
+  /**
+   * @remarks
+   * 用户语言偏好
+   * 
+   * @example
+   * string_value
+   */
+  languagePreference?: string;
+  /**
+   * @remarks
+   * 错误描述，成功时为空
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 文件名
+   * 
+   * @example
+   * 示例名称.pdf
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 用户服务描述
+   * 
+   * @example
+   * string_value
+   */
+  offering?: string;
+  /**
+   * @remarks
+   * 用户服务解析结果（JSON格式）
+   * 
+   * @example
+   * string_value
+   */
+  parsedOffering?: string;
+  /**
+   * @remarks
+   * 用户角色
+   * 
+   * @example
+   * string_value
+   */
+  profileRole?: string;
+  /**
+   * @remarks
+   * 用户角色描述（当profileRole为Others时使用）
+   * 
+   * @example
+   * string_value
+   */
+  profileRoleInfo?: string;
+  /**
+   * @remarks
+   * 请求追踪 ID
+   * 
+   * @example
+   * 019FF406-1B10-0065-A97D-2D1920C2A03D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * 用户自我介绍
+   * 
+   * @example
+   * string_value
+   */
+  selfIntroduction?: string;
+  /**
+   * @remarks
+   * 当前租户ID
+   * 
+   * @example
+   * 10000
+   */
+  tenantId?: number;
+  tenantList?: GetUserInfoResponseBodyTenantList[];
+  /**
+   * @remarks
+   * 当前租户名称
+   * 
+   * @example
+   * string_value
+   */
+  tenantName?: string;
+  /**
+   * @remarks
+   * 租户类型
+   * 
+   * @example
+   * normal
+   */
+  tenantType?: string;
+  /**
+   * @remarks
+   * 用户代码
+   * 
+   * @example
+   * string_value
+   */
+  userCode?: string;
+  /**
+   * @remarks
+   * 用户ID
+   * 
+   * @example
+   * 1
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      code: 'code',
+      crmType: 'crmType',
+      isAdmin: 'isAdmin',
+      isSystemTenant: 'isSystemTenant',
+      languagePreference: 'languagePreference',
+      message: 'message',
+      name: 'name',
+      offering: 'offering',
+      parsedOffering: 'parsedOffering',
+      profileRole: 'profileRole',
+      profileRoleInfo: 'profileRoleInfo',
+      requestId: 'requestId',
+      selfIntroduction: 'selfIntroduction',
+      tenantId: 'tenantId',
+      tenantList: 'tenantList',
+      tenantName: 'tenantName',
+      tenantType: 'tenantType',
+      userCode: 'userCode',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      code: 'string',
+      crmType: 'string',
+      isAdmin: 'boolean',
+      isSystemTenant: 'boolean',
+      languagePreference: 'string',
+      message: 'string',
+      name: 'string',
+      offering: 'string',
+      parsedOffering: 'string',
+      profileRole: 'string',
+      profileRoleInfo: 'string',
+      requestId: 'string',
+      selfIntroduction: 'string',
+      tenantId: 'number',
+      tenantList: { 'type': 'array', 'itemType': GetUserInfoResponseBodyTenantList },
+      tenantName: 'string',
+      tenantType: 'string',
+      userCode: 'string',
+      userId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tenantList)) {
+      $dara.Model.validateArray(this.tenantList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
