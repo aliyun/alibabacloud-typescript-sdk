@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateScriptVersionResponseBody extends $dara.Model {
+export class AbortCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * OK
@@ -13,12 +13,12 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The scenario version ID.
+   * The returned data.
    * 
    * @example
-   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b26
+   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
    */
-  data?: string;
+  data?: boolean;
   /**
    * @remarks
    * The HTTP status code.
@@ -29,15 +29,15 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The message returned by the operation.
    * 
    * @example
-   * Instance does not exist. Instance=outb003
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * The list of variable values in the error message.
+   * The variable values in the error message.
    */
   params?: string[];
   /**
@@ -45,12 +45,12 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 019FDAC7-13C5-1B64-A853-999DF105B9EF
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: 'boolean',
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },

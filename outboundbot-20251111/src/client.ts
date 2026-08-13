@@ -33,6 +33,316 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops an outbound call campaign.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - AbortCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortCampaignResponse
+   */
+  async abortCampaignWithOptions(request: $_model.AbortCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbortCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AbortCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AbortCampaignResponse>(await this.callApi(params, req, runtime), new $_model.AbortCampaignResponse({}));
+  }
+
+  /**
+   * Stops an outbound call campaign.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - AbortCampaignRequest
+   * @returns AbortCampaignResponse
+   */
+  async abortCampaign(request: $_model.AbortCampaignRequest): Promise<$_model.AbortCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.abortCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops an outbound call case.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - AbortCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortCasesResponse
+   */
+  async abortCasesWithOptions(tmpReq: $_model.AbortCasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbortCasesResponse> {
+    tmpReq.validate();
+    let request = new $_model.AbortCasesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.phoneNumbers)) {
+      request.phoneNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.phoneNumbers, "PhoneNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.phoneNumbersShrink)) {
+      query["PhoneNumbers"] = request.phoneNumbersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AbortCases",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AbortCasesResponse>(await this.callApi(params, req, runtime), new $_model.AbortCasesResponse({}));
+  }
+
+  /**
+   * Stops an outbound call case.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - AbortCasesRequest
+   * @returns AbortCasesResponse
+   */
+  async abortCases(request: $_model.AbortCasesRequest): Promise<$_model.AbortCasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.abortCasesWithOptions(request, runtime);
+  }
+
+  /**
+   * Appends contacts to an outbound call campaign.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - AppendCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AppendCasesResponse
+   */
+  async appendCasesWithOptions(tmpReq: $_model.AppendCasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AppendCasesResponse> {
+    tmpReq.validate();
+    let request = new $_model.AppendCasesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cases)) {
+      request.casesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cases, "Cases", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.casesShrink)) {
+      body["Cases"] = request.casesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AppendCases",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AppendCasesResponse>(await this.callApi(params, req, runtime), new $_model.AppendCasesResponse({}));
+  }
+
+  /**
+   * Appends contacts to an outbound call campaign.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - AppendCasesRequest
+   * @returns AppendCasesResponse
+   */
+  async appendCases(request: $_model.AppendCasesRequest): Promise<$_model.AppendCasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.appendCasesWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an outbound call task.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - CreateCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCampaignResponse
+   */
+  async createCampaignWithOptions(tmpReq: $_model.CreateCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCampaignResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCampaignShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cases)) {
+      request.casesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cases, "Cases", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.numbers)) {
+      request.numbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numbers, "Numbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.attemptOrder)) {
+      query["AttemptOrder"] = request.attemptOrder;
+    }
+
+    if (!$dara.isNull(request.callableTime)) {
+      query["CallableTime"] = request.callableTime;
+    }
+
+    if (!$dara.isNull(request.caseFileKey)) {
+      query["CaseFileKey"] = request.caseFileKey;
+    }
+
+    if (!$dara.isNull(request.dialingTimeoutSeconds)) {
+      query["DialingTimeoutSeconds"] = request.dialingTimeoutSeconds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fixedQuota)) {
+      query["FixedQuota"] = request.fixedQuota;
+    }
+
+    if (!$dara.isNull(request.flashSmsParameters)) {
+      query["FlashSmsParameters"] = request.flashSmsParameters;
+    }
+
+    if (!$dara.isNull(request.holidayRestricted)) {
+      query["HolidayRestricted"] = request.holidayRestricted;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxAttemptCount)) {
+      query["MaxAttemptCount"] = request.maxAttemptCount;
+    }
+
+    if (!$dara.isNull(request.minAttemptInterval)) {
+      query["MinAttemptInterval"] = request.minAttemptInterval;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.numbersShrink)) {
+      query["Numbers"] = request.numbersShrink;
+    }
+
+    if (!$dara.isNull(request.redialRestrictions)) {
+      query["RedialRestrictions"] = request.redialRestrictions;
+    }
+
+    if (!$dara.isNull(request.runUntilEndTime)) {
+      query["RunUntilEndTime"] = request.runUntilEndTime;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.casesShrink)) {
+      body["Cases"] = request.casesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCampaignResponse>(await this.callApi(params, req, runtime), new $_model.CreateCampaignResponse({}));
+  }
+
+  /**
+   * Creates an outbound call task.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreateCampaignRequest
+   * @returns CreateCampaignResponse
+   */
+  async createCampaign(request: $_model.CreateCampaignRequest): Promise<$_model.CreateCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCampaignWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an instance.
    * 
    * @param request - CreateCloneVoiceRequest
@@ -771,6 +1081,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an outbound campaign.
+   * 
+   * @param request - GetCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCampaignResponse
+   */
+  async getCampaignWithOptions(request: $_model.GetCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCampaignResponse>(await this.callApi(params, req, runtime), new $_model.GetCampaignResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an outbound campaign.
+   * 
+   * @param request - GetCampaignRequest
+   * @returns GetCampaignResponse
+   */
+  async getCampaign(request: $_model.GetCampaignRequest): Promise<$_model.GetCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCampaignWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of an instance.
    * 
    * @param request - GetInstanceRequest
@@ -898,6 +1254,86 @@ export default class Client extends OpenApi {
   async getSubscription(request: $_model.GetSubscriptionRequest): Promise<$_model.GetSubscriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of outbound call campaigns.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ListCampaignsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCampaignsResponse
+   */
+  async listCampaignsWithOptions(request: $_model.ListCampaignsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCampaignsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actualStartTimeFrom)) {
+      query["ActualStartTimeFrom"] = request.actualStartTimeFrom;
+    }
+
+    if (!$dara.isNull(request.actualStartTimeTo)) {
+      query["ActualStartTimeTo"] = request.actualStartTimeTo;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.plannedStartTimeFrom)) {
+      query["PlannedStartTimeFrom"] = request.plannedStartTimeFrom;
+    }
+
+    if (!$dara.isNull(request.plannedStartTimeTo)) {
+      query["PlannedStartTimeTo"] = request.plannedStartTimeTo;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCampaigns",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCampaignsResponse>(await this.callApi(params, req, runtime), new $_model.ListCampaignsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of outbound call campaigns.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ListCampaignsRequest
+   * @returns ListCampaignsResponse
+   */
+  async listCampaigns(request: $_model.ListCampaignsRequest): Promise<$_model.ListCampaignsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCampaignsWithOptions(request, runtime);
   }
 
   /**
@@ -1511,6 +1947,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Pauses an outbound call campaign.
+   * 
+   * @param request - PauseCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseCampaignResponse
+   */
+  async pauseCampaignWithOptions(request: $_model.PauseCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PauseCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseCampaignResponse>(await this.callApi(params, req, runtime), new $_model.PauseCampaignResponse({}));
+  }
+
+  /**
+   * Pauses an outbound call campaign.
+   * 
+   * @param request - PauseCampaignRequest
+   * @returns PauseCampaignResponse
+   */
+  async pauseCampaign(request: $_model.PauseCampaignRequest): Promise<$_model.PauseCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pauseCampaignWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an instance.
    * 
    * @param request - PublishScriptRequest
@@ -1558,6 +2040,110 @@ export default class Client extends OpenApi {
   async publishScript(request: $_model.PublishScriptRequest): Promise<$_model.PublishScriptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.publishScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复外呼活动
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ResumeCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeCampaignResponse
+   */
+  async resumeCampaignWithOptions(request: $_model.ResumeCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeCampaignResponse>(await this.callApi(params, req, runtime), new $_model.ResumeCampaignResponse({}));
+  }
+
+  /**
+   * 恢复外呼活动
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ResumeCampaignRequest
+   * @returns ResumeCampaignResponse
+   */
+  async resumeCampaign(request: $_model.ResumeCampaignRequest): Promise<$_model.ResumeCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交外呼活动
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - SubmitCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCampaignResponse
+   */
+  async submitCampaignWithOptions(request: $_model.SubmitCampaignRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitCampaignResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitCampaign",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitCampaignResponse>(await this.callApi(params, req, runtime), new $_model.SubmitCampaignResponse({}));
+  }
+
+  /**
+   * 提交外呼活动
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - SubmitCampaignRequest
+   * @returns SubmitCampaignResponse
+   */
+  async submitCampaign(request: $_model.SubmitCampaignRequest): Promise<$_model.SubmitCampaignResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitCampaignWithOptions(request, runtime);
   }
 
   /**
@@ -1779,7 +2365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新场景配置
+   * Updates the scenario configuration.
    * 
    * @remarks
    * ***
@@ -1863,7 +2449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新场景配置
+   * Updates the scenario configuration.
    * 
    * @remarks
    * ***

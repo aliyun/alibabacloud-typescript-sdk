@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateCloneVoiceResponseBodyData extends $dara.Model {
   /**
    * @remarks

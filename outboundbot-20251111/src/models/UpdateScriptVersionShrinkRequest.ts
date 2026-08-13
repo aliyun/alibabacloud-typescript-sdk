@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 实例ID
+   * The instance ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -13,17 +13,17 @@ export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 交互配置
+   * The interaction configuration.
    */
   interactionConfigShrink?: string;
   /**
    * @remarks
-   * 草稿版本的标签配置（JSON字符串）
+   * The label configurations.
    */
   labelConfigsShrink?: string;
   /**
    * @remarks
-   * 场景ID
+   * The scenario ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -31,22 +31,22 @@ export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * 话术配置
+   * The dialogue capability configuration.
    */
   scriptProfileShrink?: string;
   /**
    * @remarks
-   * 语音合成配置
+   * The TTS configuration.
    */
   synthesizerConfigShrink?: string;
   /**
    * @remarks
-   * 语音识别配置
+   * The ASR configuration.
    */
   transcriberConfigShrink?: string;
   /**
    * @remarks
-   * 版本ID
+   * The version ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b26

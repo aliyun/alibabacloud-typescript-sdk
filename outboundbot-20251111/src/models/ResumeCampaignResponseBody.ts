@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateScriptVersionResponseBody extends $dara.Model {
+export class ResumeCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * 结果码
    * 
    * @example
    * OK
@@ -13,15 +13,15 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The scenario version ID.
+   * 操作是否成功
    * 
    * @example
-   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b26
+   * true
    */
-  data?: string;
+  data?: boolean;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP状态码
    * 
    * @example
    * 200
@@ -29,28 +29,28 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * 错误信息
    * 
    * @example
-   * Instance does not exist. Instance=outb003
+   * 无
    */
   message?: string;
   /**
    * @remarks
-   * The list of variable values in the error message.
+   * 错误信息参数列表
    */
   params?: string[];
   /**
    * @remarks
-   * The request ID.
+   * 请求ID
    * 
    * @example
-   * 019FDAC7-13C5-1B64-A853-999DF105B9EF
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * 请求是否成功
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class UpdateScriptVersionResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: 'boolean',
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },
