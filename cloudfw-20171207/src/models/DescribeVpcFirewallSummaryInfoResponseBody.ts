@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The remaining quota for VPC firewalls.
+   * The remaining available quota for VPC firewalls.
    * 
    * @example
    * 4
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   availableVpcFirewallQuota?: number;
   /**
    * @remarks
-   * The number of VPCs connected using Cloud Enterprise Network (CEN) and Express Connect.
+   * The number of VPCs connected through Cloud Enterprise Network (CEN).
    * 
    * @example
    * 7
@@ -29,7 +29,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   cenFirewallVpcCount?: number;
   /**
    * @remarks
-   * The number of VPCs on the CEN transit router.
+   * The total number of VPCs connected through CEN transit routers.
    * 
    * @example
    * 13
@@ -37,7 +37,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   cenTrVpcCount?: number;
   /**
    * @remarks
-   * The number of configured CEN firewalls that are disabled.
+   * The number of configured but disabled CEN firewalls.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   closedCenFirewallCount?: number;
   /**
    * @remarks
-   * The number of configured Express Connect firewalls that are disabled.
+   * The number of configured but disabled Express Connect firewalls.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   closedExpressConnectFirewallCount?: number;
   /**
    * @remarks
-   * The number of configured VPC firewalls that are disabled.
+   * The number of all configured but disabled VPC firewalls.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   closedVpcFirewallCount?: number;
   /**
    * @remarks
-   * The number of configured CEN firewall instances of the Basic Edition.
+   * The number of configured CEN Basic Edition firewall instances.
    * 
    * @example
    * 5
@@ -69,7 +69,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   configuredCenFirewallCount?: number;
   /**
    * @remarks
-   * The number of regions where CEN firewalls are configured.
+   * The number of configured CEN regions.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   configuredCenFirewallRegionCount?: number;
   /**
    * @remarks
-   * The number of VPCs for which CEN firewalls are configured.
+   * The number of configured CEN VPCs.
    * 
    * @example
    * 18
@@ -101,7 +101,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   configuredExpressConnectFirewallCount?: number;
   /**
    * @remarks
-   * The number of VPCs for which Express Connect firewalls are configured.
+   * The number of configured Express Connect VPCs.
    * 
    * @example
    * 2
@@ -109,7 +109,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   configuredExpressConnectVpcCount?: number;
   /**
    * @remarks
-   * The number of configured VPC firewalls.
+   * The number of all configured VPC firewalls.
    * 
    * @example
    * 5
@@ -117,7 +117,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   configuredVpcFirewallCount?: number;
   /**
    * @remarks
-   * The number of VPCs for which VPC firewalls are configured.
+   * The number of VPCs with firewalls configured.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   expressConnectVpcCount?: number;
   /**
    * @remarks
-   * The number of CEN firewalls that are not configured.
+   * The number of unconfigured CEN firewalls.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   notConfiguredCenFirewallCount?: number;
   /**
    * @remarks
-   * The number of CEN transit router firewall instances that are not configured.
+   * The number of unconfigured CEN transit router firewall instances.
    * 
    * @example
    * 6
@@ -149,7 +149,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   notConfiguredCenTrFirewallCount?: number;
   /**
    * @remarks
-   * The number of Express Connect firewalls that are not configured.
+   * The number of unconfigured Express Connect firewalls.
    * 
    * @example
    * 7
@@ -157,7 +157,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   notConfiguredExpressConnectFirewallCount?: number;
   /**
    * @remarks
-   * The number of VPC firewalls that are not configured.
+   * The number of all unconfigured VPC firewalls.
    * 
    * @example
    * 12
@@ -165,7 +165,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   notConfiguredVpcFirewallCount?: number;
   /**
    * @remarks
-   * The number of VPCs that are connected using CEN and Express Connect and have the firewall enabled.
+   * The number of enabled and active VPC connections.
    * 
    * @example
    * 10
@@ -189,7 +189,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedCenFirewallVpcCount?: number;
   /**
    * @remarks
-   * The number of VPCs protected by the CEN transit router firewall.
+   * The number of VPCs protected by CEN transit router firewalls.
    * 
    * @example
    * 4
@@ -197,7 +197,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedCenTrFirewallVpcCount?: number;
   /**
    * @remarks
-   * The number of enabled CEN Express Connect Routers (ECRs).
+   * The number of CEN Express Connect Router (ECR) instances.
    * 
    * @example
    * 0
@@ -221,7 +221,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedExpressConnectVpcCount?: number;
   /**
    * @remarks
-   * The number of inter-region connections protected by the CEN transit router firewall.
+   * The number of protected inter-region connections through CEN transit routers.
    * 
    * @example
    * 3
@@ -229,7 +229,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedPeerTrCount?: number;
   /**
    * @remarks
-   * The number of Virtual Border Routers (VBRs) protected by the CEN transit router firewall.
+   * The total number of protected Virtual Border Routers (VBRs) through CEN transit routers.
    * 
    * @example
    * 0
@@ -237,7 +237,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedVbrCount?: number;
   /**
    * @remarks
-   * The number of protected VPCs.
+   * The total number of protected VPCs.
    * 
    * @example
    * 17
@@ -245,7 +245,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedVpcCount?: number;
   /**
    * @remarks
-   * The number of enabled VPC firewalls.
+   * The number of all enabled VPC firewalls.
    * 
    * @example
    * 9
@@ -253,7 +253,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedVpcFirewallCount?: number;
   /**
    * @remarks
-   * The number of VPN gateways protected by the CEN transit router firewall.
+   * The total number of protected VPN connections through CEN transit routers.
    * 
    * @example
    * 6
@@ -261,7 +261,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   openedVpnCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8AABEF64-7ABF-52CB-BA6C-0598E3DB****
@@ -269,7 +269,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of ECRs.
+   * The total number of ECR instances.
    * 
    * @example
    * 2
@@ -277,7 +277,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   totalEcrCount?: number;
   /**
    * @remarks
-   * The number of inter-region connections on the CEN transit router.
+   * The total number of inter-region connections through CEN transit routers.
    * 
    * @example
    * 6
@@ -285,7 +285,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   totalPeerTrCount?: number;
   /**
    * @remarks
-   * The number of VBRs on the CEN transit router.
+   * The total number of VBRs through CEN transit routers.
    * 
    * @example
    * 5
@@ -293,7 +293,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   totalVbrCount?: number;
   /**
    * @remarks
-   * The number of interconnected VPCs.
+   * The total number of interconnected VPCs.
    * 
    * @example
    * 2
@@ -301,7 +301,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   totalVpcCount?: number;
   /**
    * @remarks
-   * The total quota for VPC firewalls.
+   * The total VPC firewall quota.
    * 
    * @example
    * 5
@@ -309,7 +309,7 @@ export class DescribeVpcFirewallSummaryInfoResponseBody extends $dara.Model {
   totalVpcFirewallQuota?: number;
   /**
    * @remarks
-   * The number of VPN gateways on the CEN transit router.
+   * The total number of VPN connections through CEN transit routers.
    * 
    * @example
    * 1

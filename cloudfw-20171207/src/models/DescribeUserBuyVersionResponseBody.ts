@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quota for ACK cluster connectors.
+   * The ACK cluster connector quota.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   ackClusterConnectorQuota?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The AliUid of the Cloud Firewall account.
    * 
    * @example
    * 119898001566xxxx
@@ -30,10 +30,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The expiration time of the Cloud Firewall instance.
+   * > The value is a millisecond-level UNIX timestamp.
    * 
-   * > The value is a UNIX timestamp in milliseconds.
-   * 
-   * > This parameter does not apply to pay-as-you-go editions.
+   * > This field is meaningless when you use the pay-as-you-go edition.
    * 
    * @example
    * 1726934400000
@@ -49,7 +48,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   extensionBandwidth?: number;
   /**
    * @remarks
-   * The number of general-purpose instances.
+   * The general-purpose instance quota.
    * 
    * @example
    * 10
@@ -57,9 +56,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   generalInstance?: number;
   /**
    * @remarks
-   * The ID of the Cloud Firewall instance.
+   * The ID of the purchased Cloud Firewall instance.
    * 
-   * > This parameter does not apply to trial editions.
+   * > This field is meaningless when you use the trial version.
    * 
    * @example
    * vipcloudfw-cn-xxxxx
@@ -67,17 +66,17 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The operational status of the Cloud Firewall instance. Valid values:
+   * The provisioning status of the Cloud Firewall instance. Valid values:
    * 
-   * - **normal**: The instance is running as expected.
+   * - **normal**: The instance is running normally.
    * 
    * - **init**: The instance is being initialized.
    * 
-   * - **deleting**: The instance is being deleted.
+   * - **deleting**: The instance is being deleted. 
    * 
-   * - **abnormal**: The instance is in an abnormal state.
+   * - **abnormal**: The instance is abnormal.
    * 
-   * - **free**: No valid instance is available.
+   * - **free**: No valid instance exists.
    * 
    * @example
    * normal
@@ -85,7 +84,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * The purchased traffic processing capability for the Internet firewall.
+   * The purchased traffic processing capacity of the Internet firewall.
    * 
    * @example
    * 3000
@@ -93,9 +92,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   internetBandwidth?: number;
   /**
    * @remarks
-   * The number of public IP addresses that can be protected.
+   * The purchased quota for the Internet border protection.
    * 
-   * > This parameter applies only to subscription instances.
+   * > This field takes effect only for subscription users.
    * 
    * @example
    * 63
@@ -103,11 +102,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   ipNumber?: number;
   /**
    * @remarks
-   * Indicates whether log delivery is enabled. Valid values:
-   * 
-   * - **true**: Enabled
-   * 
-   * - **false**: Disabled
+   * The enabling status of log delivery. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -116,8 +113,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The purchased log storage capacity.
-   * 
-   * > This parameter applies only to subscription instances.
+   * > This field takes effect only for subscription users.
    * 
    * @example
    * 3000
@@ -133,13 +129,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   majorVersion?: number;
   /**
    * @remarks
-   * Indicates whether elastic billing for excess traffic is enabled. Valid values:
+   * Indicates whether burstable elastic billing is enabled. Valid values:
+   * - **1000000**: Enabled.
+   * - **0**: Disabled.
    * 
-   * - **1000000**: Enabled
-   * 
-   * - **0**: Disabled
-   * 
-   * > This parameter applies only to subscription instances.
+   * > This field takes effect only for subscription users.
    * 
    * @example
    * 0
@@ -147,7 +141,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   maxOverflow?: number;
   /**
    * @remarks
-   * The purchased traffic processing capability for the NAT firewall.
+   * The purchased traffic processing capacity of NAT firewalls.
    * 
    * @example
    * 3000
@@ -155,7 +149,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   natBandwidth?: number;
   /**
    * @remarks
-   * The quota for private DNS connectors.
+   * The private DNS connector quota.
    * 
    * @example
    * 5
@@ -163,7 +157,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   privateDnsConnectorQuota?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F71B03EE-xxxxx-91D79CC6AA1A
@@ -171,7 +165,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether data leakage prevention is enabled.
+   * The enabling status of sensitive data leak detection. In the Resource field, true indicates enabled and false indicates disabled. In the API response, 1 indicates enabled and 0 indicates disabled.
    * 
    * @example
    * 1
@@ -179,9 +173,8 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   sdl?: number;
   /**
    * @remarks
-   * The time when the Cloud Firewall instance was enabled.
-   * 
-   * > The value is a UNIX timestamp in milliseconds.
+   * The activation time of the Cloud Firewall instance.
+   * > The value is a millisecond-level UNIX timestamp.
    * 
    * @example
    * 1692504764000
@@ -189,7 +182,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The temporary bandwidth.
+   * The temporary upgrade bandwidth.
    * 
    * @example
    * 1000
@@ -197,7 +190,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   temporaryBandwidth?: number;
   /**
    * @remarks
-   * Indicates whether threat intelligence is enabled.
+   * The enabling status of threat intelligence.
    * 
    * @example
    * 1
@@ -206,10 +199,8 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the Cloud Firewall instance. Valid values:
-   * 
-   * - **true**: The instance is valid.
-   * 
-   * - **false**: The instance is invalid.
+   * - **true**: Valid.
+   * - **false**: Invalid.
    * 
    * @example
    * true
@@ -217,15 +208,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   userStatus?: boolean;
   /**
    * @remarks
-   * The edition of the Cloud Firewall instance. Valid values:
-   * 
+   * The version of the Cloud Firewall instance. Valid values:
    * - **2**: Premium Edition
-   * 
    * - **3**: Enterprise Edition
-   * 
    * - **4**: Ultimate Edition
-   * 
-   * - **10**: Pay-as-you-go
+   * - **10**: Pay-as-you-go Edition
    * 
    * @example
    * 2
@@ -233,7 +220,7 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The purchased traffic processing capability for the VPC firewall.
+   * The purchased traffic processing capacity of VPC firewalls.
    * 
    * @example
    * 3000
@@ -241,9 +228,9 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   vpcBandwidth?: number;
   /**
    * @remarks
-   * The number of purchased VPC firewalls.
+   * The purchased quota for VPC firewalls.
    * 
-   * > This parameter applies only to subscription instances.
+   * > This field takes effect only for subscription users.
    * 
    * @example
    * 21

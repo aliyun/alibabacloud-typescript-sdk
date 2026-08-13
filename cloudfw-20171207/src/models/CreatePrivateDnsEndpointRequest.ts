@@ -35,7 +35,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud member account. This parameter is required when you use Cloud Firewall to manage member accounts.
+   * The UID of the Alibaba Cloud member accounts.
    * 
    * @example
    * 258039427902****
@@ -52,6 +52,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The primary DNS server.
+   * > When PrivateDnsType is set to Custom, you must specify PrimaryDns and StandbyDns.
    * 
    * @example
    * 1.1.1.1
@@ -75,7 +76,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   primaryVSwitchIp?: string;
   /**
    * @remarks
-   * The private DNS type. When PrivateDnsType is set to Custom, Port and IpProtocol are required. When PrivateDnsType is set to PrivateZone, the backend automatically sets the port to 53 and uses the default protocol. Valid values:
+   * The type of private DNS. When PrivateDnsType is set to Custom, Port and IpProtocol are required. When PrivateDnsType is set to PrivateZone, the backend automatically sets the port to 53 and uses the default protocol. Valid values:
    * - **PrivateZone**
    * - **Custom** (default)
    * 
@@ -98,6 +99,8 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The secondary DNS server.
+   * 
+   * > When PrivateDnsType is set to Custom, you must specify PrimaryDns and StandbyDns.
    * 
    * @example
    * 1.1.1.2

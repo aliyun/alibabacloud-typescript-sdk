@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceRegionListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of regions that support the current synchronization node type.
+   * The list of regions that support the current sync node type.
    */
   regionNoList?: string[];
   /**

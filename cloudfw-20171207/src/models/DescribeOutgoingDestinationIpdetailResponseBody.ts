@@ -94,7 +94,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
    * The inbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   inBytes?: number;
   /**
@@ -142,7 +142,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
    * The outbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   outBytes?: number;
   /**

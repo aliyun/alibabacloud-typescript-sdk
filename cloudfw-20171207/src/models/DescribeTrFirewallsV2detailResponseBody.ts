@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones extends $dara.Model {
+  /**
+   * @remarks
+   * The CIDR block of the vSwitch for the transit router connection.
+   * 
+   * @example
+   * 10.0.2.0/24
+   */
+  vSwitchCidr?: string;
+  /**
+   * @remarks
+   * The zone ID of the vSwitch for the transit router connection.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  vSwitchZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchCidr: 'VSwitchCidr',
+      vSwitchZoneId: 'VSwitchZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchCidr: 'string',
+      vSwitchZoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -13,6 +53,14 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
+   * The zone ID used by the firewall connection.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  firewallAttachmentZone?: string;
+  /**
+   * @remarks
    * The description of the firewall.
    * 
    * @example
@@ -21,7 +69,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallDescription?: string;
   /**
    * @remarks
-   * The ID of the firewall ENI.
+   * The ENI ID of the firewall.
    * 
    * @example
    * eni-uf621u00nafypeex****
@@ -29,7 +77,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallEniId?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the firewall ENI resides.
+   * The ID of the VPC to which the firewall ENI belongs.
    * 
    * @example
    * vpc-2zeppcci782zeh2bk****
@@ -37,7 +85,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallEniVpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in which the firewall ENI resides.
+   * The ID of the vSwitch to which the firewall ENI belongs.
    * 
    * @example
    * vsw-uf6ptq1kl1c1d9pw9****
@@ -45,7 +93,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallEniVswitchId?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
    * 
    * @example
    * vfw-tr-9c7c711abdfa4d80****
@@ -53,12 +101,25 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The instance name of the virtual private cloud (VPC) firewall.
+   * The name of the virtual private cloud (VPC) firewalls instance.
    * 
    * @example
    * cloudfirewall-manual
    */
   firewallName?: string;
+  /**
+   * @remarks
+   * The deployment mode of the TR firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+   * 
+   * @example
+   * PrimaryStandby
+   */
+  firewallServiceMode?: string;
+  /**
+   * @remarks
+   * The list of zone IDs used by the TR firewall service.
+   */
+  firewallServiceZones?: string[];
   /**
    * @remarks
    * The status of the firewall. Valid values:
@@ -75,7 +136,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallStatus?: string;
   /**
    * @remarks
-   * The subnet CIDR block that is used to store the firewall ENI in the firewall VPC in automatic mode.
+   * The subnet CIDR block that hosts the firewall ENI in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.1.0/24
@@ -83,24 +144,24 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   firewallSubnetCidr?: string;
   /**
    * @remarks
-   * The status of the virtual private cloud (VPC) firewall. Valid values:
+   * The status of the virtual private cloud (VPC) firewalls. Valid values:
    * 
-   * - **opened**: The firewall is enabled.
+   * - **opened**: enabled
    * 
-   * - **closed**: The firewall is disabled.
+   * - **closed**: disabled
    * 
-   * - **notconfigured**: The virtual private cloud (VPC) firewall is not configured.
+   * - **notconfigured**: The VPC firewall is not configured.
    * 
-   * - **configured**: The virtual private cloud (VPC) firewall is configured.
+   * - **configured**: The VPC firewall is configured.
    * 
-   * - **creating**: The virtual private cloud (VPC) firewall is being created.
+   * - **creating**: The VPC firewall is being created.
    * 
-   * - **opening**: The virtual private cloud (VPC) firewall is being enabled.
+   * - **opening**: The VPC firewall is being enabled.
    * 
-   * - **deleting**: The virtual private cloud (VPC) firewall is being deleted.
+   * - **deleting**: The VPC firewall is being deleted.
    * 
    * 
-   * > If this parameter is not set, virtual private cloud (VPC) firewalls in all states are queried.
+   * > If this parameter is not specified, virtual private cloud (VPC) firewalls in all states are queried.
    * 
    * @example
    * opened
@@ -135,6 +196,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * The routing mode. Valid values:
    * 
    * - **managed**: automatic mode
+   * 
    * - **manual**: manual mode
    * 
    * @example
@@ -143,7 +205,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The attachment ID that is used to connect to the transit router in the firewall VPC in automatic mode.
+   * The attachment ID used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * tr-attach-r1llaxxeha71jsm36v
@@ -151,39 +213,52 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   trAttachmentId?: string;
   /**
    * @remarks
-   * The primary subnet CIDR block that is used to connect to the transit router in the firewall VPC in automatic mode.
+   * The primary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.2.0/24
+   * 
+   * @deprecated
    */
   trAttachmentMasterCidr?: string;
   /**
    * @remarks
-   * The primary zone of the subnet that is used to connect to the transit router in the firewall VPC in automatic mode.
+   * The primary zone used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * cn-hangzhou-h
+   * 
+   * @deprecated
    */
   trAttachmentMasterZone?: string;
   /**
    * @remarks
-   * The secondary subnet CIDR block that is used to connect to the transit router in the firewall VPC in automatic mode.
+   * The secondary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.3.0/24
+   * 
+   * @deprecated
    */
   trAttachmentSlaveCidr?: string;
   /**
    * @remarks
-   * The secondary zone of the subnet that is used to connect to the transit router in the firewall VPC in automatic mode.
+   * The secondary zone used to connect to the transit router in the firewall VPC in automatic mode.
    * 
    * @example
    * cn-hangzhou-i
+   * 
+   * @deprecated
    */
   trAttachmentSlaveZone?: string;
   /**
    * @remarks
-   * The instance ID of the forward routing router.
+   * The list of zones and vSwitch CIDR blocks for the transit router connection.
+   */
+  trAttachmentZones?: DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones[];
+  /**
+   * @remarks
+   * The instance ID of the transit router.
    * 
    * @example
    * tr-wz9y8sgug8b1xb416****
@@ -192,12 +267,15 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      firewallAttachmentZone: 'FirewallAttachmentZone',
       firewallDescription: 'FirewallDescription',
       firewallEniId: 'FirewallEniId',
       firewallEniVpcId: 'FirewallEniVpcId',
       firewallEniVswitchId: 'FirewallEniVswitchId',
       firewallId: 'FirewallId',
       firewallName: 'FirewallName',
+      firewallServiceMode: 'FirewallServiceMode',
+      firewallServiceZones: 'FirewallServiceZones',
       firewallStatus: 'FirewallStatus',
       firewallSubnetCidr: 'FirewallSubnetCidr',
       firewallSwitchStatus: 'FirewallSwitchStatus',
@@ -210,6 +288,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       trAttachmentMasterZone: 'TrAttachmentMasterZone',
       trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
       trAttachmentSlaveZone: 'TrAttachmentSlaveZone',
+      trAttachmentZones: 'TrAttachmentZones',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -217,12 +296,15 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      firewallAttachmentZone: 'string',
       firewallDescription: 'string',
       firewallEniId: 'string',
       firewallEniVpcId: 'string',
       firewallEniVswitchId: 'string',
       firewallId: 'string',
       firewallName: 'string',
+      firewallServiceMode: 'string',
+      firewallServiceZones: { 'type': 'array', 'itemType': 'string' },
       firewallStatus: 'string',
       firewallSubnetCidr: 'string',
       firewallSwitchStatus: 'string',
@@ -235,11 +317,18 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       trAttachmentMasterZone: 'string',
       trAttachmentSlaveCidr: 'string',
       trAttachmentSlaveZone: 'string',
+      trAttachmentZones: { 'type': 'array', 'itemType': DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones },
       transitRouterId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.firewallServiceZones)) {
+      $dara.Model.validateArray(this.firewallServiceZones);
+    }
+    if(Array.isArray(this.trAttachmentZones)) {
+      $dara.Model.validateArray(this.trAttachmentZones);
+    }
     super.validate();
   }
 

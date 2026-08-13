@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action that is set in the access control policy. Settings the method in which traffic passes through Cloud Firewall. Valid values:
+   * The action configured in the access control policy for the traffic that passes through Cloud Firewall. Valid values:
    * 
-   * - **accept**: allows the access.
-   * - **drop**: deny the access.
+   * - **accept**: allows the traffic.
+   * - **drop**: denies the traffic.
    * - **log**: monitors the traffic.
    * 
    * This parameter is required.
@@ -35,9 +35,9 @@ export class AddControlPolicyRequest extends $dara.Model {
    * - **SSL_No_Cert**
    * - **SSL**
    * - **VNC**
-   * - **ANY**: all application types
+   * - **ANY** (all application types)
    * 
-   * > The valid values of ApplicationName depend on the value of the protocol type (Proto). If Proto is set to TCP, ApplicationName can be set to any of the preceding application types. If Proto is set to UDP, ICMP, or ANY, ApplicationName can be set only to ANY. You must specify either ApplicationNameList or ApplicationName. You cannot leave both of them empty.
+   * > The supported application types depend on the value of the protocol type (Proto). If Proto is set to TCP, ApplicationName can be set to any of the preceding application types. If Proto is set to UDP, ICMP, or ANY, ApplicationName can be set only to ANY. You must specify either ApplicationNameList or ApplicationName. You cannot leave both of them empty.
    * 
    * @example
    * ANY
@@ -47,9 +47,17 @@ export class AddControlPolicyRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * The application types supported by the access control policy.
+   * The list of application types supported by the access control policy.
    */
   applicationNameList?: string[];
+  /**
+   * @remarks
+   * The idempotence token.
+   * 
+   * @example
+   * ddadxefexxxx
+   */
+  clientToken?: string;
   /**
    * @remarks
    * The description of the access control policy.
@@ -96,7 +104,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * Valid values:
    * 
    * - **port**: port
-   * - **group**: port address book.
+   * - **group**: port address book
    * 
    * @example
    * port
@@ -138,7 +146,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * - **net**: destination CIDR block
    * - **group**: destination address book
    * - **domain**: destination domain name
-   * - **location**: destination region.
+   * - **location**: destination region
    * 
    * This parameter is required.
    * 
@@ -150,8 +158,8 @@ export class AddControlPolicyRequest extends $dara.Model {
    * @remarks
    * The traffic direction of the access control policy. Valid values:
    * 
-   * - **in**: inbound traffic
-   * - **out**: outbound traffic.
+   * - **in**: inbound traffic access control
+   * - **out**: outbound traffic access control
    * 
    * This parameter is required.
    * 
@@ -163,9 +171,9 @@ export class AddControlPolicyRequest extends $dara.Model {
    * @remarks
    * The domain name resolution method of the access control policy. Valid values:
    * 
-   * * **FQDN**: FQDN-based resolution
+   * * **FQDN**: FQDN-based
    * * **DNS**: DNS-based dynamic resolution
-   * * **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution.
+   * * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
    * 
    * @example
    * FQDN
@@ -173,8 +181,13 @@ export class AddControlPolicyRequest extends $dara.Model {
   domainResolveType?: string;
   /**
    * @remarks
-   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
-   * > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
+   * Specifies whether to perform a dry run.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or half hour and must be at least 30 minutes later than the start time.
+   * > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must have a value.
    * 
    * @example
    * 1694764800
@@ -188,7 +201,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * 
    * - **4**: IPv4
    * 
-   * - **6**: IPv6.
+   * - **6**: IPv6
    * 
    * @example
    * 6
@@ -199,7 +212,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh
@@ -207,7 +220,7 @@ export class AddControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The priority of the access control policy. The priority value starts from 1. A smaller value indicates a higher priority.
+   * The priority of the access control policy. The priority value starts from 1. A smaller priority value indicates a higher priority.
    * 
    * This parameter is required.
    * 
@@ -219,12 +232,12 @@ export class AddControlPolicyRequest extends $dara.Model {
    * @remarks
    * The protocol type in the access control policy. Valid values:
    * 
-   * - **ANY**: any protocol
+   * - **ANY**
    * - **TCP**
    * - **UDP**
    * - **ICMP**
    * 
-   * > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain name type, only TCP is supported. The application type can be set to HTTP, HTTPS, SMTP, SMTPS, or SSL.
+   * > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain type, only TCP is supported. The application type can be set to HTTP, HTTPS, SMTP, SMTPS, or SSL.
    * 
    * This parameter is required.
    * 
@@ -246,20 +259,20 @@ export class AddControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The days of the recurrence for the policy validity period of the access control policy.
-   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, the value of RepeatDays is an empty array.
+   * - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
    *   Example: []
-   * - If RepeatType is set to Weekly, the value of RepeatDays must not be empty.
+   * - If RepeatType is set to Weekly, RepeatDays cannot be empty.
    *   Example: [0, 6]
-   * > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
-   * - If RepeatType is set to `Monthly`, the value of RepeatDays must not be empty.
+   * > If RepeatType is set to Weekly, values in RepeatDays cannot be repeated.
+   * - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
    *   Example: [1, 31]
-   * > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
+   * > If RepeatType is set to Monthly, values in RepeatDays cannot be repeated.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the recurrence start time.
-   * > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+   * The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or half hour and must be at least 30 minutes later than the recurrence start time.
+   * > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must have a value.
    * > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
@@ -268,8 +281,8 @@ export class AddControlPolicyRequest extends $dara.Model {
   repeatEndTime?: string;
   /**
    * @remarks
-   * The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the recurrence end time.
-   * > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+   * The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or half hour and must be at least 30 minutes earlier than the recurrence end time.
+   * > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must have a value.
    * > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
    * 
    * @example
@@ -328,7 +341,7 @@ export class AddControlPolicyRequest extends $dara.Model {
    * The type of the source address in the access control policy. Valid values:
    * - **net**: source CIDR block
    * - **group**: source address book
-   * - **location**: source region.
+   * - **location**: source region
    * 
    * This parameter is required.
    * 
@@ -338,8 +351,8 @@ export class AddControlPolicyRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
-   * > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
+   * The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or half hour and must be at least 30 minutes earlier than the end time.
+   * > If RepeatType is set to Permanent, StartTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must have a value.
    * 
    * @example
    * 1694761200
@@ -350,6 +363,7 @@ export class AddControlPolicyRequest extends $dara.Model {
       aclAction: 'AclAction',
       applicationName: 'ApplicationName',
       applicationNameList: 'ApplicationNameList',
+      clientToken: 'ClientToken',
       description: 'Description',
       destPort: 'DestPort',
       destPortGroup: 'DestPortGroup',
@@ -358,6 +372,7 @@ export class AddControlPolicyRequest extends $dara.Model {
       destinationType: 'DestinationType',
       direction: 'Direction',
       domainResolveType: 'DomainResolveType',
+      dryRun: 'DryRun',
       endTime: 'EndTime',
       ipVersion: 'IpVersion',
       lang: 'Lang',
@@ -380,6 +395,7 @@ export class AddControlPolicyRequest extends $dara.Model {
       aclAction: 'string',
       applicationName: 'string',
       applicationNameList: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
       description: 'string',
       destPort: 'string',
       destPortGroup: 'string',
@@ -388,6 +404,7 @@ export class AddControlPolicyRequest extends $dara.Model {
       destinationType: 'string',
       direction: 'string',
       domainResolveType: 'string',
+      dryRun: 'boolean',
       endTime: 'number',
       ipVersion: 'string',
       lang: 'string',

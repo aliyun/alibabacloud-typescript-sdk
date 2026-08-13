@@ -6,7 +6,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   /**
    * @remarks
    * The ACK cluster ID. You can call the following operation to obtain the value:
-   * - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
+   * - [DescribeAckClusters](~~DescribeAckClusters~~): Queries the list of ACK clusters.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-).
+   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   /**
    * @remarks
    * The primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Lists the regions of synchronization nodes.
+   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of synchronization node regions.
    * 
    * > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
    * 
@@ -67,7 +67,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   /**
    * @remarks
    * The standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
    * 
    * @example
    * vsw-2ze2gtlfozrab01cfo****

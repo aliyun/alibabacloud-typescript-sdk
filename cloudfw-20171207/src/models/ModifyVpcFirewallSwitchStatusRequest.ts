@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpcFirewallSwitchStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the VPC firewall. Valid values:
+   * The status of the virtual private cloud (VPC) firewall. Valid values:
    * 
    * - **open**: enabled.
    * 
@@ -19,7 +19,7 @@ export class ModifyVpcFirewallSwitchStatusRequest extends $dara.Model {
   firewallSwitch?: string;
   /**
    * @remarks
-   * The language of the request and response. Valid values:
+   * The language of the content within the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -31,7 +31,7 @@ export class ModifyVpcFirewallSwitchStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member account of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -39,9 +39,9 @@ export class ModifyVpcFirewallSwitchStatusRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
-   * > Call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) API call to query the instance ID of the VPC firewall.
+   * > You can invoke the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the VPC firewall.
    * 
    * This parameter is required.
    * 

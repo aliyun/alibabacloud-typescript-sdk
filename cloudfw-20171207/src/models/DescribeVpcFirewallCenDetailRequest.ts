@@ -17,7 +17,7 @@ export class DescribeVpcFirewallCenDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the VPC instance for which the VPC firewall is created.
+   * The VPC instance ID used to create a VPC firewall.
    * 
    * @example
    * vpc-2zefk9fbn8j7v585g****
@@ -25,9 +25,9 @@ export class DescribeVpcFirewallCenDetailRequest extends $dara.Model {
   networkInstanceId?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
-   * > You can call the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the instance IDs of VPC firewalls.
+   * > You can invoke the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the instance ID of the VPC firewall.
    * 
    * This parameter is required.
    * 

@@ -16,7 +16,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
    * The inbound traffic.
    * 
    * @example
-   * 1456536639.0
+   * 1456536639
    */
   inBytes?: number;
   /**
@@ -24,7 +24,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
    * The outbound traffic.
    * 
    * @example
-   * 117200.0
+   * 117200
    */
   outBytes?: number;
   /**

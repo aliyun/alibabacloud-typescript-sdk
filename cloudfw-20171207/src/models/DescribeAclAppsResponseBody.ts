@@ -8,7 +8,7 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
    * The application ID.
    * 
    * @example
-   * 1.0
+   * 1
    */
   appId?: number;
   /**

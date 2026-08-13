@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
-   * > FirewallId is required. If this parameter is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to query existing FirewallId values. If no VPC firewall exists, create a CEN instance and a transit router first, and then call CreateTrFirewallV2 to obtain a FirewallId.
+   * The ID of the VPC firewall instance. This parameter is required. If this parameter is not specified, the error ErrorMissingFirewallId (-360444, firewall id is required) is returned.
+   * 
+   * > You can call DescribeTrFirewallsV2List to query existing FirewallId values (in the format of vfw-tr-*). If no firewall has been created, create an Enterprise Edition transit router in the CEN console first, and then call CreateTrFirewallV2.
    * 
    * @example
    * vfw-tr-a5a6b89f46764928****

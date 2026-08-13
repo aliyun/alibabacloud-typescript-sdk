@@ -85,13 +85,14 @@ export class CreateTrFirewallV2RoutePolicyRequestSrcCandidateList extends $dara.
 export class CreateTrFirewallV2RoutePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The secondary traffic redirection instances.
+   * The list of secondary traffic redirection instances.
+   * > DestCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
    */
   destCandidateList?: CreateTrFirewallV2RoutePolicyRequestDestCandidateList[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) firewall instance.
-   * > FirewallId is required. If it is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain the instance ID.
+   * The instance ID of the virtual private cloud (VPC) firewall.
+   * > FirewallId is required. If this parameter is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain instance ID.
    * 
    * @example
    * vfw-tr-f8ce36689b224f77****
@@ -110,7 +111,7 @@ export class CreateTrFirewallV2RoutePolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The description of the traffic redirection configuration.
+   * The description of the traffic redirection scenario.
    * 
    * @example
    * Singapore Point to Multipoint
@@ -118,7 +119,7 @@ export class CreateTrFirewallV2RoutePolicyRequest extends $dara.Model {
   policyDescription?: string;
   /**
    * @remarks
-   * The name of the traffic redirection configuration.
+   * The name of the traffic redirection scenario.
    * 
    * @example
    * Singapore Point to Multipoint
@@ -126,13 +127,14 @@ export class CreateTrFirewallV2RoutePolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The traffic redirection scenario type for the virtual private cloud (VPC) firewall on a Cloud Enterprise Network (CEN) Enterprise Edition transit router. Valid values:
+   * The traffic redirection scenario type for the virtual private cloud (VPC) firewall for a CEN Enterprise Edition transit router. Valid values:
    * 
    * - **fullmesh**: multi-point interconnection
    * 
    * - **one_to_one**: point-to-point
    * 
    * - **end_to_end**: point-to-multipoint
+   * > PolicyType is required. If this parameter is not specified, ErrorParameters(400) is returned.
    * 
    * @example
    * fullmesh
@@ -140,7 +142,8 @@ export class CreateTrFirewallV2RoutePolicyRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The primary traffic redirection instances.
+   * The list of primary traffic redirection instances.
+   * > SrcCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
    */
   srcCandidateList?: CreateTrFirewallV2RoutePolicyRequestSrcCandidateList[];
   static names(): { [key: string]: string } {

@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrFirewallV2Request extends $dara.Model {
   /**
    * @remarks
-   * The CEN instance ID. This parameter is required when you invoke this operation.
+   * The ID of the CEN instance. This parameter is required. Create a CEN instance in the CEN console before calling this operation, and ensure that an Enterprise Edition transit router has been created.
    * 
    * @example
    * cen-4xbjup276au29r****
    */
   cenId?: string;
+  /**
+   * @remarks
+   * The zone ID used by the firewall connection.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  firewallAttachmentZone?: string;
   /**
    * @remarks
    * The description of the firewall.
@@ -29,10 +37,30 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallName?: string;
   /**
    * @remarks
+   * The deployment mode of the firewall service. Valid values:
+   * 
+   * - **PrimaryStandby**: Primary/standby mode.
+   * - **MultiPrimary**: Active-active mode.
+   * 
+   * > If this parameter is not specified, the system automatically selects a deployment mode based on the capabilities of the transit router. If an invalid value is specified, the error ErrorFwServiceMode (-360437) is returned. MultiPrimary mode does not support specifying zones.
+   * 
+   * @example
+   * PrimaryStandby
+   */
+  firewallServiceMode?: string;
+  /**
+   * @remarks
+   * The list of zone IDs used by the firewall service.
+   */
+  firewallServiceZones?: string[];
+  /**
+   * @remarks
    * The subnet CIDR block used to store the firewall ENI in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.1.0/24
+   * 
+   * @deprecated
    */
   firewallSubnetCidr?: string;
   /**
@@ -61,7 +89,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   firewallVswitchId?: string;
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response. Valid values:
    * 
    * - **zh** (default): Chinese
    * - **en**: English
@@ -72,7 +100,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region ID of the transit router instance. This parameter is required in actual calls.
+   * The region ID of the Enterprise Edition transit router. This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -80,13 +108,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The routing mode. Valid values:
-   * 
-   * - **managed**: automatic mode.
-   * 
-   * - **manual**: manual mode.
-   * 
-   * > This parameter is required in actual calls. If RouteMode is set to managed (automatic), FirewallVpcCidr, FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr are required. If RouteMode is set to manual, FirewallVpcId, FirewallVswitchId, TrAttachmentSlaveZone, and TrAttachmentMasterZone are required. Required parameters vary by mode.
+   * The routing mode. This parameter is required. Valid values: managed (automatic mode) and manual (manual mode). In managed mode, you must specify FirewallVpcCidr, FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr. In manual mode, you must specify FirewallVpcId, FirewallVswitchId, TrAttachmentSlaveZone, and TrAttachmentMasterZone.
    * 
    * @example
    * managed
@@ -94,10 +116,12 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The primary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
+   * The primary subnet CIDR block used to connect to the TR in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.3.0/24
+   * 
+   * @deprecated
    */
   trAttachmentMasterCidr?: string;
   /**
@@ -110,10 +134,12 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentMasterZone?: string;
   /**
    * @remarks
-   * The secondary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
+   * The secondary subnet CIDR block used to connect to the TR in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.0.16/28
+   * 
+   * @deprecated
    */
   trAttachmentSlaveCidr?: string;
   /**
@@ -126,7 +152,12 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentSlaveZone?: string;
   /**
    * @remarks
-   * The transit router instance ID. This parameter is required when you invoke this operation.
+   * The list of zone IDs used by the TR connection.
+   */
+  trAttachmentZones?: string[];
+  /**
+   * @remarks
+   * The ID of the Enterprise Edition transit router instance. This parameter is required. The transit router must belong to the CEN instance specified by CenId.
    * 
    * @example
    * tr-m5etmb2q7e0mxcur****
@@ -135,8 +166,11 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
+      firewallAttachmentZone: 'FirewallAttachmentZone',
       firewallDescription: 'FirewallDescription',
       firewallName: 'FirewallName',
+      firewallServiceMode: 'FirewallServiceMode',
+      firewallServiceZones: 'FirewallServiceZones',
       firewallSubnetCidr: 'FirewallSubnetCidr',
       firewallVpcCidr: 'FirewallVpcCidr',
       firewallVpcId: 'FirewallVpcId',
@@ -148,6 +182,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
       trAttachmentMasterZone: 'TrAttachmentMasterZone',
       trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
       trAttachmentSlaveZone: 'TrAttachmentSlaveZone',
+      trAttachmentZones: 'TrAttachmentZones',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -155,8 +190,11 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cenId: 'string',
+      firewallAttachmentZone: 'string',
       firewallDescription: 'string',
       firewallName: 'string',
+      firewallServiceMode: 'string',
+      firewallServiceZones: { 'type': 'array', 'itemType': 'string' },
       firewallSubnetCidr: 'string',
       firewallVpcCidr: 'string',
       firewallVpcId: 'string',
@@ -168,11 +206,18 @@ export class CreateTrFirewallV2Request extends $dara.Model {
       trAttachmentMasterZone: 'string',
       trAttachmentSlaveCidr: 'string',
       trAttachmentSlaveZone: 'string',
+      trAttachmentZones: { 'type': 'array', 'itemType': 'string' },
       transitRouterId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.firewallServiceZones)) {
+      $dara.Model.validateArray(this.firewallServiceZones);
+    }
+    if(Array.isArray(this.trAttachmentZones)) {
+      $dara.Model.validateArray(this.trAttachmentZones);
+    }
     super.validate();
   }
 

@@ -73,9 +73,25 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
 export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
+   * The deployment mode of the firewall service. Valid values:
+   * 
+   * - PrimaryStandby: active/standby mode
+   * - MultiPrimary: active-active mode
+   * 
+   * @example
+   * PrimaryStandby
+   */
+  firewallServiceMode?: string;
+  /**
+   * @remarks
+   * The list of zone IDs used by the firewall service.
+   */
+  firewallServiceZones?: string[];
+  /**
+   * @remarks
    * The security protection switch. Valid values:
-   * - **open**: Enabled.
-   * - **close**: Disabled.
+   * - **open**: enabled
+   * - **close**: disabled
    * 
    * @example
    * close
@@ -163,8 +179,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the automatic vSwitch mode. Valid values:
-   * - **true**: Automatic mode.
-   * - **false**: Manual mode.
+   * - **true**: automatic mode
+   * - **false**: manual mode
    * > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
    * 
    * @example
@@ -189,6 +205,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      firewallServiceMode: 'FirewallServiceMode',
+      firewallServiceZones: 'FirewallServiceZones',
       firewallSwitch: 'FirewallSwitch',
       fwVswitchZoneId: 'FwVswitchZoneId',
       lang: 'Lang',
@@ -206,6 +224,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      firewallServiceMode: 'string',
+      firewallServiceZones: { 'type': 'array', 'itemType': 'string' },
       firewallSwitch: 'string',
       fwVswitchZoneId: 'string',
       lang: 'string',
@@ -222,6 +242,9 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.firewallServiceZones)) {
+      $dara.Model.validateArray(this.firewallServiceZones);
+    }
     if(Array.isArray(this.natRouteEntryList)) {
       $dara.Model.validateArray(this.natRouteEntryList);
     }

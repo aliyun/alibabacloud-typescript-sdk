@@ -40,7 +40,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
    * The inbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   inBytes?: number;
   /**
@@ -48,7 +48,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
    * The outbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   outBytes?: number;
   /**

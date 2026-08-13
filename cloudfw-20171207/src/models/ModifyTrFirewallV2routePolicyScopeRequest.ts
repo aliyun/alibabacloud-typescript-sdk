@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the traffic redirection instance.
    * 
    * @example
    * vpc-2ze9epancaw8t4uzi****
@@ -13,7 +13,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList extends 
   candidateId?: string;
   /**
    * @remarks
-   * The type of the instance.
+   * The type of the traffic redirection instance.
    * 
    * @example
    * VPC
@@ -45,7 +45,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList extends 
 export class ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the traffic redirection instance.
    * 
    * @example
    * vpc-2ze9epancaw8t4sha****
@@ -53,7 +53,7 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList extends $
   candidateId?: string;
   /**
    * @remarks
-   * The type of the instance.
+   * The type of the traffic redirection instance.
    * 
    * @example
    * VPC
@@ -85,12 +85,12 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList extends $
 export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination instances.
+   * The list of secondary traffic redirection instances.
    */
   destCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList[];
   /**
    * @remarks
-   * The ID of the TR firewall instance.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
    * 
    * This parameter is required.
    * 
@@ -100,10 +100,9 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -114,9 +113,9 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to restore the traffic redirection configuration. Valid values:
    * 
-   * - true: Rolls back the routes.
+   * - true: Route rollback.
    * 
-   * - false: Revokes the routes.
+   * - false: Route withdrawal.
    * 
    * @example
    * false
@@ -124,12 +123,12 @@ export class ModifyTrFirewallV2RoutePolicyScopeRequest extends $dara.Model {
   shouldRecover?: string;
   /**
    * @remarks
-   * The source instances.
+   * The list of primary traffic redirection instances.
    */
   srcCandidateList?: ModifyTrFirewallV2RoutePolicyScopeRequestSrcCandidateList[];
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall route policy.
    * 
    * This parameter is required.
    * 

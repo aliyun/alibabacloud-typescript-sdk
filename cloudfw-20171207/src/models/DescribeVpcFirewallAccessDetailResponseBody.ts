@@ -8,7 +8,7 @@ export class DescribeVpcFirewallAccessDetailResponseBodyDataList extends $dara.M
    * The number of bytes received. Unit: bytes.
    * 
    * @example
-   * 17845821669.0
+   * 17845821669
    */
   inBytes?: number;
   /**

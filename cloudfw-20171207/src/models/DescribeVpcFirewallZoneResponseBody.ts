@@ -13,7 +13,7 @@ export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The name of the zone.
+   * The zone name.
    * 
    * @example
    * Hangzhou Zone C
@@ -45,7 +45,18 @@ export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
 export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The deployment mode of the virtual private cloud (VPC) firewall service. Valid values:
+   * 
+   * - **PrimaryStandby**: active/standby mode.
+   * - **MultiPrimary**: active-active mode.
+   * 
+   * @example
+   * PrimaryStandby
+   */
+  firewallServiceMode?: string;
+  /**
+   * @remarks
+   * The request ID.
    * 
    * @example
    * 337A4DBA-8A01-5E9C-99CA-84293E13****
@@ -58,6 +69,7 @@ export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
   zoneList?: DescribeVpcFirewallZoneResponseBodyZoneList[][];
   static names(): { [key: string]: string } {
     return {
+      firewallServiceMode: 'FirewallServiceMode',
       requestId: 'RequestId',
       zoneList: 'ZoneList',
     };
@@ -65,6 +77,7 @@ export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      firewallServiceMode: 'string',
       requestId: 'string',
       zoneList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': DescribeVpcFirewallZoneResponseBodyZoneList } },
     };

@@ -14,7 +14,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The ACK cluster ID. You can call the following operation to obtain the value:
-   * - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
+   * - [DescribeAckClusters](~~DescribeAckClusters~~): Queries the list of ACK clusters.
    * 
    * @example
    * cb0f5640b1b2d404cad6ba21509d7847b
@@ -30,7 +30,9 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   clusterName?: string;
   /**
    * @remarks
-   * The health check status of the ACK cluster connector.
+   * The health check status of the ACK cluster connector. Valid values:
+   * - healthy: Healthy.
+   * - unhealthy: Unhealthy.
    * 
    * @example
    * healthy
@@ -46,7 +48,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   connectorId?: string;
   /**
    * @remarks
-   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain letters, digits, Chinese characters, periods (.), underscores (_), and hyphens (-).
+   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * ack-cluster-connector-name
@@ -54,7 +56,10 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   connectorName?: string;
   /**
    * @remarks
-   * The instance status of the ACK cluster connector.
+   * The instance status of the ACK cluster connector. Valid values:
+   * - init: Initializing.
+   * - deleting: Deleting.
+   * - ready: Normal.
    * 
    * @example
    * ready
@@ -79,7 +84,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
    * 
    * @example
    * vsw-2zerfbbje7dvnbii2****
@@ -96,7 +101,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The zone of the primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of vSwitches for synchronization nodes.
+   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries the list of synchronization node vSwitch zones.
    * 
    * @example
    * cn-hangzhou-g
@@ -105,7 +110,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The region ID of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Lists the regions of synchronization nodes.
+   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of synchronization node regions.
    * 
    * > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
    * 
@@ -116,7 +121,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
    * 
    * @example
    * vsw-2ze2gtlfozrab01cfo****
@@ -133,7 +138,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   /**
    * @remarks
    * The zone of the standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists the zones of vSwitches for synchronization nodes.
+   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries the list of synchronization node vSwitch zones.
    * 
    * @example
    * cn-hangzhou-h
@@ -141,7 +146,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
   standbyVswitchZoneId?: string;
   /**
    * @remarks
-   * The unique ID of the task for creating the ACK cluster connector.
+   * The unique task ID for creating the ACK cluster connector.
    * 
    * @example
    * task-c92d4544ef7b6a42
@@ -223,7 +228,7 @@ export class CreateAckClusterConnectorResponseBodyAckClusterConnector extends $d
 export class CreateAckClusterConnectorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster connector information.
+   * The response body of the ACK cluster connector.
    */
   ackClusterConnector?: CreateAckClusterConnectorResponseBodyAckClusterConnector;
   /**

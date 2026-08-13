@@ -13,7 +13,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   aclCoverage?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   domainList?: string[];
   /**
    * @remarks
-   * The end time of the query. Specify a UNIX timestamp in seconds.
+   * The end time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to query outbound connections from NAT private IP addresses.
+   * Queries outbound connections from NAT private IP addresses.
    * 
    * @example
    * NatPrivate
@@ -100,7 +100,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * OutBytes
@@ -116,7 +116,7 @@ export class DescribeOutgoingDomainDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time of the query. Specify a UNIX timestamp in seconds.
+   * The start time of the query. Specify the value as a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

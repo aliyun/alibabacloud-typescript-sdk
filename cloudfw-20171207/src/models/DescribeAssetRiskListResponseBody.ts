@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the server.
+   * The server IP address.
    * 
    * @example
    * 39.108.XX.XX
@@ -13,13 +13,13 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The IP version of the asset protected by Cloud Firewall.
+   * The IP address version of the assets protected by Cloud Firewall.
    * 
    * Valid values:
    * 
-   * - **4**: IPv4
+   * - **4**: IPv4 address.
    * 
-   * - **6**: IPv6
+   * - **6**: IPv6 address.
    * 
    * @example
    * 4
@@ -27,7 +27,7 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The reason for the risk.
+   * The risk reason.
    * 
    * @example
    * other
@@ -74,7 +74,7 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
 export class DescribeAssetRiskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the assets.
+   * The asset details returned.
    */
   assetList?: DescribeAssetRiskListResponseBodyAssetList[];
   /**

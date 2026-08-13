@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallSummaryInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content. Valid values:
+   * The language type. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -17,11 +17,11 @@ export class DescribeVpcFirewallSummaryInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type of the user. Valid values:
+   * The user type. Valid values:
    * 
-   * **buy**: Paid user
+   * **buy**: paid user.
    * 
-   * **free**: Free user
+   * **free**: free user.
    * 
    * @example
    * buy

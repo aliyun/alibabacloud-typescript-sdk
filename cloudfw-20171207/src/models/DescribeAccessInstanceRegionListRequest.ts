@@ -5,17 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceRegionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the synchronization node. Used to filter by status.
+   * The sync node status. Used to filter by status.
+   * 
+   * > Currently, only the "created" status is supported for filtering. Passing other values (such as "ready") causes the request to fail.
    * 
    * @example
-   * ready
+   * created
    */
   accessInstanceStatus?: string;
   /**
    * @remarks
-   * The type of the synchronization node. Valid values:
+   * The sync node type. Valid values:
    * 
-   * - **PrivateDns**: Private DNS. This is the default value if this parameter is not specified.
+   * - **PrivateDns**: Private DNS (default value if not specified).
    * 
    * - **AckClusterConnector**: ACK cluster connector.
    * 

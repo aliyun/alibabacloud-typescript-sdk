@@ -29,7 +29,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -37,7 +37,9 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The destination IP address.
+   * The legacy destination IP parameter.
+   * 
+   * > The POP gateway passes this parameter through, but the backend of this operation does not read it. Specifying this parameter has no filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is specified, the operation returns MissingParameter.IpFilter (-340415) because no valid IP filtering parameter is provided.
    * 
    * @example
    * 47.100.111XXX
@@ -96,6 +98,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   /**
    * @remarks
    * The private IP address.
+   * > At least one of PublicIP and PrivateIP must be specified.
    * 
    * @example
    * 10.111.53XXX
@@ -104,6 +107,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   /**
    * @remarks
    * The public IP address.
+   * > At least one of PublicIP and PrivateIP must be specified.
    * 
    * @example
    * 47.96.74.XXX
@@ -111,7 +115,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The security policy for Outbound Domain of outbound connections.
+   * The security policy for the Outbound Domain.
    * 
    * @example
    * pass
@@ -127,7 +131,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The IP address of the access source. (This field is deprecated.)
+   * The IP address of the access source. **[Deprecated]**
    * 
    * @example
    * 106.3.198.XXX

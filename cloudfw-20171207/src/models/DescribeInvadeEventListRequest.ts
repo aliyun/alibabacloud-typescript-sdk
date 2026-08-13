@@ -13,7 +13,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsIP?: string;
   /**
    * @remarks
-   * The ID of the affected instance.
+   * The instance ID.
    * 
    * @example
    * ins_1321_asedb_****
@@ -21,7 +21,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
-   * The name of the affected instance.
+   * The instance name.
    * 
    * @example
    * ECS_test
@@ -29,9 +29,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsInstanceName?: string;
   /**
    * @remarks
-   * The number of the page to return.
-   * 
-   * Default: 1.
+   * Specifies the page number to return in a paged query.
    * 
    * @example
    * 1
@@ -39,7 +37,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. This must be a UNIX timestamp in seconds. If you omit this parameter, the query defaults to the current time.
+   * Specifies the end time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the current time is used.
    * 
    * @example
    * 1656837360
@@ -47,7 +45,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * A unique identifier for the breach awareness event.
+   * The ID of the compromise awareness event.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -55,7 +53,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the breach awareness event.
+   * The name of the compromise awareness event.
    * 
    * @example
    * event_test
@@ -63,7 +61,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The universally unique identifier (UUID) of the breach awareness event.
+   * The UUID of the compromise awareness event.
    * 
    * @example
    * fadd-dfdd-****
@@ -71,11 +69,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * Specifies whether to query for ignored breach awareness events. Valid values:
-   * 
-   * - **true**: Ignored.
-   * 
-   * - **false**: Not ignored.
+   * Specifies whether the compromise awareness event is ignored. Valid values:
    * 
    * @example
    * true
@@ -83,11 +77,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   isIgnore?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - **zh** (default): Chinese.
-   * 
-   * - **en**: English.
+   * The language type of the received message. Valid values:
    * 
    * @example
    * zh
@@ -95,7 +85,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 135809047715****
@@ -103,9 +93,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The number of entries to return per page.
-   * 
-   * Default: 6. Maximum: 10.
+   * Specifies the number of entries per page in a paged query.
    * 
    * @example
    * 1
@@ -113,7 +101,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * An array of processing statuses to filter events by. Only events with a status specified in this array are returned.
+   * The list of processing statuses.
    * 
    * @example
    * 1358090477156271
@@ -121,12 +109,12 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   processStatusList?: number[];
   /**
    * @remarks
-   * An array of risk levels to filter events by. Only events with a risk level specified in this array are returned.
+   * The risk assessment level.
    */
   riskLevel?: number[];
   /**
    * @remarks
-   * The source IP address that initiated the event.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -136,7 +124,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. This must be a UNIX timestamp in seconds. If you omit this parameter, the query defaults to the last 30 days.
+   * Specifies the start time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the query starts from the last 30 days.
    * 
    * @example
    * 1656750960

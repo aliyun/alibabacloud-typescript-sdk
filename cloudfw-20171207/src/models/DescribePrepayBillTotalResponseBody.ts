@@ -13,7 +13,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   billedDetectionTraffic?: number;
   /**
    * @remarks
-   * The sensitive data detection traffic for the day.
+   * The sensitive data detection traffic of the day.
    * 
    * @example
    * 8
@@ -21,7 +21,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   dailyDetectionTraffic?: number;
   /**
    * @remarks
-   * The total elastic traffic for the day. Unit: GB.
+   * The total elastic traffic of the day. Unit: GB.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   elasticBandwidth?: number;
   /**
    * @remarks
-   * The end time of the day. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the day. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761667200
@@ -93,7 +93,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
   overflowTime?: number;
   /**
    * @remarks
-   * The start time of the day. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the day. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1761580800
@@ -165,7 +165,7 @@ export class DescribePrepayBillTotalResponseBodyBillList extends $dara.Model {
 export class DescribePrepayBillTotalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bill list, with each entry representing a day.
+   * The bill list, aggregated by day.
    */
   billList?: DescribePrepayBillTotalResponseBodyBillList[];
   /**

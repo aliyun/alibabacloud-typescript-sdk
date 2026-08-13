@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The synchronization node ID. You must specify at least one of TaskId and AccessInstanceId. If neither is specified, the API returns a 400 error.
+   * The synchronization node ID. You must specify at least one of AccessInstanceId and TaskId. If both are empty, the error MissingParameter.TaskIdOrAccessInstanceId (-200550) is returned.
    * 
    * @example
    * pdi-3bc2f91695ee48bd9377
@@ -37,7 +37,7 @@ export class DescribeAccessInstanceTaskRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The task ID. You must specify at least one of TaskId and AccessInstanceId. If neither is specified, the API returns a 400 error.
+   * The task ID. You must specify at least one of TaskId and AccessInstanceId. If both are empty, the error MissingParameter.TaskIdOrAccessInstanceId (-200550, TaskId and AccessInstanceId cannot be empty at the same time. Provide at least one.) is returned.
    * 
    * @example
    * task-c92d4544ef7b6a42

@@ -79,7 +79,7 @@ export class DescribeVpcFirewallAssetListRequest extends $dara.Model {
   isAITraffic?: string;
   /**
    * @remarks
-   * The language type of the request and response messages.
+   * The language of the request and response.
    * 
    * @example
    * zh

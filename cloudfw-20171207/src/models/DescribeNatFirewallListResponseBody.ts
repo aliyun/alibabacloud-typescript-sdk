@@ -13,7 +13,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList
   destinationCidr?: string;
   /**
    * @remarks
-   * The next hop of the original NAT Gateway.
+   * The original next hop address of the NAT gateway.
    * 
    * @example
    * ngw-2ze0s284r9atg5******
@@ -21,7 +21,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList
   nextHopId?: string;
   /**
    * @remarks
-   * The network type of the next hop. The value is \\`NatGateway\\`.
+   * The network type of the next hop. Valid values: NatGateway.
    * 
    * @example
    * NatGateway
@@ -29,7 +29,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList
   nextHopType?: string;
   /**
    * @remarks
-   * The route table that contains the default route of the NAT Gateway.
+   * The route table that contains the default route of the NAT gateway.
    * 
    * @example
    * vtb-bp18o0gb******
@@ -67,7 +67,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
    * @remarks
    * The UID of the Alibaba Cloud account.
    * 
-   * > This is the primary account of the Cloud Firewall member account.
+   * > The management account of the Cloud Firewall member accounts.
    * 
    * @example
    * 19106481******
@@ -75,7 +75,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   aliUid?: number;
   /**
    * @remarks
-   * The cause of the error.
+   * The error details.
    * 
    * @example
    * Firewall creation failed
@@ -83,7 +83,20 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   errorDetail?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member account.
+   * The deployment mode of the NAT firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+   * 
+   * @example
+   * PrimaryStandby
+   */
+  firewallServiceMode?: string;
+  /**
+   * @remarks
+   * The list of zone IDs used by the NAT firewall service.
+   */
+  firewallServiceZones?: string[];
+  /**
+   * @remarks
+   * The UID of the Cloud Firewall member accounts.
    * 
    * @example
    * 19106481******
@@ -91,7 +104,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   memberUid?: number;
   /**
    * @remarks
-   * The ID of the NAT Gateway to query.
+   * The ID of the NAT gateway to query.
    * 
    * @example
    * ngw-uf6tnblxip4qcxg******
@@ -99,7 +112,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * nat-gateway-test
@@ -107,12 +120,12 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   natGatewayName?: string;
   /**
    * @remarks
-   * The list of default route entries for the NAT Gateway.
+   * The list of default route entries for the NAT gateway.
    */
   natRouteEntryList?: DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList[];
   /**
    * @remarks
-   * The ID of the NAT firewall.
+   * The NAT firewall ID.
    * 
    * @example
    * proxy-nat30******
@@ -120,7 +133,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyId?: string;
   /**
    * @remarks
-   * The name of the NAT firewall.
+   * The NAT firewall name.
    * 
    * @example
    * nat-firewall-test
@@ -128,7 +141,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyName?: string;
   /**
    * @remarks
-   * The ID of the Elastic Network Interface (ENI) that the firewall uses.
+   * The elastic network interface (ENI) ID used by the firewall.
    * 
    * @example
    * eni-bp127llmo4v5qju******
@@ -136,7 +149,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyNetworkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the route table that the firewall uses.
+   * The route table ID used by the firewall.
    * 
    * @example
    * vtb-bp1pmyga7p4j10a******
@@ -144,21 +157,15 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyRouteTableId?: string;
   /**
    * @remarks
-   * The status of the Cloud Firewall. Valid values:
+   * The Cloud Firewall status. Valid values:
    * 
-   * - configuring: The firewall is being created.
-   * 
-   * - deleting: The firewall is being deleted.
-   * 
-   * - normal: The firewall is working as expected.
-   * 
-   * - abnormal: The firewall is not working as expected.
-   * 
-   * - opening: The firewall is being enabled.
-   * 
-   * - closing: The firewall is being disabled.
-   * 
-   * - closed: The firewall is disabled.
+   * - configuring: being created
+   * - deleting: being deleted
+   * - normal: normal 
+   * - abnormal: abnormal
+   * - opening: being enabled
+   * - closing: being disabled
+   * - closed: disabled
    * 
    * @example
    * normal
@@ -166,7 +173,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyStatus?: string;
   /**
    * @remarks
-   * The ID of the vSwitch that the firewall uses.
+   * The vSwitch ID used by the firewall.
    * 
    * @example
    * vsw-bp1amn3t1ktjjy8******
@@ -174,9 +181,8 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   proxyVSwitchId?: string;
   /**
    * @remarks
-   * The region ID where the Cloud Firewall is located.
-   * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * The region ID of the Cloud Firewall.
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-qingdao
@@ -186,8 +192,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
    * @remarks
    * Indicates whether strict mode is enabled.
    * 
-   * - 1: Strict mode is enabled.
-   * 
+   * - 1: Strict mode is enabled. 
    * - 0: Strict mode is disabled.
    * 
    * @example
@@ -196,7 +201,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   strictMode?: number;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-2ze26ya******
@@ -214,6 +219,8 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
     return {
       aliUid: 'AliUid',
       errorDetail: 'ErrorDetail',
+      firewallServiceMode: 'FirewallServiceMode',
+      firewallServiceZones: 'FirewallServiceZones',
       memberUid: 'MemberUid',
       natGatewayId: 'NatGatewayId',
       natGatewayName: 'NatGatewayName',
@@ -235,6 +242,8 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
     return {
       aliUid: 'number',
       errorDetail: 'string',
+      firewallServiceMode: 'string',
+      firewallServiceZones: { 'type': 'array', 'itemType': 'string' },
       memberUid: 'number',
       natGatewayId: 'string',
       natGatewayName: 'string',
@@ -253,6 +262,9 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
   }
 
   validate() {
+    if(Array.isArray(this.firewallServiceZones)) {
+      $dara.Model.validateArray(this.firewallServiceZones);
+    }
     if(Array.isArray(this.natRouteEntryList)) {
       $dara.Model.validateArray(this.natRouteEntryList);
     }
@@ -272,7 +284,7 @@ export class DescribeNatFirewallListResponseBody extends $dara.Model {
   natFirewallList?: DescribeNatFirewallListResponseBodyNatFirewallList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

@@ -16,7 +16,7 @@ export class DescribeOutgoingDestinationResponseBodyDstListTagList extends $dara
    * The tag description.
    * 
    * @example
-   * test
+   * tag-describe
    */
   tagDescribe?: string;
   /**
@@ -68,7 +68,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
    * The recommended ACL content.
    * 
    * @example
-   * test
+   * RecommendedRelease
    */
   aclRecommendDetail?: string;
   /**
@@ -132,7 +132,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
    * The group name.
    * 
    * @example
-   * test
+   * group-name
    */
   groupName?: string;
   /**
@@ -148,7 +148,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
    * The inbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   inBytes?: number;
   /**
@@ -164,7 +164,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
    * The outbound traffic. Unit: bytes.
    * 
    * @example
-   * 0.0
+   * 0
    */
   outBytes?: number;
   /**

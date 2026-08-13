@@ -16,7 +16,7 @@ export class DescribeInternetOpenServiceResponseBodyDataList extends $dara.Model
    * The inbound traffic.
    * 
    * @example
-   * 447458.0
+   * 447458
    */
   inBytes?: number;
   /**

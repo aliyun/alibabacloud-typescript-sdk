@@ -6,9 +6,7 @@ export class DeleteSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example

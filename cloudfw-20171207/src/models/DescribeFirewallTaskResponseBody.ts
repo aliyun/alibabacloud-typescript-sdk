@@ -29,7 +29,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   stepProgress?: string;
   /**
    * @remarks
-   * The status of the task step. Valid values:
+   * The task step status. Valid values:
    * 
    * - **init** 
    * 

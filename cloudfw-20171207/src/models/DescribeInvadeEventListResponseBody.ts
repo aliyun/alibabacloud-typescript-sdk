@@ -23,35 +23,13 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
    * @remarks
    * The type of the affected asset. Valid values:
    * 
-   * - **BastionHostIP**: the egress IP address of a bastion host.
-   * 
-   * - **BastionHostIngressIP**: the ingress IP address of a bastion host.
-   * 
-   * - **EcsEIP**: the EIP of an ECS instance.
-   * 
-   * - **EcsPublicIP**: the public IP address of an ECS instance.
-   * 
-   * - **EIP**: an EIP.
-   * 
-   * - **EniEIP**: the EIP of an ENI.
-   * 
-   * - **NatEIP**: the EIP of a NAT gateway.
-   * 
-   * - **SlbEIP**: the EIP of a CLB instance.
-   * 
-   * - **SlbPublicIP**: the public IP address of a CLB instance.
-   * 
-   * - **NatPublicIP**: the public IP address of a NAT gateway.
-   * 
-   * - **HAVIP**: an HAVIP.
-   * 
    * @example
    * EcsPublicIp
    */
   assetsType?: string;
   /**
    * @remarks
-   * The ID of the breach detection event.
+   * The ID of the compromise awareness event.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -59,7 +37,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the breach detection event.
+   * The name of the compromise awareness event.
    * 
    * @example
    * event_test
@@ -67,11 +45,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The source of the breach detection event. Valid values:
-   * 
-   * - **IPS**: an intrusion prevention system event.
-   * 
-   * - **offline**: an offline event.
+   * The source of the compromise awareness event. Valid values:
    * 
    * @example
    * IPS
@@ -79,7 +53,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventSrc?: string;
   /**
    * @remarks
-   * The UUID of the breach detection event.
+   * The UUID of the compromise awareness event.
    * 
    * @example
    * fadd-dfdd-****
@@ -87,7 +61,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * The time when the breach detection event first occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The time when the compromise awareness event first occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1656750960
@@ -95,11 +69,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Indicates whether the breach detection event is ignored. Valid values:
-   * 
-   * - **true**: The event is ignored.
-   * 
-   * - **false**: The event is not ignored.
+   * Indicates whether the compromise awareness event is ignored. Valid values:
    * 
    * @example
    * true
@@ -107,7 +77,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   isIgnore?: boolean;
   /**
    * @remarks
-   * The time when the breach detection event last occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The time when the compromise awareness event last occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1656837360
@@ -115,7 +85,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * The UID of the member.
+   * The UID of the member accounts.
    * 
    * @example
    * 135809047715****
@@ -131,11 +101,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
   privateIP?: string;
   /**
    * @remarks
-   * The handling status of the breach detection event. Valid values:
-   * 
-   * - **0**: pending
-   * 
-   * - **20**: handled
+   * The processing status of the compromise awareness event. Valid values:
    * 
    * @example
    * 20
@@ -153,41 +119,13 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
    * @remarks
    * The type of the affected asset. Valid values:
    * 
-   * - **BastionHostIP**: the egress IP address of a bastion host.
-   * 
-   * - **BastionHostIngressIP**: the ingress IP address of a bastion host.
-   * 
-   * - **EcsEIP**: the EIP of an ECS instance.
-   * 
-   * - **EcsPublicIP**: the public IP address of an ECS instance.
-   * 
-   * - **EIP**: an EIP.
-   * 
-   * - **EniEIP**: the EIP of an ENI.
-   * 
-   * - **NatEIP**: the EIP of a NAT gateway.
-   * 
-   * - **SlbEIP**: the EIP of a CLB instance.
-   * 
-   * - **SlbPublicIP**: the public IP address of a CLB instance.
-   * 
-   * - **NatPublicIP**: the public IP address of a NAT gateway.
-   * 
-   * - **HAVIP**: an HAVIP.
-   * 
    * @example
    * EcsPublicIp
    */
   publicIpType?: string;
   /**
    * @remarks
-   * The risk level. Valid values:
-   * 
-   * - **1**: low
-   * 
-   * - **2**: medium
-   * 
-   * - **3**: high
+   * The risk assessment level. Valid values:
    * 
    * @example
    * 1
@@ -247,7 +185,7 @@ export class DescribeInvadeEventListResponseBodyEventList extends $dara.Model {
 export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -255,7 +193,7 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -263,7 +201,7 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of breach detection events.
+   * The total number of compromise awareness events.
    * 
    * @example
    * 40
@@ -297,12 +235,12 @@ export class DescribeInvadeEventListResponseBodyPageInfo extends $dara.Model {
 export class DescribeInvadeEventListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of breach detection events.
+   * The list of compromise awareness events.
    */
   eventList?: DescribeInvadeEventListResponseBodyEventList[];
   /**
    * @remarks
-   * The percentage of high-risk events.
+   * The percentage of high-risk level events.
    * 
    * @example
    * 40
@@ -310,7 +248,7 @@ export class DescribeInvadeEventListResponseBody extends $dara.Model {
   highLevelPercent?: number;
   /**
    * @remarks
-   * The percentage of low-risk events.
+   * The percentage of low-risk level events.
    * 
    * @example
    * 20
@@ -318,7 +256,7 @@ export class DescribeInvadeEventListResponseBody extends $dara.Model {
   lowLevelPercent?: number;
   /**
    * @remarks
-   * The percentage of medium-risk events.
+   * The percentage of medium-risk level events.
    * 
    * @example
    * 40
@@ -331,7 +269,7 @@ export class DescribeInvadeEventListResponseBody extends $dara.Model {
   pageInfo?: DescribeInvadeEventListResponseBodyPageInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

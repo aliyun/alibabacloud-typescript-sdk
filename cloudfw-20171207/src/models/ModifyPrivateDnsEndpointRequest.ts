@@ -15,17 +15,17 @@ export class ModifyPrivateDnsEndpointRequest extends $dara.Model {
   accessInstanceId?: string;
   /**
    * @remarks
-   * The name of the private instance.
+   * The private instance name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test
+   * test
    */
   accessInstanceName?: string;
   /**
    * @remarks
-   * The primary DNS server.
+   * The primary DNS.
    * 
    * @example
    * 1.1.1.1
@@ -34,9 +34,7 @@ export class ModifyPrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The private DNS type. Valid values:
-   * 
    * - **PrivateZone**
-   * 
    * - **Custom**
    * 
    * This parameter is required.
@@ -57,7 +55,7 @@ export class ModifyPrivateDnsEndpointRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The secondary DNS server.
+   * The standby DNS.
    * 
    * @example
    * 1.1.1.2

@@ -223,7 +223,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
 export class DescribeVpcFirewallPrecheckDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a task exists.
+   * Indicates whether the task exists.
    * 
    * @example
    * false

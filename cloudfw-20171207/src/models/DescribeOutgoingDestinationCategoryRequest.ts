@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The category ID. Valid values are predefined destination category enumerations (25+ in total), such as TrustedDomain (trusted websites), AliPay (Alipay products), and CDN (CDN services). For the complete list of enumeration values and their semantics, refer to the product documentation.
+   * The destination category ID. In addition to All, RiskDomain, AliYun, and NotAliYun, the NotAliYun category also includes subcategories such as TrustedDomain, AliPay, DingDing, WeChat, Google, Alibaba, CDN, NAT, and TrustIP. More than 25 category values are supported. Use the categories returned by the API as the reference.
    * 
    * @example
    * All
@@ -13,17 +13,17 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The destination type. This parameter is required. If this parameter is not specified, ErrorDstType is returned. Valid values:
+   * The destination type. This parameter is required. If this parameter is not specified, ErrorDstType is returned. The value is case-sensitive. Valid values:
    * - Domain: domain name.
-   * - DstIP: IP address.
+   * - DstIP: destination IP address.
    * 
    * @example
-   * domain
+   * Domain
    */
   dstType?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the value as a UNIX timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeOutgoingDestinationCategoryRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the value as a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

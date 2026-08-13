@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayBillTotalRequest extends $dara.Model {
   /**
    * @remarks
-   * The bill type of the user. This parameter is required. An error is returned if this parameter is not specified. Valid values:
+   * The bill type of the user. This parameter is required in practice. An error is returned if this parameter is not specified. Valid values:
    * - elastic_traffic: elastic traffic
    * - sdl: sensitive data leak detection traffic
    * 
@@ -15,7 +15,7 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   billType?: string;
   /**
    * @remarks
-   * The page number for a paged query. Default value: 1.
+   * The page number in a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,8 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp. Unit: seconds.
+   * The end time. Specify a UNIX timestamp in seconds.
+   * > Because billing data is aggregated at the daily granularity, the timestamp must correspond to 00:00:00 of the day in CST (UTC+8). If the timestamp is not aligned to the start of the day, no data may be returned.
    * 
    * This parameter is required.
    * 
@@ -33,7 +34,7 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language. Enumeration value.
+   * The language. Enumerated value.
    * Default value: zh.
    * Valid value: en.
    * 
@@ -51,7 +52,9 @@ export class DescribePrepayBillTotalRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. Specify a UNIX timestamp in seconds.
+   * 
+   * > Because billing data is aggregated at the daily granularity, the timestamp must correspond to 00:00:00 of the day in CST (UTC+8). If the timestamp is not aligned to the start of the day, no data may be returned.
    * 
    * This parameter is required.
    * 

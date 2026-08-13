@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
    * @example
    * cen-4xbjup276au29r****
@@ -21,7 +21,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   environment?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member account.
+   * The UID of the Cloud Firewall member accounts.
    * 
    * @example
    * 135809047715****
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ID of the TransitRouter instance.
+   * The transit router instance ID.
    * 
    * @example
    * tr-m5etmb2q7e0mxcur****

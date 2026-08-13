@@ -177,6 +177,7 @@ export { DescribeTrFirewallPolicyBackUpAssociationListResponseBodyPolicyAssociat
 export { DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList } from './DescribeTrFirewallV2routePolicyListResponseBody';
 export { DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList } from './DescribeTrFirewallV2routePolicyListResponseBody';
 export { DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies } from './DescribeTrFirewallV2routePolicyListResponseBody';
+export { DescribeTrFirewallsV2DetailResponseBodyTrAttachmentZones } from './DescribeTrFirewallsV2detailResponseBody';
 export { DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig } from './DescribeTrFirewallsV2listResponseBody';
 export { DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig } from './DescribeTrFirewallsV2listResponseBody';
 export { DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsProtectedResource } from './DescribeTrFirewallsV2listResponseBody';

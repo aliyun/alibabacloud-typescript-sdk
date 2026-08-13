@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination instances.
+   * The list of secondary traffic redirection instances.
    */
   destCandidateListShrink?: string;
   /**
    * @remarks
-   * The ID of the TR firewall instance.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
    * 
    * This parameter is required.
    * 
@@ -20,10 +20,9 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $dara.Model
   firewallId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -34,9 +33,9 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $dara.Model
    * @remarks
    * Specifies whether to restore the traffic redirection configuration. Valid values:
    * 
-   * - true: Rolls back the routes.
+   * - true: Route rollback.
    * 
-   * - false: Revokes the routes.
+   * - false: Route withdrawal.
    * 
    * @example
    * false
@@ -44,12 +43,12 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $dara.Model
   shouldRecover?: string;
   /**
    * @remarks
-   * The source instances.
+   * The list of primary traffic redirection instances.
    */
   srcCandidateListShrink?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the firewall route policy.
    * 
    * This parameter is required.
    * 

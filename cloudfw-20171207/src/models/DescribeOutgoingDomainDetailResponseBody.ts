@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDomainDetailResponseBodyAssetListTagList extends $dara.Model {
   /**
    * @remarks
-   * The risk category ID.
+   * The risk classification ID.
    * 
    * @example
    * 3
@@ -131,7 +131,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT gateway.
+   * The NAT gateway name.
    * 
    * @example
    * ngw-test
@@ -195,7 +195,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the ACL rule.
+   * The ACL rule ID.
    * 
    * @example
    * 08a58465-ff4d-4c47-8782-eb008301****
@@ -203,7 +203,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   ruleId?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * test
@@ -232,7 +232,7 @@ export class DescribeOutgoingDomainDetailResponseBodyAssetList extends $dara.Mod
   totalBytes?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-9dp16jgwgyvn****
@@ -323,7 +323,7 @@ export class DescribeOutgoingDomainDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 8

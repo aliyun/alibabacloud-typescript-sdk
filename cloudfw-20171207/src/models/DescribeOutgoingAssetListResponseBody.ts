@@ -40,7 +40,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
    * The inbound traffic, which is the response traffic. Unit: bytes.
    * 
    * @example
-   * 244438.0
+   * 244438
    */
   inBytes?: number;
   /**

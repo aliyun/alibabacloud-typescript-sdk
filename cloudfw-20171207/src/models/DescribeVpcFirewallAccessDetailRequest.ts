@@ -13,7 +13,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   assetIP?: string;
   /**
    * @remarks
-   * The page number in a paging query. Settings this parameter to specify the current page for paging.
+   * The page number in a paged query.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
    * - **in**: inbound.
    * - **out**: outbound.
    * 
-   * >If this parameter is not specified in Settings, traffic in all directions is queried.
+   * >If you do not configure this parameter in Settings, traffic in all directions is queried.
    * 
    * @example
    * in
@@ -75,7 +75,7 @@ export class DescribeVpcFirewallAccessDetailRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query.
+   * The number of entries per page in a paged query.
    * 
    * @example
    * 10
