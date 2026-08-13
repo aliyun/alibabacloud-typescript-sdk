@@ -239,6 +239,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
    * ip
    */
   entityType?: string;
+  entityUuid?: string;
   /**
    * @remarks
    * The key-value pairs of opcode and oplevel.
@@ -278,6 +279,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
       entityId: 'EntityId',
       entityInfo: 'EntityInfo',
       entityType: 'EntityType',
+      entityUuid: 'EntityUuid',
       opcodeMap: 'OpcodeMap',
       opcodeSet: 'OpcodeSet',
       playbookList: 'PlaybookList',
@@ -292,6 +294,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
       entityId: 'number',
       entityInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       entityType: 'string',
+      entityUuid: 'string',
       opcodeMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       opcodeSet: { 'type': 'array', 'itemType': 'string' },
       playbookList: { 'type': 'array', 'itemType': DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList },
@@ -324,6 +327,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseData extends $dar
 }
 
 export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
+  available?: boolean;
   /**
    * @remarks
    * The pagination information.
@@ -336,6 +340,7 @@ export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
   responseData?: DescribeDisposeAndPlaybookResponseBodyDataResponseData[];
   static names(): { [key: string]: string } {
     return {
+      available: 'Available',
       pageInfo: 'PageInfo',
       responseData: 'ResponseData',
     };
@@ -343,6 +348,7 @@ export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      available: 'boolean',
       pageInfo: DescribeDisposeAndPlaybookResponseBodyDataPageInfo,
       responseData: { 'type': 'array', 'itemType': DescribeDisposeAndPlaybookResponseBodyDataResponseData },
     };
@@ -366,7 +372,7 @@ export class DescribeDisposeAndPlaybookResponseBodyData extends $dara.Model {
 export class DescribeDisposeAndPlaybookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code.
+   * The response status code.
    * 
    * @example
    * 200

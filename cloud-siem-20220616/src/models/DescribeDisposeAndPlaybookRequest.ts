@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
+  availableOnly?: boolean;
   /**
    * @remarks
    * The current page number. The value must be greater than or equal to 1.
@@ -27,6 +28,7 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   entityUuid?: string;
+  entityUuidList?: string;
   /**
    * @remarks
    * The incident UUID.
@@ -71,9 +73,11 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   roleType?: number;
   static names(): { [key: string]: string } {
     return {
+      availableOnly: 'AvailableOnly',
       currentPage: 'CurrentPage',
       entityType: 'EntityType',
       entityUuid: 'EntityUuid',
+      entityUuidList: 'EntityUuidList',
       incidentUuid: 'IncidentUuid',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -84,9 +88,11 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableOnly: 'boolean',
       currentPage: 'number',
       entityType: 'string',
       entityUuid: 'string',
+      entityUuidList: 'string',
       incidentUuid: 'string',
       pageSize: 'number',
       regionId: 'string',

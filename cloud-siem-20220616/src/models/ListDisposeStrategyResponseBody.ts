@@ -184,6 +184,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
    * ip
    */
   entityType?: string;
+  errorCode?: string;
   /**
    * @remarks
    * The failure summary of the task.
@@ -194,7 +195,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   errorMessage?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The finish time of the task.
    * 
    * @example
    * 2021-08-10 21:34:07
@@ -279,7 +280,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   scope?: any[];
   /**
    * @remarks
-   * The SOAR disposal policy ID.
+   * The SOAR response policy ID.
    * 
    * @example
    * 577bbf90-a770-44a7-8154-586aa2d3****
@@ -357,6 +358,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
       entity: 'Entity',
       entityId: 'EntityId',
       entityType: 'EntityType',
+      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       finishTime: 'FinishTime',
       gmtCreate: 'GmtCreate',
@@ -385,6 +387,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
       entity: { 'type': 'array', 'itemType': 'any' },
       entityId: 'number',
       entityType: 'string',
+      errorCode: 'string',
       errorMessage: 'string',
       finishTime: 'string',
       gmtCreate: 'string',

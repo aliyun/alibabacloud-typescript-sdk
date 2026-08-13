@@ -6,7 +6,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   alertUuid?: string;
   /**
    * @remarks
-   * The current page number of the list. The value must be greater than or equal to 1.
+   * The current page number, which must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The entity characteristic value. You can perform a fuzzy search on disposal entities.
+   * The entity characteristic value, which can be used for fuzzy match on response entities.
    * 
    * @example
    * test22.php
@@ -53,7 +53,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   groupKey?: string;
   /**
    * @remarks
-   * The incident ID.
+   * The event ID.
    * 
    * @example
    * 49670d3bbf7aa9556a2fff3dbaa9****
@@ -71,10 +71,10 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field used to sort the results. Valid values:
-   * - GmtModified: sorts by update time
-   * - GmtCreate: sorts by creation time
-   * - FinishTime: sorts by policy end time
+   * The field used to sort results. Valid values:
+   * - GmtModified: sorts results by update time.
+   * - GmtCreate: sorts results by creation time.
+   * - FinishTime: sorts results by policy end time.
    * 
    * @example
    * GmtModified
@@ -82,7 +82,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The number of entries per page. The maximum value is 100.
+   * The number of entries per page, with a maximum of 100.
    * 
    * This parameter is required.
    * 
@@ -122,9 +122,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   queryMode?: string;
   /**
    * @remarks
-   * The China (Hangzhou) region or China (Singapore) region where the China (Hangzhou) region or China (Singapore) region where the data management center of Cloud Threat Detection and Response (CTDR) resides. Specify the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Chinese mainland and Hong Kong (China).
-   * - ap-southeast-1: outside China.
+   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Specify the management center based on the region of your assets. Valid values:
    * 
    * @example
    * cn-hangzhou
@@ -149,7 +147,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The SOAR disposal policy ID.
+   * The SOAR response policy ID.
    * 
    * @example
    * a50a49b7-6044-4593-ab15-2b46567c****
@@ -167,7 +165,7 @@ export class ListDisposeStrategyShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The disposal policy status.
+   * The response policy status.
    * 
    * @example
    * 200

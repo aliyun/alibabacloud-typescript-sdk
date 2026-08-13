@@ -2092,6 +2092,15 @@ export default class Client extends OpenApi {
    */
   async describeDisposeAndPlaybookWithOptions(request: $_model.DescribeDisposeAndPlaybookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDisposeAndPlaybookResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.availableOnly)) {
+      query["AvailableOnly"] = request.availableOnly;
+    }
+
+    if (!$dara.isNull(request.entityUuidList)) {
+      query["EntityUuidList"] = request.entityUuidList;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
@@ -2126,6 +2135,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -4170,7 +4180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of system-recommended disposal policies.
+   * Retrieves the list of system-recommended response policies.
    * 
    * @param tmpReq - ListDisposeStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4313,7 +4323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of system-recommended disposal policies.
+   * Retrieves the list of system-recommended response policies.
    * 
    * @param request - ListDisposeStrategyRequest
    * @returns ListDisposeStrategyResponse
