@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryRefundPriceRequest extends $dara.Model {
   /**
+   * @remarks
+   * A comma-separated list of instance IDs to cancel.
+   * 
    * @example
    * ng-1syeu23,ng-81293sa
    */
   billingInstanceIds?: string;
   /**
+   * @remarks
+   * The instance ID. This field is deprecated.
+   * 
    * @example
    * c-82su12s0kl12
    */

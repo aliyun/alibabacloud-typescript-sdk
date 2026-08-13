@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteScalingRuleRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
+   * ID of the scaling rule to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteScalingRuleRequest extends $dara.Model {
   scalingRuleId?: string;
   /**
    * @remarks
+   * Trigger type.
+   * 
    * This parameter is required.
    * 
    * @example

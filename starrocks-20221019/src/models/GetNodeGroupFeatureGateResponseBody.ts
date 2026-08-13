@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNodeGroupFeatureGateResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Node restart required after modifying disk size.
+   * 
    * @example
    * true
    */
   needRestartAfterModifyDiskSize?: boolean;
   /**
+   * @remarks
+   * Supports modifying resources with fast restart.
+   * 
    * @example
    * true
    */
   supportFastModeModifyResource?: boolean;
   /**
+   * @remarks
+   * Supports fast restart.
+   * 
    * @example
    * true
    */
   supportFastRestart?: boolean;
   /**
+   * @remarks
+   * Supports modifying specification type.
+   * 
    * @example
    * true
    */
@@ -59,33 +71,55 @@ export class GetNodeGroupFeatureGateResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetNodeGroupFeatureGateResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is the request successful?
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of instances.
+   * 
    * @example
    * 3
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryEnableMultiAzPriceResponseBodyDataComponentPrices extends $dara.Model {
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * multi-zone
    */
   componentName?: string;
   /**
+   * @remarks
+   * The discount amount for the order.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price of the order.
+   * 
    * @example
    * 7641
    */
   originalAmount?: number;
   /**
+   * @remarks
+   * The final price, which is the original price minus the discount.
+   * 
    * @example
    * 7641
    */
@@ -52,21 +64,33 @@ export class QueryEnableMultiAzPriceResponseBodyDataComponentPrices extends $dar
 
 export class QueryEnableMultiAzPriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * The price reduction percentage.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * The total official price after the price reduction.
+   * 
    * @example
    * 7641
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether to show the price reduction.
+   * 
    * @example
    * true
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * The original total official price.
+   * 
    * @example
    * 7641
    */
@@ -100,21 +124,33 @@ export class QueryEnableMultiAzPriceResponseBodyDataDepreciateInfo extends $dara
 
 export class QueryEnableMultiAzPriceResponseBodyDataModuleInstance extends $dara.Model {
   /**
+   * @remarks
+   * The identifier of the billing module.
+   * 
    * @example
    * multi-zone
    */
   moduleCode?: string;
   /**
+   * @remarks
+   * The module name.
+   * 
    * @example
    * zone
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 7641
    */
   standPrice?: string;
   /**
+   * @remarks
+   * The original price of the product.
+   * 
    * @example
    * 7641
    */
@@ -148,16 +184,25 @@ export class QueryEnableMultiAzPriceResponseBodyDataModuleInstance extends $dara
 
 export class QueryEnableMultiAzPriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
@@ -189,16 +234,25 @@ export class QueryEnableMultiAzPriceResponseBodyDataOptionalPromotions extends $
 
 export class QueryEnableMultiAzPriceResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * The quantity.
+   * 
    * @example
    * 2
    */
   amount?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_28sdhsu2320t
    */
   name?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 2ju2sd9dss
    */
@@ -229,41 +283,84 @@ export class QueryEnableMultiAzPriceResponseBodyDataRules extends $dara.Model {
 }
 
 export class QueryEnableMultiAzPriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component prices.
+   */
   componentPrices?: QueryEnableMultiAzPriceResponseBodyDataComponentPrices[];
   /**
+   * @remarks
+   * The currency. Valid values:
+   * 
+   * - CNY: Chinese Yuan.
+   * 
+   * - USD: U.S. dollar.
+   * 
+   * - JPY: Japanese Yen.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The total official price after the price reduction.
+   * 
    * @example
    * 7641
    */
   depreciateInfo?: QueryEnableMultiAzPriceResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * The discount amount. This is the original amount minus the bill\\"s payable amount, which includes coupon deductions.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * The module ID.
+   */
   moduleInstance?: QueryEnableMultiAzPriceResponseBodyDataModuleInstance[];
+  /**
+   * @remarks
+   * The coupon information.
+   */
   optionalPromotions?: QueryEnableMultiAzPriceResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * The original price. This is the list price multiplied by the usage.
+   * 
    * @example
    * 7641
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The returned data structure.
+   */
   rules?: QueryEnableMultiAzPriceResponseBodyDataRules[];
   /**
+   * @remarks
+   * The discounted price based on the official discount.
+   * 
    * @example
    * 7641
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * The official discounted price.
+   * 
    * @example
    * 7641
    */
   standPrice?: number;
   /**
+   * @remarks
+   * The amount.
+   * 
    * @example
    * 7641
    */
@@ -333,28 +430,47 @@ export class QueryEnableMultiAzPriceResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QueryEnableMultiAzPriceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

@@ -12,31 +12,49 @@ export class ModifyScalingRuleResponseBody extends $dara.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Order ID.
+   * 
    * @example
    * 24151320976****
    */
   data?: boolean;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [Region id should be select from set [cn-beijing, cn-hangzhou]]
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * 
    * @example
    * True
    */

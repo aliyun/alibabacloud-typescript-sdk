@@ -6,7 +6,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   fastMode?: boolean;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The warehouse ID.
+   * The ID of the compute group.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The disk size to which you want to change to. Unit: GB.
+   * The target disk size. Unit: GB.
    * 
    * This parameter is required.
    * 

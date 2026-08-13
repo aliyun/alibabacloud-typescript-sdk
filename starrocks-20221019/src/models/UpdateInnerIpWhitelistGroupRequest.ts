@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInnerIpWhitelistGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of CIDR blocks for the whitelist.
+   * 
    * This parameter is required.
    */
   cidrIpList?: string[];
   /**
    * @remarks
+   * The ID of the private network whitelist group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class UpdateInnerIpWhitelistGroupRequest extends $dara.Model {
   innerIpWhitelistGroupId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

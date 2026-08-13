@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryModifyDiskSizePriceResponseBodyDataComponentPrices extends $dara.Model {
   /**
+   * @remarks
+   * The component name. Defaults to the component ID.
+   * 
    * @example
    * disk_size
    */
   componentName?: string;
   /**
+   * @remarks
+   * The order discount amount.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 9872
    */
   originalAmount?: number;
   /**
+   * @remarks
+   * The final price, which is the original price minus the discount.
+   * 
    * @example
    * 9872
    */
@@ -52,21 +64,33 @@ export class QueryModifyDiskSizePriceResponseBodyDataComponentPrices extends $da
 
 export class QueryModifyDiskSizePriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * The price reduction ratio.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * The total official website price after the price reduction.
+   * 
    * @example
    * 9872
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether to display the price reduction.
+   * 
    * @example
    * 0
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * The original total official website price.
+   * 
    * @example
    * 9872
    */
@@ -100,16 +124,25 @@ export class QueryModifyDiskSizePriceResponseBodyDataDepreciateInfo extends $dar
 
 export class QueryModifyDiskSizePriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
@@ -141,16 +174,25 @@ export class QueryModifyDiskSizePriceResponseBodyDataOptionalPromotions extends 
 
 export class QueryModifyDiskSizePriceResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * The quantity.
+   * 
    * @example
    * 10
    */
   amount?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule-083ja12
    */
   name?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 7ysj12ksaa
    */
@@ -181,40 +223,79 @@ export class QueryModifyDiskSizePriceResponseBodyDataRules extends $dara.Model {
 }
 
 export class QueryModifyDiskSizePriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component prices.
+   */
   componentPrices?: QueryModifyDiskSizePriceResponseBodyDataComponentPrices[];
   /**
+   * @remarks
+   * The currency. Valid values:
+   * 
+   * - CNY: Chinese Yuan.
+   * 
+   * - USD: US Dollar.
+   * 
+   * - JPY: Japanese Yen.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * Indicates whether to display the price reduction.
+   * 
    * @example
    * true
    */
   depreciateInfo?: QueryModifyDiskSizePriceResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * The discount amount. Discount amount = original amount - billable amount (including coupon deductions).
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * The coupon information.
+   */
   optionalPromotions?: QueryModifyDiskSizePriceResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * The original price. Original amount = catalog price × billing usage.
+   * 
    * @example
    * 9872
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: QueryModifyDiskSizePriceResponseBodyDataRules[];
   /**
+   * @remarks
+   * The discounted price based on the official website discount.
+   * 
    * @example
    * 9872
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * The official website discount price.
+   * 
    * @example
    * 9872
    */
   standPrice?: number;
   /**
+   * @remarks
+   * The amount.
+   * 
    * @example
    * 9872
    */
@@ -279,28 +360,47 @@ export class QueryModifyDiskSizePriceResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The order information.
+   */
   data?: QueryModifyDiskSizePriceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */

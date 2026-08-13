@@ -4,32 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddBackupPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of days to retain the backup data.
+   * 
    * @example
    * 7
    */
   expireDays?: number;
   /**
+   * @remarks
+   * The hour.
+   * 
    * @example
    * 2
    */
   hour?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-0104730e9de40215
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The minute.
+   * 
    * @example
    * 30
    */
   minute?: number;
   /**
+   * @remarks
+   * The recurrence type for the policy. Valid values:
+   * 
+   * - DAILY: Daily.
+   * 
+   * - WEEKLY: Weekly.
+   * 
+   * - MONTHLY: Monthly.
+   * 
    * @example
    * MONTHLY
    */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * The values for the recurrence.
+   */
   recurrenceValues?: number[];
   /**
+   * @remarks
+   * The timeout period for the backup job in seconds.
+   * 
    * @example
    * 3600
    */

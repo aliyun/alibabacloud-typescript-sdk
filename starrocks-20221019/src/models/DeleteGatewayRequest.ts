@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGatewayRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * dg-2r69r8kpmn56k5s3
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */

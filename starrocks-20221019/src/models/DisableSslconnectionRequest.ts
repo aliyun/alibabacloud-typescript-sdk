@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DisableSSLConnectionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * c-b25e21e24388****
    */

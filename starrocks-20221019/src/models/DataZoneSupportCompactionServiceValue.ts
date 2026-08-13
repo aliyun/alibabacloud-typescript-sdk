@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DataZoneSupportCompactionServiceValue extends $dara.Model {
+  /**
+   * @remarks
+   * The availability zone ID.
+   */
   zoneId?: string;
+  /**
+   * @remarks
+   * The resource level.
+   */
   resourceLevel?: string;
+  /**
+   * @remarks
+   * Indicates whether this is the recommended option.
+   */
   recommended?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,54 +3,117 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceDiagnosisResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Best Practices.
+   * 
+   * @example
+   * 无
+   */
   bestPractice?: string;
+  /**
+   * @remarks
+   * Diagnosis item description.
+   * 
+   * @example
+   * Evaluate unreasonable partition and bucket configuration
+   */
   description?: string;
   /**
+   * @remarks
+   * Evaluation dimension.
+   * 
    * @example
    * table_analysis
    */
   dimension?: string;
   /**
+   * @remarks
+   * Evaluation time.
+   * 
    * @example
    * 2026-03-08T02:12:32Z
    */
   evaluationTime?: number;
   /**
+   * @remarks
+   * Full score for the evaluation item.
+   * 
    * @example
    * 10.0
    */
   fullScore?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-b25e21e243889XXX
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Evaluation item introduction.
+   * 
    * @example
    * for autotest
    */
   introduction?: string;
   /**
+   * @remarks
+   * Evaluation item ID.
+   * 
    * @example
    * 02cf887a
    */
   itemId?: string;
+  /**
+   * @remarks
+   * Evaluation item name.
+   * 
+   * @example
+   * Evaluate unreasonable partition and bucket configuration
+   */
   itemName?: string;
   /**
+   * @remarks
+   * Report date.
+   * 
    * @example
    * 2026-03-08
    */
   reportDate?: string;
   /**
+   * @remarks
+   * Diagnosis score.
+   * 
    * @example
    * 10.0
    */
   score?: number;
   /**
+   * @remarks
+   * Status list.
+   * 
+   * - healthy
+   * 
+   * - info
+   * 
+   * - medium
+   * 
+   * - critical
+   * 
    * @example
    * healthy
    */
   status?: string;
+  /**
+   * @remarks
+   * Diagnosis suggestion.
+   * 
+   * @example
+   * 未出现分桶大小超过5GB的情况，评估结果为健康。
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,33 +169,55 @@ export class DescribeInstanceDiagnosisResultResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: DescribeInstanceDiagnosisResultResponseBodyData[];
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of query results.
+   * 
    * @example
    * 3
    */

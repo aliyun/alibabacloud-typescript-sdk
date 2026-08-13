@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckInventoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * Cluster information.
+   * 
    * @example
    * {
    *   "clusterType": "sr",
@@ -29,6 +32,9 @@ export class CheckInventoryRequest extends $dara.Model {
    */
   clusterInfo?: string;
   /**
+   * @remarks
+   * Zone.
+   * 
    * @example
    * cn-hangzhou-h
    */

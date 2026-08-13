@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBackupPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * Validity period in days.
+   * 
    * @example
    * 7
    */
   expireDays?: number;
   /**
+   * @remarks
+   * Trigger time: hour.
+   * 
    * @example
    * 10
    */
   hour?: number;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-0104730e9de40215
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Trigger time: minute.
+   * 
    * @example
    * 15
    */
   minute?: number;
   /**
+   * @remarks
+   * Backup policy ID.
+   * 
    * @example
    * bk-9812023
    */
   policyId?: string;
+  /**
+   * @remarks
+   * Numerical values for the policy execution cycle.
+   */
   recurrenceValues?: number[];
   /**
+   * @remarks
+   * Timeout duration for the backup policy.
+   * 
    * @example
    * 3600
    */

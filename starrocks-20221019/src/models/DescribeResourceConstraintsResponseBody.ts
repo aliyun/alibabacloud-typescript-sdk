@@ -5,21 +5,33 @@ import { DataZoneSupportCompactionServiceValue } from "./DataZoneSupportCompacti
 
 export class DescribeResourceConstraintsResponseBodyDataBeNumber extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 1
    */
   default?: number;
   /**
+   * @remarks
+   * The maximum value.
+   * 
    * @example
    * 10
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value.
+   * 
    * @example
    * 1
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 1
    */
@@ -53,21 +65,33 @@ export class DescribeResourceConstraintsResponseBodyDataBeNumber extends $dara.M
 
 export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsDiskNumberConstraint extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 1
    */
   default?: number;
   /**
+   * @remarks
+   * The maximum number of disks.
+   * 
    * @example
    * 10
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum number of disks.
+   * 
    * @example
    * 1
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 1
    */
@@ -101,21 +125,33 @@ export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsDisk
 
 export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsValueConstraint extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 1
    */
   default?: number;
   /**
+   * @remarks
+   * The maximum value.
+   * 
    * @example
    * 5
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value.
+   * 
    * @example
    * 1
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 1
    */
@@ -148,18 +184,39 @@ export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsValu
 }
 
 export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraints extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * BE 存储约束描述
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The disk count constraint.
+   */
   diskNumberConstraint?: DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsDiskNumberConstraint;
   /**
+   * @remarks
+   * Indicates whether this is the default option.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The disk performance level.
+   * 
    * @example
    * PL1
    */
   level?: string;
+  /**
+   * @remarks
+   * The value constraint.
+   */
   valueConstraint?: DescribeResourceConstraintsResponseBodyDataBeStorageConstraintsValueConstraint;
   static names(): { [key: string]: string } {
     return {
@@ -198,37 +255,65 @@ export class DescribeResourceConstraintsResponseBodyDataBeStorageConstraints ext
 
 export class DescribeResourceConstraintsResponseBodyDataBigDataInstanceTypeConstraints extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 20
    */
   cpu?: number;
   /**
+   * @remarks
+   * The disk count.
+   * 
    * @example
    * 8
    */
   diskNumber?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 20核 88GiB 8*7300GiB 本地HDD盘
+   */
   display?: string;
   /**
+   * @remarks
+   * The corresponding ECS instance family.
+   * 
    * @example
    * ecs.d2s.5xlarge
    */
   ecsInstanceType?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * local_hdd_2s_5xlarge
    */
   instanceType?: string;
   /**
+   * @remarks
+   * Indicates whether this is the default option.
+   * 
    * @example
    * false
    */
   isDefault?: string;
   /**
+   * @remarks
+   * The memory size, in GiB.
+   * 
    * @example
    * 88
    */
   memory?: number;
   /**
+   * @remarks
+   * The storage size, in GiB.
+   * 
    * @example
    * 7300
    */
@@ -270,21 +355,33 @@ export class DescribeResourceConstraintsResponseBodyDataBigDataInstanceTypeConst
 
 export class DescribeResourceConstraintsResponseBodyDataFeNumber extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 3
    */
   default?: number;
   /**
+   * @remarks
+   * The maximum value.
+   * 
    * @example
    * 11
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value.
+   * 
    * @example
    * 1
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 2
    */
@@ -317,8 +414,18 @@ export class DescribeResourceConstraintsResponseBodyDataFeNumber extends $dara.M
 }
 
 export class DescribeResourceConstraintsResponseBodyDataFeSpecType extends $dara.Model {
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 标准版
+   */
   display?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * standard
    */
@@ -348,21 +455,33 @@ export class DescribeResourceConstraintsResponseBodyDataFeSpecType extends $dara
 
 export class DescribeResourceConstraintsResponseBodyDataFeStorage extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 500
    */
   default?: number;
   /**
+   * @remarks
+   * The maximum value.
+   * 
    * @example
    * 5000
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value.
+   * 
    * @example
    * 200
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 100
    */
@@ -396,16 +515,25 @@ export class DescribeResourceConstraintsResponseBodyDataFeStorage extends $dara.
 
 export class DescribeResourceConstraintsResponseBodyDataHaFeResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The CU (Compute Unit) size.
+   * 
    * @example
    * 16
    */
   cu?: number;
   /**
+   * @remarks
+   * The total number of nodes.
+   * 
    * @example
    * 5
    */
   nodeNumber?: number;
   /**
+   * @remarks
+   * The storage size, in GiB.
+   * 
    * @example
    * 100
    */
@@ -437,37 +565,65 @@ export class DescribeResourceConstraintsResponseBodyDataHaFeResourceSpec extends
 
 export class DescribeResourceConstraintsResponseBodyDataLocalSSDInstanceTypeConstraints extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 16
    */
   cpu?: number;
   /**
+   * @remarks
+   * The disk count.
+   * 
    * @example
    * 1
    */
   diskNumber?: string;
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * [i2g]16核 64GiB 1*1788GiB 本地SSD盘
+   */
   display?: string;
   /**
+   * @remarks
+   * The corresponding ECS instance family.
+   * 
    * @example
    * ecs.i2g.4xlarge
    */
   ecsInstanceType?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * local_ssd_2g_4xlarge
    */
   instanceType?: string;
   /**
+   * @remarks
+   * Indicates whether this is the default option.
+   * 
    * @example
    * true
    */
   isDefault?: string;
   /**
+   * @remarks
+   * The memory size, in GiB.
+   * 
    * @example
    * 64
    */
   memory?: number;
   /**
+   * @remarks
+   * The storage size, in GiB.
+   * 
    * @example
    * 1788
    */
@@ -509,16 +665,25 @@ export class DescribeResourceConstraintsResponseBodyDataLocalSSDInstanceTypeCons
 
 export class DescribeResourceConstraintsResponseBodyDataNormalFeResourceSpec extends $dara.Model {
   /**
+   * @remarks
+   * The CU (Compute Unit) size.
+   * 
    * @example
    * 64
    */
   cu?: number;
   /**
+   * @remarks
+   * The total number of nodes.
+   * 
    * @example
    * 5
    */
   nodeNumber?: number;
   /**
+   * @remarks
+   * The storage size, in GiB.
+   * 
    * @example
    * 500
    */
@@ -549,8 +714,18 @@ export class DescribeResourceConstraintsResponseBodyDataNormalFeResourceSpec ext
 }
 
 export class DescribeResourceConstraintsResponseBodyDataSpecType extends $dara.Model {
+  /**
+   * @remarks
+   * The display name.
+   * 
+   * @example
+   * 标准版
+   */
   display?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * standard
    */
@@ -579,12 +754,23 @@ export class DescribeResourceConstraintsResponseBodyDataSpecType extends $dara.M
 }
 
 export class DescribeResourceConstraintsResponseBodyDataVersionConstraint extends $dara.Model {
+  /**
+   * @remarks
+   * The beta versions.
+   */
   betaVersions?: string[];
   /**
+   * @remarks
+   * The default version.
+   * 
    * @example
    * 3.3
    */
   defaultVersion?: string;
+  /**
+   * @remarks
+   * The available versions.
+   */
   versions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -619,21 +805,33 @@ export class DescribeResourceConstraintsResponseBodyDataVersionConstraint extend
 
 export class DescribeResourceConstraintsResponseBodyDataCompactionServiceCuConstraint extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 16
    */
   def?: number;
   /**
+   * @remarks
+   * The maximum value.
+   * 
    * @example
    * 256
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value.
+   * 
    * @example
    * 8
    */
   min?: number;
   /**
+   * @remarks
+   * The step.
+   * 
    * @example
    * 8
    */
@@ -666,30 +864,126 @@ export class DescribeResourceConstraintsResponseBodyDataCompactionServiceCuConst
 }
 
 export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The CU sizes for agents.
+   */
   agentCu?: number[];
+  /**
+   * @remarks
+   * The available CU (Compute Unit) sizes for BE nodes.
+   */
   beCu?: number[];
+  /**
+   * @remarks
+   * The CU sizes for BE nodes on ECS.
+   */
   beCuOnEcs?: number[];
+  /**
+   * @remarks
+   * The BE node configuration.
+   */
   beNumber?: DescribeResourceConstraintsResponseBodyDataBeNumber;
+  /**
+   * @remarks
+   * The storage constraints for BE nodes.
+   */
   beStorageConstraints?: DescribeResourceConstraintsResponseBodyDataBeStorageConstraints[];
+  /**
+   * @remarks
+   * The specification constraints for big data instance types.
+   */
   bigDataInstanceTypeConstraints?: DescribeResourceConstraintsResponseBodyDataBigDataInstanceTypeConstraints[];
+  /**
+   * @remarks
+   * The available CU sizes for FE nodes.
+   */
   feCu?: number[];
+  /**
+   * @remarks
+   * The CU sizes for FE nodes on ECS.
+   */
   feCuOnEcs?: number[];
+  /**
+   * @remarks
+   * The number of FE nodes.
+   */
   feNumber?: DescribeResourceConstraintsResponseBodyDataFeNumber;
+  /**
+   * @remarks
+   * The instance types for FE nodes.
+   */
   feSpecType?: DescribeResourceConstraintsResponseBodyDataFeSpecType[];
+  /**
+   * @remarks
+   * The storage size for the FE node.
+   */
   feStorage?: DescribeResourceConstraintsResponseBodyDataFeStorage;
+  /**
+   * @remarks
+   * The high availability (HA) FE node configuration.
+   */
   haFeResourceSpec?: DescribeResourceConstraintsResponseBodyDataHaFeResourceSpec;
+  /**
+   * @remarks
+   * The specification constraints for local SSD instance types.
+   */
   localSSDInstanceTypeConstraints?: DescribeResourceConstraintsResponseBodyDataLocalSSDInstanceTypeConstraints[];
+  /**
+   * @remarks
+   * The standard FE resource configuration.
+   */
   normalFeResourceSpec?: DescribeResourceConstraintsResponseBodyDataNormalFeResourceSpec;
   /**
+   * @remarks
+   * The instance type for compute nodes. Valid values:
+   * 
+   * - `standard`: Standard.
+   * 
+   * - `localSSD`: Local SSD.
+   * 
+   * - `bigData`: Large-capacity storage.
+   * 
+   * - `ramEnhanced`: Memory-enhanced.
+   * 
+   * - `networkEnhanced`: Network-enhanced.
+   * 
    * @example
    * standard
    */
   specType?: DescribeResourceConstraintsResponseBodyDataSpecType[];
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * Deprecated.
+   */
   splitDiskThresholdMap?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The version constraint.
+   */
   versionConstraint?: DescribeResourceConstraintsResponseBodyDataVersionConstraint;
+  /**
+   * @remarks
+   * The EED types supported in each availability zone.
+   */
   zoneSupportedEedTypes?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The instance types supported in each availability zone.
+   */
   zoneSupportedSpecTypes?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The CU constraints for the compaction service.
+   */
   compactionServiceCuConstraint?: DescribeResourceConstraintsResponseBodyDataCompactionServiceCuConstraint;
+  /**
+   * @remarks
+   * The compaction services supported in each availability zone.
+   */
   zoneSupportCompactionService?: { [key: string]: DataZoneSupportCompactionServiceValue[] };
   static names(): { [key: string]: string } {
     return {
@@ -818,34 +1112,53 @@ export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
 export class DescribeResourceConstraintsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Details about the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: DescribeResourceConstraintsResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The error code. A value of `Success` indicates that the request was successful.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B67D142D-D54E-184F-A306-22BDC01B2XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

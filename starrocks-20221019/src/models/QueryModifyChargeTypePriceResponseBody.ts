@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryModifyChargeTypePriceResponseBodyDataComponentPrices extends $dara.Model {
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * cu_num
    */
   componentName?: string;
   /**
+   * @remarks
+   * The discount amount for the order.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 7986
    */
   originalAmount?: number;
   /**
+   * @remarks
+   * The final price. This is the original price minus the discount amount.
+   * 
    * @example
    * 7986
    */
@@ -52,21 +64,33 @@ export class QueryModifyChargeTypePriceResponseBodyDataComponentPrices extends $
 
 export class QueryModifyChargeTypePriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * The price reduction ratio.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * The total official price after the price reduction.
+   * 
    * @example
    * 7986
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether to display the price reduction amount.
+   * 
    * @example
    * true
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * The original total official price.
+   * 
    * @example
    * 7986
    */
@@ -100,21 +124,33 @@ export class QueryModifyChargeTypePriceResponseBodyDataDepreciateInfo extends $d
 
 export class QueryModifyChargeTypePriceResponseBodyDataModuleInstance extends $dara.Model {
   /**
+   * @remarks
+   * The code of the pricing module.
+   * 
    * @example
    * instance_type
    */
   moduleCode?: string;
   /**
+   * @remarks
+   * The name of the pricing module.
+   * 
    * @example
    * cu_num
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 7986
    */
   standPrice?: string;
   /**
+   * @remarks
+   * The original price of the product.
+   * 
    * @example
    * 7986
    */
@@ -148,16 +184,25 @@ export class QueryModifyChargeTypePriceResponseBodyDataModuleInstance extends $d
 
 export class QueryModifyChargeTypePriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_1238293
    */
@@ -189,16 +234,25 @@ export class QueryModifyChargeTypePriceResponseBodyDataOptionalPromotions extend
 
 export class QueryModifyChargeTypePriceResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * The amount.
+   * 
    * @example
    * 0
    */
   amount?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule1
    */
   name?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * rule-12iudfj
    */
@@ -229,37 +283,75 @@ export class QueryModifyChargeTypePriceResponseBodyDataRules extends $dara.Model
 }
 
 export class QueryModifyChargeTypePriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component prices.
+   */
   componentPrices?: QueryModifyChargeTypePriceResponseBodyDataComponentPrices[];
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
+  /**
+   * @remarks
+   * The cost after discounts.
+   */
   depreciateInfo?: QueryModifyChargeTypePriceResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * The discount amount. This is the original amount minus the payable amount, which includes coupon deductions.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * The module ID.
+   */
   moduleInstance?: QueryModifyChargeTypePriceResponseBodyDataModuleInstance[];
+  /**
+   * @remarks
+   * The coupon information.
+   */
   optionalPromotions?: QueryModifyChargeTypePriceResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * The original price (list price × usage).
+   * 
    * @example
    * 7986
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: QueryModifyChargeTypePriceResponseBodyDataRules[];
   /**
+   * @remarks
+   * The discount price.
+   * 
    * @example
    * 7986
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * The official discounted price.
+   * 
    * @example
    * 7986
    */
   standPrice?: number;
   /**
+   * @remarks
+   * The amount.
+   * 
    * @example
    * 7986
    */
@@ -329,28 +421,47 @@ export class QueryModifyChargeTypePriceResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The order amount.
+   */
   data?: QueryModifyChargeTypePriceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryPriceV1ResponseBodyDataComponentPrices extends $dara.Model {
   /**
+   * @remarks
+   * Component name.
+   * 
    * @example
    * FE
    */
   componentName?: string;
   /**
+   * @remarks
+   * Order discount amount.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * Original price.
+   * 
    * @example
    * 3192
    */
   originalAmount?: number;
   /**
+   * @remarks
+   * Final price = original price − discount amount.
+   * 
    * @example
    * 3192
    */
@@ -52,21 +64,33 @@ export class QueryPriceV1ResponseBodyDataComponentPrices extends $dara.Model {
 
 export class QueryPriceV1ResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * Discount rate.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * Total official price after discount.
+   * 
    * @example
    * 8094
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether to display the discount rate.
+   * 
    * @example
    * true
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * Original total official price.
+   * 
    * @example
    * 8094
    */
@@ -100,21 +124,33 @@ export class QueryPriceV1ResponseBodyDataDepreciateInfo extends $dara.Model {
 
 export class QueryPriceV1ResponseBodyDataModuleInstance extends $dara.Model {
   /**
+   * @remarks
+   * Pricing module code.
+   * 
    * @example
    * cu_num
    */
   moduleCode?: string;
   /**
+   * @remarks
+   * Pricing module name.
+   * 
    * @example
    * CU
    */
   moduleName?: string;
   /**
+   * @remarks
+   * Discounted price.
+   * 
    * @example
    * 1622
    */
   standPrice?: string;
   /**
+   * @remarks
+   * Product original price.
+   * 
    * @example
    * 1622
    */
@@ -148,16 +184,25 @@ export class QueryPriceV1ResponseBodyDataModuleInstance extends $dara.Model {
 
 export class QueryPriceV1ResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * Coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * Coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
@@ -189,16 +234,25 @@ export class QueryPriceV1ResponseBodyDataOptionalPromotions extends $dara.Model 
 
 export class QueryPriceV1ResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * Quantity.
+   * 
    * @example
    * 1
    */
   amount?: number;
   /**
+   * @remarks
+   * Rule name.
+   * 
    * @example
    * rule_8usi12321sa
    */
   name?: string;
   /**
+   * @remarks
+   * Rule ID.
+   * 
    * @example
    * 7u22yshaasds
    */
@@ -229,37 +283,75 @@ export class QueryPriceV1ResponseBodyDataRules extends $dara.Model {
 }
 
 export class QueryPriceV1ResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Component prices.
+   */
   componentPrices?: QueryPriceV1ResponseBodyDataComponentPrices[];
   /**
+   * @remarks
+   * Currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
+  /**
+   * @remarks
+   * Promotion information.
+   */
   depreciateInfo?: QueryPriceV1ResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * Discount amount = original amount − billable amount (including coupon discounts).
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * Product original price.
+   */
   moduleInstance?: QueryPriceV1ResponseBodyDataModuleInstance[];
+  /**
+   * @remarks
+   * Coupon information.
+   */
   optionalPromotions?: QueryPriceV1ResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * Original amount = list price × usage.
+   * 
    * @example
    * 8094
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * Response data structure.
+   */
   rules?: QueryPriceV1ResponseBodyDataRules[];
   /**
+   * @remarks
+   * Discounted price.
+   * 
    * @example
    * 8094
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * Official discounted price.
+   * 
    * @example
    * 8094
    */
   standPrice?: number;
   /**
+   * @remarks
+   * Final amount.
+   * 
    * @example
    * 8094
    */
@@ -329,28 +421,47 @@ export class QueryPriceV1ResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: QueryPriceV1ResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

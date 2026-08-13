@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableInternalSlbRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the EMR Serverless StarRocks instance.
+   * 
    * @example
    * c-b25e21e24388****
    */

@@ -5,38 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Access denied details.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Version number that you can upgrade to.
+   * 
    * @example
    * 24151320976****
    */
   data?: boolean;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

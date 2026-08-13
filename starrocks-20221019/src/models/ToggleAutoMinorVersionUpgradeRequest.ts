@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ToggleAutoMinorVersionUpgradeRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable automatic minor version upgrades. Valid values:
+   * 
+   * - true: Enables automatic upgrades.
+   * 
+   * - false: Disables automatic upgrades.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,8 @@ export class ToggleAutoMinorVersionUpgradeRequest extends $dara.Model {
   autoUpgrade?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

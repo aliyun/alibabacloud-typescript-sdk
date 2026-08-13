@@ -5,34 +5,53 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceConfigPreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Details about the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: string[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */

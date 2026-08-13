@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNodeGroupDescriptionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the compute group.
+   * 
    * @example
    * okcc
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the compute group.
+   * 
    * @example
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The RAM authorization information.
+   * 
+   * @example
+   * Optional
+   */
   xAcsRamAuthContext?: string;
   static names(): { [key: string]: string } {
     return {

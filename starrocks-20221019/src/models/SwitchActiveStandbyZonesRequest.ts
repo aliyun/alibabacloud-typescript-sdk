@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SwitchActiveStandbyZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the target zone.
+   * 
    * @example
    * cn-hangzhou-k
    */

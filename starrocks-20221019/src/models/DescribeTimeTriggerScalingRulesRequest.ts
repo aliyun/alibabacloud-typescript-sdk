@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTimeTriggerScalingRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the compute group.
+   * 
    * @example
    * ng-d332aa8bca48****
    */

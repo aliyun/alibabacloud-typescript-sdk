@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInnerIpWhitelistGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Internal network whitelist group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteInnerIpWhitelistGroupRequest extends $dara.Model {
   innerIpWhitelistGroupId?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

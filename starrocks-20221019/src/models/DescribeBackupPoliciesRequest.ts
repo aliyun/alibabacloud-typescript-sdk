@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBackupPoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * bk-policy-26ec5bc0ea67b5ef
    */
   policyId?: string;
   /**
+   * @remarks
+   * The ID of the region where the instance resides.
+   * 
    * @example
    * cn-hangzhou
    */

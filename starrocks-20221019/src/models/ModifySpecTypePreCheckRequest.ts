@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySpecTypePreCheckRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifySpecTypePreCheckRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class ModifySpecTypePreCheckRequest extends $dara.Model {
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The target specification type.
+   * 
    * @example
    * standard
    */

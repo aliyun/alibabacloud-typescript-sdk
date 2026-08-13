@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteBackupPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-0104730e9d*****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Policy ID.
+   * 
    * @example
    * bp-298ahiu289
    */

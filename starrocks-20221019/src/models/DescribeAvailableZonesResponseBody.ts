@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableZonesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The official version.
+   */
   officialAvailableZones?: string[];
+  /**
+   * @remarks
+   * The trial version.
+   */
   trialAvailableZones?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,28 +51,47 @@ export class DescribeAvailableZonesResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The list of zones.
+   */
   data?: DescribeAvailableZonesResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [Region id should be select from set [cn-beijing, cn-hangzhou]]
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */

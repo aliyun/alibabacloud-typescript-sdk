@@ -5,38 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRefundPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * The access denied detail.
    * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The refund amount.
+   * 
    * @example
    * 18837
    */
   data?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * None
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8C69A6D0-49B7-54B9-BF21-9AF52172A5F7
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * True
    */

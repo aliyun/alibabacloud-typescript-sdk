@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RenewInstanceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * A list of order IDs.
+   */
   orderIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,28 +33,47 @@ export class RenewInstanceResponseBodyData extends $dara.Model {
 }
 
 export class RenewInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: RenewInstanceResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * True
    */

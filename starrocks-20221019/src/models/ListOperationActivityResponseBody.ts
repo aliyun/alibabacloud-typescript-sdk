@@ -4,28 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOperationActivityResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The activity ID.
+   * 
    * @example
    * ac-8f3f7c4026e3****
    */
   activityId?: string;
   /**
+   * @remarks
+   * The activity status. Valid values:
+   * 
+   * - COMPLETED
+   * - RUNNING
+   * 
    * @example
    * COMPLETED
    */
   activityStatus?: string;
   consoleRetryCount?: number;
   /**
+   * @remarks
+   * The end time of the activity.
+   * 
    * @example
    * 1742178604000
    */
   endTime?: number;
   errMessage?: string;
   /**
+   * @remarks
+   * The activity name.
+   * 
    * @example
    * UpdateClusterStatusToModifyingConfigStatus
    */
   name?: string;
   /**
+   * @remarks
+   * The start time of the activity.
+   * 
    * @example
    * 1742178604000
    */
@@ -65,37 +83,62 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
 
 export class ListOperationActivityResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the permission verification failure.
+   * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListOperationActivityResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of query results.
+   * 
    * @example
    * 440
    */

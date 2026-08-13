@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyHostAliasRequestHostAliases extends $dara.Model {
+  /**
+   * @remarks
+   * Host alias.
+   */
   hostnames?: string[];
   /**
+   * @remarks
+   * Machine IP
+   * 
    * @example
    * 26.15.54.221
    */
@@ -37,10 +44,17 @@ export class ModifyHostAliasRequestHostAliases extends $dara.Model {
 
 export class ModifyHostAliasRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Host alias list.
+   */
   hostAliases?: ModifyHostAliasRequestHostAliases[];
   static names(): { [key: string]: string } {
     return {

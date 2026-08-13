@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryModifySpecTypePriceResponseBodyDataComponentPrices extends $dara.Model {
   /**
+   * @remarks
+   * The component name.
+   * 
    * @example
    * node_type
    */
   componentName?: string;
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 5612
    */
   originalAmount?: number;
   /**
+   * @remarks
+   * The final price. The final price is the original price minus the discount.
+   * 
    * @example
    * 5612
    */
@@ -52,21 +64,33 @@ export class QueryModifySpecTypePriceResponseBodyDataComponentPrices extends $da
 
 export class QueryModifySpecTypePriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * The price reduction ratio.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * The total official website price after the price reduction.
+   * 
    * @example
    * 5612
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether to display the price reduction.
+   * 
    * @example
    * true
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * The original total official website price.
+   * 
    * @example
    * 5612
    */
@@ -100,16 +124,25 @@ export class QueryModifySpecTypePriceResponseBodyDataDepreciateInfo extends $dar
 
 export class QueryModifySpecTypePriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
@@ -141,16 +174,25 @@ export class QueryModifySpecTypePriceResponseBodyDataOptionalPromotions extends 
 
 export class QueryModifySpecTypePriceResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * The resource count.
+   * 
    * @example
    * 10
    */
   amount?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_827231sg1
    */
   name?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 7usy32gs01
    */
@@ -181,36 +223,70 @@ export class QueryModifySpecTypePriceResponseBodyDataRules extends $dara.Model {
 }
 
 export class QueryModifySpecTypePriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component prices.
+   */
   componentPrices?: QueryModifySpecTypePriceResponseBodyDataComponentPrices[];
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
+  /**
+   * @remarks
+   * The name of the campaign.
+   */
   depreciateInfo?: QueryModifySpecTypePriceResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * The discount amount. Formula: Original amount - Payable amount on the bill. The payable amount includes the amount deducted by coupons.
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * The coupon information.
+   */
   optionalPromotions?: QueryModifySpecTypePriceResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * The original price. Formula: List price × Billed usage.
+   * 
    * @example
    * 5612
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: QueryModifySpecTypePriceResponseBodyDataRules[];
   /**
+   * @remarks
+   * The discounted price that is based on the official website discount.
+   * 
    * @example
    * 5612
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * The official website discount price.
+   * 
    * @example
    * 5612
    */
   standPrice?: number;
   /**
+   * @remarks
+   * The amount.
+   * 
    * @example
    * 5612
    */
@@ -269,34 +345,53 @@ export class QueryModifySpecTypePriceResponseBodyData extends $dara.Model {
 export class QueryModifySpecTypePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Details about access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: QueryModifySpecTypePriceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

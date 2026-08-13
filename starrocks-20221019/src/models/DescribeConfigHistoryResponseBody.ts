@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails extends $dara.Model {
   /**
+   * @remarks
+   * The effective status on the node.
+   * 
    * @example
    * effective
    */
   effectStatus?: string;
   /**
+   * @remarks
+   * The compute group ID.
+   * 
    * @example
    * ng-e6e15d2cdefdb38c
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * 10000367486
    */
@@ -45,26 +54,65 @@ export class DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails ext
 
 export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.Model {
   /**
+   * @remarks
+   * The action performed. Valid values:
+   * 
+   * - `MODIFY`
+   * 
+   * - `ADD`
+   * 
+   * - `DELETE`
+   * 
    * @example
    * MODIFY
    */
   action?: string;
   /**
+   * @remarks
+   * The new value.
+   * 
    * @example
    * 4
    */
   after?: string;
   /**
+   * @remarks
+   * The previous value.
+   * 
    * @example
    * 3
    */
   before?: string;
   /**
+   * @remarks
+   * The name of the configuration item.
+   * 
    * @example
    * create_tablet_worker_count
    */
   configKey?: string;
   /**
+   * @remarks
+   * The configuration type. Valid values:
+   * 
+   * - `FE`
+   * 
+   * - `BE`
+   * 
+   * - `core-site.xml`
+   * 
+   * - `hdfs-site.xml`
+   * 
+   * - `kerberos.keytab`
+   * 
+   * - `krb5.conf`
+   * 
+   * - `jindosdk.cfg`
+   * 
+   * - `hadoop-env.sh`
+   * 
+   * - `hive-site.xml`
+   * 
    * @example
    * FE
    */
@@ -99,39 +147,68 @@ export class DescribeConfigHistoryResponseBodyDataConfigMementos extends $dara.M
 }
 
 export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the effect of the configuration change.
+   */
   configHistoryEffectDetails?: DescribeConfigHistoryResponseBodyDataConfigHistoryEffectDetails[];
   /**
+   * @remarks
+   * The configuration history ID.
+   * 
    * @example
    * 6838
    */
   configHistoryId?: string;
+  /**
+   * @remarks
+   * A list of configuration mementos.
+   */
   configMementos?: DescribeConfigHistoryResponseBodyDataConfigMementos[];
   /**
+   * @remarks
+   * The effective status.
+   * 
    * @example
    * effective
    */
   effectStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the configuration modification has taken effect.
+   * 
    * @example
    * true
    */
   effected?: boolean;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1742178604000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The ID of the user who modified the configuration.
+   * 
    * @example
    * 149920818483****
    */
   operatorId?: string;
   /**
+   * @remarks
+   * The reason for the configuration modification.
+   * 
    * @example
    * Test.
    */
   reason?: string;
   /**
+   * @remarks
+   * Indicates whether the change was a rollback.
+   * 
    * @example
    * false
    */
@@ -181,37 +258,62 @@ export class DescribeConfigHistoryResponseBodyData extends $dara.Model {
 
 export class DescribeConfigHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The access denied details.
+   * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeConfigHistoryResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 3
    */

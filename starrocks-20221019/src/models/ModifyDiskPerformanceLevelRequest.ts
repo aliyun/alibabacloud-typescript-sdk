@@ -15,7 +15,7 @@ export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The warehouse ID.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -26,14 +26,7 @@ export class ModifyDiskPerformanceLevelRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The disk performance level to which you want to change.
-   * 
-   * Valid values:
-   * 
-   * *   pl0
-   * *   pl1
-   * *   pl2
-   * *   pl3
+   * The target disk performance level.
    * 
    * This parameter is required.
    * 

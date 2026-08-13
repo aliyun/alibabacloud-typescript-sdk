@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModifyNodeNumberPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryModifyNodeNumberPriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class QueryModifyNodeNumberPriceRequest extends $dara.Model {
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
   promotionOptionNo?: string;
   /**
    * @remarks
+   * The target number of nodes.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestoreInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-b25e21e243889XXX
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Order ID.
+   * 
    * @example
    * 241526000650XXX
    */
@@ -45,28 +51,47 @@ export class RestoreInstanceResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: RestoreInstanceResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

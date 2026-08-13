@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryMinorVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The major version of the instance.
+   * 
    * @example
    * 3.3
    */

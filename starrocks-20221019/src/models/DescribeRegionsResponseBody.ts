@@ -3,17 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the region.
+   * 
+   * @example
+   * Hangzhou
+   */
   description?: string;
   /**
+   * @remarks
+   * The English description.
+   * 
    * @example
    * cn-hangzhou
    */
   descriptionEn?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The region name.
+   * 
+   * @example
+   * 华东1（杭州）
+   */
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,34 +65,53 @@ export class DescribeRegionsResponseBodyData extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Details about access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The instance information.
+   */
   data?: DescribeRegionsResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */

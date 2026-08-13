@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationActivityRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class ListOperationActivityRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The operation ID.
+   * 
    * @example
    * op-f49743caa809****
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryRenewPriceResponseBodyDataDepreciateInfo extends $dara.Model {
   /**
+   * @remarks
+   * Discount rate.
+   * 
    * @example
    * 0
    */
   cheapRate?: number;
   /**
+   * @remarks
+   * Total official price after discount.
+   * 
    * @example
    * 9812
    */
   cheapStandAmount?: number;
   /**
+   * @remarks
+   * Indicates whether the discount amount is displayed.
+   * 
    * @example
    * true
    */
   isShow?: boolean;
   /**
+   * @remarks
+   * Original total official price.
+   * 
    * @example
    * 9812
    */
@@ -52,16 +64,25 @@ export class QueryRenewPriceResponseBodyDataDepreciateInfo extends $dara.Model {
 
 export class QueryRenewPriceResponseBodyDataOptionalPromotions extends $dara.Model {
   /**
+   * @remarks
+   * Coupon description.
+   * 
    * @example
    * youhuiquan_desc
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * Coupon name.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
@@ -93,16 +114,25 @@ export class QueryRenewPriceResponseBodyDataOptionalPromotions extends $dara.Mod
 
 export class QueryRenewPriceResponseBodyDataRules extends $dara.Model {
   /**
+   * @remarks
+   * Resource count.
+   * 
    * @example
    * 1
    */
   amount?: number;
   /**
+   * @remarks
+   * Rule name.
+   * 
    * @example
    * rule_8syh2j121ns
    */
   name?: string;
   /**
+   * @remarks
+   * Rule ID.
+   * 
    * @example
    * 8su2i3hsdf128
    */
@@ -134,43 +164,75 @@ export class QueryRenewPriceResponseBodyDataRules extends $dara.Model {
 
 export class QueryRenewPriceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Billing instance ID. For the default compute group (FE compute group and default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
+   * 
    * @example
    * c-96f3bc7f04b2****
    */
   billingInstanceId?: string;
   /**
+   * @remarks
+   * Currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * Total official price after discount.
+   * 
    * @example
    * 9812
    */
   depreciateInfo?: QueryRenewPriceResponseBodyDataDepreciateInfo;
   /**
+   * @remarks
+   * Discount amount = original amount − billable amount (including coupon discounts).
+   * 
    * @example
    * 0
    */
   discountAmount?: number;
+  /**
+   * @remarks
+   * Coupon ID.
+   */
   optionalPromotions?: QueryRenewPriceResponseBodyDataOptionalPromotions[];
   /**
+   * @remarks
+   * Original amount = catalog price × usage.
+   * 
    * @example
    * 9812
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * Data structure of the response.
+   */
   rules?: QueryRenewPriceResponseBodyDataRules[];
   /**
+   * @remarks
+   * Discounted price based on the official discount.
+   * 
    * @example
    * 9812
    */
   standDiscountPrice?: number;
   /**
+   * @remarks
+   * Official discounted price.
+   * 
    * @example
    * 9812
    */
   standPrice?: number;
   /**
+   * @remarks
+   * Amount.
+   * 
    * @example
    * 9812
    */
@@ -224,28 +286,47 @@ export class QueryRenewPriceResponseBodyData extends $dara.Model {
 }
 
 export class QueryRenewPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: QueryRenewPriceResponseBodyData[];
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * null
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * false
    */

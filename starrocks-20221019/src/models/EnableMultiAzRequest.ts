@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableMultiAzRequestObservers extends $dara.Model {
   /**
+   * @remarks
+   * vSwitch ID.
+   * 
    * @example
    * vsw-x1232js012
    */
   vswId?: string;
   /**
+   * @remarks
+   * Zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -38,12 +44,22 @@ export class EnableMultiAzRequestObservers extends $dara.Model {
 
 export class EnableMultiAzRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-238sjh237s12***
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Multi-zone information.
+   */
   observers?: EnableMultiAzRequestObservers[];
   /**
+   * @remarks
+   * Coupon.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */

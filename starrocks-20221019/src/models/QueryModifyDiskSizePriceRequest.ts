@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModifyDiskSizePriceRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryModifyDiskSizePriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class QueryModifyDiskSizePriceRequest extends $dara.Model {
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */
   promotionOptionNo?: string;
   /**
    * @remarks
+   * Target disk size. Unit: GB.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -12,31 +12,49 @@ export class QueryMinorVersionResponseBody extends $dara.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Minor version.
+   * 
    * @example
    * 3.3.13-1.0-1.7.12
    */
   data?: string;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * 
    * @example
    * false
    */

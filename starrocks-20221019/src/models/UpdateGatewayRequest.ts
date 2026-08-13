@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of gateway nodes.
+   * 
    * @example
    * 3
    */
   feNodeNumber?: number;
   /**
+   * @remarks
+   * The ID of the gateway.
+   * 
    * @example
    * dg-65u7d65p5960fjq7
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The name of the gateway.
+   * 
    * @example
    * polar-byd-glm-47
    */
   gatewayName?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * c-b25e21e24388****
    */

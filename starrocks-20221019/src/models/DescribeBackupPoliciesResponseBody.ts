@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBackupPoliciesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of days to retain backup data.
+   * 
    * @example
    * 7
    */
   expireDays?: number;
   /**
+   * @remarks
+   * The hour.
+   * 
    * @example
    * 2
    */
   hour?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-96f3bc7f04b2****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The minute.
+   * 
    * @example
    * 30
    */
   minute?: string;
   /**
+   * @remarks
+   * The backup policy ID.
+   * 
    * @example
    * 1
    */
   policyId?: string;
+  /**
+   * @remarks
+   * The numeric values for the policy execution cycle.
+   */
   recurrenceValues?: number[];
   /**
+   * @remarks
+   * The timeout period for the backup job.
+   * 
    * @example
    * 3600
    */
@@ -73,39 +95,61 @@ export class DescribeBackupPoliciesResponseBodyData extends $dara.Model {
 export class DescribeBackupPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * AccessDeniedDetail
+   * Details about the access denial.
    * 
    * @example
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Information about the instance.
+   */
   data?: DescribeBackupPoliciesResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid params: [Region id should be select from set [cn-beijing, cn-hangzhou]]
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * false
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 100
    */

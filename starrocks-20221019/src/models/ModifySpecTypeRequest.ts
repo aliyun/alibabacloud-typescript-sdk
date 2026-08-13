@@ -4,12 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifySpecTypeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Restart in fast restart mode. Default is false.
+   * 
+   * - true: Restarts compute nodes in fast restart mode. Nodes restart in parallel within a batch, and batches execute sequentially.
+   * 
+   * - false: Restarts compute nodes in rolling restart mode.
+   * 
    * @example
    * true
    */
   fastMode?: boolean;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +27,8 @@ export class ModifySpecTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +36,17 @@ export class ModifySpecTypeRequest extends $dara.Model {
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Coupon ID.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionOptionNo?: string;
   /**
    * @remarks
+   * Target specifications type.
+   * 
    * This parameter is required.
    * 
    * @example

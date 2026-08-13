@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRenewPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * List of billing instance IDs to renew. Separate multiple IDs with commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryRenewPriceRequest extends $dara.Model {
   billingInstanceIds?: string;
   /**
    * @remarks
+   * Renewal period.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class QueryRenewPriceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class QueryRenewPriceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Renewal unit.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +44,9 @@ export class QueryRenewPriceRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * Coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */

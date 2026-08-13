@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The compute group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateScalingRuleRequest extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @remarks
+   * The rule content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +50,8 @@ export class CreateScalingRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
+   * The trigger type.
+   * 
    * This parameter is required.
    * 
    * @example

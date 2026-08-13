@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class IsolateLeaderRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Enable read/write splitting. The Leader FE node handles write requests, and other nodes handle read requests.
+   * 
    * @example
    * true
    */

@@ -12,31 +12,49 @@ export class ModifyInstanceConfigResponseBody extends $dara.Model {
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Instance information.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B1DBBA4E-6CD4-54F7-81E4-12C3425AB519
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request succeeded.
+   * 
    * @example
    * True
    */

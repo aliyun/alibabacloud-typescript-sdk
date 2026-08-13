@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddGatewayRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of gateway nodes.
+   * 
    * @example
    * 3
    */
   feNodeNumber?: number;
   /**
+   * @remarks
+   * The alias for the private gateway.
+   * 
    * @example
    * eas_automation_test
    */
   gatewayName?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * c-b25e21e24388****
    */

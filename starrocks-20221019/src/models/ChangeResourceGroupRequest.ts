@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the destination resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    */
   newResourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the region where the cluster resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The resource type. Only instance is supported.
+   * 
    * This parameter is required.
    * 
    * @example

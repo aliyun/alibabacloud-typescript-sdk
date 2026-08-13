@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCuRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to restart compute nodes in quick restart mode. Default value: false. Valid values:
+   * Specifies whether to restart the instance in fast restart mode. The default value is false.
    * 
-   * *   true: Compute nodes are restarted in quick restart mode in multiple batches. The batches are executed in parallel, and the nodes in each batch are restarted at the same time.
-   * *   false: Compute nodes are restarted in rolling restart mode.
+   * - true: Restarts the compute nodes in fast restart mode. The compute nodes are restarted in batches. Nodes within a batch are restarted in parallel, and batches are processed sequentially.
+   * 
+   * - false: Restarts the compute nodes in rolling restart mode.
    * 
    * @example
    * true
@@ -26,7 +27,7 @@ export class ModifyCuRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The warehouse ID.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -37,15 +38,7 @@ export class ModifyCuRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The number of CUs to which you want to change.
-   * 
-   * Valid values:
-   * 
-   * *   4
-   * *   8
-   * *   16
-   * *   32
-   * *   64
+   * The target number of CUs.
    * 
    * This parameter is required.
    * 

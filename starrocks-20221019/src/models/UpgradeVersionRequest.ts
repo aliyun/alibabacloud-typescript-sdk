@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpgradeVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to perform a fast restart.
+   */
   fastMode?: boolean;
   /**
    * @remarks
@@ -16,10 +20,11 @@ export class UpgradeVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the minor version is upgraded. Default value: true. Valid values:
+   * Specifies whether this upgrade is a minor version upgrade. Default value: true.
    * 
-   * *   true: The minor version is upgraded.
-   * *   false: The major version is upgraded.
+   * Valid values:
+   * - true: minor version upgrade.
+   * - false: major engine version upgrade.
    * 
    * @example
    * true
@@ -27,7 +32,7 @@ export class UpgradeVersionRequest extends $dara.Model {
   minor?: boolean;
   /**
    * @remarks
-   * The version to which you want to upgrade.
+   * The target version number.
    * 
    * This parameter is required.
    * 

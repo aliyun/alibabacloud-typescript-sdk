@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskTypeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the compute group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class ModifyDiskTypeRequest extends $dara.Model {
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * The ID of the coupon.
+   * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
    */
   promotionOptionNo?: string;
   /**
    * @remarks
+   * The target disk type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ModifyDiskTypeRequest extends $dara.Model {
   targetDiskType?: string;
   /**
    * @remarks
+   * The target disk performance level.
+   * 
    * This parameter is required.
    * 
    * @example

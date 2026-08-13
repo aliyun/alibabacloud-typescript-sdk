@@ -6,14 +6,28 @@ import { InstanceConfigDto } from "./InstanceConfigDto";
 export class ModifyInstanceConfigPreCheckRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * c-b25e21e24388****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The configurations to add.
+   */
   configsToAdd?: InstanceConfigDto[];
+  /**
+   * @remarks
+   * The configurations to delete.
+   */
   configsToDelete?: InstanceConfigDto[];
+  /**
+   * @remarks
+   * The configurations to update.
+   */
   configsToUpdate?: InstanceConfigDto[];
   static names(): { [key: string]: string } {
     return {

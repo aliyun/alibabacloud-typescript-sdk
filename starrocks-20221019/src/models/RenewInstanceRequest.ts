@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * A comma-separated list of billing instance IDs to renew. Billing instances include clusters and compute groups.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RenewInstanceRequest extends $dara.Model {
   billingInstanceIds?: string;
   /**
    * @remarks
+   * The subscription duration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RenewInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,14 @@ export class RenewInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Duration unit:
+   * 
+   * - Month
+   * 
+   * - Year
+   * 
+   * Valid only when payType is PrePaid.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +50,9 @@ export class RenewInstanceRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * youhuiquan_12378dfj6
    */

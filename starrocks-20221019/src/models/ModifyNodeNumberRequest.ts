@@ -15,7 +15,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The warehouse ID.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -23,11 +23,25 @@ export class ModifyNodeNumberRequest extends $dara.Model {
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The decommission concurrency for BE scale-in scenarios in compute-storage decoupled architecture. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   parallelism?: number;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The number of nodes to which you want to change to.
+   * The target number of nodes.
    * 
    * This parameter is required.
    * 
@@ -35,6 +49,13 @@ export class ModifyNodeNumberRequest extends $dara.Model {
    * 3
    */
   target?: number;
+  /**
+   * @remarks
+   * The duration to wait for running tasks to complete before dropping nodes during CN scale-in scenarios in storage-compute disaggregation architecture.
+   * 
+   * @example
+   * 60
+   */
   terminationGracePeriodSeconds?: number;
   static names(): { [key: string]: string } {
     return {

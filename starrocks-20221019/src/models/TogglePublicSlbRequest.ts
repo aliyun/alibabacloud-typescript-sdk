@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class TogglePublicSlbRequest extends $dara.Model {
   /**
+   * @remarks
+   * Is Internet-facing SLB enabled?
+   * 
+   * - Enable: true
+   * 
+   * - Disable: false
+   * 
    * @example
    * true
    */
   enablePublicSlb?: boolean;
   /**
+   * @remarks
+   * Private gateway ID.
+   * 
    * @example
    * gw-0002xci9buu68ongixvk
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * c-b25e21e24388****
    */

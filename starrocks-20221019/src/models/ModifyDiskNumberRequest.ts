@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to restart compute nodes in quick restart mode. Default value: false. Valid values:
+   * Specifies whether to restart the compute nodes in fast mode. Default value: false.
    * 
-   * *   true: Compute nodes are restarted in quick restart mode in multiple batches. The batches are executed in parallel, and the nodes in each batch are restarted at the same time.
-   * *   false: Compute nodes are restarted in rolling restart mode.
+   * - true: Restarts the compute nodes in fast mode. The nodes are restarted in batches. Nodes within a batch are restarted in parallel, and the batches are processed sequentially.
+   * 
+   * - false: Restarts the compute nodes in rolling restart mode.
    * 
    * @example
    * true
@@ -26,7 +27,7 @@ export class ModifyDiskNumberRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The warehouse ID.
+   * The compute group ID.
    * 
    * This parameter is required.
    * 
@@ -37,7 +38,7 @@ export class ModifyDiskNumberRequest extends $dara.Model {
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The number of disks to which you want to change to.
+   * The target number of disks.
    * 
    * This parameter is required.
    * 

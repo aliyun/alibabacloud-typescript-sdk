@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableMultiAzResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Compute group ID.
+   * 
    * @example
    * ng-a9b2e9148196****
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Order ID.
+   * 
    * @example
    * 24782976697****
    */
@@ -45,28 +51,47 @@ export class EnableMultiAzResponseBody extends $dara.Model {
    * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxx",     "EncodedDiagnosticMessage": "xxx",     "AuthPrincipalType": "xxx",     "AuthPrincipalDisplayName": "xxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "sr:xxx"   }
    */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Order information.
+   */
   data?: EnableMultiAzResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * InvalidParams
    */
   errCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Invalid params: [instance not exists].
    */
   errMessage?: string;
   /**
+   * @remarks
+   * HTTP request status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 32A44F0D-BFF6-5664-999A-218BBDE74XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
