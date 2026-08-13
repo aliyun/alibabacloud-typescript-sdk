@@ -4,11 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigDataAgentMemoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable memory generation. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether memory recall usage is enabled. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
@@ -37,23 +51,42 @@ export class ConfigDataAgentMemoryResponseBodyData extends $dara.Model {
 }
 
 export class ConfigDataAgentMemoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response struct.
+   */
   data?: ConfigDataAgentMemoryResponseBodyData;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * InvalidTid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

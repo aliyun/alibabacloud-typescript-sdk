@@ -27,6 +27,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
    * 1735747200
    */
   endTime?: string;
+  payLevel?: string;
   /**
    * @remarks
    * The region ID.
@@ -40,6 +41,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
       beginTime: 'BeginTime',
       DMSUnit: 'DMSUnit',
       endTime: 'EndTime',
+      payLevel: 'PayLevel',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetDataAgentTaskModelUsageMetricsRequest extends $dara.Model {
       beginTime: 'string',
       DMSUnit: 'string',
       endTime: 'string',
+      payLevel: 'string',
       regionId: 'string',
     };
   }

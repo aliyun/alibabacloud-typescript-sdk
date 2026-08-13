@@ -55,7 +55,7 @@ export class GetDataAgentTaskModelUsageMetricsResponseBodyData extends $dara.Mod
 export class GetDataAgentTaskModelUsageMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of TPM time series metrics for model usage, returned in chronological order with usage at each time point.
+   * The list of TPM time series metrics for model usage, returned in chronological order.
    */
   data?: GetDataAgentTaskModelUsageMetricsResponseBodyData[];
   /**

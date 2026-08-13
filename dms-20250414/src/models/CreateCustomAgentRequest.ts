@@ -38,6 +38,7 @@ export class CreateCustomAgentRequestCallbackConfig extends $dara.Model {
 }
 
 export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
+  forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
    * Specifies whether to disable user inquiries during the process.
@@ -72,6 +73,7 @@ export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      forbiddenAppendDataSource: 'ForbiddenAppendDataSource',
       skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
       skipSqlConfirm: 'SkipSqlConfirm',
@@ -81,6 +83,7 @@ export class CreateCustomAgentRequestExecutionConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      forbiddenAppendDataSource: 'boolean',
       skipAskHuman: 'boolean',
       skipPlan: 'boolean',
       skipSqlConfirm: 'boolean',
@@ -226,7 +229,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
   callbackConfig?: CreateCustomAgentRequestCallbackConfig;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -234,19 +237,19 @@ export class CreateCustomAgentRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The specified data scope in **JSON string format**.
+   * The specified data range in **JSON string format**.
    * - Common parameter description
-   *   - tableFlag: true indicates a specified data scope
-   *   - scope: personal is a fixed value
-   *   - personal: pass parameters for file or database types
+   *   - tableFlag: true indicates a specified data range.
+   *   - scope: personal is a fixed value.
+   *   - personal: pass parameters for file or database types.
    * 
    * **File type**. Pass parameters in the following format:
-   * - DataSourceType: remote_data_center is a fixed value
-   * - FileId: the file ID
-   * - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name
-   * - Tables: the table name returned by the ListDataCenterTable operation
-   * - TableIds: the TableId returned by the ListDataCenterTable operation
-   * - RegionId: the current region
+   * - DataSourceType: remote_data_center is a fixed value.
+   * - FileId: The file ID.
+   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: The table name returned by the ListDataCenterTable operation.
+   * - TableIds: The TableId returned by the ListDataCenterTable operation.
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -261,22 +264,22 @@ export class CreateCustomAgentRequest extends $dara.Model {
    *     "TableIds": [
    *       "35hfn94pxl********50pi"
    *     ],
-   *     "RegionId": "ap-southeast-1"
+   *     "RegionId": "cn-hangzhou"
    *   }
    * }
    * ```
    * 
-   * **Database type**. Pass parameters in the following format:
-   * - DataSourceType: database is a fixed value
-   * - DmsInstanceId: the DMS instance ID returned by the data center operation
-   * - DmsDatabaseId: the DMS database ID returned by the data center operation
-   * - FileId: the instance name (deprecated)
-   * - DbName: the database name returned by the data center operation
-   * - Database: the database name returned by the data center operation
-   * - Tables: the table name returned by the data center operation
-   * - TableIds: the TableId returned by the data center operation
-   * - Engine: the engine type (mysql or postgresql)
-   * - RegionId: the current region
+   * **Database type**. Pass parameters as follows:
+   * - DataSourceType: database is a fixed value.
+   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
+   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
+   * - FileId: The instance name (deprecated).
+   * - DbName: The database name returned by the data center operation.
+   * - Database: The database name returned by the data center operation.
+   * - Tables: The table name returned by the data center operation.
+   * - TableIds: The TableId returned by the data center operation.
+   * - Engine: The engine type (mysql or postgresql).
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -295,7 +298,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    *       "5263****31"
    *     ],
    *     "Engine": "postgresql",
-   *     "RegionId": "ap-southeast-1"
+   *     "RegionId": "cn-hangzhou"
    *   }
    * }
    * ```
@@ -310,7 +313,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    *     "Database" : "TestTable******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
-   *     "RegionId" : "ap-southeast-1"
+   *     "RegionId" : "cn-hangzhou"
    *   }
    * }
    */
@@ -381,7 +384,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be written in words instead of Arabic numerals
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -389,7 +392,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be written in words instead of Arabic numerals
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;

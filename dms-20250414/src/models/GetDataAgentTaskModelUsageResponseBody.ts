@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
+  accelerationRatio?: number;
+  rateLimitedSessionCount?: number;
+  totalLlmWaitDuration?: number;
+  totalSessionCount?: number;
   /**
    * @remarks
    * The peak TPM (tokens per minute) within the query time range, which is the maximum number of tokens consumed per minute.
@@ -37,6 +41,10 @@ export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
   usedModels?: number;
   static names(): { [key: string]: string } {
     return {
+      accelerationRatio: 'AccelerationRatio',
+      rateLimitedSessionCount: 'RateLimitedSessionCount',
+      totalLlmWaitDuration: 'TotalLlmWaitDuration',
+      totalSessionCount: 'TotalSessionCount',
       peakTpm: 'peakTpm',
       totalCallCount: 'totalCallCount',
       totalTokenConsumed: 'totalTokenConsumed',
@@ -46,6 +54,10 @@ export class GetDataAgentTaskModelUsageResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accelerationRatio: 'number',
+      rateLimitedSessionCount: 'number',
+      totalLlmWaitDuration: 'number',
+      totalSessionCount: 'number',
       peakTpm: 'number',
       totalCallCount: 'number',
       totalTokenConsumed: 'number',
@@ -70,7 +82,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   data?: GetDataAgentTaskModelUsageResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the request fails.
    * 
    * @example
    * DMS-DA-40411
@@ -78,7 +90,7 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the request fails.
    * 
    * @example
    * UnknownError
@@ -94,10 +106,10 @@ export class GetDataAgentTaskModelUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

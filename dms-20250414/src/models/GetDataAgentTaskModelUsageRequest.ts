@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentTaskModelUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+   * The start time of the query time range. The value is a UNIX timestamp in seconds. We recommend that the time range does not exceed one month.
    * 
    * @example
    * 1735660800
@@ -21,12 +21,13 @@ export class GetDataAgentTaskModelUsageRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+   * The end time of the query time range. The value is a UNIX timestamp in seconds. We recommend that the time range does not exceed one month.
    * 
    * @example
    * 1735747200
    */
   endTime?: number;
+  payLevel?: string;
   /**
    * @remarks
    * The region ID.
@@ -40,6 +41,7 @@ export class GetDataAgentTaskModelUsageRequest extends $dara.Model {
       beginTime: 'BeginTime',
       DMSUnit: 'DMSUnit',
       endTime: 'EndTime',
+      payLevel: 'PayLevel',
       regionId: 'RegionId',
     };
   }
@@ -49,6 +51,7 @@ export class GetDataAgentTaskModelUsageRequest extends $dara.Model {
       beginTime: 'number',
       DMSUnit: 'string',
       endTime: 'number',
+      payLevel: 'string',
       regionId: 'string',
     };
   }

@@ -38,6 +38,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 }
 
 export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
+  forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
    * Specifies whether to disable user inquiries during the process.
@@ -72,6 +73,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      forbiddenAppendDataSource: 'ForbiddenAppendDataSource',
       skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
       skipSqlConfirm: 'SkipSqlConfirm',
@@ -81,6 +83,7 @@ export class CreateCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      forbiddenAppendDataSource: 'boolean',
       skipAskHuman: 'boolean',
       skipPlan: 'boolean',
       skipSqlConfirm: 'boolean',
@@ -258,7 +261,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -275,7 +278,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "TestTable******.xlsx",
+   *     "Database" : "测试表格******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
    *     "RegionId" : "cn-hangzhou"
@@ -293,7 +296,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -333,7 +336,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether a scheduled task is configured.
+   * Indicates whether a periodic task is configured.
    * 
    * @example
    * false
@@ -345,10 +348,10 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume is the number of valid orders placed per day.
-   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency.
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders;
+   * 2. Order volume is the number of valid orders placed per day;
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
    */
   knowledge?: string;
   /**
@@ -383,7 +386,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next run time of the scheduled task.
+   * The next run time of the periodic task.
    * 
    * @example
    * 1767715200
@@ -420,7 +423,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The scheduled task configuration.
+   * The periodic task configuration.
    */
   scheduleTaskConfig?: CreateCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
@@ -436,7 +439,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires all numbers to be written in words instead of Arabic numerals
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -444,7 +447,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires all numbers to be written in words instead of Arabic numerals
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;

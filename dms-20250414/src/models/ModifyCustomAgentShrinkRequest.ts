@@ -16,7 +16,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -33,7 +33,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * **File type**. Pass parameters in the following format:
    * - DataSourceType: remote_data_center is a fixed value
    * - FileId: the file ID
-   * - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name
+   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name
    * - Tables: the table name returned by the ListDataCenterTable operation
    * - TableIds: the TableId returned by the ListDataCenterTable operation
    * - RegionId: the current region
@@ -51,7 +51,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    *     "TableIds": [
    *       "35hfn94pxl********50pi"
    *     ],
-   *     "RegionId": "ap-southeast-1"
+   *     "RegionId": "cn-hangzhou"
    *   }
    * }
    * ```
@@ -85,7 +85,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    *       "5263****31"
    *     ],
    *     "Engine": "postgresql",
-   *     "RegionId": "ap-southeast-1"
+   *     "RegionId": "cn-hangzhou"
    *   }
    * }
    * ```
@@ -124,9 +124,6 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) on a daily, weekly, and monthly basis. Analyze trends and year-over-year/month-over-month fluctuations.
-   * 2. Segment by new vs. returning customers, channels, and regions to identify growth drivers and weaknesses.
-   * 3. Conduct funnel analysis based on user behavior paths (browsing → add to cart → payment) to pinpoint drop-off stages.
    */
   instruction?: string;
   /**
@@ -135,10 +132,10 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * 
    * @example
    * Core metric definitions:
-   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders;
-   * 2. Order volume is the number of valid orders placed per day;
-   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
+   * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
+   * 2. Order volume is the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app.
+   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency.
    */
   knowledge?: string;
   /**
@@ -170,7 +167,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires that all numbers use Chinese numerals instead of Arabic numerals
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -178,7 +175,7 @@ export class ModifyCustomAgentShrinkRequest extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires that all numbers use Chinese numerals instead of Arabic numerals
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;

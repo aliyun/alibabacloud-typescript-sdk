@@ -51,7 +51,7 @@ export class GetSqlConsoleOperationLogRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The type of the SQL statement.
+   * The SQL statement type.
    * 
    * @example
    * SELECT

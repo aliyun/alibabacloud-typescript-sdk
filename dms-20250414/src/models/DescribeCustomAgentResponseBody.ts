@@ -38,6 +38,7 @@ export class DescribeCustomAgentResponseBodyDataCallbackConfig extends $dara.Mod
 }
 
 export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
+  forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
    * Specifies whether to disable user inquiries during the process.
@@ -64,7 +65,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   skipSqlConfirm?: boolean;
   /**
    * @remarks
-   * Specifies whether to skip the web report drawing confirmation.
+   * Specifies whether to skip the web report rendering confirmation.
    * 
    * @example
    * false
@@ -72,6 +73,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      forbiddenAppendDataSource: 'ForbiddenAppendDataSource',
       skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
       skipSqlConfirm: 'SkipSqlConfirm',
@@ -81,6 +83,7 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      forbiddenAppendDataSource: 'boolean',
       skipAskHuman: 'boolean',
       skipPlan: 'boolean',
       skipSqlConfirm: 'boolean',
@@ -169,7 +172,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
   cronExpression?: string;
   /**
    * @remarks
-   * The query of the periodic task.
+   * The query for the periodic task.
    * 
    * @example
    * Analyze this data and provide a brief report
@@ -211,7 +214,7 @@ export class DescribeCustomAgentResponseBodyDataScheduleTaskConfig extends $dara
 export class DescribeCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the parent account.
+   * The Alibaba Cloud primary account ID.
    * 
    * @example
    * 16738266********
@@ -261,10 +264,10 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    *   "personal" : {
    *     "DataSourceType" : "remote_data_center",
    *     "FileId" : "f-5qlrwaw10********s3gpw1z",
-   *     "Database" : "Test spreadsheet******.xlsx",
+   *     "Database" : "TestTable******.xlsx",
    *     "Tables" : [ "Sheet1" ],
    *     "TableIds" : [ "******" ],
-   *     "RegionId" : "ap-southeast-1"
+   *     "RegionId" : "cn-hangzhou"
    *   }
    * }
    */
@@ -275,7 +278,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The description of the custom agent.
    * 
    * @example
-   * Agent test description
+   * AgentTestDescription
    */
   description?: string;
   /**
@@ -315,7 +318,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * Analysis framework:
    * 1. Monitor core metrics (GMV, order volume, UV, conversion rate) by day, week, and month dimensions, and analyze trends and year-over-year/month-over-month fluctuations;
    * 2. Segment by new/existing customers, channels, and regions to identify growth sources and weaknesses;
-   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to identify drop-off points;
+   * 3. Conduct funnel analysis based on user behavior paths (browse → add to cart → payment) to locate drop-off points;
    */
   instruction?: string;
   /**
@@ -335,7 +338,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including paid and unpaid orders;
    * 2. Order volume is the number of valid orders placed per day;
    * 3. UV (Unique Visitors) refers to the deduplicated number of users who visit the website or app;
-   * 4. Conversion rate = number of paid orders / UV, reflecting traffic conversion efficiency;
+   * 4. Conversion rate = paid orders / UV, reflecting traffic conversion efficiency;
    */
   knowledge?: string;
   knowledgeConfigList?: DescribeCustomAgentResponseBodyDataKnowledgeConfigList[];
@@ -361,7 +364,7 @@ export class DescribeCustomAgentResponseBodyData extends $dara.Model {
    * The name of the custom agent.
    * 
    * @example
-   * Agent test name
+   * AgentTestName
    */
   name?: string;
   /**

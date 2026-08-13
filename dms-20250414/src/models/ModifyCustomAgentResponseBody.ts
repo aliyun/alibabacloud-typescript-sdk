@@ -38,6 +38,7 @@ export class ModifyCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
 }
 
 export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Model {
+  forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
    * Specifies whether to disable user inquiries during the process.
@@ -72,6 +73,7 @@ export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      forbiddenAppendDataSource: 'ForbiddenAppendDataSource',
       skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
       skipSqlConfirm: 'SkipSqlConfirm',
@@ -81,6 +83,7 @@ export class ModifyCustomAgentResponseBodyDataExecutionConfig extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      forbiddenAppendDataSource: 'boolean',
       skipAskHuman: 'boolean',
       skipPlan: 'boolean',
       skipSqlConfirm: 'boolean',
@@ -186,7 +189,7 @@ export class ModifyCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
    * The query for the scheduled task.
    * 
    * @example
-   * Analyze this data and provide a brief report
+   * Analyze this data and provide a briefing
    */
   query?: string;
   /**
@@ -258,7 +261,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -293,7 +296,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The current Data Management unit.
+   * The current DMS unit.
    * 
    * @example
    * cn-hangzhou
@@ -436,7 +439,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires that all numbers use Chinese numerals instead of Arabic numerals
+   * The text report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -444,7 +447,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires that all numbers use Chinese numerals instead of Arabic numerals
+   * The web report requires all numbers to be written in Chinese characters instead of Arabic numerals
    */
   webReportConfig?: string;
   webReportTheme?: string;
@@ -555,7 +558,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
 export class ModifyCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response struct.
+   * The returned struct.
    */
   data?: ModifyCustomAgentResponseBodyData;
   /**

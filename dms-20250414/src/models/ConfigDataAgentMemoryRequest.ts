@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigDataAgentMemoryRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * Specifies whether to enable memory generation. Valid values:
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable memory recall usage. Valid values:
+   * 
+   * true: Enabled.
+   * 
+   * false: Disabled.
+   * 
    * @example
    * true
    */

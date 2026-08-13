@@ -38,6 +38,7 @@ export class ListCustomAgentResponseBodyDataContentCallbackConfig extends $dara.
 }
 
 export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara.Model {
+  forbiddenAppendDataSource?: boolean;
   /**
    * @remarks
    * Indicates whether to prevent user inquiries during the process.
@@ -72,6 +73,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
   skipWebReportConfirm?: boolean;
   static names(): { [key: string]: string } {
     return {
+      forbiddenAppendDataSource: 'ForbiddenAppendDataSource',
       skipAskHuman: 'SkipAskHuman',
       skipPlan: 'SkipPlan',
       skipSqlConfirm: 'SkipSqlConfirm',
@@ -81,6 +83,7 @@ export class ListCustomAgentResponseBodyDataContentExecutionConfig extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      forbiddenAppendDataSource: 'boolean',
       skipAskHuman: 'boolean',
       skipPlan: 'boolean',
       skipSqlConfirm: 'boolean',

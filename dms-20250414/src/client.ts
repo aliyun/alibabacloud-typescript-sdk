@@ -412,7 +412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ConfigDataAgentMemory
+   * Configures memory generation and usage for a DataAgent.
    * 
    * @param request - ConfigDataAgentMemoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -451,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ConfigDataAgentMemory
+   * Configures memory generation and usage for a DataAgent.
    * 
    * @param request - ConfigDataAgentMemoryRequest
    * @returns ConfigDataAgentMemoryResponse
@@ -2156,7 +2156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by its ID.
+   * Retrieves the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2191,7 +2191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a custom agent by its ID.
+   * Retrieves the details of a custom agent by custom agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -2861,7 +2861,7 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
    * 
    * @param request - GetDataAgentTaskModelUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2880,6 +2880,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.payLevel)) {
+      query["PayLevel"] = request.payLevel;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -2907,7 +2911,7 @@ export default class Client extends OpenApi {
    * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
    * 
    * @remarks
-   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+   * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
    * 
    * @param request - GetDataAgentTaskModelUsageRequest
    * @returns GetDataAgentTaskModelUsageResponse
@@ -2940,6 +2944,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.payLevel)) {
+      query["PayLevel"] = request.payLevel;
     }
 
     if (!$dara.isNull(request.regionId)) {
