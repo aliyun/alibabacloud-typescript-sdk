@@ -74,7 +74,7 @@ export class ListJobsRequest extends $dara.Model {
   fromAllWorkspaces?: boolean;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the images field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the images field. Supports Chinese and English tokenization.
    * 
    * @example
    * pytorch
@@ -112,7 +112,7 @@ export class ListJobsRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The field name for numeric range filtering. Must be used together with NumericRangeMin/NumericRangeMax.
+   * The field name for numeric range filtering. Must be used together with NumericRangeMin or NumericRangeMax.
    * 
    * @example
    * RequestGPU
@@ -147,10 +147,10 @@ export class ListJobsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The idle resource information. Valid values:
+   * The off-peak resource information. Valid values:
    * - ForbiddenQuotaOverSold
    * - ForceQuotaOverSold
-   * - AcceptQuotaOverSold-true (true indicates the job actually used idle resources)
+   * - AcceptQuotaOverSold-true (true indicates the job actually used off-peak resources)
    * - AcceptQuotaOverSold-false (false indicates the job actually used guaranteed resources)
    * 
    * @example
@@ -159,7 +159,7 @@ export class ListJobsRequest extends $dara.Model {
   oversoldInfo?: string;
   /**
    * @remarks
-   * The page number to return in a paged query. Minimum value: 1. Default value: 1.
+   * The page number to return in a paged query. Minimum value: 1. Default value: 1. Paging starts from page 1.
    * 
    * @example
    * 1
@@ -186,7 +186,7 @@ export class ListJobsRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Filters jobs created by the specified workflow ID.
+   * Filters jobs created by the specified pipeline ID.
    * 
    * @example
    * flow-*******
@@ -194,7 +194,7 @@ export class ListJobsRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the node failed reason field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the node failed reason field. Supports Chinese and English tokenization.
    * 
    * @example
    * OOM
@@ -202,7 +202,7 @@ export class ListJobsRequest extends $dara.Model {
   reasonSearch?: string;
   /**
    * @remarks
-   * The resource group ID. For information about how to query the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * The resource group ID. For information about how to obtain the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * r*****
@@ -211,7 +211,7 @@ export class ListJobsRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * Filters the job list by the resource quota name. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+   * The name of the resource quota, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
    * 
    * @example
    * quota***
@@ -227,7 +227,7 @@ export class ListJobsRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field by which to sort results:
+   * The field by which to sort results. Valid values:
    * 
    * - DisplayName
    * - JobType
@@ -241,7 +241,7 @@ export class ListJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs from the last 7 days are returned by default.
+   * The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
    * 
    * @example
    * 2025-04-16T07:25:34Z
@@ -275,7 +275,7 @@ export class ListJobsRequest extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The template ID. Filters jobs created from the specified template.
+   * The template ID, used to filter jobs created from the specified template.
    * 
    * @example
    * tmlabc123
@@ -291,7 +291,7 @@ export class ListJobsRequest extends $dara.Model {
   timeRangeField?: string;
   /**
    * @remarks
-   * Retrieves nodes by performing a full-text index on the user_command field. Supports Chinese and English tokenization.
+   * Uses full-text index to retrieve the user_command field. Supports Chinese and English tokenization.
    * 
    * @example
    * python train.py
@@ -299,7 +299,7 @@ export class ListJobsRequest extends $dara.Model {
   userCommandSearch?: string;
   /**
    * @remarks
-   * Filters the job list by the user ID of the job submitter.
+   * The user ID of the job submitter, used to filter the job list.
    * 
    * @example
    * 20**************
@@ -307,7 +307,7 @@ export class ListJobsRequest extends $dara.Model {
   userIdForFilter?: string;
   /**
    * @remarks
-   * Filters the job list by the username of the job submitter. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
+   * The username of the job submitter, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
    * 
    * @example
    * test***

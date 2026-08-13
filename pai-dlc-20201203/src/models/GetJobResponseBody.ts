@@ -109,7 +109,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path in the data source is used.
+   * The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
    * 
    * @example
    * /mnt/data/
@@ -230,7 +230,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pod substatus, such as preemption status. Valid values:
+   * The pod sub-status, such as preemption status. Valid values:
    * 
    * @example
    * Normal
@@ -331,7 +331,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   gmtStartTime?: string;
   /**
    * @remarks
-   * The history pods.
+   * The historical pods.
    */
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
   /**
@@ -386,7 +386,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pod substatus, such as preemption status. Valid values:
+   * The pod sub-status, such as preemption status. Valid values:
    * 
    * @example
    * Normal
@@ -394,7 +394,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
   subStatus?: string;
   /**
    * @remarks
-   * The pod type, which corresponds to a JobSpec in JobSpecs of CreateJob.
+   * The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
    * 
    * @example
    * Worker
@@ -756,7 +756,7 @@ export class GetJobResponseBody extends $dara.Model {
   elasticSpec?: JobElasticSpec;
   /**
    * @remarks
-   * Specifies whether the debugger task is enabled.
+   * Specifies whether the debugger job is enabled.
    * 
    * @example
    * false
@@ -769,7 +769,7 @@ export class GetJobResponseBody extends $dara.Model {
   envs?: { [key: string]: string };
   /**
    * @remarks
-   * The job creation time (UTC).
+   * The time when the job was created (UTC).
    * 
    * @example
    * 2021-01-12T14:35:01Z
@@ -864,7 +864,7 @@ export class GetJobResponseBody extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The status detail code, which is a classification of the sub-status under the current status (Status).
+   * The status detail code, which categorizes the sub-status under the current status (Status).
    * 
    * @example
    * JobStoppedByUser
@@ -872,7 +872,7 @@ export class GetJobResponseBody extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * The detailed description of the status detail.
+   * The detailed description of the status.
    * 
    * @example
    * Job is stopped by user.
@@ -917,7 +917,7 @@ export class GetJobResponseBody extends $dara.Model {
   restartRecord?: GetJobResponseBodyRestartRecord[];
   /**
    * @remarks
-   * The used retry count and maximum retry count for the job.
+   * The number of restarts used and the maximum number of restarts for the job.
    * 
    * @example
    * 0/10
@@ -949,7 +949,7 @@ export class GetJobResponseBody extends $dara.Model {
   statusHistory?: StatusTransitionItem[];
   /**
    * @remarks
-   * The job substatus, such as preemption retry status.
+   * The job sub-status, such as preemption retry status.
    * 
    * @example
    * Restarting

@@ -102,7 +102,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The ID of the data source. <props="china">For information about how to obtain the data source ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
+   * The ID of the data source. <props="china">For information about how to view the data source ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
    * 
    * @example
    * d-cn9dl*******
@@ -121,7 +121,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * Custom dataset mount properties. Currently, only OSS is supported.
+   * Custom dataset mount properties. Currently only OSS is supported.
    * 
    * @example
    * {
@@ -180,9 +180,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
 export class CreateJobRequestUserVpc extends $dara.Model {
   /**
    * @remarks
-   * The default routing. Valid values:
-   * - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-   * - eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway. For the configuration method, see [Configure a DSW instance to access the Internet through a dedicated public gateway](https://help.aliyun.com/document_detail/2525343.html).
+   * The default route. Valid values:
    * 
    * @example
    * eth0
@@ -191,8 +189,6 @@ export class CreateJobRequestUserVpc extends $dara.Model {
   /**
    * @remarks
    * The extended CIDR blocks.
-   * - If the vSwitch ID is empty, this parameter is optional. The system automatically retrieves all CIDR blocks under the VPC.
-   * - If the vSwitch ID is specified, this parameter is required. Specify all CIDR blocks under the VPC.
    */
   extendedCIDRs?: string[];
   /**
@@ -206,8 +202,6 @@ export class CreateJobRequestUserVpc extends $dara.Model {
   /**
    * @remarks
    * The ID of the user vSwitch. This is an optional parameter.
-   * - If the value is empty, the system automatically selects an appropriate vSwitch based on inventory availability.
-   * - You can also specify a vSwitch ID.
    * 
    * @example
    * vs-abcdef****
@@ -257,8 +251,6 @@ export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The visibility of the job. Valid values:
-   * - PUBLIC: visible to all members in this workspace.
-   * - PRIVATE: visible only to you and administrators in this workspace.
    * 
    * @example
    * PRIVATE
@@ -282,7 +274,7 @@ export class CreateJobRequest extends $dara.Model {
   dataSources?: CreateJobRequestDataSources[];
   /**
    * @remarks
-   * This parameter is not supported. Ignore this parameter.
+   * This parameter is not currently supported. Ignore this parameter.
    * 
    * @example
    * “”
@@ -291,9 +283,7 @@ export class CreateJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the job. The naming conventions are as follows:
-   * - The name cannot exceed 256 characters in length.
-   * - The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
+   * The name of the job. The naming format is as follows:
    * 
    * This parameter is required.
    * 
@@ -303,7 +293,7 @@ export class CreateJobRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * This parameter is not supported. Ignore this parameter.
+   * This parameter is not currently supported. Ignore this parameter.
    */
   elasticSpec?: JobElasticSpec;
   /**
@@ -313,7 +303,7 @@ export class CreateJobRequest extends $dara.Model {
   envs?: { [key: string]: string };
   /**
    * @remarks
-   * The maximum running time of the job. Unit: minutes.
+   * The maximum running duration of the job, in minutes.
    * 
    * @example
    * 1024
@@ -321,25 +311,14 @@ export class CreateJobRequest extends $dara.Model {
   jobMaxRunningTimeMinutes?: number;
   /**
    * @remarks
-   * **JobSpecs** describes various configurations for job runtime, such as image address, startup command, node resource declarations, and replica count.
-   * 
-   * A DLC job consists of different types of nodes. Nodes of the same type share identical configurations, which is called a JobSpec. **JobSpecs** describes the configurations of all node types and is an array of JobSpec objects.
+   * **JobSpecs** describes various configurations for job runtime, such as image address, startup command, node resource declarations, and number of replicas.
    * 
    * This parameter is required.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
-   * The job type. This parameter is case-sensitive. Valid values:
-   * - TFJob
-   * - PyTorchJob
-   * - MPIJob
-   * - XGBoostJob
-   * - OneFlowJob
-   * - ElasticBatchJob
-   * - SlurmJob
-   * - RayJob
-   * - DataJuicerJob
+   * The job type. This parameter is case-sensitive. Currently supported job types:
    * 
    * This parameter is required.
    * 
@@ -349,7 +328,7 @@ export class CreateJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The additional configuration for this node. You can use this parameter to adjust the behavior of mounted data sources. For example, if the node has an OSS-type data source mounted, you can set this parameter to `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16` to overwrite the default JindoFS parameter settings.
+   * The additional configuration for this node. You can use this parameter to adjust certain behaviors of mounted data sources. For example, if the node has an OSS-type data source mounted, you can set this parameter to `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16` to overwrite the default JindoFS parameter settings.
    * 
    * @example
    * key1=value1,key2=value2
@@ -357,10 +336,7 @@ export class CreateJobRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * The priority of the job. This is an optional parameter. Default value: 1. Valid values: 1 to 9.
-   * 
-   * - 1: the lowest priority.
-   * - 9: the highest priority.
+   * The priority of the job. This is an optional parameter. The default value is 1. Valid values: 1 to 9. Specifically:
    * 
    * @example
    * 8
@@ -369,8 +345,6 @@ export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID. This is an optional parameter.
-   * - If the value is empty, the job is submitted to the public resource group.
-   * - If the current workspace has a resource quota attached, you can specify the corresponding resource quota ID. For details about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * rs-xxx
@@ -388,9 +362,7 @@ export class CreateJobRequest extends $dara.Model {
   settings?: JobSettings;
   /**
    * @remarks
-   * The success policy for distributed multi-node jobs. Currently, only TensorFlow multi-node jobs support this parameter.
-   * - ChiefWorker: the entire job is considered successful as long as the Chief pod finishes successfully.
-   * - AllWorkers (default): the entire job is considered successful only when all Workers finish successfully.
+   * The success policy for distributed multi-node jobs. Currently only TensorFlow multi-node jobs support this parameter.
    * 
    * @example
    * AllWorkers

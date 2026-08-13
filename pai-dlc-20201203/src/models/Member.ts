@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class Member extends $dara.Model {
   /**
+   * @remarks
+   * The member ID.
+   * 
    * @example
    * ken_12345
    */
   memberId?: string;
   /**
+   * @remarks
+   * The member role.
+   * 
    * @example
    * WorkspaceAdmin
    */

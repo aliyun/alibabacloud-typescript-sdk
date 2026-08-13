@@ -36,7 +36,7 @@ export class Tensorboard extends $dara.Model {
    * Runtime duration (seconds).
    * 
    * @example
-   * 60
+   * 1234567
    */
   duration?: string;
   /**
@@ -103,7 +103,7 @@ export class Tensorboard extends $dara.Model {
    * Status details code.
    * 
    * @example
-   * ""
+   * Delete by user
    */
   reasonCode?: string;
   /**
@@ -111,7 +111,7 @@ export class Tensorboard extends $dara.Model {
    * Status details.
    * 
    * @example
-   * ""
+   * Tensorboard is deleted
    */
   reasonMessage?: string;
   /**

@@ -2,33 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateJobResponseBody extends $dara.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job created by this call.
+   * Id of the request
    * 
    * @example
-   * dlc7*******
-   */
-  jobId?: string;
-  /**
-   * @remarks
-   * The ID of the request, which is used for diagnostics and troubleshooting.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
       requestId: 'string',
     };
   }

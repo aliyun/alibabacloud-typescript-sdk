@@ -67,7 +67,7 @@ export class TensorboardDataSourceSpec extends $dara.Model {
    * The file system URI in the dataset configurations.
    * 
    * @example
-   * oss://examplebucket.oss-cn-shanghai-internal.aliyuncs.com/
+   * oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
    */
   uri?: string;
   static names(): { [key: string]: string } {

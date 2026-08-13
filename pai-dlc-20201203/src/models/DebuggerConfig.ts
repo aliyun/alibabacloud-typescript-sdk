@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DebuggerConfig extends $dara.Model {
   /**
+   * @remarks
+   * The configuration item details in JSON format.
+   * 
    * @example
-   * {\\"description\\":\\"这是一个新的pytorchjob模板\\"}
+   * {\\"description\\":\\"This is a new pytorchjob template\\"}
    */
   content?: string;
   /**
+   * @remarks
+   * The system-generated unique ID of the debug config.
+   * 
    * @example
    * dc-vf9lowjt3pso
    */
   debuggerConfigId?: string;
   /**
+   * @remarks
+   * The description of the configuration item.
+   * 
    * @example
-   * 这是一个Pytorch的基础配置模板
+   * This is a basic Pytorch configuration template
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the template configuration item.
+   * 
    * @example
    * Pytorch Experiment Config
    */
   displayName?: string;
   /**
+   * @remarks
+   * The creation time in UTC.
+   * 
    * @example
    * 2021-01-12T14:35:00Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modification time in UTC.
+   * 
    * @example
    * 2021-01-12T14:36:00Z
    */

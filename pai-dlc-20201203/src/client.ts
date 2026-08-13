@@ -56,24 +56,24 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "pai-dlc.aliyuncs.com",
       'me-east-1': "pai-dlc.aliyuncs.com",
       'rus-west-1-pop': "pai-dlc.aliyuncs.com",
-      'us-west-1': "pai-dlc.us-west-1.aliyuncs.com",
-      'us-southeast-1': "pai-dlc.us-southeast-1.aliyuncs.com",
-      'us-east-1': "pai-dlc.us-east-1.aliyuncs.com",
-      'eu-central-1': "pai-dlc.eu-central-1.aliyuncs.com",
       'cn-wulanchabu': "pai-dlc.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen': "pai-dlc.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "pai-dlc.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-beijing': "pai-dlc.cn-beijing.aliyuncs.com",
       'cn-shanghai': "pai-dlc.cn-shanghai.aliyuncs.com",
       'cn-hongkong': "pai-dlc.cn-hongkong.aliyuncs.com",
-      'cn-hangzhou': "pai-dlc.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "pai-dlc.cn-guangzhou.aliyuncs.com",
-      'cn-beijing': "pai-dlc.cn-beijing.aliyuncs.com",
-      'ap-southeast-8': "pai-dlc.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "pai-dlc.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-5': "pai-dlc.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "pai-dlc.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "pai-dlc.ap-southeast-1.aliyuncs.com",
+      'cn-shenzhen': "pai-dlc.cn-shenzhen.aliyuncs.com",
       'ap-northeast-1': "pai-dlc.ap-northeast-1.aliyuncs.com",
+      'cn-guangzhou': "pai-dlc.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-1': "pai-dlc.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "pai-dlc.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-5': "pai-dlc.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-7': "pai-dlc.ap-southeast-7.aliyuncs.com",
+      'cn-hangzhou': "pai-dlc.cn-hangzhou.aliyuncs.com",
+      'ap-southeast-8': "pai-dlc.ap-southeast-8.aliyuncs.com",
+      'us-east-1': "pai-dlc.us-east-1.aliyuncs.com",
+      'us-southeast-1': "pai-dlc.us-southeast-1.aliyuncs.com",
+      'us-west-1': "pai-dlc.us-west-1.aliyuncs.com",
+      'eu-central-1': "pai-dlc.eu-central-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "pai-dlc.cn-shanghai-finance-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pai-dlc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -93,11 +93,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
    * 
    * @remarks
-   * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
-   * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -230,11 +229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+   * Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
    * 
    * @remarks
-   * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
-   * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+   * Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -2566,6 +2564,136 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  }
+
+  /**
+   * Creates and attaches tags to specified resources.
+   * 
+   * @remarks
+   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * Creates and attaches tags to specified resources.
+   * 
+   * @remarks
+   * Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Unbinds tags from a specified list of resources.
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(tmpReq: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UntagResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceId)) {
+      request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKey)) {
+      request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "TagKey", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.resourceIdShrink)) {
+      query["ResourceId"] = request.resourceIdShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeyShrink)) {
+      query["TagKey"] = request.tagKeyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * Unbinds tags from a specified list of resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
   }
 
   /**
