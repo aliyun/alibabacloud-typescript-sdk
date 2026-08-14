@@ -5,12 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class VideoGenerationShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The product input.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
+  /**
+   * @remarks
+   * The intent parameters. Currently unavailable.
+   */
   intentShrink?: string;
   /**
    * @remarks
+   * The output parameters.
+   * 
    * This parameter is required.
    */
   outputShrink?: string;

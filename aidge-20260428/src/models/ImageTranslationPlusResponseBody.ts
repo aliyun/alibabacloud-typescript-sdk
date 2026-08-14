@@ -35,7 +35,7 @@ export class ImageTranslationPlusResponseBodyData extends $dara.Model {
 export class ImageTranslationPlusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class ImageTranslationPlusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit status of the asynchronous task.
+   * The asynchronous task submit status.
    */
   data?: ImageTranslationPlusResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK
@@ -64,9 +64,7 @@ export class ImageTranslationPlusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. Valid values: true: successful. false: failed.
    * 
    * @example
    * True

@@ -2,15 +2,74 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class VideoGenerationRequestInputAssetBindings extends $dara.Model {
+  /**
+   * @remarks
+   * The asset index.
+   * 
+   * @example
+   * 0
+   */
+  assetIndex?: number;
+  /**
+   * @remarks
+   * The natural language description of the asset.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Valid values:
+   * - look_reference: appearance reference.
+   * - scene_reference: scene reference.
+   */
+  slot?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetIndex: 'AssetIndex',
+      description: 'Description',
+      slot: 'Slot',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetIndex: 'number',
+      description: 'string',
+      slot: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoGenerationRequestInput extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the purpose and description of images by asset index.
+   */
+  assetBindings?: VideoGenerationRequestInputAssetBindings[];
+  /**
+   * @remarks
+   * The extended information.
+   */
   extra?: { [key: string]: any };
   /**
    * @remarks
+   * The list of product image URLs (1 to 6 images). The URLs must be publicly accessible.
+   * 
    * This parameter is required.
    */
   images?: string[];
   /**
    * @remarks
+   * The product title. A maximum of the first 60 characters are used.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +78,7 @@ export class VideoGenerationRequestInput extends $dara.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      assetBindings: 'AssetBindings',
       extra: 'Extra',
       images: 'Images',
       title: 'Title',
@@ -27,6 +87,7 @@ export class VideoGenerationRequestInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assetBindings: { 'type': 'array', 'itemType': VideoGenerationRequestInputAssetBindings },
       extra: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       images: { 'type': 'array', 'itemType': 'string' },
       title: 'string',
@@ -34,6 +95,9 @@ export class VideoGenerationRequestInput extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.assetBindings)) {
+      $dara.Model.validateArray(this.assetBindings);
+    }
     if(this.extra) {
       $dara.Model.validateMap(this.extra);
     }
@@ -50,19 +114,31 @@ export class VideoGenerationRequestInput extends $dara.Model {
 
 export class VideoGenerationRequestIntent extends $dara.Model {
   /**
+   * @remarks
+   * The distribution channel.
+   * 
    * @example
    * -
    */
   channel?: string;
   /**
+   * @remarks
+   * The business goal.
+   * 
    * @example
    * -
    */
   goal?: string;
+  /**
+   * @remarks
+   * Required when goal is set to scripted_video.
+   */
+  script?: string;
   static names(): { [key: string]: string } {
     return {
       channel: 'Channel',
       goal: 'Goal',
+      script: 'Script',
     };
   }
 
@@ -70,6 +146,7 @@ export class VideoGenerationRequestIntent extends $dara.Model {
     return {
       channel: 'string',
       goal: 'string',
+      script: 'string',
     };
   }
 
@@ -85,6 +162,8 @@ export class VideoGenerationRequestIntent extends $dara.Model {
 export class VideoGenerationRequestOutput extends $dara.Model {
   /**
    * @remarks
+   * The video duration in seconds. Currently supports integers between 5 and 15. More options will be available in the future.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93,6 +172,8 @@ export class VideoGenerationRequestOutput extends $dara.Model {
   duration?: number;
   /**
    * @remarks
+   * The output resolution.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -100,6 +181,9 @@ export class VideoGenerationRequestOutput extends $dara.Model {
    */
   quality?: string;
   /**
+   * @remarks
+   * The video aspect ratio.
+   * 
    * @example
    * 9:16
    */
@@ -132,12 +216,20 @@ export class VideoGenerationRequestOutput extends $dara.Model {
 export class VideoGenerationRequest extends $dara.Model {
   /**
    * @remarks
+   * The product input.
+   * 
    * This parameter is required.
    */
   input?: VideoGenerationRequestInput;
+  /**
+   * @remarks
+   * The intent parameters. Currently unavailable.
+   */
   intent?: VideoGenerationRequestIntent;
   /**
    * @remarks
+   * The output parameters.
+   * 
    * This parameter is required.
    */
   output?: VideoGenerationRequestOutput;

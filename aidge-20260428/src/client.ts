@@ -515,6 +515,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 地堆面积推理
+   * 
+   * @remarks
+   * ## 请求说明
+   * **请确保在使用该接口前，已充分了解地堆面积推理产品的收费方式和[价格](https://www.aliyun.com/price/product#/ecs/detail)。**
+   * - 本接口用于通过提供的地堆整体图、SKU知识库以及商品在图片中的位置信息来推断地堆的实际尺寸（两条边的长度）及其占地面积。
+   * - 确保提供的`RagId`对应的知识库属于调用者且状态为可用(`AVAILABLE`)。
+   * - `Products`数组中至少包含一个商品项，并且每个商品项下的`Boxes`也至少需要定义一个边界框。
+   * - 所有坐标值均采用0到1000之间的归一化坐标系表示，请确保输入时满足`Left < Right`与`Top < Bottom`的关系。
+   * - 调用此API时请设置合理的超时时间（建议不超过300秒），以避免因网络延迟或处理复杂度高导致的操作失败。
+   * - 对于正式环境下的调用，请使用POP Action方式接入；内部REST地址主要用于开发测试阶段的联调工作。
+   * 
+   * @param tmpReq - DiduiAreaDeductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DiduiAreaDeductionResponse
+   */
+  async diduiAreaDeductionWithOptions(tmpReq: $_model.DiduiAreaDeductionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DiduiAreaDeductionResponse> {
+    tmpReq.validate();
+    let request = new $_model.DiduiAreaDeductionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.products)) {
+      request.productsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.products, "Products", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.productsShrink)) {
+      query["Products"] = request.productsShrink;
+    }
+
+    if (!$dara.isNull(request.ragId)) {
+      query["RagId"] = request.ragId;
+    }
+
+    if (!$dara.isNull(request.reqId)) {
+      query["ReqId"] = request.reqId;
+    }
+
+    if (!$dara.isNull(request.targetImageUrl)) {
+      query["TargetImageUrl"] = request.targetImageUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DiduiAreaDeduction",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DiduiAreaDeductionResponse>(await this.callApi(params, req, runtime), new $_model.DiduiAreaDeductionResponse({}));
+  }
+
+  /**
+   * 地堆面积推理
+   * 
+   * @remarks
+   * ## 请求说明
+   * **请确保在使用该接口前，已充分了解地堆面积推理产品的收费方式和[价格](https://www.aliyun.com/price/product#/ecs/detail)。**
+   * - 本接口用于通过提供的地堆整体图、SKU知识库以及商品在图片中的位置信息来推断地堆的实际尺寸（两条边的长度）及其占地面积。
+   * - 确保提供的`RagId`对应的知识库属于调用者且状态为可用(`AVAILABLE`)。
+   * - `Products`数组中至少包含一个商品项，并且每个商品项下的`Boxes`也至少需要定义一个边界框。
+   * - 所有坐标值均采用0到1000之间的归一化坐标系表示，请确保输入时满足`Left < Right`与`Top < Bottom`的关系。
+   * - 调用此API时请设置合理的超时时间（建议不超过300秒），以避免因网络延迟或处理复杂度高导致的操作失败。
+   * - 对于正式环境下的调用，请使用POP Action方式接入；内部REST地址主要用于开发测试阶段的联调工作。
+   * 
+   * @param request - DiduiAreaDeductionRequest
+   * @returns DiduiAreaDeductionResponse
+   */
+  async diduiAreaDeduction(request: $_model.DiduiAreaDeductionRequest): Promise<$_model.DiduiAreaDeductionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.diduiAreaDeductionWithOptions(request, runtime);
+  }
+
+  /**
    * Translates documents between more than 100 language pairs (including bridged pairs), supporting multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported. Excels in the following areas: - Content accuracy: translation accuracy, parameter and unit accuracy - Structural integrity: overall layout continuity, page margin and layout preservation.
    * 
    * @remarks
@@ -1319,15 +1399,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following 8 language pairs, with more to be supported in the future.
+   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. Use it for the following 8 language pairs, with more to be supported in the future.
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. Use it for the following 8 language pairs, with more to be supported in the future.
    * Supported language pairs:
-   * | **No.** | **Source Language** |  | **Target Language** |  |
+   * | **No.** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
-   * |  | Language Code | Language Name | Language Code | Language Name |
+   * |  | Language code | Language name | Language code | Language name |
    * | 1 | en | English | ar | Arabic |
    * | 2 | en | English | id | Indonesian |
    * | 3 | en | English | th | Thai |
@@ -1339,15 +1419,15 @@ export default class Client extends OpenApi {
    * | 9 | en | English | es | Spanish |
    * | 10 | en | English | fr | French |
    * | 11 | en | English | de | German |
-   * | 12 | en | English | pl | Polish |.
-   * ## Common scenarios
+   * | 12 | en | English | pl | Polish |
+   * ## Scenarios
    * Main product images and detail images for cross-border e-commerce.
-   * ## Functions and features
-   * *   **Product body information protection**: Supports custom selection of whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
+   * ## Features
+   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
    *     
-   * *   **Brand name protection**: Supports custom selection of whether to translate brand names on images. This helps protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Translation intervention**: Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
    * 
    * @param request - ImageTranslationPlusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,15 +1482,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following 8 language pairs, with more to be supported in the future.
+   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. Use it for the following 8 language pairs, with more to be supported in the future.
    * 
    * @remarks
    * ## Product Introduction
-   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and outperforms Image Translation Lite and Pro in translation accuracy for multiple minor languages. We recommend using it for the following language pairs, with more to be supported in the future.
+   * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. Use it for the following 8 language pairs, with more to be supported in the future.
    * Supported language pairs:
-   * | **No.** | **Source Language** |  | **Target Language** |  |
+   * | **No.** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
-   * |  | Language Code | Language Name | Language Code | Language Name |
+   * |  | Language code | Language name | Language code | Language name |
    * | 1 | en | English | ar | Arabic |
    * | 2 | en | English | id | Indonesian |
    * | 3 | en | English | th | Thai |
@@ -1422,15 +1502,15 @@ export default class Client extends OpenApi {
    * | 9 | en | English | es | Spanish |
    * | 10 | en | English | fr | French |
    * | 11 | en | English | de | German |
-   * | 12 | en | English | pl | Polish |.
-   * ## Common scenarios
+   * | 12 | en | English | pl | Polish |
+   * ## Scenarios
    * Main product images and detail images for cross-border e-commerce.
-   * ## Functions and features
-   * *   **Product body information protection**: Supports custom selection of whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
+   * ## Features
+   * *   **Product body information protection**: Allows you to choose whether to translate text on the product body. This helps protect body information such as embedded product names from being translated.
    *     
-   * *   **Brand name protection**: Supports custom selection of whether to translate brand names on images. This helps protect brand name information from being translated.
+   * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
    *     
-   * *   **Translation intervention**: Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. Contact the platform if you need more.
    * 
    * @param request - ImageTranslationPlusRequest
    * @returns ImageTranslationPlusResponse
@@ -1912,6 +1992,198 @@ export default class Client extends OpenApi {
   async packageWeightSizeCheck(request: $_model.PackageWeightSizeCheckRequest): Promise<$_model.PackageWeightSizeCheckResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.packageWeightSizeCheckWithOptions(request, runtime);
+  }
+
+  /**
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * 
+   * @remarks
+   * ## Product Introduction
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * ## Common scenarios
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending words in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+   * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
+   * ## Features
+   * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Supported text format types** Currently supports text and html text types.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * ## Translation quality comparison
+   * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
+   * |----------|---------------|-----------------------|-----------------------|---------------------|
+   * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
+   * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more precise product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type |
+   * 
+   * @param tmpReq - PrepaidTextTranslateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PrepaidTextTranslateResponse
+   */
+  async prepaidTextTranslateWithOptions(tmpReq: $_model.PrepaidTextTranslateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PrepaidTextTranslateResponse> {
+    tmpReq.validate();
+    let request = new $_model.PrepaidTextTranslateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceTextList)) {
+      request.sourceTextListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceTextList, "SourceTextList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!$dara.isNull(request.formatType)) {
+      body["FormatType"] = request.formatType;
+    }
+
+    if (!$dara.isNull(request.glossary)) {
+      body["Glossary"] = request.glossary;
+    }
+
+    if (!$dara.isNull(request.sourceLanguage)) {
+      body["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!$dara.isNull(request.sourceTextListShrink)) {
+      body["SourceTextList"] = request.sourceTextListShrink;
+    }
+
+    if (!$dara.isNull(request.targetLanguage)) {
+      body["TargetLanguage"] = request.targetLanguage;
+    }
+
+    if (!$dara.isNull(request.translateScene)) {
+      body["TranslateScene"] = request.translateScene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PrepaidTextTranslate",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PrepaidTextTranslateResponse>(await this.callApi(params, req, runtime), new $_model.PrepaidTextTranslateResponse({}));
+  }
+
+  /**
+   * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * 
+   * @remarks
+   * ## Product Introduction
+   * Marco MT is an e-commerce translation model trained on over 1 billion\\+ high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports translation between more than 100 language pairs (including bridged translations), especially Chinese-English, Chinese-multilingual, and English-multilingual translations. It supports language detection for 24 language directions. If you do not specify the source language, automatic detection is performed.
+   * ## Common scenarios
+   * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending words in product titles into the target language, improving product visibility on e-commerce platforms.
+   * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco large model translation supports long text translation and HTML format, delivering excellent translation quality and format preservation.
+   * - Product attributes: Product attribute terms are short and may contain e-commerce-specific terms such as model numbers and parameters.
+   * - Customer service conversations: In customer service scenarios, the model optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+   * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
+   * ## Features
+   * - **Supported language directions** Marco MT large model translation supports translation between more than 100 languages and language detection for 23 languages. For specific language directions, refer to the language mapping table in Section 5.6.
+   * - **Ultra-low hallucination rate and high-speed inference** Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it offers faster translation inference speed and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+   * - **Supported text format types** Currently supports text and html text types.
+   * - **Translation intervention support** Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-empty value). This is commonly used for brand name protection scenarios. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+   * ## Translation quality comparison
+   * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
+   * |----------|---------------|-----------------------|-----------------------|---------------------|
+   * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
+   * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
+   * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more precise product subject expression. The translation correctly identifies "key bag" rather than "keychain", avoiding ambiguity about the product type |
+   * 
+   * @param request - PrepaidTextTranslateRequest
+   * @returns PrepaidTextTranslateResponse
+   */
+  async prepaidTextTranslate(request: $_model.PrepaidTextTranslateRequest): Promise<$_model.PrepaidTextTranslateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.prepaidTextTranslateWithOptions(request, runtime);
+  }
+
+  /**
+   * Automatically identifies and locates specified products in an image based on a multimodal foundation model.
+   * 
+   * @remarks
+   * ## Request description
+   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
+   * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+   * ### Precautions
+   * - Image URLs must use HTTPS and be accessible by the server.
+   * - Common image formats such as JPEG, PNG, and WebP are supported.
+   * - Each image should not exceed 2 MB.
+   * - When using signed URLs, set the validity period to at least 30 minutes.
+   * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+   * 
+   * @param tmpReq - ProductHotspotDetectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ProductHotspotDetectionResponse
+   */
+  async productHotspotDetectionWithOptions(tmpReq: $_model.ProductHotspotDetectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ProductHotspotDetectionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ProductHotspotDetectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.referenceImageUrls)) {
+      request.referenceImageUrlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceImageUrls, "ReferenceImageUrls", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.referenceImageUrlsShrink)) {
+      query["ReferenceImageUrls"] = request.referenceImageUrlsShrink;
+    }
+
+    if (!$dara.isNull(request.reqId)) {
+      query["ReqId"] = request.reqId;
+    }
+
+    if (!$dara.isNull(request.targetImageUrl)) {
+      query["TargetImageUrl"] = request.targetImageUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ProductHotspotDetection",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ProductHotspotDetectionResponse>(await this.callApi(params, req, runtime), new $_model.ProductHotspotDetectionResponse({}));
+  }
+
+  /**
+   * Automatically identifies and locates specified products in an image based on a multimodal foundation model.
+   * 
+   * @remarks
+   * ## Request description
+   * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of the product hotzone recognition service.**
+   * This API automatically identifies and locates specified products in a target scene image based on the provided target scene image and product reference images, and outputs the product name and normalized bounding box. Each request takes one target scene image and a set of product reference images. If the same case has multiple target images, call the operation separately for each target image.
+   * ### Precautions
+   * - Image URLs must use HTTPS and be accessible by the server.
+   * - Common image formats such as JPEG, PNG, and WebP are supported.
+   * - Each image should not exceed 2 MB.
+   * - When using signed URLs, set the validity period to at least 30 minutes.
+   * - If the same case has multiple target scene images, call the operation separately for each target image. The reference image list can be reused.
+   * 
+   * @param request - ProductHotspotDetectionRequest
+   * @returns ProductHotspotDetectionResponse
+   */
+  async productHotspotDetection(request: $_model.ProductHotspotDetectionRequest): Promise<$_model.ProductHotspotDetectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.productHotspotDetectionWithOptions(request, runtime);
   }
 
   /**
@@ -2533,25 +2805,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 电商视频生成（异步提交）
+   * Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
    * 
    * @remarks
-   * # 适用场景
-   * - 卖家/平台批量生成商品短视频：支持多种视频比例与尺寸（3:4、9:16），适配商品详情页视频位、商品主页展示、信息流投放、短视频种草、活动会场素材等场景。
-   * - 商品上新，快速生成首批视频素材：当商家有大量新品集中上架时，只需上传商品图、商品标题等基础信息，即可快速生成商品展示视频、模特上身视频、口播讲解视频等内容，帮助商家在上新阶段迅速完成素材铺设。
-   * - 高保真服饰展示：基于商品主图生成更贴近真实商拍效果的模特展示视频，重点优化版型还原、面料纹理保留、颜色准确呈现、细节稳定一致等能力，支持服装上身、转身、走动、近景特写、多角度切换等常见电商展示方式。
-   * - 生成高质量商拍模特：内置 20+ 套目标受众模特库，覆盖大码女性、大码男性、泳装、少女风、轻熟通勤、青年休闲、商务男装、运动健身等多体型、多肤色、多人种模特，支持站姿展示、侧身展示、走动展示、局部特写等多种商拍表达方式。
-   * - 标品讲解等高频电商场景：适用于护肤品、化妆品、个护小家电、食品饮料、家清日用、3C 数码等标准化商品类目，可基于商品主图、标题、卖点信息和讲解脚本快速生成商品讲解视频。
-   * - 多商品、多卖点测试，提升投放效率：面向信息流广告、短视频投放和内容种草场景，可快速生成多个版本的视频素材，便于企业低成本验证不同卖点与表现形式的转化效果，提升投放 ROI。
-   * # 功能介绍
-   * - 全自动端到端批量生成，零 Prompt 门槛：调用方仅需传入商品图片 URL 与标题，系统自动完成从商品理解、分镜规划到视频生成的全流程处理，无需人工编写 Prompt、选择模板或反复调参。内置商品理解、画面质检、脚本规划、编导运镜等多 Agent，大幅降低使用门槛。
-   * - 高稳定生成，低废片率：采用确定性生成流程与多层质量控制机制，可在更少重试次数下输出可用素材，减少无效生成和资源浪费，整体生产成本更可控。
-   * - 电商专属商品保真能力：内置多轮质检 Agent，在视频生成全程锁定商品状态（如拉链不会被拉开、袖子不会被放下、印花不会消失），通过「脚本改写 + 显式约束注入 + 失败感知重试」多层防御确保商品一致性。
-   * - 参考图优先 + 6 轴一致性校验：采用 Reference-Image-First 生成范式，以原商品图作为视觉唯一事实源，自动执行 6 维度 VL 诊断（颜色漂移、图案缺失、轮廓偏移、结构增减、模特匹配、脏污检测），从机制上杜绝生成图与商品不像的问题。
-   * - 灵活的分镜编排与时长控制：支持 5–30 秒可调视频时长；Agent 自主规划独立分镜展示商品在不同场景下的效果；也支持固定场景模式，在统一视觉风格下深度展示产品调性。
-   * - 电影级运镜能力：内置子弹时间、格莱美慢镜头、360° 环绕旋转、模特全身旋转展示等高级运镜模式，通过分段精准控制实现确定性产出。
-   * - 模特库与定制化服务：内置多类型模特资源库，支持商家指定固定模特、定制专属模特形象、长期绑定品牌视觉人设，保证品牌视觉统一性。
-   * - 适配高频电商内容场景：支持 720P、1080P 等多种清晰度及 3:4、9:16等多种长宽比，适配商品详情页视频位、商品主页视频展示、瀑布流/信息流投放、活动会场素材、上新与促销视频生成。
+   * # Scenarios
+   * - Batch generation of product short videos for sellers/platforms: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
+   * - Quick generation of initial video assets for new product launches: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete asset creation during the launch phase.
+   * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette reproduction, fabric texture preservation, accurate color rendering, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
+   * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
+   * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
+   * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video assets, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+   * # Features
+   * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
+   * - Highly stable generation with low waste rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable assets with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+   * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
+   * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
+   * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
+   * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
+   * - Model library and customization services: Built-in multi-type model resource library supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+   * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign material, and new product and promotional video generation.
    * 
    * @param tmpReq - VideoGenerationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2604,25 +2876,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 电商视频生成（异步提交）
+   * Invokes the e-commerce AI video generation agent for e-commerce merchants and platforms. Based on product main images, titles, selling points, and other information, it automatically generates 5–30 second product showcase short videos, helping customers efficiently produce and distribute e-commerce content. The service supports multiple resolution outputs such as 720P and 1080P, single-product quick invocation and multi-product batch generation, catering to both daily operations and large-scale product content production needs. Currently overwrites all apparel categories (tops, pants, skirts, suits, underwear, swimwear, etc.), and is gradually expanding to skincare, cosmetics, food and beverages, home appliances, and other core e-commerce categories.
    * 
    * @remarks
-   * # 适用场景
-   * - 卖家/平台批量生成商品短视频：支持多种视频比例与尺寸（3:4、9:16），适配商品详情页视频位、商品主页展示、信息流投放、短视频种草、活动会场素材等场景。
-   * - 商品上新，快速生成首批视频素材：当商家有大量新品集中上架时，只需上传商品图、商品标题等基础信息，即可快速生成商品展示视频、模特上身视频、口播讲解视频等内容，帮助商家在上新阶段迅速完成素材铺设。
-   * - 高保真服饰展示：基于商品主图生成更贴近真实商拍效果的模特展示视频，重点优化版型还原、面料纹理保留、颜色准确呈现、细节稳定一致等能力，支持服装上身、转身、走动、近景特写、多角度切换等常见电商展示方式。
-   * - 生成高质量商拍模特：内置 20+ 套目标受众模特库，覆盖大码女性、大码男性、泳装、少女风、轻熟通勤、青年休闲、商务男装、运动健身等多体型、多肤色、多人种模特，支持站姿展示、侧身展示、走动展示、局部特写等多种商拍表达方式。
-   * - 标品讲解等高频电商场景：适用于护肤品、化妆品、个护小家电、食品饮料、家清日用、3C 数码等标准化商品类目，可基于商品主图、标题、卖点信息和讲解脚本快速生成商品讲解视频。
-   * - 多商品、多卖点测试，提升投放效率：面向信息流广告、短视频投放和内容种草场景，可快速生成多个版本的视频素材，便于企业低成本验证不同卖点与表现形式的转化效果，提升投放 ROI。
-   * # 功能介绍
-   * - 全自动端到端批量生成，零 Prompt 门槛：调用方仅需传入商品图片 URL 与标题，系统自动完成从商品理解、分镜规划到视频生成的全流程处理，无需人工编写 Prompt、选择模板或反复调参。内置商品理解、画面质检、脚本规划、编导运镜等多 Agent，大幅降低使用门槛。
-   * - 高稳定生成，低废片率：采用确定性生成流程与多层质量控制机制，可在更少重试次数下输出可用素材，减少无效生成和资源浪费，整体生产成本更可控。
-   * - 电商专属商品保真能力：内置多轮质检 Agent，在视频生成全程锁定商品状态（如拉链不会被拉开、袖子不会被放下、印花不会消失），通过「脚本改写 + 显式约束注入 + 失败感知重试」多层防御确保商品一致性。
-   * - 参考图优先 + 6 轴一致性校验：采用 Reference-Image-First 生成范式，以原商品图作为视觉唯一事实源，自动执行 6 维度 VL 诊断（颜色漂移、图案缺失、轮廓偏移、结构增减、模特匹配、脏污检测），从机制上杜绝生成图与商品不像的问题。
-   * - 灵活的分镜编排与时长控制：支持 5–30 秒可调视频时长；Agent 自主规划独立分镜展示商品在不同场景下的效果；也支持固定场景模式，在统一视觉风格下深度展示产品调性。
-   * - 电影级运镜能力：内置子弹时间、格莱美慢镜头、360° 环绕旋转、模特全身旋转展示等高级运镜模式，通过分段精准控制实现确定性产出。
-   * - 模特库与定制化服务：内置多类型模特资源库，支持商家指定固定模特、定制专属模特形象、长期绑定品牌视觉人设，保证品牌视觉统一性。
-   * - 适配高频电商内容场景：支持 720P、1080P 等多种清晰度及 3:4、9:16等多种长宽比，适配商品详情页视频位、商品主页视频展示、瀑布流/信息流投放、活动会场素材、上新与促销视频生成。
+   * # Scenarios
+   * - Batch generation of product short videos for sellers/platforms: Supports multiple video aspect ratios and sizes (3:4, 9:16), suitable for product detail page video slots, product homepage display, information feed placement, short video content marketing, campaign material, and other scenarios.
+   * - Quick generation of initial video assets for new product launches: When merchants have a large number of new products to list, they only need to upload product images and titles to quickly generate product showcase videos, model try-on videos, voiceover explanation videos, and other content, helping merchants rapidly complete asset creation during the launch phase.
+   * - High-fidelity apparel display: Generates model showcase videos that closely resemble real commercial photography based on product main images, with optimized capabilities for silhouette reproduction, fabric texture preservation, accurate color rendering, and consistent detail stability. Supports common e-commerce display methods such as garment try-on, turning, walking, close-up shots, and multi-angle switching.
+   * - High-quality commercial photography models: Includes 20+ built-in target audience model libraries covering plus-size women, plus-size men, swimwear, youthful style, smart casual commute, young casual, business menswear, sports and fitness, and other body types, skin tones, and ethnicities. Supports standing poses, side views, walking displays, partial close-ups, and other commercial photography expressions.
+   * - Standard product explanation and other high-frequency e-commerce scenarios: Applicable to standardized product categories such as skincare, cosmetics, personal care small appliances, food and beverages, household cleaning products, and 3C digital products. Quickly generates product explanation videos based on product main images, titles, selling points, and explanation scripts.
+   * - Multi-product and multi-selling-point testing to improve placement efficiency: For information feed advertising, short video placement, and content marketing scenarios, quickly generates multiple versions of video assets, enabling enterprises to validate conversion effects of different selling points and presentation formats at low cost, improving placement ROI.
+   * # Features
+   * - Fully automated end-to-end batch generation with zero prompt threshold: Callers only need to provide product image URLs and titles. The system automatically completes the entire process from product understanding, storyboard planning, to video generation without manual prompt writing, template selection, or repeated parameter tuning. Built-in multi-agent capabilities including product understanding, visual quality inspection, script planning, and cinematography direction significantly lower the usage barrier.
+   * - Highly stable generation with low waste rate: Uses a deterministic generation pipeline and multi-layer quality control mechanism to output usable assets with fewer retries, reducing invalid generation and resource waste, making overall production costs more controllable.
+   * - E-commerce-specific product fidelity: Built-in multi-round quality inspection agents lock product state throughout video generation (e.g., zippers won\\"t be unzipped, sleeves won\\"t be lowered, prints won\\"t disappear), ensuring product consistency through multi-layer defense of "script rewriting + explicit constraint injection + failure-aware retry."
+   * - Reference image priority + 6-axis consistency verification: Adopts a Reference-Image-First generation paradigm using the original product image as the sole visual truth source, automatically performing 6-dimensional VL diagnostics (color drift, pattern loss, contour deviation, structural addition/removal, model matching, stain detection), fundamentally eliminating the problem of generated images not resembling the product.
+   * - Flexible storyboard arrangement and duration control: Supports adjustable video duration of 5–30 seconds. The agent autonomously plans independent storyboards to showcase product effects in different scenarios. Also supports fixed scene mode for in-depth product presentation under a unified visual style.
+   * - Cinematic camera movement capabilities: Built-in advanced camera modes including bullet time, Grammy-style slow motion, 360° orbital rotation, and full-body model rotation display, achieving deterministic output through segmented precise control.
+   * - Model library and customization services: Built-in multi-type model resource library supporting merchants in specifying fixed models, customizing exclusive model personas, and long-term brand visual identity binding to ensure brand visual consistency.
+   * - Adapted to high-frequency e-commerce content scenarios: Supports multiple resolutions such as 720P and 1080P, and multiple aspect ratios such as 3:4 and 9:16, suitable for product detail page video slots, product homepage video display, waterfall/information feed placement, campaign material, and new product and promotional video generation.
    * 
    * @param request - VideoGenerationRequest
    * @returns VideoGenerationResponse
