@@ -13,7 +13,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   jobName?: string;
   /**
    * @remarks
-   * The details.
+   * The detailed information.
    * 
    * @example
    * successful
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   message?: string;
   /**
    * @remarks
-   * The scrape path.
+   * The metrics path.
    * 
    * @example
    * /metrics
@@ -95,7 +95,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
 export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRules extends $dara.Model {
   /**
    * @remarks
-   * The add-on name.
+   * The addon name.
    * 
    * @example
    * cloud-ecs
@@ -103,7 +103,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonName?: string;
   /**
    * @remarks
-   * The name of the add-on release.
+   * The addon release name.
    * 
    * @example
    * release-12345678
@@ -111,7 +111,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonReleaseName?: string;
   /**
    * @remarks
-   * The add-on version.
+   * The addon version.
    * 
    * @example
    * 0.0.1
@@ -119,7 +119,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonVersion?: string;
   /**
    * @remarks
-   * The configuration YAML file.
+   * The configuration YAML.
    * 
    * @example
    * scrape_cofnigs:
@@ -128,7 +128,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   configYaml?: string;
   /**
    * @remarks
-   * The enabled status.
+   * The enabling status.
    * 
    * @example
    * mini
@@ -136,7 +136,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   enableStatus?: string;
   /**
    * @remarks
-   * Indicates whether the YAML file is encrypted.
+   * The encrypted YAML.
    * 
    * @example
    * true
@@ -152,7 +152,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   matchedPodCount?: number;
   /**
    * @remarks
-   * The details.
+   * The detailed information.
    * 
    * @example
    * ok
@@ -247,7 +247,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBody extends $dara
   policyId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0

@@ -123,7 +123,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
   fieldKey?: string;
   /**
    * @remarks
-   * The field values. Multiple values are separated by commas.
+   * The field values. Multiple values are separated by commas (,).
    */
   fieldValues?: string[];
   /**
@@ -573,7 +573,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
   ready?: number;
   /**
    * @remarks
-   * The total number of rules.
+   * The number of rules.
    * 
    * @example
    * 278
@@ -603,6 +603,11 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
 }
 
 export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * The names of all components installed in this policy.
+   */
+  addonNames?: string[];
   /**
    * @remarks
    * The bound resource information.
@@ -676,7 +681,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of sub-releases.
+   * The sub-release count.
    */
   subAddonRelease?: ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease;
   /**
@@ -697,6 +702,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      addonNames: 'addonNames',
       bindResource: 'bindResource',
       csUmodelStatus: 'csUmodelStatus',
       entityGroup: 'entityGroup',
@@ -715,6 +721,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addonNames: { 'type': 'array', 'itemType': 'string' },
       bindResource: ListIntegrationPoliciesResponseBodyPoliciesBindResource,
       csUmodelStatus: 'boolean',
       entityGroup: ListIntegrationPoliciesResponseBodyPoliciesEntityGroup,
@@ -732,6 +739,9 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addonNames)) {
+      $dara.Model.validateArray(this.addonNames);
+    }
     if(this.bindResource && typeof (this.bindResource as any).validate === 'function') {
       (this.bindResource as any).validate();
     }
@@ -756,10 +766,6 @@ export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page size.
-   * Default value:
-   * 	50
-   * Maximum value:
-   * 	50.
    * 
    * @example
    * 100

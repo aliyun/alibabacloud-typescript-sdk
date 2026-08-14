@@ -6139,7 +6139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the custom service discovery rules for an Integration Center policy.
+   * Retrieves the custom service discovery rules of a Provisioning policy.
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @param headers - map
@@ -6151,6 +6151,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addonReleaseName)) {
       query["addonReleaseName"] = request.addonReleaseName;
+    }
+
+    if (!$dara.isNull(request.collectorReleaseName)) {
+      query["collectorReleaseName"] = request.collectorReleaseName;
     }
 
     if (!$dara.isNull(request.encryptYaml)) {
@@ -6180,7 +6184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the custom service discovery rules for an Integration Center policy.
+   * Retrieves the custom service discovery rules of a Provisioning policy.
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @returns ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -6251,10 +6255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the PodMonitor resources for an Integration Center policy.
+   * Retrieves the PodMonitor resources of an access center policy.
    * 
    * @remarks
-   * This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+   * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @param headers - map
@@ -6266,6 +6270,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addonReleaseName)) {
       query["addonReleaseName"] = request.addonReleaseName;
+    }
+
+    if (!$dara.isNull(request.collectorReleaseName)) {
+      query["collectorReleaseName"] = request.collectorReleaseName;
     }
 
     if (!$dara.isNull(request.encryptYaml)) {
@@ -6295,10 +6303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the PodMonitor resources for an Integration Center policy.
+   * Retrieves the PodMonitor resources of an access center policy.
    * 
    * @remarks
-   * This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+   * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @returns ListIntegrationPolicyPodMonitorsResponse
@@ -6310,7 +6318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the ServiceMonitor information for an Integration Center policy.
+   * Retrieves the ServiceMonitor information of a Provisioning policy.
    * 
    * @param request - ListIntegrationPolicyServiceMonitorsRequest
    * @param headers - map
@@ -6322,6 +6330,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.addonReleaseName)) {
       query["addonReleaseName"] = request.addonReleaseName;
+    }
+
+    if (!$dara.isNull(request.collectorReleaseName)) {
+      query["collectorReleaseName"] = request.collectorReleaseName;
     }
 
     if (!$dara.isNull(request.encryptYaml)) {
@@ -6351,7 +6363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the ServiceMonitor information for an Integration Center policy.
+   * Retrieves the ServiceMonitor information of a Provisioning policy.
    * 
    * @param request - ListIntegrationPolicyServiceMonitorsRequest
    * @returns ListIntegrationPolicyServiceMonitorsResponse

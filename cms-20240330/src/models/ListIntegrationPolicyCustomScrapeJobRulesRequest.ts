@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on release.
+   * The name of the addon release.
    * 
    * @example
    * release12345678
@@ -13,7 +13,15 @@ export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Mode
   addonReleaseName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the YAML file.
+   * The probe identifier. If a release exists, pass the release name. If no release exists, pass the component name.
+   * 
+   * @example
+   * collector:metric-agent:policy:policy-bfd3d455fd6f4bc8
+   */
+  collectorReleaseName?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the YAML content.
    * 
    * @example
    * true
@@ -30,6 +38,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       addonReleaseName: 'addonReleaseName',
+      collectorReleaseName: 'collectorReleaseName',
       encryptYaml: 'encryptYaml',
       namespace: 'namespace',
     };
@@ -38,6 +47,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       addonReleaseName: 'string',
+      collectorReleaseName: 'string',
       encryptYaml: 'boolean',
       namespace: 'string',
     };

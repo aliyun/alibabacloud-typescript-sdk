@@ -123,7 +123,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRu
   fieldKey?: string;
   /**
    * @remarks
-   * The field values.
+   * The field content.
    */
   fieldValues?: string[];
   /**
@@ -315,7 +315,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   entityTypes?: string[];
   /**
    * @remarks
-   * The list of field rules.
+   * The list of property rules.
    */
   fieldRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRules[];
   /**
@@ -444,7 +444,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroup extends $dara.Mod
   entityRules?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules;
   /**
    * @remarks
-   * The query parameter.
+   * Used for querying.
    * 
    * @example
    * status: 200 AND totalTime > 0.5
@@ -595,6 +595,11 @@ export class GetIntegrationPolicyResponseBodyPolicyTags extends $dara.Model {
 export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
+   * The names of all components installed in this policy.
+   */
+  addonNames?: string[];
+  /**
+   * @remarks
    * The bound resource information.
    */
   bindResource?: GetIntegrationPolicyResponseBodyPolicyBindResource;
@@ -679,6 +684,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
+      addonNames: 'addonNames',
       bindResource: 'bindResource',
       csUmodelStatus: 'csUmodelStatus',
       entityGroup: 'entityGroup',
@@ -696,6 +702,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addonNames: { 'type': 'array', 'itemType': 'string' },
       bindResource: GetIntegrationPolicyResponseBodyPolicyBindResource,
       csUmodelStatus: 'boolean',
       entityGroup: GetIntegrationPolicyResponseBodyPolicyEntityGroup,
@@ -712,6 +719,9 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.addonNames)) {
+      $dara.Model.validateArray(this.addonNames);
+    }
     if(this.bindResource && typeof (this.bindResource as any).validate === 'function') {
       (this.bindResource as any).validate();
     }

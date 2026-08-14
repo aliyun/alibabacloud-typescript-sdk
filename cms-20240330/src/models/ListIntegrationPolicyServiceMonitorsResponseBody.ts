@@ -21,7 +21,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitorsEndp
   matchedTargetCount?: number;
   /**
    * @remarks
-   * The collection path.
+   * The sampling path.
    * 
    * @example
    * /metrics
@@ -75,7 +75,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitorsEndp
 export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors extends $dara.Model {
   /**
    * @remarks
-   * The add-on name.
+   * The addon name.
    * 
    * @example
    * cloud-acs-ecs
@@ -83,7 +83,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonName?: string;
   /**
    * @remarks
-   * The name of the add-on release.
+   * The addon release name.
    * 
    * @example
    * release-1234567
@@ -91,7 +91,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonReleaseName?: string;
   /**
    * @remarks
-   * The add-on version.
+   * The addon version.
    * 
    * @example
    * 0.0.1
@@ -99,7 +99,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   addonVersion?: string;
   /**
    * @remarks
-   * The configuration YAML file.
+   * The configuration YAML.
    * 
    * @example
    * apiVersion: xxxxx
@@ -107,7 +107,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   configYaml?: string;
   /**
    * @remarks
-   * The status.
+   * The enabling status.
    * 
    * @example
    * run
@@ -115,7 +115,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   enableStatus?: string;
   /**
    * @remarks
-   * Indicates whether the YAML file is encrypted.
+   * The encrypted YAML.
    * 
    * @example
    * YXBpVmVyc2lvbjogeHh4eHgK
@@ -123,7 +123,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   encryptYaml?: boolean;
   /**
    * @remarks
-   * The list of Endpoints.
+   * The list of endpoints.
    */
   endpoints?: ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitorsEndpoints[];
   /**
@@ -136,7 +136,7 @@ export class ListIntegrationPolicyServiceMonitorsResponseBodyServiceMonitors ext
   matchedServiceCount?: number;
   /**
    * @remarks
-   * The name of the ServiceMonitor.
+   * The ServiceMonitor name.
    * 
    * @example
    * 62a526c5-f6ca-4cfb-b5a4-b76974cffe51

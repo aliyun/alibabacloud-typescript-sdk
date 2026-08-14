@@ -21,7 +21,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   bindResourceId?: string;
   /**
    * @remarks
-   * The entity IDs used for filtering, separated by commas.
+   * The entity IDs used for filtering. Separate multiple IDs with commas (,).
    * 
    * @example
    * eg-1,eg-2,eg-3
@@ -29,7 +29,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   entityGroupIds?: string;
   /**
    * @remarks
-   * The region IDs used for filtering, separated by commas.
+   * The region IDs used for region-based queries. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-beijing,cn-hangzhou
@@ -45,7 +45,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve more results. You do not need to specify this parameter for the first request. Use the token returned from the previous query for subsequent requests.
+   * The token used to retrieve more results. You do not need to specify this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
    * 
    * @example
    * mvnX6zqg3P
@@ -85,7 +85,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The keyword used for general queries.
+   * The general query string.
    * 
    * @example
    * test

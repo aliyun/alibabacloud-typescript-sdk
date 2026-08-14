@@ -75,7 +75,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
 export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * The addon name.
    * 
    * @example
    * cloud-ecs
@@ -83,7 +83,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonName?: string;
   /**
    * @remarks
-   * The name of the add-on release.
+   * The addon release name.
    * 
    * @example
    * release-2345678
@@ -91,7 +91,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonReleaseName?: string;
   /**
    * @remarks
-   * The version of the add-on.
+   * The addon version.
    * 
    * @example
    * 0.0.1
@@ -99,7 +99,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   addonVersion?: string;
   /**
    * @remarks
-   * The YAML configuration.
+   * The configuration YAML.
    * 
    * @example
    * apiVersion: xxxxx
@@ -107,7 +107,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   configYaml?: string;
   /**
    * @remarks
-   * The status.
+   * The enabling status.
    * 
    * @example
    * run
@@ -115,7 +115,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
   enableStatus?: string;
   /**
    * @remarks
-   * Indicates whether the YAML file is encrypted.
+   * The encrypted YAML.
    * 
    * @example
    * YXBpVmVyc2lvbjogeHh4eHgK
@@ -216,7 +216,7 @@ export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
