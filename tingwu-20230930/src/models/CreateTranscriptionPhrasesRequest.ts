@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTranscriptionPhrasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The description of the phrases list.
+   * 
    * @example
    * custom fruit phrases list
    */
   description?: string;
   /**
    * @remarks
+   * The name of the phrases list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class CreateTranscriptionPhrasesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * A JSON-formatted string that represents a map of words and their corresponding weights.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTranscriptionPhrasesResponseBodyDataPhrases extends $dara.Model {
   /**
+   * @remarks
+   * Phrase list description.
+   * 
    * @example
    * custom fruit phrases list
    */
   description?: string;
   /**
+   * @remarks
+   * Phrase list name.
+   * 
    * @example
    * fruit_phrase
    */
   name?: string;
   /**
+   * @remarks
+   * Phrase list ID.
+   * 
    * @example
    * a93b91141c0f422fa114af203f8b****
    */
@@ -45,17 +54,30 @@ export class ListTranscriptionPhrasesResponseBodyDataPhrases extends $dara.Model
 
 export class ListTranscriptionPhrasesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * error code.
+   * 
    * @example
    * PHS.Exceed
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * The num of the phrase exceeds the upper limit.
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * Phrase objects.
+   */
   phrases?: ListTranscriptionPhrasesResponseBodyDataPhrases[];
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * SUCCEEDED
    */
@@ -92,12 +114,22 @@ export class ListTranscriptionPhrasesResponseBodyData extends $dara.Model {
 
 export class ListTranscriptionPhrasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * Response object.
+   */
   data?: ListTranscriptionPhrasesResponseBodyData;
   /**
+   * @remarks
+   * status description.
+   * 
    * @example
    * success
    */

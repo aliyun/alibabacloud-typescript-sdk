@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTranscriptionPhrasesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the phrases list.
+   * 
    * @example
    * a93b91141c0f422fa114af203f8b****
    */
   phraseId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * SUCCEEDED
    */
@@ -52,12 +64,22 @@ export class CreateTranscriptionPhrasesResponseBodyData extends $dara.Model {
 
 export class CreateTranscriptionPhrasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned object.
+   */
   data?: CreateTranscriptionPhrasesResponseBodyData;
   /**
+   * @remarks
+   * A description of the status.
+   * 
    * @example
    * success
    */

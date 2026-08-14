@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTranscriptionPhrasesResponseBodyDataPhrases extends $dara.Model {
   /**
+   * @remarks
+   * Hotword list description.
+   * 
    * @example
    * custom fruit phrases list
    */
   description?: string;
   /**
+   * @remarks
+   * Hotword list name.
+   * 
    * @example
    * fruit_phrase
    */
   name?: string;
   /**
+   * @remarks
+   * ID of the phrase list.
+   * 
    * @example
    * a93b91141c0f422fa114af203f8b****
    */
   phraseId?: string;
   /**
+   * @remarks
+   * Words and their weights in the hotword list, formatted as a JSON map string.
+   * 
    * @example
    * {"苹果":3,"西瓜":3}
    */
@@ -52,17 +64,30 @@ export class GetTranscriptionPhrasesResponseBodyDataPhrases extends $dara.Model 
 
 export class GetTranscriptionPhrasesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * Hotword objects.
+   */
   phrases?: GetTranscriptionPhrasesResponseBodyDataPhrases[];
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * SUCCEEDED
    */
@@ -99,19 +124,29 @@ export class GetTranscriptionPhrasesResponseBodyData extends $dara.Model {
 
 export class GetTranscriptionPhrasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * Response object.
+   */
   data?: GetTranscriptionPhrasesResponseBodyData;
   /**
+   * @remarks
+   * Status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 35124E1C-AE99-5D6C-A52E-BD689D8D****

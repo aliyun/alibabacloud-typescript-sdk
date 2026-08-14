@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTranscriptionPhrasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * A description of the hotword list.
+   * 
    * @example
    * custom fruit phrases list
    */
   description?: string;
   /**
    * @remarks
+   * The name of the hotword list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateTranscriptionPhrasesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * A JSON map string that defines hotwords and their weights.
+   * 
    * This parameter is required.
    * 
    * @example

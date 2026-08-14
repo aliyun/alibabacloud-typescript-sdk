@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTranscriptionPhrasesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * SUCCEEDED
    */
@@ -45,19 +54,29 @@ export class UpdateTranscriptionPhrasesResponseBodyData extends $dara.Model {
 
 export class UpdateTranscriptionPhrasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 0
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object.
+   */
   data?: UpdateTranscriptionPhrasesResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 35124E1C-AE99-5D6C-A52E-BD689D8D****

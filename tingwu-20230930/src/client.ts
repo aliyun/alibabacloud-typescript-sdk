@@ -11,7 +11,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-beijing': "tingwu.cn-beijing.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("tingwu", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +33,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建听悟任务
+   * Create offline transcription and real-time meeting tasks in Tingwu.
    * 
    * @param request - CreateTaskRequest
    * @param headers - map
@@ -81,7 +84,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建听悟任务
+   * Create offline transcription and real-time meeting tasks in Tingwu.
    * 
    * @param request - CreateTaskRequest
    * @returns CreateTaskResponse
@@ -93,7 +96,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词词表
+   * Creates a custom vocabulary of transcription phrases.
    * 
    * @param request - CreateTranscriptionPhrasesRequest
    * @param headers - map
@@ -134,7 +137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词词表
+   * Creates a custom vocabulary of transcription phrases.
    * 
    * @param request - CreateTranscriptionPhrasesRequest
    * @returns CreateTranscriptionPhrasesResponse
@@ -146,7 +149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除词表
+   * Deletes phrase tables.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -171,7 +174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除词表
+   * Deletes phrase tables.
    * @returns DeleteTranscriptionPhrasesResponse
    */
   async deleteTranscriptionPhrases(PhraseId: string): Promise<$_model.DeleteTranscriptionPhrasesResponse> {
@@ -181,7 +184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询听悟任务信息
+   * Query the job status and job result.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -206,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询听悟任务信息
+   * Query the job status and job result.
    * @returns GetTaskInfoResponse
    */
   async getTaskInfo(TaskId: string): Promise<$_model.GetTaskInfoResponse> {
@@ -216,7 +219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热词词表信息
+   * Queries information about hotword lists.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -241,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热词词表信息
+   * Queries information about hotword lists.
    * @returns GetTranscriptionPhrasesResponse
    */
   async getTranscriptionPhrases(PhraseId: string): Promise<$_model.GetTranscriptionPhrasesResponse> {
@@ -251,7 +254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举用户所有热词词表信息
+   * Lists all of a user\\"s hot phrase lists.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -276,7 +279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举用户所有热词词表信息
+   * Lists all of a user\\"s hot phrase lists.
    * @returns ListTranscriptionPhrasesResponse
    */
   async listTranscriptionPhrases(): Promise<$_model.ListTranscriptionPhrasesResponse> {
@@ -286,7 +289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热词词表
+   * Update a hotword list.
    * 
    * @param request - UpdateTranscriptionPhrasesRequest
    * @param headers - map
@@ -327,7 +330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热词词表
+   * Update a hotword list.
    * 
    * @param request - UpdateTranscriptionPhrasesRequest
    * @returns UpdateTranscriptionPhrasesResponse

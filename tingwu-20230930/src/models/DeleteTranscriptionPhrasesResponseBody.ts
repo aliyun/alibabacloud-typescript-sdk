@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTranscriptionPhrasesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Error code.
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Error message.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * Is the operation successful?
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,16 +46,25 @@ export class DeleteTranscriptionPhrasesResponseBodyData extends $dara.Model {
 export class DeleteTranscriptionPhrasesResponseBody extends $dara.Model {
   data?: DeleteTranscriptionPhrasesResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * success
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Is the operation successful?
+   * 
    * @example
    * SUCCEEDED
    */
