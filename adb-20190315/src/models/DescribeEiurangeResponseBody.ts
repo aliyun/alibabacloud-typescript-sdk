@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEIURangeResponseBodyEIUInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is reserved.
+   * 
+   * @example
+   * none
+   */
   defaultReservedNodeSize?: string;
   /**
    * @remarks
-   * The suggested value for the number of EIUs.
+   * The recommended number of EIUs.
    * 
    * @example
    * 2
@@ -14,12 +21,12 @@ export class DescribeEIURangeResponseBodyEIUInfo extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * The queried range for the number of EIUs.
+   * A list of valid values for the number of EIUs.
    */
   EIURange?: number[];
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
    * none
@@ -27,16 +34,20 @@ export class DescribeEIURangeResponseBodyEIUInfo extends $dara.Model {
   maxValue?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
    * none
    */
   minValue?: string;
+  /**
+   * @remarks
+   * This parameter is reserved.
+   */
   reservedNodeSizeRange?: string[];
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
    * none
@@ -44,7 +55,7 @@ export class DescribeEIURangeResponseBodyEIUInfo extends $dara.Model {
   step?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    */
   storageResourceRange?: string[];
   static names(): { [key: string]: string } {
@@ -94,7 +105,7 @@ export class DescribeEIURangeResponseBodyEIUInfo extends $dara.Model {
 export class DescribeEIURangeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried information about the number of EIUs.
+   * The information about the number of EIUs.
    */
   EIUInfo?: DescribeEIURangeResponseBodyEIUInfo;
   /**
@@ -102,7 +113,7 @@ export class DescribeEIURangeResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * D65A809F-34CE-4550-9BC1-0ED21ETG380
+   * D65A809F-34CE-4550-9BC1-0ED21ET****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -72,7 +72,7 @@ export class DescribeDBClusterNetInfoResponseBodyItems extends $dara.Model {
 export class DescribeDBClusterNetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The network type of the cluster.
+   * Cluster network type.
    * 
    * @example
    * VPC
@@ -81,7 +81,7 @@ export class DescribeDBClusterNetInfoResponseBody extends $dara.Model {
   items?: DescribeDBClusterNetInfoResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

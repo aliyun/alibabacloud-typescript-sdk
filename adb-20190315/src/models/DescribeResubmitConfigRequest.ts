@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResubmitConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * The ID of the Data Warehouse Edition (V3.0) cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all Data Warehouse Edition (V3.0) clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeResubmitConfigRequest extends $dara.Model {
    * @remarks
    * The name of the resource group.
    * 
-   * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group name of a cluster.
+   * > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of the resource group for a specific cluster.
    * 
    * This parameter is required.
    * 

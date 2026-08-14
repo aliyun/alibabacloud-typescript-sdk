@@ -22,6 +22,9 @@ export class DescribeDBClusterSSLRequest extends $dara.Model {
    * The region ID of the cluster.
    * 
    * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

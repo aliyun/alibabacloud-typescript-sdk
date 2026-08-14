@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppliedAdvicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the suggestion. Valid values:
+   * The type of suggestions to return. Valid values:
    * 
-   * *   **INDEX**: index optimization.
-   * *   **TIERING**: hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * 
+   * - **TIERING**: data tiering.
    * 
    * @example
    * INDEX
@@ -18,7 +19,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
    * @remarks
    * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > To query the IDs of AnalyticDB for MySQL Data Warehouse Edition clusters, call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) API.
    * 
    * This parameter is required.
    * 
@@ -28,7 +29,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyyMMdd format. The time must be in UTC.
+   * The end date of the query time range, in yyyyMMdd format and in UTC.
    * 
    * @example
    * 20220824
@@ -36,7 +37,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The keyword that is used to query information by table name.
+   * A keyword for performing a fuzzy search by table name.
    * 
    * @example
    * you_table_name
@@ -44,12 +45,15 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The display language of the suggestion. Valid values:
+   * The language of the suggestions. Valid values:
    * 
-   * *   **zh** (default): simplified Chinese.
-   * *   **en**: English.
-   * *   **ja**: Japanese.
-   * *   **zh-tw**: traditional Chinese.
+   * - **zh**: Simplified Chinese (default)
+   * 
+   * - **en**: English
+   * 
+   * - **ja**: Japanese
+   * 
+   * - **zh-tw**: Traditional Chinese
    * 
    * @example
    * zh
@@ -57,22 +61,27 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"SchemaName","Type":"Asc"}]`.
+   * The sort order for the results. The value must be a JSON string, such as `[{"Field":"SchemaName","Type":"Asc"}]`. The JSON string contains the following fields:
    * 
-   * *   `Field` specifies the field by which to sort the query results. Valid values:
+   * - `Field`: The field by which to sort the results. Valid values:
    * 
-   *     *   `SchemaName`: the name of the database.
-   *     *   `TableName`: the name of the table.
-   *     *   `JobStatus`: the status of the BUILD job that is triggered on the table.
-   *     *   `SubmitTime`: the time when the suggestion was submitted.
-   *     *   `Benefit`: the expected benefits of the applied optimization suggestion.
+   *   - `SchemaName`: schema name.
    * 
-   * *   `Type` specifies the sorting order. Valid values:
+   *   - `TableName`: table name.
    * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
+   *   - `JobStatus`: Status of the table build job.
    * 
-   * >  If you do not specify this parameter, optimization suggestions are sorted in descending order based on the submission time.
+   *   - `SubmitTime`: Time when the suggestion was created.
+   * 
+   *   - `Benefit`: Expected optimization benefit.
+   * 
+   * - `Type`: the sort order. Valid values:
+   * 
+   *   - `Asc`: ascending order.
+   * 
+   *   - `Desc`: descending order.
+   * 
+   * > If this parameter is not specified, the results are sorted by creation time (`SubmitTime`) in descending order by default.
    * 
    * @example
    * [{"Field":"Benefit","Type":"Desc"}]
@@ -80,7 +89,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the integer data type. Default: 1.
    * 
    * @example
    * 1
@@ -88,11 +97,13 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -100,9 +111,9 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > To query available region IDs, call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) API.
    * 
    * This parameter is required.
    * 
@@ -112,7 +123,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the table in the **DatabaseName.TableName** format.
+   * The schema name and table name. The value must be in the **`<schema>.<table>`** format.
    * 
    * @example
    * tpch.lineitem
@@ -120,7 +131,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
   schemaTableName?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyyMMdd format. The time must be in UTC.
+   * The start date of the query time range, in yyyyMMdd format and in UTC.
    * 
    * @example
    * 20220811

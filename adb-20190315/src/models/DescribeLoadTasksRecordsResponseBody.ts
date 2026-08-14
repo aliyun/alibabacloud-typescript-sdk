@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.Model {
   /**
    * @remarks
-   * The start time of the task. The time is accurate to milliseconds. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ss.SSSZ* format. The time is displayed in UTC.
+   * The start time of the task, accurate to milliseconds. The time is in the <i>yyyy-MM-ddTHH:mm:ss.SSSZ</i> format.
    * 
    * @example
    * 2021-05-18 18:47:27.0
@@ -13,7 +13,7 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The name of the database that is involved in the import or export task.
+   * The name of the database involved in the import or export task.
    * 
    * @example
    * adb_demo
@@ -37,7 +37,7 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.
   processID?: string;
   /**
    * @remarks
-   * The number of rows that are processed in the asynchronous import or export task.
+   * The number of data rows processed by the asynchronous import or export task.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.
   processRows?: number;
   /**
    * @remarks
-   * The SQL statement that is used in the asynchronous import or export task.
+   * The SQL statement used in the asynchronous import or export task.
    * 
    * @example
    * insert overwrite into courses_external_table\\nselect * from courses
@@ -53,7 +53,7 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.
   sql?: string;
   /**
    * @remarks
-   * The state of the task.
+   * The task status.
    * 
    * @example
    * FINISH
@@ -61,7 +61,7 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $dara.
   state?: string;
   /**
    * @remarks
-   * The time when the task state was updated. The time is accurate to milliseconds. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ss.SSSZ* format. The time is displayed in UTC.
+   * The time when the task status was updated, accurate to milliseconds. The time is in the <i>yyyy-MM-ddTHH:mm:ss.SSSZ</i> format.
    * 
    * @example
    * 2021-05-18 18:47:31.0
@@ -113,7 +113,7 @@ export class DescribeLoadTasksRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried asynchronous import and export tasks.
+   * The list of task information.
    */
   loadTasksRecords?: DescribeLoadTasksRecordsResponseBodyLoadTasksRecords[];
   /**
@@ -126,7 +126,7 @@ export class DescribeLoadTasksRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records on the current page.
    * 
    * @example
    * 30
@@ -142,7 +142,7 @@ export class DescribeLoadTasksRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of tasks.
    * 
    * @example
    * 1

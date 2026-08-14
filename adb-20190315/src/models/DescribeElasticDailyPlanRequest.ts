@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticDailyPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+   * > Call [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) to query the IDs of all Data Warehouse Edition clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeElasticDailyPlanRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The start date of the current-day scaling plan. Specify the date in the yyyy-MM-dd format.
+   * The start date of the daily scaling plan. Specify the date in the yyyy-MM-dd format.
    * 
    * @example
    * 2022-12-02
@@ -25,12 +25,15 @@ export class DescribeElasticDailyPlanRequest extends $dara.Model {
   elasticDailyPlanDay?: string;
   /**
    * @remarks
-   * The execution state of the current-day scaling plan. Separate multiple values with commas (,). Valid values:
+   * The execution status of the daily scaling plan. To query multiple statuses, separate them with commas (,). Valid values:
    * 
-   * *   **1**: The scaling plan is not executed.
-   * *   **2**: The scaling plan is being executed.
-   * *   **3**: The scaling plan is executed.
-   * *   **4**: The scaling plan fails to be executed.
+   * - **1**: Not executed.
+   * 
+   * - **2**: Executing.
+   * 
+   * - **3**: Succeeded.
+   * 
+   * - **4**: Failed.
    * 
    * @example
    * 3
@@ -38,10 +41,11 @@ export class DescribeElasticDailyPlanRequest extends $dara.Model {
   elasticDailyPlanStatusList?: string;
   /**
    * @remarks
-   * The name of the scaling plan. Valid values:
+   * The name of the scaling plan. The name must meet the following requirements:
    * 
-   * *   The name must be 2 to 30 characters in length.
-   * *   The name can contain letters, digits, and underscores (_).
+   * - It must be 2 to 30 characters in length.
+   * 
+   * - It must consist of uppercase letters, lowercase letters, digits, and underscores (_).
    * 
    * @example
    * realtimeplan
@@ -55,7 +59,7 @@ export class DescribeElasticDailyPlanRequest extends $dara.Model {
    * @remarks
    * The name of the resource group.
    * 
-   * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/466685.html) operation to query the resource group name.
+   * > Call [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/466685.html) to query the name of the resource group.
    * 
    * @example
    * test

@@ -3,17 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnbindDBResourcePoolWithUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. Make sure that the client token is unique for each request. The token can be up to 64 ASCII characters in length and is case-sensitive.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-t7241****
+   */
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition (V3.0) cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all Data Warehouse Edition (V3.0) clusters in the destination region.
    * 
    * This parameter is required.
    * 
    * @example
-   * am-bpxxxxxxxx47
+   * am-bp1ub9grke1****
    */
   DBClusterId?: string;
   ownerAccount?: string;
@@ -30,12 +37,12 @@ export class UnbindDBResourcePoolWithUserRequest extends $dara.Model {
   poolName?: string;
   /**
    * @remarks
-   * The database account with which the resource group is associated.
+   * The database account to detach.
    * 
    * This parameter is required.
    * 
    * @example
-   * testb
+   * accout
    */
   poolUser?: string;
   resourceOwnerAccount?: string;

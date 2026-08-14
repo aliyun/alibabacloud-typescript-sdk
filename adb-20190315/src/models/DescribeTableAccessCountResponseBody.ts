@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of accesses to the table.
+   * The number of times the table was accessed.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The date when the table was used.
+   * The date of table usage.
    * 
    * @example
    * 2021-08-30
@@ -29,7 +29,7 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
   reportDate?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * CUSTOMER
@@ -75,12 +75,12 @@ export class DescribeTableAccessCountResponseBodyItems extends $dara.Model {
 export class DescribeTableAccessCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the table usage.
+   * The details of table usage.
    */
   items?: DescribeTableAccessCountResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeTableAccessCountResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -96,7 +96,7 @@ export class DescribeTableAccessCountResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C242707A-01D1-54DA-A5F6-671557******

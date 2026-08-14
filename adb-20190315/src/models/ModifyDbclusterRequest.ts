@@ -124,7 +124,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * N/A
    * 
    * @example
-   * None
+   * 无
    */
   executorCount?: string;
   /**
@@ -166,7 +166,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * N/A
    * 
    * @example
-   * None
+   * 无
    */
   storageResource?: string;
   static names(): { [key: string]: string } {

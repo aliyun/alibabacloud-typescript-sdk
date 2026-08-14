@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTableAccessCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL clusters within a specified region, including cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL clusters in a specific region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,20 +17,23 @@ export class DescribeTableAccessCountRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON string format. Example: `[{"Field":"TableSchema","Type":"Asc"}]`.
+   * The sorting rule for the query results. The value is a JSON string. Example: `[{"Field":"TableSchema","Type":"Asc"}]`. The JSON string contains the following fields:
    * 
-   * *   `Field` indicates the field that is used to sort the retrieved entries. Valid values:
+   * - `Field`: The field used for sorting. Valid values:
    * 
-   *     *   `TableSchema`: the name of the database to which the table belongs.
-   *     *   `TableName`: the name of the table.
-   *     *   `AccessCount`: the number of accesses to the table.
+   *   - `TableSchema`: The name of the database.
    * 
-   * *   `Type` indicates the sorting method. Valid values:
+   *   - `TableName`: The name of the table.
    * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
+   *   - `AccessCount`: The number of times the table was accessed.
    * 
-   * >  If this parameter is not specified, query results are sorted in ascending order of the database to which a specific table belongs.
+   * - `Type`: The sorting type. Valid values:
+   * 
+   *   - `Asc`: Ascending order.
+   * 
+   *   - `Desc`: Descending order.
+   * 
+   * > If you do not specify this parameter, the results are sorted in ascending order by the database name.
    * 
    * @example
    * [{"Field":"TableSchema","Type":"Asc"}]
@@ -38,7 +41,7 @@ export class DescribeTableAccessCountRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
    * 
    * @example
    * 1
@@ -54,9 +57,9 @@ export class DescribeTableAccessCountRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the regions and zones supported by AnalyticDB for MySQL, including region IDs.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the available regions and zones of AnalyticDB for MySQL, including the region IDs.
    * 
    * This parameter is required.
    * 
@@ -66,9 +69,9 @@ export class DescribeTableAccessCountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The date to query. Specify the time in the *yyyy-MM-dd* format. The time must be in UTC.
+   * The date to query. Use the *yyyy-MM-dd* format. The time is in UTC.
    * 
-   * >  Only data for the last 30 days can be queried.
+   * > You can query data from the last 30 days only.
    * 
    * This parameter is required.
    * 
@@ -78,9 +81,9 @@ export class DescribeTableAccessCountRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the specific table.
+   * The name of the target table.
    * 
-   * >  If this parameter is not specified, the number of accesses to all tables within the specified cluster for a specified date is returned.
+   * > If you leave this parameter empty, data on the access frequency of all tables in the cluster for the specified date is returned.
    * 
    * @example
    * CUSTOMER

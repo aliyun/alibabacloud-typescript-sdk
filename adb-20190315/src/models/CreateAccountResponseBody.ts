@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition (V3.0) cluster.
    * 
    * @example
    * am-bp1r053byu48p****
@@ -13,7 +13,7 @@ export class CreateAccountResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627FA5A19
@@ -21,7 +21,7 @@ export class CreateAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 1564657730

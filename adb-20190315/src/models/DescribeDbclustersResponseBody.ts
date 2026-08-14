@@ -334,7 +334,7 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 30
@@ -350,7 +350,7 @@ export class DescribeDBClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -16,7 +16,7 @@ export class DescribeOperatorPermissionResponseBody extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * am-uf6wjk5xxxxxxxxxx
    */
   DBClusterId?: string;
   /**

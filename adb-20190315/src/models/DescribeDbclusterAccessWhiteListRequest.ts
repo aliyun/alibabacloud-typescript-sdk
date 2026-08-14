@@ -10,7 +10,7 @@ export class DescribeDBClusterAccessWhiteListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * am-uf6wjk5xxxxxxxxxx
    */
   DBClusterId?: string;
   ownerAccount?: string;

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in a specific region.
    * 
    * This parameter is required.
    * 

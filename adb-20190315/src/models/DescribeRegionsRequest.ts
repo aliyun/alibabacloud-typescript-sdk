@@ -26,7 +26,7 @@ export class DescribeRegionsRequest extends $dara.Model {
    * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the most recent region list.
    * 
    * @example
-   * cn-shenzhen
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

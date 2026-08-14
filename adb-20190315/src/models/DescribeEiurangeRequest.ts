@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEIURangeRequest extends $dara.Model {
   /**
    * @remarks
-   * The specifications of computing resources.
+   * The specifications of the compute resources.
    * 
-   * >  You can call the [DescribeComputeResource](https://help.aliyun.com/document_detail/469002.html) operation to query the specifications of computing resources.
+   * > Call the [DescribeComputeResource](https://help.aliyun.com/document_detail/469002.html) operation to query the specifications of compute resources.
    * 
    * @example
    * {
@@ -18,12 +18,13 @@ export class DescribeEIURangeRequest extends $dara.Model {
   computeResource?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Lakehouse Edition cluster.
    * 
-   * *   This parameter can be left empty when **Operation** is set to **Buy**.
-   * *   This parameter must be specified when **Operation** is set to **Upgrade** or **Downgrade**.
+   * - This parameter can be left empty when **Operation** is set to **Buy**.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * - This parameter is required when **Operation** is set to **Upgrade** or **Downgrade**.
+   * 
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the ID of the Data Lakehouse Edition cluster.
    * 
    * @example
    * am-bp16t5ci7r74s****
@@ -31,7 +32,11 @@ export class DescribeEIURangeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The version of the AnalyticDB for MySQL Data Warehouse Edition cluster. Set the value to **3.0**.
+   * The cluster version. Valid values:
+   * 
+   * - **3.0** (default): Data Lakehouse Edition.
+   * 
+   * - **5.0**: includes Data Lakehouse Edition, Enterprise Edition, and Basic Edition.
    * 
    * @example
    * 3.0
@@ -39,10 +44,11 @@ export class DescribeEIURangeRequest extends $dara.Model {
   DBClusterVersion?: string;
   /**
    * @remarks
-   * The type of the operation. Valid values:
+   * The operation type. Valid values:
    * 
-   * *   **Buy**: purchases a cluster.
-   * *   **Modify**: changes configurations of a cluster.
+   * - **Buy**: Purchase a cluster.
+   * 
+   * - **Modify**: Change the specifications of a cluster.
    * 
    * @example
    * Buy
@@ -50,12 +56,23 @@ export class DescribeEIURangeRequest extends $dara.Model {
   operation?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The edition. Valid values:
+   * 
+   * - **EnterpriseVersion**: Enterprise Edition.
+   * 
+   * - **BasicVersion**: Basic Edition.
+   * 
+   * @example
+   * EnterpriseVersion
+   */
   productVersion?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -75,11 +92,13 @@ export class DescribeEIURangeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The specifications of storage resources. Default value: **8ACU**. Valid values:
+   * The specifications of the storage resources. The default value is **8ACU**. Valid values:
    * 
-   * *   **8ACU**
-   * *   **12ACU**
-   * *   **16ACU**
+   * - **8ACU**
+   * 
+   * - **12ACU**
+   * 
+   * - **16ACU**
    * 
    * @example
    * 8ACU
@@ -87,10 +106,11 @@ export class DescribeEIURangeRequest extends $dara.Model {
   storageSize?: string;
   /**
    * @remarks
-   * The type of the sub-operation. Valid values:
+   * The sub-operation type. Valid values:
    * 
-   * *   **Upgrade**: upgrades a cluster.
-   * *   **Downgrade**: downgrades a cluster.
+   * - **Upgrade**: Upgrade a cluster.
+   * 
+   * - **Downgrade**: Downgrade a cluster.
    * 
    * @example
    * Upgrade
@@ -98,9 +118,9 @@ export class DescribeEIURangeRequest extends $dara.Model {
   subOperation?: string;
   /**
    * @remarks
-   * The zone ID of the cluster.
+   * The zone ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the most recent zone list.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612293.html) operation to query the zone ID of the cluster.
    * 
    * @example
    * cn-hangzhou-h

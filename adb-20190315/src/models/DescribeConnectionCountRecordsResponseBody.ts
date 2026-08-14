@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConnectionCountRecordsResponseBodyAccessIpRecords extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client.
+   * The client IP address.
    * 
    * @example
    * 42.120.XX.XX
@@ -53,7 +53,7 @@ export class DescribeConnectionCountRecordsResponseBodyUserRecords extends $dara
   count?: number;
   /**
    * @remarks
-   * The username of the database account.
+   * The username.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class DescribeConnectionCountRecordsResponseBodyUserRecords extends $dara
 export class DescribeConnectionCountRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried client IP addresses.
+   * The client IP information.
    */
   accessIpRecords?: DescribeConnectionCountRecordsResponseBodyAccessIpRecords[];
   /**
@@ -106,7 +106,7 @@ export class DescribeConnectionCountRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried database accounts.
+   * The list of user information.
    */
   userRecords?: DescribeConnectionCountRecordsResponseBodyUserRecords[];
   static names(): { [key: string]: string } {

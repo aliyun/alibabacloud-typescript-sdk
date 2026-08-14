@@ -114,7 +114,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -130,7 +130,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7559209-7EC3-41E1-8F78-156990******
@@ -138,7 +138,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

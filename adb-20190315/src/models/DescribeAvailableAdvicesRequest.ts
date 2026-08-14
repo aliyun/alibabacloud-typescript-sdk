@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableAdvicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated. Specify the date in the yyyyMMdd format. The date must be in UTC.
+   * The date on which the advice was generated, in the yyyyMMdd format and in UTC.
    * 
-   * >  Suggestions are generated after analysis after midnight every day. You must specify a date that is at least one day earlier than the current date. For example, if the current date is 20240627, you must specify 20240626 or an earlier date.
+   * > Advice is generated daily after an early-morning analysis. To query for advice, you must specify a date that is at least one day prior to the current date (T-1). For example, if the current date is 20240627, you must specify 20240626 or an earlier date.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   adviceDate?: number;
   /**
    * @remarks
-   * The type of the suggestion. Valid values:
+   * The type of advice. Valid values:
    * 
-   * *   **INDEX**: index optimization.
-   * *   **TIERING**: hot and cold data optimization.
+   * - **INDEX**: index optimization.
+   * 
+   * - **TIERING**: data tiering optimization.
    * 
    * @example
    * Index
@@ -30,7 +31,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of Data Warehouse Edition (V3.0) clusters.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) API to query for the IDs of Data Warehouse Edition clusters.
    * 
    * This parameter is required.
    * 
@@ -40,7 +41,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The keyword that is used to query information by table name.
+   * The keyword for a fuzzy search by table name.
    * 
    * @example
    * you_table_name
@@ -48,12 +49,15 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The display language of the suggestion. Default value: zh. Valid values:
+   * The language for the advice. Valid values:
    * 
-   * *   **zh**: simplified Chinese
-   * *   **en**: English
-   * *   **ja**: Japanese
-   * *   **zh-tw**: traditional Chinese
+   * - **zh**: simplified Chinese (default)
+   * 
+   * - **en**: English
+   * 
+   * - **ja**: Japanese
+   * 
+   * - **zh-tw**: traditional Chinese
    * 
    * This parameter is required.
    * 
@@ -63,20 +67,23 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"SchemaName","Type":"Asc"}]`.
+   * The sort order of the query results. The value is a JSON string, for example, `[{"Field":"SchemaName","Type":"Asc"}]`. The JSON string contains the following parameters:
    * 
-   * *   `Field` specifies the field by which to sort the query results. Valid values:
+   * - `Field`: the field to sort by. Valid values:
    * 
-   *     *   `SchemaName`: the name of the database.
-   *     *   `TableName`: the name of the table.
-   *     *   `Benefit`: the expected benefits of the applied optimization suggestion.
+   *   - `SchemaName`: The database name.
    * 
-   * *   `Type` specifies the sorting order. Valid values:
+   *   - `TableName`: The table name.
    * 
-   *     *   `Asc`: ascending order.
-   *     *   `Desc`: descending order.
+   *   - `Benefit`: The expected benefit.
    * 
-   * >  If you do not specify this parameter, the query results are sorted in descending order based on the Benefit field.
+   * - `Type`: the sort order. Valid values:
+   * 
+   *   - `Asc`: ascending order.
+   * 
+   *   - `Desc`: descending order.
+   * 
+   * > By default, results are sorted by expected benefit in descending order.
    * 
    * @example
    * [{"Field":"Benefit","Type":"Desc"}]
@@ -84,7 +91,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+   * The page number. The value must be a positive integer. Default value: 1.
    * 
    * This parameter is required.
    * 
@@ -94,11 +101,13 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 30. Valid values:
+   * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * This parameter is required.
    * 
@@ -108,9 +117,9 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) API to query for the IDs of available regions.
    * 
    * This parameter is required.
    * 
@@ -120,7 +129,7 @@ export class DescribeAvailableAdvicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the table in the **DatabaseName.TableName** format.
+   * The concatenation of the database name and the table name.
    * 
    * @example
    * tpch.lineitem

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterNetInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class DescribeDBClusterNetInfoRequest extends $dara.Model {
    * am-bp1xxxxxxxx47
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * Database engine.
+   * 
+   * @example
+   * AnalyticDB
+   */
   engine?: string;
   ownerAccount?: string;
   ownerId?: number;

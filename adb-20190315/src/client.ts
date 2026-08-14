@@ -57,6 +57,21 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "adb.ap-northeast-1.aliyuncs.com",
       'me-east-1': "adb.ap-northeast-1.aliyuncs.com",
       'rus-west-1-pop': "adb.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "adb.cn-chengdu.aliyuncs.com",
+      'cn-wulanchabu': "adb.cn-wulanchabu.aliyuncs.com",
+      'cn-zhangjiakou': "adb.cn-zhangjiakou.aliyuncs.com",
+      'ap-northeast-2': "adb.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "adb.ap-northeast-1.aliyuncs.com",
+      'cn-guangzhou': "adb.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-3': "adb.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "adb.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "adb.ap-southeast-5.aliyuncs.com",
+      'ap-southeast-6': "adb.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "adb.ap-southeast-7.aliyuncs.com",
+      'eu-west-1': "adb.eu-west-1.aliyuncs.com",
+      'eu-central-1': "adb.eu-central-1.aliyuncs.com",
+      'na-south-1': "adb.na-south-1.aliyuncs.com",
+      'me-central-1': "adb.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("adb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -138,7 +153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an optimization suggestion.
+   * Applies optimization advice.
    * 
    * @param request - ApplyAdviceByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -189,7 +204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an optimization suggestion.
+   * Applies optimization advice.
    * 
    * @param request - ApplyAdviceByIdRequest
    * @returns ApplyAdviceByIdResponse
@@ -200,10 +215,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打通用户ENI
+   * Creates an Elastic Network Interface (ENI) in a VPC for a Data Warehouse Edition cluster to enable network access from AnalyticDB for MySQL nodes to your VPC.
    * 
    * @remarks
-   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+   * ### Usage notes
+   * This operation is available only for Data Warehouse Edition (V3.0) clusters in elastic mode.
    * 
    * @param request - AttachUserENIRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -250,10 +266,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打通用户ENI
+   * Creates an Elastic Network Interface (ENI) in a VPC for a Data Warehouse Edition cluster to enable network access from AnalyticDB for MySQL nodes to your VPC.
    * 
    * @remarks
-   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
+   * ### Usage notes
+   * This operation is available only for Data Warehouse Edition (V3.0) clusters in elastic mode.
    * 
    * @param request - AttachUserENIRequest
    * @returns AttachUserENIResponse
@@ -264,7 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies multiple optimization suggestions at a time.
+   * Applies multiple optimization suggestions.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies multiple optimization suggestions at a time.
+   * Applies multiple optimization suggestions.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @returns BatchApplyAdviceByIdListResponse
@@ -326,12 +343,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster with a database account.
+   * The BindDBResourceGroupWithUser operation attaches a database account to a resource group in a Data Warehouse Edition (V3.0) cluster.
    * 
    * @remarks
-   * ## Precautions
-   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+   * ### Notes
+   * - This operation is available only for Data Warehouse Edition (V3.0) clusters in elastic mode that have 32 or more cores.
+   * - You cannot attach database accounts to the default resource group USER_DEFAULT.
    * 
    * @param request - BindDBResourceGroupWithUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -390,12 +407,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster with a database account.
+   * The BindDBResourceGroupWithUser operation attaches a database account to a resource group in a Data Warehouse Edition (V3.0) cluster.
    * 
    * @remarks
-   * ## Precautions
-   * *   This operation is applicable only for elastic clusters of 32 cores or more.
-   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+   * ### Notes
+   * - This operation is available only for Data Warehouse Edition (V3.0) clusters in elastic mode that have 32 or more cores.
+   * - You cannot attach database accounts to the default resource group USER_DEFAULT.
    * 
    * @param request - BindDBResourceGroupWithUserRequest
    * @returns BindDBResourceGroupWithUserResponse
@@ -406,11 +423,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
+   * Call the BindDBResourcePoolWithUser operation to attach a resource group to a database account.
    * 
    * @remarks
-   *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+   * ### Notes
+   * - This operation is available only for Data Warehouse Edition clusters in elastic mode that have 32 cores or more.
+   * - The default resource group USER_DEFAULT does not support attaching database accounts.
    * 
    * @param request - BindDBResourcePoolWithUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,11 +487,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
+   * Call the BindDBResourcePoolWithUser operation to attach a resource group to a database account.
    * 
    * @remarks
-   *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-   * *   The default resource group USER_DEFAULT cannot be associated with a database account.
+   * ### Notes
+   * - This operation is available only for Data Warehouse Edition clusters in elastic mode that have 32 cores or more.
+   * - The default resource group USER_DEFAULT does not support attaching database accounts.
    * 
    * @param request - BindDBResourcePoolWithUserRequest
    * @returns BindDBResourcePoolWithUserResponse
@@ -612,7 +631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for an AnalyticDB for MySQL cluster.
+   * You can call the CreateAccount operation to create an account.
    * 
    * @param tmpReq - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database account for an AnalyticDB for MySQL cluster.
+   * You can call the CreateAccount operation to create an account.
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -696,10 +715,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * Create a Data Warehouse cluster.
    * 
    * @remarks
-   * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition  clusters, see [Billable items of Data Warehouse Edition](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition](https://help.aliyun.com/document_detail/135229.html).
+   * ### Considerations
+   * - After creating a cluster, you are charged based on the cluster specifications you selected. For more information on the billable items and pricing for the Data Warehouse Edition, see [Billable items for Data Warehouse Edition](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition](https://help.aliyun.com/document_detail/135229.html).
+   * <props="china">
+   * - The Data Warehouse Edition is no longer available for new purchases; you can purchase Enterprise Edition or Basic Edition instead. The Enterprise, Basic, and Lakehouse editions all share the same features. For more information, see [product editions](https://help.aliyun.com/document_detail/205001.html).
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -862,10 +884,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * Create a Data Warehouse cluster.
    * 
    * @remarks
-   * After you create a cluster, you are billed for the cluster specifications that you select. For more information about the billable items and pricing for Data Warehouse Edition  clusters, see [Billable items of Data Warehouse Edition](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition](https://help.aliyun.com/document_detail/135229.html).
+   * ### Considerations
+   * - After creating a cluster, you are charged based on the cluster specifications you selected. For more information on the billable items and pricing for the Data Warehouse Edition, see [Billable items for Data Warehouse Edition](https://help.aliyun.com/document_detail/303131.html) and [Pricing for Data Warehouse Edition](https://help.aliyun.com/document_detail/135229.html).
+   * <props="china">
+   * - The Data Warehouse Edition is no longer available for new purchases; you can purchase Enterprise Edition or Basic Edition instead. The Enterprise, Basic, and Lakehouse editions all share the same features. For more information, see [product editions](https://help.aliyun.com/document_detail/205001.html).
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -876,14 +901,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL cluster.
+   * Creates a resource group for a cluster.
    * 
    * @remarks
-   * This operation is suitable for the following editions:
-   * *   **Enterprise Edition**.
-   * *   **Basic Edition**.
-   * *   **Data Lakehouse Edition**.
-   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
+   * Supported product editions:
+   * - **Enterprise Edition**
+   * - **Basic Edition**
+   * - **Data Lakehouse Edition**
+   * - **Data Warehouse Edition (Elastic Mode)**: Requires specifications of 32 cores and 128 GB or higher.
    * 
    * @param tmpReq - CreateDBResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -984,14 +1009,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource group for an AnalyticDB for MySQL cluster.
+   * Creates a resource group for a cluster.
    * 
    * @remarks
-   * This operation is suitable for the following editions:
-   * *   **Enterprise Edition**.
-   * *   **Basic Edition**.
-   * *   **Data Lakehouse Edition**.
-   * *   **Data Warehouse Edition in elastic mode**: 32 cores and 128 GB or more.
+   * Supported product editions:
+   * - **Enterprise Edition**
+   * - **Basic Edition**
+   * - **Data Lakehouse Edition**
+   * - **Data Warehouse Edition (Elastic Mode)**: Requires specifications of 32 cores and 128 GB or higher.
    * 
    * @param request - CreateDBResourceGroupRequest
    * @returns CreateDBResourceGroupResponse
@@ -1002,10 +1027,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * You can call the CreateDBResourcePool operation to create a resource group. This operation applies only to AnalyticDB for MySQL clusters of the new version in elastic mode.
    * 
    * @remarks
-   * This operation is applicable only for elastic clusters of 32 cores or more.
+   * ### Precautions
+   * This operation is available only for AnalyticDB for MySQL clusters of the new version in elastic mode that have 32 or more cores.
    * 
    * @param request - CreateDBResourcePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1064,10 +1090,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * You can call the CreateDBResourcePool operation to create a resource group. This operation applies only to AnalyticDB for MySQL clusters of the new version in elastic mode.
    * 
    * @remarks
-   * This operation is applicable only for elastic clusters of 32 cores or more.
+   * ### Precautions
+   * This operation is available only for AnalyticDB for MySQL clusters of the new version in elastic mode that have 32 or more cores.
    * 
    * @param request - CreateDBResourcePoolRequest
    * @returns CreateDBResourcePoolResponse
@@ -1254,7 +1281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高权限帐号
+   * The DeleteAccount operation deletes a database account.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1309,7 +1336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高权限帐号
+   * The DeleteAccount operation deletes a database account.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -1716,7 +1743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of database accounts for an AnalyticDB for MySQL cluster.
+   * Describes the database accounts of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1775,7 +1802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of database accounts for an AnalyticDB for MySQL cluster.
+   * Describes the database accounts of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -2132,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Call `DescribeAppliedAdvices` to retrieve applied optimization suggestions.
    * 
    * @param request - DescribeAppliedAdvicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2203,7 +2230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+   * Call `DescribeAppliedAdvices` to retrieve applied optimization suggestions.
    * 
    * @param request - DescribeAppliedAdvicesRequest
    * @returns DescribeAppliedAdvicesResponse
@@ -2276,11 +2303,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+   * Call the DescribeAuditLogRecords operation to query the SQL audit logs of a Data Warehouse Edition cluster.
    * 
    * @remarks
-   * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable SQL audit.
-   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+   * Before you call this operation to view the SQL audit logs of an AnalyticDB for MySQL cluster, enable SQL Audit. Call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL Audit. If SQL Audit is disabled, call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable it.
+   * You can query SQL audit logs only when SQL Audit is enabled. You can query only the SQL audit logs from the last 30 days. If you disable SQL Audit and then re-enable it, you can query only the SQL audit logs that are generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
    * 
    * @param request - DescribeAuditLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2327,6 +2354,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
     }
 
     if (!$dara.isNull(request.queryKeyword)) {
@@ -2379,11 +2410,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+   * Call the DescribeAuditLogRecords operation to query the SQL audit logs of a Data Warehouse Edition cluster.
    * 
    * @remarks
-   * Before you call the DescribeAuditLogRecords operation to query the SQL audit logs of an AnalyticDB for MySQL cluster, you must enable SQL audit for the cluster. You can call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL audit. If SQL audit is disabled, you can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable SQL audit.
-   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
+   * Before you call this operation to view the SQL audit logs of an AnalyticDB for MySQL cluster, enable SQL Audit. Call the [DescribeAuditLogConfig](https://help.aliyun.com/document_detail/190628.html) operation to query the status of SQL Audit. If SQL Audit is disabled, call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/190629.html) operation to enable it.
+   * You can query SQL audit logs only when SQL Audit is enabled. You can query only the SQL audit logs from the last 30 days. If you disable SQL Audit and then re-enable it, you can query only the SQL audit logs that are generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
    * 
    * @param request - DescribeAuditLogRecordsRequest
    * @returns DescribeAuditLogRecordsResponse
@@ -2468,7 +2499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available suggestions for cluster optimization.
+   * Use `DescribeAvailableAdvices` to get optimization advice.
    * 
    * @param request - DescribeAvailableAdvicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2535,7 +2566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available suggestions for cluster optimization.
+   * Use `DescribeAvailableAdvices` to get optimization advice.
    * 
    * @param request - DescribeAvailableAdvicesRequest
    * @returns DescribeAvailableAdvicesResponse
@@ -2678,7 +2709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup sets for an AnalyticDB for MySQL cluster.
+   * Lists backups for an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2757,7 +2788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of backup sets for an AnalyticDB for MySQL cluster.
+   * Lists backups for an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -2982,7 +3013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the current number of connections to an AnalyticDB for MySQL cluster.
+   * Returns the current number of connections for a specified AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeConnectionCountRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3033,7 +3064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the current number of connections to an AnalyticDB for MySQL cluster.
+   * Returns the current number of connections for a specified AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeConnectionCountRecordsRequest
    * @returns DescribeConnectionCountRecordsResponse
@@ -3180,7 +3211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for MySQL cluster.
+   * You can call the DescribeDBClusterAttribute operation to view the details of a specified AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3231,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for MySQL cluster.
+   * You can call the DescribeDBClusterAttribute operation to view the details of a specified AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeDBClusterAttributeRequest
    * @returns DescribeDBClusterAttributeResponse
@@ -3288,7 +3319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an AnalyticDB for MySQL cluster.
+   * Call the DescribeDBClusterNetInfo API to retrieve network information about an ADB cluster.
    * 
    * @param request - DescribeDBClusterNetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3343,7 +3374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information about an AnalyticDB for MySQL cluster.
+   * Call the DescribeDBClusterNetInfo API to retrieve network information about an ADB cluster.
    * 
    * @param request - DescribeDBClusterNetInfoRequest
    * @returns DescribeDBClusterNetInfoResponse
@@ -3746,7 +3777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AnalyticDB for MySQL clusters within a region.
+   * List Data Lakehouse Edition clusters.
    * 
    * @param request - DescribeDBClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3829,7 +3860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AnalyticDB for MySQL clusters within a region.
+   * List Data Lakehouse Edition clusters.
    * 
    * @param request - DescribeDBClustersRequest
    * @returns DescribeDBClustersResponse
@@ -4348,7 +4379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the range for the number of elastic I/O units (EIUs) for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * You can call the DescribeEIURange operation to query the range of elastic I/O units (EIUs) available for a Data Lakehouse Edition cluster.
    * 
    * @param request - DescribeEIURangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4431,7 +4462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the range for the number of elastic I/O units (EIUs) for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * You can call the DescribeEIURange operation to query the range of elastic I/O units (EIUs) available for a Data Lakehouse Edition cluster.
    * 
    * @param request - DescribeEIURangeRequest
    * @returns DescribeEIURangeResponse
@@ -4442,10 +4473,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看日资源弹性
+   * You can call DescribeElasticDailyPlan to query the execution information of a daily time-based scaling plan. This operation applies only to new-version Data Warehouse Edition clusters in elastic mode.
    * 
    * @remarks
-   * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+   * ### Usage notes
+   * This operation applies only to new-version Data Warehouse Edition clusters in elastic mode with 32 or more cores.
    * 
    * @param request - DescribeElasticDailyPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4508,10 +4540,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看日资源弹性
+   * You can call DescribeElasticDailyPlan to query the execution information of a daily time-based scaling plan. This operation applies only to new-version Data Warehouse Edition clusters in elastic mode.
    * 
    * @remarks
-   * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+   * ### Usage notes
+   * This operation applies only to new-version Data Warehouse Edition clusters in elastic mode with 32 or more cores.
    * 
    * @param request - DescribeElasticDailyPlanRequest
    * @returns DescribeElasticDailyPlanResponse
@@ -5116,10 +5149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about asynchronous import and export tasks of an AnalyticDB for MySQL cluster.
+   * Queries the details of asynchronous import and export tasks.
    * 
    * @remarks
-   * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](https://help.aliyun.com/document_detail/160291.html).
+   * For more information about the details of asynchronous import and export tasks, see [Asynchronously submit import and export tasks](https://help.aliyun.com/document_detail/160291.html).
    * 
    * @param request - DescribeLoadTasksRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5198,10 +5231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about asynchronous import and export tasks of an AnalyticDB for MySQL cluster.
+   * Queries the details of asynchronous import and export tasks.
    * 
    * @remarks
-   * For information about how to asynchronously submit import and export tasks, see [Asynchronously submit an import or export task](https://help.aliyun.com/document_detail/160291.html).
+   * For more information about the details of asynchronous import and export tasks, see [Asynchronously submit import and export tasks](https://help.aliyun.com/document_detail/160291.html).
    * 
    * @param request - DescribeLoadTasksRecordsRequest
    * @returns DescribeLoadTasksRecordsResponse
@@ -5994,7 +6027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Resubmit配置
+   * Query resubmission configuration
    * 
    * @param request - DescribeResubmitConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6049,7 +6082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Resubmit配置
+   * Query resubmission configuration
    * 
    * @param request - DescribeResubmitConfigRequest
    * @returns DescribeResubmitConfigResponse
@@ -6060,7 +6093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
+   * Call the DescribeSQAConfig operation to query the Short Query Acceleration (SQA) configuration for a cluster.
    * 
    * @param request - DescribeSQAConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6119,7 +6152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
+   * Call the DescribeSQAConfig operation to query the Short Query Acceleration (SQA) configuration for a cluster.
    * 
    * @param request - DescribeSQAConfigRequest
    * @returns DescribeSQAConfigResponse
@@ -6130,7 +6163,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a period of time.
+   * Call the `DescribeSQLPatterns` API to retrieve SQL patterns for an AnalyticDB for MySQL cluster within a specified date range.
+   * 
+   * @remarks
+   * - Global public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. For example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. For example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeSQLPatternsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6201,7 +6239,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of SQL patterns for an AnalyticDB for MySQL cluster within a period of time.
+   * Call the `DescribeSQLPatterns` API to retrieve SQL patterns for an AnalyticDB for MySQL cluster within a specified date range.
+   * 
+   * @remarks
+   * - Global public endpoint: `adb.aliyuncs.com`.
+   * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. For example: `adb.cn-hangzhou.aliyuncs.com`.
+   * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. For example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
    * 
    * @param request - DescribeSQLPatternsRequest
    * @returns DescribeSQLPatternsResponse
@@ -6398,7 +6441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看慢日志
+   * Queries the details of slow query logs for an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6481,7 +6524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看慢日志
+   * Queries the details of slow query logs for an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeSlowLogRecordsRequest
    * @returns DescribeSlowLogRecordsResponse
@@ -6722,7 +6765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表访问统计信息
+   * Queries the access count for a specific table or all tables in an AnalyticDB for MySQL cluster on a specified date.
    * 
    * @param request - DescribeTableAccessCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6777,7 +6820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表访问统计信息
+   * Queries the access count for a specific table or all tables in an AnalyticDB for MySQL cluster on a specified date.
    * 
    * @param request - DescribeTableAccessCountRequest
    * @returns DescribeTableAccessCountResponse
@@ -6936,7 +6979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about table statistics for an AnalyticDB for MySQL cluster.
+   * Retrieves table statistics from a specified AnalyticDB for MySQL cluster.
+   * 
+   * @remarks
+   * > For more information about table statistics, see [Monitoring information](https://help.aliyun.com/document_detail/188721.html).
    * 
    * @param request - DescribeTableStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7007,7 +7053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about table statistics for an AnalyticDB for MySQL cluster.
+   * Retrieves table statistics from a specified AnalyticDB for MySQL cluster.
+   * 
+   * @remarks
+   * > For more information about table statistics, see [Monitoring information](https://help.aliyun.com/document_detail/188721.html).
    * 
    * @param request - DescribeTableStatisticsRequest
    * @returns DescribeTableStatisticsResponse
@@ -7978,7 +8027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
+   * Migrates a Data Warehouse Edition cluster to a Data Lakehouse Edition or an Enterprise Edition cluster.
    * 
    * @param request - MigrateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8069,7 +8118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
+   * Migrates a Data Warehouse Edition cluster to a Data Lakehouse Edition or an Enterprise Edition cluster.
    * 
    * @param request - MigrateDBClusterRequest
    * @returns MigrateDBClusterResponse
@@ -8302,7 +8351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审计日志设置
+   * You can call the ModifyAuditLogConfig operation to modify the audit log settings.
    * 
    * @param request - ModifyAuditLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8357,7 +8406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审计日志设置
+   * You can call the ModifyAuditLogConfig operation to modify the audit log settings.
    * 
    * @param request - ModifyAuditLogConfigRequest
    * @returns ModifyAuditLogConfigResponse
@@ -9090,7 +9139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the number of shards for an AnalyticDB for MySQL cluster.
+   * Modifies the number of shards for a cluster.
    * 
    * @param request - ModifyDBClusterShardNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9161,7 +9210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the number of shards for an AnalyticDB for MySQL cluster.
+   * Modifies the number of shards for a cluster.
    * 
    * @param request - ModifyDBClusterShardNumberRequest
    * @returns ModifyDBClusterShardNumberResponse
@@ -9782,7 +9831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Resubmit配置
+   * Modifies the Resubmit configuration.
    * 
    * @param tmpReq - ModifyResubmitConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9843,7 +9892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Resubmit配置
+   * Modifies the Resubmit configuration.
    * 
    * @param request - ModifyResubmitConfigRequest
    * @returns ModifyResubmitConfigResponse
@@ -9854,7 +9903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改SQA配置
+   * Modifies the Short Query Acceleration (SQA) configuration.
    * 
    * @param request - ModifySQAConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9913,7 +9962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改SQA配置
+   * Modifies the Short Query Acceleration (SQA) configuration.
    * 
    * @param request - ModifySQAConfigRequest
    * @returns ModifySQAConfigResponse
@@ -9994,7 +10043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改LogHub投递规则
+   * Modifies a LogHub delivery rule.
    * 
    * @param request - OperateLogHubRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10093,7 +10142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改LogHub投递规则
+   * Modifies a LogHub delivery rule.
    * 
    * @param request - OperateLogHubRequest
    * @returns OperateLogHubResponse
@@ -10360,7 +10409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster from a database account.
+   * Call the UnbindDBResourceGroupWithUser operation to detach a database account from a resource group in a Data Warehouse Edition cluster.
    * 
    * @param request - UnbindDBResourceGroupWithUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10419,7 +10468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster from a database account.
+   * Call the UnbindDBResourceGroupWithUser operation to detach a database account from a resource group in a Data Warehouse Edition cluster.
    * 
    * @param request - UnbindDBResourceGroupWithUserRequest
    * @returns UnbindDBResourceGroupWithUserResponse
@@ -10430,7 +10479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a database account from a resource group. This operation can be called only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+   * The UnbindDBResourcePoolWithUser operation detaches a database account from a resource group. This operation applies only to Data Warehouse Edition (V3.0) clusters in elastic mode.
    * 
    * @param request - UnbindDBResourcePoolWithUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10489,7 +10538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a database account from a resource group. This operation can be called only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition.
+   * The UnbindDBResourcePoolWithUser operation detaches a database account from a resource group. This operation applies only to Data Warehouse Edition (V3.0) clusters in elastic mode.
    * 
    * @param request - UnbindDBResourcePoolWithUserRequest
    * @returns UnbindDBResourcePoolWithUserResponse

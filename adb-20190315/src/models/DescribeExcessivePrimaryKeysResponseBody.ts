@@ -8,7 +8,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $dar
    * The detection result.
    * 
    * @example
-   * OK
+   * Excessive primary keys detected in tables.
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $dar
    * The name of the detection item.
    * 
    * @example
-   * evm_identity
+   * Excessive primary key fields
    */
   name?: string;
   /**

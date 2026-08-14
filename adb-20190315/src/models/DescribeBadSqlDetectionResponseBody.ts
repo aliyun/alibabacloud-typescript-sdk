@@ -16,7 +16,7 @@ export class DescribeBadSqlDetectionResponseBodyDetectionItemsResultsDiagnosisRe
    * The information about the diagnostic result.
    * 
    * @example
-   * The query consumes a large amount of memory resources. Perform memory optimization on the query.
+   * The query consumes a large amount of memory resources. Perform memory optimization for the query.
    */
   detail?: string;
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQAConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of AnalyticDB for MySQL clusters.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSQAConfigRequest extends $dara.Model {
    * @remarks
    * The name of the resource group.
    * 
-   * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to query the resource group name of a cluster.
+   * > Call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to query information about the resource groups of a specific cluster, including the resource group names.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class DescribeSQAConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region IDs supported by AnalyticDB for MySQL.
    * 
    * @example
    * cn-hangzhou

@@ -121,7 +121,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode
    * A reserved parameter.
    * 
    * @example
-   * N/A
+   * 无
    */
   maxCount?: string;
   /**
@@ -129,7 +129,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode
    * A reserved parameter.
    * 
    * @example
-   * N/A
+   * 无
    */
   minCount?: string;
   /**
@@ -137,7 +137,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZoneListSupportedMode
    * A reserved parameter.
    * 
    * @example
-   * N/A
+   * 无
    */
   step?: string;
   static names(): { [key: string]: string } {
@@ -471,7 +471,7 @@ export class DescribeAvailableResourceResponseBodyAvailableZoneList extends $dar
    * The name of the zone.
    * 
    * @example
-   * cn-hangzhou-k
+   * Hangzhou Zone A
    */
   zoneName?: string;
   static names(): { [key: string]: string } {

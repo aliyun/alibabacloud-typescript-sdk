@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * This parameter is unavailable.
+   * This parameter is invalid.
    * 
    * @example
-   * None
+   * 无
    */
   connId?: string;
   /**
@@ -21,7 +21,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The start time of the execution of the SQL statement. The time is displayed in the ISO 8601 standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+   * The start time of the SQL statement execution. The time is in the yyyy-MM-dd HH:mm:ss format and is your local time.
    * 
    * @example
    * 2022-01-23 16:05:08
@@ -30,7 +30,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   executeTimestamp?: number;
   /**
    * @remarks
-   * The IP address and port number of the client that is used to execute the SQL statement.
+   * The IP address and port number of the client that was used to execute the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -46,7 +46,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   processID?: string;
   /**
    * @remarks
-   * Details of the SQL statement.
+   * The details of the SQL statement.
    * 
    * @example
    * SELECT * FROM tb_courses
@@ -64,8 +64,9 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether the SQL statement was successfully executed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The SQL statement was successfully executed.
+   * 
+   * - **false**: The SQL statement failed to be executed.
    * 
    * @example
    * true
@@ -73,7 +74,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   succeed?: string;
   /**
    * @remarks
-   * The amount of time that is consumed to execute the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement. Unit: milliseconds (ms).
    * 
    * @example
    * 216
@@ -81,7 +82,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   totalTime?: string;
   /**
    * @remarks
-   * The name of the user who executed the SQL statement.
+   * The username that was used to execute the SQL statement.
    * 
    * @example
    * test_user
@@ -139,12 +140,12 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried SQL audit logs.
+   * The details of the SQL audit logs.
    */
   items?: DescribeAuditLogRecordsResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -168,7 +169,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

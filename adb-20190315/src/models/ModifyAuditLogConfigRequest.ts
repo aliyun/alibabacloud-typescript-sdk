@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAuditLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of SQL audit. Valid values:
+   * The status of the SQL audit feature. Valid values:
    * 
-   * *   **on**: SQL audit is enabled.
-   * *   **off**: SQL audit is disabled.
+   * - **on**: Enable SQL audit.
+   * 
+   * - **off**: Disable SQL audit.
    * 
    * This parameter is required.
    * 
@@ -18,7 +19,7 @@ export class ModifyAuditLogConfigRequest extends $dara.Model {
   auditLogStatus?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +31,7 @@ export class ModifyAuditLogConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to view available region IDs.
    * 
    * This parameter is required.
    * 

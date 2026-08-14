@@ -8,7 +8,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
    * The detection result.
    * 
    * @example
-   * A total of 10 tables have an improper partition field
+   * A total of 10 tables have an improper partition field.
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
    * The name of the detection item.
    * 
    * @example
-   * Improper Partition Field Diagnosis
+   * Table partition rationality check
    */
   name?: string;
   /**
@@ -62,7 +62,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
    * The information about inappropriate partitions.
    * 
    * @example
-   * 202005,202006
+   * [20210110, 20210113,20210123]
    */
   partitionDetail?: string;
   /**
@@ -70,7 +70,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
    * The number of partitions.
    * 
    * @example
-   * 2
+   * 34
    */
   partitionNumber?: number;
   /**
@@ -96,7 +96,7 @@ export class DescribeTablePartitionDiagnoseResponseBodyItems extends $dara.Model
    * The name of the table.
    * 
    * @example
-   * test_table
+   * user
    */
   tableName?: string;
   /**
@@ -144,7 +144,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
    * The ID of the cluster.
    * 
    * @example
-   * am-bp1xxxxxxxx47
+   * rm-uf6wjk5xxxxxxxxxx
    */
   DBClusterId?: string;
   /**
@@ -162,7 +162,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
    * The page number of the returned page.
    * 
    * @example
-   * 1
+   * 34
    */
   pageNumber?: number;
   /**
@@ -170,7 +170,7 @@ export class DescribeTablePartitionDiagnoseResponseBody extends $dara.Model {
    * The number of entries returned per page.
    * 
    * @example
-   * 30
+   * 123
    */
   pageSize?: number;
   /**

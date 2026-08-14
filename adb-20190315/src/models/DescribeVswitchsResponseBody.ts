@@ -88,7 +88,7 @@ export class DescribeVSwitchsResponseBodyVSwitchesVSwitch extends $dara.Model {
    * The name of the vSwitch.
    * 
    * @example
-   * VSW-Test-hangzhou-I
+   * VSW-test-Hangzhou-I
    */
   vSwitchName?: string;
   static names(): { [key: string]: string } {

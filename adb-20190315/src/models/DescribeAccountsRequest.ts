@@ -3,7 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountsRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * > You can call the [TagResources](https://help.aliyun.com/document_detail/179253.html) operation to create a tag for a cluster.
+   * 
+   * @example
+   * AnalyticDB_IO_UTIL
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * low_env
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +49,7 @@ export class DescribeAccountsRequest extends $dara.Model {
    * @remarks
    * The name of the database account.
    * 
-   * >  If you do not specify this parameter, the information about all database accounts is returned.
+   * > If you omit this parameter, information about all database accounts is returned.
    * 
    * @example
    * test_accout
@@ -41,31 +57,36 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The type of the database account. If you do not specify this parameter, the information about all account types is returned. Valid values:
+   * The account type. By default, accounts of all types are returned. Valid values:
    * 
-   * *   **Normal**: standard account.
-   * *   **Super**: privileged account.
+   * - **Normal**: a standard account.
+   * 
+   * - **Super**: a privileged account.
    * 
    * @example
-   * Normal
+   * Super
    */
   accountType?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL clusters in a specific region.
    * 
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5xxxxxxxxxx
+   * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource tags.
+   */
   tags?: DescribeAccountsRequestTags[];
   static names(): { [key: string]: string } {
     return {

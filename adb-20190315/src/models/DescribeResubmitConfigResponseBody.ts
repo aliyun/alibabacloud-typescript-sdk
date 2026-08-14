@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResubmitConfigResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether out-of-memory (OOM) check is configured.
+   * Indicates whether an out-of-memory (OOM) exception is configured.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeResubmitConfigResponseBodyRules extends $dara.Model {
   peakMemory?: string;
   /**
    * @remarks
-   * The duration of the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement. Unit: milliseconds (ms).
    * 
    * @example
    * 300
@@ -75,9 +75,9 @@ export class DescribeResubmitConfigResponseBodyRules extends $dara.Model {
 export class DescribeResubmitConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * The ID of the Data Warehouse Edition (V3.0) cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all Data Warehouse Edition (V3.0) clusters in the destination region.
    * 
    * @example
    * am-8vbyw9awuj141haf9
@@ -93,7 +93,7 @@ export class DescribeResubmitConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job resubmission rules.
+   * The list of rules.
    */
   rules?: DescribeResubmitConfigResponseBodyRules[];
   static names(): { [key: string]: string } {

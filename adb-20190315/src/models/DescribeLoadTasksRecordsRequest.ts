@@ -6,8 +6,7 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters in a region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all Data Warehouse Edition clusters in a specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database that is involved in the import or export task.
+   * The name of the database involved in the import or export task.
    * 
    * @example
    * adb_demo
@@ -25,7 +24,7 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format (UTC).
    * 
    * This parameter is required.
    * 
@@ -35,13 +34,10 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The order in which to sort the tasks by field. Specify the field and the sort order in the JSON format. Example: `[{"Field":"CreateTime", "Type":"desc"}]`.
+   * Sorts tasks in ascending or descending order based on a specified field. The value must be a JSON string. Example: `[{"Field":"CreateTime", "Type":"desc"}]`
    * 
-   * > 
-   * 
-   * *   `Field` specifies the field that is used to sort the tasks. Valid values of Field: `State`, `CreateTime`, `DBName`, `ProcessID`, `UpdateTime`, `JobName`, and `ProcessRows`.
-   * 
-   * *   `Type` specifies the sort order. Valid values of Type: `Desc` and `Asc`. The values are case-insensitive.
+   * > * `Field` specifies the field by which to sort. Valid fields: `State`, `CreateTime`, `DBName`, `ProcessID`, `UpdateTime`, `JobName`, and `ProcessRows`.
+   * > * `Type` specifies the sort order. Valid values: `Desc` (descending) and `Asc` (ascending). The values are case-insensitive.
    * 
    * @example
    * [{"Field":"CreateTime", "Type":"desc"}]
@@ -51,7 +47,7 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -59,11 +55,10 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * The number of records per page. Valid values:
+   * * **30** (default).
+   * * **50**.
+   * * **100**.
    * 
    * @example
    * 30
@@ -72,8 +67,7 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region IDs supported by a specified Data Warehouse Edition.
    * 
    * @example
    * cn-shanghai
@@ -83,9 +77,8 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
-   * 
-   * > We recommend that you set the query start time to any point in time within 30 days.
+   * The beginning of the time range to query. Specify the time in the <i>yyyy-MM-ddTHH:mm:ssZ</i> format (UTC).
+   * > Set the query start time to a point in time within the last 30 days.
    * 
    * This parameter is required.
    * 
@@ -95,12 +88,11 @@ export class DescribeLoadTasksRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The state of the asynchronous import or export task to be queried. Valid values:
-   * 
-   * *   **INIT**: The task is being initialized.
-   * *   **RUNNING**: The task is running.
-   * *   **FINISH**: The task is successful.
-   * *   **FAILED**: The task fails.
+   * The status of the asynchronous import or export task to query. Valid values:
+   * * **INIT**: The task is being initialized.
+   * * **RUNNING**: The task is running.
+   * * **FINISH**: The task is successful.
+   * * **FAILED**: The task failed.
    * 
    * @example
    * FINISH

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * The tag key. You can use tags to filter clusters. You can specify up to 20 tags. N in `Tag.N.Key` must be a unique and consecutive integer that starts from 1. `Tag.N.Key` is paired with `Tag.N.Value`.
    * 
-   * >  The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * tag1
@@ -15,9 +15,9 @@ export class CreateDBClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * The tag value. You can use tags to filter clusters. You can specify up to 20 tags. N in `Tag.N.Value` must be a unique and consecutive integer that starts from 1. `Tag.N.Value` is paired with `Tag.N.Key`.
    * 
-   * >  The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * > The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * test1
@@ -49,15 +49,15 @@ export class CreateDBClusterRequestTag extends $dara.Model {
 export class CreateDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   backupSetID?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value is case-sensitive and can contain a maximum of 64 ASCII characters in length.
+   * A client-generated token to ensure request idempotence. The token must be unique across requests, case-sensitive, and up to 64 ASCII characters long.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-t7241****
@@ -65,32 +65,35 @@ export class CreateDBClusterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The computing resources of the cluster. You can use computing resources to compute data. The increase in the computing resources can accelerate data queries. The computing resources are available for Cluster Edition and Basic Edition.
+   * The compute resources for the cluster. Compute resources are used for data queries. A larger amount of compute resources can provide better query performance. Compute resources are available in cluster and single-node editions:
    * 
-   * *   Computing resources for Cluster Edition include 16 cores and 64 GB memory, 24 cores and 96 GB memory, and 32 cores or more. Cluster Edition supports resource isolation, scheduled scaling, and tiered storage of hot and cold data.
-   * *   Computing resources for Basic Edition include 8 cores and 32 GB memory and 16 cores and 64 GB memory. Alibaba Cloud does not provide an SLA guarantee for Basic Edition, and 4 to 8 hours are required for a failover. We recommend that you do not use Basic Edition in production environments.
+   * - Cluster edition: includes specifications such as 16 cores/64 GB, 24 cores/96 GB, and 32 cores or more. The cluster edition supports resource pool isolation, scheduled scaling, and tiered storage of hot and cold data.
    * 
-   * > 
+   * - Single-node edition: includes specifications such as 8 cores/32 GB and 16 cores/64 GB. The single-node edition does not provide an SLA guarantee and has a long recovery time from failures (4 to 8 hours). We do not recommend that you use the single-node edition in production environments.
    * 
-   * *   You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/190632.html) operation to query the available computing resources in a region.
-   * 
-   * *   This parameter must be specified when Mode is set to **Flexible**.
+   * > * You can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/190632.html) operation to query the compute resources that are available in a specific region.
+   * >
+   * > * This parameter is required when `Mode` is set to `Flexible` (flexible mode).
    * 
    * @example
-   * 32Core128GB
+   * 32Core128GBNEW
    */
   computeResource?: string;
   /**
    * @remarks
-   * The edition of the cluster. Valid values:
+   * The cluster edition. Valid values:
    * 
-   * *   **Cluster**: reserved mode for Cluster Edition
+   * - **Cluster**: reserved cluster.
    * 
-   * <!---->
+   * <props="china">
    * 
-   * *   **MixedStorage**: elastic mode for Cluster Edition
+   * > Reserved clusters are available only in the Chinese mainland and Singapore regions. In the Singapore region, you can purchase reserved clusters only with the pay-as-you-go billing method.
    * 
-   * >  If the DBClusterCategory parameter is set to Cluster, you must set the Mode parameter to Reserver. If the DBClusterCategory parameter is set to MixedStorage, you must set the Mode parameter to Flexible. Otherwise, the cluster fails to be created.
+   * 
+   * 
+   * - **MixedStorage**: elastic cluster (new).
+   * 
+   * > If you set `DBClusterCategory` to `Cluster`, you must set the `Mode` parameter to `Reserved`. If you set `DBClusterCategory` to `MixedStorage`, you must set the `Mode` parameter to `Flexible`. Otherwise, cluster creation will fail.
    * 
    * This parameter is required.
    * 
@@ -100,12 +103,13 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterCategory?: string;
   /**
    * @remarks
-   * The specification of the cluster. Valid values:
+   * The cluster specification. Valid values:
    * 
-   * *   **C8**
-   * *   **C32**
+   * - **C8**
    * 
-   * >  This parameter is required if the Mode parameter is set to Reserver.
+   * - **C32**
+   * 
+   * > This parameter is required when `Mode` is set to `Reserved` (reserved mode).
    * 
    * @example
    * C8
@@ -115,8 +119,9 @@ export class CreateDBClusterRequest extends $dara.Model {
    * @remarks
    * The description of the cluster.
    * 
-   * *   The description cannot start with `http://` or `https`.
-   * *   The description must be 2 to 256 characters in length.
+   * - The description cannot start with `http://` or `https://`.
+   * 
+   * - The description must be 2 to 256 characters long.
    * 
    * @example
    * test
@@ -134,7 +139,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The version of the cluster. Set the value to **3.0**.
+   * The version of the AnalyticDB for MySQL cluster. Set the value to **3.0**.
    * 
    * This parameter is required.
    * 
@@ -144,9 +149,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterVersion?: string;
   /**
    * @remarks
-   * The number of node groups. Valid values: 1 to 200 (integer).
+   * The number of node groups. The value must be an integer from 1 to 200.
    * 
-   * >  This parameter is required if the Mode parameter is set to Reserver.
+   * > This parameter is required when `Mode` is set to `Reserved` (reserved mode).
    * 
    * @example
    * 2
@@ -154,13 +159,15 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBNodeGroupCount?: string;
   /**
    * @remarks
-   * The storage capacity of the cluster. Unit: GB.
+   * The node storage capacity. Unit: GB. The valid values vary based on the cluster specification:
    * 
-   * *   Valid values when DBClusterClass is set to C8: 100 to 1000
-   * *   Valid values when DBClusterClass is set to C32: 100 to 8000
+   * - For the `C8` specification, the value ranges from 100 to 1,000.
    * 
-   * > * This parameter is required if the Mode parameter is set to Reserver.
-   * > * 1000 The storage capacity less than 1,000 GB increases in 100 GB increments. The storage capacity greater than 1,000 GB increases in 1,000 GB increments.
+   * - For the `C32` specification, the value ranges from 100 to 8,000.
+   * 
+   * > * This parameter is required when `Mode` is set to `Reserved` (reserved mode).
+   * >
+   * > * The value must be a multiple of 100 for storage sizes under 1,000 GB, and a multiple of 1,000 for storage sizes of 1,000 GB or more.
    * 
    * @example
    * 200
@@ -168,10 +175,11 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBNodeStorage?: string;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled. Valid values:
+   * Specifies whether to enable disk encryption. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`: enables disk encryption.
+   * 
+   * - `false`: disables disk encryption.
    * 
    * @example
    * true
@@ -179,7 +187,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   diskEncryption?: boolean;
   /**
    * @remarks
-   * The number of elastic I/O units (EIUs). For more information, see [Elasticity of the storage layer](https://help.aliyun.com/document_detail/189505.html).
+   * The number of Elastic IO Units (EIUs). For more information, see [EIU details](https://help.aliyun.com/document_detail/189505.html).
    * 
    * @example
    * 0
@@ -189,8 +197,9 @@ export class CreateDBClusterRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable SSL encryption. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables SSL encryption.
+   * 
+   * - **false**: disables SSL encryption.
    * 
    * @example
    * true
@@ -198,15 +207,15 @@ export class CreateDBClusterRequest extends $dara.Model {
   enableSSL?: boolean;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   executorCount?: string;
   /**
    * @remarks
-   * The Key Management Service (KMS) ID that is used for disk encryption. This parameter takes effect only when DiskEncryption is set to true.
+   * The ID of the Key Management Service (KMS) key that is used for disk encryption. This parameter is valid only when `DiskEncryption` is set to `true`.
    * 
    * @example
    * xxxxxxxx-xxxx-xxxx-xxxx-xxxx
@@ -214,10 +223,11 @@ export class CreateDBClusterRequest extends $dara.Model {
   kmsId?: string;
   /**
    * @remarks
-   * The mode of the cluster. Valid values:
+   * The cluster mode. Valid values:
    * 
-   * *   **Reserver**: the reserved mode.
-   * *   **Flexible**: the elastic mode.
+   * - **Reserved**: reserved mode.
+   * 
+   * - **Flexible**: flexible mode.
    * 
    * @example
    * Reserver
@@ -229,8 +239,9 @@ export class CreateDBClusterRequest extends $dara.Model {
    * @remarks
    * The billing method of the cluster. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go
-   * *   **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go.
+   * 
+   * - **Prepaid**: subscription.
    * 
    * This parameter is required.
    * 
@@ -240,12 +251,13 @@ export class CreateDBClusterRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription type of the subscription cluster. Valid values:
+   * The subscription period unit. Valid values:
    * 
-   * *   **Year**: subscription on a yearly basis
-   * *   **Month**: subscription on a monthly basis
+   * - **Year**
    * 
-   * >  This parameter is required if the PayType parameter is set to Prepaid.
+   * - **Month**
+   * 
+   * > This parameter is required when `PayType` is set to `Prepaid` (subscription).
    * 
    * @example
    * Year
@@ -253,9 +265,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the IDs of available regions.
    * 
    * This parameter is required.
    * 
@@ -265,7 +277,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the cluster belongs.
+   * The resource group ID.
    * 
    * @example
    * rg-4690g37929****
@@ -275,58 +287,60 @@ export class CreateDBClusterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   restoreTime?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   restoreType?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   sourceDBInstanceName?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   storageResource?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * This parameter is reserved.
    * 
    * @example
-   * N/A
+   * 无
    */
   storageType?: string;
   /**
    * @remarks
-   * The tags to add to the cluster.
+   * The list of tags.
    */
   tag?: CreateDBClusterRequestTag[];
   /**
    * @remarks
-   * The subscription period of the subscription cluster.
+   * The subscription duration. Valid values:
    * 
-   * *   Valid values when Period is set to Year: 1, 2, and 3 (integer)
-   * *   Valid values when Period is set to Month: 1 to 9 (integer)
+   * - If `Period` is set to `Year`, the value can be 1, 2, 3, or 5.
    * 
-   * > * This parameter is required if the PayType parameter is set to Prepaid.
-   * > * Longer subscription periods offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
+   * - If `Period` is set to `Month`, the value can be an integer from 1 to 11.
+   * 
+   * > * This parameter is required when `PayType` is set to `Prepaid` (subscription).
+   * >
+   * > * The longer the subscription duration, the greater the savings. For example, a one-year subscription is more cost-effective than a 10- or 11-month subscription.
    * 
    * @example
    * 1
@@ -334,7 +348,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the cluster.
+   * The Virtual Private Cloud (VPC) ID.
    * 
    * @example
    * vpc-bp1at5ze0t5u3xtqn****
@@ -342,7 +356,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the cluster.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1aadw9k19x6cis9****
@@ -350,9 +364,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the cluster.
+   * The availability zone ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the IDs of available availability zones.
    * 
    * @example
    * cn-hangzhou-h

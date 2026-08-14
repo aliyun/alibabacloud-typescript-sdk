@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AttachUserENIRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the ID of the Data Warehouse Edition cluster.
    * 
    * This parameter is required.
    * 

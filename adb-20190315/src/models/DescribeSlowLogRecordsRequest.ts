@@ -7,7 +7,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
    * @remarks
    * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
    * 
-   * >  The end time must be later than the start time. The specified time range must be less than seven days.
+   * > The end time must be later than the start time. The time range between the start time and the end time cannot exceed 7 days.
    * 
    * This parameter is required.
    * 
@@ -37,26 +37,37 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The order in which to sort the retrieved entries by field. Specify this parameter in the JSON format. The value is an ordered array that uses the order of the input array and contains `Field` and `Type`. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`.
+   * The sorting order of the results. The value is an ordered JSON array. The results are sorted in the order of the objects in the array. Each object contains the `Field` and `Type` parameters. Example: `[{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]`.
    * 
-   * *   `Field`: the field that is used to sort the retrieved entries. Valid values:
+   * - `Field`: the field to sort by. Valid values:
    * 
-   *     *   **HostAddress**: the IP address of the client that is used to connect to the database.
-   *     *   **UserName**: the username.
-   *     *   **ExecutionStartTime**: the start time of the query execution.
-   *     *   **QueryTime**: the amount of time consumed to execute the SQL statement.
-   *     *   **PeakMemoryUsage**: the maximum memory usage when the SQL statement is executed.
-   *     *   **ScanRows**: the number of rows to be scanned from a data source in the task.
-   *     *   **ScanSize**: the amount of data to be scanned.
-   *     *   **ScanTime**: the total amount of time consumed to scan data.
-   *     *   **PlanningTime**: the amount of time consumed to generate execution plans.
-   *     *   **WallTime**: the accumulated CPU Time values of all operators in the query on each node.
-   *     *   **ProcessID**: the ID of the process.
+   *   - **HostAddress**: the IP address of the client that is used to connect to the database.
    * 
-   * *   `Type`: the sorting type of the retrieved entries. Valid values:
+   *   - **UserName**: the username.
    * 
-   *     *   **Desc**: descending order
-   *     *   **Asc**: ascending order
+   *   - **ExecutionStartTime**: the start time of the SQL statement execution.
+   * 
+   *   - **QueryTime**: the execution duration of the SQL statement.
+   * 
+   *   - **PeakMemoryUsage**: the peak memory usage for executing the SQL statement.
+   * 
+   *   - **ScanRows**: the number of rows scanned from the data source.
+   * 
+   *   - **ScanSize**: the amount of scanned data.
+   * 
+   *   - **ScanTime**: the total time consumed to scan data.
+   * 
+   *   - **PlanningTime**: the time consumed to generate the execution plan.
+   * 
+   *   - **WallTime**: the total CPU time consumed by all operators in the query on each node.
+   * 
+   *   - **ProcessID**: the process ID.
+   * 
+   * - `Type`: the sorting type. Valid values:
+   * 
+   *   - **Desc**: descending order.
+   * 
+   *   - **Asc**: ascending order.
    * 
    * @example
    * [{"Field":"ExecutionStartTime","Type":"Desc"},{"Field":"ScanRows","Type":"Asc"}]
@@ -66,7 +77,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
    * 
    * @example
    * 1
@@ -74,7 +85,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+   * The number of entries to return on each page. Valid values: **30** (default), **50**, and **100**.
    * 
    * @example
    * 30
@@ -82,7 +93,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the process.
+   * The process ID.
    * 
    * @example
    * 2021052716044317201616624903453******
@@ -90,15 +101,17 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   processID?: string;
   /**
    * @remarks
-   * The range conditions used to filter specified fields, including `Max` and `Min`. Specify this parameter in the JSON format. Example: `[{"Field":"ScanSize","Min":"1000000","Max":"10000000"},{"Field":"QueryTime","Min":"1000","Max":"10000"}]`.
+   * Filters the results by a specified range based on the maximum (`Max`) and minimum (`Min`) values of a field. The value is a JSON array. Example: `[{"Field":"ScanSize","Min":"1000000","Max":"10000000"},{"Field":"QueryTime","Min":"1000","Max":"10000"}]`.
    * 
-   * `Field`: the field to be filtered. Valid values:
+   * The `Field` parameter specifies the field to filter by. Valid values:
    * 
-   * *   **ScanSize**: the amount of data to be scanned. Unit: KB.
-   * *   **QueryTime**: the amount of time consumed to execute the statement. Unit: milliseconds.
-   * *   **PeakMemoryUsage**: the maximum memory usage when the SQL statement is executed. Unit: KB.
+   * - **ScanSize**: the amount of scanned data. Unit: KB.
    * 
-   * >  `Min` indicates the minimum value of the query range (left operand). `Max` indicates the maximum value of the query range (right operand). Max and Min are both of the String type.
+   * - **QueryTime**: the execution duration. Unit: milliseconds (ms).
+   * 
+   * - **PeakMemoryUsage**: the peak memory usage for executing the SQL statement. Unit: KB.
+   * 
+   * > `Min` specifies the minimum value of the query range (left operand). `Max` specifies the maximum value of the query range (right operand). The data type of both parameters is String.
    * 
    * @example
    * [{"Field":"ScanSize","Min":"1000000","Max":"10000000"},{"Field":"QueryTime","Min":"1000","Max":"10000"}]
@@ -108,7 +121,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+   * The start of the time range to query. Specify the time in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -118,10 +131,11 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The state of the query. Valid values:
+   * The query state. Valid values:
    * 
-   * *   **Successed**: successful
-   * *   **Failed**: failed
+   * - **Successed**: The query was successful.
+   * 
+   * - **Failed**: The query failed.
    * 
    * @example
    * Successed

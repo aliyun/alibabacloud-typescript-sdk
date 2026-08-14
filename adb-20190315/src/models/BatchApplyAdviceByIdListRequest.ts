@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated. Specify the date in the yyyyMMdd format. The date must be in UTC.
+   * The date when the optimization suggestions were generated. Specify the date in the `yyyyMMdd` format. The date is in UTC.
    * 
    * @example
    * 20221115
@@ -13,19 +13,33 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   adviceDate?: number;
   /**
    * @remarks
-   * The IDs of the suggestions to be applied. Separate multiple IDs with commas (,).
+   * The IDs of the optimization suggestions that you want to apply. Separate multiple IDs with commas (,).
    * 
    * @example
    * c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
    */
   adviceIdList?: string;
+  /**
+   * @remarks
+   * The action to be applied.
+   * 
+   * @example
+   * DROP_INDEX
+   */
   applyType?: string;
+  /**
+   * @remarks
+   * Specifies whether to immediately start the build task.
+   * 
+   * @example
+   * false
+   */
   buildImmediately?: boolean;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the data warehouse cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of data warehouse clusters.
    * 
    * This parameter is required.
    * 
@@ -35,7 +49,7 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The region ID of the cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

@@ -3,12 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BindDBResourcePoolWithUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A client-generated token that ensures the idempotence of the request. The token must be unique among different requests. It is case-sensitive and must not exceed 64 ASCII characters.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-t7241****
+   */
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all Data Warehouse Edition clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -30,7 +37,7 @@ export class BindDBResourcePoolWithUserRequest extends $dara.Model {
   poolName?: string;
   /**
    * @remarks
-   * The database account with which to associate the resource group. It can be a standard account or a privileged account.
+   * The database account to attach. You can attach either a standard account or a privileged account.
    * 
    * This parameter is required.
    * 

@@ -27,7 +27,7 @@ export class ModifyDBClusterPayTypeResponseBody extends $dara.Model {
    * *   **Prepaid**: subscription
    * 
    * @example
-   * Postpaid
+   * Prepaid
    */
   payType?: string;
   /**

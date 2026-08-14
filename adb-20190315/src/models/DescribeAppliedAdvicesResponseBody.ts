@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The suggestion ID.
+   * The advice ID.
    * 
    * @example
    * 7417db9c-914d-43f3-a123-4d0e448f****
@@ -13,27 +13,35 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   adviceId?: string;
   /**
    * @remarks
-   * The benefit of the suggestion.
+   * The benefit of the advice.
    * 
    * @example
-   * 0.4 GB of storage saved
+   * Save 0.4 GB of storage space.
    */
   benefit?: string;
   /**
    * @remarks
-   * The SQL statement that is used to execute the BUILD job.
+   * The SQL statement that is used to run the build task.
    * 
    * @example
    * build table `schema1`.`table1`
    */
   buildSQL?: string;
+  /**
+   * @remarks
+   * The index fields.
+   * 
+   * @example
+   * index
+   */
   indexFields?: string;
   /**
    * @remarks
-   * The state of the suggestion execution job. Valid values:
+   * The state of the task that is run to apply the advice. Valid values:
    * 
-   * *   **SUCCEED**
-   * *   **FAILED**
+   * - **SUCCEED**: The task is successful.
+   * 
+   * - **FAILED**: The task fails.
    * 
    * @example
    * SUCCEED
@@ -41,7 +49,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   jobStatus?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1. Default value: 1.
+   * The page number. The value is an integer that is greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -51,9 +59,11 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -61,7 +71,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The SQL statement that is used to roll back the suggestion.
+   * The SQL statement that is used to roll back the advice.
    * 
    * @example
    * alter table `schema1`.`table1` add key col1_1_idx(col1)
@@ -69,7 +79,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   rollbackSQL?: string;
   /**
    * @remarks
-   * The SQL statement that is used to apply the suggestion.
+   * The SQL statement that is used to apply the advice.
    * 
    * @example
    * alter table `schema1`.`table1` drop key col1_1_idx
@@ -77,7 +87,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   SQL?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adb_demo
@@ -85,10 +95,11 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The submission state of the suggestion. Valid values:
+   * The submission status. Valid values:
    * 
-   * *   **SUCCEED**
-   * *   **FAILED**
+   * - **SUCCEED**: The submission is successful.
+   * 
+   * - **FAILED**: The submission fails.
    * 
    * @example
    * SUCCEED
@@ -96,7 +107,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   submitStatus?: string;
   /**
    * @remarks
-   * The time when the suggestion was submitted. The time follows the ISO 8601 standard in the yyMMddHHmm format. The time is displayed in UTC.
+   * The submission time. This value is a UTC time that is formatted as `yyMMddHHmm`.
    * 
    * @example
    * 2208131600
@@ -104,7 +115,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test
@@ -112,7 +123,7 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The total number of entries returned. Minimum value: 0. Default value: 0.
+   * The total number of returned suggestions. The value is an integer that is greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 1
@@ -168,12 +179,12 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
 export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried suggestions.
+   * The details.
    */
   items?: DescribeAppliedAdvicesResponseBodyItems[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value is an integer that is greater than 0. Default value: 1.
    * 
    * @example
    * 1
@@ -183,9 +194,11 @@ export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -201,12 +214,12 @@ export class DescribeAppliedAdvicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The names of the tables in the DatabaseName.TableName format.
+   * A list of concatenated strings of database and table names.
    */
   schemaTableNames?: string[];
   /**
    * @remarks
-   * The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
+   * The total number of returned results. The value is an integer that is greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 1

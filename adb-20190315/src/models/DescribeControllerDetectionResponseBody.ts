@@ -16,7 +16,7 @@ export class DescribeControllerDetectionResponseBodyDetectionItems extends $dara
    * The name of the detection item.
    * 
    * @example
-   * CPU increase detection
+   * CPU spike detection
    */
   name?: string;
   /**

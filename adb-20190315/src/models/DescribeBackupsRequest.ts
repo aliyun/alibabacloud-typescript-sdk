@@ -13,9 +13,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The Resource Access Management (RAM) role of the Alibaba Cloud account to which the backup set belongs.
+   * The RAM role name of the backup set owner\\"s Alibaba Cloud account.
    * 
-   * >  This parameter must be specified only when cross-account backup operations are performed.
+   * > Specify this parameter only when backing up across Alibaba Cloud accounts.
    * 
    * @example
    * role-for-xxx
@@ -23,9 +23,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   crossRole?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account to which the backup set belongs.
+   * The Alibaba Cloud account ID of the backup set owner.
    * 
-   * >  This parameter must be specified only when cross-account backup operations are performed.
+   * > Specify this parameter only when backing up across Alibaba Cloud accounts.
    * 
    * @example
    * 195****
@@ -33,9 +33,9 @@ export class DescribeBackupsRequest extends $dara.Model {
   crossUid?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > Call [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) to list cluster IDs in a region.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. It must be later than the start time. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2022-06-02T16:00Z
@@ -55,7 +55,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Valid values: positive integers greater than 0 and no larger than the maximum value of the integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -65,9 +65,11 @@ export class DescribeBackupsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -77,7 +79,7 @@ export class DescribeBackupsRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) to list supported regions and zones for AnalyticDB for MySQL, including region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -87,7 +89,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The start time of the query. Format: yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2022-06-01T16:00Z

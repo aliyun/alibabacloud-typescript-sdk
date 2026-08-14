@@ -558,7 +558,7 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
    * The name of the detection metric.
    * 
    * @example
-   * Table accesses
+   * Table access count
    */
   metricName?: string;
   /**

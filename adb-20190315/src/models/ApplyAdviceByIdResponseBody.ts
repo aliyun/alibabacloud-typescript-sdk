@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyAdviceByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message returned for the operation. Valid values:
+   * The result of the operation. Valid values:
    * 
-   * *   **SUCCESS** is returned if the operation is successful.
-   * *   An error message is returned if the operation fails.
+   * - Returns **SUCCESS** if the request is successful.
+   * 
+   * - Returns an error message if the request fails.
    * 
    * @example
    * SUCCESS
@@ -16,7 +17,7 @@ export class ApplyAdviceByIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5DC10091-348D-12B1-906D-AB49D658012E

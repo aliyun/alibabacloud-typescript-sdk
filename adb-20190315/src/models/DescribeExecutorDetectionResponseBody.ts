@@ -142,7 +142,7 @@ export class DescribeExecutorDetectionResponseBodyDetectionItemsResultsOperatorD
    * The property information about the operator.
    * 
    * @example
-   * GROUP BY field: uid
+   * Group By field: uid
    */
   operatorInfo?: string;
   /**
@@ -326,7 +326,7 @@ export class DescribeExecutorDetectionResponseBodyDetectionItems extends $dara.M
    * The name of the detection item.
    * 
    * @example
-   * CPU increase detection
+   * CPU spike detection
    */
   name?: string;
   /**

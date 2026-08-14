@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $dara.Model {
   /**
    * @remarks
-   * The start date of the current-day scaling plan. The date is in the yyyy-MM-dd format.
+   * The start date of the daily scaling plan. The date is in the yyyy-MM-dd format.
    * 
    * @example
    * 2022-12-02
@@ -13,10 +13,11 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   day?: string;
   /**
    * @remarks
-   * The number of nodes involved in the scaling plan.
+   * The number of nodes for the scaling plan.
    * 
-   * *   If ElasticPlanType is set to **worker**, a value of 0 or null is returned.
-   * *   If ElasticPlanType is set to **executorcombineworker** or **executor**, a value greater than 0 is returned.
+   * - If ElasticPlanType is set to **worker**, this parameter is not returned or the returned value is 0.
+   * 
+   * - If ElasticPlanType is set to **executorcombineworker** or **executor**, a value greater than 0 is returned.
    * 
    * @example
    * 0
@@ -24,11 +25,13 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   elasticNodeNum?: number;
   /**
    * @remarks
-   * The type of the scaling plan. Default value: executorcombineworker. Valid values:
+   * The resource type for the scaling plan. Valid values:
    * 
-   * *   **worker**: scales only elastic I/O resources.
-   * *   **executor**: scales only computing resources.
-   * *   **executorcombineworker**: scales both elastic I/O resources and computing resources by proportion.
+   * - **worker**: scales only elastic I/O resources.
+   * 
+   * - **executor**: scales only computing resources.
+   * 
+   * - **executorcombineworker** (default): scales both computing resources and elastic I/O resources based on the default ratio.
    * 
    * @example
    * worker
@@ -36,15 +39,21 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   elasticPlanType?: string;
   /**
    * @remarks
-   * The resource specifications that can be scaled up by the scaling plan. Default value: 8 Core 64 GB. Valid values:
+   * The resource specifications that are supported for scaling. Valid values:
    * 
-   * *   8 Core 64 GB
-   * *   16 Core 64 GB
-   * *   32 Core 64 GB
-   * *   64 Core 128 GB
-   * *   12 Core 96 GB
-   * *   24 Core 96 GB
-   * *   52 Core 86 GB
+   * - 8 Core 64 GB (default)
+   * 
+   * - 16 Core 64 GB
+   * 
+   * - 32 Core 64 GB
+   * 
+   * - 64 Core 128 GB
+   * 
+   * - 12 Core 96 GB
+   * 
+   * - 24 Core 96 GB
+   * 
+   * - 52 Core 86 GB
    * 
    * @example
    * 16 Core 64 GB
@@ -52,7 +61,7 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   elasticPlanWorkerSpec?: string;
   /**
    * @remarks
-   * The actual restoration time. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The actual time when the scaled-out resources were reverted. The time is in the yyyy-MM-dd hh:mm:ss format and is displayed in UTC.
    * 
    * @example
    * 2022-12-02 16:00:00
@@ -60,7 +69,7 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   endTs?: string;
   /**
    * @remarks
-   * The scheduled restoration time. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The scheduled time to revert the scaled-out resources. The time is in the yyyy-MM-dd hh:mm:ss format and is displayed in UTC.
    * 
    * @example
    * 2022-12-02 16:00:00
@@ -76,7 +85,7 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   planName?: string;
   /**
    * @remarks
-   * The scheduled scale-up time. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The scheduled scale-out time. The time is in the yyyy-MM-dd hh:mm:ss format and is displayed in UTC.
    * 
    * @example
    * 2022-12-02 15:00:00
@@ -92,7 +101,7 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   resourcePoolName?: string;
   /**
    * @remarks
-   * The actual scale-up time. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * The actual scale-out time. The time is in the yyyy-MM-dd hh:mm:ss format and is displayed in UTC.
    * 
    * @example
    * 2022-12-02 16:00:00
@@ -100,12 +109,15 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
   startTs?: string;
   /**
    * @remarks
-   * The execution state of the current-day scaling plan. Multiple values are separated by commas (,). Valid values:
+   * The execution status of the daily scaling plan. Valid values:
    * 
-   * *   **1**: The scaling plan is not executed.
-   * *   **2**: The scaling plan is being executed.
-   * *   **3**: The scaling plan is executed.
-   * *   **4**: The scaling plan fails to be executed.
+   * - **1**: Not executed.
+   * 
+   * - **2**: Executing.
+   * 
+   * - **3**: Succeeded.
+   * 
+   * - **4**: Failed.
    * 
    * @example
    * 3
@@ -155,12 +167,12 @@ export class DescribeElasticDailyPlanResponseBodyElasticDailyPlanList extends $d
 export class DescribeElasticDailyPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the current-day scaling plans.
+   * A list of daily scaling plans.
    */
   elasticDailyPlanList?: DescribeElasticDailyPlanResponseBodyElasticDailyPlanList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQAConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of AnalyticDB for MySQL clusters in a destination region.
    * 
    * @example
    * am-8vbyw9awuj141haf9
@@ -31,7 +31,7 @@ export class DescribeSQAConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether short query acceleration (SQA) is enabled.
+   * Indicates whether SQA is enabled.
    * 
    * @example
    * off

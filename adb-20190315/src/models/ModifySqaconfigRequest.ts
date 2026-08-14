@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySQAConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all Data Warehouse Edition clusters in a specific region.
    * 
    * This parameter is required.
    * 
    * @example
-   * am-8vb369k7zxdt10tz0
+   * am-xxxxxx
    */
   DBClusterId?: string;
   /**
    * @remarks
    * The name of the resource group.
    * 
-   * >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group name of a cluster.
+   * > Call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to view the name of the resource group for a specific cluster.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ModifySQAConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-4690g37929****
@@ -41,7 +41,7 @@ export class ModifySQAConfigRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable short query acceleration (SQA).
+   * Specifies whether to enable SQA.
    * 
    * This parameter is required.
    * 

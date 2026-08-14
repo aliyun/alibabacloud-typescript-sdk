@@ -22,7 +22,7 @@ export class ModifyDBClusterPayTypeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Postpaid
+   * Prepaid
    */
   payType?: string;
   /**

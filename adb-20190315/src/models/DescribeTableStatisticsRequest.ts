@@ -7,17 +7,17 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query a list of cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * am-****************
+   * am-bp183qgrwywa6****
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * The keyword that is used to query information by table name.
+   * The keyword for the query. Fuzzy search by table name is supported.
    * 
    * @example
    * you_table_name
@@ -25,14 +25,15 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The order in which to sort the queried information. Specify this parameter as an ordered JSON array that consists of the `Field` and `Type` fields. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
+   * The sorting rule for the returned results. The value is a JSON array that is ordered by the sequence of the elements in the array. Each element consists of `Field` and `Type`. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
    * 
-   * *   `Field` specifies the field that is used to sort the queried information. The following fields are supported: `TableName`, ColdDataSize, DataSize, PrimaryKeyIndexSize, RowCount, IndexSize, SchemaName, and PartitionCount.
+   * - `Field`: the field by which to sort the results. Valid values: TableName, ColdDataSize, DataSize, PrimaryKeyIndexSize, RowCount, IndexSize, SchemaName, and PartitionCount.
    * 
-   * *   `Type` specifies the sorting order. Valid values (case-insensitive):
+   * - `Type`: the sorting type. Valid values (case-insensitive):
    * 
-   *     *   **Desc**: descending order.
-   *     *   **Asc**: ascending order.
+   *   - **Desc**: descending.
+   * 
+   *   - **Asc**: ascending.
    * 
    * @example
    * [ { "Field":"TableName", "Type":"Asc" } ]
@@ -42,7 +43,7 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -50,11 +51,13 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * 
+   * - **50**
+   * 
+   * - **100**
    * 
    * @example
    * 30
@@ -62,9 +65,9 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
    * 
    * @example
    * cn-beijing
@@ -72,6 +75,13 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * cust_pay_instruction
+   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class BatchApplyAdviceByIdListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message returned for the operation. Valid values:
+   * The message returned for the request.
    * 
-   * *   **SUCCESS** is returned if the operation is successful.
-   * *   An error message is returned if the operation fails.
+   * - If the request is successful, **SUCCESS** is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
    * SUCCESS
@@ -16,7 +17,7 @@ export class BatchApplyAdviceByIdListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 86F92D26-B774-5FA1-8E53-82CBEEEBB012

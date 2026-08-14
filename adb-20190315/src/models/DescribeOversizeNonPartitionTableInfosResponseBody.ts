@@ -8,7 +8,7 @@ export class DescribeOversizeNonPartitionTableInfosResponseBodyDetectionItems ex
    * The information about the detection result.
    * 
    * @example
-   * Multiple oversized non-partitioned tables are detected.
+   * Tables with improper partitioning are detected.
    */
   message?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeOversizeNonPartitionTableInfosResponseBodyDetectionItems ex
    * The name of the detection item.
    * 
    * @example
-   * Oversized non-partitioned tables
+   * Oversized non-partitioned table detection
    */
   name?: string;
   /**

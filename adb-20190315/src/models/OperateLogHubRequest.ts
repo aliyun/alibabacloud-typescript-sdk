@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateLogHubRequestLogHubStores extends $dara.Model {
   /**
    * @remarks
-   * The value of the log keyword.
+   * The value that corresponds to the keyword.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class OperateLogHubRequestLogHubStores extends $dara.Model {
 export class OperateLogHubRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to create the log shipping job.
+   * Specifies whether to create the rule.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class OperateLogHubRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of AnalyticDB for MySQL clusters in your account.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class OperateLogHubRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the log shipping job.
+   * The delivery name.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class OperateLogHubRequest extends $dara.Model {
   deliverName?: string;
   /**
    * @remarks
-   * The shipping time.
+   * The delivery time.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class OperateLogHubRequest extends $dara.Model {
   deliverTime?: string;
   /**
    * @remarks
-   * The description of the log shipping job.
+   * The description.
    * 
    * This parameter is required.
    * 
@@ -103,25 +103,20 @@ export class OperateLogHubRequest extends $dara.Model {
    * @remarks
    * Specifies whether to filter dirty data.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
    * @example
    * false
    */
   filterDirtyData?: boolean;
   /**
    * @remarks
-   * The log keywords.
+   * An array of field mappings.
    * 
    * This parameter is required.
    */
   logHubStores?: OperateLogHubRequestLogHubStores[];
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the Simple Log Service (SLS) Logstore.
    * 
    * This parameter is required.
    * 
@@ -133,7 +128,7 @@ export class OperateLogHubRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the database account.
+   * The password.
    * 
    * This parameter is required.
    * 
@@ -153,7 +148,7 @@ export class OperateLogHubRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The channel of the log shipping job.
+   * The provider.
    * 
    * @example
    * SLS
@@ -163,7 +158,7 @@ export class OperateLogHubRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * This parameter is required.
    * 
@@ -173,7 +168,7 @@ export class OperateLogHubRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * This parameter is required.
    * 
@@ -183,7 +178,7 @@ export class OperateLogHubRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The account of the database.
+   * The database account name.
    * 
    * This parameter is required.
    * 
@@ -15,8 +15,9 @@ export class DeleteAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * *   Normal: standard account
-   * *   Super: privileged account
+   * - Normal: a standard account.
+   * 
+   * - Super: a privileged account.
    * 
    * @example
    * Normal
@@ -24,7 +25,7 @@ export class DeleteAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

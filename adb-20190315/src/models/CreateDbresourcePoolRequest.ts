@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBResourcePoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL clusters in a specific region.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,11 @@ export class CreateDBResourcePoolRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The number of nodes. Default value: 0.
+   * The number of nodes. The default value is 0.
    * 
-   * *   Each node provides 16 cores and 64 GB memory.
-   * *   The total amount of resources provided by the nodes (number of nodes × 16 cores, number of nodes × 64 GB memory) cannot exceed the total amount of resources in the cluster. Set this parameter to a proper value.
+   * - A single node provides 16 cores and 64 GB of memory.
+   * 
+   * - The total resources, calculated as (Number of nodes × 16 cores and 64 GB of memory), cannot exceed the total resources of the cluster.
    * 
    * @example
    * 2
@@ -32,9 +33,11 @@ export class CreateDBResourcePoolRequest extends $dara.Model {
    * @remarks
    * The name of the resource group.
    * 
-   * *   The name can be up to 255 characters in length.
-   * *   The name must start with a letter or a digit.
-   * *   The name can contain letters, digits, hyphens (_), and underscores (_).
+   * - The name can be up to 255 characters in length.
+   * 
+   * - It must start with a digit, an uppercase letter, or a lowercase letter.
+   * 
+   * - It can contain digits, uppercase letters, lowercase letters, hyphens (-), and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -44,11 +47,11 @@ export class CreateDBResourcePoolRequest extends $dara.Model {
   poolName?: string;
   /**
    * @remarks
-   * The mode in which to execute SQL statements.
+   * The execution mode of the SQL query. Valid values:
    * 
-   * *   **batch**
+   * - **batch**: batch processing mode.
    * 
-   * *   **interactive**
+   * - **interactive** (default): interactive mode.
    * 
    * > For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
    * 

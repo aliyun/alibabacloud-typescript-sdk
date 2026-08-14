@@ -7,7 +7,7 @@ export class ModifyResubmitConfigShrinkRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the details of all AnalyticDB for MySQL clusters in the destination region. The details include the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ModifyResubmitConfigShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The job resubmission rules.
+   * The job delivery rules.
    * 
    * This parameter is required.
    */

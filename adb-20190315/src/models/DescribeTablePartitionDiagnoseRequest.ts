@@ -10,7 +10,7 @@ export class DescribeTablePartitionDiagnoseRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * am-bp1xxxxxxxx47
+   * am-bpxxxxxxxx47
    */
   DBClusterId?: string;
   /**

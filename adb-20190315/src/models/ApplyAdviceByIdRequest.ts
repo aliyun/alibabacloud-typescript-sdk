@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyAdviceByIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated. Specify the date in the yyyyMMdd format. The date must be in UTC.
+   * The date when the optimization advice was generated, specified in `yyyyMMdd` format in UTC.
    * 
    * @example
    * 20221101
@@ -13,19 +13,33 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
   adviceDate?: number;
   /**
    * @remarks
-   * The suggestion ID.
+   * The optimization advice ID.
    * 
    * @example
    * 0baf1f52-53df-487f-8292-99a03716****
    */
   adviceId?: string;
+  /**
+   * @remarks
+   * The adoption type.
+   * 
+   * @example
+   * DROP_INDEX
+   */
   applyType?: string;
+  /**
+   * @remarks
+   * Specifies whether to start the build task immediately.
+   * 
+   * @example
+   * false
+   */
   buildImmediately?: boolean;
   /**
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of data warehouse clusters.
    * 
    * This parameter is required.
    * 
@@ -35,9 +49,9 @@ export class ApplyAdviceByIdRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available regions.
    * 
    * This parameter is required.
    * 

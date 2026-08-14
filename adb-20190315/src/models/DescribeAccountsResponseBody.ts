@@ -119,13 +119,17 @@ export class DescribeAccountsResponseBodyAccountList extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the database accounts.
+   */
   accountList?: DescribeAccountsResponseBodyAccountList;
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 64E37E6F-C363-41F3-867A-70EF5DC60EA4
+   * 9CCFAAB4-97B7-5800-B9F2-685EB596E3EF
    */
   requestId?: string;
   static names(): { [key: string]: string } {

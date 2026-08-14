@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyResubmitConfigRequestRules extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to configure out-of-memory (OOM) check.
+   * Specifies whether to configure a memory overflow exception.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ModifyResubmitConfigRequestRules extends $dara.Model {
   peakMemory?: string;
   /**
    * @remarks
-   * The duration of the SQL statement. Unit: milliseconds.
+   * The execution duration of the SQL statement. Unit: milliseconds (ms).
    * 
    * @example
    * 300
@@ -37,7 +37,7 @@ export class ModifyResubmitConfigRequestRules extends $dara.Model {
   queryTime?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * test_target_group
@@ -77,7 +77,7 @@ export class ModifyResubmitConfigRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the details of all AnalyticDB for MySQL clusters in the destination region. The details include the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class ModifyResubmitConfigRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The job resubmission rules.
+   * The job delivery rules.
    * 
    * This parameter is required.
    */

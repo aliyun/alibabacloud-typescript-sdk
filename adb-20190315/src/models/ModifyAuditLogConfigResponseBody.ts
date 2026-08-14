@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAuditLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -13,10 +13,11 @@ export class ModifyAuditLogConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the status of SQL audit is updated. Valid values:
+   * Indicates whether the status of the SQL audit feature is updated. Valid values:
    * 
-   * *   **true**: The status of SQL audit is updated.
-   * *   **false**: The status of SQL audit is not updated.
+   * - **true**: The status is updated.
+   * 
+   * - **false**: The status failed to be updated.
    * 
    * @example
    * true

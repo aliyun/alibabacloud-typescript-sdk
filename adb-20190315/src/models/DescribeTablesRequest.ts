@@ -10,7 +10,7 @@ export class DescribeTablesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * am-bp1xxxxxxxx47
+   * am-bp1r053byu48p****
    */
   DBClusterId?: string;
   ownerAccount?: string;

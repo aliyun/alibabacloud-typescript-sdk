@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuditLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the IDs of all Data Warehouse Edition clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the database on which you want to execute the SQL statement.
+   * The name of the database on which the SQL statement was executed.
    * 
    * @example
    * adb_demo
@@ -25,10 +25,11 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
    * > - The end time must be later than the start time.
-   * > - The maximum time range that can be specified is 24 hours.
+   * >
+   * > - The time range to query cannot exceed 24 hours.
    * 
    * @example
    * 2022-01-23T22:18Z
@@ -36,7 +37,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The IP address and port number of the client that is used to execute the SQL statement.
+   * The IP address and port number of the client that was used to execute the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -44,22 +45,29 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   hostAddress?: string;
   /**
    * @remarks
-   * The order in which specified fields are sorted. Specify this parameter as an ordered JSON array that consists of the Field and Type fields.
+   * The sorting order of the query results. Specify the value as an ordered JSON array. The results are sorted based on the order of fields in the array. Each object in the array contains the \\`Field\\` and \\`Type\\` fields.
    * 
-   * *   Field specifies the field that is used to sort the retrieved entries. Valid values:
+   * - Field specifies the field by which to sort the query results. Valid values:
    * 
-   *     *   HostAddress: the IP address of the client that is used to connect to the database.
-   *     *   Succeed: specifies whether the SQL statement is successfully executed.
-   *     *   TotalTime: the total amount of time that is consumed to execute the SQL statement.
-   *     *   DBName: the name of the database on which the SQL statement is executed.
-   *     *   SQLType: the type of the SQL statement.
-   *     *   User: the username that is used to execute the SQL statement.
-   *     *   ExecuteTime: the time to start executing the SQL statement.
+   *   - HostAddress: the IP address of the client that connects to the database.
    * 
-   * *   Type specifies the sorting order. Valid values:
+   *   - Succeed: specifies whether the SQL statement was successfully executed.
    * 
-   *     *   Desc: descending order.
-   *     *   Asc: ascending order.
+   *   - TotalTime: the total amount of time that is consumed to execute the SQL statement.
+   * 
+   *   - DBName: the name of the database on which the SQL statement was executed.
+   * 
+   *   - SQLType: the type of the SQL statement.
+   * 
+   *   - User: the username that was used to execute the SQL statement.
+   * 
+   *   - ExecuteTime: the start time of the SQL statement execution.
+   * 
+   * - Type specifies the sorting method. Valid values:
+   * 
+   *   - Desc: descending.
+   * 
+   *   - Asc: ascending.
    * 
    * @example
    * [{"Field":"ExecuteTime","Type":"Desc"},{"Field":"HostAddress","Type":"Asc"}]
@@ -67,10 +75,11 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The sorting order of the retrieved entries. Valid values:
+   * The order by which to sort the query results based on the execution time of the SQL statement. Valid values:
    * 
-   * *   **asc**: sorts the retrieved entries by time in ascending order.
-   * *   **desc**: sorts the retrieved entries by time in descending order.
+   * - **asc**: ascending.
+   * 
+   * - **desc**: descending.
    * 
    * @example
    * asc
@@ -80,7 +89,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value is an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -88,22 +97,26 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values:
+   * The number of entries to return on each page. Valid values:
    * 
-   * *   **10**
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **10**
    * 
-   * >  If you leave this parameter empty, the value 10 is used.
+   * - **30**
+   * 
+   * - **50**
+   * 
+   * - **100**
+   * 
+   * > If you do not specify this parameter, the default value is 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  processId?: string;
   /**
    * @remarks
-   * The keywords that are included in the SQL statement to query.
+   * The keyword for the query. This keyword is used to filter SQL statements.
    * 
    * @example
    * adb
@@ -111,9 +124,9 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   queryKeyword?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to view the regions and zones, including the region IDs, that are supported by AnalyticDB for MySQL.
    * 
    * This parameter is required.
    * 
@@ -127,15 +140,21 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
    * @remarks
    * The type of the SQL statement. Valid values:
    * 
-   * *   **DELETE**
-   * *   **SELECT**
-   * *   **UPDATE**
-   * *   **INSERT_INTO_SELECT**
-   * *   **ALTER**
-   * *   **DROP**
-   * *   **CREATE**
+   * - **DELETE**
    * 
-   * > You can query only a single type of SQL statements at a time. If you leave this parameter empty, the **SELECT** statements are queried.
+   * - **SELECT**
+   * 
+   * - **UPDATE**
+   * 
+   * - **INSERT_INTO_SELECT**
+   * 
+   * - **ALTER**
+   * 
+   * - **DROP**
+   * 
+   * - **CREATE**
+   * 
+   * > You can query for only one type of SQL statement at a time. If you leave this parameter empty, all types of SQL statements are queried.
    * 
    * @example
    * SELECT
@@ -143,9 +162,9 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The start of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
    * 
-   * > SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+   * > You can query SQL audit logs only when SQL Audit is enabled. You can query only the SQL audit logs from the last 30 days. If you disable and then re-enable SQL Audit, you can query only the logs generated after it was re-enabled.
    * 
    * @example
    * 2022-01-23T02:18Z
@@ -153,10 +172,11 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Specifies whether the execution of the SQL statement succeeds. Valid values:
+   * Specifies whether the SQL statement was successfully executed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The SQL statement was successfully executed.
+   * 
+   * - **false**: The SQL statement failed to be executed.
    * 
    * @example
    * true
@@ -164,7 +184,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
   succeed?: string;
   /**
    * @remarks
-   * The name of the user who executed the SQL statement.
+   * The username that was used to execute the SQL statement.
    * 
    * @example
    * test_user
@@ -182,6 +202,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      processId: 'ProcessId',
       queryKeyword: 'QueryKeyword',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -205,6 +226,7 @@ export class DescribeAuditLogRecordsRequest extends $dara.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      processId: 'string',
       queryKeyword: 'string',
       regionId: 'string',
       resourceOwnerAccount: 'string',

@@ -5,7 +5,25 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CreateAccountRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag \\`N\\`. You can specify up to 20 tags. \\`N\\` is the serial number of the tag and must be a unique integer that starts from 1.
+   * 
+   * > The tag key can be up to 64 characters in length. It cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * 
+   * @example
+   * testkey1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag \\`N\\`. \\`N\\` corresponds to the \\`N\\` in \\`Tag.N.Key\\`.
+   * 
+   * > The tag value can be up to 64 characters in length. It cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * 
+   * @example
+   * testvalue1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,23 +51,27 @@ export class CreateAccountRequestTag extends $dara.Model {
 export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the database account.
+   * The description of the account.
    * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description can be up to 256 characters in length.
+   * - Cannot start with `http://` or `https://`.
+   * 
+   * - Be up to 256 characters in length.
    * 
    * @example
-   * Test account
+   * Database test account
    */
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The name of the database account. The name must meet the following requirements:
    * 
-   * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must be 2 to 16 characters in length.
-   * *   Reserved account names such as root, admin, and opsadmin cannot be used.
+   * - Start with a lowercase letter and end with a lowercase letter or a digit.
+   * 
+   * - Contain only lowercase letters, digits, and underscores (_).
+   * 
+   * - Be 2 to 16 characters in length.
+   * 
+   * - Cannot be a reserved name, such as root, admin, or opsadmin.
    * 
    * This parameter is required.
    * 
@@ -59,11 +81,13 @@ export class CreateAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password of the database account. The password must meet the following requirements:
    * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-   * *   The password must be 8 to 32 characters in length.
+   * - Contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * 
+   * - The special characters are `!@#$%^&*()_+-=`.
+   * 
+   * - Be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -73,12 +97,15 @@ export class CreateAccountRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The type of the database account. Valid values:
+   * The type of the account. Valid values:
    * 
-   * *   **Normal**: standard account. Up to 256 standard accounts can be created for a cluster.
-   * *   **Super** (default): privileged account. Only a single privileged account can be created for a cluster.
+   * - **Normal**: A standard account. A cluster can have a maximum of 256 standard accounts.
    * 
-   * >  If a cluster does not have accounts, you can specify this parameter to create a privileged account or standard account. If a cluster has a privileged account, you must set this parameter to Normal to create a standard account. Otherwise, the operation fails. After an account is created, the privileged account has permissions on all databases of the cluster. The standard account does not have permissions and must be granted permissions on specific databases by the privileged account. For more information, see GRANT.
+   * - **Super** (default): A privileged account. Only one privileged account can be created for a cluster.
+   * 
+   * > * If a cluster has no accounts, you can create a privileged account or a standard account. If a privileged account already exists in the cluster, you must set this parameter to Normal to create a standard account.
+   * >
+   * > * After an account is created, the privileged account has permissions on all databases in the cluster. A standard account has no permissions by default. A privileged account must be used to grant permissions on specific databases to the standard account. For more information, see [Grant permissions to a user](https://help.aliyun.com/document_detail/123662.html).
    * 
    * @example
    * Normal
@@ -86,9 +113,9 @@ export class CreateAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+   * The ID of the Data Warehouse Edition (V3.0) cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view cluster IDs.
+   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -100,6 +127,10 @@ export class CreateAccountRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: CreateAccountRequestTag[];
   static names(): { [key: string]: string } {
     return {
