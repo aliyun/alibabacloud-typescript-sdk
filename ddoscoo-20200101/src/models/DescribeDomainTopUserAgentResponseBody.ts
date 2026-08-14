@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainTopUserAgentResponseBodyDomainTopUa extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name of the website.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The page views.
-   * 
-   * @example
-   * 22121
-   */
   pv?: number;
-  /**
-   * @remarks
-   * The Base64-encoded user agent.
-   * 
-   * @example
-   * TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvOTYuMC40NjY0LjExMCACYWZhcmkvNTM3LjM2
-   */
   userAgent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,18 +32,7 @@ export class DescribeDomainTopUserAgentResponseBodyDomainTopUa extends $dara.Mod
 }
 
 export class DescribeDomainTopUserAgentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the user agents.
-   */
   domainTopUa?: DescribeDomainTopUserAgentResponseBodyDomainTopUa[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

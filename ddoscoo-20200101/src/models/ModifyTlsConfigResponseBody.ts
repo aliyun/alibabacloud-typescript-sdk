@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyTlsConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

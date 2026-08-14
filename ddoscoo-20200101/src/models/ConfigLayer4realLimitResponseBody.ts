@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfigLayer4RealLimitResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CFCF71BD-680E-5A20-8847-174CEC62E67D
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

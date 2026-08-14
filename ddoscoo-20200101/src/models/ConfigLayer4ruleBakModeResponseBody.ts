@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfigLayer4RuleBakModeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CC042262-15A3-4A49-ADF0-130968EA47BC
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

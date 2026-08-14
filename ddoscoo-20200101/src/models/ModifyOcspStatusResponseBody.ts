@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyOcspStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * D8DDBA8E-8182-5C85-AA41-F17EACFCAE0D
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

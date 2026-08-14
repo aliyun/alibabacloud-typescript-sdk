@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyWebAreaBlockSwitchResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,20 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCnameReusesRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names of the websites. You can specify the domain names of up to 200 websites.
-   * 
-   * >  A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * www.aliyun.com
    */
   domains?: string[];
-  /**
-   * @example
-   * default
-   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

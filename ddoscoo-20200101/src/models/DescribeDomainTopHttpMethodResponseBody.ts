@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainTopHttpMethodResponseBodyDomainTopMethod extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name of the website.
-   * 
-   * @example
-   * example.aliyundoc.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The HTTP method.
-   * 
-   * @example
-   * GET
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The page views.
-   * 
-   * @example
-   * 22121
-   */
   pv?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,18 +32,7 @@ export class DescribeDomainTopHttpMethodResponseBodyDomainTopMethod extends $dar
 }
 
 export class DescribeDomainTopHttpMethodResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about top HTTP methods.
-   */
   domainTopMethod?: DescribeDomainTopHttpMethodResponseBodyDomainTopMethod[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

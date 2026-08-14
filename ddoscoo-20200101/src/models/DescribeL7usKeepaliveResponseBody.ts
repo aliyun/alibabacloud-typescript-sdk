@@ -4,32 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $dara.Model {
   dsKeepaliveTimeout?: number;
-  /**
-   * @remarks
-   * Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The number of requests that reuse persistent connections.
-   * 
-   * @example
-   * 1000
-   */
   keepaliveRequests?: number;
-  /**
-   * @remarks
-   * The timeout period of idle persistent connections.
-   * 
-   * @example
-   * 30
-   */
   keepaliveTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -59,18 +35,7 @@ export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $dara.Model {
 }
 
 export class DescribeL7UsKeepaliveResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The value of the Back-to-origin Persistent Connections parameter.
-   */
   rsKeepalive?: DescribeL7UsKeepaliveResponseBodyRsKeepalive;
   static names(): { [key: string]: string } {
     return {

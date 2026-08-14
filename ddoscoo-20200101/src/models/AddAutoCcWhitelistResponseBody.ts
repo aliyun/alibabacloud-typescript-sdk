@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddAutoCcWhitelistResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AB5025DA-5C52-5207-B6AC-3F198758B678
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

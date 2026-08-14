@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParamParamData extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   accessQps?: number;
-  /**
-   * @example
-   * 0
-   */
   upstreamQps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +30,6 @@ export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRulePara
 
 export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParam extends $dara.Model {
   paramData?: DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParamParamData;
-  /**
-   * @example
-   * cdn
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,35 +58,11 @@ export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRulePara
 }
 
 export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleRules extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   priority?: number;
-  /**
-   * @example
-   * ""
-   */
   regionId?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * A
-   */
   type?: string;
-  /**
-   * @example
-   * 203.107.XX.XX
-   */
   value?: string;
-  /**
-   * @example
-   * 1
-   */
   valueType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -132,16 +96,8 @@ export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleRule
 }
 
 export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRule extends $dara.Model {
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   cname?: string;
   param?: DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParam;
-  /**
-   * @example
-   * testDDos
-   */
   ruleName?: string;
   rules?: DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleRules[];
   static names(): { [key: string]: string } {
@@ -178,16 +134,8 @@ export class DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRule ext
 }
 
 export class DescribeCdnLinkageRulesResponseBodySchedulerRules extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   cdnLinkageEnable?: number;
   cdnLinkageRule?: DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRule;
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -218,16 +166,8 @@ export class DescribeCdnLinkageRulesResponseBodySchedulerRules extends $dara.Mod
 }
 
 export class DescribeCdnLinkageRulesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 02FE96D9-C77B-5735-B36D-329E052C8047
-   */
   requestId?: string;
   schedulerRules?: DescribeCdnLinkageRulesResponseBodySchedulerRules[];
-  /**
-   * @example
-   * 12
-   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {

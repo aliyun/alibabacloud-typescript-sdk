@@ -3,28 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSchedulerRulesRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * default
-   */
   resourceGroupId?: string;
-  /**
-   * @example
-   * testrule
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,18 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeElasticBandwidthSpecResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of the available burstable protection bandwidths. Unit: Gbit/s.
-   */
   elasticBandwidthSpec?: string[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

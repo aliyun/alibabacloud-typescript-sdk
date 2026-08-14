@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePortConnsListResponseBodyConnsList extends $dara.Model {
-  /**
-   * @remarks
-   * The number of active connections.
-   * 
-   * @example
-   * 3
-   */
   actConns?: number;
-  /**
-   * @remarks
-   * >  This parameter is in internal preview. Do not use this parameter.
-   * 
-   * @example
-   * 8
-   */
   conns?: number;
-  /**
-   * @remarks
-   * The number of new connections.
-   * 
-   * @example
-   * 0
-   */
   cps?: number;
-  /**
-   * @remarks
-   * The number of inactive connections.
-   * 
-   * @example
-   * 2
-   */
   inActConns?: number;
-  /**
-   * @remarks
-   * The index number of the returned data.
-   * 
-   * @example
-   * 16506
-   */
   index?: number;
   static names(): { [key: string]: string } {
     return {
@@ -73,18 +38,7 @@ export class DescribePortConnsListResponseBodyConnsList extends $dara.Model {
 }
 
 export class DescribePortConnsListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the connections established over the port.
-   */
   connsList?: DescribePortConnsListResponseBodyConnsList[];
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

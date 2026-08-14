@@ -3,111 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainStatusCodeCountResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The number of 200 status codes within the specified period of time.
-   * 
-   * @example
-   * 951159
-   */
   status200?: number;
-  /**
-   * @remarks
-   * The number of 2xx status codes within the specified period of time.
-   * 
-   * @example
-   * 951472
-   */
   status2XX?: number;
-  /**
-   * @remarks
-   * The number of 3xx status codes within the specified period of time.
-   * 
-   * @example
-   * 133209
-   */
   status3XX?: number;
-  /**
-   * @remarks
-   * The number of 403 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status403?: number;
-  /**
-   * @remarks
-   * The number of 404 status codes within the specified period of time.
-   * 
-   * @example
-   * 897
-   */
   status404?: number;
-  /**
-   * @remarks
-   * The number of 405 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status405?: number;
   status410?: number;
   status499?: number;
-  /**
-   * @remarks
-   * The number of 4xx status codes within the specified period of time.
-   * 
-   * @example
-   * 5653
-   */
   status4XX?: number;
-  /**
-   * @remarks
-   * The number of 501 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status501?: number;
-  /**
-   * @remarks
-   * The number of 502 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status502?: number;
-  /**
-   * @remarks
-   * The number of 503 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status503?: number;
-  /**
-   * @remarks
-   * The number of 504 status codes within the specified period of time.
-   * 
-   * @example
-   * 0
-   */
   status504?: number;
-  /**
-   * @remarks
-   * The number of 5xx status codes within the specified period of time.
-   * 
-   * @example
-   * 14
-   */
   status5XX?: number;
   static names(): { [key: string]: string } {
     return {

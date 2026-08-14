@@ -3,78 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeElasticQpsResponseBodyElasticQps extends $dara.Model {
-  /**
-   * @remarks
-   * The index number of the returned data.
-   * 
-   * @example
-   * 1
-   */
   index?: number;
-  /**
-   * @remarks
-   * The peak QPS of the normal service.
-   * 
-   * @example
-   * 23
-   */
   maxNormalQps?: number;
-  /**
-   * @remarks
-   * The peak inbound QPS.
-   * 
-   * @example
-   * 100
-   */
   maxQps?: number;
-  /**
-   * @remarks
-   * The total number of requests during the step size period.
-   * 
-   * @example
-   * 15104
-   */
   pv?: number;
-  /**
-   * @remarks
-   * The total number of HTTP 2xx status codes during the step size period.
-   * 
-   * @example
-   * 455
-   */
   status2?: number;
-  /**
-   * @remarks
-   * The total number of HTTP 3xx status codes during the step size period.
-   * 
-   * @example
-   * 100
-   */
   status3?: number;
-  /**
-   * @remarks
-   * The total number of HTTP 4xx status codes during the step size period.
-   * 
-   * @example
-   * 34
-   */
   status4?: number;
   status410Pv?: number;
-  /**
-   * @remarks
-   * The total number of HTTP 5xx status codes during the step size period.
-   * 
-   * @example
-   * 0
-   */
   status5?: number;
-  /**
-   * @remarks
-   * The total number of origin requests during the step size period.
-   * 
-   * @example
-   * 1223
-   */
   ups?: number;
   static names(): { [key: string]: string } {
     return {
@@ -116,18 +53,7 @@ export class DescribeElasticQpsResponseBodyElasticQps extends $dara.Model {
 }
 
 export class DescribeElasticQpsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the burstable QPS.
-   */
   elasticQps?: DescribeElasticQpsResponseBodyElasticQps[];
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 2E7F7F7B-39A8-5D92-BAB4-D89D9DCE7D4F
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

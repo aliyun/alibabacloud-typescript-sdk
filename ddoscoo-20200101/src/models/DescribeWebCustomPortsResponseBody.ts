@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWebCustomPortsResponseBodyWebCustomPorts extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of supported custom ports.
-   */
   proxyPorts?: string[];
-  /**
-   * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   **http**
-   * *   **https**
-   * 
-   * @example
-   * http
-   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,18 +32,7 @@ export class DescribeWebCustomPortsResponseBodyWebCustomPorts extends $dara.Mode
 }
 
 export class DescribeWebCustomPortsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * An array consisting of information about supported custom ports that are used by a website.
-   */
   webCustomPorts?: DescribeWebCustomPortsResponseBodyWebCustomPorts[];
   static names(): { [key: string]: string } {
     return {

@@ -3,31 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCdnLinkageRulesRequest extends $dara.Model {
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   domain?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * default
-   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

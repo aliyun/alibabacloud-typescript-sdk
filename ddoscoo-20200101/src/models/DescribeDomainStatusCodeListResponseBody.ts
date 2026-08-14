@@ -3,119 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainStatusCodeListResponseBodyStatusCodeList extends $dara.Model {
-  /**
-   * @remarks
-   * The index number of the returned data.
-   * 
-   * @example
-   * 0
-   */
   index?: number;
-  /**
-   * @remarks
-   * The number of 200 status codes.
-   * 
-   * @example
-   * 15520
-   */
   status200?: number;
-  /**
-   * @remarks
-   * The number of 2xx status codes.
-   * 
-   * @example
-   * 15520
-   */
   status2XX?: number;
-  /**
-   * @remarks
-   * The number of 3xx status codes.
-   * 
-   * @example
-   * 0
-   */
   status3XX?: number;
-  /**
-   * @remarks
-   * The number of 403 status codes.
-   * 
-   * @example
-   * 0
-   */
   status403?: number;
-  /**
-   * @remarks
-   * The number of 404 status codes.
-   * 
-   * @example
-   * 0
-   */
   status404?: number;
-  /**
-   * @remarks
-   * The number of 405 status codes.
-   * 
-   * @example
-   * 0
-   */
   status405?: number;
   status410?: number;
   status499?: number;
-  /**
-   * @remarks
-   * The number of 4xx status codes.
-   * 
-   * @example
-   * 4486
-   */
   status4XX?: number;
-  /**
-   * @remarks
-   * The number of 501 status codes.
-   * 
-   * @example
-   * 0
-   */
   status501?: number;
-  /**
-   * @remarks
-   * The number of 502 status codes.
-   * 
-   * @example
-   * 0
-   */
   status502?: number;
-  /**
-   * @remarks
-   * The number of 503 status codes.
-   * 
-   * @example
-   * 0
-   */
   status503?: number;
-  /**
-   * @remarks
-   * The number of 504 status codes.
-   * 
-   * @example
-   * 0
-   */
   status504?: number;
-  /**
-   * @remarks
-   * The number of 5xx status codes.
-   * 
-   * @example
-   * 0
-   */
   status5XX?: number;
-  /**
-   * @remarks
-   * The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
-   * 
-   * @example
-   * 1582992000
-   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -169,18 +71,7 @@ export class DescribeDomainStatusCodeListResponseBodyStatusCodeList extends $dar
 }
 
 export class DescribeDomainStatusCodeListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 3B63C0DD-8AC5-44B2-95D6-064CA9296B9C
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics on response status codes.
-   */
   statusCodeList?: DescribeDomainStatusCodeListResponseBodyStatusCodeList[];
   static names(): { [key: string]: string } {
     return {

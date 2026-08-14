@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDomainResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name for which the forwarding rule is configured.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * www.example.com
    */
   domain?: string;
   static names(): { [key: string]: string } {

@@ -6,17 +6,11 @@ export class ConfigL7GlobalRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * example.com
    */
   domain?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * [{\\"RuleId\\":\\"global_01\\",\\"Action\\":\\"block\\",\\"Enabled\\":0}]
    */
   ruleAttr?: string;
   static names(): { [key: string]: string } {

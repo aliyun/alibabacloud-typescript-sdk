@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of the IDs of instances to query.
-   * 
    * This parameter is required.
    */
   instanceIds?: string[];

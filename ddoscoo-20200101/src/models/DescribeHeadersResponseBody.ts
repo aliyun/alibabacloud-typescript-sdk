@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHeadersResponseBodyCustomHeader extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name of the website.
-   * 
-   * @example
-   * example.aliyundoc.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The header of the response.
-   * 
-   * @example
-   * {"X-Forwarded-ClientSrcPort":"","header1":"hLeLele"}
-   */
   headers?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,10 +29,6 @@ export class DescribeHeadersResponseBodyCustomHeader extends $dara.Model {
 }
 
 export class DescribeHeadersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the custom header.
-   */
   customHeader?: DescribeHeadersResponseBodyCustomHeader;
   /**
    * @example
@@ -56,13 +38,6 @@ export class DescribeHeadersResponseBody extends $dara.Model {
    * false
    */
   embeddedHeaders?: string;
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 48BC7BA5-69BE-5C31-A080-AFF2431AE48D
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

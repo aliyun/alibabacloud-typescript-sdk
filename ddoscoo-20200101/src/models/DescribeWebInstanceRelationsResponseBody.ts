@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanceDetails extends $dara.Model {
-  /**
-   * @remarks
-   * The IP addresses of the instance.
-   */
   eipList?: string[];
-  /**
-   * @remarks
-   * The function plan of the instance. Valid values:
-   * 
-   * *   **default**: Standard function plan
-   * *   **enhance**: Enhanced function plan
-   * 
-   * @example
-   * enhance
-   */
   functionVersion?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * ddoscoo-cn-0pp163pd****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,18 +35,7 @@ export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanc
 }
 
 export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelations extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name of the website.
-   * 
-   * @example
-   * www.aliyun.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The information about the instance to which a website service is added.
-   */
   instanceDetails?: DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -96,18 +64,7 @@ export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelations extend
 }
 
 export class DescribeWebInstanceRelationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0222382B-5FE5-4FF7-BC9B-97EE31D58818
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the instances to which a website service is added.
-   */
   webInstanceRelations?: DescribeWebInstanceRelationsResponseBodyWebInstanceRelations[];
   static names(): { [key: string]: string } {
     return {

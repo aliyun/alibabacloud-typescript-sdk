@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeL7GlobalRuleResponseBodyGlobalRules extends $dara.Model {
-  /**
-   * @example
-   * watch
-   */
   action?: string;
-  /**
-   * @example
-   * watch
-   */
   actionDefault?: string;
   description?: string;
-  /**
-   * @example
-   * 1
-   */
   enabled?: number;
-  /**
-   * @example
-   * global_1
-   */
   ruleId?: string;
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -58,10 +42,6 @@ export class DescribeL7GlobalRuleResponseBodyGlobalRules extends $dara.Model {
 
 export class DescribeL7GlobalRuleResponseBody extends $dara.Model {
   globalRules?: DescribeL7GlobalRuleResponseBodyGlobalRules[];
-  /**
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainBpsResponseBodyDomainBps extends $dara.Model {
-  /**
-   * @remarks
-   * The inbound bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 0
-   */
   inBps?: number;
-  /**
-   * @remarks
-   * The index number of the returned data.
-   * 
-   * @example
-   * 1
-   */
   index?: number;
-  /**
-   * @remarks
-   * The outbound bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 0
-   */
   outBps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,18 +32,7 @@ export class DescribeDomainBpsResponseBodyDomainBps extends $dara.Model {
 }
 
 export class DescribeDomainBpsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidths.
-   */
   domainBps?: DescribeDomainBpsResponseBodyDomainBps[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

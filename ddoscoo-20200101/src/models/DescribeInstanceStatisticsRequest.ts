@@ -5,14 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance that you want to query.
-   * 
-   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ddoscoo-cn-mp91j1ao****
    */
   instanceIds?: string[];
   static names(): { [key: string]: string } {

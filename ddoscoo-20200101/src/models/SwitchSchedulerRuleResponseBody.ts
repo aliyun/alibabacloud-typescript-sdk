@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SwitchSchedulerRuleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7E3C301F-84BB-50E4-9DB9-2937B2429C1E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

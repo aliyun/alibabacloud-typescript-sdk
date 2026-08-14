@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagKeysResponseBodyTagKeys extends $dara.Model {
-  /**
-   * @remarks
-   * The number of Anti-DDoS Proxy (Chinese Mainland) instances to which the tag key is added.
-   * 
-   * @example
-   * 2
-   */
   tagCount?: number;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * aa1
-   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,42 +29,10 @@ export class DescribeTagKeysResponseBodyTagKeys extends $dara.Model {
 }
 
 export class DescribeTagKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned on each page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The details about the tag keys.
-   */
   tagKeys?: DescribeTagKeysResponseBodyTagKeys[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

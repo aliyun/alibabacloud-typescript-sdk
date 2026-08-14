@@ -3,26 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkRegionBlockResponseBodyConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The codes of the countries or areas from which the requests are blocked.
-   */
   countries?: number[];
-  /**
-   * @remarks
-   * The codes of the administrative regions in China from which the requests are blocked.
-   */
   provinces?: number[];
-  /**
-   * @remarks
-   * The status of the Location Blacklist policy. Valid values:
-   * 
-   * *   **on**: enabled
-   * *   **off**: disabled
-   * 
-   * @example
-   * on
-   */
   regionBlockSwitch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,18 +38,7 @@ export class DescribeNetworkRegionBlockResponseBodyConfig extends $dara.Model {
 }
 
 export class DescribeNetworkRegionBlockResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration of blocked locations.
-   */
   config?: DescribeNetworkRegionBlockResponseBodyConfig;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

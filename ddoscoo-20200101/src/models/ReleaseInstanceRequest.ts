@@ -6,9 +6,6 @@ export class ReleaseInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ddoscoo-cn-mp91j1ao****
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

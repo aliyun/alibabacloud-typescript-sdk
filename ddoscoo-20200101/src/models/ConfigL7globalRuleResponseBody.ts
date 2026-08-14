@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfigL7GlobalRuleResponseBody extends $dara.Model {
-  /**
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

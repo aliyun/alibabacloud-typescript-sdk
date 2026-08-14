@@ -3,51 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePortAutoCcStatusResponseBodyPortAutoCcStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The mode of the Intelligent Protection policy. Valid values:
-   * 
-   * *   **normal**
-   * *   **loose**
-   * *   **strict**
-   * 
-   * @example
-   * normal
-   */
   mode?: string;
-  /**
-   * @remarks
-   * The status of the Intelligent Protection policy. Valid values:
-   * 
-   * *   **on**: enabled
-   * *   **off**: disabled
-   * 
-   * @example
-   * on
-   */
   switch?: string;
-  /**
-   * @remarks
-   * The protection mode for ports 80 and 443. Valid values:
-   * 
-   * *   **normal**
-   * *   **loose**
-   * *   **strict**
-   * 
-   * @example
-   * normal
-   */
   webMode?: string;
-  /**
-   * @remarks
-   * The status of the Intelligent Protection policy for ports 80 and 443. Valid values:
-   * 
-   * *   **on**: enabled
-   * *   **off**: disabled
-   * 
-   * @example
-   * off
-   */
   webSwitch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,18 +35,7 @@ export class DescribePortAutoCcStatusResponseBodyPortAutoCcStatus extends $dara.
 }
 
 export class DescribePortAutoCcStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of the configurations of the Intelligent Protection policy.
-   */
   portAutoCcStatus?: DescribePortAutoCcStatusResponseBodyPortAutoCcStatus[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * BC3C6403-F248-4125-B2C9-8733ED94EA85
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

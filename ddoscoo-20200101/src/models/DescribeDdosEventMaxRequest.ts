@@ -5,23 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDosEventMaxRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1604073600
    */
   endTime?: number;
   ip?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1598889600
    */
   startTime?: number;
   static names(): { [key: string]: string } {

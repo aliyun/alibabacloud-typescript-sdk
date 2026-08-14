@@ -6,15 +6,8 @@ export class DescribeL7GlobalRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * example.com
    */
   domain?: string;
-  /**
-   * @example
-   * zh
-   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,40 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlaEventListResponseBodySlaEvent extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range. Unit: seconds.
-   * 
-   * @example
-   * 1671886740
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The IP address of the instance.
-   * 
-   * @example
-   * 203.107.XX.XX
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The region to which the destination IP address belongs. Valid values:
-   * 
-   * *   **cn**: a region in the Chinese mainland
-   * *   **cn-hongkong**: China (Hong Kong)
-   * 
-   * @example
-   * cn
-   */
   region?: string;
-  /**
-   * @remarks
-   * The beginning of the time range. Unit: seconds.
-   * 
-   * @example
-   * 1678080840
-   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -66,26 +35,8 @@ export class DescribeSlaEventListResponseBodySlaEvent extends $dara.Model {
 }
 
 export class DescribeSlaEventListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The destination rate limit events.
-   */
   slaEvent?: DescribeSlaEventListResponseBodySlaEvent[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyHeadersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The unique ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * DC38A1D3-C042-5670-8394-8F6B1FA97B5E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

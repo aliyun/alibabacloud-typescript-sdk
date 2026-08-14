@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableWebCCResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * www.aliyundoc.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * Indicates whether the log analysis feature is enabled. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -46,26 +29,8 @@ export class DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus exten
 }
 
 export class DescribeWebAccessLogDispatchStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the log analysis feature is enabled for domain names.
-   */
   slsConfigStatus?: DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

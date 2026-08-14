@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCnameReusesResponseBodyCnameReuses extends $dara.Model {
-  /**
-   * @example
-   * 4o6ep6q217k9****.aliyunddos0004.com
-   */
   cname?: string;
-  /**
-   * @example
-   * www.aliyun.com
-   */
   domain?: string;
-  /**
-   * @example
-   * 1
-   */
   enable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -45,10 +33,6 @@ export class DescribeCnameReusesResponseBodyCnameReuses extends $dara.Model {
 
 export class DescribeCnameReusesResponseBody extends $dara.Model {
   cnameReuses?: DescribeCnameReusesResponseBodyCnameReuses[];
-  /**
-   * @example
-   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

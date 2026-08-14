@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData extends $dara.Model {
-  /**
-   * @example
-   * ga-bp1htlajy5509rc99****
-   */
   cloudInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +27,6 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData exte
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesParam extends $dara.Model {
   paramData?: DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData;
-  /**
-   * @example
-   * GA
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,40 +56,12 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesParam extends $dara
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $dara.Model {
   line?: string;
-  /**
-   * @example
-   * 100
-   */
   priority?: number;
-  /**
-   * @example
-   * 1
-   */
   regionId?: string;
-  /**
-   * @example
-   * 60
-   */
   restoreDelay?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @example
-   * A
-   */
   type?: string;
-  /**
-   * @example
-   * 203.***.***.39
-   */
   value?: string;
-  /**
-   * @example
-   * 1
-   */
   valueType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -135,16 +99,8 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $dara
 }
 
 export class DescribeSchedulerRulesResponseBodySchedulerRules extends $dara.Model {
-  /**
-   * @example
-   * 4eru5229a843****.aliyunddos0001.com
-   */
   cname?: string;
   param?: DescribeSchedulerRulesResponseBodySchedulerRulesParam;
-  /**
-   * @example
-   * doctest
-   */
   ruleName?: string;
   ruleType?: string;
   rules?: DescribeSchedulerRulesResponseBodySchedulerRulesRules[];
@@ -184,16 +140,8 @@ export class DescribeSchedulerRulesResponseBodySchedulerRules extends $dara.Mode
 }
 
 export class DescribeSchedulerRulesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 11C55595-1757-4B17-9ACE-4ACB68C2D989
-   */
   requestId?: string;
   schedulerRules?: DescribeSchedulerRulesResponseBodySchedulerRules[];
-  /**
-   * @example
-   * 1
-   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,56 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList extends $dara.Model {
-  /**
-   * @example
-   * defense
-   */
   aiMode?: string;
-  /**
-   * @example
-   * 1
-   */
   aiRuleEnable?: number;
-  /**
-   * @example
-   * level60
-   */
   aiTemplate?: string;
-  /**
-   * @example
-   * 1
-   */
   blackWhiteListEnable?: number;
-  /**
-   * @example
-   * 0
-   */
   ccCustomRuleEnable?: number;
-  /**
-   * @example
-   * 1
-   */
   ccEnable?: number;
   ccGlobalSwitch?: string;
-  /**
-   * @example
-   * default
-   */
   ccTemplate?: string;
-  /**
-   * @example
-   * www.aliyundoc.com
-   */
   domain?: string;
-  /**
-   * @example
-   * 0
-   */
   preciseRuleEnable?: number;
-  /**
-   * @example
-   * 0
-   */
   regionBlockEnable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +57,6 @@ export class DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList extends 
 
 export class DescribeDomainCcProtectSwitchResponseBody extends $dara.Model {
   protectSwitchList?: DescribeDomainCcProtectSwitchResponseBodyProtectSwitchList[];
-  /**
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

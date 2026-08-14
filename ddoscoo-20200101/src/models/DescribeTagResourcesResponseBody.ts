@@ -61,21 +61,7 @@ export class DescribeTagResourcesResponseBodyTagResources extends $dara.Model {
 }
 
 export class DescribeTagResourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The query token that is returned in this call.
-   * 
-   * @example
-   * RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
-   */
   nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 36E698F7-48A4-48D0-9554-0BB4BAAB99B3
-   */
   requestId?: string;
   tagResources?: DescribeTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

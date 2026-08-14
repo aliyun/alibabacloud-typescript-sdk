@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateNetworkRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * ADCA45A5-D15C-4B7D-9F81-138B0B36D0BD
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

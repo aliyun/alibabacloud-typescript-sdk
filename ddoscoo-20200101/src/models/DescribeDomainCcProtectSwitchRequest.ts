@@ -8,10 +8,6 @@ export class DescribeDomainCcProtectSwitchRequest extends $dara.Model {
    * This parameter is required.
    */
   domains?: string[];
-  /**
-   * @example
-   * rg-acfm2pz25js****
-   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {

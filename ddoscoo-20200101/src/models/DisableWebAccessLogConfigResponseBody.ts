@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableWebAccessLogConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CF33B4C3-196E-4015-AADD-5CAD00057B80
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
