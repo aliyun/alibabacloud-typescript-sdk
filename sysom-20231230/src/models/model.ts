@@ -43,6 +43,7 @@ export { InitialSysomResponseBodyData } from './InitialSysomResponseBody';
 export { InstallAgentRequestInstances } from './InstallAgentRequest';
 export { InstallAgentResponseBodyData } from './InstallAgentResponseBody';
 export { InstallAgentForClusterResponseBodyData } from './InstallAgentForClusterResponseBody';
+export { InstallAgentWithTypeRequestTag } from './InstallAgentWithTypeRequest';
 export { InstallAgentWithTypeRequestInstances } from './InstallAgentWithTypeRequest';
 export { InstallAgentWithTypeResponseBodyData } from './InstallAgentWithTypeResponseBody';
 export { InvokeDiagnosisResponseBodyData } from './InvokeDiagnosisResponseBody';

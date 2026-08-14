@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallAgentWithTypeRequestInstances extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UninstallAgentWithTypeRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class UninstallAgentWithTypeRequestInstances extends $dara.Model {
 export class UninstallAgentWithTypeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the component to uninstall.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +59,8 @@ export class UninstallAgentWithTypeRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
+   * The version of the component to uninstall.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,12 +68,17 @@ export class UninstallAgentWithTypeRequest extends $dara.Model {
    */
   agentVersion?: string;
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * ecs
    */
   instanceType?: string;
   /**
    * @remarks
+   * The list of instances from which to uninstall the component.
+   * 
    * This parameter is required.
    */
   instances?: UninstallAgentWithTypeRequestInstances[];

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateClusterVpcEndpointConnectionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the endpoint connection.
+   * 
    * @example
    * ep-xxx
    */
@@ -31,17 +34,30 @@ export class CreateClusterVpcEndpointConnectionResponseBodyData extends $dara.Mo
 
 export class CreateClusterVpcEndpointConnectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateClusterVpcEndpointConnectionResponseBodyData;
   /**
+   * @remarks
+   * The description of the error code. This parameter is empty if no error occurs.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

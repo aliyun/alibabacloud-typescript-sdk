@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterVpcEndpointConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the ACK cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CreateClusterVpcEndpointConnectionRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The region to which the cluster belongs.
+   * 
    * This parameter is required.
    * 
    * @example

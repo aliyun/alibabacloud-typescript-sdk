@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sysom20231230",
-  "version": "1.18.0",
+  "version": "1.18.1",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",
