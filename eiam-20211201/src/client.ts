@@ -7095,6 +7095,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行容灾切换
+   * 
+   * @param request - ExecuteInstanceFailoverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteInstanceFailoverResponse
+   */
+  async executeInstanceFailoverWithOptions(request: $_model.ExecuteInstanceFailoverRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteInstanceFailoverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceFailoverStatus)) {
+      query["InstanceFailoverStatus"] = request.instanceFailoverStatus;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteInstanceFailover",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteInstanceFailoverResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteInstanceFailoverResponse({}));
+  }
+
+  /**
+   * 执行容灾切换
+   * 
+   * @param request - ExecuteInstanceFailoverRequest
+   * @returns ExecuteInstanceFailoverResponse
+   */
+  async executeInstanceFailover(request: $_model.ExecuteInstanceFailoverRequest): Promise<$_model.ExecuteInstanceFailoverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeInstanceFailoverWithOptions(request, runtime);
+  }
+
+  /**
    * Generates a download URL for file import results.
    * 
    * @param request - GenerateDownloadUrlForSynchronizationJobRequest

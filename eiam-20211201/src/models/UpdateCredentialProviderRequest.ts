@@ -14,7 +14,7 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   allowedTokenIssuers?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the JWT derived short token capability.
+   * Specifies whether the JWT derived short token feature is enabled.
    * 
    * @example
    * false
@@ -30,7 +30,7 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
   expiration?: number;
   /**
    * @remarks
-   * Specifies whether to enable JWT expiration cleanup.
+   * Specifies whether JWT expiration cleanup is enabled.
    * 
    * @example
    * true
@@ -69,14 +69,20 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigJwtProviderC
 export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProviderConfig extends $dara.Model {
   /**
    * @remarks
-   * The endpoint URL used to guide users through authorization. Conditionally required: this parameter is required when AuthorizationFlow is set to user_federation and ProviderVendor is set to custom. For preset vendors, this value can be automatically populated through DiscoveryUrl.
+   * The authorization endpoint.
+   * 
+   * @example
+   * https://example.com/authorize
    */
   authorizationEndpoint?: string;
   /**
    * @remarks
    * The OAuth authorization flow type. Valid values:
-   * - m2m: Machine-to-machine (2LO, Client Credentials).
-   * - user_federation: User federation (3LO, Authorization Code).
+   * - m2m: machine-to-machine.
+   * - user_federation: user federation.
+   * 
+   * @example
+   * m2m
    */
   authorizationFlow?: string;
   /**
@@ -91,34 +97,61 @@ export class UpdateCredentialProviderRequestCredentialProviderConfigOAuthProvide
   clientSecret?: string;
   /**
    * @remarks
-   * The Discovery document URL used to automatically retrieve OAuth endpoint configurations. Conditionally optional: this parameter is used when AuthorizationFlow is set to user_federation. If DiscoveryUrl is not provided, you must manually configure fields such as TokenEndpoint and AuthorizationEndpoint.
+   * The auto-discovery URL.
+   * 
+   * @example
+   * https://example.com/.well-known/openid-configuration
    */
   discoveryUrl?: string;
+  /**
+   * @remarks
+   * The authorization server identifier URL.
+   * 
+   * @example
+   * https://example.com/issuer
+   */
   issuer?: string;
   /**
    * @remarks
-   * The PKCE code_challenge generation method. Default value: s256.
+   * The PKCE challenge method. Valid values:
+   * - S256.
+   * - plain.
+   * 
+   * @example
+   * S256
    */
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * Specifies whether to use the PKCE extension for enhanced security. We recommend that you always enable this feature.
+   * Specifies whether PKCE is enabled.
+   * 
+   * @example
+   * true
    */
   pkceEnabled?: boolean;
   /**
    * @remarks
-   * The preset vendor or custom configuration. This parameter is optional. Default value: custom.
+   * The vendor type. Valid values:
+   * - custom: custom.
+   * - dingtalk: DingTalk.
+   * - feishu: Lark.
+   * - github: GitHub.
+   * - microsoft: Microsoft.
+   * - google: Google.
+   * 
+   * @example
+   * custom
    */
   providerVendor?: string;
   /**
    * @remarks
    * The scope in the OAuth protocol, which specifies the permission scope.
    * 
-   * > The Scope configuration on the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for token issuance.
+   * > The Scope configuration on the credential provider serves as the fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
    * 
    * >Notice: Separate multiple Scope values with spaces. To clear the Scope configuration, pass an empty string.
    * 
-   * Restrictions for each individual Scope value:
+   * Restrictions on each individual Scope value:
    * 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
    * 2. Must contain at least one lowercase letter or digit.
    * 3. Must start with a special character `.`, a lowercase letter, or a digit.
@@ -222,7 +255,7 @@ export class UpdateCredentialProviderRequest extends $dara.Model {
    * @remarks
    * The idempotency token that ensures the idempotence of the request.
    * 
-   * Generate a unique parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * Generate a unique parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
