@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGadInstancesRequest extends $dara.Model {
   dbEngineTypes?: string;
   /**
+   * @remarks
+   * The name of the active geo-redundancy instance group.
+   * 
    * @example
    * test
    */
@@ -12,21 +15,33 @@ export class DescribeGadInstancesRequest extends $dara.Model {
   masterDbInstanceId?: string;
   ownerId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID. Specify this parameter to query instances in a specific region. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmzawhxxc****
    */

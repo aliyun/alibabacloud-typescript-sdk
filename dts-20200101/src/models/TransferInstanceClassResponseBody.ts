@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TransferInstanceClassResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the DTS instance. Valid values:
-   * 
-   * *   **POSTPAY**: pay-as-you-go.
-   * *   **PREPAY**: subscription.
+   * The billing method. Valid values:
+   * - **POSTPAY**: pay-as-you-go.
+   * - **PREPAY**: subscription.
    * 
    * @example
    * POSTPAY
@@ -16,7 +15,7 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * 200
@@ -32,9 +31,9 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace the %**s** variable in the **ErrMessage** parameter.
    * 
-   * > For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified value of the **DtsJobId** parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -42,9 +41,9 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The expiration time of the DTS instance.
+   * The time when the instance expires.
    * 
-   * > This parameter is returned only if the value of the ChargeType parameter is **PREPAY**.
+   * > This parameter is returned only when ChargeType is set to **PREPAY**.
    * 
    * @example
    * 2021-08-04T16:00:00.000+00:00
@@ -52,7 +51,7 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -60,7 +59,7 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -76,7 +75,7 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the DTS instance.
+   * The instance ID.
    * 
    * @example
    * dtsr4yr723m199****
@@ -94,8 +93,8 @@ export class TransferInstanceClassResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

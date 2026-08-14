@@ -5,18 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model {
   /**
    * @remarks
-   * The threshold that triggers the alert.
-   * 
-   * *   If the request parameter **Type** of the [CreateJobMonitorRule](https://help.aliyun.com/document_detail/212332.html) operation is set to **delay**, the unit of DelayRuleTime is seconds.
-   * *   If the request parameter **Type** of the [CreateJobMonitorRule](https://help.aliyun.com/document_detail/212332.html) operation is set to **full_timeout**, the unit of DelayRuleTime is hours.
+   * The threshold that triggers a latency alert. Unit: seconds.
    * 
    * @example
-   * 11
+   * 60
    */
   delayRuleTime?: number;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * bi6e22ay243****
@@ -24,7 +21,10 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   jobId?: string;
   /**
    * @remarks
-   * The task type of the DTS instance, with values: - **normal**: Migration or synchronization task. - **full_check**: Associated full check task. - **etl_check**: Associated incremental check task.
+   * The task type of the DTS instance. Valid values:
+   * - **normal**: data migration or data synchronization task.
+   * - **full_check**: associated full data validation task.
+   * - **etl_check**: associated incremental data validation task.
    * 
    * @example
    * normal
@@ -32,7 +32,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   jobType?: string;
   /**
    * @remarks
-   * Alarm threshold.
+   * The alert threshold.
    * 
    * @example
    * 2
@@ -40,8 +40,9 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   noticeValue?: number;
   /**
    * @remarks
-   * The statistical period for incremental validation tasks, in minutes.
-   * > Currently supported values are 1 minute, 5 minutes, 10 minutes, and 30 minutes.
+   * The statistical period of the incremental data validation task. Unit: minutes.
+   * 
+   * > Valid values: 1, 5, 10, and 30 minutes.
    * 
    * @example
    * 5
@@ -49,7 +50,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   period?: number;
   /**
    * @remarks
-   * The mobile phone numbers that receive alert notifications. Multiple mobile numbers are separated by commas (,).
+   * The phone numbers of the contacts to be notified when an alert is triggered. Multiple phone numbers are separated by commas (,).
    * 
    * @example
    * 1361234****,1371234****
@@ -59,8 +60,8 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
    * @remarks
    * Indicates whether the monitoring rule is enabled. Valid values:
    * 
-   * *   **Y**: The monitoring rule is enabled.
-   * *   **N**: The monitoring rule is disabled.
+   * - **Y**: enabled.
+   * - **N**: disabled.
    * 
    * @example
    * Y
@@ -68,7 +69,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The number of cycles for the incremental validation task.
+   * The number of periods for the incremental data validation task.
    * 
    * @example
    * 2
@@ -77,9 +78,10 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
   /**
    * @remarks
    * The type of the monitoring rule. Valid values:
-   * 
-   * *   **delay**: If the task latency reaches the threshold, an alert is triggered.
-   * *   **error**: If an exception occurs, an alert is triggered.
+   * - **delay**: latency alert.
+   * - **error**: anomaly alert.
+   * - **full_timeout**: alert for the runtime of the full data module.
+   * - **warn**: notification alert (the task succeeded but the result did not meet expectations).
    * 
    * @example
    * delay
@@ -125,7 +127,7 @@ export class DescribeJobMonitorRuleResponseBodyMonitorRules extends $dara.Model 
 export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter will be removed in the future.
+   * The error code. This parameter will be deprecated.
    * 
    * @example
    * 200
@@ -141,9 +143,8 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-   * 
-   * >  If the specified **DtsJobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **DtsJobId** is returned for **DynamicMessage**.
+   * The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -151,7 +152,7 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * 403
@@ -159,7 +160,7 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -175,12 +176,12 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The monitoring rules of the DTS task.
+   * The monitoring rule information of the DTS task.
    */
   monitorRules?: DescribeJobMonitorRuleResponseBodyMonitorRules[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0CA14388-DD89-4A7B-8CDD-884A10CE****
@@ -188,10 +189,9 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * *   **true**: The call was successful.
-   * *   **false**:The call failed.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -199,7 +199,7 @@ export class DescribeJobMonitorRuleResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The topics of all subtasks in the distributed change tracking task.
+   * The Kafka topics.
    */
   topics?: string[];
   static names(): { [key: string]: string } {

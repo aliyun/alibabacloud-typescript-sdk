@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SkipPreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter will be removed in the future.
+   * The error code. This parameter will be deprecated.
    * 
    * @example
    * 200
@@ -13,9 +13,9 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace %s in ErrMessage.
+   * The dynamic error message used to replace the %s variable in the ErrMessage parameter.
    * 
-   * > If JobId is invalid, JobId is returned for DynamicMessage, and the following message is returned for ErrMessage: The Value of Input Parameter %s is not valid.
+   * > For example, if ErrMessage returns The Value of Input Parameter %s is not valid and DynamicMessage returns JobId, the JobId request parameter is invalid.
    * 
    * @example
    * JobId
@@ -31,7 +31,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -39,7 +39,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status codes returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -47,7 +47,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The precheck task ID.
+   * The ID of the precheck task.
    * 
    * @example
    * b4my3zg929a****
@@ -63,7 +63,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The precheck task ID.
+   * The ID of the precheck task.
    * 
    * @example
    * b4my3zg929a****
@@ -71,7 +71,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   scheduleJobId?: string;
   /**
    * @remarks
-   * The shortened name of the precheck item.
+   * The abbreviated names of the precheck items to suppress or unsuppress.
    * 
    * @example
    * CHECK_SAME_OBJ
@@ -79,7 +79,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   skipItems?: string;
   /**
    * @remarks
-   * The precheck item name.
+   * The full names of the precheck items to suppress or unsuppress.
    * 
    * @example
    * CHECK_SAME_OBJ_DETAIL
@@ -87,7 +87,7 @@ export class SkipPreCheckResponseBody extends $dara.Model {
   skipNames?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CPU utilization. Unit: percentage.
+   * The CPU utilization percentage.
    * 
    * @example
    * 30
@@ -13,7 +13,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   cpuUtilization?: number;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * dtsCluster****
@@ -21,7 +21,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * daily_test
@@ -29,7 +29,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   dedicatedClusterName?: string;
   /**
    * @remarks
-   * The disk usage.
+   * The disk utilization.
    * 
    * @example
    * 50
@@ -37,7 +37,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   diskUtilization?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * dtsb8r****
@@ -45,7 +45,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   dtsInstanceID?: string;
   /**
    * @remarks
-   * The number of DTS units (DUs).
+   * The number of DUs.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   du?: number;
   /**
    * @remarks
-   * The DU usage. Unit: percentage.
+   * The DU utilization percentage.
    * 
    * @example
    * 16
@@ -61,7 +61,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   duUtilization?: number;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -69,7 +69,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -77,7 +77,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time.
    * 
    * @example
    * 1642476144000
@@ -85,7 +85,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   gmtCreated?: number;
   /**
    * @remarks
-   * The time when the cluster stopped.
+   * The end time.
    * 
    * @example
    * 1645200000000
@@ -101,7 +101,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The memory usage.
+   * The memory utilization.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The number of DUs that exceeds the upper limit.
+   * The number of oversold DUs.
    * 
    * @example
    * 60
@@ -125,7 +125,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   oversoldDu?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region in which the instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -133,7 +133,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -141,16 +141,16 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   **init**: The cluster is being initialized.
-   * *   **schedule**: The cluster is pending scheduling.
-   * *   **running**: The cluster is running.
-   * *   **upgrade**: The cluster is being upgraded.
-   * *   **downgrade**: The cluster is being downgraded.
-   * *   **locked**: The cluster is locked.
-   * *   **releasing**: The cluster is being released.
-   * *   **released**: The cluster is released.
+   * - **init**: initialization.
+   * - **schedule**: pending scheduling.
+   * - **running**: running.
+   * - **upgrade**: upgrading.
+   * - **downgrade**: downgrading.
+   * - **locked**: locked.
+   * - **releasing**: being released.
+   * - **released**: released.
    * 
    * @example
    * inti
@@ -174,7 +174,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   totalCpuCore?: number;
   /**
    * @remarks
-   * The total disk size. Unit: GB.
+   * The total disk size, in GB.
    * 
    * @example
    * 2048
@@ -182,7 +182,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   totalDiskGBSize?: number;
   /**
    * @remarks
-   * The total amount of memory. Unit: GB.
+   * The total memory size, in GB.
    * 
    * @example
    * 256
@@ -198,7 +198,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   usedCpuCore?: number;
   /**
    * @remarks
-   * The used disk size. Unit: GB.
+   * The used disk size, in GB.
    * 
    * @example
    * 1024
@@ -214,7 +214,7 @@ export class DescribeDedicatedClusterResponseBody extends $dara.Model {
   usedDu?: number;
   /**
    * @remarks
-   * The amount of used memory. Unit: GB.
+   * The used memory size, in GB.
    * 
    * @example
    * 128

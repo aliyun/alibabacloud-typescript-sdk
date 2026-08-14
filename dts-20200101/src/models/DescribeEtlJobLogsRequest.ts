@@ -10,12 +10,12 @@ export class DescribeEtlJobLogsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * l5512es7w15****
+   * vd*********2ls
    */
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the region in which the Data Transmission Service (DTS) instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the available Alibaba Cloud regions.
+   * The region ID of the DTS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the list of Alibaba Cloud regions.
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +23,7 @@ export class DescribeEtlJobLogsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource GroupId
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

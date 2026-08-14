@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The built-in account that is used by DTS to connect to the node.
+   * The built-in account that DTS uses to connect to the unit node.
    * 
    * @example
    * rdsdt_dtsacct
@@ -21,7 +21,7 @@ export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   adminPassword?: string;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -45,7 +45,7 @@ export class InitDtsRdsInstanceResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7796ECE0-9C17-5E4D-9CE6-B7EC825A****

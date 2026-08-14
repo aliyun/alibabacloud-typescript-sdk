@@ -92,52 +92,86 @@ export class DescribeGadInstancesResponseBodyInstances extends $dara.Model {
 
 export class DescribeGadInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * 403
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** is invalid.
+   * 
    * @example
    * present environment is not support,so skip.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * InternalError
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * The request processing has failed due to some unknown error.
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   instances?: DescribeGadInstancesResponseBodyInstances;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The maximum number of entries that can be displayed on the current page.
+   * 
    * @example
    * 30
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C166D79D-436B-45F0-B5A5-25E1959F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of instances returned.
+   * 
    * @example
    * 22
    */

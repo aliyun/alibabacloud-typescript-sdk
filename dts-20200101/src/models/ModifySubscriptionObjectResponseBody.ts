@@ -21,7 +21,7 @@ export class ModifySubscriptionObjectResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABBACEFC-CBA9-4F80-A337-42F202F5****
@@ -29,7 +29,7 @@ export class ModifySubscriptionObjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

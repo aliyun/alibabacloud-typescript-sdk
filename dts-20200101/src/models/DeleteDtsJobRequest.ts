@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The instance ID of the data migration, synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -15,7 +13,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking task.
+   * The ID of the data migration, synchronization, or change tracking task.
    * 
    * @example
    * l3m1213ye7l****
@@ -23,11 +21,11 @@ export class DeleteDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The type of the Data Transmission Service (DTS) task. Valid values:
+   * The node type of the DTS instance. Valid values:
    * 
-   * *   **MIGRATION**: data migration task
-   * *   **SYNC**: data synchronization task
-   * *   **SUBSCRIBE**: change tracking task
+   * - **MIGRATION**: data migration.
+   * - **SYNC**: data synchronization.
+   * - **SUBSCRIBE**: change tracking.
    * 
    * @example
    * MIGRATION
@@ -35,7 +33,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The ID of the region where the data migration or synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-beijing
@@ -43,15 +41,20 @@ export class DeleteDtsJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * A special business-specific field. You do not need to pass this parameter.
    * 
    * @example
-   * rg-aek26lwshijfk3q
+   * rg-aek26lwshij****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The dynamic error code. This parameter will be removed in the future.
+   * The synchronization direction. Valid values:
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
+   * 
+   * > - Default value: **Forward**.
+   * - You can set this parameter to **Reverse** to release the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -59,8 +62,7 @@ export class DeleteDtsJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * A special business-specific field. You do not need to pass this parameter.
    * 
    * @example
    * true

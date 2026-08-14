@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -13,7 +13,7 @@ export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -37,7 +37,7 @@ export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -45,7 +45,7 @@ export class ModifyDedicatedClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

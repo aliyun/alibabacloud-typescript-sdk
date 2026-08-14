@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobStepRequest extends $dara.Model {
   /**
    * @remarks
+   * Migration or sync task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,27 @@ export class ListJobStepRequest extends $dara.Model {
    */
   dtsJobId?: string;
   /**
+   * @remarks
+   * The region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-aek3dcgyq7p****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Indicates whether the job is a seamless integration (Zero-ETL) job. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */

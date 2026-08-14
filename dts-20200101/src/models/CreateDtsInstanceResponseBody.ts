@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDtsInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class CreateDtsInstanceResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class CreateDtsInstanceResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the DTS instance.
+   * The instance ID.
    * 
    * @example
    * dtsbi6e22ay243****
@@ -29,7 +29,7 @@ export class CreateDtsInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * bi6e22ay243****
@@ -37,7 +37,7 @@ export class CreateDtsInstanceResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C166D79D-436B-45F0-B5A5-25E1****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * The request ID.
    * 
    * @example
    * 068FA72F-4800-4A54-90BB-94806068****

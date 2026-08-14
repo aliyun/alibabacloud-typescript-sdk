@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend service. The number is incremented.
+   * The internal error code. The value is incremented.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The CPU utilization of the cluster. Unit: percentage.
+   * The CPU utilization of the cluster. Unit: %.
    * 
    * @example
    * 50
@@ -21,7 +21,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   cpuTotal?: number;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -29,7 +29,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The total disk size of the cluster. Unit: GB.
+   * The total disk space of the cluster. Unit: GB.
    * 
    * @example
    * 1024
@@ -45,7 +45,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   diskUsed?: number;
   /**
    * @remarks
-   * The total number of DTS units (DUs).
+   * The total number of DUs.
    * 
    * @example
    * 30
@@ -53,7 +53,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   duTotal?: number;
   /**
    * @remarks
-   * The usage of DUs.
+   * The number of used DUs.
    * 
    * @example
    * 2
@@ -61,7 +61,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   duUsed?: number;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace %s in the ErrMessage parameter.
+   * The dynamic error message. This parameter is used to replace the %s placeholder in the ErrMessage response parameter.
    * 
    * @example
    * Type
@@ -69,7 +69,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -77,7 +77,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -85,7 +85,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -93,7 +93,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The total amount of memory. A value of 0 is temporarily returned.
+   * The total memory. The value 0 is returned.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   memoryTotal?: number;
   /**
    * @remarks
-   * The memory usage. A value of 0 is temporarily returned.
+   * The memory usage. The value 0 is returned.
    * 
    * @example
    * 0
@@ -109,7 +109,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   memoryUsed?: number;
   /**
    * @remarks
-   * The memory usage.
+   * The memory usage percentage.
    * 
    * @example
    * 1.0
@@ -117,7 +117,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   memoryUsedPercentage?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -125,7 +125,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class DescribeClusterUsedUtilizationResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The number of tasks that are in progress.
+   * The number of running tasks.
    * 
    * @example
    * 3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDTSIPResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The internal error code. This parameter will be removed in the future.
+   * The internal error code of the service. This parameter will be deprecated.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The CIDR blocks of DTS servers.
+   * The IP addresses of the DTS service.
    * 
    * @example
    * 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
@@ -37,7 +37,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0C99C0BE-F312-40FA-ADFA-4DC1166B****
@@ -45,7 +45,7 @@ export class DescribeDTSIPResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

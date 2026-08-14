@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobStatusListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure that the value is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -22,7 +22,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data synchronization instances reside. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -38,7 +38,7 @@ export class DescribeSynchronizationJobStatusListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the data synchronization instances. The value is a JSON array. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance IDs.
+   * Instance IDs of data synchronization instances, in JSON array format. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query instance IDs.
    * 
    * This parameter is required.
    * 

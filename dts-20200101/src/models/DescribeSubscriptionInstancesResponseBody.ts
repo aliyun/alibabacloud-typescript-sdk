@@ -334,7 +334,7 @@ export class DescribeSubscriptionInstancesResponseBodySubscriptionInstances exte
 export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the request failed.
    * 
    * @example
    * InternalError
@@ -342,7 +342,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the request failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -350,7 +350,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -358,7 +358,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries that can be displayed on the current page.
+   * The maximum number of records that can be displayed on the current page.
    * 
    * @example
    * 30
@@ -366,7 +366,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * FC3BAAF2-74E3-4471-8EB5-96202D6A****
@@ -375,7 +375,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   subscriptionInstances?: DescribeSubscriptionInstancesResponseBodySubscriptionInstances;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -383,7 +383,7 @@ export class DescribeSubscriptionInstancesResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of change tracking instances that belong to your Alibaba Cloud account.
+   * The total number of change tracking instances that meet the specified conditions under the Alibaba Cloud account.
    * 
    * @example
    * 1

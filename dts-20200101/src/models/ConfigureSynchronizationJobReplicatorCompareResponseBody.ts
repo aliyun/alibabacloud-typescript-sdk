@@ -21,7 +21,7 @@ export class ConfigureSynchronizationJobReplicatorCompareResponseBody extends $d
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 86A8FF0F-FA92-449D-B559-05CFF9F9****
@@ -29,7 +29,7 @@ export class ConfigureSynchronizationJobReplicatorCompareResponseBody extends $d
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

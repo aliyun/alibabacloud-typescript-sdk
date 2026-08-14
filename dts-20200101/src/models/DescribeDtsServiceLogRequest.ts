@@ -13,10 +13,9 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The end of the time range to query. You can call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to query the execution time of the subtasks.
-   * 
-   * > *   To obtain the logs that are generated for DTS subtasks within a specific period of time, you can call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to query the execution time of the subtasks.
-   * >*   Specify the time in the 13-digit UNIX timestamp format. Unit: milliseconds. You can use a search engine to obtain a UNIX timestamp converter.
+   * The end time of the log information. You can call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the end time.
+   * > - To query the log information of a DTS subtask within a specific time range, call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the execution time of the DTS subtask.
+   * - The time is a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
    * 
    * @example
    * 1620897227000
@@ -24,9 +23,8 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The keyword that is passed to specify the query content.
-   * 
-   * >  Fuzzy match is used and the keyword is case-sensitive.
+   * The keyword used to filter query results.
+   * > Fuzzy match is used and the keyword is case-sensitive.
    * 
    * @example
    * state = IDLE
@@ -34,7 +32,7 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than 0 and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -42,7 +40,7 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries to return on each page. Valid values: **20**, **50**, **100**, **500**, and **1000**. Default value: **20**.
+   * The number of log entries per page. Valid values: **20**, **50**, **100**, **500**, and **1000**. Default value: **20**.
    * 
    * @example
    * 20
@@ -50,7 +48,7 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -58,7 +56,7 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -66,10 +64,10 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the log information.
    * 
-   * > *   To obtain the logs that are generated for Data Transmission Service (DTS) subtasks within a specific period of time, you can call the [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) operation to query the execution time of the subtasks.
-   * >*   Specify the time in the 13-digit UNIX timestamp format. Unit: milliseconds. You can use a search engine to obtain a UNIX timestamp converter.
+   * > - To query the log information of a DTS subtask within a specific time range, call [DescribePreCheckStatus](https://help.aliyun.com/document_detail/209718.html) to query the execution time of the DTS subtask.
+   * - The start time is a 13-digit UNIX timestamp in milliseconds. You can use a search engine to find a UNIX timestamp converter.
    * 
    * @example
    * 1620896327000
@@ -77,11 +75,11 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The log level. Separate multiple log levels with commas (,). Valid values:
+   * The log level of the log information. Separate multiple values with commas (,). Valid values:
    * 
-   * *   **NORMAL**: displays the logs that are generated when the DTS task runs as expected.
-   * *   **WARN**: displays the logs about severe issues that stop the DTS task from running.
-   * *   **ERROR**: displays the logs about unexpected issues that stop specific processes form running.
+   * - **NORMAL**: Normal.
+   * - **WARN**: Warning.
+   * - **ERROR**: Error.
    * 
    * @example
    * NORMAL,WARN,ERROR
@@ -89,11 +87,12 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of a DTS subtask. Valid values:
+   * The type of the DTS task subnode. Valid values:
    * 
-   * *   **DATA_LOAD**: full migration or full synchronization
-   * *   **ONLINE_WRITER**: incremental migration
-   * *   **SYNC_WRITER**: incremental synchronization
+   * 
+   * - **DATA_LOAD**: full data migration or initial full data synchronization.
+   * - **ONLINE_WRITER**: incremental data migration.
+   * - **SYNC_WRITER**: incremental data synchronization.
    * 
    * @example
    * SYNC_WRITER
@@ -101,7 +100,9 @@ export class DescribeDtsServiceLogRequest extends $dara.Model {
   subJobType?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be: - **true**: Yes. - **false**: No.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true

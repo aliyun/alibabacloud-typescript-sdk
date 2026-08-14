@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend service. The number is incremented.
+   * The backend error code, which increments numerically.
    * 
    * @example
    * 500
@@ -13,9 +13,8 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * >  If **The Value of Input Parameter %s is not valid** is returned and DtsJobId is returned for DynamicMessage, it indicates that the request parameter DtsJobId is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * > For example, if **The Value of Input Parameter %s is not valid** is returned and DynamicMessage returns DtsJobId, the request parameter DtsJobId that you specified is invalid.
    * 
    * @example
    * DtsJobId
@@ -23,7 +22,7 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned when the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -31,7 +30,7 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned when the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -39,7 +38,7 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -47,7 +46,7 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of a request.
+   * The request ID.
    * 
    * @example
    * AD823BD3-1BA6-4117-A536-165CB280****
@@ -55,7 +54,7 @@ export class ConvertInstanceResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

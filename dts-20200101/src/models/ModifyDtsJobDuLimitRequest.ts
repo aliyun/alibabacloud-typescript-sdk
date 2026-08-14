@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking task.
+   * The ID of the DTS migration, synchronization, or change tracking task.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The upper limit of DUs for the DTS task.
+   * The DU upper limit of the task.
    * 
-   * >  Minimum value: **1**.
+   * > The minimum value is **1**.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -36,7 +36,7 @@ export class ModifyDtsJobDuLimitRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

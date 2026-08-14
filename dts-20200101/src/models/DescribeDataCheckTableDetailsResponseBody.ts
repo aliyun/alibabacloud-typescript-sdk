@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara.Model {
   /**
    * @remarks
-   * The time when data verification was performed.
+   * The time when the verification was performed.
    * 
    * @example
    * 2023-01-18 11:26:59
@@ -13,7 +13,7 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   bootTime?: string;
   /**
    * @remarks
-   * The number of data rows that contain inconsistent data.
+   * The number of rows with data inconsistency.
    * 
    * @example
    * 1
@@ -21,12 +21,12 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   diffCount?: number;
   /**
    * @remarks
-   * The error code returned if the data verification task failed. Valid values:
+   * The error code returned when the task fails. Valid values:
    * 
-   * *   **1**: The number of tables that do not contain primary keys exceeds the limit.
-   * *   **2**: The number of data rows that contain inconsistent data exceeds 300.
-   * *   **3**: One or more tables to be verified do not exist.
-   * *   **4**: The SQL statements used for verifying data contain a syntax error.
+   * - **1**: the number of tables without primary key exceeds the limit.
+   * - **2**: the number of rows with data inconsistency exceeds 300.
+   * - **3**: the table to be queried does not exist.
+   * - **4**: the SQL statement used to query data contains a syntax error.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   errorCode?: number;
   /**
    * @remarks
-   * The number of data rows that were verified.
+   * The number of rows that have been verified in the table.
    * 
    * @example
    * 7
@@ -42,7 +42,7 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   finishCount?: number;
   /**
    * @remarks
-   * The auto-increment primary key that is used to identify the data in a verification result.
+   * The auto-increment primary key that identifies a verification result record.
    * 
    * @example
    * 167401241974****
@@ -66,12 +66,12 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   sourceTbName?: string;
   /**
    * @remarks
-   * The status of data verification results. Valid values:
+   * The status of the verification result. Valid values:
    * 
-   * *   **0**: The data verification task was complete.
-   * *   **2**: The data verification task was being initialized.
-   * *   **3**: The data verification task was in progress.
-   * *   **5**: The data verification task failed.
+   * - **0**: completed.
+   * - **2**: initializing.
+   * - **3**: running.
+   * - **5**: failed.
    * 
    * @example
    * 0
@@ -95,7 +95,7 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
   targetTbName?: string;
   /**
    * @remarks
-   * The total number of data rows.
+   * The total number of rows to be verified.
    * 
    * @example
    * 8
@@ -145,7 +145,7 @@ export class DescribeDataCheckTableDetailsResponseBodyTableDetails extends $dara
 export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of tables that contain inconsistent data.
+   * The number of tables with data inconsistency.
    * 
    * @example
    * 1
@@ -153,7 +153,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   diffTableCount?: number;
   /**
    * @remarks
-   * The dynamic error code. This parameter will be discontinued in the future.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -161,9 +161,8 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * > For example, if the returned value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
+   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** is invalid.
    * 
    * @example
    * Type
@@ -171,7 +170,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -179,7 +178,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -187,7 +186,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The total number of data rows that were failed.
+   * The number of tables that failed the verification.
    * 
    * @example
    * 1
@@ -195,7 +194,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   failedTableCount?: number;
   /**
    * @remarks
-   * The total number of data rows that were verified.
+   * The total number of rows that have been verified.
    * 
    * @example
    * 7
@@ -203,7 +202,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   finishedCount?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -211,7 +210,7 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 2
@@ -235,12 +234,12 @@ export class DescribeDataCheckTableDetailsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The details of data verification results.
+   * The details of the data consistency verification results for tables.
    */
   tableDetails?: DescribeDataCheckTableDetailsResponseBodyTableDetails[];
   /**
    * @remarks
-   * The total number of tables on which data verification was performed.
+   * The total number of tables to be verified.
    * 
    * @example
    * 1

@@ -278,13 +278,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   dataSynchronizationDetailList?: DescribeMigrationJobDetailResponseBodyDataSynchronizationDetailList;
   /**
    * @remarks
-   * Specifies whether to query the details of incremental data migration. Valid values:
-   * 
-   * *   **true**: yes
-   * 
-   * *   **false**: no
-   * 
-   * > Default value: **false**
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -292,7 +286,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The error message returned if the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -300,7 +294,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The page number.
    * 
    * @example
    * 1
@@ -308,7 +302,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The maximum number of migration instances that can be displayed on one page.
    * 
    * @example
    * 30
@@ -316,13 +310,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * Specifies whether to query the details of full data migration. Valid values:
-   * 
-   * *   **true**: yes
-   * 
-   * *   **false**: no
-   * 
-   * > Default value: **false**
+   * The request ID.
    * 
    * @example
    * 0AE3CD0B-4148-426F-A90E-952467CC****
@@ -331,7 +319,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   structureInitializationDetailList?: DescribeMigrationJobDetailResponseBodyStructureInitializationDetailList;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -339,7 +327,7 @@ export class DescribeMigrationJobDetailResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The total number of records.
    * 
    * @example
    * 1

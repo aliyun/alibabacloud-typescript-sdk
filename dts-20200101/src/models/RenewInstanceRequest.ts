@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RenewInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The subscription duration of the DTS instance after renewal. Default value: 1.
-   * 
-   * *   If **Period** is set to **Year**, the valid values are **1 to 5**.
-   * *   If **Period** is set to **Month**, the valid values are **1 to 60**.
+   * The subscription duration of the renewed instance. Default value: 1.
+   * - If **Period** is set to **Year**, the valid values are **1 to 5**.
+   * - If **Period** is set to **Month**, the valid values are **1 to 60**.
    * 
    * @example
    * 1
@@ -16,7 +15,7 @@ export class RenewInstanceRequest extends $dara.Model {
   buyCount?: string;
   /**
    * @remarks
-   * The billing method of the DTS instance. Set the value to **PREPAY**, which specifies the subscription billing method.
+   * The billing method. Set the value to **PREPAY**, which indicates the subscription billing method.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class RenewInstanceRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the data synchronization or change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -36,10 +35,9 @@ export class RenewInstanceRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The billing cycle of the DTS instance after renewal. Valid values:
-   * 
-   * *   **Year**
-   * *   **Month** (default)
+   * The billing method for the renewal instance. Valid values:
+   * - **Year**: yearly subscription.
+   * - **Month**: monthly subscription (default).
    * 
    * @example
    * Month
@@ -47,7 +45,7 @@ export class RenewInstanceRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +53,7 @@ export class RenewInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

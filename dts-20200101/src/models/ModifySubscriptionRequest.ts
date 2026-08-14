@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySubscriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The objects of the change tracking task. The value is a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
-   * 
-   * >  You can call the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation to query the original objects of the task.
+   * The modified subscription objects, in JSON format. For more information about the definition, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * > - The new DbList value overwrites the original DbList value. Make sure that the new DbList value contains all the objects that you want to track. Otherwise, objects may be lost. Modify this parameter with caution.
+   * - You can call [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) to query the original subscription objects.
    * 
    * @example
    * {"dtstest":{"name":"dtstest","all":true}}
@@ -15,7 +15,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+   * The ID of the change tracking instance. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
    * 
    * @example
    * dtsboss6pn1w******
@@ -23,7 +23,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * @example
    * boss6pn1w******
@@ -32,7 +32,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
-   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -41,7 +41,7 @@ export class ModifySubscriptionRequest extends $dara.Model {
   reserved?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -49,10 +49,10 @@ export class ModifySubscriptionRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve data definition language (DDL) statements. Valid values:
+   * Specifies whether the modified task subscribes to DDL data. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The task subscribes to DDL data.
+   * - **false**: The task does not subscribe to DDL data.
    * 
    * @example
    * true
@@ -60,10 +60,9 @@ export class ModifySubscriptionRequest extends $dara.Model {
   subscriptionDataTypeDDL?: boolean;
   /**
    * @remarks
-   * Specifies whether to retrieve data manipulation language (DML) statements. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
+   * Specifies whether the modified task subscribes to DML data. Valid values:
+   * - **true**: The task subscribes to DML data.
+   * - **false**: The task does not subscribe to DML data.
    * 
    * @example
    * true

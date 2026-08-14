@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The UNIX timestamp that represents the start time of change tracking. Unit: seconds.
-   * 
-   * >  You can use a search engine to obtain a UNIX timestamp converter.
+   * The start time of change tracking, in the format of a UNIX timestamp. Unit: seconds.
+   * > You can use a search engine to find a UNIX timestamp converter.
    * 
    * @example
    * 1616902385
@@ -15,7 +14,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   checkpoint?: string;
   /**
    * @remarks
-   * The objects for which you want to track data changes. The value must be a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+   * The objects to be tracked, in JSON format. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
    * 
    * This parameter is required.
    * 
@@ -25,7 +24,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The ID of the DTS dedicated cluster on which the change tracking task is scheduled to run.
+   * The ID of the DTS dedicated cluster. This parameter is used to schedule the change tracking task to the specified DTS dedicated cluster.
    * 
    * @example
    * dtscluster_atyl3b5214uk***
@@ -33,10 +32,10 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to monitor the task latency. Valid values:
+   * Specifies whether to monitor the latency status. Valid values:
    * 
-   * *   **true**: monitors the task latency.
-   * *   **false**: does not monitor the task latency.
+   * - **true**: monitors the latency status.
+   * - **false**: does not monitor the latency status.
    * 
    * @example
    * true
@@ -44,11 +43,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   delayNotice?: boolean;
   /**
    * @remarks
-   * The mobile numbers to which latency-related alerts are sent. Separate multiple mobile numbers with commas (,).
-   * 
-   * > 
-   * *   This parameter is available only for users of the China site (aliyun.com). Only mobile numbers in the Chinese mainland are supported. You can specify up to 10 mobile numbers.
-   * *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phones, but can [configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
+   * The mobile phone numbers for receiving latency alerts. Separate multiple phone numbers with commas (,).
+   * > - This parameter is supported only on the China site (aliyun.com). Only Chinese mainland phone numbers are supported, and you can specify up to 10 phone numbers.
+   * - The China site (Chinese mainland) does not support phone alerts. You can only [configure alert rules for DTS tasks in CloudMonitor](https://help.aliyun.com/document_detail/175876.html).
    * 
    * @example
    * 1361234****,1371234****
@@ -56,9 +53,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   delayPhone?: string;
   /**
    * @remarks
-   * The threshold for triggering latency-related alerts. Unit: seconds. The value must be an integer. You can set the threshold based on your business needs. To prevent jitters caused by network and database overloads, we recommend that you set the threshold to more than 10 seconds.
-   * 
-   * >  If the **DelayNotice** parameter is set to **true**, this parameter is required.
+   * The threshold for triggering latency alerts. Unit: seconds. The value must be an integer. Set the threshold based on your business requirements. To avoid alert fluctuations caused by network conditions or database loads, set the threshold to 10 seconds or more.
+   * > This parameter is required when **DelayNotice** is set to **true**.
    * 
    * @example
    * 10
@@ -66,8 +62,10 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   delayRuleTime?: number;
   /**
    * @remarks
-   * Environment label of the DTS instance, with values:
-   * - **normal**: **general** - **online**: **production**
+   * The environment tag of the DTS instance. Valid values:
+   * 
+   * - **normal**: normal
+   * - **online**: online.
    * 
    * @example
    * normal
@@ -75,7 +73,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   dtsBisLabel?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+   * The ID of the change tracking instance. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
    * 
    * @example
    * dtsy0zz3t13h7d****
@@ -83,7 +81,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * @example
    * y0zz3t13h7d****
@@ -92,21 +90,20 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the change tracking task.
-   * 
-   * >  We recommend that you specify a descriptive name for easy identification. You do not need to use a unique name.
+   * > Specify a descriptive name that makes it easy to identify the task. The name does not need to be unique.
    * 
    * This parameter is required.
    * 
    * @example
-   * for_test
+   * MySQL订阅
    */
   dtsJobName?: string;
   /**
    * @remarks
-   * Specifies whether to monitor the task status. Valid values:
+   * Specifies whether to monitor the error status. Valid values:
    * 
-   * *   **true**: monitors the task status.
-   * *   **false**: does not monitor the task status.
+   * - **true**: monitors the error status.
+   * - **false**: does not monitor the error status.
    * 
    * @example
    * true
@@ -114,11 +111,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   errorNotice?: boolean;
   /**
    * @remarks
-   * The mobile numbers to which status-related alerts are sent. Separate multiple mobile numbers with commas (,).
-   * 
-   * > 
-   * *   This parameter is available only for users of the China site (aliyun.com). Only mobile numbers in the Chinese mainland are supported. You can specify up to 10 mobile numbers.
-   * *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phones, but can [configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
+   * The mobile phone numbers for receiving error alerts. Separate multiple phone numbers with commas (,).
+   * > - This parameter is supported only on the China site (aliyun.com). Only Chinese mainland phone numbers are supported, and you can specify up to 10 phone numbers.
+   * - The China site (Chinese mainland) does not support phone alerts. You can only [configure alert rules for DTS tasks in CloudMonitor](https://help.aliyun.com/document_detail/175876.html).
    * 
    * @example
    * 1361234****,1371234****
@@ -126,8 +121,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   errorPhone?: string;
   /**
    * @remarks
-   * The DU upper limit of the Serverless instance, with values being: 2, 4, 8, 16. 
-   * Currently, this feature is not supported, please do not pass in parameters.
+   * The maximum number of DUs for a serverless instance. Valid values: 2, 4, 8, and 16.
+   * <props="intl">
+   * > This feature is currently not supported. Do not specify this parameter..
    * 
    * @example
    * 16
@@ -135,8 +131,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   maxDu?: number;
   /**
    * @remarks
-   * The lower limit of DU for Serverless instances, with values being: 1, 2, 4, 8, 16. 
-   * This feature is currently not supported, please do not pass in parameters.
+   * The minimum number of DTS Units (DUs) for a serverless instance. Valid values: 1, 2, 4, 8, and 16.
+   * <props="intl">
+   * > This feature is currently not supported. Do not specify this parameter..
    * 
    * @example
    * 1
@@ -144,7 +141,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   minDu?: number;
   /**
    * @remarks
-   * The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -154,7 +151,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value must be a JSON string. You can specify this parameter to add more configurations of the source or destination database to the DTS task. For example, you can specify the data storage format of the destination Kafka database and the ID of the CEN instance. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+   * The reserved parameter of DTS, in JSON format. You can specify this parameter to add information about the source and destination databases, such as the data storage format of the destination Kafka database or the CEN instance ID. For more information, see the [Reserve metric description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {      "srcInstanceId": "cen-9kqshqum*******"  }
@@ -162,7 +159,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   reserve?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -170,7 +167,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Name of the database to be subscribed.
+   * The name of the database to be tracked.
    * 
    * @example
    * dtstestdata
@@ -178,9 +175,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The engine of the source database. Valid values: **MySQL**, **PostgreSQL**, and **Oracle**.
+   * The engine type of the source database. Valid values: **MySQL**, **PostgreSQL**, and **Oracle**.
    * 
-   * >  If the source database is a self-managed database, you must specify this parameter.
+   * > This parameter is required if the source database is a self-managed database.
    * 
    * @example
    * PostgreSQL
@@ -189,8 +186,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
    * The endpoint of the source database.
-   * 
-   * >  This parameter is required only when the source database is a self-managed database.
+   * > This parameter is available and required only when the source database is a self-managed database.
    * 
    * @example
    * 172.16.8*.***
@@ -198,9 +194,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointIP?: string;
   /**
    * @remarks
-   * The ID of the source database.
-   * 
-   * >  This parameter is required only when the source database is an ApsaraDB RDS for MySQL instance, a PolarDB-X 1.0 instance, or a PolarDB for MySQL cluster.
+   * The instance ID of the source instance.
+   * > This parameter is active and required only when the source database is an ApsaraDB RDS for MySQL instance, a PolarDB-X 1.0 instance, or a PolarDB for MySQL cluster.
    * 
    * @example
    * rm-bp1zc3iyqe3qw****
@@ -208,16 +203,16 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The type of the source database. Valid values:
+   * The instance type of the source database. Valid values:
    * 
-   * *   **RDS**: ApsaraDB RDS for MySQL instance
-   * *   **PolarDB**: PolarDB for MySQL cluster
-   * *   **DRDS**: PolarDB-X 1.0 instance
-   * *   **LocalInstance**: self-managed database with a public IP address
-   * *   **ECS**: self-managed database hosted on an Elastic Compute Service (ECS) instance
-   * *   **Express**: self-managed database connected over Express Connect
-   * *   **CEN**: self-managed database connected over Cloud Enterprise Network (CEN)
-   * *   **dg**: self-managed database connected over Database Gateway
+   * - **RDS**: ApsaraDB RDS instance.
+   * - **PolarDB**: PolarDB for MySQL cluster.
+   * - **DRDS**: PolarDB-X 1.0 instance.
+   * - **LocalInstance**: self-managed database with a public IP address.
+   * - **ECS**: self-managed database hosted on an ECS instance.
+   * - **Express**: self-managed database connected over Express Connect.
+   * - **CEN**: self-managed database connected over Cloud Enterprise Network (CEN).
+   * - **dg**: self-managed database connected over Database Gateway.
    * 
    * @example
    * RDS
@@ -225,9 +220,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointInstanceType?: string;
   /**
    * @remarks
-   * The system ID (SID) of the Oracle database.
-   * 
-   * >  This parameter is required only when the source database is a self-managed Oracle database and is not deployed in the Real Application Clusters (RAC) architecture.
+   * The SID of the Oracle database.
+   * > This parameter is available and required only when the source database is a self-managed Oracle database that is not a Real Application Cluster (RAC) instance.
    * 
    * @example
    * testsid
@@ -235,9 +229,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointOracleSID?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the source database belongs.
-   * 
-   * >  This parameter is required only when you track data changes across different Alibaba Cloud accounts.
+   * The Alibaba Cloud account ID of the account to which the source instance belongs.
+   * > This parameter is active and required only when you configure cross-Alibaba Cloud account change tracking. You must subscribe to the task.
    * 
    * @example
    * 140692647406****
@@ -245,7 +238,7 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointOwnerID?: string;
   /**
    * @remarks
-   * The password of the account that is used to connect to the source database.
+   * The password of the database account for the source instance.
    * 
    * @example
    * Test123456
@@ -253,9 +246,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointPassword?: string;
   /**
    * @remarks
-   * The service port number of the source database.
-   * 
-   * >  This parameter is required only when the source database is a self-managed database.
+   * The service port of the source database.
+   * > This parameter is available and required only when the source database is a self-managed database.
    * 
    * @example
    * 3306
@@ -263,9 +255,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointPort?: string;
   /**
    * @remarks
-   * The ID of the region in which the source database resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-   * 
-   * >  If the source database is a self-managed database with a public IP address, you can set the value of this parameter to **cn-hangzhou** or the ID of the region that is closest to the region in which the self-managed database resides.
+   * The region of the source instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > If the source instance is a self-managed database with a public IP address, you can set this parameter to **cn-hangzhou** or the region ID closest to the self-managed database.
    * 
    * @example
    * cn-hangzhou
@@ -273,9 +264,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The RAM role that is authorized to access the source database. This parameter is required if the source database does not belong to the Alibaba Cloud account that you use to configure the change tracking task. In this case, you must authorize the Alibaba Cloud account to access the source database by using a RAM role.
-   * 
-   * >  For more information about the permissions that are required for the RAM role and how to grant the permissions to the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
+   * The authorized role of the source instance. If the source instance and the change tracking task belong to different Alibaba Cloud accounts, specify this parameter to allow the Alibaba Cloud account that owns the change tracking task to access the source instance.
+   * > For more information about the permissions and authorization methods required for the role, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
    * 
    * @example
    * ram-for-dts
@@ -283,9 +273,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointRole?: string;
   /**
    * @remarks
-   * The username of the account that is used to connect to the source database.
-   * 
-   * >  The permissions that are required for the database account vary with the change tracking scenario. For more information, see [Prepare the source database account for change tracking](https://help.aliyun.com/document_detail/212653.html).
+   * The database account of the source instance.
+   * > The permissions required for change tracking vary depending on the database type. For more information, see the account permissions section in [Prepare database accounts for change tracking](https://help.aliyun.com/document_detail/212653.html).
    * 
    * @example
    * dtstest
@@ -293,9 +282,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   sourceEndpointUserName?: string;
   /**
    * @remarks
-   * The path of the certificate authority (CA) certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+   * The path of the CA certificate when the source database uses an SSL connection.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * > This feature is currently not supported. Do not specify this parameter.
    * 
    * @example
    * ****
@@ -303,9 +292,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   srcCaCertificateOssUrl?: string;
   /**
    * @remarks
-   * The key of the CA certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+   * The key of the CA certificate when the source database uses an SSL connection.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * > This feature is currently not supported. Do not specify this parameter.
    * 
    * @example
    * ****
@@ -313,9 +302,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   srcCaCertificatePassword?: string;
   /**
    * @remarks
-   * The path to the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+   * The path of the client certificate when the source database uses an SSL connection.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * > This feature is currently not supported. Do not specify this parameter.
    * 
    * @example
    * ****
@@ -323,9 +312,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   srcClientCertOssUrl?: string;
   /**
    * @remarks
-   * The path to the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+   * The path of the client certificate private key when the source database uses an SSL connection.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * > This feature is currently not supported. Do not specify this parameter.
    * 
    * @example
    * ****
@@ -333,9 +322,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   srcClientKeyOssUrl?: string;
   /**
    * @remarks
-   * The password of the private key of the client certificate that is used if the connection to the source database is encrypted by using the SSL protocol.
+   * The password of the client certificate private key when the source database uses an SSL connection.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * > This feature is currently not supported. Do not specify this parameter.
    * 
    * @example
    * ****
@@ -343,10 +332,10 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   srcClientPassword?: string;
   /**
    * @remarks
-   * Specifies whether to track DDL statements. Default value: true. Valid values:
+   * Specifies whether to track DDL data. Valid values:
    * 
-   * *   **true**: tracks DDL statements.
-   * *   **false**: does not track DDL statements.
+   * - **true** (default): tracks DDL data.
+   * - **false**: does not track DDL data.
    * 
    * @example
    * true
@@ -354,10 +343,9 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   subscriptionDataTypeDDL?: boolean;
   /**
    * @remarks
-   * Specifies whether to track DML statements. Default value: true. Valid values:
-   * 
-   * *   **true**: tracks DML statements.
-   * *   **false**: does not track DML statements.
+   * Specifies whether to track DML data. Valid values:
+   * - **true** (default): tracks DML data.
+   * - **false**: does not track DML data.
    * 
    * @example
    * true
@@ -365,11 +353,10 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   subscriptionDataTypeDML?: boolean;
   /**
    * @remarks
-   * The network type of the change tracking task. Set the value to **vpc**. A value of vpc indicates the Virtual Private Cloud (VPC) network type.
+   * The network type of the change tracking task. The only valid value is **vpc**, which indicates virtual private cloud (VPC).
    * 
-   * > 
-   * *   To use the new version of the change tracking feature, you must specify the SubscriptionInstanceNetworkType parameter. You must also specify the **SubscriptionInstanceVPCId** and **SubscriptionInstanceVSwitchID** parameters. If you do not specify the SubscriptionInstanceNetworkType parameter, the previous version of the change tracking feature is used.
-   * *   The previous version of the change tracking feature supports self-managed MySQL databases, ApsaraDB RDS for MySQL instances, and PolarDB-X 1.0 instances. The new version of the change tracking feature supports self-managed MySQL databases, ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and Oracle databases.
+   * > - If you specify this parameter, the change tracking task is defined as the new version. You must also correctly set the **SubscriptionInstanceVPCId** and **SubscriptionInstanceVSwitchID** parameters. If you do not specify this parameter, the change tracking task is defined as the legacy version.
+   * - Legacy change tracking tasks support tracking data from self-managed MySQL, ApsaraDB RDS for MySQL, and PolarDB-X 1.0. New-version change tracking tasks support tracking data from self-managed MySQL, ApsaraDB RDS for MySQL, PolarDB for MySQL, and Oracle.
    * 
    * This parameter is required.
    * 
@@ -379,9 +366,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   subscriptionInstanceNetworkType?: string;
   /**
    * @remarks
-   * The ID of the VPC in which the change tracking instance is deployed.
-   * 
-   * >  This parameter is required only when the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+   * The VPC ID of the change tracking instance.
+   * > This parameter is available and required only when **SubscriptionInstanceNetworkType** is set to **vpc**.
    * 
    * @example
    * vpc-bp1vwnn14rqpyiczj****
@@ -389,9 +375,8 @@ export class ConfigureSubscriptionRequest extends $dara.Model {
   subscriptionInstanceVPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the specified VPC.
-   * 
-   * >  This parameter is required only when the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+   * The vSwitch ID of the change tracking instance.
+   * > This parameter is available and required only when **SubscriptionInstanceNetworkType** is set to **vpc**.
    * 
    * @example
    * vsw-bp10df3mxae6lpmku****

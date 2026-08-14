@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The basis on which the retrieved entries are sorted if multiple DTS dedicated clusters are returned. Valid values:
+   * The sort column when the response contains multiple DTS dedicated cluster instances. Valid values:
    * 
-   * *   **gmtCreated**: the time when a cluster was created.
-   * *   **orderCount**: the number of nodes in a cluster.
+   * - **gmtCreated**: creation time.
+   * - **orderCount**: number of nodes.
    * 
    * @example
    * gmtCreated
@@ -16,10 +16,10 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The order in which you want to sort the retrieved entries. Valid values:
+   * The sort order. Valid values:
    * 
-   * *   asc: sorts the retrieved entries in ascending order. This is the default value.
-   * *   desc: sorts the retrieved entries in descending order.
+   * - **asc**: ascending order. This is the default value.
+   * - **desc**: descending order.
    * 
    * @example
    * asc
@@ -28,7 +28,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of clusters to return on each page.
+   * The number of clusters to display per page.
    * 
    * @example
    * 10
@@ -44,9 +44,9 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The content of the query condition.
+   * The specific content of the query condition.
    * 
-   * >  You must set the **Type parameter** to specify the type of the query condition.
+   * > You must first specify the **Type** parameter to define the query key.
    * 
    * @example
    * dtspk3f13r731m****
@@ -54,7 +54,7 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. This parameter is used as a query condition.
    * 
    * @example
    * cn-hangzhou
@@ -70,16 +70,16 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   **init**: The cluster is being initialized.
-   * *   **schedule**: The cluster is pending scheduling.
-   * *   **running**: The cluster is running.
-   * *   **upgrade**: The cluster is being upgraded.
-   * *   **downgrade**: The cluster is being downgraded.
-   * *   **locked**: The cluster is locked.
-   * *   **releasing**: The cluster is being released.
-   * *   **released**: The cluster is released.
+   * - **init**: initializing.
+   * - **schedule**: pending scheduling.
+   * - **running**: running.
+   * - **upgrade**: upgrading.
+   * - **downgrade**: downgrading.
+   * - **locked**: locked.
+   * - **releasing**: being released.
+   * - **released**: released.
    * 
    * @example
    * init
@@ -87,13 +87,13 @@ export class ListDedicatedClusterRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
+   * The query key. Valid values:
    * 
-   * *   **NAME**: the name of the cluster.
-   * *   **INSTANCE**: the ID of a cluster instance.
-   * *   **DEDICAETEDCLUSTERID**: the ID of a dedicated cluster.
+   * - **NAME**: cluster name.
+   * - **INSTANCE**: cluster instance ID.
+   * - **DEDICATEDCLUSTERID**: dedicated cluster ID.
    * 
-   * >  You must specify the query condition by using the **Params** parameter.
+   * > You must also specify the **Params** parameter to provide the specific content of the query condition.
    * 
    * @example
    * NAME

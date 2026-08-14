@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyConsumerGroupPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current password of the consumer group.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class ModifyConsumerGroupPasswordResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class ModifyConsumerGroupPasswordResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The username of the consumer group. You can call the [DescribeConsumerGroup](https://help.aliyun.com/document_detail/122886.html) operation to query the username.
+   * The request ID.
    * 
    * @example
    * A06B5CFF-9576-4BC1-BE62-A3D43E1F****
@@ -29,10 +29,7 @@ export class ModifyConsumerGroupPasswordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The new password of the consumer group.
-   * 
-   * *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
-   * *   A password must be 8 to 32 characters in length.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

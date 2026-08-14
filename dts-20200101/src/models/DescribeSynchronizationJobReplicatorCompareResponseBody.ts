@@ -21,7 +21,7 @@ export class DescribeSynchronizationJobReplicatorCompareResponseBody extends $da
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E6EB407F-C59F-4682-A682-A00FA6A2****
@@ -29,7 +29,7 @@ export class DescribeSynchronizationJobReplicatorCompareResponseBody extends $da
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -37,10 +37,10 @@ export class DescribeSynchronizationJobReplicatorCompareResponseBody extends $da
   success?: string;
   /**
    * @remarks
-   * Indicates whether image matching is enabled. Valid values:
+   * The full image switch. Valid values:
    * 
-   * *   **true**: Image matching is enabled.
-   * *   **false**: Image matching is disabled.
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true

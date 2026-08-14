@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDtsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code. This parameter will be removed in the future.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,9 +13,8 @@ export class StopDtsJobResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -47,7 +46,7 @@ export class StopDtsJobResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 01B6F25-21E7-4484-99D5-3EF2625C****
@@ -55,7 +54,7 @@ export class StopDtsJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

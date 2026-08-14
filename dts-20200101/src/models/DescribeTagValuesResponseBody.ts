@@ -13,7 +13,7 @@ export class DescribeTagValuesResponseBody extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The start page of the returned pages.
+   * The page number of the returned tag values.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeTagValuesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tag values returned on each page.
+   * The number of tag values returned per page.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeTagValuesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD110813-9AD6-5F07-BFC8-4C841309****
@@ -37,12 +37,12 @@ export class DescribeTagValuesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tag values that are associated with the tag key.
+   * The tag information.
    */
   tagValues?: string[];
   /**
    * @remarks
-   * The total number of tag values that are associated with the tag key.
+   * The total number of tag values that correspond to the tag key.
    * 
    * @example
    * 13

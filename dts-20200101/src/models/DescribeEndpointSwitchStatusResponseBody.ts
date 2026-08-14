@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * This parameter is no longer available.
+   * This parameter is discontinued.
    * 
    * @example
    * 400
@@ -29,7 +29,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0DD6B201-604B-4CAB-B6A8-4B2953B5****
@@ -37,13 +37,13 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The execution status of the task. Valid values:
    * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Initializing**: The task is being initialized.
-   * *   **Switching**: The task is running.
-   * *   **Failed**: The task failed.
-   * *   **Finished**: The task is completed.
+   * - **NotStarted**: not started.
+   * - **Initializing**: initializing.
+   * - **Switching**: switching.
+   * - **Failed**: failed.
+   * - **Finished**: succeeded.
    * 
    * @example
    * Finished
@@ -51,7 +51,7 @@ export class DescribeEndpointSwitchStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

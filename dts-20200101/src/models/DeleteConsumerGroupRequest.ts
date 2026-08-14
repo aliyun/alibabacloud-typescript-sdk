@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
    * 
    * @example
    * 12323344****
@@ -24,7 +24,7 @@ export class DeleteConsumerGroupRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -32,7 +32,7 @@ export class DeleteConsumerGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

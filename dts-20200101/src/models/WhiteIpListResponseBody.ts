@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WhiteIpListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Target end adaptation to VPCNAT IP whitelist
+   * The IP whitelist of the destination adapted for VPC NAT.
    * 
    * @example
    * 127.0.0.1
@@ -13,7 +13,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   destIpList?: string;
   /**
    * @remarks
-   * The dynamic error code. This parameter will be removed in the future.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -21,7 +21,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message. This parameter will be removed in the future.
+   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
    * 
    * @example
    * Type
@@ -53,7 +53,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * IP address.
+   * The IP whitelist. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
@@ -61,7 +61,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD823BD3-1BA6-4117-A536-165CB280****
@@ -69,7 +69,7 @@ export class WhiteIpListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Source adaptation to VPC NAT IP whitelist
+   * The IP whitelist of the source adapted for VPC NAT.
    * 
    * @example
    * 127.0.0.1
@@ -77,7 +77,9 @@ export class WhiteIpListResponseBody extends $dara.Model {
   srcIpList?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

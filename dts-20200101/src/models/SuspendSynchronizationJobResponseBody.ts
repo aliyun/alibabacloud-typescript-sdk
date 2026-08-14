@@ -21,7 +21,7 @@ export class SuspendSynchronizationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C306C198-7807-409D-930A-D6CE6C32****
@@ -29,7 +29,7 @@ export class SuspendSynchronizationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

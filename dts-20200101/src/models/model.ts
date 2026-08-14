@@ -119,6 +119,7 @@ export { DescribeDtsJobsResponseBodyDtsJobListSourceEndpoint } from './DescribeD
 export { DescribeDtsJobsResponseBodyDtsJobListStructureDataCheckStatus } from './DescribeDtsJobsResponseBody';
 export { DescribeDtsJobsResponseBodyDtsJobListStructureInitializationStatus } from './DescribeDtsJobsResponseBody';
 export { DescribeDtsJobsResponseBodyDtsJobListTagList } from './DescribeDtsJobsResponseBody';
+export { DescribeDtsJobsResponseBodyDtsJobListTimeWindowDataCheckStatus } from './DescribeDtsJobsResponseBody';
 export { DescribeDtsJobsResponseBodyDtsJobList } from './DescribeDtsJobsResponseBody';
 export { DescribeDtsJobsResponseBodyEtlDemoListDataEtlStatus } from './DescribeDtsJobsResponseBody';
 export { DescribeDtsJobsResponseBodyEtlDemoListDataInitializationStatus } from './DescribeDtsJobsResponseBody';

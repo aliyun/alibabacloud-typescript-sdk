@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend service. The number is incremented.
+   * The backend error code, which is an incrementing number.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
+   * The dynamic error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
    * 
    * @example
    * Type
@@ -21,7 +21,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -45,7 +45,7 @@ export class ModifyDtsJobDuLimitResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****

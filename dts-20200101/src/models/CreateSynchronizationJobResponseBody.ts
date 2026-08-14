@@ -21,7 +21,7 @@ export class CreateSynchronizationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9056C8B0-5799-493A-9655-70F607B8****
@@ -29,7 +29,7 @@ export class CreateSynchronizationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class CreateSynchronizationJobResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance.
+   * The instance ID of the data synchronization instance.
    * 
    * @example
    * dtshvj11k25255****

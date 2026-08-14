@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobReplicatorCompareRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $dara.Mo
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -22,7 +22,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $dara.Mo
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +30,7 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $dara.Mo
   regionId?: string;
   /**
    * @remarks
-   * Resource GroupId
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -40,12 +40,11 @@ export class DescribeSynchronizationJobReplicatorCompareRequest extends $dara.Mo
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * *   **Forward**
-   * *   **Reverse**
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * > 
-   * *   Default value: **Forward**.
-   * *   This parameter is required only when the topology of the data synchronization instance is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - You need to specify this parameter only if the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward

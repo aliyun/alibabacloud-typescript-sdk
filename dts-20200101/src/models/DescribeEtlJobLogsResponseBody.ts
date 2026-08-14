@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   /**
    * @remarks
-   * The state of the ETL task.
+   * The description of the ETL task running status.
    * 
    * @example
    * Starting DTS-ETL...
@@ -13,7 +13,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The module for which the logs are generated, such as the conversion module of ETL tasks.
+   * The status, which indicates the name of the module that generated the log, such as the transformation module of the ETL task.
    * 
    * @example
    * DTS-ETL
@@ -29,7 +29,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   etlId?: string;
   /**
    * @remarks
-   * The time when the log was generated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp when the log was generated.
    * 
    * @example
    * 1637306503000
@@ -45,10 +45,10 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
-   * 121323*******454512
+   * 123123******12131
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class DescribeEtlJobLogsResponseBodyEtlRunningLogs extends $dara.Model {
 export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code.
+   * The dynamic error code associated with this request.
    * 
    * @example
    * 403
@@ -93,7 +93,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The dynamic error message associated with this request.
    * 
    * @example
    * present environment is not support,so skip.
@@ -101,7 +101,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code. This example indicates that the specified ETL task ID is invalid.
+   * The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
    * 
    * @example
    * InvalidJobId
@@ -109,7 +109,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message. This example indicates that the specified ETL task ID does not exist. In this case, the ETL task may be deleted.
+   * The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
    * 
    * @example
    * The specified dts job id %s is not exists.
@@ -117,7 +117,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The logs of ETL tasks.
+   * The array of ETL task running log objects.
    */
   etlRunningLogs?: DescribeEtlJobLogsResponseBodyEtlRunningLogs[];
   /**
@@ -130,7 +130,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 224DB9F7-3100-4899-AB9C-C938BCCB43E7
@@ -138,7 +138,7 @@ export class DescribeEtlJobLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. If the call failed, false is returned.
+   * Indicates whether the request was successful. A value of false indicates a failure.
    * 
    * @example
    * true

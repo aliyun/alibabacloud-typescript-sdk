@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Dynamic error code, this parameter will be deprecated.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,7 +13,8 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * Dynamic error message used to replace the **%s** in the **ErrMessage** return parameter.  > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -21,7 +22,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error code returned when the call fails.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -29,7 +30,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Returns the corresponding error message when an invocation error occurs.
+   * The error message returned if the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -37,7 +38,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +46,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * request ID.
+   * The request ID.
    * 
    * @example
    * 659304E3-D44E-5EFA-BDE3-60015E30403B
@@ -53,7 +54,7 @@ export class SwitchPhysicalDtsJobToCloudResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * True

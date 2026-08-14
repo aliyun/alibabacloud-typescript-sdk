@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusListSynchronizationDirectionInfoList extends $dara.Model {
   /**
    * @remarks
-   * The UNIX timestamp generated when the latest data record was synchronized.
+   * The timestamp of the latest synchronized data, in UNIX timestamp format.
    * 
-   * >  You can use a search engine to obtain a UNIX timestamp converter.
+   * > You can use a search engine to find a UNIX timestamp converter.
    * 
    * @example
    * 1610524452
@@ -15,18 +15,18 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
   checkpoint?: string;
   /**
    * @remarks
-   * The status of the data synchronization task in this direction. Valid values:
+   * The synchronization status of the synchronization instance in this direction. Valid values:
    * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **Initializing**: The task is performing initial synchronization.
-   * *   **InitializeFailed**: Initial synchronization failed.
-   * *   **Synchronizing**: The task is synchronizing data.
-   * *   **Failed**: The task failed to synchronize data.
-   * *   **Suspending**: The task is paused.
-   * *   **Modifying**: The objects in the task are being modified.
-   * *   **Finished**: The task is completed.
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **Initializing**: performing initial synchronization.
+   * - **InitializeFailed**: initial synchronization failed.
+   * - **Synchronizing**: synchronizing.
+   * - **Failed**: synchronization failed.
+   * - **Suspending**: paused.
+   * - **Modifying**: modifying synchronization objects.
+   * - **Finished**: completed.
    * 
    * @example
    * InitializeFailed
@@ -35,9 +35,8 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
   /**
    * @remarks
    * The synchronization direction. Valid values:
-   * 
-   * *   **Forward**
-   * *   **Reverse**
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
    * @example
    * Forward
@@ -71,12 +70,12 @@ export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobL
 export class DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList extends $dara.Model {
   /**
    * @remarks
-   * The details of data synchronization tasks in each direction.
+   * The list of synchronization direction details.
    */
   synchronizationDirectionInfoList?: DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusListSynchronizationDirectionInfoList[];
   /**
    * @remarks
-   * The ID of the data synchronization instance.
+   * The instance ID of the data synchronization instance.
    * 
    * @example
    * dtsexjk1alb116****
@@ -127,7 +126,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   errMessage?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -135,7 +134,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of data synchronization instances displayed on one page.
+   * The number of synchronization instances displayed on one page.
    * 
    * @example
    * 2
@@ -143,7 +142,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1413460B-138A-48D1-836C-B24EDDC1****
@@ -151,7 +150,7 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -159,12 +158,12 @@ export class DescribeSynchronizationJobStatusListResponseBody extends $dara.Mode
   success?: string;
   /**
    * @remarks
-   * The status of the data synchronization tasks.
+   * The status list of synchronization jobs.
    */
   synchronizationJobListStatusList?: DescribeSynchronizationJobStatusListResponseBodySynchronizationJobListStatusList[];
   /**
    * @remarks
-   * The total number of data synchronization instances.
+   * The total number of synchronization instances that were queried.
    * 
    * @example
    * 2

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateReverseDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the synchronization or migration task, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
+   * The ID of the synchronization or migration task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateReverseDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * Resource GroupId
+   * The ID of the resource group. This is a global parameter that does not need to be specified for this operation.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -23,7 +23,10 @@ export class CreateReverseDtsJobRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Shard Password
+   * The password of the shard in a MongoDB sharded cluster instance.
+   * 
+   * > - This parameter is available and required only when the source database instance is a MongoDB sharded cluster instance.
+   * - This parameter takes effect only when **ModifyAccount** is set to **true**.
    * 
    * @example
    * DTStest****
@@ -31,7 +34,7 @@ export class CreateReverseDtsJobRequest extends $dara.Model {
   shardPassword?: string;
   /**
    * @remarks
-   * Shard User name
+   * The account of the shard in a MongoDB sharded cluster instance.
    * 
    * @example
    * dtstest

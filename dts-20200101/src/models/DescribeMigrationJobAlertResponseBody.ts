@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Phone number of the contact for delay alarm.
+   * The mobile phone number of the contact for latency alerts.
    * 
    * @example
    * 1361234****,1371234****
@@ -13,8 +13,10 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Whether to monitor the delay status, return values:
-   * - **enable**: Yes. - **disable**: No.
+   * Indicates whether latency status monitoring is enabled. Valid values:
+   * 
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
    * 
    * @example
    * enable
@@ -22,7 +24,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold for triggering a delayed alarm, in seconds.
+   * The threshold that triggers a latency alert. Unit: seconds.
    * 
    * @example
    * 0
@@ -30,7 +32,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   delayOverSeconds?: string;
   /**
    * @remarks
-   * Error code returned when the call fails.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -38,7 +40,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -46,7 +48,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Phone number of the contact for abnormal alarm notifications
+   * The mobile phone number of the contact for error alerts.
    * 
    * @example
    * 1361234****,1371234****
@@ -54,8 +56,10 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Whether to monitor for abnormal status, return values:
-   * - **enable**: Yes. - **disable**: No.
+   * Indicates whether error status monitoring is enabled. Valid values:
+   * 
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
    * 
    * @example
    * enable
@@ -63,7 +67,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * Data migration instance ID.
+   * The ID of the data migration instance.
    * 
    * @example
    * dtslb9113qq11n****
@@ -71,7 +75,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   migrationJobId?: string;
   /**
    * @remarks
-   * Name of the data migration task.
+   * The name of the data migration task.
    * 
    * @example
    * zwy-test5
@@ -79,7 +83,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   migrationJobName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CFB89C51-6F03-519C-A921-AAE28D50AEFB
@@ -87,7 +91,7 @@ export class DescribeMigrationJobAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

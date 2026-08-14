@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SkipFullJobTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+   * The ID of the data migration, synchronization, or change tracking task. This parameter is deprecated and no longer takes effect.
    * 
    * @example
    * l3m1213ye7l****
@@ -13,7 +13,7 @@ export class SkipFullJobTableRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the primary key.
+   * The primary key ID of JobProgress. Each object in a full data migration task corresponds to a JobProgress entry. Specify this parameter to identify the table to skip.
    * 
    * @example
    * 123
@@ -21,7 +21,7 @@ export class SkipFullJobTableRequest extends $dara.Model {
   jobProgressId?: string;
   /**
    * @remarks
-   * The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -37,10 +37,9 @@ export class SkipFullJobTableRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
-   * 
-   * *   **true**: yes.
-   * *   **false**: no.
+   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+   * - **true**: The node is a zero-ETL node.
+   * - **false**: The node is not a zero-ETL node.
    * 
    * @example
    * true

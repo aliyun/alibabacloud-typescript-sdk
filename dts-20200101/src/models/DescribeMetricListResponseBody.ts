@@ -13,7 +13,7 @@ export class DescribeMetricListResponseBodyDataPoints extends $dara.Model {
   statistics?: number;
   /**
    * @remarks
-   * The timestamp of the record. Unit: milliseconds.
+   * The record timestamp, in milliseconds.
    * 
    * @example
    * 1650872310000
@@ -45,7 +45,7 @@ export class DescribeMetricListResponseBodyDataPoints extends $dara.Model {
 export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend service. The number is incremented.
+   * The backend error code, which is an incrementing number.
    * 
    * @example
    * 403
@@ -53,12 +53,12 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The monitoring statistics.
+   * The monitoring statistics information.
    */
   dataPoints?: DescribeMetricListResponseBodyDataPoints[];
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** error message.
    * 
    * @example
    * Type
@@ -66,7 +66,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -74,7 +74,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -82,7 +82,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned for an exception.
+   * The HTTP status code corresponding to the exception.
    * 
    * @example
    * 403
@@ -90,13 +90,13 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * *   **InternetOut**: the outbound traffic over the Internet. Unit: byte.
-   * *   **diskusage_utilization**: the disk usage.
-   * *   **IntranetInRate**: the inbound traffic over the internal network. Unit: byte.
-   * *   **InternetIn**: the inbound traffic from the Internet. Unit: byte.
-   * *   **cpu_total**: the CPU utilization.
-   * *   **memory_usedutilization**: the memory usage.
-   * *   **IntranetOutRate**: the outbound traffic over the internal network. Unit: byte.
+   * - **InternetOut**: outbound Internet traffic, in bytes.
+   * - **diskusage_utilization**: disk usage.
+   * - **IntranetInRate**: inbound internal network traffic, in bytes.
+   * - **InternetIn**: inbound Internet traffic, in bytes.
+   * - **cpu_total**: CPU utilization.
+   * - **memory_usedutilization**: memory utilization.
+   * - **IntranetOutRate**: outbound internal network traffic, in bytes.
    * 
    * @example
    * cpu_total
@@ -104,10 +104,9 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * Indicates whether the metrics of the cluster or a node are queried. Valid values:
-   * 
-   * *   **CLUSTER**: The metrics of the cluster are queried.
-   * *   **NODE**: The metrics of a node are queried.
+   * Specifies whether to query a cluster or a node. Valid values:
+   * - **CLUSTER**: cluster.
+   * - **NODE**: node.
    * 
    * @example
    * CLUSTER
@@ -115,10 +114,10 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   metricType?: string;
   /**
    * @remarks
-   * The monitored object.
+   * The observation value.
    * 
-   * *   If the **MetricType** parameter is set to **NODE**, the value of this parameter is the ID of the node that is monitored.****
-   * *   If the **MetricType** parameter is set to **CLUSTER**, the value of this parameter is the ID of the dedicated cluster. You can obtain the ID by calling the ListDedicatedCluster operation.
+   * - If **MetricType** is set to **NODE**, the value is **nodeid**.
+   * - If **MetricType** is set to **CLUSTER**, the value is the ID of the dedicated cluster, which can be obtained by calling the ListDedicatedCluster operation.
    * 
    * @example
    * ecs-jhjnjjn
@@ -126,7 +125,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The monitoring interval. Unit: seconds. Minimum value: 15.
+   * The observation interval in seconds. The minimum interval is 15 seconds.
    * 
    * @example
    * 15
@@ -134,7 +133,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -142,7 +141,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

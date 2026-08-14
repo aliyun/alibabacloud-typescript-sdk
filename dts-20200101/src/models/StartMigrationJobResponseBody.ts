@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartMigrationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class StartMigrationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * FDC111B1-ACBF-457D-9656-247FDEE9****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone numbers that receive latency-related alerts.
+   * The mobile phone number of the contact for latency alerts.
    * 
    * @example
    * 1361234****,1371234****
@@ -13,10 +13,10 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether task latency is monitored. Valid values:
+   * Indicates whether latency monitoring is enabled. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: enabled.
+   * - **disable**: disabled.
    * 
    * @example
    * enable
@@ -24,7 +24,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold for triggering latency alerts. Unit: seconds.
+   * The threshold that triggers a latency alert. Unit: seconds.
    * 
    * @example
    * 10
@@ -48,7 +48,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The mobile phone numbers that receive status-related alerts.
+   * The mobile phone number of the contact for error alerts.
    * 
    * @example
    * 1361234****,1371234****
@@ -56,10 +56,10 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether task status is monitored. Valid values:
+   * Indicates whether error status monitoring is enabled. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: enabled.
+   * - **disable**: disabled.
    * 
    * @example
    * enable
@@ -67,7 +67,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 210ec20e16055205968635339d****
@@ -75,7 +75,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -85,11 +85,10 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * *   **Forward**
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * *   **Reverse**
-   * 
-   * > This parameter is returned only when the topology of data synchronization is two-way synchronization.
+   * > Default value: **Forward**.
    * 
    * @example
    * Forward
@@ -97,7 +96,7 @@ export class DescribeSynchronizationJobAlertResponseBody extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance.
+   * The instance ID of the data synchronization instance.
    * 
    * @example
    * kxz1170c10p****

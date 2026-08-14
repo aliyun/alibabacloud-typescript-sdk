@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DTS task.
+   * The DTS task ID.
    * 
    * @example
    * bi6e22a****
@@ -13,7 +13,7 @@ export class ModifyDtsJobResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -21,9 +21,8 @@ export class ModifyDtsJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
-   * 
-   * >  The data type of this parameter is String. Sample value: **The actual sample value is The request processing has failed due to some unknown error.
+   * The error message returned if the call failed.
+   * > The data type of this parameter should be String. An example value is **The request processing has failed due to some unknown error**.
    * 
    * @example
    * true
@@ -31,7 +30,7 @@ export class ModifyDtsJobResponseBody extends $dara.Model {
   errMessage?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1D6ECADF-C5E9-4C96-8811-77602B31****
@@ -39,7 +38,7 @@ export class ModifyDtsJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200

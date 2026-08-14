@@ -68,6 +68,15 @@ export default class Client extends OpenApi {
       'cn-zhengzhou-nebula-1': "dts.aliyuncs.com",
       'eu-west-1-oxs': "dts.aliyuncs.com",
       'rus-west-1-pop': "dts.aliyuncs.com",
+      'ap-northeast-1': "dts.ap-northeast-1.aliyuncs.com",
+      'ap-northeast-2': "dts.ap-northeast-2.aliyuncs.com",
+      'ap-southeast-6': "dts.ap-southeast-6.aliyuncs.com",
+      'ap-southeast-7': "dts.ap-southeast-7.aliyuncs.com",
+      'cn-guangzhou': "dts.cn-guangzhou.aliyuncs.com",
+      'cn-heyuan': "dts.cn-heyuan.aliyuncs.com",
+      'cn-wuhan-lr': "dts.cn-wuhan-lr.aliyuncs.com",
+      'cn-zhengzhou-jva': "dts.cn-zhengzhou-jva.aliyuncs.com",
+      'me-central-1': "dts.me-central-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dts", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -172,6 +181,10 @@ export default class Client extends OpenApi {
 
   /**
    * Configures a data migration or synchronization task.
+   * 
+   * @remarks
+   * - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+   * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
    * 
    * @param request - ConfigureDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -462,6 +475,10 @@ export default class Client extends OpenApi {
   /**
    * Configures a data migration or synchronization task.
    * 
+   * @remarks
+   * - You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
+   * - Tasks on dedicated clusters support only the configure-before-purchase mode and do not support cross-region tasks.
+   * 
    * @param request - ConfigureDtsJobRequest
    * @returns ConfigureDtsJobResponse
    */
@@ -557,7 +574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a data migration task.
+   * Configures a legacy data migration task.
    * 
    * @param request - ConfigureMigrationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -634,7 +651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a data migration task.
+   * Configures a legacy data migration task.
    * 
    * @param request - ConfigureMigrationJobRequest
    * @returns ConfigureMigrationJobResponse
@@ -645,7 +662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a data migration instance.
+   * Configures monitoring alerts to monitor the latency and exception status of a data migration task.
    * 
    * @param request - ConfigureMigrationJobAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -712,7 +729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a data migration instance.
+   * Configures monitoring alerts to monitor the latency and exception status of a data migration task.
    * 
    * @param request - ConfigureMigrationJobAlertRequest
    * @returns ConfigureMigrationJobAlertResponse
@@ -723,10 +740,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a change tracking task.
+   * Configures a DTS change tracking task.
    * 
    * @remarks
-   * >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+   * > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param request - ConfigureSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -909,10 +926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a change tracking task.
+   * Configures a DTS change tracking task.
    * 
    * @remarks
-   * >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+   * > You can perform the required pre-configurations in the console and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param request - ConfigureSubscriptionRequest
    * @returns ConfigureSubscriptionResponse
@@ -923,10 +940,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a change tracking instance of the previous version.
+   * Configures a change tracking channel. This is a legacy operation.
    * 
    * @remarks
    * Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
+   * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
    * 
    * @param request - ConfigureSubscriptionInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -999,10 +1017,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a change tracking instance of the previous version.
+   * Configures a change tracking channel. This is a legacy operation.
    * 
    * @remarks
    * Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
+   * > In the **Advanced Settings** step of the console, move the pointer over the **Next: Save the task and perform a precheck** button, and then click **Preview OpenAPI parameters** in the tooltip to view the parameter information for configuring this instance by using API operations.
    * 
    * @param request - ConfigureSubscriptionInstanceRequest
    * @returns ConfigureSubscriptionInstanceResponse
@@ -1013,7 +1032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a change tracking instance.
+   * Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
    * 
    * @param request - ConfigureSubscriptionInstanceAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1080,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a change tracking instance.
+   * Configures monitoring and alerting to monitor the latency and exception status of a change tracking channel.
    * 
    * @param request - ConfigureSubscriptionInstanceAlertRequest
    * @returns ConfigureSubscriptionInstanceAlertResponse
@@ -1091,13 +1110,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a data synchronization task.
+   * Configures a data synchronization task by using the previous version.
    * 
    * @remarks
    * Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
-   * > 
-   * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the task.
-   * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization task.
+   * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+   * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
    * 
    * @param request - ConfigureSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1186,13 +1204,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a data synchronization task.
+   * Configures a data synchronization task by using the previous version.
    * 
    * @remarks
    * Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
-   * > 
-   * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the task.
-   * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization task.
+   * > - After this operation is called, the data synchronization instance automatically starts and performs a precheck. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the instance.
+   * - If the data synchronization instance fails to start, the precheck may have failed. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the data synchronization instance, obtain the error message of the precheck failure, and adjust the parameters. After the adjustment, you can call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization instance.
    * 
    * @param request - ConfigureSynchronizationJobRequest
    * @returns ConfigureSynchronizationJobResponse
@@ -1203,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a data synchronization instance.
+   * Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
    * 
    * @param request - ConfigureSynchronizationJobAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1274,7 +1291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures alert settings to monitor a data synchronization instance.
+   * Configures monitoring and alerting to monitor the latency and exception status of a synchronization task.
    * 
    * @param request - ConfigureSynchronizationJobAlertRequest
    * @returns ConfigureSynchronizationJobAlertResponse
@@ -1285,7 +1302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables image matching for a data synchronization instance.
+   * Configures the full image matching switch for a data synchronization instance.
    * 
    * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1344,7 +1361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables image matching for a data synchronization instance.
+   * Configures the full image matching switch for a data synchronization instance.
    * 
    * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
    * @returns ConfigureSynchronizationJobReplicatorCompareResponse
@@ -1355,7 +1372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers resource groups of instance resources.
+   * Transfers a DTS instance to a different resource group.
    * 
    * @param request - ConvertInstanceResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1406,7 +1423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers resource groups of instance resources.
+   * Transfers a DTS instance to a different resource group.
    * 
    * @param request - ConvertInstanceResourceGroupRequest
    * @returns ConvertInstanceResourceGroupResponse
@@ -1417,7 +1434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Counts tasks by condition.
+   * Queries the count of tasks by conditions.
    * 
    * @param request - CountJobByConditionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1484,7 +1501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Counts tasks by condition.
+   * Queries the count of tasks by conditions.
    * 
    * @param request - CountJobByConditionRequest
    * @returns CountJobByConditionResponse
@@ -1495,7 +1512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+   * Creates a consumer group for a change tracking task (new version).
    * 
    * @param request - CreateConsumerChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1550,7 +1567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+   * Creates a consumer group for a change tracking task (new version).
    * 
    * @param request - CreateConsumerChannelRequest
    * @returns CreateConsumerChannelResponse
@@ -1631,7 +1648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert rule.
+   * Creates an alert rule by calling the CreateDedicatedClusterMonitorRule operation.
    * 
    * @param request - CreateDedicatedClusterMonitorRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1702,7 +1719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert rule.
+   * Creates an alert rule by calling the CreateDedicatedClusterMonitorRule operation.
    * 
    * @param request - CreateDedicatedClusterMonitorRuleRequest
    * @returns CreateDedicatedClusterMonitorRuleResponse
@@ -1714,6 +1731,11 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a document parsing task.
+   * 
+   * @remarks
+   * Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
+   * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+   * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
    * 
    * @param request - CreateDocParserJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,6 +1787,11 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a document parsing task.
+   * 
+   * @remarks
+   * Calling this operation creates a document parsing task and returns a task ID (DtsJobId).
+   * > - This operation relies on Object Storage Service (OSS) for file transfer. We recommend that you call this operation by using an SDK. The CreateDocParserJobAdvance operation automatically encapsulates the file transfer process.
+   * > - After you obtain the DtsJobId response parameter, you can call the DescribeDocParserJobStatus operation to query the execution status of the document parsing task, and call the DescribeDocParserJobResult operation to obtain the output of the document parsing task.
    * 
    * @param request - CreateDocParserJobRequest
    * @returns CreateDocParserJobResponse
@@ -1861,11 +1888,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a Data Transmission Service (DTS) instance.
+   * Purchases a DTS instance by calling the CreateDtsInstance operation.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
-   * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a DTS task.
+   * <props="china">
+   * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+   * <props="intl">
+   * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+   * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
    * 
    * @param request - CreateDtsInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1988,11 +2018,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a Data Transmission Service (DTS) instance.
+   * Purchases a DTS instance by calling the CreateDtsInstance operation.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
-   * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a DTS task.
+   * <props="china">
+   * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+   * <props="intl">
+   * - Before invoking this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+   * - Nodes on a dedicated cluster support only the workflow of configuring a node before purchasing an instance. You can invoke the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a node.
    * 
    * @param request - CreateDtsInstanceRequest
    * @returns CreateDtsInstanceResponse
@@ -2003,13 +2036,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
+   * Creates or modifies an alert rule for a DTS task.
    * 
    * @remarks
-   * DTS provides the following metrics for DTS tasks:************
-   * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of seconds.
-   * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
-   * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of hours.
+   * DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
+   * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
+   * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
+   * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
    * 
    * @param request - CreateJobMonitorRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2076,13 +2109,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
+   * Creates or modifies an alert rule for a DTS task.
    * 
    * @remarks
-   * DTS provides the following metrics for DTS tasks:************
-   * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of seconds.
-   * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
-   * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of hours.
+   * DTS currently supports the following alert metrics: **Latency**, **Migration Status**, and **Full Migration Duration**:
+   * - **Latency**: Monitors incremental data migration latency. An alert is triggered when the migration latency, synchronization latency, or change tracking latency exceeds the specified threshold (in seconds).
+   * - **Migration Status**: Monitors the task status. An alert is triggered when the task status is **Error** or **Recovered**.
+   * - **Full Migration Duration**: Monitors the duration of full data migration. An alert is triggered when the duration exceeds the specified threshold (in hours).
    * 
    * @param request - CreateJobMonitorRuleRequest
    * @returns CreateJobMonitorRuleResponse
@@ -2159,11 +2192,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a reverse task for a data synchronization or migration task.
+   * Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
    * 
    * @remarks
-   * 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
-   * > 创建的反向任务固定为同步任务，且只有增量写入模块。
+   * The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
+   * > The created reverse task is a synchronization task that contains only the incremental write module.
    * 
    * @param request - CreateReverseDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2206,11 +2239,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a reverse task for a data synchronization or migration task.
+   * Creates a reverse task for a specified synchronization or migration task by calling the CreateReverseDtsJob operation.
    * 
    * @remarks
-   * 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
-   * > 创建的反向任务固定为同步任务，且只有增量写入模块。
+   * The reverse task created by calling this operation immediately starts a precheck. After the precheck is passed, incremental data collection begins, but the incremental data write module does not run. You must call the **StartReverseWriter** operation to start it.
+   * > The created reverse task is a synchronization task that contains only the incremental write module.
    * 
    * @param request - CreateReverseDtsJobRequest
    * @returns CreateReverseDtsJobResponse
@@ -2221,7 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a change tracking instance.
+   * Creates a change tracking channel. This is a legacy operation.
    * 
    * @param request - CreateSubscriptionInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2288,7 +2321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchases a change tracking instance.
+   * Creates a change tracking channel. This is a legacy operation.
    * 
    * @param request - CreateSubscriptionInstanceRequest
    * @returns CreateSubscriptionInstanceResponse
@@ -2299,7 +2332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data synchronization instance.
+   * Creates a data synchronization job instance. This is a legacy API operation.
    * 
    * @param request - CreateSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2390,7 +2423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data synchronization instance.
+   * Creates a data synchronization job instance. This is a legacy API operation.
    * 
    * @param request - CreateSynchronizationJobRequest
    * @returns CreateSynchronizationJobResponse
@@ -2401,7 +2434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group.
+   * Deletes a consumer group of a change tracking task (new version).
    * 
    * @param request - DeleteConsumerChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2448,7 +2481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group.
+   * Deletes a consumer group of a change tracking task (new version).
    * 
    * @param request - DeleteConsumerChannelRequest
    * @returns DeleteConsumerChannelResponse
@@ -2459,7 +2492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group.
+   * Deletes a consumer group from a change tracking channel.
    * 
    * @param request - DeleteConsumerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2510,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer group.
+   * Deletes a consumer group from a change tracking channel.
    * 
    * @param request - DeleteConsumerGroupRequest
    * @returns DeleteConsumerGroupResponse
@@ -2521,7 +2554,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data migration, data synchronization, or change tracking task.
+   * Releases a data migration, synchronization, or change tracking instance.
+   * 
+   * @remarks
+   * > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
    * 
    * @param request - DeleteDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2576,7 +2612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data migration, data synchronization, or change tracking task.
+   * Releases a data migration, synchronization, or change tracking instance.
+   * 
+   * @remarks
+   * > <props="china"><ph>Subscription DTS instances cannot be released by calling this API operation. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
    * 
    * @param request - DeleteDtsJobRequest
    * @returns DeleteDtsJobResponse
@@ -2587,7 +2626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple data migration, data synchronization, or change tracking tasks.
+   * Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+   * 
+   * @remarks
+   * > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
    * 
    * @param request - DeleteDtsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2630,7 +2672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple data migration, data synchronization, or change tracking tasks.
+   * Releases data migration, data synchronization, or change tracking tasks in batches by calling the DeleteDtsJobs operation.
+   * 
+   * @remarks
+   * > <props="china"><ph>Subscription DTS instances cannot be released by calling API operations. You can release them by unsubscribing. For more information, see [Release a DTS instance](https://help.aliyun.com/document_detail/289054.html).</ph><props="intl"><ph>Subscription DTS instances cannot be released.</ph>.
    * 
    * @param request - DeleteDtsJobsRequest
    * @returns DeleteDtsJobsResponse
@@ -2699,7 +2744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a change tracking instance.
+   * Releases the channel of a change tracking instance.
    * 
    * @param request - DeleteSubscriptionInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2746,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a change tracking instance.
+   * Releases the channel of a change tracking instance.
    * 
    * @param request - DeleteSubscriptionInstanceRequest
    * @returns DeleteSubscriptionInstanceResponse
@@ -2881,7 +2926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies data migration tasks and data synchronization tasks
+   * Contains data validation tasks associated with data migration tasks and data synchronization tasks.
    * 
    * @param request - DescribeCheckJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2936,7 +2981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies data migration tasks and data synchronization tasks
+   * Contains data validation tasks associated with data migration tasks and data synchronization tasks.
    * 
    * @param request - DescribeCheckJobsRequest
    * @returns DescribeCheckJobsResponse
@@ -2947,7 +2992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+   * Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
    * 
    * @param request - DescribeClusterOperateLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3016,7 +3061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+   * Queries the log information of a DTS cluster by calling the DescribeClusterOperateLogs operation.
    * 
    * @param request - DescribeClusterOperateLogsRequest
    * @returns DescribeClusterOperateLogsResponse
@@ -3027,7 +3072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource usage of a cluster.
+   * Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
    * 
    * @param request - DescribeClusterUsedUtilizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3096,7 +3141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource usage of a cluster.
+   * Queries the current usage of a cluster by calling the DescribeClusterUsedUtilization operation.
    * 
    * @param request - DescribeClusterUsedUtilizationRequest
    * @returns DescribeClusterUsedUtilizationResponse
@@ -3107,7 +3152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+   * Tests the connectivity between the execution node of a data migration task and the source and destination databases.
    * 
    * @param request - DescribeConnectionStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,7 +3275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+   * Tests the connectivity between the execution node of a data migration task and the source and destination databases.
    * 
    * @param request - DescribeConnectionStatusRequest
    * @returns DescribeConnectionStatusResponse
@@ -3241,7 +3286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+   * Queries the consumer group information of a DTS change tracking task, such as the consumer group ID, name, account, and consumption latency.
    * 
    * @param request - DescribeConsumerChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3296,7 +3341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+   * Queries the consumer group information of a DTS change tracking task, such as the consumer group ID, name, account, and consumption latency.
    * 
    * @param request - DescribeConsumerChannelRequest
    * @returns DescribeConsumerChannelResponse
@@ -3373,7 +3418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CIDR blocks of DTS servers.
+   * Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
    * 
    * @param request - DescribeDTSIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3416,7 +3461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CIDR blocks of DTS servers.
+   * Retrieves the DTS IP addresses that must be added to the whitelists of both the source and destination databases.
    * 
    * @param request - DescribeDTSIPRequest
    * @returns DescribeDTSIPResponse
@@ -3427,7 +3472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the data consistency verification report.
+   * Obtains the download URL for the list data of inconsistent data.
    * 
    * @param request - DescribeDataCheckReportUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3474,7 +3519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the data consistency verification report.
+   * Obtains the download URL for the list data of inconsistent data.
    * 
    * @param request - DescribeDataCheckReportUrlRequest
    * @returns DescribeDataCheckReportUrlResponse
@@ -3485,7 +3530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data verification task.
+   * Queries data consistency verification results at the table level.
    * 
    * @param request - DescribeDataCheckTableDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3544,7 +3589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data verification task.
+   * Queries data consistency verification results at the table level.
    * 
    * @param request - DescribeDataCheckTableDetailsRequest
    * @returns DescribeDataCheckTableDetailsResponse
@@ -3555,7 +3600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about inconsistent data in the data verification task.
+   * Lists data inconsistency results grouped by inconsistent data.
    * 
    * @param request - DescribeDataCheckTableDiffDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3610,7 +3655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about inconsistent data in the data verification task.
+   * Lists data inconsistency results grouped by inconsistent data.
    * 
    * @param request - DescribeDataCheckTableDiffDetailsRequest
    * @returns DescribeDataCheckTableDiffDetailsResponse
@@ -3621,7 +3666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a dedicated cluster.
+   * Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
    * 
    * @param request - DescribeDedicatedClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3664,7 +3709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a dedicated cluster.
+   * Queries the details of a specified cluster by calling the DescribeDedicatedCluster operation.
    * 
    * @param request - DescribeDedicatedClusterRequest
    * @returns DescribeDedicatedClusterResponse
@@ -3675,7 +3720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an alert rule.
+   * Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
    * 
    * @param request - DescribeDedicatedClusterMonitorRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3718,7 +3763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an alert rule.
+   * Queries alert rules by calling the DescribeDedicatedClusterMonitorRule operation.
    * 
    * @param request - DescribeDedicatedClusterMonitorRuleRequest
    * @returns DescribeDedicatedClusterMonitorRuleResponse
@@ -3730,6 +3775,11 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the result of a document parsing task.
+   * 
+   * @remarks
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative call threshold per region is 100 calls per second.
+   * - The call threshold per account per region is 5 calls per second.
    * 
    * @param request - DescribeDocParserJobResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3774,6 +3824,11 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the result of a document parsing task.
    * 
+   * @remarks
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative call threshold per region is 100 calls per second.
+   * - The call threshold per account per region is 5 calls per second.
+   * 
    * @param request - DescribeDocParserJobResultRequest
    * @returns DescribeDocParserJobResultResponse
    */
@@ -3784,6 +3839,11 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the execution status of a document parsing task.
+   * 
+   * @remarks
+   * This operation has call frequency limits. Calls that exceed the limits are rejected.
+   * - The cumulative call threshold for a single region is 200 calls per second.
+   * - The call threshold for a single account in a single region is 20 calls per second.
    * 
    * @param request - DescribeDocParserJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3828,6 +3888,11 @@ export default class Client extends OpenApi {
   /**
    * Queries the execution status of a document parsing task.
    * 
+   * @remarks
+   * This operation has call frequency limits. Calls that exceed the limits are rejected.
+   * - The cumulative call threshold for a single region is 200 calls per second.
+   * - The call threshold for a single account in a single region is 20 calls per second.
+   * 
    * @param request - DescribeDocParserJobStatusRequest
    * @returns DescribeDocParserJobStatusResponse
    */
@@ -3837,7 +3902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of extract, transform, and load (ETL) tasks.
+   * Queries the details of an ETL task.
    * 
    * @param request - DescribeDtsEtlJobVersionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3888,7 +3953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of extract, transform, and load (ETL) tasks.
+   * Queries the details of an ETL task.
    * 
    * @param request - DescribeDtsEtlJobVersionInfoRequest
    * @returns DescribeDtsEtlJobVersionInfoResponse
@@ -3961,7 +4026,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+   * Queries the details of a DTS task by calling DescribeDtsJobDetail.
+   * 
+   * @remarks
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative threshold for calls in a single region is 160 calls per second.
+   * - The threshold for calls by a single account in a single region is 40 calls per second.
    * 
    * @param request - DescribeDtsJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3970,6 +4040,10 @@ export default class Client extends OpenApi {
   async describeDtsJobDetailWithOptions(request: $_model.DescribeDtsJobDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDtsJobDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dbObjectOutputType)) {
+      query["DbObjectOutputType"] = request.dbObjectOutputType;
+    }
+
     if (!$dara.isNull(request.dtsInstanceID)) {
       query["DtsInstanceID"] = request.dtsInstanceID;
     }
@@ -4016,7 +4090,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+   * Queries the details of a DTS task by calling DescribeDtsJobDetail.
+   * 
+   * @remarks
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative threshold for calls in a single region is 160 calls per second.
+   * - The threshold for calls by a single account in a single region is 40 calls per second.
    * 
    * @param request - DescribeDtsJobDetailRequest
    * @returns DescribeDtsJobDetailResponse
@@ -4027,11 +4106,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
+   * Queries the list of DTS tasks and the execution details of each task.
    * 
    * @remarks
-   * ## Debugging
-   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01)
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative threshold for calls in a single region is 200 calls per second.
+   * - The threshold for calls by a single account in a single region is 20 calls per second.
    * 
    * @param request - DescribeDtsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4154,11 +4234,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
+   * Queries the list of DTS tasks and the execution details of each task.
    * 
    * @remarks
-   * ## Debugging
-   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01)
+   * This operation has rate limits. Calls that exceed the limits are rejected.
+   * - The cumulative threshold for calls in a single region is 200 calls per second.
+   * - The threshold for calls by a single account in a single region is 20 calls per second.
    * 
    * @param request - DescribeDtsJobsRequest
    * @returns DescribeDtsJobsResponse
@@ -4169,7 +4250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a data migration or synchronization task.
+   * Queries the log information of a data migration or synchronization task.
    * 
    * @param request - DescribeDtsServiceLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4240,7 +4321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of a data migration or synchronization task.
+   * Queries the log information of a data migration or synchronization task.
    * 
    * @param request - DescribeDtsServiceLogRequest
    * @returns DescribeDtsServiceLogResponse
@@ -4251,7 +4332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the task that changes the database connection settings.
+   * Queries the execution status of a task.
    * 
    * @param request - DescribeEndpointSwitchStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4302,7 +4383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the task that changes the database connection settings.
+   * Queries the execution status of a task.
    * 
    * @param request - DescribeEndpointSwitchStatusRequest
    * @returns DescribeEndpointSwitchStatusResponse
@@ -4313,7 +4394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of extract, transform, and load (ETL) tasks.
+   * Queries the running logs of an ETL task.
    * 
    * @param request - DescribeEtlJobLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4352,7 +4433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the logs of extract, transform, and load (ETL) tasks.
+   * Queries the running logs of an ETL task.
    * 
    * @param request - DescribeEtlJobLogsRequest
    * @returns DescribeEtlJobLogsResponse
@@ -4363,7 +4444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries full data migration tasks.
+   * Queries the running details of a full data migration task.
    * 
    * @param request - DescribeFullProcessListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4406,7 +4487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries full data migration tasks.
+   * Queries the running details of a full data migration task.
    * 
    * @param request - DescribeFullProcessListRequest
    * @returns DescribeFullProcessListResponse
@@ -4417,7 +4498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the GAD instances.
+   * Queries a list of Global Active Database (GAD) instances.
    * 
    * @param request - DescribeGadInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4480,7 +4561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the GAD instances.
+   * Queries a list of Global Active Database (GAD) instances.
    * 
    * @param request - DescribeGadInstancesRequest
    * @returns DescribeGadInstancesResponse
@@ -4491,7 +4572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+   * Queries the initialization status. This is an earlier version of the operation.
    * 
    * @param request - DescribeInitializationStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4546,7 +4627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+   * Queries the initialization status. This is an earlier version of the operation.
    * 
    * @param request - DescribeInitializationStatusRequest
    * @returns DescribeInitializationStatusResponse
@@ -4557,7 +4638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring rules of a Data Transmission Service (DTS) task.
+   * Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
    * 
    * @param request - DescribeJobMonitorRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4596,7 +4677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring rules of a Data Transmission Service (DTS) task.
+   * Queries the alert rules of a DTS task by calling DescribeJobMonitorRule.
    * 
    * @param request - DescribeJobMonitorRuleRequest
    * @returns DescribeJobMonitorRuleResponse
@@ -4607,7 +4688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of a cluster.
+   * Queries cluster monitoring information by calling the DescribeMetricList operation.
    * 
    * @param request - DescribeMetricListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4684,7 +4765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the metrics of a cluster.
+   * Queries cluster monitoring information by calling the DescribeMetricList operation.
    * 
    * @param request - DescribeMetricListRequest
    * @returns DescribeMetricListResponse
@@ -4695,7 +4776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a data migration instance.
+   * Queries the monitoring and alert settings of a data migration task.
    * 
    * @param request - DescribeMigrationJobAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4746,7 +4827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a data migration instance.
+   * Queries the monitoring and alert settings of a data migration task.
    * 
    * @param request - DescribeMigrationJobAlertRequest
    * @returns DescribeMigrationJobAlertResponse
@@ -4757,7 +4838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data migration task.
+   * Queries the execution details of a data migration task. This is a legacy operation.
    * 
    * @param request - DescribeMigrationJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4820,7 +4901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data migration task.
+   * Queries the execution details of a data migration task. This is a legacy operation.
    * 
    * @param request - DescribeMigrationJobDetailRequest
    * @returns DescribeMigrationJobDetailResponse
@@ -4831,7 +4912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a data migration task.
+   * Queries the status of a data migration task. This is a legacy operation.
    * 
    * @param request - DescribeMigrationJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4882,7 +4963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a data migration task.
+   * Queries the status of a data migration task. This is a legacy operation.
    * 
    * @param request - DescribeMigrationJobStatusRequest
    * @returns DescribeMigrationJobStatusResponse
@@ -4893,7 +4974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data migration instances and the details of each instance.
+   * Queries the list of data migration instances and details of each migration instance.
    * 
    * @param request - DescribeMigrationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4952,7 +5033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data migration instances and the details of each instance.
+   * Queries the list of data migration instances and details of each migration instance.
    * 
    * @param request - DescribeMigrationJobsRequest
    * @returns DescribeMigrationJobsResponse
@@ -4963,7 +5044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a precheck task before a GAD instance is created.
+   * Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
    * 
    * @param request - DescribePreCheckCreateGadOrderResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5010,7 +5091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a precheck task before a GAD instance is created.
+   * Queries the task result of a precheck for creating a Global Active Database (GAD) order node.
    * 
    * @param request - DescribePreCheckCreateGadOrderResultRequest
    * @returns DescribePreCheckCreateGadOrderResultResponse
@@ -5021,7 +5102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+   * Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
    * 
    * @param request - DescribePreCheckStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5088,7 +5169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+   * Queries the execution details of subtasks of a DTS task, including precheck, schema migration or synchronization, full data migration or synchronization, and incremental data migration or synchronization.
    * 
    * @param request - DescribePreCheckStatusRequest
    * @returns DescribePreCheckStatusResponse
@@ -5099,7 +5180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a change tracking instance.
+   * Queries the monitoring and alerting settings of a change tracking instance.
    * 
    * @param request - DescribeSubscriptionInstanceAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5150,7 +5231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a change tracking instance.
+   * Queries the monitoring and alerting settings of a change tracking instance.
    * 
    * @param request - DescribeSubscriptionInstanceAlertRequest
    * @returns DescribeSubscriptionInstanceAlertResponse
@@ -5161,7 +5242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a change tracking instance.
+   * Queries the instance status details of a change tracking channel. This is a legacy operation.
    * 
    * @param request - DescribeSubscriptionInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5208,7 +5289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a change tracking instance.
+   * Queries the instance status details of a change tracking channel. This is a legacy operation.
    * 
    * @param request - DescribeSubscriptionInstanceStatusRequest
    * @returns DescribeSubscriptionInstanceStatusResponse
@@ -5293,11 +5374,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+   * Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
    * 
    * @remarks
-   *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
-   * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
+   * <props="china">
+   * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
+   * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+   * <props="intl">
+   * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
+   * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
+   * .
    * 
    * @param tmpReq - DescribeSubscriptionMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5358,11 +5444,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+   * Queries the information about subtasks of a PolarDB-X 1.0 distributed change tracking task.
    * 
    * @remarks
-   *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
-   * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
+   * <props="china">
+   * - Because a PolarDB-X 1.0 change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
+   * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a PolarDB-X 1.0 change tracking task.
+   * <props="intl">
+   * - Because a DRDS change tracking task is a distributed change tracking task, each ApsaraDB RDS for MySQL instance associated with the task corresponds to a change tracking subtask. You can call this operation to query the information about change tracking subtasks.
+   * - You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID, consumer group ID, and other information about a DRDS change tracking task.
+   * .
    * 
    * @param request - DescribeSubscriptionMetaRequest
    * @returns DescribeSubscriptionMetaResponse
@@ -5431,7 +5522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a data synchronization instance.
+   * Queries the monitoring and alerting settings of a synchronization task.
    * 
    * @param request - DescribeSynchronizationJobAlertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5486,7 +5577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert settings of a data synchronization instance.
+   * Queries the monitoring and alerting settings of a synchronization task.
    * 
    * @param request - DescribeSynchronizationJobAlertRequest
    * @returns DescribeSynchronizationJobAlertResponse
@@ -5497,7 +5588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether image matching is enabled for a data synchronization instance.
+   * Retrieves the current image matching switch configuration. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationJobReplicatorCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5552,7 +5643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether image matching is enabled for a data synchronization instance.
+   * Retrieves the current image matching switch configuration. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationJobReplicatorCompareRequest
    * @returns DescribeSynchronizationJobReplicatorCompareResponse
@@ -5563,7 +5654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a data synchronization instance.
+   * Queries the running status of a data synchronization task. This is a legacy API operation.
    * 
    * @param request - DescribeSynchronizationJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5618,7 +5709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of a data synchronization instance.
+   * Queries the running status of a data synchronization task. This is a legacy API operation.
    * 
    * @param request - DescribeSynchronizationJobStatusRequest
    * @returns DescribeSynchronizationJobStatusResponse
@@ -5629,7 +5720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of one or more data synchronization instances.
+   * Queries the status list of synchronization jobs. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationJobStatusListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5680,7 +5771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of one or more data synchronization instances.
+   * Queries the status list of synchronization jobs. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationJobStatusListRequest
    * @returns DescribeSynchronizationJobStatusListResponse
@@ -5691,7 +5782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data synchronization instances and the details of each instance.
+   * Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
    * 
    * @param request - DescribeSynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5754,7 +5845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of data synchronization instances and the details of each instance.
+   * Queries a list of data synchronization instances and the details of each instance by calling DescribeSynchronizationJobs.
    * 
    * @param request - DescribeSynchronizationJobsRequest
    * @returns DescribeSynchronizationJobsResponse
@@ -5765,7 +5856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the task that changes the objects to be synchronized.
+   * Queries the execution status of a task that modifies synchronization objects. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationObjectModifyStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5816,7 +5907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the task that changes the objects to be synchronized.
+   * Queries the execution status of a task that modifies synchronization objects. This is a legacy operation.
    * 
    * @param request - DescribeSynchronizationObjectModifyStatusRequest
    * @returns DescribeSynchronizationObjectModifyStatusResponse
@@ -5827,7 +5918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+   * Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
    * 
    * @param request - DescribeTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5882,7 +5973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+   * Queries all tags that are bound to a data migration, data synchronization, or change tracking instance.
    * 
    * @param request - DescribeTagKeysRequest
    * @returns DescribeTagKeysResponse
@@ -5893,7 +5984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+   * Queries all values of a tag key that is attached to a data migration, data synchronization, or change tracking instance.
    * 
    * @param request - DescribeTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5952,7 +6043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+   * Queries all values of a tag key that is attached to a data migration, data synchronization, or change tracking instance.
    * 
    * @param request - DescribeTagValuesRequest
    * @returns DescribeTagValuesResponse
@@ -5963,7 +6054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a secondary instance
+   * Removes a secondary role.
    * 
    * @param request - DetachGadInstanceDbMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6010,7 +6101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a secondary instance
+   * Removes a secondary role.
    * 
    * @param request - DetachGadInstanceDbMemberRequest
    * @returns DetachGadInstanceDbMemberResponse
@@ -6021,11 +6112,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
+   * Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
    * 
    * @remarks
-   *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
-   * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+   * - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
+   * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
    * 
    * @param request - InitDtsRdsInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6080,11 +6171,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
+   * Initializes a built-in account in a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses this account to connect to the node and perform synchronization tasks.
    * 
    * @remarks
-   *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
-   * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+   * - The unit node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database connected through Cloud Enterprise Network (CEN).
+   * - This operation initializes a built-in account named rdsdt_dtsacct in a unit node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform synchronization tasks.
    * 
    * @param request - InitDtsRdsInstanceRequest
    * @returns InitDtsRdsInstanceResponse
@@ -6095,7 +6186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+   * Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
    * 
    * @param request - ListDedicatedClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6162,7 +6253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+   * Queries all clusters created by the current user. You can also filter specific clusters based on specified conditions.
    * 
    * @param request - ListDedicatedClusterRequest
    * @returns ListDedicatedClusterResponse
@@ -6173,7 +6264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询JobStep列表。
+   * Query the JobStep list
    * 
    * @param request - ListJobStepRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6216,7 +6307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询JobStep列表。
+   * Query the JobStep list
    * 
    * @param request - ListJobStepRequest
    * @returns ListJobStepResponse
@@ -6227,10 +6318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+   * Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
    * 
    * @remarks
-   * ***
+   * ***.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6281,10 +6372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+   * Queries the tags bound to data migration, data synchronization, and change tracking instances. You can also query the instances bound to specific tags.
    * 
    * @remarks
-   * ***
+   * ***.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -6295,7 +6386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information of a consumer group, including the consumer group name, username, and password.
+   * Modifies the information of a consumer group in a change tracking channel (new version).
    * 
    * @param request - ModifyConsumerChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6354,7 +6445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information of a consumer group, including the consumer group name, username, and password.
+   * Modifies the information of a consumer group in a change tracking channel (new version).
    * 
    * @param request - ModifyConsumerChannelRequest
    * @returns ModifyConsumerChannelResponse
@@ -6365,7 +6456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the password of a consumer group
+   * Modifies the password of a consumer group. This is a legacy operation.
    * 
    * @param request - ModifyConsumerGroupPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6432,7 +6523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the password of a consumer group
+   * Modifies the password of a consumer group. This is a legacy operation.
    * 
    * @param request - ModifyConsumerGroupPasswordRequest
    * @returns ModifyConsumerGroupPasswordResponse
@@ -6443,7 +6534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the consumption checkpoint of a change tracking instance.
+   * Modifies the consumption checkpoint of a change tracking instance channel.
    * 
    * @param request - ModifyConsumptionTimestampRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6494,7 +6585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the consumption checkpoint of a change tracking instance.
+   * Modifies the consumption checkpoint of a change tracking instance channel.
    * 
    * @param request - ModifyConsumptionTimestampRequest
    * @returns ModifyConsumptionTimestampResponse
@@ -6505,10 +6596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cluster.
+   * Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
    * 
    * @remarks
-   * You can modify only the overcommit ratio.
+   * Currently, only the overcommit ratio can be modified.
    * 
    * @param request - ModifyDedicatedClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6563,10 +6654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a cluster.
+   * Modifies the configuration of a dedicated cluster by calling the ModifyDedicatedCluster operation.
    * 
    * @remarks
-   * You can modify only the overcommit ratio.
+   * Currently, only the overcommit ratio can be modified.
    * 
    * @param request - ModifyDedicatedClusterRequest
    * @returns ModifyDedicatedClusterResponse
@@ -6577,10 +6668,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a data synchronization task.
+   * Modifies a data synchronization task by calling the ModifyDtsJob operation.
    * 
    * @remarks
-   * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+   * > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param tmpReq - ModifyDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6679,10 +6770,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a data synchronization task.
+   * Modifies a data synchronization task by calling the ModifyDtsJob operation.
    * 
    * @remarks
-   * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+   * > You can preconfigure settings in the console as needed, and then preview the corresponding OpenAPI parameter information to help you specify request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param request - ModifyDtsJobRequest
    * @returns ModifyDtsJobResponse
@@ -6779,7 +6870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the parameters of a Data Transmission Service (DTS) task.
+   * Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
    * 
    * @param request - ModifyDtsJobConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6826,7 +6917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the parameters of a Data Transmission Service (DTS) task.
+   * Modifies the parameters of a DTS task by calling the ModifyDtsJobConfig operation.
    * 
    * @param request - ModifyDtsJobConfigRequest
    * @returns ModifyDtsJobConfigResponse
@@ -6837,10 +6928,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+   * Changes the dedicated cluster on which a task runs.
    * 
    * @remarks
-   * > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
+   * > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
    * 
    * @param request - ModifyDtsJobDedicatedClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6887,10 +6978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+   * Changes the dedicated cluster on which a task runs.
    * 
    * @remarks
-   * > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
+   * > After a migration task is changed from a dedicated cluster to a public cluster, the billing method of the task changes to pay-as-you-go, and billing starts.
    * 
    * @param request - ModifyDtsJobDedicatedClusterRequest
    * @returns ModifyDtsJobDedicatedClusterResponse
@@ -6901,11 +6992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
+   * Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
    * 
    * @remarks
-   *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
-   * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+   * - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
+   * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
    * 
    * @param request - ModifyDtsJobDuLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6952,11 +7043,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
+   * Modifies the DU upper limit of a DTS task by calling the ModifyDtsJobDuLimit operation.
    * 
    * @remarks
-   *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
-   * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+   * - DTS instances in a dedicated cluster must support specification changes. By changing the resources consumed by a task at runtime, you can dynamically adjust the number of schedulable tasks in the current cluster, thereby deducting or releasing the total number of DUs in the cluster.
+   * - Before modifying the DU upper limit of a task, ensure that sufficient resources are available.
    * 
    * @param request - ModifyDtsJobDuLimitRequest
    * @returns ModifyDtsJobDuLimitResponse
@@ -6967,10 +7058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+   * Modifies the source or destination instance of a DTS synchronization or migration task.
    * 
    * @remarks
-   * >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
+   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the synchronized or migrated data does not have a primary key, stop writing data to the source instance during the database instance replacement. Otherwise, duplicate data may occur.
    * 
    * @param request - ModifyDtsJobEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7081,10 +7172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+   * Modifies the source or destination instance of a DTS synchronization or migration task.
    * 
    * @remarks
-   * >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
+   * > After the database instance is modified, the DTS incremental write module rolls back writes by 10 seconds. If the synchronized or migrated data does not have a primary key, stop writing data to the source instance during the database instance replacement. Otherwise, duplicate data may occur.
    * 
    * @param request - ModifyDtsJobEndpointRequest
    * @returns ModifyDtsJobEndpointResponse
@@ -7095,7 +7186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a Data Transmission Service (DTS) task.
+   * Modifies the name of a DTS task by calling ModifyDtsJobName.
    * 
    * @param request - ModifyDtsJobNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7142,7 +7233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a Data Transmission Service (DTS) task.
+   * Modifies the name of a DTS task by calling ModifyDtsJobName.
    * 
    * @param request - ModifyDtsJobNameRequest
    * @returns ModifyDtsJobNameResponse
@@ -7153,7 +7244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+   * Modifies the password of a DTS task (new version).
    * 
    * @param request - ModifyDtsJobPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7216,7 +7307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+   * Modifies the password of a DTS task (new version).
    * 
    * @param request - ModifyDtsJobPasswordRequest
    * @returns ModifyDtsJobPasswordResponse
@@ -7227,7 +7318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables throttling for data synchronization and data migration.
+   * Adjusts the migration rate of a data synchronization or migration instance.
    * 
    * @param request - ModifyDynamicConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7278,7 +7369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables throttling for data synchronization and data migration.
+   * Adjusts the migration rate of a data synchronization or migration instance.
    * 
    * @param request - ModifyDynamicConfigRequest
    * @returns ModifyDynamicConfigResponse
@@ -7289,7 +7380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a GAD instance.
+   * Modifies the name of a Global Active Database (GAD) instance.
    * 
    * @param request - ModifyGadInstanceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7336,7 +7427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a GAD instance.
+   * Modifies the name of a Global Active Database (GAD) instance.
    * 
    * @param request - ModifyGadInstanceNameRequest
    * @returns ModifyGadInstanceNameResponse
@@ -7347,7 +7438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改增量写入的位点。
+   * Modify the offset for incremental data writing.
    * 
    * @param request - ModifyJobStepCheckpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7394,7 +7485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改增量写入的位点。
+   * Modify the offset for incremental data writing.
    * 
    * @param request - ModifyJobStepCheckpointRequest
    * @returns ModifyJobStepCheckpointResponse
@@ -7405,10 +7496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a change tracking task.
+   * Modifies a change tracking task (new version).
    * 
    * @remarks
-   * >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+   * > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param request - ModifySubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7471,10 +7562,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about a change tracking task.
+   * Modifies a change tracking task (new version).
    * 
    * @remarks
-   * >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+   * > You can perform the required preconfigurations in the console and then preview the corresponding OpenAPI parameter information to help you fill in the request parameters. For more information, see [Preview OpenAPI request parameters](https://help.aliyun.com/document_detail/2851612.html).
    * 
    * @param request - ModifySubscriptionRequest
    * @returns ModifySubscriptionResponse
@@ -7485,7 +7576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the objects for change tracking.
+   * Modifies the subscription objects of a change tracking task. This is a legacy operation.
    * 
    * @param request - ModifySubscriptionObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7536,7 +7627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the objects for change tracking.
+   * Modifies the subscription objects of a change tracking task. This is a legacy operation.
    * 
    * @param request - ModifySubscriptionObjectRequest
    * @returns ModifySubscriptionObjectResponse
@@ -7547,7 +7638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the objects to be synchronized.
+   * Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
    * 
    * @param request - ModifySynchronizationObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7604,7 +7695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the objects to be synchronized.
+   * Modifies the synchronization objects in a data synchronization job instance. This is a legacy operation.
    * 
    * @param request - ModifySynchronizationObjectRequest
    * @returns ModifySynchronizationObjectResponse
@@ -7615,7 +7706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prechecks before a GAD instance is created.
+   * Prechecks an order for creating a Global Active Database (GAD) instance group.
    * 
    * @param request - PreCheckCreateGadOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7690,7 +7781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prechecks before a GAD instance is created.
+   * Prechecks an order for creating a Global Active Database (GAD) instance group.
    * 
    * @param request - PreCheckCreateGadOrderRequest
    * @returns PreCheckCreateGadOrderResponse
@@ -7701,6 +7792,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Promote a geo-disaster recovery instance from the secondary role to the primary role
+   * 
    * @param request - PromoteToMasterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PromoteToMasterResponse
@@ -7746,6 +7839,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Promote a geo-disaster recovery instance from the secondary role to the primary role
+   * 
    * @param request - PromoteToMasterRequest
    * @returns PromoteToMasterResponse
    */
@@ -7755,7 +7850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+   * Renews a DTS instance. This operation is applicable only to subscription DTS instances.
    * 
    * @param request - RenewInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7806,7 +7901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+   * Renews a DTS instance. This operation is applicable only to subscription DTS instances.
    * 
    * @param request - RenewInstanceRequest
    * @returns RenewInstanceResponse
@@ -7820,7 +7915,7 @@ export default class Client extends OpenApi {
    * Resets a data synchronization or change tracking task.
    * 
    * @remarks
-   * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
+   * > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
    * 
    * @param request - ResetDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7870,7 +7965,7 @@ export default class Client extends OpenApi {
    * Resets a data synchronization or change tracking task.
    * 
    * @remarks
-   * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
+   * > After the configuration of a data synchronization or change tracking task is cleared, the original task is deleted. DTS creates a new unconfigured task. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to reconfigure the task.
    * 
    * @param request - ResetDtsJobRequest
    * @returns ResetDtsJobResponse
@@ -7881,10 +7976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the configurations of a data synchronization task.
+   * Resets the configuration of a data synchronization task.
    * 
    * @remarks
-   * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+   * > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
    * 
    * @param request - ResetSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7935,10 +8030,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the configurations of a data synchronization task.
+   * Resets the configuration of a data synchronization task.
    * 
    * @remarks
-   * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+   * > After you reset the configuration of a data synchronization task, the original synchronization task is released. You must call the **ConfigureSynchronizationJob** operation to reconfigure the synchronization task before you can start the task.
    * 
    * @param request - ResetSynchronizationJobRequest
    * @returns ResetSynchronizationJobResponse
@@ -7949,7 +8044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reverse the direction of a two-way synchronization task.
+   * 调转双向任务的方向
    * 
    * @param request - ReverseTwoWayDirectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7992,7 +8087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reverse the direction of a two-way synchronization task.
+   * 调转双向任务的方向
    * 
    * @param request - ReverseTwoWayDirectionRequest
    * @returns ReverseTwoWayDirectionResponse
@@ -8003,7 +8098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ignores the precheck items that a data migration or synchronization task may fail to pass.
+   * Skips the precheck for a legacy data migration or synchronization task.
    * 
    * @param request - ShieldPrecheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8046,7 +8141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Ignores the precheck items that a data migration or synchronization task may fail to pass.
+   * Skips the precheck for a legacy data migration or synchronization task.
    * 
    * @param request - ShieldPrecheckRequest
    * @returns ShieldPrecheckResponse
@@ -8057,7 +8152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The tables that do not need to be synchronized in a full data synchronization are skipped.
+   * Skips tables that do not need to be synchronized during the full data synchronization phase.
    * 
    * @param request - SkipFullJobTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8104,7 +8199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The tables that do not need to be synchronized in a full data synchronization are skipped.
+   * Skips tables that do not need to be synchronized during the full data synchronization phase.
    * 
    * @param request - SkipFullJobTableRequest
    * @returns SkipFullJobTableResponse
@@ -8115,7 +8210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips one or more precheck items.
+   * Suppresses or unsuppresses precheck alert items.
    * 
    * @param request - SkipPreCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8170,7 +8265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips one or more precheck items.
+   * Suppresses or unsuppresses precheck alert items.
    * 
    * @param request - SkipPreCheckRequest
    * @returns SkipPreCheckResponse
@@ -8181,7 +8276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data migration, data synchronization, or change tracking task.
+   * Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
    * 
    * @param request - StartDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8232,7 +8327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data migration, data synchronization, or change tracking task.
+   * Starts a data migration, data synchronization, or change tracking task by calling the StartDtsJob operation.
    * 
    * @param request - StartDtsJobRequest
    * @returns StartDtsJobResponse
@@ -8243,7 +8338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts multiple data migration or data synchronization tasks.
+   * Starts multiple data migration or synchronization tasks in a batch by calling the StartDtsJobs operation.
    * 
    * @param request - StartDtsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8286,7 +8381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts multiple data migration or data synchronization tasks.
+   * Starts multiple data migration or synchronization tasks in a batch by calling the StartDtsJobs operation.
    * 
    * @param request - StartDtsJobsRequest
    * @returns StartDtsJobsResponse
@@ -8297,7 +8392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data migration task.
+   * Starts a data migration task of Data Transmission Service (DTS).
    * 
    * @param request - StartMigrationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8344,7 +8439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a data migration task.
+   * Starts a data migration task of Data Transmission Service (DTS).
    * 
    * @param request - StartMigrationJobRequest
    * @returns StartMigrationJobResponse
@@ -8355,10 +8450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+   * Starts a reverse task that is created by calling the CreateReverseDtsJob operation.
    * 
    * @remarks
-   * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
+   * Before you call this operation, check the status of the reverse task in the console or by calling [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html). Make sure that the task has not been released and is in the paused state.
    * 
    * @param request - StartReverseWriterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8397,10 +8492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+   * Starts a reverse task that is created by calling the CreateReverseDtsJob operation.
    * 
    * @remarks
-   * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
+   * Before you call this operation, check the status of the reverse task in the console or by calling [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html). Make sure that the task has not been released and is in the paused state.
    * 
    * @param request - StartReverseWriterRequest
    * @returns StartReverseWriterResponse
@@ -8411,7 +8506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a change tracking task.
+   * Starts the channel of a change tracking instance. This is a legacy operation.
    * 
    * @param request - StartSubscriptionInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8458,7 +8553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a change tracking task.
+   * Starts the channel of a change tracking instance. This is a legacy operation.
    * 
    * @param request - StartSubscriptionInstanceRequest
    * @returns StartSubscriptionInstanceResponse
@@ -8531,7 +8626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a cluster.
+   * Releases a cluster by calling the StopDedicatedCluster operation.
    * 
    * @param request - StopDedicatedClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8582,7 +8677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a cluster.
+   * Releases a cluster by calling the StopDedicatedCluster operation.
    * 
    * @param request - StopDedicatedClusterRequest
    * @returns StopDedicatedClusterResponse
@@ -8593,7 +8688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data migration, data synchronization, or change tracking task.
+   * Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
    * 
    * @param request - StopDtsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8644,7 +8739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data migration, data synchronization, or change tracking task.
+   * Stops a data migration, data synchronization, or change tracking task by calling StopDtsJob.
    * 
    * @param request - StopDtsJobRequest
    * @returns StopDtsJobResponse
@@ -8655,7 +8750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops multiple data migration or data synchronization tasks.
+   * Stops multiple DTS tasks at a time.
    * 
    * @param request - StopDtsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8698,7 +8793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops multiple data migration or data synchronization tasks.
+   * Stops multiple DTS tasks at a time.
    * 
    * @param request - StopDtsJobsRequest
    * @returns StopDtsJobsResponse
@@ -8709,7 +8804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data migration task that is in the Migrating state.
+   * Ends a data migration task that is in a migration state.
    * 
    * @param request - StopMigrationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8760,7 +8855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a data migration task that is in the Migrating state.
+   * Ends a data migration task that is in a migration state.
    * 
    * @param request - StopMigrationJobRequest
    * @returns StopMigrationJobResponse
@@ -8771,7 +8866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+   * Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
    * 
    * @param request - SummaryJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8830,7 +8925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+   * Queries the number of tables migrated in a Data Transmission Service (DTS) data migration or synchronization task.
    * 
    * @param request - SummaryJobDetailRequest
    * @returns SummaryJobDetailResponse
@@ -8841,7 +8936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data migration, data synchronization, or change tracking task.
+   * Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
    * 
    * @remarks
    * ***
@@ -8895,7 +8990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data migration, data synchronization, or change tracking task.
+   * Suspends a data migration or synchronization task. Change tracking tasks are not supported. Change tracking instances do not support the suspend capability. Do not call this operation on change tracking instances.
    * 
    * @remarks
    * ***
@@ -8909,7 +9004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends multiple Data Transmission Service (DTS) tasks.
+   * Suspends multiple DTS tasks at a time.
    * 
    * @param request - SuspendDtsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8952,7 +9047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends multiple Data Transmission Service (DTS) tasks.
+   * Suspends multiple DTS tasks at a time.
    * 
    * @param request - SuspendDtsJobsRequest
    * @returns SuspendDtsJobsResponse
@@ -8963,7 +9058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data migration task.
+   * Suspends a data migration task that is in progress.
    * 
    * @param request - SuspendMigrationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9014,7 +9109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data migration task.
+   * Suspends a data migration task that is in progress.
    * 
    * @param request - SuspendMigrationJobRequest
    * @returns SuspendMigrationJobResponse
@@ -9025,13 +9120,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data synchronization task.
+   * Pauses a data synchronization task that is in the Synchronizing state.
    * 
    * @remarks
-   * > 
-   * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
-   * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
-   * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+   * > - When you call this operation, the synchronization task must be in the Synchronizing state.
+   * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
+   * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
    * 
    * @param request - SuspendSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9082,13 +9176,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses a data synchronization task.
+   * Pauses a data synchronization task that is in the Synchronizing state.
    * 
    * @remarks
-   * > 
-   * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
-   * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
-   * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+   * > - When you call this operation, the synchronization task must be in the Synchronizing state.
+   * - A synchronization task cannot be paused for more than 6 hours. Otherwise, the task cannot be restarted.
+   * - DTS continues to charge fees for a pay-as-you-go synchronization task even if the task is paused. This is because DTS only pauses writing data to the destination instance but continues to pull logs from the source instance to ensure quick resumption when the task is restarted. Therefore, the task still consumes resources such as bandwidth of the source database.
    * 
    * @param request - SuspendSynchronizationJobRequest
    * @returns SuspendSynchronizationJobResponse
@@ -9099,7 +9192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
+   * Performs physical migration of an MSSQL database to Alibaba Cloud.
    * 
    * @param request - SwitchPhysicalDtsJobToCloudRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9146,7 +9239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway
+   * Performs physical migration of an MSSQL database to Alibaba Cloud.
    * 
    * @param request - SwitchPhysicalDtsJobToCloudRequest
    * @returns SwitchPhysicalDtsJobToCloudResponse
@@ -9157,7 +9250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+   * Passes the connection information of the new database to DTS after a primary/secondary switchover. DTS restarts data synchronization from the checkpoint.
    * 
    * @param request - SwitchSynchronizationEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9216,7 +9309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+   * Passes the connection information of the new database to DTS after a primary/secondary switchover. DTS restarts data synchronization from the checkpoint.
    * 
    * @param request - SwitchSynchronizationEndpointRequest
    * @returns SwitchSynchronizationEndpointResponse
@@ -9227,15 +9320,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to data migration, data synchronization, or change tracking instances.
+   * Binds tags to one or more data migration, synchronization, and change tracking instances by calling the TagResources operation.
    * 
    * @remarks
-   * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
-   * *   A tag consists of a key and a value. Each key must be unique in a region within an Alibaba Cloud account. Different keys can be mapped to the same value.
-   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-   * *   You can add up to 20 tags to an instance.
-   * *   You can add tags to up to 50 instances in each request.
+   * If you have a large number of instances, you can create multiple tags and attach different tags to instances for categorization. Then, you can filter instances by tag.
+   * - A tag consists of a key-value pair. Tag keys must be unique within the same Alibaba Cloud account and region. Tag values do not have this restriction.
+   * - If the specified tag does not exist, the tag is automatically created and attached to the destination instance.
+   * - If the instance already has a tag with the same key, the existing tag is overwritten.
+   * - You can attach up to 20 tags to each instance.
+   * - You can invoke the operation to attach tags to up to 50 instances at a time.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9282,15 +9375,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to data migration, data synchronization, or change tracking instances.
+   * Binds tags to one or more data migration, synchronization, and change tracking instances by calling the TagResources operation.
    * 
    * @remarks
-   * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
-   * *   A tag consists of a key and a value. Each key must be unique in a region within an Alibaba Cloud account. Different keys can be mapped to the same value.
-   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
-   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
-   * *   You can add up to 20 tags to an instance.
-   * *   You can add tags to up to 50 instances in each request.
+   * If you have a large number of instances, you can create multiple tags and attach different tags to instances for categorization. Then, you can filter instances by tag.
+   * - A tag consists of a key-value pair. Tag keys must be unique within the same Alibaba Cloud account and region. Tag values do not have this restriction.
+   * - If the specified tag does not exist, the tag is automatically created and attached to the destination instance.
+   * - If the instance already has a tag with the same key, the existing tag is overwritten.
+   * - You can attach up to 20 tags to each instance.
+   * - You can invoke the operation to attach tags to up to 50 instances at a time.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -9301,7 +9394,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades or downgrades a Data Transmission Service (DTS) instance.
+   * Upgrades or downgrades the specifications of a DTS instance.
+   * 
+   * @remarks
+   * > - Downgrading DTS instance specifications is no longer supported.
+   * - If the source of a DTS instance is Redis 6.0 and incremental data updates exist, do not perform an upgrade. Otherwise, the DTS instance may fail and cannot be recovered. You must reconfigure the instance after a failure.
    * 
    * @param request - TransferInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9352,7 +9449,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades or downgrades a Data Transmission Service (DTS) instance.
+   * Upgrades or downgrades the specifications of a DTS instance.
+   * 
+   * @remarks
+   * > - Downgrading DTS instance specifications is no longer supported.
+   * - If the source of a DTS instance is Redis 6.0 and incremental data updates exist, do not perform an upgrade. Otherwise, the DTS instance may fail and cannot be recovered. You must reconfigure the instance after a failure.
    * 
    * @param request - TransferInstanceClassRequest
    * @returns TransferInstanceClassResponse
@@ -9363,12 +9464,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a Data Transmission Service (DTS) instance.
+   * Transforms the payment method of a DTS instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
-   * *   To prevent resource waste, make sure that the billing method of your DTS instances has to be changed.
-   * *   Data migration instances only support the pay-as-you-go billing method.
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+   * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+   * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
+   * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+   * <props="china">
+   * - Serverless instances do not support payment method transformation.
    * 
    * @param request - TransferPayTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9435,12 +9539,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a Data Transmission Service (DTS) instance.
+   * Transforms the payment method of a DTS instance.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
-   * *   To prevent resource waste, make sure that the billing method of your DTS instances has to be changed.
-   * *   Data migration instances only support the pay-as-you-go billing method.
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of Data Transmission Service (DTS).
+   * <props="intl">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+   * - To avoid resource waste, confirm the payment method transformation before you perform the operation.
+   * - Data migration instances support only the pay-as-you-go billing method. No transformation is required.
+   * <props="china">
+   * - Serverless instances do not support payment method transformation.
    * 
    * @param request - TransferPayTypeRequest
    * @returns TransferPayTypeResponse
@@ -9451,10 +9558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+   * Unbinds tags from data migration, synchronization, and change tracking instances.
    * 
    * @remarks
-   * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+   * > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9505,10 +9612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+   * Unbinds tags from data migration, synchronization, and change tracking instances.
    * 
    * @remarks
-   * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+   * > After a tag is unbound from an instance, the tag is automatically deleted if it is not bound to any other instance.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -9519,15 +9626,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
+   * Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
-   * When you call this operation, take note of the following information:
-   * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
-   * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
-   * *   The data synchronization task is in the **Synchronizing** state.
-   * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+   * <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
+   * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
+   * Before you begin:
+   * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+   * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
+   * - The data synchronization node must be in the **Synchronizing** state.
+   * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
    * 
    * @param request - UpgradeTwoWayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9570,15 +9678,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
+   * Upgrades the synchronization topology of a DTS data synchronization instance from one-way synchronization to two-way synchronization.
    * 
    * @remarks
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
-   * When you call this operation, take note of the following information:
-   * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
-   * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
-   * *   The data synchronization task is in the **Synchronizing** state.
-   * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+   * <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/dts/detail) of ApsaraDB DTS.
+   * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of ApsaraDB DTS.
+   * Before you begin:
+   * - The database type of both the source instance and the destination instance of the data synchronization node must be **MySQL**.
+   * - The synchronization topology of the data synchronization node must be **one-way synchronization**.
+   * - The data synchronization node must be in the **Synchronizing** state.
+   * - During the upgrade, data synchronization may experience a latency of approximately 5 seconds. Perform this operation during off-peak hours.
    * 
    * @param request - UpgradeTwoWayRequest
    * @returns UpgradeTwoWayResponse
@@ -9589,11 +9698,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
-   * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
+   * Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
    * 
    * @remarks
-   * The operation that you want to perform. Set the value to **WhiteIpList**.
+   * <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
+   * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+   * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
    * 
    * @param request - WhiteIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9684,11 +9794,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
-   * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o
+   * Queries the IP addresses of DTS servers by calling the WhiteIpList operation.
    * 
    * @remarks
-   * The operation that you want to perform. Set the value to **WhiteIpList**.
+   * <props="china">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database for migration, synchronization, or subscribe](https://help.aliyun.com/document_detail/84900.html).
+   * <props="intl">If the **source or destination instance** is a **self-managed database** or a **third-party ApsaraDB database**, you need to invoke this operation to query the IP addresses of DTS servers, and then add the returned IP addresses to the security settings (typically the firewall) of the source or destination instance. For more information about how to add IP addresses, see [Add the CIDR blocks of DTS servers to the whitelist of a self-managed database](https://help.aliyun.com/document_detail/176627.html).
+   * > If the **source or destination database** is an **Alibaba Cloud database instance** (such as ApsaraDB RDS or ApsaraDB for MongoDB) or a **self-managed database hosted on ECS**, the system automatically adds the IP addresses of DTS servers to the security settings of the instance when you click **Authorize Whitelist and Proceed to Next Step** during the configuration of the source or destination instance. You do not need to manually add the IP addresses.
    * 
    * @param request - WhiteIpListRequest
    * @returns WhiteIpListResponse

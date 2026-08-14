@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone numbers that receive latency-related alerts.
+   * The mobile phone number of the contact for latency alerts.
    * 
    * @example
-   * 1361234****,1371234****
+   * 13465****
    */
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether task latency is monitored. Valid values:
+   * Indicates whether latency alerting is enabled. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
    * 
    * @example
    * enable
@@ -24,7 +24,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold for triggering latency alerts. The unit is seconds and the value is an integer. The recommended value is 10 seconds.
+   * The threshold for triggering latency alerts. Unit: seconds. The value must be an integer. A value of 10 seconds is recommended.
    * 
    * @example
    * 10
@@ -48,18 +48,18 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The mobile phone numbers that receive status-related alerts.
+   * The mobile phone number of the contact for error alerts.
    * 
    * @example
-   * 1361234****,1371234****
+   * 13555*****
    */
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Indicates whether task status is monitored. Valid values:
+   * Indicates whether error alerting is enabled. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: Enabled.
+   * - **disable**: Disabled.
    * 
    * @example
    * enable
@@ -67,7 +67,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 210ec2e116055198849072222d****
@@ -75,7 +75,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance.
+   * The change tracking instance ID.
    * 
    * @example
    * dtsl8zl9ek6292****
@@ -91,7 +91,7 @@ export class DescribeSubscriptionInstanceAlertResponseBody extends $dara.Model {
   subscriptionInstanceName?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group.
+   * The consumer group ID.
    * 
    * @example
    * dtsor2y66j4219****
@@ -16,12 +16,12 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
    * The name of the consumer group.
    * 
    * @example
-   * consumergrouptest
+   * 订阅组A
    */
   consumerGroupName?: string;
   /**
    * @remarks
-   * The username of the consumer group.
+   * The account of the consumer group.
    * 
    * @example
    * dtstest
@@ -29,7 +29,7 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   consumerGroupUserName?: string;
   /**
    * @remarks
-   * The consumption checkpoint, which is the time when the latest data record was consumed by the change tracking client. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+   * The consumption checkpoint, which is the point in time when the client consumed the last message in the subscription channel. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2021-06-20T12:00:00Z
@@ -37,11 +37,10 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   consumptionCheckpoint?: string;
   /**
    * @remarks
-   * The message latency, which is the timestamp of the latest data consumed by the downstream client minus the timestamp of the latest data tracked by the change tracking task. The value is a UNIX timestamp. Unit: seconds.
+   * The message delay. This value is calculated as the timestamp of the latest data consumed by the downstream client minus the timestamp of the latest data in the change tracking task. The value is a UNIX timestamp. Unit: seconds.
+   * For example, if the latest data in the source database was generated at 10:00, the DTS change tracking task has read data up to 09:55, and the downstream client has consumed data up to 09:30, the message delay is the difference in UNIX timestamps between 09:55 and 09:30.
    * 
-   * For example, the latest data in the source database is generated at 10:00. The change tracking task reads the data generated at 09:55, and the downstream client consumes the data generated at 09:30. In this case, the message latency is the UNIX timestamp difference between 09:55 and 09:30.
-   * 
-   * >  If the return value of this parameter is **-1**, no client is connected to the consumer group.
+   * > If this parameter returns **-1**, no client is connected to the consumer group.
    * 
    * @example
    * 1500
@@ -49,9 +48,8 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
   messageDelay?: number;
   /**
    * @remarks
-   * The total number of unconsumed messages, which is the number of unconsumed data records plus the number of heartbeat messages.
-   * 
-   * >  If the return value of this parameter is -1, no client is connected to the consumer group.
+   * The total number of unconsumed messages, which is the sum of unconsumed subscription data and heartbeat messages.
+   * > If this parameter returns -1, no client is connected to the consumer group.
    * 
    * @example
    * 186600
@@ -91,12 +89,12 @@ export class DescribeConsumerChannelResponseBodyConsumerChannels extends $dara.M
 export class DescribeConsumerChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the consumer groups.
+   * The list of consumer groups.
    */
   consumerChannels?: DescribeConsumerChannelResponseBodyConsumerChannels[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -104,7 +102,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -120,7 +118,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -136,7 +134,7 @@ export class DescribeConsumerChannelResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D66140B3-C747-42B6-8315-BAF6490E****

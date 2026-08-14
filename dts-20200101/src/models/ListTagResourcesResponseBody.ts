@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -71,7 +71,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -80,8 +80,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The query token.
-   * 
-   * >  If a query does not return all results, you can specify the returned **NextToken** parameter in the next query to obtain more results.
+   * > If this request does not return all results, you can pass this **NextToken** value in the subsequent request to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec2****
@@ -89,7 +88,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 609AD332-F2B1-48B7-BF43-41FEE641****
@@ -97,7 +96,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

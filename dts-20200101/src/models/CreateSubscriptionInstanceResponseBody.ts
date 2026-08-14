@@ -21,7 +21,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4E9564C5-F99D-4176-A6BA-2D7F2DC8****
@@ -29,7 +29,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the change tracking instance.
+   * The change tracking instance ID.
    * 
    * @example
    * dtsfen11q2g23x****
@@ -37,7 +37,7 @@ export class CreateSubscriptionInstanceResponseBody extends $dara.Model {
   subscriptionInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

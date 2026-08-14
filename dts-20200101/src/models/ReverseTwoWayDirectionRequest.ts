@@ -3,22 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReverseTwoWayDirectionRequest extends $dara.Model {
-  /**
-   * @example
-   * dtsldy114cy24f****
-   */
   dtsInstanceId?: string;
-  /**
-   * @example
-   * false
-   */
   ignoreErrorSubJob?: boolean;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
   resourceGroupId?: string;

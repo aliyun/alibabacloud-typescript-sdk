@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class TransferPayTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the DTS instance. Valid values:
-   * 
-   * *   **PrePaid**: subscription
-   * *   **PostPaid**: pay-as-you-go
+   * The billing method after conversion. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -16,7 +15,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The error code. This parameter will be removed in the future.
+   * The error code. This parameter will be deprecated.
    * 
    * @example
    * 200
@@ -24,7 +23,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the DTS task.
+   * The task ID.
    * 
    * @example
    * o4nh3g7jg56****
@@ -32,9 +31,8 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -42,11 +40,9 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The expiration time of the subscription instance. The value is a UNIX timestamp.
-   * 
-   * > 
-   * *   If the DTS instance is a pay-as-you-go instance, the value of this parameter is empty.
-   * *   You can use a search engine to obtain a UNIX timestamp converter.
+   * The time when the subscription instance expires, in UNIX timestamp format.
+   * > - If the instance is converted to pay-as-you-go, this value is empty.
+   * - You can use a search engine to find a UNIX timestamp conversion tool.
    * 
    * @example
    * 1614916318
@@ -78,7 +74,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the DTS instance.
+   * The instance ID.
    * 
    * @example
    * dtso4nh3g7jg56****
@@ -86,7 +82,7 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 601B6F25-21E7-4484-99D5-3EF2625C****
@@ -94,10 +90,9 @@ export class TransferPayTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * *   **true**: The call was successful.
-   * *   **false**: The call failed.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

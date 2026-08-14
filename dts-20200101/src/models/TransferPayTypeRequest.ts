@@ -3,25 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TransferPayTypeRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to automatically renew the DTS instance when it expires. Valid values:
-   * 
-   * *   **false**: does not automatically renew the DTS instance when it expires. This is the default value.
-   * *   **true**: automatically renews the DTS instance when it expires.
-   * 
-   * @example
-   * true
-   */
   autoPay?: boolean;
   /**
    * @remarks
-   * The subscription length.
+   * The subscription duration of the instance.
+   * - If Period is set to **Year**, valid values are **1** to **5**.
+   * - If Period is set to **Month**, valid values are **1** to **60**.
    * 
-   * *   If the **Period** parameter is set to **Year**, the value range is **1** to **5**.
-   * *   If the **Period** parameter is set to **Month**, the value range is **1** to **60**.
-   * 
-   * >  You must specify this parameter only if you set the **ChargeType** parameter to **PrePaid**.
+   * > This parameter is valid and required only when ChargeType is set to **Prepaid**.
    * 
    * @example
    * 5
@@ -29,10 +18,11 @@ export class TransferPayTypeRequest extends $dara.Model {
   buyCount?: string;
   /**
    * @remarks
-   * The new billing method. Valid values:
-   * 
-   * *   **PrePaid**: subscription.
-   * *   **PostPaid**: pay-as-you-go.
+   * The billing method after conversion. Valid values:
+   * - **PrePaid**: subscription.
+   * - **PostPaid**: pay-as-you-go.
+   * <props="china">
+   * - **sync_serverless**: pay-as-you-go Serverless..
    * 
    * This parameter is required.
    * 
@@ -42,7 +32,7 @@ export class TransferPayTypeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ID of the data synchronization or change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
    * 
    * This parameter is required.
    * 
@@ -50,24 +40,14 @@ export class TransferPayTypeRequest extends $dara.Model {
    * o4nh3g7jg56****
    */
   dtsJobId?: string;
-  /**
-   * @remarks
-   * The new instance class of the DTS instance. You can call the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation to query the original instance class of the DTS instance.
-   * 
-   * *   DTS supports the following instance classes for a data migration instance: **xxlarge**, **xlarge**, **large**, **medium**, and **small**.
-   * *   DTS supports the following instance classes for a data synchronization instance: **large**, **medium**, **small**, and **micro**.
-   * 
-   * > For more information about the test performance of each instance class, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html) and [Specifications of data synchronization channels](https://help.aliyun.com/document_detail/26605.html).
-   * 
-   * @example
-   * small
-   */
   instanceClass?: string;
   /**
    * @remarks
-   * The maximum number of DUs in a serverless instance. Valid values: 2, 4, 8, and 16.
-   * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * The maximum number of DUs for the Serverless instance. Valid values: 2, 4, 8, and 16.
+   * <props="intl">
+   * > This feature is currently not supported. Do not specify this parameter.
+   * <props="china">
+   * > This parameter is valid and required only when ChargeType is set to **sync_serverless**..
    * 
    * @example
    * 16
@@ -75,9 +55,12 @@ export class TransferPayTypeRequest extends $dara.Model {
   maxDu?: number;
   /**
    * @remarks
-   * The minimum number of DTS Units (DUs) in a serverless instance. Valid values: 1, 2, 4, 8, and 16.
+   * The minimum number of DTS Units (DUs) for the Serverless instance. Valid values: 1, 2, 4, 8, and 16.
    * 
-   * >  This feature is not supported. Do not specify this parameter.
+   * <props="intl">
+   * > This feature is currently not supported. Do not specify this parameter.
+   * <props="china">
+   * > This parameter is valid and required only when ChargeType is set to **sync_serverless**..
    * 
    * @example
    * 1
@@ -85,12 +68,11 @@ export class TransferPayTypeRequest extends $dara.Model {
   minDu?: number;
   /**
    * @remarks
-   * The billing cycle of the subscription instance. Valid values:
+   * The billing method of the subscription instance. Valid values:
+   * - **Year**: annual subscription.
+   * - **Month**: monthly subscription.
    * 
-   * *   **Year**
-   * *   **Month** (default value)
-   * 
-   * >  You must specify this parameter only if you set the **ChargeType** parameter to **PrePaid**.
+   * > This parameter is valid and required only when ChargeType is set to **PrePaid** (subscription).
    * 
    * @example
    * Year
@@ -98,7 +80,7 @@ export class TransferPayTypeRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou

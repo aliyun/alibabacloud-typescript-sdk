@@ -59,57 +59,91 @@ export class DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems exten
 
 export class DescribePreCheckCreateGadOrderResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The dynamic error code. This parameter will be deprecated.
+   * 
    * @example
    * 403
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * present environment is not support,so skip.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
    * @example
    * InternalError
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * The request processing has failed due to some unknown error.
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The instance ID of the GAD instance group.
+   * 
    * @example
    * gad-bp1i99e8l7913****
    */
   instanceId?: string;
   preCheckItems?: DescribePreCheckCreateGadOrderResultResponseBodyPreCheckItems;
   /**
+   * @remarks
+   * The overall precheck result.
+   * 
    * @example
    * True
    */
   preCheckResult?: boolean;
   /**
+   * @remarks
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 92E1E99D-5224-4AD3-8C94-23A3516B****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The ID of the precheck task.
+   * 
    * @example
    * 11****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndpointSwitchStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeEndpointSwitchStatusRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -22,7 +22,7 @@ export class DescribeEndpointSwitchStatusRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +30,7 @@ export class DescribeEndpointSwitchStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -38,7 +38,7 @@ export class DescribeEndpointSwitchStatusRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The task ID, which is returned after you call the [SwitchSynchronizationEndpoint](https://help.aliyun.com/document_detail/201858.html) operation.
+   * The task ID. This value is returned after you successfully call the [SwitchSynchronizationEndpoint](https://help.aliyun.com/document_detail/201858.html) operation.
    * 
    * This parameter is required.
    * 

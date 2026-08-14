@@ -29,7 +29,7 @@ export class ModifyConsumerChannelResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 055CAF9B-C15D-4799-BB9E-E62D417****
@@ -37,7 +37,7 @@ export class ModifyConsumerChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

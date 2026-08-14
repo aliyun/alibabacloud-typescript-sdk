@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking instance.
-   * 
-   * >  You can call the [DescribeMigrationJobs](https://help.aliyun.com/document_detail/208139.html), [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html), or [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID
+   * The instance ID of the data migration, synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -15,7 +13,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+   * The ID of the data migration, synchronization, or change tracking task.
    * 
    * @example
    * l3m1213ye7l****
@@ -23,12 +21,12 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The database to which the password belongs. Valid values:
+   * The database to which the account belongs. Valid values:
    * 
-   * *   **src**: source database.
-   * *   **dest**: destination database.
+   * - **src**: the source database.
+   * - **dest**: the destination database.
    * 
-   * >  This parameter is required.
+   * > This parameter is required.
    * 
    * @example
    * src
@@ -36,9 +34,8 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The new password.
-   * 
-   * >  This parameter is required and cannot be set to a value that is the same as the current password.
+   * The new password for the database account.
+   * > This parameter is required and must be different from the current password.
    * 
    * @example
    * Test123456
@@ -46,7 +43,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -54,7 +51,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -62,8 +59,12 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Synchronization direction, with values:
-   * - **Forward** (default): Forward. - **Reverse**: Reverse.
+   * The synchronization direction. Valid values:
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
+   * 
+   * > - Default value: **Forward**.
+   * - This parameter is required only when the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -71,9 +72,7 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The account of the source or destination database.
-   * 
-   * >  This parameter is required.
+   * The username of the database account to modify.
    * 
    * @example
    * dtstest
@@ -81,8 +80,9 @@ export class ModifyDtsJobPasswordRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**
+   * - **false**.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter. This parameter will be deprecated.
    * 
    * @example
    * 12323344****
@@ -13,12 +13,10 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The mobile phone numbers that receive latency-related alerts. Separate mobile phone numbers with commas (,).
+   * The mobile phone numbers of contacts for latency alerts. Separate multiple mobile phone numbers with commas (,).
    * 
-   * > 
-   * 
-   * *   This parameter is available only for China site (aliyun.com) users. Only mobile phone numbers in the Chinese mainland are supported. Up to 10 mobile phone numbers can be specified.
-   * *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the Cloud Monitor console](https://help.aliyun.com/document_detail/175876.html).
+   * This parameter is supported only on the China site (aliyun.com) and supports only Chinese mainland mobile phone numbers. You can specify up to 10 mobile phone numbers.
+   * The China site does not support phone alerts. You can configure alert rules for DTS tasks only in the CloudMonitor console.
    * 
    * @example
    * 1361234****,1371234****
@@ -26,15 +24,13 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   delayAlertPhone?: string;
   /**
    * @remarks
-   * Specifies whether to monitor task latency. Valid values:
+   * Specifies whether to monitor the latency status. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: yes.
+   * - **disable**: no.
    * 
-   * > 
-   * 
-   * *   The default value is **enable**.
-   * *   You must specify at least one of the DelayAlertStatus and **ErrorAlertStatus** parameters.
+   * > - Default value: **enable**.
+   * - You must specify at least one of this parameter and the **ErrorAlertStatus** parameter.
    * 
    * @example
    * enable
@@ -42,9 +38,8 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   delayAlertStatus?: string;
   /**
    * @remarks
-   * The threshold for triggering latency alerts. The unit is seconds and the value must be an integer. You can set the threshold based on your business needs. To avoid delay fluctuations caused by network and database loads, we recommend that you set the threshold to more than 10 seconds.
-   * 
-   * >  If the **DelayAlertStatus** parameter is set to **enable**, this parameter must be specified.
+   * The threshold for triggering a latency alert. Unit: seconds. The value must be an integer. Set the threshold based on your business requirements. To avoid latency fluctuations caused by network conditions or database loads, set the threshold to 10 seconds or more.
+   * > This parameter is required when **DelayAlertStatus** is set to **enable**.
    * 
    * @example
    * 10
@@ -52,12 +47,10 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   delayOverSeconds?: string;
   /**
    * @remarks
-   * The mobile phone numbers that receive status-related alerts. Separate mobile phone numbers with commas (,).
+   * The mobile phone numbers of contacts for exception alerts. Separate multiple mobile phone numbers with commas (,).
    * 
-   * > 
-   * 
-   * *   This parameter is available only for China site (aliyun.com) users. Only mobile phone numbers in the Chinese mainland are supported. Up to 10 mobile phone numbers can be specified.
-   * *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the Cloud Monitor console](https://help.aliyun.com/document_detail/175876.html).
+   * This parameter is supported only on the China site (aliyun.com) and supports only Chinese mainland mobile phone numbers. You can specify up to 10 mobile phone numbers.
+   * The international site does not support phone alerts. You can configure alert rules for DTS tasks only in the CloudMonitor console.
    * 
    * @example
    * 1361234****,1371234****
@@ -65,16 +58,14 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   errorAlertPhone?: string;
   /**
    * @remarks
-   * Specifies whether to monitor task status. Valid values:
+   * Specifies whether to monitor the exception status. Valid values:
    * 
-   * *   **enable**: yes
-   * *   **disable**: no
+   * - **enable**: yes.
+   * - **disable**: no.
    * 
-   * > 
-   * 
-   * *   The default value is **enable**.
-   * *   You must specify at least one of the **DelayAlertStatus** and ErrorAlertStatus parameters.
-   * *   If the task that you monitor enters an abnormal state, an alert is triggered.
+   * > - Default value: **enable**.
+   * - You must specify at least one of this parameter and the **DelayAlertStatus** parameter.
+   * - After you enable the exception status monitoring feature, an alert is triggered when an exception is detected.
    * 
    * @example
    * enable
@@ -82,7 +73,7 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   errorAlertStatus?: string;
   /**
    * @remarks
-   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+   * Instance ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -93,7 +84,7 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the data migration instance resides. For more information, see the supported region list.
    * 
    * @example
    * cn-hangzhou
@@ -101,7 +92,7 @@ export class ConfigureMigrationJobAlertRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

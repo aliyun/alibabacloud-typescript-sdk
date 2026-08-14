@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data synchronization or change tracking instance.
+   * The synchronization or subscribe instance ID.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -21,7 +21,7 @@ export class ResetDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The region where the DTS instance is located. For more information, see [List of Supported Regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class ResetDtsJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzn4iqlbsm7hy
@@ -39,12 +39,11 @@ export class ResetDtsJobRequest extends $dara.Model {
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * *   **Forward**
-   * *   **Reverse**
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * > 
-   * *   Default value: **Forward**.
-   * *   You can set this parameter to **Reverse** to reset the reverse synchronization task only when the topology is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - You can set this parameter to **Reverse** to reset the reverse synchronization task only if the topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward

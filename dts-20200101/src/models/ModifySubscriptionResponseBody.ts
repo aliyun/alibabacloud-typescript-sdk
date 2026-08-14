@@ -29,7 +29,7 @@ export class ModifySubscriptionResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 068FA72F-4800-4A54-90BB-94806068****
@@ -37,7 +37,7 @@ export class ModifySubscriptionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

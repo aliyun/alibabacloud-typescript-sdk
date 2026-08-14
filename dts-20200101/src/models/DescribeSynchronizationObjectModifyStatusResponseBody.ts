@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned if full data synchronization failed.
+   * The error message returned when initial full data synchronization failed.
    * 
    * @example
-   * java.lang.NumberFormatException: For input string: ""
+   * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of full data synchronization. Unit: %.
+   * The progress of initial full data synchronization, in percentage.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializa
   percent?: string;
   /**
    * @remarks
-   * The number of records that have been synchronized during full data synchronization.
+   * The number of records that have been synchronized during initial full data synchronization.
    * 
    * @example
    * 39754
@@ -29,12 +29,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializa
   progress?: string;
   /**
    * @remarks
-   * The status of full data synchronization. Valid values:
-   * 
-   * *   **NotStarted**: Full data synchronization is not started.
-   * *   **Migrating**: Full data synchronization is in progress.
-   * *   **Failed**: Full data synchronization failed.
-   * *   **Finished**: Full data synchronization is completed.
+   * The status of the synchronization object change. Valid values: -**notstarted**: not started. -**migrating**: synchronizing. -**failed**: synchronization failed. -**finaciallocked**: financial lock.
    * 
    * @example
    * Finished
@@ -70,7 +65,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializa
 export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus extends $dara.Model {
   /**
    * @remarks
-   * The synchronization latency, in seconds.
+   * The synchronization latency of incremental data synchronization, in seconds.
    * 
    * @example
    * 0
@@ -78,7 +73,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchroniz
   delay?: string;
   /**
    * @remarks
-   * The error message returned if incremental data synchronization failed.
+   * The error message returned when incremental data synchronization failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
@@ -86,7 +81,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchroniz
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of incremental data synchronization. Unit: %.
+   * The progress of incremental data synchronization, in percentage.
    * 
    * @example
    * 100
@@ -94,15 +89,17 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchroniz
   percent?: string;
   /**
    * @remarks
-   * The status of incremental data synchronization. Valid values:
+   * The status of the synchronization object change. Valid values:
    * 
-   * *   **NotStarted**: Incremental data synchronization is not started.
-   * *   **Migrating**: Incremental data synchronization is in progress.
-   * *   **Failed**: Incremental data synchronization failed.
-   * *   **Finished**: Incremental data synchronization is completed.
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running the precheck.
+   * - **PrecheckFailed**: the precheck failed.
+   * - **Migrating**: synchronizing.
+   * - **Failed**: synchronization failed.
+   * - **Finished**: synchronization completed.
    * 
    * @example
-   * Migrating
+   * Finished
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -135,10 +132,10 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchroniz
 export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatusDetail extends $dara.Model {
   /**
    * @remarks
-   * The precheck result. Valid values:
+   * The check result. Valid values:
    * 
-   * *   Success: The task passed the precheck.
-   * *   Failed: The task failed to pass the precheck.
+   * - Success: The precheck item was passed.
+   * - Failed: The precheck item was not passed.
    * 
    * @example
    * Success
@@ -146,17 +143,15 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus
   checkStatus?: string;
   /**
    * @remarks
-   * The error message returned if the task failed to pass the precheck.
-   * 
-   * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+   * The error message returned when the precheck item was not passed.
    * 
    * @example
-   * Original error: Access denied for user \\"dtstest\\"@\\"100.104.xxx.xx\\" (using password: YES)
+   * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The name of the precheck item.
+   * The precheck item.
    * 
    * @example
    * CHECK_CONN_SRC
@@ -165,8 +160,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus
   /**
    * @remarks
    * The method to fix the precheck failure.
-   * 
-   * >  This parameter is returned only if the return value of the **CheckStatus** parameter is Failed.
+   * > This parameter is returned only when the value of the **CheckStatus** parameter is Failed.
    * 
    * @example
    * CHECK_ERROR_DEST_CONN_REPAIR2
@@ -202,12 +196,12 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus
 export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus extends $dara.Model {
   /**
    * @remarks
-   * The result of each precheck item.
+   * The execution details of each precheck item.
    */
   detail?: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatusDetail[];
   /**
    * @remarks
-   * The precheck progress. Unit: %.
+   * The precheck progress, in percentage.
    * 
    * @example
    * 100
@@ -252,15 +246,15 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus
 export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus extends $dara.Model {
   /**
    * @remarks
-   * The error message returned if schema synchronization failed.
+   * The error message returned when initial schema synchronization failed.
    * 
    * @example
-   * DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
+   * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The progress of schema synchronization. Unit: %.
+   * The progress of initial schema synchronization, in percentage.
    * 
    * @example
    * 100
@@ -268,7 +262,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureIniti
   percent?: string;
   /**
    * @remarks
-   * The number of tables whose schemas have been synchronized.
+   * The number of tables for which initial schema synchronization has been completed.
    * 
    * @example
    * 1
@@ -276,12 +270,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureIniti
   progress?: string;
   /**
    * @remarks
-   * The status of schema synchronization. Valid values:
-   * 
-   * *   **NotStarted**: Schema synchronization is not started.
-   * *   **Migrating**: Schema synchronization is in progress.
-   * *   **Failed**: Schema synchronization failed.
-   * *   **Finished**: Schema synchronization is completed.
+   * The initial schema synchronization status. Valid values: NotStarted: not started. Migrating: initializing. Failed: initialization failed. Finished: initialization completed.
    * 
    * @example
    * Finished
@@ -317,19 +306,18 @@ export class DescribeSynchronizationObjectModifyStatusResponseBodyStructureIniti
 export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of full data synchronization.
+   * The initial full data synchronization status.
    */
   dataInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyDataInitializationStatus;
   /**
    * @remarks
-   * The status of incremental data synchronization.
-   * 
-   * >  This parameter and its sub-parameters will be removed in the future.
+   * The incremental data synchronization status.
+   * > This parameter set and its response parameters will be discontinued.
    */
   dataSynchronizationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyDataSynchronizationStatus;
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call failed.
    * 
    * @example
    * InternalError
@@ -337,7 +325,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -345,7 +333,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara
   errMessage?: string;
   /**
    * @remarks
-   * The error message returned if the task failed to modify the objects to be synchronized.
+   * The error message returned when the task to modify synchronization objects failed.
    * 
    * @example
    * DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
@@ -358,7 +346,7 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara
   precheckStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyPrecheckStatus;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B38C644B-4395-4F6F-86E3-592F26BE****
@@ -366,14 +354,14 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara
   requestId?: string;
   /**
    * @remarks
-   * The status of the task that changes the objects to be synchronized. Valid values:
+   * The status of the synchronization object change. Valid values:
    * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **Migrating**: The task is running.
-   * *   **Failed**: The task failed.
-   * *   **Finished**: The task is completed.
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running the precheck.
+   * - **PrecheckFailed**: the precheck failed.
+   * - **Migrating**: synchronizing.
+   * - **Failed**: synchronization failed.
+   * - **Finished**: synchronization completed.
    * 
    * @example
    * Finished
@@ -381,12 +369,12 @@ export class DescribeSynchronizationObjectModifyStatusResponseBody extends $dara
   status?: string;
   /**
    * @remarks
-   * The status of schema synchronization.
+   * The initial schema synchronization status.
    */
   structureInitializationStatus?: DescribeSynchronizationObjectModifyStatusResponseBodyStructureInitializationStatus;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

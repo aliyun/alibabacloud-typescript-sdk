@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group. You can specify this parameter on a downstream client when you consume tracked data.
+   * The consumer group ID. You can pass this ID to the downstream client to consume the change tracking data.
    * 
    * @example
    * dtsor2y66j4219****
@@ -37,7 +37,7 @@ export class CreateConsumerChannelResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5F566C5B-E5B0-4020-A531-FC6F5005****
@@ -45,7 +45,7 @@ export class CreateConsumerChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

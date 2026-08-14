@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change tracking instance.
+   * The instance ID of the subscribe instance.
    * 
    * @example
    * dtsy0zz3t13h7d****
@@ -21,7 +21,7 @@ export class ConfigureSubscriptionResponseBody extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -29,7 +29,7 @@ export class ConfigureSubscriptionResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -45,7 +45,7 @@ export class ConfigureSubscriptionResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1D6ECADF-C5E9-4C96-8811-77602B31****

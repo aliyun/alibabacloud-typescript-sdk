@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class PromoteToMasterRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * gad-bp162d4tp0500****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Primary instance ID.
+   * 
    * @example
    * rm-bp1756****
    */
   masterDbInstanceId?: string;
   /**
+   * @remarks
+   * Region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Secondary instance ID.
+   * 
    * @example
    * rm-bp1756****
    */

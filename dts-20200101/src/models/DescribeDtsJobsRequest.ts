@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDtsJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DTS dedicated cluster on which the task runs.
+   * The ID of the DTS dedicated cluster.
    * 
    * @example
    * dtscluster_atyl3b5214uk***
@@ -21,10 +21,9 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   destProductType?: string;
   /**
    * @remarks
-   * The environment tag of the DTS instance. Valid values:
-   * 
-   * - **normal**
-   * - **online**
+   * The environment label of the DTS instance. Valid values:
+   * - **normal**: normal
+   * - **online**: online
    * 
    * @example
    * normal
@@ -33,6 +32,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the data migration, data synchronization, or change tracking instance.
+   * > Separate multiple instance IDs with commas (,). Make sure that the **JobType** parameter is set as expected.
    * 
    * @example
    * dtsi03e3zty16i****
@@ -42,15 +42,16 @@ export class DescribeDtsJobsRequest extends $dara.Model {
    * @remarks
    * The ID of the data migration, data synchronization, or change tracking task.
    * 
+   * > Separate multiple task IDs with commas (,). Make sure that the **JobType** parameter is set as expected.
+   * 
    * @example
    * qa110wq5r93hb49
    */
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the parent task.
-   * 
-   * >  In most cases, you do not need to specify this parameter.
+   * The DTS task ID.
+   * > In most cases, you do not need to set this parameter.
    * 
    * @example
    * pk13r731m****
@@ -58,7 +59,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the source or target database instance corresponding to the request parameter **InstanceType**.
+   * The ID of the source or destination database instance that corresponds to the **InstanceType** request parameter.
    * 
    * @example
    * rm-bp1966yuut4w3****
@@ -66,7 +67,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the source or target database instance.
+   * The type of the source or destination database instance.
    * 
    * @example
    * RDS
@@ -74,11 +75,10 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The type of the DTS task. Valid values:
-   * 
-   * *   **MIGRATION**: data migration. This is the default value.
-   * *   **SYNC**: data synchronization.
-   * *   **SUBSCRIBE**: change tracking.
+   * The task type of the DTS instance. Valid values:
+   * - **MIGRATION**: data migration (default).
+   * - **SYNC**: data synchronization.
+   * - **SUBSCRIBE**: change tracking.
    * 
    * @example
    * MIGRATION
@@ -86,13 +86,13 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The basis on which the returned DTS tasks are sorted. Valid values:
+   * The sort criterion when the response contains multiple DTS instances. Valid values:
    * 
-   * *   **CreateTime**: sorts the DTS tasks based on the points in time when the DTS tasks are created.
-   * *   **FinishTime**: sorts the DTS tasks based on the points in time when the DTS tasks are complete.
-   * *   **duLimit** sorts the DTS tasks based on the upper limits on DTS Units (DUs) that the DTS tasks can use. This option applies only to the DTS tasks that are run on a DTS dedicated cluster.
+   * - **CreateTime**: sorts by task creation time.
+   * - **FinishTime**: sorts by task completion time.
+   * - **duLimit** (dedicated cluster tasks): sorts by the upper limit of DU usage for DTS tasks. This value is supported only for dedicated clusters.
    * 
-   * >  You can also set the **OrderDirection** parameter to specify whether to sort the DTS tasks in ascending or descending order.
+   * > You can also specify **OrderDirection** to set the sort order to ascending or descending.
    * 
    * @example
    * CreateTime
@@ -100,10 +100,10 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The order in which the returned DTS tasks are sorted. Valid values:
+   * The sort order of instances. Valid values:
    * 
-   * *   **ASC**: sorts the DTS tasks in ascending order. This is the default value.
-   * *   **DESC**: sorts the DTS tasks in descending order.
+   * - **ASC**: ascending order. This is the default value.
+   * - **DESC**: descending order.
    * 
    * @example
    * ASC
@@ -112,7 +112,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **20**, **30**, **50**, and **100**. Default value: **20**.
+   * The number of records per page. Valid values: **10**, **20**, and **30**. Default value: **20**. Maximum value: **30**.
    * 
    * @example
    * 30
@@ -128,9 +128,8 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The content of the query condition.
-   * 
-   * >  You must set the **Type** parameter to specify the type of the query condition.
+   * The specific content of the query condition.
+   * > Specify **Type** in advance to define the query condition.
    * 
    * @example
    * dtspk3f13r731m****
@@ -138,7 +137,7 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -146,49 +145,10 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
-   * 
-   * Valid values:
-   * 
-   * *   cn-hangzhou
-   * *   cn-shanghai
-   * *   cn-beijing
-   * *   cn-guangzhou
-   * *   cn-shenzhen
-   * *   cn-chengdu
-   * *   cn-heyuan
-   * *   cn-hongkong
-   * *   cn-qingdao
-   * *   cn-zhangbei
-   * *   cn-zhangjiakou
-   * *   us-east-1
-   * *   us-west-1
-   * *   cn-hangzhou-finance
-   * *   cn-shanghai-finance
-   * *   cn-shanghai-finance-1
-   * *   cn-shenzhen-finance
-   * *   cn-shenzhen-finance-1
-   * *   cn-beijing-finance-1
-   * *   cn-huhehaote
-   * *   cn-north-2-gov-1
-   * *   eu-central-1
-   * *   eu-west-1
-   * *   me-central-1
-   * *   me-east-1
-   * *   ap-northeast-1
-   * *   ap-northeast-2
-   * *   ap-southeast-1
-   * *   ap-southeast-2
-   * *   ap-southeast-3
-   * *   ap-southeast-5
-   * *   ap-southeast-6
-   * *   ap-southeast-7
-   * *   cn-wulanchabu
-   * *   cn-zhengzhou-jva
-   * *   cn-wuhan-lr
+   * Deprecated parameter.
    * 
    * @example
-   * cn-hangzhou
+   * 无
    */
   regionId?: string;
   /**
@@ -209,57 +169,54 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   srcProductType?: string;
   /**
    * @remarks
-   * The state of the DTS task.
+   * The instance status of the DTS instance. Valid values:
    * 
-   * Valid values for a data migration task:
+   * Data migration task statuses:
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
+   * - **NotConfigured**: not configured.
+   * - **Migrating**: migrating.
+   * - **Suspending**: paused.
+   * - **MigrationFailed**: migration failed.
+   * - **Finished**: completed.
+   * - **Retrying**: retrying.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **NotConfigured**: The task is not configured.
-   * *   **Migrating**: The task is in progress.
-   * *   **Suspending**: The task is paused.
-   * *   **MigrationFailed**: The task failed.
-   * *   **Finished**: The task is complete.
-   * *   **Retrying**: The task is being retried.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
+   * Data synchronization task statuses:
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
+   * - **NotConfigured**: not configured.
+   * - **Initializing**: performing initial synchronization.
+   * - **InitializeFailed**: initial synchronization failed.
+   * - **Synchronizing**: synchronizing.
+   * - **Failed**: synchronization failed.
+   * - **Suspending**: paused.
+   * - **Modifying**: modifying synchronization objects.
+   * - **Finished**: completed.
+   * - **Retrying**: retrying.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
-   * Valid values for a data synchronization task:
-   * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **NotConfigured**: The task is not configured.
-   * *   **Initializing**: The task is being initialized.
-   * *   **InitializeFailed**: Initialization failed.
-   * *   **Synchronizing**: The task is in progress.
-   * *   **Failed**: The task failed.
-   * *   **Suspending**: The task is paused.
-   * *   **Modifying**: The objects in the task are being modified.
-   * *   **Finished**: The task is complete.
-   * *   **Retrying**: The task is being retried.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
-   * 
-   * Valid values for a change tracking task:
-   * 
-   * *   **NotConfigured**: The task is not configured.
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is being prechecked.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **Starting**: The task is being started.
-   * *   **Normal**: The task is running as expected.
-   * *   **Retrying**: The task is being retried.
-   * *   **Abnormal**: The task is not running as expected.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
+   * Change tracking task statuses:
+   * - **NotConfigured**: not configured.
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a precheck.
+   * - **PrecheckFailed**: precheck failed.
+   * - **PreCheckPass**: precheck passed.
+   * - **Starting**: starting.
+   * - **Normal**: normal.
+   * - **Retrying**: retrying.
+   * - **Abnormal**: abnormal.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
    * @example
    * Migrating
@@ -267,9 +224,8 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the DTS task to be queried. Specify tags in the JSON format.
-   * 
-   * >  You can call the **ListTagResources** operation to query the tag key and tag value.
+   * The tag-based search condition in JSON format.
+   * > You can call the **ListTagResources** operation to query tag keys and values.
    * 
    * @example
    * [     {         \\"key\\": \\"testK\\",         \\"value\\": \\"testV\\"     }  ]
@@ -277,14 +233,14 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The type of the query condition. Valid values:
+   * The conditional query parameter. Valid values:
    * 
-   * *   **instance**: queries DTS tasks based on the ID of a DTS instance.
-   * *   **name**: queries DTS tasks based on the name of a DTS instance. Fuzzy match is supported.
-   * *   **srcRds**: queries DTS tasks based on the ID of an ApsaraDB RDS instance. The ApsaraDB RDS instance is the source instance of a DTS task.
-   * *   **rds**: queries DTS tasks based on the ID of an ApsaraDB RDS instance. The ApsaraDB RDS instance is the destination instance of a DTS task.
+   * - **instance**: queries by DTS instance ID.
+   * - **name**: queries by DTS instance name. Fuzzy match is supported.
+   * - **srcRds**: queries by the ID of the source instance (ApsaraDB RDS).
+   * - **rds**: queries by the ID of the destination instance (ApsaraDB RDS).
    * 
-   * >  You must set the **Params** parameter to specify the content of the query condition.
+   * > Specify the **Params** parameter to provide the specific content of the query condition.
    * 
    * @example
    * instance
@@ -292,10 +248,10 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Specifies whether to skip the **DbObject** parameter in the response. The DbObject parameter specifies the objects of the data migration, data synchronization, or change tracking task. Valid values:
+   * Specifies whether to exclude task objects from the response (not return the **DbObject** parameter). Valid values:
    * 
-   * - **true**: does not return **DbObject**.
-   * - **false**: returns **DbObject**. If you set this parameter to false, the response time is shortened.
+   * - **true**: excludes **DbObject** from the response.
+   * - **false**: includes **DbObject** in the response, which can improve the response speed.
    * 
    * @example
    * true
@@ -303,8 +259,10 @@ export class DescribeDtsJobsRequest extends $dara.Model {
   withoutDbList?: boolean;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * 
+   * - **false**: No.
+   * - **true**: Yes.
    * 
    * @example
    * false

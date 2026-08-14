@@ -13,7 +13,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   destDbType?: string;
   /**
    * @remarks
-   * The ID of the DTS task.
+   * The parent task ID of a distributed synchronization task.
    * 
    * @example
    * pk13r731m****
@@ -21,11 +21,11 @@ export class CountJobByConditionRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The type of the DTS task. Valid values:
+   * The task type. Valid values:
    * 
-   * *   **MIGRATION**: data migration task
-   * *   **SYNC**: data synchronization task
-   * *   **SUBSCRIBE**: change tracking task
+   * - **MIGRATION**: data migration.
+   * - **SYNC**: data synchronization.
+   * - **SUBSCRIBE**: change tracking.
    * 
    * @example
    * SYNC
@@ -33,7 +33,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The content of the query condition, which corresponds to the value of the JobType parameter.
+   * The query value that corresponds to JobType.
    * 
    * @example
    * dtspk3f13r731m****
@@ -41,7 +41,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * One of the query conditions. The ID of the region. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID used as a filter condition. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CountJobByConditionRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * This parameter is required.
    * 
@@ -61,10 +61,10 @@ export class CountJobByConditionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID, global parameter that does not need to be passed in by the current API.
+   * The resource group ID. This is a global parameter and does not need to be passed for this API operation.
    * 
    * @example
-   * Resource group ID, global parameter that does not need to be passed in by the current API.
+   * 资源组ID，全局参数，当前API无需传入。
    */
   resourceGroupId?: string;
   /**
@@ -77,57 +77,54 @@ export class CountJobByConditionRequest extends $dara.Model {
   srcDbType?: string;
   /**
    * @remarks
-   * The status of the DTS task.
+   * The instance status of the DTS instance. Valid values:
    * 
-   * Valid values for a data migration task:
+   * Data migration node statuses:
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a dry run.
+   * - **PrecheckFailed**: dry run failed.
+   * - **PreCheckPass**: dry run passed.
+   * - **NotConfigured**: not configured.
+   * - **Migrating**: migrating.
+   * - **Suspending**: paused.
+   * - **MigrationFailed**: migration failed.
+   * - **Finished**: finished.
+   * - **Retrying**: retrying.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is in precheck.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **NotConfigured**: The task is not configured.
-   * *   **Migrating**: The task is in progress.
-   * *   **Suspending**: The task is paused.
-   * *   **MigrationFailed**: The task failed to migrate data.
-   * *   **Finished**: The task is complete.
-   * *   **Retrying**: The task is being retried.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
+   * Data synchronization node statuses:
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a dry run.
+   * - **PrecheckFailed**: dry run failed.
+   * - **PreCheckPass**: dry run passed.
+   * - **NotConfigured**: not configured.
+   * - **Initializing**: performing initial synchronization.
+   * - **InitializeFailed**: initial synchronization failed.
+   * - **Synchronizing**: synchronizing.
+   * - **Failed**: synchronization failed.
+   * - **Suspending**: paused.
+   * - **Modifying**: modifying sub-objects.
+   * - **Finished**: finished.
+   * - **Retrying**: retrying.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
-   * Valid values for a data synchronization task:
-   * 
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is in precheck.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **NotConfigured**: The task is not configured.
-   * *   **Initializing**: The task is performing initial synchronization.
-   * *   **InitializeFailed**: Initial synchronization failed.
-   * *   **Synchronizing**: The task is in progress.
-   * *   **Failed**: The task failed to synchronize data.
-   * *   **Suspending**: The task is paused.
-   * *   **Modifying**: The objects in the task are being modified.
-   * *   **Finished**: The task is complete.
-   * *   **Retrying**: The task is being retried.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
-   * 
-   * Valid values for a change tracking task:
-   * 
-   * *   **NotConfigured**: The task is not configured.
-   * *   **NotStarted**: The task is not started.
-   * *   **Prechecking**: The task is in precheck.
-   * *   **PrecheckFailed**: The task failed to pass the precheck.
-   * *   **PreCheckPass**: The task passed the precheck.
-   * *   **Starting**: The task is being started.
-   * *   **Normal**: The task is running as expected.
-   * *   **Retrying**: The task is being retried.
-   * *   **Abnormal**: The task is not running as expected.
-   * *   **Upgrade**: The task is being upgraded.
-   * *   **Locked**: The task is locked.
-   * *   **Downgrade**: The task is being downgraded.
+   * Subscribe node statuses:
+   * - **NotConfigured**: not configured.
+   * - **NotStarted**: not started.
+   * - **Prechecking**: running a dry run.
+   * - **PrecheckFailed**: dry run failed.
+   * - **PreCheckPass**: dry run passed.
+   * - **Starting**: starting.
+   * - **Normal**: Normal.
+   * - **Retrying**: retrying.
+   * - **Abnormal**: abnormal.
+   * - **Upgrade**: upgrading.
+   * - **Locked**: locked.
+   * - **Downgrade**: downgrading.
    * 
    * @example
    * Finished
@@ -135,14 +132,13 @@ export class CountJobByConditionRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The content of the query condition. Valid values:
+   * The query type. Valid values:  
+   * - **name**: queries by job name.  
+   * - **rds**: queries by destination instance ID.  
+   * - **instance**: queries by DTS instance ID.
+   * - **srcRds**: queries by source instance ID.
    * 
-   * *   **name**: the name of the task
-   * *   **rds**: the ID of the destination instance
-   * *   **instance**: the ID of the Data Transmission Service (DTS) instance
-   * *   **srcRds**: the ID of the source instance
-   * 
-   * > The value of this parameter corresponds to the value of the **JobType** parameter.
+   * > This parameter corresponds to the **JobType** parameter.
    * 
    * @example
    * name/instance

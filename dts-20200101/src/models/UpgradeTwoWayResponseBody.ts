@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeTwoWayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic error code. This parameter will be removed in the future.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,9 +13,8 @@ export class UpgradeTwoWayResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and that of the **DynamicMessage** parameter is **InstanceId**, the specified **InstanceId** parameter is invalid.
+   * The dynamic error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+   * > For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **InstanceId**, the specified value of the request parameter **InstanceId** is invalid.
    * 
    * @example
    * InstanceId
@@ -47,7 +46,7 @@ export class UpgradeTwoWayResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D3B4615-923F-49AA-AF21-6D8E3967****
@@ -55,10 +54,9 @@ export class UpgradeTwoWayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * *   **true**: The call was successful.
-   * *   **false**: The call failed.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

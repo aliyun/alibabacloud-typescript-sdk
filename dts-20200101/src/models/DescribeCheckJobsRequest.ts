@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCheckJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Check the task job ID.
+   * The ID of the data validation task.
    * 
    * @example
    * z9p104ib23***
@@ -13,8 +13,11 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   checkJobId?: string;
   /**
    * @remarks
-   * The type of the check
-   * >>1 full quantity, 2 incremental, 3 all
+   * The data validation method. Valid values:
+   * 
+   * - **1**: full data validation.
+   * - **2**: incremental data validation.
+   * - **3**: all.
    * 
    * @example
    * 1
@@ -22,7 +25,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   checkType?: number;
   /**
    * @remarks
-   * Data migration instance ID, which can be queried by calling the **describemigrationjobs** API.
+   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the ID.
    * 
    * @example
    * dtsz9p104ib23e972e
@@ -30,7 +33,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the data migration or synchronization job.
+   * The name of the data migration or data synchronization task.
    * 
    * @example
    * zwy_test
@@ -38,7 +41,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * The page number.
    * 
    * @example
    * 1
@@ -46,7 +49,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -54,7 +57,7 @@ export class DescribeCheckJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

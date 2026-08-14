@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Data Transmission Service (DTS) instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+   * The DTS instance ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * The ID of the ETL task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The ETL task ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
    * 
    * @example
    * l5512es7w15****
@@ -23,7 +23,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number of the instance status list. Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 20.
+   * The number of entries per page in a paged query. Settings this parameter for paging. Default value: 20.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the available Alibaba Cloud regions.
+   * The region ID of the DTS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query available regions.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +47,7 @@ export class DescribeDtsEtlJobVersionInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

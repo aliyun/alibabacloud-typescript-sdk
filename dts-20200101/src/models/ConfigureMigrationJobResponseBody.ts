@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureMigrationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The error code returned if the request failed.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class ConfigureMigrationJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The error message returned if the request failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class ConfigureMigrationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The start offset of incremental data migration. The value is a UNIX timestamp. Unit: seconds.
+   * The request ID.
    * 
    * @example
    * 40E35BD9-002E-4D63-9BE5-FBA48833****
@@ -29,9 +29,10 @@ export class ConfigureMigrationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SID of the Oracle database.
+   * Indicates whether the request was successful. Valid values:
    * 
-   * >  You must specify this parameter only if the **DestinationEndpoint.EngineName** parameter is set to **Oracle** and the **Oracle** database is deployed in a non-RAC architecture.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

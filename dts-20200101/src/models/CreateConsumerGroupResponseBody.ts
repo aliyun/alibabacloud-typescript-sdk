@@ -29,7 +29,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6063641E-BAD1-4BA7-B70B-26FFFD18****
@@ -37,7 +37,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

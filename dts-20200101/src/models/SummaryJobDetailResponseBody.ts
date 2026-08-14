@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $dara.Model {
   /**
    * @remarks
-   * The type of migrated or synchronized object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
+   * The object type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type** (user-defined type), **Synonym**, **Trigger**, **Function**, **Procedure** (stored procedure), **Package**, **Default**, **Rule**, **PlanGuide** (execute plan), and **Sequence**.
    * 
    * @example
    * Table
@@ -13,14 +13,13 @@ export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The state of the data migration or data synchronization task. Valid values:
-   * 
-   * *   **0**: The task was complete.
-   * *   **1**: The task was waiting to start.
-   * *   **2**: The task was being initialized.
-   * *   **3**: The task was in progress.
-   * *   **4**: An error occurred.
-   * *   **5**: The task failed.
+   * The migration status. Valid values:
+   * - **0**: finish (completed).
+   * - **1**: catched (waiting for synchronization).
+   * - **2**: init (initializing).
+   * - **3**: running (synchronizing).
+   * - **4**: warning (error).
+   * - **5**: failed (failed).
    * 
    * @example
    * 0
@@ -28,7 +27,7 @@ export class SummaryJobDetailResponseBodyProgressSummaryDetails extends $dara.Mo
   state?: number;
   /**
    * @remarks
-   * The total number of migrated or synchronized objects.
+   * The total number of migration objects.
    * 
    * @example
    * 100
@@ -78,7 +77,7 @@ export class SummaryJobDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task.
+   * The ID of the data migration or synchronization task.
    * 
    * @example
    * l3m1213ye7l****
@@ -86,14 +85,13 @@ export class SummaryJobDetailResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The returned information about the migrated or synchronized objects in arrays.
-   * 
-   * >  The arrays are in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
+   * The array of migration object information.
+   * > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
    */
   progressSummaryDetails?: SummaryJobDetailResponseBodyProgressSummaryDetails[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9033138C-5AB3-5EB7-BA78-43131F19297C
@@ -102,9 +100,8 @@ export class SummaryJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

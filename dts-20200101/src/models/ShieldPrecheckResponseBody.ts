@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ShieldPrecheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -21,7 +21,7 @@ export class ShieldPrecheckResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6F4B5BC4-34B1-49C9-9C8F-C8F16AC4****
@@ -29,7 +29,7 @@ export class ShieldPrecheckResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

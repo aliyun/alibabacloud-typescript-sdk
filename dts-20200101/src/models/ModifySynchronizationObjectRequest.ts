@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySynchronizationObjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
    * 
    * @example
    * 12323344****
@@ -14,7 +14,7 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -22,7 +22,7 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -31,13 +31,11 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * *   **Forward**
-   * *   **Reverse**
-   * 
-   * > 
-   * *   Default value: **Forward**.
-   * *   This parameter is required only when the topology of the data synchronization instance is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - This parameter is required only when the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -45,7 +43,7 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
+   * The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +53,7 @@ export class ModifySynchronizationObjectRequest extends $dara.Model {
   synchronizationJobId?: string;
   /**
    * @remarks
-   * The objects that you want to synchronize. The value is a JSON string and can contain regular expressions. For more information, see [SynchronizationObjects](https://help.aliyun.com/document_detail/141901.html).
+   * The modified synchronization objects. The value is a JSON string that supports certain regular expressions. For more information, see [Synchronization object configuration](https://help.aliyun.com/document_detail/141901.html).
    * 
    * This parameter is required.
    * 

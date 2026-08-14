@@ -6,11 +6,10 @@ export class DescribeTagValuesRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the tag key. Valid values:
+   * - **Custom**: a user-added tag key.
+   * - **System**: a system-created tag key.
    * 
-   * *   **Custom**: The tag key is created by users.
-   * *   **System**: The tag key is created by the system.
-   * 
-   * >  By default, if the parameter is left empty, both custom tag keys and system tag keys are returned.
+   * > If this parameter is left empty, all tag keys are returned by default.
    * 
    * @example
    * Custom
@@ -18,9 +17,8 @@ export class DescribeTagValuesRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The tag key.
-   * 
-   * >  This parameter is required.
+   * The key of the tag.
+   * > This parameter is required.
    * 
    * @example
    * owner
@@ -28,7 +26,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The page number of the start page to return for a tag key that has multiple values. The valid value ranges from 1 to the maximum value of the INTEGER data type. This parameter is often used with the PageSize parameter. Default value: 1.
+   * The page number. Specifies the page to return when a tag key has multiple tag values. The value must be a positive integer that does not exceed the maximum value of the Integer data type. This parameter is typically used together with PageSize. Default value: 1.
    * 
    * @example
    * 1
@@ -36,7 +34,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tag values to return each time for a tag key that has multiple values. Default value: 20.
+   * The number of tag values to return per page when a tag key has multiple tag values. Default value: 20.
    * 
    * @example
    * 20
@@ -44,7 +42,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -52,7 +50,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -62,7 +60,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
    * @remarks
    * The ID of the data migration, data synchronization, or change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
    * 
-   * >  If this parameter is left empty, the values of all tag keys of the current user are returned.
+   * > If this parameter is left empty, all tag values of the specified tag key for the current account are returned.
    * 
    * @example
    * dtsl5o11f9029c****
@@ -70,7 +68,7 @@ export class DescribeTagValuesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. Set the value to **ALIYUN::DTS::INSTANCE**.
+   * The resource type defined by the system. Set the value to **ALIYUN::DTS::INSTANCE**.
    * 
    * @example
    * ALIYUN::DTS::INSTANCE

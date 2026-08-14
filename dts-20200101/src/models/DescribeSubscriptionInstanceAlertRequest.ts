@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionInstanceAlertRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The value can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -22,7 +22,7 @@ export class DescribeSubscriptionInstanceAlertRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou

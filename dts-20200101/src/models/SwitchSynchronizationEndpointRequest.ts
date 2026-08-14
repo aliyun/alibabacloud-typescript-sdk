@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the database.
-   * 
-   * >  You must specify the IP address only if the **Endpoint.InstanceType** parameter is set to **Express**.
+   * 新数据库的IP地址。
+   * > 当**Endpoint.InstanceType**取值为**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * 172.15.185.***
@@ -15,11 +14,9 @@ export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * The ID of the ECS instance or the virtual private cloud (VPC).
-   * 
-   * > 
-   * *   If the **Endpoint.InstanceType** parameter is set to **ECS**, you must specify the ID of the ECS instance.
-   * *   If the **Endpoint.InstanceType** parameter is set to **Express**, you must specify the ID of the VPC.
+   * ECS或专有网络的实例ID。
+   * > - 当**Endpoint.InstanceType**取值为**ECS**时，本参数需传入ECS实例的ID。
+   * - 当**Endpoint.InstanceType**取值为**Express**时，本参数需传入专有网络ID。
    * 
    * This parameter is required.
    * 
@@ -29,11 +26,11 @@ export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance type of the database. Valid values:
+   * 新数据库所属的实例类型，取值：
    * 
-   * *   **LocalInstance**: self-managed database with a public IP address
-   * *   **ECS**: self-managed database that is hosted on ECS
-   * *   **Express**: self-managed database that is connected over Express Connect
+   * - **LocalInstance**：有公网IP的自建数据库；
+   * - **ECS**：ECS上的自建数据库。
+   * - **Express**：通过专线接入的自建数据库。
    * 
    * This parameter is required.
    * 
@@ -43,7 +40,7 @@ export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The service port number of the database.
+   * 新的数据库服务端口。
    * 
    * This parameter is required.
    * 
@@ -53,10 +50,10 @@ export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * Specifies whether to update the connection settings of the source instance or the destination instance. Valid values:
+   * 待调整连接信息的实例，取值：
    * 
-   * *   **Source**
-   * *   **Destination**
+   * - **Source**：源实例。
+   * - **Destination**：目标实例。
    * 
    * This parameter is required.
    * 
@@ -96,7 +93,7 @@ export class SwitchSynchronizationEndpointRequestEndpoint extends $dara.Model {
 export class SwitchSynchronizationEndpointRequestSourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the source instance belongs. You must specify this parameter only if the source instance and the destination instance belong to different Alibaba Cloud accounts.
+   * 当源实例与目标实例所属阿里云账号不同时，您需要传入该参数指定源实例的所属阿里云账号的ID。
    * 
    * @example
    * 14069264****
@@ -104,9 +101,8 @@ export class SwitchSynchronizationEndpointRequestSourceEndpoint extends $dara.Mo
   ownerID?: string;
   /**
    * @remarks
-   * The authorized Resource Access Management (RAM) role of the source instance. You must specify the RAM role only if the source instance and the destination instance belong to different Alibaba Cloud accounts. You can use the RAM role to allow the Alibaba Cloud account that owns the destination instance to access the source instance.
-   * 
-   * >  For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
+   * 当源实例与目标实例所属阿里云账号不同时，需传入该参数，来指定源实例的授权角色，以允许目标实例阿里云账号访问源实例的实例信息。
+   * > 角色所需的权限及授权方式，请参见[跨阿里云账号数据迁移或同步时如何配置RAM授权](https://help.aliyun.com/document_detail/48468.html)。
    * 
    * @example
    * ram-for-dts
@@ -140,7 +136,7 @@ export class SwitchSynchronizationEndpointRequest extends $dara.Model {
   sourceEndpoint?: SwitchSynchronizationEndpointRequestSourceEndpoint;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The Alibaba Cloud account ID. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -149,7 +145,7 @@ export class SwitchSynchronizationEndpointRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -157,7 +153,7 @@ export class SwitchSynchronizationEndpointRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -166,13 +162,10 @@ export class SwitchSynchronizationEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * *   **Forward**
-   * *   **Reverse**
-   * 
-   * >  Default value: **Forward**.
-   * 
-   * The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+   * > Default value: **Forward**. The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -180,7 +173,7 @@ export class SwitchSynchronizationEndpointRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
+   * Instance ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query instance ID.
    * 
    * This parameter is required.
    * 

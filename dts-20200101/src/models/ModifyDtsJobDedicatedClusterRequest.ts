@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The dedicated cluster ID.
+   * The ID of the dedicated cluster.
    * 
    * @example
    * dtsxxxx
@@ -13,7 +13,7 @@ export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The DTS task IDs. The value can be a JSON array that consists of multiple DTS task IDs. Separate the IDs with commas (,).
+   * The task ID. You can specify multiple task IDs in a JSON array. Separate the IDs with commas (,).
    * 
    * @example
    * ["dtsxxxx01", "dtsxxx02"]
@@ -22,9 +22,9 @@ export class ModifyDtsJobDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the DTS instance resides.
+   * The region in which the DTS instance resides.
    * 
-   * > For information about the regions that support dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
+   * > For the regions supported by dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
    * 
    * @example
    * cn-hangzhou

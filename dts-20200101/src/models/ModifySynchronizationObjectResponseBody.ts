@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySynchronizationObjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class ModifySynchronizationObjectResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class ModifySynchronizationObjectResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 902DDCDE-C755-4458-85DA-DF9A323C****
@@ -29,7 +29,7 @@ export class ModifySynchronizationObjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ModifySynchronizationObjectResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The ID of the task that changes the objects. You must specify the task ID when you call the DescribeSynchronizationObjectModifyStatus operation to query the status and progress of the task.
+   * The task ID. You can call the [DescribeSynchronizationObjectModifyStatus](https://help.aliyun.com/document_detail/49452.html) operation based on this parameter to query the status and progress of the synchronization object modification.
    * 
    * @example
    * tl911uvi25z****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchSynchronizationEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class SwitchSynchronizationEndpointResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class SwitchSynchronizationEndpointResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3232F84C-C961-4811-B014-4EA7A27C****
@@ -29,7 +29,7 @@ export class SwitchSynchronizationEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class SwitchSynchronizationEndpointResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The task ID. You must specify the task ID when you call the [DescribeEndpointSwitchStatus](https://help.aliyun.com/document_detail/135598.html) operation to query the execution status of the task.
+   * The task ID. You can call the [DescribeEndpointSwitchStatus](https://help.aliyun.com/document_detail/135598.html) operation to query the execution status of this task.
    * 
    * @example
    * 11****

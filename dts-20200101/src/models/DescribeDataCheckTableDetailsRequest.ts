@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The data verification method. Valid values:
+   * The data validation method. Valid values:
    * 
-   * *   **1**: full data verification.
-   * *   **2**: incremental data verification.
+   * - **1**: full data validation.
+   * - **2**: incremental data validation.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value:**1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -52,7 +52,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The name of the schema whose data is verified in the source database.
+   * The schema name of the object to be verified in the source database.
    * 
    * @example
    * dtstest
@@ -60,10 +60,9 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The status of the data verification result. Valid values:
-   * 
-   * *   **-1** (default): All status.
-   * *   **6**: Inconsistent data detected in the table.
+   * The status of the verification result. Valid values:
+   * - **-1** (default): all statuses.
+   * - **6**: tables with inconsistent data.
    * 
    * @example
    * -1
@@ -71,7 +70,7 @@ export class DescribeDataCheckTableDetailsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the table whose data is verified in the source database.
+   * The name of the table to be verified in the source database.
    * 
    * @example
    * student

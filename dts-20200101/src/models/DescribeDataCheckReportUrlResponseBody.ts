@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL for downloading the verification report.
+   * The download URL of the verification report.
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -18,7 +18,7 @@ export class DescribeDataCheckReportUrlResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned when the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.

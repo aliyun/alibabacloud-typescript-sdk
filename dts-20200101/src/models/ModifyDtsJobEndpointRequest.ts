@@ -5,8 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDtsJobEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account (primary account) to which the database instance belongs.
-   * >  Passing this parameter indicates that cross-Alibaba Cloud account data synchronization will be performed, and you also need to pass the **RoleName** parameter.
+   * The ID of the Alibaba Cloud account that owns the database instance.
+   * 
+   * > Specifying this parameter indicates cross-account data synchronization. You must also specify the **RoleName** parameter.
    * 
    * @example
    * 150780020300****
@@ -14,8 +15,9 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * When the database type is **PostgreSQL**, **PolarDB for PostgreSQL**, or **AnalyticDB PostgreSQL**, it represents the database name; when the database type is **MongoDB**, it represents the authentication database name.
-   * > This parameter is only available and must be provided when the database type is **PostgreSQL**, **PolarDB for PostgreSQL**, **AnalyticDB PostgreSQL**, or **MongoDB**.
+   * The database name when the database type is **PostgreSQL**, **PolarDB for PostgreSQL**, or **AnalyticDB PostgreSQL**. The authentication database name when the database type is **MongoDB**.
+   * 
+   * > This parameter is available and required only when the database type is **PostgreSQL**, **PolarDB for PostgreSQL**, **AnalyticDB PostgreSQL**, or **MongoDB**.
    * 
    * @example
    * admin
@@ -23,10 +25,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a precheck. Valid values:
+   * Specifies whether to perform only a dry run. Valid values:
    * 
-   * *   **true**: Yes. After the precheck is passed, the database is not changed.
-   * *   **false** (default): No. After the precheck is passed, the system changes the original database of the DTS task and runs the task.
+   * - **true**: performs only a dry run. If the dry run succeeds, the instance is not modified.
+   * - **false** (default): performs a dry run and then modifies the database instance of the DTS task if the dry run succeeds.
    * 
    * @example
    * true
@@ -34,7 +36,8 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the DTS instance. If this parameter is not provided, **DtsJobId** must be specified.
+   * The ID of the DTS instance.
+   * > If you do not specify this parameter, you must specify **DtsJobId**.
    * 
    * @example
    * dtsaw012y2g15q****
@@ -42,8 +45,9 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   dtsInstanceId?: string;
   /**
    * @remarks
-   * DTS job ID, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
-   * > If this parameter is not provided, **DtsInstanceId** must be filled in.
+   * The DTS task ID. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+   * 
+   * > If you do not specify this parameter, you must specify **DtsInstanceId**.
    * 
    * @example
    * m4312mab158****
@@ -51,8 +55,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The database instance to be modified, with values:
-   * - **src**: Source database instance. - **dest**: Target database instance.
+   * The database instance to modify. Valid values:
+   * 
+   * - **src**: source instance.
+   * - **dest**: destination instance.
    * 
    * This parameter is required.
    * 
@@ -62,7 +68,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * ID of the database instance.
+   * The ID of the database instance.
    * 
    * @example
    * rm-bp10k50h8374w****
@@ -70,25 +76,25 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointInstanceId?: string;
   /**
    * @remarks
-   * The type of the database. Valid values:
+   * The type of the database instance. Valid values:
    * 
-   * *   **rds**: ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, or ApsaraDB RDS for PostgreSQL instance.
-   * *   **polardb**: PolarDB for MySQL cluster or PolarDB for PostgreSQL cluster.
-   * *   **mongodb**: ApsaraDB for MongoDB replica set instance.
-   * *   **distributed_mongodb**: ApsaraDB for MongoDB sharded cluster instance.
-   * *   **greenplum**: AnalyticDB for PostgreSQL instance.
-   * *   **kafka**: ApsaraMQ for Kafka instance.
-   * *   **ecs**: self-managed database that is hosted on an Elastic Compute Service (ECS) instance. If you set this parameter to ecs, the database must be the supported one.
-   * *   **express**: database that is connected over Express Connect. If you set this parameter to express, the database must be the supported one.
-   * *   **other**: database that is connected over Internet. If you set this parameter to other, the database must be the supported one.
+   * - **rds**: ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL.
+   * - **polardb**: PolarDB for MySQL or PolarDB for PostgreSQL.
+   * - **mongodb**: when used as the source, ApsaraDB for MongoDB (replica set architecture). When used as the destination, ApsaraDB for MongoDB (replica set or sharded cluster architecture).
+   * - **distributed_mongodb**: supported only as the source of a distributed instance. Indicates ApsaraDB for MongoDB (sharded cluster architecture).
    * 
-   * > 
+   * > The incremental node of a distributed instance must obtain data changes from the source through Oplog.
    * 
-   * *   The following types of databases are supported: **MySQL**, **PolarDB for MySQL**, **PostgreSQL**, **PolarDB for PostgreSQL**, **MongoDB**, **SQL Server**, **Kafka**, and **AnalyticDB for PostgreSQL**.
+   * - **greenplum**: cloud-native data warehouse AnalyticDB for PostgreSQL.
+   * - **kafka**: ApsaraMQ for Kafka.
+   * - **ecs**: a self-managed database hosted on an ECS instance (only supported database types).
+   * - **express**: a database connected over Express Connect (only supported database types).
+   * - **other**: a database connected over the Internet (only supported database types).
    * 
-   * *   If the original database is an ApsaraDB for MongoDB sharded cluster instance, the new database must have the same number of shards as the original database.
-   * *   If the database that you want to change is a source **PostgreSQL** database, you must make sure that the latency of the DTS instance is less than 30 seconds and no data is written to the source database during the change. Otherwise, data inconsistency may occur.
-   * *   The value of this parameter is case-insensitive.
+   * > - Currently supported database types include **MySQL**, **PolarDB for MySQL**, **PostgreSQL**, **PolarDB for PostgreSQL**, **MongoDB**, **Kafka**, and **AnalyticDB PostgreSQL**.
+   * - If the database is MongoDB (sharded cluster), the number of shards in the new database must be the same as that in the original MongoDB (sharded cluster).
+   * - If you want to modify the source instance and the database type is **PostgreSQL**, make sure that the latency of the DTS instance is less than 30 seconds and stop writing data to the source. Otherwise, data inconsistency may occur.
+   * - The parameter values are case-insensitive.
    * 
    * This parameter is required.
    * 
@@ -98,7 +104,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointInstanceType?: string;
   /**
    * @remarks
-   * The IP of the database instance.
+   * The IP address of the database instance.
    * 
    * @example
    * 172.168.XX.XXX
@@ -106,7 +112,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointIp?: string;
   /**
    * @remarks
-   * port of the database instance.
+   * The port of the database instance.
    * 
    * @example
    * 3306
@@ -114,7 +120,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointPort?: string;
   /**
    * @remarks
-   * The ID of the region in which the database resides.
+   * The region to which the database instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -122,10 +128,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   endpointRegionId?: string;
   /**
    * @remarks
-   * Specifies whether to change the password of the database account. Valid values:
+   * Specifies whether to modify the account and password. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: yes.
+   * - **false** (default): no.
    * 
    * @example
    * false
@@ -133,9 +139,9 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   modifyAccount?: boolean;
   /**
    * @remarks
-   * The password of the database account.
+   * The database password.
    * 
-   * >  This parameter is valid only if **ModifyAccount** is set to **true**.
+   * > This parameter takes effect only when **ModifyAccount** is set to **true**.
    * 
    * @example
    * DTStest****
@@ -143,7 +149,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides.
+   * The region to which the DTS instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -151,7 +157,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -159,7 +165,9 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Cross Alibaba Cloud account role name. When performing data synchronization across Alibaba Cloud accounts, this parameter must be passed. For the required permissions and authorization methods for this role, please refer to [How to Configure RAM Authorization for Cross-Account Data Migration or Synchronization](https://help.aliyun.com/document_detail/48468.html).
+   * The name of the RAM role for cross-account access.
+   * 
+   * > This parameter is required when you perform cross-account data synchronization. For the permissions required by this role and how to grant them, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
    * 
    * @example
    * ram-for-dts
@@ -167,13 +175,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The account password of the shard of the ApsaraDB for MongoDB sharded cluster instance.
+   * The password of the shard in the MongoDB sharded cluster instance.
    * 
-   * > 
-   * 
-   * *   This parameter is valid and required only if the source database is an ApsaraDB for MongoDB sharded cluster instance.
-   * 
-   * *   This parameter is valid only if **ModifyAccount** is set to **true**.
+   * > - This parameter is available and required only when the source database instance is ApsaraDB for MongoDB (sharded cluster architecture).
+   * - This parameter takes effect only when **ModifyAccount** is set to **true**.
    * 
    * @example
    * DTStest****
@@ -181,13 +186,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   shardPassword?: string;
   /**
    * @remarks
-   * The account username of the shard of the ApsaraDB for MongoDB sharded cluster instance.
+   * The account of the shard in the MongoDB sharded cluster instance.
    * 
-   * > 
-   * 
-   * *   This parameter is valid and required only if the source database is an ApsaraDB for MongoDB sharded cluster instance.
-   * 
-   * *   This parameter is valid only if **ModifyAccount** is set to **true**.
+   * > - This parameter is available and required only when the source database instance is ApsaraDB for MongoDB (sharded cluster architecture).
+   * - This parameter takes effect only when **ModifyAccount** is set to **true**.
    * 
    * @example
    * shard
@@ -195,8 +197,10 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
   shardUsername?: string;
   /**
    * @remarks
-   * Synchronization direction, with values:
-   * - **Forward** (default): Forward. - **Reverse**: Reverse.
+   * The synchronization direction. Valid values:
+   * 
+   * - **Forward** (default): forward.
+   * - **Reverse**: reverse.
    * 
    * @example
    * Forward
@@ -206,7 +210,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * @remarks
    * The database account.
    * 
-   * >  This parameter is valid only if **ModifyAccount** is set to **true**.
+   * > This parameter takes effect only when **ModifyAccount** is set to **true**.
    * 
    * @example
    * dtstest

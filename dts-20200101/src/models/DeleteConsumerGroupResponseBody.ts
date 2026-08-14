@@ -21,7 +21,7 @@ export class DeleteConsumerGroupResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4D0ADAD5-DD97-41B6-B78F-D1961AB1****
@@ -29,7 +29,7 @@ export class DeleteConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

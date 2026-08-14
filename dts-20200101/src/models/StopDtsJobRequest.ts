@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDtsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking instance.
+   * The instance ID of the data migration, data synchronization, or subscribe instance.
    * 
    * @example
    * dtsl3m1213ye7l****
@@ -21,30 +21,29 @@ export class StopDtsJobRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The region ID of the Data Transmission Service (DTS) instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
-   * cn-qingdao
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
-   * rg-aekznwnajjh4d3a
+   * rg-acfm2jr35xnjh7i
    */
   resourceGroupId?: string;
   /**
    * @remarks
    * The synchronization direction. Valid values:
    * 
-   * *   **Forward**
-   * *   **Reverse**
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * > 
-   * *   Default value: **Forward**.
-   * *   You can set this parameter to **Reverse** to stop the reverse synchronization task only when the topology is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - You can set this parameter to **Reverse** to stop the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -52,8 +51,10 @@ export class StopDtsJobRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+   * 
+   * - **false**: No.
+   * - **true**: Yes.
    * 
    * @example
    * true

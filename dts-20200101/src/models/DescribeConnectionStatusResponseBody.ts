@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConnectionStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The connectivity of DTS servers to the destination database.
+   * The connectivity test result of the destination database.
    * 
    * @example
    * {     "connectDetail": [       {         "testName": "PolarDB_o JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": true       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }
@@ -29,7 +29,7 @@ export class DescribeConnectionStatusResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0A47C784-70EF-4111-8677-369CAA00****
@@ -37,7 +37,7 @@ export class DescribeConnectionStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The connectivity of DTS servers to the source database.
+   * The connectivity test result of the source database.
    * 
    * @example
    * {     "connectDetail": [       {         "testName": "Oracle JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": false       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }

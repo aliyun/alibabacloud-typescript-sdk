@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CountJobByConditionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The internal error code. This parameter will be removed soon.
+   * The internal error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,9 +13,8 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the  **%s** variable in the **ErrMessage** parameter.
-   * 
-   * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** parameter.
+   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * present environment is not support,so skip.
@@ -23,7 +22,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -31,7 +30,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -47,7 +46,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * FC3BAAF2-74E3-4471-8EB5-96202D6A****
@@ -63,7 +62,7 @@ export class CountJobByConditionResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of data synchronization instances that meet the requirements and belong to your Alibaba Cloud account.
+   * The total number of data synchronization instances that meet the specified conditions under the Alibaba Cloud account.
    * 
    * @example
    * 100

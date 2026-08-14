@@ -29,7 +29,7 @@ export class DeleteConsumerChannelResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F9E00ABE-2AD9-40A9-8C3C-D817E648****
@@ -37,7 +37,7 @@ export class DeleteConsumerChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

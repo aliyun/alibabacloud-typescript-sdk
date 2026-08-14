@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDtsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DeleteDtsJob**.
+   * The dynamic error code. This parameter will be deprecated.
    * 
    * @example
    * 403
@@ -13,7 +13,8 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **DeleteDtsJob**.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * DtsJobId
@@ -21,7 +22,7 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -29,7 +30,7 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The error message returned if the call failed.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -37,7 +38,7 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking instance.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,15 +46,7 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The synchronization direction. Valid values:
-   * 
-   * *   **Forward**: Data is synchronized from the source database to the destination database.
-   * *   **Reverse**: Data is synchronized from the destination database to the source database.
-   * 
-   * > 
-   * 
-   * *   Default value: **Forward**.
-   * *   You can set this parameter to **Reverse** to delete the reverse synchronization task only if the topology is two-way synchronization.
+   * The request ID.
    * 
    * @example
    * 01B6F25-21E7-4484-99D5-3EF2625C****
@@ -61,7 +54,7 @@ export class DeleteDtsJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the region in which the data migration or synchronization task resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

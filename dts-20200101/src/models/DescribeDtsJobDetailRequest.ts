@@ -3,9 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDtsJobDetailRequest extends $dara.Model {
+  dbObjectOutputType?: string;
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking instance.
+   * The instance ID of the data migration, data synchronization, or subscribe instance.
    * 
    * @example
    * dtsta7w132u12h****
@@ -21,7 +22,7 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
   dtsJobId?: string;
   /**
    * @remarks
-   * The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +38,7 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to return the information about all data synchronization subtasks. Default value: **false**. A value of false indicates that the system returns only the information about a data synchronization subtask that is running or was most recently run.
+   * Specifies whether to return information about all synchronization subtasks. Default value: **false**, which returns only the synchronization subtask that is in progress or the most recently executed synchronization subtask.
    * 
    * @example
    * false
@@ -46,14 +47,11 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization direction. Valid values:
+   * - **Forward**: forward.
+   * - **Reverse**: reverse.
    * 
-   * *   **Forward**
-   * *   **Reverse**
-   * 
-   * > 
-   * 
-   * *   The default value is **Forward**.
-   * *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+   * > - Default value: **Forward**.
+   * - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
    * 
    * @example
    * Forward
@@ -61,10 +59,9 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
   synchronizationDirection?: string;
   /**
    * @remarks
-   * Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Specifies whether the task is a zero-ETL task. Valid values:
+   * - **true**: The task is a zero-ETL task.
+   * - **false**: The task is not a zero-ETL task.
    * 
    * @example
    * false
@@ -72,6 +69,7 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
   zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
+      dbObjectOutputType: 'DbObjectOutputType',
       dtsInstanceID: 'DtsInstanceID',
       dtsJobId: 'DtsJobId',
       regionId: 'RegionId',
@@ -84,6 +82,7 @@ export class DescribeDtsJobDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dbObjectOutputType: 'string',
       dtsInstanceID: 'string',
       dtsJobId: 'string',
       regionId: 'string',

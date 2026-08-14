@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataCheckTableDiffDetailsResponseBodyDiffDetails extends $dara.Model {
   /**
    * @remarks
-   * The details of the inconsistent data, whose value is a JSON string. The JSON string contains the following parameters:
+   * The specific inconsistency details, which is a JSON string.
    * 
-   * *   column: the name of the field.
-   * *   source: the value of the field in the source database.
-   * *   dest: the value of the field in the destination database.
-   * *   isPrimary: indicates whether the field is a primary key.
+   * - column: the field name.
+   * - source: the value in the source database.
+   * - dest: the value in the destination database.
+   * - isPrimary: indicates whether the field is a primary key.
    * 
    * @example
    * [     {         "column": "id",         "source": "9511",         "dest": "9511",         "isPrimary": true     },     {         "column": "state",         "source": "3",         "dest": "2",         "isPrimary": false     },     {         "column": "create_time",         "source": "2023-04-11 14:07:17.0",         "dest": "NULL",         "isPrimary": false     },     {         "column": "update_time",         "source": "2023-04-11 06:07:17.0",         "dest": "2023-04-11 06:02:29.0",         "isPrimary": false     } ]
@@ -18,7 +18,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBodyDiffDetails extends $d
   diff?: string;
   /**
    * @remarks
-   * The time when the data verification was performed.
+   * The time when the verification was performed.
    * 
    * @example
    * 2023-04-23T10:36:05.000+00:00
@@ -26,7 +26,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBodyDiffDetails extends $d
   gmtCreated?: string;
   /**
    * @remarks
-   * The auto-increment primary key that is used to identify the data in a verification result.
+   * The auto-increment primary key that identifies a verification result record.
    * 
    * @example
    * 13058****
@@ -60,7 +60,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBodyDiffDetails extends $d
 export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the source database to which the table that contains inconsistent data belongs.
+   * The name of the database in the source instance that contains the table with inconsistent data.
    * 
    * @example
    * db_dtstest
@@ -68,7 +68,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * The number of data rows that contain inconsistent data.
+   * The number of rows with data inconsistency.
    * 
    * @example
    * 1
@@ -76,14 +76,14 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   diffCount?: number;
   /**
    * @remarks
-   * The information about the inconsistent data.
+   * The inconsistency details.
    */
   diffDetails?: DescribeDataCheckTableDiffDetailsResponseBodyDiffDetails[];
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
    * 
-   * > For example, if the value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** that you specified is invalid.
    * 
    * @example
    * Type
@@ -91,7 +91,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InvalidParameter
@@ -99,7 +99,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The value of the parameter tbName is invalid.
@@ -107,7 +107,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -139,7 +139,7 @@ export class DescribeDataCheckTableDiffDetailsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The name of the table that contains inconsistent data in the source database.
+   * The name of the table in the source database that contains inconsistent data.
    * 
    * @example
    * test_person

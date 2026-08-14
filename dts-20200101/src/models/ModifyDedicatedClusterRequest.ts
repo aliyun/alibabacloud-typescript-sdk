@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
-   * 
-   * >  You must specify one of the **InstanceId** and **DedicatedClusterId** parameters.
+   * The ID of the dedicated cluster.
+   * > Either **InstanceId** or **DedicatedClusterId** must be specified.
    * 
    * @example
    * dtscluster_h3fl1cs217sx952
@@ -23,9 +22,8 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   dedicatedClusterName?: string;
   /**
    * @remarks
-   * The ID of the instance.
-   * 
-   * >  You must specify one of the **InstanceId** and **DedicatedClusterId** parameters.
+   * The instance ID of the cluster.
+   * > Either the **InstanceId** or **DedicatedClusterId** parameter must be specified.
    * 
    * @example
    * rm-bp1162kryivb8****
@@ -42,7 +40,7 @@ export class ModifyDedicatedClusterRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region in which the Data Transmission Service (DTS) instance resides.
+   * The region in which the DTS instance resides.
    * 
    * @example
    * cn-hangzhou

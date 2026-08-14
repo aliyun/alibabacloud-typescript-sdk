@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Model {
   /**
    * @remarks
-   * Other description of the operation.
+   * The additional remarks.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   content?: string;
   /**
    * @remarks
-   * The primary key of the log table.
+   * The primary key of the log record table.
    * 
    * @example
    * 237827
@@ -21,7 +21,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The time when the operation is recorded. The value is in the UNIX timestamp format. Unit: milliseconds.
+   * The timestamp. Unit: milliseconds.
    * 
    * @example
    * 1642077211574
@@ -29,7 +29,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   logDatetime?: number;
   /**
    * @remarks
-   * The value of the parameter after the operation if the operation is an UPDATE operation.
+   * The new parameter value when the operation type is update.
    * 
    * @example
    * 105
@@ -37,7 +37,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   newValue?: string;
   /**
    * @remarks
-   * The value of the parameter before the operation if the operation is an UPDATE operation.
+   * The old parameter value when the operation type is update.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   oldValue?: string;
   /**
    * @remarks
-   * The type of the operation.
+   * The operation type.
    * 
    * @example
    * modify-oversold-ratio
@@ -53,7 +53,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   operationName?: string;
   /**
    * @remarks
-   * The user who performed the operation.
+   * The operator.
    * 
    * @example
    * null
@@ -61,7 +61,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
   operationUser?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of **1** indicates that the request was successful.
+   * The call result. Indicates whether the call was successful. A value of **1** indicates success.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeClusterOperateLogsResponseBodyDataPoints extends $dara.Mode
 export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned by the backend service. The number is incremented.
+   * The backend error code, which is incrementally numeric.
    * 
    * @example
    * 500
@@ -113,12 +113,12 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the operation logs.
+   * The monitoring statistics information.
    */
   dataPoints?: DescribeClusterOperateLogsResponseBodyDataPoints[];
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace %s in the ErrMessage parameter.
+   * The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
    * 
    * @example
    * Type
@@ -126,7 +126,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned when the call fails.
    * 
    * @example
    * InternalError
@@ -134,7 +134,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -142,7 +142,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned for an exception.
+   * The HTTP status code corresponding to the exception.
    * 
    * @example
    * 200
@@ -150,7 +150,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries displayed on the current page.
    * 
    * @example
    * 20
@@ -166,7 +166,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -174,7 +174,7 @@ export class DescribeClusterOperateLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The call result.
    * 
    * @example
    * true

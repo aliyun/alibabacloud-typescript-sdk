@@ -21,7 +21,7 @@ export class CreateMigrationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the data migration instance.
+   * The instance ID of the data migration instance.
    * 
    * @example
    * dtsi8911td9233****
@@ -29,7 +29,7 @@ export class CreateMigrationJobResponseBody extends $dara.Model {
   migrationJobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C166D79D-436B-45F0-B5A5-25E1959F****
@@ -37,7 +37,7 @@ export class CreateMigrationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

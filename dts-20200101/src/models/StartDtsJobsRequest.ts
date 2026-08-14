@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class StartDtsJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data migration or data synchronization task.
-   * 
-   * > 
-   * *   For multiple tasks, separate them with commas (**,**).
-   * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+   * The IDs of the data migration or synchronization tasks.
+   * > - Separate multiple task IDs with commas (,).
+   * - You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query DTS task IDs.
    * 
    * This parameter is required.
    * 
@@ -19,7 +17,7 @@ export class StartDtsJobsRequest extends $dara.Model {
   dtsJobIds?: string;
   /**
    * @remarks
-   * The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +25,7 @@ export class StartDtsJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource GroupId
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -35,8 +33,10 @@ export class StartDtsJobsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+   * 
+   * - **false**: No.
+   * - **true**: Yes.
    * 
    * @example
    * true

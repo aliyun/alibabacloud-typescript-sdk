@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+   * The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -13,7 +13,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
+   * The name of the consumer group. The name can be up to 128 characters in length. We recommend that you use a descriptive name for easy identification.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,10 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The password that corresponds to the username of the consumer group.
+   * The password of the consumer group account.
    * 
-   * *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
-   * *   A password must be 8 to 32 characters in length.
+   * - The password must contain characters from at least two of the following categories: uppercase letters, lowercase letters, digits, and special characters.
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -36,10 +36,9 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   consumerGroupPassword?: string;
   /**
    * @remarks
-   * The username of the consumer group.
+   * The account of the consumer group.
    * 
-   * *   A username must contain one or more of the following characters: uppercase letters, lowercase letters, digits, and underscores (_).
-   * *   A username cannot exceed 16 characters in length.
+   * The account can contain uppercase letters, lowercase letters, digits, and underscores (_). The account can be up to 16 characters in length.
    * 
    * This parameter is required.
    * 
@@ -50,7 +49,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The ID of the region where the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -58,7 +57,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

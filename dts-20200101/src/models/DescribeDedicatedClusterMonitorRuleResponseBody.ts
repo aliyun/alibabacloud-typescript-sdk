@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alert threshold for CPU utilization. Unit: percentage.
+   * The CPU alert threshold, in percentage.
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   cpuAlarmThreshold?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * dtsClustervcwn1oeyu5fx4yf
@@ -21,7 +21,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   dedicatedClusterId?: string;
   /**
    * @remarks
-   * The alert threshold for disk usage. Unit: percentage.
+   * The disk alert threshold, in percentage.
    * 
    * @example
    * 80
@@ -29,7 +29,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   diskAlarmThreshold?: string;
   /**
    * @remarks
-   * The alert threshold for DTS Unit (DU) usage. Unit: percentage.
+   * The DU alert threshold, in percentage.
    * 
    * @example
    * 46
@@ -37,7 +37,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   duAlarmThreshold?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call fails.
    * 
    * @example
    * InternalError
@@ -45,7 +45,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call fails.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -61,7 +61,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   httpStatusCode?: string;
   /**
    * @remarks
-   * The alert threshold for memory usage. Unit: percentage.
+   * The memory alert threshold, in percentage.
    * 
    * @example
    * 80
@@ -69,10 +69,10 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   memAlarmThreshold?: string;
   /**
    * @remarks
-   * Indicates whether the alert feature is enabled. Valid values:
+   * The alert switch. Valid values:
    * 
-   * *   **1**: The alert feature is enabled.
-   * *   **0**: The alert feature is disabled.
+   * - **1**: enabled.
+   * - **0**: disabled.
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   noticeSwitch?: string;
   /**
    * @remarks
-   * The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
+   * The phone numbers that receive alerts. If there are multiple phone numbers, they are separated by commas (,).
    * 
    * @example
    * 186****7653
@@ -88,7 +88,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   phones?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 621BB4F8-3016-4FAA-8D5A-5D3163CC****
@@ -96,7 +96,7 @@ export class DescribeDedicatedClusterMonitorRuleResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

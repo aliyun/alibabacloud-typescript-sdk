@@ -86,7 +86,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4204E899-8193-4D7D-A4FB-3A7F9063****
@@ -110,7 +110,7 @@ export class DescribeConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

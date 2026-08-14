@@ -501,7 +501,7 @@ export class DescribeMigrationJobsResponseBodyMigrationJobs extends $dara.Model 
 export class DescribeMigrationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the request failed.
    * 
    * @example
    * InternalError
@@ -509,7 +509,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the request failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -518,7 +518,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   migrationJobs?: DescribeMigrationJobsResponseBodyMigrationJobs;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -526,7 +526,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries that can be displayed on the current page.
+   * The maximum number of records that can be displayed on the current page.
    * 
    * @example
    * 30
@@ -534,7 +534,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0ED4846D-ED60-435D-88C0-7EC0CE4D****
@@ -542,7 +542,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -550,7 +550,7 @@ export class DescribeMigrationJobsResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of data migration instances that belong to your Alibaba Cloud account.
+   * The total number of data migration instances that meet the specified conditions under the Alibaba Cloud account.
    * 
    * @example
    * 300

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureSynchronizationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * The error code returned if the request failed.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class ConfigureSynchronizationJobResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the call failed.
+   * The error message returned if the request failed.
    * 
    * @example
    * The request processing has failed due to some unknown error.
@@ -21,7 +21,7 @@ export class ConfigureSynchronizationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2690E467-7773-43BC-A009-370EE2E7****
@@ -29,7 +29,7 @@ export class ConfigureSynchronizationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

@@ -7,9 +7,9 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the destination database.
-   * 
-   * >  If the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 待迁入的数据库名称或鉴权数据库名称。 
+   * > - 当**DestinationEndpoint.EngineName**取值为**PostgreSQL**、**DRDS**或**MongoDB**时，本参数才可用且必须传入。
+   * - 当**DestinationEndpoint.EngineName**取值为**PostgreSQL**或**DRDS**时，传入待迁移的数据库名称；取值为**MongoDB**时，传入数据库账号的鉴权数据库名称。
    * 
    * @example
    * dtstestdatabase
@@ -17,9 +17,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   dataBaseName?: string;
   /**
    * @remarks
-   * The authorized RAM role of the source instance. You must specify the RAM role only if the source instance and the destination instance belong to different Alibaba Cloud accounts. You can use the RAM role to allow the Alibaba Cloud account that owns the destination instance to access the source instance.
-   * 
-   * >  For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
+   * 目标库的数据库类型。取值：**MySQL**、**DRDS**、**SQLServer**、**PostgreSQL**、**PPAS**、**MongoDB**、**Redis**、**POLARDB**、**polardb_pg**
+   * > 当**DestinationEndpoint.InstanceType**取值为**RDS**、**POLARDB**、**ECS**、**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * MySQL
@@ -27,9 +26,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   engineName?: string;
   /**
    * @remarks
-   * The ID of the instance that hosts the destination database.
-   * 
-   * >  You must specify the instance ID only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **ECS**, **MongoDB**, **Redis**, **DRDS**, **PetaData**, **OceanBase**, **POLARDB**, **PolarDB_o**, **AnalyticDB**, or **Greenplum**. For example, if the DestinationEndpoint.InstanceType parameter is set to **ECS**, you must specify the ID of the ECS instance.
+   * 目标库的连接地址。
+   * > 当**DestinationEndpoint.InstanceType**取值为**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * 172.16.88.***
@@ -37,9 +35,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   IP?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the source instance belongs.
-   * 
-   * >  You must specify this parameter only when you configure data migration across different Alibaba Cloud accounts.
+   * 目标实例ID。
+   * > 当**DestinationEndpoint.InstanceType**取值为**RDS**、**ECS**、**MongoDB**、**Redis**、**DRDS**、**PetaData**、**OceanBase**、**POLARDB**、**PolarDB_o**、**AnalyticDB**或**Greenplum**时，本参数才可用且必须传入对应的实例ID（例如取值为**ECS**，则需要传入ECS实例ID）。
    * 
    * @example
    * rm-bp1r46452ai50****
@@ -47,7 +44,18 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   instanceID?: string;
   /**
    * @remarks
-   * The password of the source database account.
+   * 目标库的实例类型，取值：
+   * - **ECS**：ECS上的自建数据库。
+   * - **LocalInstance**：有公网IP的自建数据库。
+   * - **RDS**：阿里云RDS实例。
+   * - **DRDS**：阿里云PolarDB-X实例。
+   * - **MongoDB**：阿里云MongoDB实例。
+   * - **Redis**：阿里云Redis实例。
+   * - **PetaData**：阿里云HybridDB for MySQL实例。
+   * - **POLARDB**：阿里云PolarDB MySQL、PolarDB PostgreSQL。
+   * - **PolarDB_o**：阿里云PolarDB O引擎集群。
+   * - **AnalyticDB**：阿里云云原生数据仓库AnalyticDB MySQL 3.0和2.0版本。
+   * - **Greenplum**：阿里云云原生数据仓库AnalyticDB PostgreSQL。
    * 
    * This parameter is required.
    * 
@@ -57,7 +65,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   instanceType?: string;
   /**
    * @remarks
-   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+   * Oracle数据库的SID信息。
+   * > 当**DestinationEndpoint.EngineName**取值为**Oracle**，且**Oracle**数据库为非RAC实例时，本参数才可用且必须传入。
    * 
    * @example
    * testsid
@@ -65,9 +74,7 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   oracleSID?: string;
   /**
    * @remarks
-   * The service port number of the destination database.
-   * 
-   * >  You must specify the service port number only if the **DestinationEndpoint.InstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
+   * 目标库数据库账号的密码。
    * 
    * @example
    * Test123456
@@ -75,9 +82,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   password?: string;
   /**
    * @remarks
-   * The engine type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, **Redis**, **POLARDB**, and **polardb_pg**.
-   * 
-   * >  You must specify the engine type only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **POLARDB**, **ECS**, **LocalInstance**, or **Express**.
+   * 目标库的服务端口。
+   * > 当**DestinationEndpoint.InstanceType**取值为**ECS**、**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * 3306
@@ -85,19 +91,8 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   port?: string;
   /**
    * @remarks
-   * The instance type of the destination database. Valid values:
-   * 
-   * *   **ECS**: self-managed database that is hosted on Elastic Compute Service (ECS)
-   * *   **LocalInstance**: self-managed database with a public IP address
-   * *   **RDS**: ApsaraDB RDS instance
-   * *   **DRDS**: PolarDB-X instance
-   * *   **MongoDB**: ApsaraDB for MongoDB instance
-   * *   **Redis**: ApsaraDB for Redis instance
-   * *   **PetaData**: HybridDB for MySQL instance
-   * *   **POLARDB**: PolarDB for MySQL cluster or PolarDB for PostgreSQL cluster
-   * *   **PolarDB_o**: PolarDB O Edition cluster
-   * *   **AnalyticDB**: AnalyticDB for MySQL cluster V3.0 or V2.0
-   * *   **Greenplum**: AnalyticDB for PostgreSQL instance
+   * 目标库所属的地域ID。
+   * > 当**DestinationEndpoint.InstanceType**取值为**LocalInstance**时，您可以传入**cn-hangzhou**或者离自建数据库地物理距离最近的地域ID，详情请参见[支持的地域列表](https://help.aliyun.com/document_detail/141033.html)。
    * 
    * @example
    * cn-hangzhou
@@ -105,9 +100,9 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The endpoint of the destination database.
+   * 目标库的数据库账号。
    * 
-   * >  You must specify the endpoint only if the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance** or **Express**.
+   * 说明 迁移不同的数据库所需的权限有所差异，详情请参见迁移方案概览中对应的配置案例。
    * 
    * @example
    * dtstestaccount
@@ -155,9 +150,11 @@ export class ConfigureMigrationJobRequestDestinationEndpoint extends $dara.Model
 export class ConfigureMigrationJobRequestMigrationMode extends $dara.Model {
   /**
    * @remarks
-   * The database account of the destination database.
+   * 是否进行全量数据迁移，取值：
+   * - **true**：是。
+   * - **false**：否。
    * 
-   * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
+   * > DTS对全量数据迁移的支持情况因数据库类型不同而有所差异，详情请参见[支持的数据库和迁移类型](https://help.aliyun.com/document_detail/26618.html)。
    * 
    * This parameter is required.
    * 
@@ -167,7 +164,11 @@ export class ConfigureMigrationJobRequestMigrationMode extends $dara.Model {
   dataIntialization?: boolean;
   /**
    * @remarks
-   * The password of the destination database account.
+   * 是否进行增量数据迁移，取值：
+   * - **true**：是。
+   * - **false**：否。
+   * 
+   * > DTS对增量数据迁移的支持情况因数据库类型不同而有所差异，详情请参见[支持的数据库和迁移类型](https://help.aliyun.com/document_detail/26618.html)。
    * 
    * This parameter is required.
    * 
@@ -177,11 +178,11 @@ export class ConfigureMigrationJobRequestMigrationMode extends $dara.Model {
   dataSynchronization?: boolean;
   /**
    * @remarks
-   * The name of the destination database or the authentication database.
+   * 是否进行结构迁移，取值：
+   * - **true**：是。
+   * - **false**：否。
    * 
-   * > 
-   * *   You must specify the database name only if the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL**, **DRDS**, or **MongoDB**.
-   * *   If the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the destination database. If the DestinationEndpoint.EngineName parameter is set to **MongoDB**, specify the name of the authentication database.
+   * > DTS对结构迁移的支持情况因数据库类型不同而有所差异，详情请参见[支持的数据库和迁移类型](https://help.aliyun.com/document_detail/26618.html)。
    * 
    * This parameter is required.
    * 
@@ -217,9 +218,9 @@ export class ConfigureMigrationJobRequestMigrationMode extends $dara.Model {
 export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The endpoint of the source database.
-   * 
-   * >  You must specify the endpoint only if the **SourceEndpoint.InstanceType** parameter is set to **LocalInstance** or **Express**.
+   * 待迁移的数据库名称或鉴权数据库名称。
+   * > - 当**SourceEndpoint.EngineName**取值为**PostgreSQL**或**MongoDB**时，本参数才可用且必须传入。
+   * - 当**SourceEndpoint.EngineName**取值为**PostgreSQL**时，传入待迁移的数据库名称；取值为**MongoDB**时，传入数据库账号的鉴权数据库名称。
    * 
    * @example
    * dtstestdatabase
@@ -227,17 +228,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The instance type of the source database. Valid values:
-   * 
-   * *   **RDS**: ApsaraDB RDS instance
-   * *   **ECS**: self-managed database that is hosted on ECS
-   * *   **LocalInstance**: self-managed database with a public IP address
-   * *   **Express**: self-managed database that is connected over Express Connect, VPN Gateway, or Smart Access Gateway
-   * *   **dg**: self-managed database that is connected over Database Gateway
-   * *   **cen**: self-managed database that is connected over Cloud Enterprise Network (CEN)
-   * *   **MongoDB**: ApsaraDB for MongoDB instance
-   * *   **POLARDB**: PolarDB for MySQL cluster or PolarDB for PostgreSQL cluster
-   * *   **PolarDB_o**: PolarDB O Edition cluster
+   * 源库的数据库类型，取值：**MySQL**、**TiDB**、**SQLServer**、**PostgreSQL**、**Oracle**、**MongoDB**、**Redis**、**POLARDB**、**polardb_pg**。
+   * > 当**DestinationEndpoint.InstanceType**取值为**RDS**、**POLARDB**、**ECS**、**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * MySQL
@@ -245,7 +237,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   engineName?: string;
   /**
    * @remarks
-   * rm-bp1i99e8l7913****
+   * 源库的连接地址。
+   * > 当**SourceEndpoint.InstanceType**取值为**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * 172.16.88.***
@@ -253,15 +246,26 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * dtsl3m1213ye7l****
+   * 源库的实例ID。
+   * > - 当**SourceEndpoint.InstanceType**取值为**RDS**、**ECS**、**Express**、**MongoDB**、**POLARDB**或**PolarDB_o**时，本参数才可用且必须传入对应的实例ID（例如取值为**ECS**，则本参数传入ECS实例的ID）。
+   * - 当**SourceEndpoint.InstanceType**取值为**Express**时，本参数传入VPC ID（即专有网络ID）。
    * 
    * @example
-   * The name of the data migration task. The name can be up to 32 characters in length. We recommend that you specify an informative name to identify the task. You do not need to use a unique task name.
+   * bp-rmxxxxxxxx
    */
   instanceID?: string;
   /**
    * @remarks
-   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+   * 源库的实例类型，取值：
+   * - **RDS**：阿里云RDS实例。
+   * - **ECS**：ECS上的自建数据库。
+   * - **LocalInstance**：有公网IP的自建数据库。
+   * - **Express**：通过专线/VPN网关/智能接入网关接入的自建数据库。
+   * - **dg**：通过数据库网关DG接入的自建数据库。
+   * - **cen**：通过云企业网CEN接入的自建数据库。
+   * - **MongoDB**：阿里云MongoDB实例。
+   * - **POLARDB**：阿里云PolarDB MySQL、PolarDB PostgreSQL。
+   * - **PolarDB_o**：阿里云PolarDB O引擎集群。
    * 
    * This parameter is required.
    * 
@@ -271,9 +275,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The region ID of the source database.
-   * 
-   * >  If the **SourceEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * Oracle数据库的SID信息。
+   * > 当**SourceEndpoint.EngineName**取值为**Oracle**，且Oracle数据库为非RAC实例时，本参数才可用且必须传入。
    * 
    * @example
    * testsid
@@ -281,11 +284,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   oracleSID?: string;
   /**
    * @remarks
-   * The name of the source database or the authentication database.
-   * 
-   * > 
-   * *   You must specify the database name only if the **SourceEndpoint.EngineName** parameter is set to **PostgreSQL** or **MongoDB**.
-   * *   If the **SourceEndpoint.EngineName** parameter is set to **PostgreSQL**, specify the name of the source database. If the SourceEndpoint.EngineName parameter is set to **MongoDB**, specify the name of the authentication database.
+   * 源实例所属的阿里云账号ID。
+   * > 仅在配置跨阿里云账号的数据迁移时本参数才可用，且必须传入。
    * 
    * @example
    * 140692647406****
@@ -293,9 +293,7 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   ownerID?: string;
   /**
    * @remarks
-   * The system ID (SID) of the Oracle database.
-   * 
-   * >  You must specify this parameter only if the **SourceEndpoint.EngineName** parameter is set to **Oracle** and the **Oracle** database is deployed in a non-RAC architecture.
+   * 源库数据库账号对应的密码。
    * 
    * @example
    * Test123456
@@ -303,9 +301,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The engine type of the source database. Valid values: **MySQL**, **TiDB**, **SQLServer**, **PostgreSQL**, **Oracle**, **MongoDB**, **Redis**, **POLARDB**, and **polardb_pg**.
-   * 
-   * >  You must specify the engine type only if the **DestinationEndpoint.InstanceType** parameter is set to **RDS**, **POLARDB**, **ECS**, **LocalInstance**, or **Express**.
+   * 源库的服务端口。
+   * > 当**SourceEndpoint.InstanceType**取值为**ECS**、**LocalInstance**或**Express**时，本参数才可用且必须传入。
    * 
    * @example
    * 3306
@@ -313,11 +310,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The ID of the instance that hosts the source database.
-   * 
-   * > 
-   * *   You must specify the instance ID only if the **SourceEndpoint.InstanceType** parameter is set to **RDS**, **ECS**, **Express**, **MongoDB**, **POLARDB**, or **PolarDB_o**. For example, if the SourceEndpoint.InstanceType parameter is set to **ECS**, you must specify the ID of the ECS instance.
-   * *   If the **SourceEndpoint.InstanceType** parameter is set to **Express**, you must specify the ID of the virtual private cloud (VPC).
+   * 源库所属的地域ID。
+   * > 当**SourceEndpoint.InstanceType**取值为**LocalInstance**时，您可以传入**cn-hangzhou**或者离自建数据库地物理距离最近的地域ID，详情请参见[支持的地域列表](https://help.aliyun.com/document_detail/141033.html)。
    * 
    * @example
    * cn-hangzhou
@@ -325,9 +319,8 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The database account of the source database.
-   * 
-   * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
+   * 当源实例与目标实例所属阿里云账号不同时，需传入该参数，来指定源实例的授权角色，以允许目标实例阿里云账号访问源实例的实例信息。
+   * > 角色所需的权限及授权方式，请参见[跨阿里云账号数据迁移或同步时如何配置RAM授权](https://help.aliyun.com/document_detail/48468.html)。
    * 
    * @example
    * ram-for-dts
@@ -335,9 +328,9 @@ export class ConfigureMigrationJobRequestSourceEndpoint extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The service port number of the source database.
+   * 源库的数据库账号。
    * 
-   * >  You must specify the service port number only if the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
+   * 说明 迁移不同的数据库所需的权限有所差异，详情请参见迁移方案概览中对应的配置案例。
    * 
    * @example
    * dtstestaccount
@@ -392,9 +385,7 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   sourceEndpoint?: ConfigureMigrationJobRequestSourceEndpoint;
   /**
    * @remarks
-   * The objects that you want to migrate. The value is a JSON string and can contain regular expressions.
-   * 
-   * For more information, see [MigrationObject](https://help.aliyun.com/document_detail/141227.html).
+   * The Alibaba Cloud account ID. You do not need to specify this parameter because it will be deprecated.
    * 
    * @example
    * 12323344****
@@ -402,12 +393,7 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Specifies whether to perform incremental data migration. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * >  For more information about databases that support incremental data migration, see [Supported databases and migration types](https://help.aliyun.com/document_detail/26618.html).
+   * The start position of incremental data migration. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 111
@@ -415,19 +401,17 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   checkpoint?: string;
   /**
    * @remarks
-   * system
+   * The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * The operation that you want to perform. Set the value to **ConfigureMigrationJob**.
+   * dtsxxxxxxxx
    */
   migrationJobId?: string;
   /**
    * @remarks
-   * The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-   * 
-   * >  The region ID of the data migration instance is the same as that of the destination database.
+   * The name of the migration task. The name can be up to 32 characters in length. Specify a descriptive name for easy identification. Uniqueness is not required.
    * 
    * This parameter is required.
    * 
@@ -437,12 +421,7 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   migrationJobName?: string;
   /**
    * @remarks
-   * Specifies whether to perform schema migration. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * >  For more information about databases that support schema migration, see [Supported databases and migration types](https://help.aliyun.com/document_detail/26618.html).
+   * The objects to be migrated. The value is a JSON string that supports regular expressions. For more information, see [Migration object configuration](~141901~).
    * 
    * This parameter is required.
    * 
@@ -452,12 +431,7 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   migrationObject?: string;
   /**
    * @remarks
-   * Specifies whether to perform full data migration. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * >  For more information about databases that support full data migration, see [Supported databases and migration types](https://help.aliyun.com/document_detail/26618.html).
+   * The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
    * 
    * @example
    * {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
@@ -465,13 +439,17 @@ export class ConfigureMigrationJobRequest extends $dara.Model {
   migrationReserved?: string;
   ownerId?: string;
   /**
+   * @remarks
+   * The region ID of the data migration instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > The region ID must be the same as the region ID of the destination database.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * Resource GroupId
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

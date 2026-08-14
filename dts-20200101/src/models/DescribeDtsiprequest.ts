@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDTSIPRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-   * 
-   * >  If the destination instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+   * The region ID of the destination instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > If the destination instance is a self-managed database that has a public IP address, you can specify **ap-southeast-1** or the region ID that is geographically closest to the self-managed database.
    * 
    * @example
    * cn-hangzhou
@@ -15,7 +14,7 @@ export class DescribeDTSIPRequest extends $dara.Model {
   destinationEndpointRegion?: string;
   /**
    * @remarks
-   * The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS task instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -23,7 +22,7 @@ export class DescribeDTSIPRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -31,9 +30,8 @@ export class DescribeDTSIPRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the region where the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-   * 
-   * >  If the source instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+   * The region ID of the source instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > If the source instance is a self-managed database that has a public IP address, you can specify **ap-southeast-1** or the region ID that is geographically closest to the self-managed database.
    * 
    * This parameter is required.
    * 

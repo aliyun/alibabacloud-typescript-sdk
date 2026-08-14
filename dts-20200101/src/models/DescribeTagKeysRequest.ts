@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the tag. Valid values:
+   * The tag type. Valid values:
+   * - **System**: tags created by the system.
+   * - **Custom**: tags added by users.
    * 
-   * *   **Custom**: The tag is added by a user.
-   * *   **System**: The tag is added by the system.
-   * 
-   * >  By default, if the parameter is left empty, custom tags and system tags are returned.
+   * > If this parameter is left empty, publicly visible tags are returned by default.
    * 
    * @example
    * Custom
@@ -18,7 +17,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1. Default value: 1. This parameter is used together with PageSize.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. This parameter is used together with PageSize. Default value: 1.
    * 
    * @example
    * 1
@@ -26,7 +25,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tags to return on each page if the DTS instance has multiple tags. Default value: 20.
+   * The number of tag keys to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -34,7 +33,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -42,7 +41,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmzawhxxc****

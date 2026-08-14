@@ -21,7 +21,7 @@ export class DeleteMigrationJobResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F28A96B1-F897-4246-833B-310A3345****
@@ -29,7 +29,7 @@ export class DeleteMigrationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

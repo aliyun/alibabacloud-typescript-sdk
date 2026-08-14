@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDtsJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data migration, data synchronization, or change tracking task.
-   * 
-   * > *   Separate multiple task IDs with commas (,).
-   * > *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query task IDs.
+   * The IDs of the data migration, data synchronization, or change tracking tasks.
+   * > - You can specify up to 10 task IDs, separated by commas (,).
+   * - You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the DTS task IDs.
    * 
    * This parameter is required.
    * 
@@ -18,7 +17,7 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   dtsJobIds?: string;
   /**
    * @remarks
-   * The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -26,15 +25,15 @@ export class DeleteDtsJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * A special parameter for specific business scenarios. You do not need to configure this parameter.
    * 
    * @example
-   * rg-aekz4us4iruleja
+   * rg3m1213ye7l****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * Is it ZeroETL task
+   * A special parameter for specific business scenarios. You do not need to configure this parameter.
    * 
    * @example
    * true

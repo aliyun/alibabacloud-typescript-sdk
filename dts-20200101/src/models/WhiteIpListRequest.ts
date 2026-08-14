@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class WhiteIpListRequest extends $dara.Model {
   /**
    * @remarks
-   * destination aliyun uid
+   * The UID of the destination Alibaba Cloud account.
    * 
    * @example
    * ****
@@ -13,7 +13,7 @@ export class WhiteIpListRequest extends $dara.Model {
   destAliyunUid?: string;
   /**
    * @remarks
-   * VPCNAT destination main VSW
+   * The primary vSwitch of the destination for VPC NAT.
    * 
    * @example
    * ****
@@ -21,7 +21,7 @@ export class WhiteIpListRequest extends $dara.Model {
   destPrimaryVswId?: string;
   /**
    * @remarks
-   * destination role name
+   * The name of the destination role.
    * 
    * @example
    * ram-for-dts-sq
@@ -29,7 +29,7 @@ export class WhiteIpListRequest extends $dara.Model {
   destRoleName?: string;
   /**
    * @remarks
-   * VPCNAT destination backup VSW
+   * The secondary vSwitch of the destination for VPC NAT.
    * 
    * @example
    * ****
@@ -37,7 +37,7 @@ export class WhiteIpListRequest extends $dara.Model {
   destSecondaryVswId?: string;
   /**
    * @remarks
-   * source vpc id
+   * The ID of the destination VPC.
    * 
    * @example
    * ****
@@ -45,9 +45,10 @@ export class WhiteIpListRequest extends $dara.Model {
   destVpcId?: string;
   /**
    * @remarks
-   * The region ID to which the target instance belongs, please refer to the supported region list for details.
-   * >>If the target instance is a self built database or third-party cloud database with a public IP address, you can pass in the cn Hangzhou or the region ID closest to the physical distance of the database.
-   *  - When the DTS task is migration or synchronization, this parameter must be passed in.
+   * The region ID of the destination instance. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * 
+   * > -  If the destination instance is a self-managed database with a public IP address or a third-party ApsaraDB database, you can set this parameter to **ap-southeast-1** or the area ID that is geographically closest to the database.
+   * -  This parameter is required when the DTS task is a data migration or data synchronization task.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +56,8 @@ export class WhiteIpListRequest extends $dara.Model {
   destinationRegion?: string;
   /**
    * @remarks
-   * The region ID of the change tracking instance. The region ID is the same as that of the source instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region ID of the source instance. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * > If the source instance is a self-managed database with a public IP address or a third-party ApsaraDB database, you can set this parameter to **ap-southeast-1** or the area ID that is geographically closest to the database.
    * 
    * This parameter is required.
    * 
@@ -65,7 +67,7 @@ export class WhiteIpListRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+   * The region to which the DTS instance belongs. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
    * 
    * @example
    * cn-hangzhou
@@ -73,7 +75,7 @@ export class WhiteIpListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-aek26mat2ldb4oy
@@ -81,7 +83,7 @@ export class WhiteIpListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * source aliyun uid
+   * The UID of the source Alibaba Cloud account.
    * 
    * @example
    * 1971721963139419
@@ -89,7 +91,7 @@ export class WhiteIpListRequest extends $dara.Model {
   srcAliyunUid?: string;
   /**
    * @remarks
-   * VPCNAT source end main VSW
+   * The primary vSwitch of the source for VPC NAT.
    * 
    * @example
    * ****
@@ -97,7 +99,7 @@ export class WhiteIpListRequest extends $dara.Model {
   srcPrimaryVswId?: string;
   /**
    * @remarks
-   * source role Name
+   * The name of the source role.
    * 
    * @example
    * ram-for-dts
@@ -105,7 +107,7 @@ export class WhiteIpListRequest extends $dara.Model {
   srcRoleName?: string;
   /**
    * @remarks
-   * VPCNAT source backup VSW
+   * The secondary vSwitch of the source for VPC NAT.
    * 
    * @example
    * ****
@@ -113,7 +115,7 @@ export class WhiteIpListRequest extends $dara.Model {
   srcSecondaryVswId?: string;
   /**
    * @remarks
-   * source vpc id
+   * The ID of the source VPC.
    * 
    * @example
    * ****
@@ -121,9 +123,9 @@ export class WhiteIpListRequest extends $dara.Model {
   srcVpcId?: string;
   /**
    * @remarks
-   * The access method for self built databases or third-party cloud databases, with a value of
-   *  - Internet: accessed through the public network.
-   *  - VPC: Connected through dedicated line/VPN gateway/intelligent gateway.
+   * The connection method of the self-managed database or third-party ApsaraDB database. Valid values:
+   * - **internet**: connected over the Internet.
+   * - **vpc**: connected over Express Connect, VPN Gateway, or Smart Access Gateway.
    * 
    * This parameter is required.
    * 
@@ -133,8 +135,9 @@ export class WhiteIpListRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Whether it is a seamless integration (Zero-ETL) task, the value can be:
-   * - **false**: No. - **true**: Yes.
+   * Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+   * - **true**: The node is a seamless integration (Zero-ETL) node.
+   * - **false**: The node is not a seamless integration (Zero-ETL) node.
    * 
    * @example
    * false

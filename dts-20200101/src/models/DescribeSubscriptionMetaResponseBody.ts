@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $dara.Model {
   /**
    * @remarks
-   * The consumer offset of the subtask. It is a UNIX timestamp that is generated when the client consumes the first data record. Unit: seconds.
-   * 
-   * >  You can use a search engine to obtain a UNIX timestamp converter.
+   * The consumption checkpoint of the subtask, which is the timestamp of the first data record consumed by the client. The value is a UNIX timestamp. Unit: seconds.
+   * > You can use a search engine to find a UNIX timestamp converter.
    * 
    * @example
    * 1610524452
@@ -23,7 +22,7 @@ export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $d
   DBList?: string;
   /**
    * @remarks
-   * The endpoint and port number of the change tracking instance.
+   * The network address and port number of the change tracking channel.
    * 
    * @example
    * dts-cn-hangzhou.aliyuncs.com:18001
@@ -77,7 +76,7 @@ export class DescribeSubscriptionMetaResponseBodySubscriptionMetaList extends $d
 export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code returned if the call failed.
    * 
    * @example
    * InternalError
@@ -85,7 +84,7 @@ export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message returned if the call failed.
    * 
    * @example
    * The Value of Input Parameter %s is not valid.
@@ -101,7 +100,7 @@ export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C12E7A51-09A4-5796-94BE-08B6DA******
@@ -109,7 +108,7 @@ export class DescribeSubscriptionMetaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the subtasks.
+   * The data information about the change tracking subtasks.
    */
   subscriptionMetaList?: DescribeSubscriptionMetaResponseBodySubscriptionMetaList[];
   /**
