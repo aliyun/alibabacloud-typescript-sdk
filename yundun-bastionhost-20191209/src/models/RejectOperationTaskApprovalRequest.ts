@@ -26,6 +26,10 @@ export class RejectOperationTaskApprovalRequest extends $dara.Model {
    * bastionhost-cn-st220aw****
    */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   projectId?: number;
   /**
    * @remarks

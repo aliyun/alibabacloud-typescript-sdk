@@ -928,6 +928,276 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Associates members with a project.
+   * 
+   * @param request - AttachMembersToProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachMembersToProjectResponse
+   */
+  async attachMembersToProjectWithOptions(request: $_model.AttachMembersToProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachMembersToProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberIds)) {
+      query["MemberIds"] = request.memberIds;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachMembersToProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachMembersToProjectResponse>(await this.callApi(params, req, runtime), new $_model.AttachMembersToProjectResponse({}));
+  }
+
+  /**
+   * Associates members with a project.
+   * 
+   * @param request - AttachMembersToProjectRequest
+   * @returns AttachMembersToProjectResponse
+   */
+  async attachMembersToProject(request: $_model.AttachMembersToProjectRequest): Promise<$_model.AttachMembersToProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachMembersToProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Associates project authorization administrators.
+   * 
+   * @param request - AttachProjectManagersToProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachProjectManagersToProjectAuthorizationResponse
+   */
+  async attachProjectManagersToProjectAuthorizationWithOptions(request: $_model.AttachProjectManagersToProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachProjectManagersToProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.principals)) {
+      query["Principals"] = request.principals;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachProjectManagersToProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachProjectManagersToProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.AttachProjectManagersToProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Associates project authorization administrators.
+   * 
+   * @param request - AttachProjectManagersToProjectAuthorizationRequest
+   * @returns AttachProjectManagersToProjectAuthorizationResponse
+   */
+  async attachProjectManagersToProjectAuthorization(request: $_model.AttachProjectManagersToProjectAuthorizationRequest): Promise<$_model.AttachProjectManagersToProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachProjectManagersToProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+   * 
+   * @param request - AttachProjectsToProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachProjectsToProjectAuthorizationResponse
+   */
+  async attachProjectsToProjectAuthorizationWithOptions(request: $_model.AttachProjectsToProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachProjectsToProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachProjectsToProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachProjectsToProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.AttachProjectsToProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+   * 
+   * @param request - AttachProjectsToProjectAuthorizationRequest
+   * @returns AttachProjectsToProjectAuthorizationResponse
+   */
+  async attachProjectsToProjectAuthorization(request: $_model.AttachProjectsToProjectAuthorizationRequest): Promise<$_model.AttachProjectsToProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachProjectsToProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+   * 
+   * @param request - AttachProjectsToReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachProjectsToReviewRuleResponse
+   */
+  async attachProjectsToReviewRuleWithOptions(request: $_model.AttachProjectsToReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachProjectsToReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachProjectsToReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachProjectsToReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.AttachProjectsToReviewRuleResponse({}));
+  }
+
+  /**
+   * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+   * 
+   * @param request - AttachProjectsToReviewRuleRequest
+   * @returns AttachProjectsToReviewRuleResponse
+   */
+  async attachProjectsToReviewRule(request: $_model.AttachProjectsToReviewRuleRequest): Promise<$_model.AttachProjectsToReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachProjectsToReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Associates auditors with an audit policy.
+   * 
+   * @param request - AttachReviewersToReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachReviewersToReviewRuleResponse
+   */
+  async attachReviewersToReviewRuleWithOptions(request: $_model.AttachReviewersToReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachReviewersToReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.principals)) {
+      query["Principals"] = request.principals;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachReviewersToReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachReviewersToReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.AttachReviewersToReviewRuleResponse({}));
+  }
+
+  /**
+   * Associates auditors with an audit policy.
+   * 
+   * @param request - AttachReviewersToReviewRuleRequest
+   * @returns AttachReviewersToReviewRuleResponse
+   */
+  async attachReviewersToReviewRule(request: $_model.AttachReviewersToReviewRuleRequest): Promise<$_model.AttachReviewersToReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachReviewersToReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the security groups that control inbound and outbound network traffic for a Bastionhost instance.
    * 
    * @param request - ConfigInstanceSecurityGroupsRequest
@@ -1768,6 +2038,242 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a project.
+   * 
+   * @param request - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
+   */
+  async createProjectWithOptions(request: $_model.CreateProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberIds)) {
+      query["MemberIds"] = request.memberIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectResponse({}));
+  }
+
+  /**
+   * Creates a project.
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
+   */
+  async createProject(request: $_model.CreateProjectRequest): Promise<$_model.CreateProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a project authorization.
+   * 
+   * @param request - CreateProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectAuthorizationResponse
+   */
+  async createProjectAuthorizationWithOptions(request: $_model.CreateProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Creates a project authorization.
+   * 
+   * @param request - CreateProjectAuthorizationRequest
+   * @returns CreateProjectAuthorizationResponse
+   */
+  async createProjectAuthorization(request: $_model.CreateProjectAuthorizationRequest): Promise<$_model.CreateProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a notification recipient for a project.
+   * 
+   * @param request - CreateProjectNotifyReceiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectNotifyReceiverResponse
+   */
+  async createProjectNotifyReceiverWithOptions(request: $_model.CreateProjectNotifyReceiverRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectNotifyReceiverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProjectNotifyReceiver",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectNotifyReceiverResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectNotifyReceiverResponse({}));
+  }
+
+  /**
+   * Creates a notification recipient for a project.
+   * 
+   * @param request - CreateProjectNotifyReceiverRequest
+   * @returns CreateProjectNotifyReceiverResponse
+   */
+  async createProjectNotifyReceiver(request: $_model.CreateProjectNotifyReceiverRequest): Promise<$_model.CreateProjectNotifyReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectNotifyReceiverWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an audit policy.
+   * 
+   * @param request - CreateReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReviewRuleResponse
+   */
+  async createReviewRuleWithOptions(request: $_model.CreateReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateReviewRuleResponse({}));
+  }
+
+  /**
+   * Creates an audit policy.
+   * 
+   * @param request - CreateReviewRuleRequest
+   * @returns CreateReviewRuleResponse
+   */
+  async createReviewRule(request: $_model.CreateReviewRuleRequest): Promise<$_model.CreateReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
    * You can create authorization rules to authorize multiple users to manage assets. You can also specify a validity period for an authorization rule. This way, you can manage users and assets in a more efficient manner and limit the time periods during which users can access assets.
    * 
    * @param request - CreateRuleRequest
@@ -2558,6 +3064,206 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a project authorization.
+   * 
+   * @param request - DeleteProjectAuthorizationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectAuthorizationsResponse
+   */
+  async deleteProjectAuthorizationsWithOptions(request: $_model.DeleteProjectAuthorizationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectAuthorizationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationIds)) {
+      query["AuthorizationIds"] = request.authorizationIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProjectAuthorizations",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectAuthorizationsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectAuthorizationsResponse({}));
+  }
+
+  /**
+   * Deletes a project authorization.
+   * 
+   * @param request - DeleteProjectAuthorizationsRequest
+   * @returns DeleteProjectAuthorizationsResponse
+   */
+  async deleteProjectAuthorizations(request: $_model.DeleteProjectAuthorizationsRequest): Promise<$_model.DeleteProjectAuthorizationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectAuthorizationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes notification recipients from a project.
+   * 
+   * @param request - DeleteProjectNotifyReceiversRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectNotifyReceiversResponse
+   */
+  async deleteProjectNotifyReceiversWithOptions(request: $_model.DeleteProjectNotifyReceiversRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectNotifyReceiversResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.receiverIds)) {
+      query["ReceiverIds"] = request.receiverIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProjectNotifyReceivers",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectNotifyReceiversResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectNotifyReceiversResponse({}));
+  }
+
+  /**
+   * Deletes notification recipients from a project.
+   * 
+   * @param request - DeleteProjectNotifyReceiversRequest
+   * @returns DeleteProjectNotifyReceiversResponse
+   */
+  async deleteProjectNotifyReceivers(request: $_model.DeleteProjectNotifyReceiversRequest): Promise<$_model.DeleteProjectNotifyReceiversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectNotifyReceiversWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes projects in batches.
+   * 
+   * @param request - DeleteProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectsResponse
+   */
+  async deleteProjectsWithOptions(request: $_model.DeleteProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProjects",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectsResponse({}));
+  }
+
+  /**
+   * Deletes projects in batches.
+   * 
+   * @param request - DeleteProjectsRequest
+   * @returns DeleteProjectsResponse
+   */
+  async deleteProjects(request: $_model.DeleteProjectsRequest): Promise<$_model.DeleteProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an audit policy.
+   * 
+   * @param request - DeleteReviewRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReviewRulesResponse
+   */
+  async deleteReviewRulesWithOptions(request: $_model.DeleteReviewRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteReviewRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleIds)) {
+      query["ReviewRuleIds"] = request.reviewRuleIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteReviewRules",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteReviewRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteReviewRulesResponse({}));
+  }
+
+  /**
+   * Deletes an audit policy.
+   * 
+   * @param request - DeleteReviewRulesRequest
+   * @returns DeleteReviewRulesResponse
+   */
+  async deleteReviewRules(request: $_model.DeleteReviewRulesRequest): Promise<$_model.DeleteReviewRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteReviewRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an authorization rule.
    * 
    * @param request - DeleteRuleRequest
@@ -3330,6 +4036,276 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes members from a project.
+   * 
+   * @param request - DetachMembersFromProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachMembersFromProjectResponse
+   */
+  async detachMembersFromProjectWithOptions(request: $_model.DetachMembersFromProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachMembersFromProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberIds)) {
+      query["MemberIds"] = request.memberIds;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachMembersFromProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachMembersFromProjectResponse>(await this.callApi(params, req, runtime), new $_model.DetachMembersFromProjectResponse({}));
+  }
+
+  /**
+   * Removes members from a project.
+   * 
+   * @param request - DetachMembersFromProjectRequest
+   * @returns DetachMembersFromProjectResponse
+   */
+  async detachMembersFromProject(request: $_model.DetachMembersFromProjectRequest): Promise<$_model.DetachMembersFromProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachMembersFromProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes a project administrator from project authorization management.
+   * 
+   * @param request - DetachProjectManagersFromProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachProjectManagersFromProjectAuthorizationResponse
+   */
+  async detachProjectManagersFromProjectAuthorizationWithOptions(request: $_model.DetachProjectManagersFromProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachProjectManagersFromProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.principalIds)) {
+      query["PrincipalIds"] = request.principalIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachProjectManagersFromProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachProjectManagersFromProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.DetachProjectManagersFromProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Removes a project administrator from project authorization management.
+   * 
+   * @param request - DetachProjectManagersFromProjectAuthorizationRequest
+   * @returns DetachProjectManagersFromProjectAuthorizationResponse
+   */
+  async detachProjectManagersFromProjectAuthorization(request: $_model.DetachProjectManagersFromProjectAuthorizationRequest): Promise<$_model.DetachProjectManagersFromProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachProjectManagersFromProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+   * 
+   * @param request - DetachProjectsFromProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachProjectsFromProjectAuthorizationResponse
+   */
+  async detachProjectsFromProjectAuthorizationWithOptions(request: $_model.DetachProjectsFromProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachProjectsFromProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachProjectsFromProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachProjectsFromProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.DetachProjectsFromProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Removes projects from the scope of a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2.
+   * 
+   * @param request - DetachProjectsFromProjectAuthorizationRequest
+   * @returns DetachProjectsFromProjectAuthorizationResponse
+   */
+  async detachProjectsFromProjectAuthorization(request: $_model.DetachProjectsFromProjectAuthorizationRequest): Promise<$_model.DetachProjectsFromProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachProjectsFromProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+   * 
+   * @param request - DetachProjectsFromReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachProjectsFromReviewRuleResponse
+   */
+  async detachProjectsFromReviewRuleWithOptions(request: $_model.DetachProjectsFromReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachProjectsFromReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachProjectsFromReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachProjectsFromReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.DetachProjectsFromReviewRuleResponse({}));
+  }
+
+  /**
+   * Removes projects from the scope of an audit policy. This operation can be called only when the ScopeType parameter in the corresponding audit policy returned by the GetReviewRule operation has a value of 2.
+   * 
+   * @param request - DetachProjectsFromReviewRuleRequest
+   * @returns DetachProjectsFromReviewRuleResponse
+   */
+  async detachProjectsFromReviewRule(request: $_model.DetachProjectsFromReviewRuleRequest): Promise<$_model.DetachProjectsFromReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachProjectsFromReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Unbinds an auditor from an audit rule.
+   * 
+   * @param request - DetachReviewersFromReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachReviewersFromReviewRuleResponse
+   */
+  async detachReviewersFromReviewRuleWithOptions(request: $_model.DetachReviewersFromReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachReviewersFromReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.principalIds)) {
+      query["PrincipalIds"] = request.principalIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachReviewersFromReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachReviewersFromReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.DetachReviewersFromReviewRuleResponse({}));
+  }
+
+  /**
+   * Unbinds an auditor from an audit rule.
+   * 
+   * @param request - DetachReviewersFromReviewRuleRequest
+   * @returns DetachReviewersFromReviewRuleResponse
+   */
+  async detachReviewersFromReviewRule(request: $_model.DetachReviewersFromReviewRuleRequest): Promise<$_model.DetachReviewersFromReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachReviewersFromReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Disables public network access for a Bastionhost instance.
    * 
    * @param request - DisableInstancePublicAccessRequest
@@ -3430,7 +4406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the public access switch for a specified Bastionhost instance.
+   * Enables public network access for a specified Bastionhost instance.
    * 
    * @param request - EnableInstancePublicAccessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3465,7 +4441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the public access switch for a specified Bastionhost instance.
+   * Enables public network access for a specified Bastionhost instance.
    * 
    * @param request - EnableInstancePublicAccessRequest
    * @returns EnableInstancePublicAccessResponse
@@ -4477,6 +5453,156 @@ export default class Client extends OpenApi {
   async getPolicyUserScope(request: $_model.GetPolicyUserScopeRequest): Promise<$_model.GetPolicyUserScopeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPolicyUserScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified project.
+   * 
+   * @param request - GetProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectResponse
+   */
+  async getProjectWithOptions(request: $_model.GetProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProjectResponse>(await this.callApi(params, req, runtime), new $_model.GetProjectResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified project.
+   * 
+   * @param request - GetProjectRequest
+   * @returns GetProjectResponse
+   */
+  async getProject(request: $_model.GetProjectRequest): Promise<$_model.GetProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a project authorization.
+   * 
+   * @param request - GetProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectAuthorizationResponse
+   */
+  async getProjectAuthorizationWithOptions(request: $_model.GetProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.GetProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Queries the details of a project authorization.
+   * 
+   * @param request - GetProjectAuthorizationRequest
+   * @returns GetProjectAuthorizationResponse
+   */
+  async getProjectAuthorization(request: $_model.GetProjectAuthorizationRequest): Promise<$_model.GetProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an audit policy.
+   * 
+   * @param request - GetReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetReviewRuleResponse
+   */
+  async getReviewRuleWithOptions(request: $_model.GetReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetReviewRuleResponse({}));
+  }
+
+  /**
+   * Queries the details of an audit policy.
+   * 
+   * @param request - GetReviewRuleRequest
+   * @returns GetReviewRuleResponse
+   */
+  async getReviewRule(request: $_model.GetReviewRuleRequest): Promise<$_model.GetReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getReviewRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6206,6 +7332,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of members that are not occupied by other projects.
+   * 
+   * @param request - ListMembersNotForProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMembersNotForProjectResponse
+   */
+  async listMembersNotForProjectWithOptions(request: $_model.ListMembersNotForProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMembersNotForProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMembersNotForProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMembersNotForProjectResponse>(await this.callApi(params, req, runtime), new $_model.ListMembersNotForProjectResponse({}));
+  }
+
+  /**
+   * Queries the list of members that are not occupied by other projects.
+   * 
+   * @param request - ListMembersNotForProjectRequest
+   * @returns ListMembersNotForProjectResponse
+   */
+  async listMembersNotForProject(request: $_model.ListMembersNotForProjectRequest): Promise<$_model.ListMembersNotForProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMembersNotForProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the network domains configured in a Bastionhost instance. Network domains define the connectivity between Bastionhost and the hosts or databases that it manages.
    * 
    * @param request - ListNetworkDomainsRequest
@@ -6696,6 +7888,452 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目授权列表
+   * 
+   * @param request - ListProjectAuthorizationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectAuthorizationsResponse
+   */
+  async listProjectAuthorizationsWithOptions(request: $_model.ListProjectAuthorizationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectAuthorizationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectAuthorizations",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectAuthorizationsResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectAuthorizationsResponse({}));
+  }
+
+  /**
+   * 查询项目授权列表
+   * 
+   * @param request - ListProjectAuthorizationsRequest
+   * @returns ListProjectAuthorizationsResponse
+   */
+  async listProjectAuthorizations(request: $_model.ListProjectAuthorizationsRequest): Promise<$_model.ListProjectAuthorizationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectAuthorizationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of notification recipients for a project.
+   * 
+   * @param request - ListProjectNotifyReceiversRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectNotifyReceiversResponse
+   */
+  async listProjectNotifyReceiversWithOptions(request: $_model.ListProjectNotifyReceiversRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectNotifyReceiversResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectNotifyReceivers",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectNotifyReceiversResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectNotifyReceiversResponse({}));
+  }
+
+  /**
+   * Queries the list of notification recipients for a project.
+   * 
+   * @param request - ListProjectNotifyReceiversRequest
+   * @returns ListProjectNotifyReceiversResponse
+   */
+  async listProjectNotifyReceivers(request: $_model.ListProjectNotifyReceiversRequest): Promise<$_model.ListProjectNotifyReceiversResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectNotifyReceiversWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
+   */
+  async listProjectsWithOptions(request: $_model.ListProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjects",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectsResponse({}));
+  }
+
+  /**
+   * 查询项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
+   */
+  async listProjects(request: $_model.ListProjectsRequest): Promise<$_model.ListProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of projects that the current user can manage.
+   * 
+   * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsForProjectAuthorizationPrincipalResponse
+   */
+  async listProjectsForProjectAuthorizationPrincipalWithOptions(request: $_model.ListProjectsForProjectAuthorizationPrincipalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectsForProjectAuthorizationPrincipalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectsForProjectAuthorizationPrincipal",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectsForProjectAuthorizationPrincipalResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectsForProjectAuthorizationPrincipalResponse({}));
+  }
+
+  /**
+   * Queries the list of projects that the current user can manage.
+   * 
+   * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
+   * @returns ListProjectsForProjectAuthorizationPrincipalResponse
+   */
+  async listProjectsForProjectAuthorizationPrincipal(request: $_model.ListProjectsForProjectAuthorizationPrincipalRequest): Promise<$_model.ListProjectsForProjectAuthorizationPrincipalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectsForProjectAuthorizationPrincipalWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of projects that are not associated with a project authorization.
+   * 
+   * @param request - ListProjectsNotForProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsNotForProjectAuthorizationResponse
+   */
+  async listProjectsNotForProjectAuthorizationWithOptions(request: $_model.ListProjectsNotForProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectsNotForProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectsNotForProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectsNotForProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectsNotForProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Queries the list of projects that are not associated with a project authorization.
+   * 
+   * @param request - ListProjectsNotForProjectAuthorizationRequest
+   * @returns ListProjectsNotForProjectAuthorizationResponse
+   */
+  async listProjectsNotForProjectAuthorization(request: $_model.ListProjectsNotForProjectAuthorizationRequest): Promise<$_model.ListProjectsNotForProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectsNotForProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of projects that are not associated with an audit policy.
+   * 
+   * @param request - ListProjectsNotForReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsNotForReviewRuleResponse
+   */
+  async listProjectsNotForReviewRuleWithOptions(request: $_model.ListProjectsNotForReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectsNotForReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjectsNotForReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectsNotForReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectsNotForReviewRuleResponse({}));
+  }
+
+  /**
+   * Queries the list of projects that are not associated with an audit policy.
+   * 
+   * @param request - ListProjectsNotForReviewRuleRequest
+   * @returns ListProjectsNotForReviewRuleResponse
+   */
+  async listProjectsNotForReviewRule(request: $_model.ListProjectsNotForReviewRuleRequest): Promise<$_model.ListProjectsNotForReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectsNotForReviewRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of audit policies.
+   * 
+   * @param request - ListReviewRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReviewRulesResponse
+   */
+  async listReviewRulesWithOptions(request: $_model.ListReviewRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListReviewRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListReviewRules",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListReviewRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListReviewRulesResponse({}));
+  }
+
+  /**
+   * Queries the list of audit policies.
+   * 
+   * @param request - ListReviewRulesRequest
+   * @returns ListReviewRulesResponse
+   */
+  async listReviewRules(request: $_model.ListReviewRulesRequest): Promise<$_model.ListReviewRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listReviewRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of authorization rules of a bastion host.
    * 
    * @param request - ListRulesRequest
@@ -7007,6 +8645,76 @@ export default class Client extends OpenApi {
   async listUserGroups(request: $_model.ListUserGroupsRequest): Promise<$_model.ListUserGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of user groups that a user has joined.
+   * 
+   * @param request - ListUserGroupsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsForUserResponse
+   */
+  async listUserGroupsForUserWithOptions(request: $_model.ListUserGroupsForUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserGroupsForUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pagingOff)) {
+      query["PagingOff"] = request.pagingOff;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserGroupsForUser",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserGroupsForUserResponse>(await this.callApi(params, req, runtime), new $_model.ListUserGroupsForUserResponse({}));
+  }
+
+  /**
+   * Queries the list of user groups that a user has joined.
+   * 
+   * @param request - ListUserGroupsForUserRequest
+   * @returns ListUserGroupsForUserResponse
+   */
+  async listUserGroupsForUser(request: $_model.ListUserGroupsForUserRequest): Promise<$_model.ListUserGroupsForUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserGroupsForUserWithOptions(request, runtime);
   }
 
   /**
@@ -7364,6 +9072,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves database instances to a different project in batches.
+   * 
+   * @param request - ModifyDatabasesProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDatabasesProjectResponse
+   */
+  async modifyDatabasesProjectWithOptions(request: $_model.ModifyDatabasesProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDatabasesProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseIds)) {
+      query["DatabaseIds"] = request.databaseIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetProjectId)) {
+      query["TargetProjectId"] = request.targetProjectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDatabasesProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDatabasesProjectResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDatabasesProjectResponse({}));
+  }
+
+  /**
+   * Moves database instances to a different project in batches.
+   * 
+   * @param request - ModifyDatabasesProjectRequest
+   * @returns ModifyDatabasesProjectResponse
+   */
+  async modifyDatabasesProject(request: $_model.ModifyDatabasesProjectRequest): Promise<$_model.ModifyDatabasesProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDatabasesProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies information about a host. The information includes the address, name, and description of the host and the operating system that the host runs.
    * 
    * @remarks
@@ -7454,7 +9220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+   * Modifies host account information, including the name, password, and private key of a host account.
    * 
    * @param request - ModifyHostAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7525,7 +9291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a host account on a host managed by a Bastionhost instance. You can update the account name, password, or SSH private key used for host logon.
+   * Modifies host account information, including the name, password, and private key of a host account.
    * 
    * @param request - ModifyHostAccountRequest
    * @returns ModifyHostAccountResponse
@@ -7798,6 +9564,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Moves hosts to a different project in a batch.
+   * 
+   * @param request - ModifyHostsProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHostsProjectResponse
+   */
+  async modifyHostsProjectWithOptions(request: $_model.ModifyHostsProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyHostsProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hostIds)) {
+      query["HostIds"] = request.hostIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetProjectId)) {
+      query["TargetProjectId"] = request.targetProjectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyHostsProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyHostsProjectResponse>(await this.callApi(params, req, runtime), new $_model.ModifyHostsProjectResponse({}));
+  }
+
+  /**
+   * Moves hosts to a different project in a batch.
+   * 
+   * @param request - ModifyHostsProjectRequest
+   * @returns ModifyHostsProjectResponse
+   */
+  async modifyHostsProject(request: $_model.ModifyHostsProjectRequest): Promise<$_model.ModifyHostsProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyHostsProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the settings of the Active Directory (AD) authentication server of a bastion host.
    * 
    * @param request - ModifyInstanceADAuthServerRequest
@@ -7926,6 +9750,9 @@ export default class Client extends OpenApi {
   /**
    * Modifies the information of a specified bastion host instance.
    * 
+   * @remarks
+   * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
+   * 
    * @param request - ModifyInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceAttributeResponse
@@ -7964,6 +9791,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the information of a specified bastion host instance.
+   * 
+   * @remarks
+   * You can call this operation to purchase an Encryption Service instance. This is a prepaid product, and the operation deducts the fee synchronously.
    * 
    * @param request - ModifyInstanceAttributeRequest
    * @returns ModifyInstanceAttributeResponse
@@ -8259,6 +10089,254 @@ export default class Client extends OpenApi {
   async modifyPolicy(request: $_model.ModifyPolicyRequest): Promise<$_model.ModifyPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a project.
+   * 
+   * @param request - ModifyProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyProjectResponse
+   */
+  async modifyProjectWithOptions(request: $_model.ModifyProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberIds)) {
+      query["MemberIds"] = request.memberIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyProject",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyProjectResponse>(await this.callApi(params, req, runtime), new $_model.ModifyProjectResponse({}));
+  }
+
+  /**
+   * Modifies a project.
+   * 
+   * @param request - ModifyProjectRequest
+   * @returns ModifyProjectResponse
+   */
+  async modifyProject(request: $_model.ModifyProjectRequest): Promise<$_model.ModifyProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies project authorization.
+   * 
+   * @param request - ModifyProjectAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyProjectAuthorizationResponse
+   */
+  async modifyProjectAuthorizationWithOptions(request: $_model.ModifyProjectAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyProjectAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyProjectAuthorization",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyProjectAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.ModifyProjectAuthorizationResponse({}));
+  }
+
+  /**
+   * Modifies project authorization.
+   * 
+   * @param request - ModifyProjectAuthorizationRequest
+   * @returns ModifyProjectAuthorizationResponse
+   */
+  async modifyProjectAuthorization(request: $_model.ModifyProjectAuthorizationRequest): Promise<$_model.ModifyProjectAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyProjectAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the notification recipient of a project.
+   * 
+   * @param request - ModifyProjectNotifyReceiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyProjectNotifyReceiverResponse
+   */
+  async modifyProjectNotifyReceiverWithOptions(request: $_model.ModifyProjectNotifyReceiverRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyProjectNotifyReceiverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.receiverId)) {
+      query["ReceiverId"] = request.receiverId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyProjectNotifyReceiver",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyProjectNotifyReceiverResponse>(await this.callApi(params, req, runtime), new $_model.ModifyProjectNotifyReceiverResponse({}));
+  }
+
+  /**
+   * Modifies the notification recipient of a project.
+   * 
+   * @param request - ModifyProjectNotifyReceiverRequest
+   * @returns ModifyProjectNotifyReceiverResponse
+   */
+  async modifyProjectNotifyReceiver(request: $_model.ModifyProjectNotifyReceiverRequest): Promise<$_model.ModifyProjectNotifyReceiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyProjectNotifyReceiverWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies an audit policy.
+   * 
+   * @param request - ModifyReviewRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyReviewRuleResponse
+   */
+  async modifyReviewRuleWithOptions(request: $_model.ModifyReviewRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyReviewRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reviewRuleId)) {
+      query["ReviewRuleId"] = request.reviewRuleId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyReviewRule",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyReviewRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyReviewRuleResponse({}));
+  }
+
+  /**
+   * Modifies an audit policy.
+   * 
+   * @param request - ModifyReviewRuleRequest
+   * @returns ModifyReviewRuleResponse
+   */
+  async modifyReviewRule(request: $_model.ModifyReviewRuleRequest): Promise<$_model.ModifyReviewRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyReviewRuleWithOptions(request, runtime);
   }
 
   /**
@@ -9924,7 +12002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+   * Unbinds and deletes tags from a specified Bastionhost instance in batches.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9971,7 +12049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from one or more Bastionhost instances. You can remove specific tag key-value pairs or all tags at once.
+   * Unbinds and deletes tags from a specified Bastionhost instance in batches.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
