@@ -17,6 +17,7 @@ export { GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles } from './Ge
 export { GetLindormEngineConfigResponseBodyEngineConfigs } from './GetLindormEngineConfigResponseBody';
 export { GetLindormFsUsedDetailResponseBodyLStorageUsageList } from './GetLindormFsUsedDetailResponseBody';
 export { GetLindormInstanceResponseBodyEngineList } from './GetLindormInstanceResponseBody';
+export { GetLindormInstanceResponseBodySingleZoneRiskAlert } from './GetLindormInstanceResponseBody';
 export { GetLindormInstanceEngineListResponseBodyEngineListNetInfoList } from './GetLindormInstanceEngineListResponseBody';
 export { GetLindormInstanceEngineListResponseBodyEngineList } from './GetLindormInstanceEngineListResponseBody';
 export { GetLindormInstanceListRequestTag } from './GetLindormInstanceListRequest';
@@ -25,6 +26,7 @@ export { GetLindormInstanceListResponseBodyInstanceList } from './GetLindormInst
 export { GetLindormV2InstanceResponseBodyEngineListConnectAddressList } from './GetLindormV2instanceResponseBody';
 export { GetLindormV2InstanceResponseBodyEngineListNodeGroup } from './GetLindormV2instanceResponseBody';
 export { GetLindormV2InstanceResponseBodyEngineList } from './GetLindormV2instanceResponseBody';
+export { GetLindormV2InstanceResponseBodySingleZoneRiskAlert } from './GetLindormV2instanceResponseBody';
 export { GetLindormV2InstanceResponseBodyStorageUsage } from './GetLindormV2instanceResponseBody';
 export { GetLindormV2InstanceResponseBodyWhiteIpList } from './GetLindormV2instanceResponseBody';
 export { GetLindormV2InstanceDetailsResponseBodyEngineListConnectAddressList } from './GetLindormV2instanceDetailsResponseBody';

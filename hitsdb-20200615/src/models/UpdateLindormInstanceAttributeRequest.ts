@@ -15,6 +15,7 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
    * true
    */
   deletionProtection?: boolean;
+  dispositionType?: string;
   /**
    * @remarks
    * The name of the instance.
@@ -35,16 +36,23 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 2026-10-01
+   */
+  plannedCompletionDate?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       deletionProtection: 'DeletionProtection',
+      dispositionType: 'DispositionType',
       instanceAlias: 'InstanceAlias',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plannedCompletionDate: 'PlannedCompletionDate',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -54,10 +62,12 @@ export class UpdateLindormInstanceAttributeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       deletionProtection: 'boolean',
+      dispositionType: 'string',
       instanceAlias: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      plannedCompletionDate: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',

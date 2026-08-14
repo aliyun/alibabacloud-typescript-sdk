@@ -13,28 +13,28 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'us-west-1': "hitsdb.us-west-1.aliyuncs.com",
+      'cn-wulanchabu': "hitsdb.cn-wulanchabu.aliyuncs.com",
+      'cn-beijing': "hitsdb.cn-beijing.aliyuncs.com",
+      'cn-qingdao': "hitsdb.cn-qingdao.aliyuncs.com",
+      'cn-shanghai': "hitsdb.cn-shanghai.aliyuncs.com",
+      'cn-hongkong': "hitsdb.cn-hongkong.aliyuncs.com",
+      'cn-zhangjiakou': "hitsdb.cn-zhangjiakou.aliyuncs.com",
+      'cn-shenzhen': "hitsdb.cn-shenzhen.aliyuncs.com",
+      'ap-northeast-1': "hitsdb.ap-northeast-1.aliyuncs.com",
+      'cn-chengdu': "hitsdb.cn-chengdu.aliyuncs.com",
+      'ap-southeast-1': "hitsdb.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "hitsdb.ap-southeast-3.aliyuncs.com",
+      'cn-huhehaote': "hitsdb.cn-huhehaote.aliyuncs.com",
+      'ap-southeast-5': "hitsdb.ap-southeast-5.aliyuncs.com",
+      'cn-hangzhou': "hitsdb.cn-hangzhou.aliyuncs.com",
       'us-east-1': "hitsdb.us-east-1.aliyuncs.com",
       'eu-west-1': "hitsdb.eu-west-1.aliyuncs.com",
+      'us-west-1': "hitsdb.us-west-1.aliyuncs.com",
       'eu-central-1': "hitsdb.eu-central-1.aliyuncs.com",
-      'cn-zhangjiakou': "hitsdb.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu': "hitsdb.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen-finance-1': "hitsdb.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "hitsdb.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "hitsdb.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "hitsdb.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "hitsdb.cn-qingdao.aliyuncs.com",
-      'cn-north-2-gov-1': "hitsdb.cn-north-2-gov-1.aliyuncs.com",
-      'cn-huhehaote': "hitsdb.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "hitsdb.cn-hongkong.aliyuncs.com",
       'cn-hangzhou-finance': "hitsdb.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "hitsdb.cn-hangzhou.aliyuncs.com",
-      'cn-chengdu': "hitsdb.cn-chengdu.aliyuncs.com",
-      'cn-beijing': "hitsdb.cn-beijing.aliyuncs.com",
-      'ap-southeast-5': "hitsdb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "hitsdb.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "hitsdb.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-1': "hitsdb.ap-northeast-1.aliyuncs.com",
+      'cn-shenzhen-finance-1': "hitsdb.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shanghai-finance-1': "hitsdb.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-north-2-gov-1': "hitsdb.cn-north-2-gov-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("hitsdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -5140,6 +5140,10 @@ export default class Client extends OpenApi {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
+    if (!$dara.isNull(request.dispositionType)) {
+      query["DispositionType"] = request.dispositionType;
+    }
+
     if (!$dara.isNull(request.instanceAlias)) {
       query["InstanceAlias"] = request.instanceAlias;
     }
@@ -5154,6 +5158,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.plannedCompletionDate)) {
+      query["PlannedCompletionDate"] = request.plannedCompletionDate;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {

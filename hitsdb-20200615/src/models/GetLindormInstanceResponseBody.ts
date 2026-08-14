@@ -148,6 +148,38 @@ export class GetLindormInstanceResponseBodyEngineList extends $dara.Model {
   }
 }
 
+export class GetLindormInstanceResponseBodySingleZoneRiskAlert extends $dara.Model {
+  confirmDate?: string;
+  dispositionType?: string;
+  needAlert?: boolean;
+  plannedCompletionDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confirmDate: 'ConfirmDate',
+      dispositionType: 'DispositionType',
+      needAlert: 'NeedAlert',
+      plannedCompletionDate: 'PlannedCompletionDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confirmDate: 'string',
+      dispositionType: 'string',
+      needAlert: 'boolean',
+      plannedCompletionDate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLindormInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -743,6 +775,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
    * lindorm
    */
   serviceType?: string;
+  singleZoneRiskAlert?: GetLindormInstanceResponseBodySingleZoneRiskAlert;
   /**
    * @remarks
    * The ID of the vSwitch in the secondary zone for the multi-zone instance. The vSwitch must be deployed in the zone that is specified by `StandbyZoneId`.
@@ -838,6 +871,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
+      singleZoneRiskAlert: 'SingleZoneRiskAlert',
       standbyVSwitchId: 'StandbyVSwitchId',
       standbyZoneId: 'StandbyZoneId',
       vpcId: 'VpcId',
@@ -901,6 +935,7 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       serviceType: 'string',
+      singleZoneRiskAlert: GetLindormInstanceResponseBodySingleZoneRiskAlert,
       standbyVSwitchId: 'string',
       standbyZoneId: 'string',
       vpcId: 'string',
@@ -912,6 +947,9 @@ export class GetLindormInstanceResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.engineList)) {
       $dara.Model.validateArray(this.engineList);
+    }
+    if(this.singleZoneRiskAlert && typeof (this.singleZoneRiskAlert as any).validate === 'function') {
+      (this.singleZoneRiskAlert as any).validate();
     }
     super.validate();
   }

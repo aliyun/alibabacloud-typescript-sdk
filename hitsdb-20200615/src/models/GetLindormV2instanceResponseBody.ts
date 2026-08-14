@@ -140,6 +140,38 @@ export class GetLindormV2InstanceResponseBodyEngineList extends $dara.Model {
   }
 }
 
+export class GetLindormV2InstanceResponseBodySingleZoneRiskAlert extends $dara.Model {
+  confirmDate?: string;
+  dispositionType?: string;
+  needAlert?: string;
+  plannedCompletionDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confirmDate: 'ConfirmDate',
+      dispositionType: 'DispositionType',
+      needAlert: 'NeedAlert',
+      plannedCompletionDate: 'PlannedCompletionDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confirmDate: 'string',
+      dispositionType: 'string',
+      needAlert: 'string',
+      plannedCompletionDate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLindormV2InstanceResponseBodyStorageUsage extends $dara.Model {
   capacityByDiskCategory?: { [key: string]: any }[];
   engineUsage?: { [key: string]: any };
@@ -230,6 +262,7 @@ export class GetLindormV2InstanceResponseBody extends $dara.Model {
   requestId?: string;
   resourceGroupId?: string;
   serviceType?: string;
+  singleZoneRiskAlert?: GetLindormV2InstanceResponseBodySingleZoneRiskAlert;
   standbyVSwitchId?: string;
   standbyZoneId?: string;
   storageUsage?: GetLindormV2InstanceResponseBodyStorageUsage;
@@ -271,6 +304,7 @@ export class GetLindormV2InstanceResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       serviceType: 'ServiceType',
+      singleZoneRiskAlert: 'SingleZoneRiskAlert',
       standbyVSwitchId: 'StandbyVSwitchId',
       standbyZoneId: 'StandbyZoneId',
       storageUsage: 'StorageUsage',
@@ -315,6 +349,7 @@ export class GetLindormV2InstanceResponseBody extends $dara.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       serviceType: 'string',
+      singleZoneRiskAlert: GetLindormV2InstanceResponseBodySingleZoneRiskAlert,
       standbyVSwitchId: 'string',
       standbyZoneId: 'string',
       storageUsage: GetLindormV2InstanceResponseBodyStorageUsage,
@@ -329,6 +364,9 @@ export class GetLindormV2InstanceResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.engineList)) {
       $dara.Model.validateArray(this.engineList);
+    }
+    if(this.singleZoneRiskAlert && typeof (this.singleZoneRiskAlert as any).validate === 'function') {
+      (this.singleZoneRiskAlert as any).validate();
     }
     if(this.storageUsage && typeof (this.storageUsage as any).validate === 'function') {
       (this.storageUsage as any).validate();
