@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ChatRequestMessages extends $dara.Model {
+  /**
+   * @remarks
+   * The conversation text content.
+   * 
+   * @example
+   * Hello
+   */
   content?: string;
+  /**
+   * @remarks
+   * The role of the message.
+   * 
+   * @example
+   * user
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,18 @@ export class ChatRequestMessages extends $dara.Model {
 }
 
 export class ChatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The messages.
+   */
   messages?: ChatRequestMessages[];
+  /**
+   * @remarks
+   * The ID of the Q&A session.
+   * 
+   * @example
+   * UUID
+   */
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {

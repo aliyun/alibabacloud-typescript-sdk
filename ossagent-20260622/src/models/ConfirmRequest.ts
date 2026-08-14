@@ -3,8 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfirmRequestToolCalls extends $dara.Model {
+  /**
+   * @remarks
+   * The tool ID, returned by the Chat operation.
+   * 
+   * @example
+   * call_662cc029b3444d8d923a7ea6
+   */
   id?: string;
+  /**
+   * @remarks
+   * The command to execute for the tool calling operation, returned by the Chat operation.
+   * 
+   * @example
+   * {
+   *     "command": "api put-bucket-acl --bucket xxx --acl private",
+   *     "region": "cn-hangzhou"
+   * }
+   */
   modifiedInput?: { [key: string]: any };
+  /**
+   * @remarks
+   * The consumer name.
+   * 
+   * @example
+   * ossutil_safe
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +59,42 @@ export class ConfirmRequestToolCalls extends $dara.Model {
 }
 
 export class ConfirmRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to approve the tool execution.
+   * 
+   * @example
+   * true
+   */
   confirmed?: boolean;
+  /**
+   * @remarks
+   * The current execution phase.
+   * 
+   * @example
+   * PARAM_INPUT
+   */
   phase?: string;
+  /**
+   * @remarks
+   * The reason for whether to call the tool.
+   * 
+   * @example
+   * null
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The Q&A session ID.
+   * 
+   * @example
+   * UUID
+   */
   sessionId?: string;
+  /**
+   * @remarks
+   * The tool invocations.
+   */
   toolCalls?: ConfirmRequestToolCalls[];
   static names(): { [key: string]: string } {
     return {

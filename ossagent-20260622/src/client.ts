@@ -11,7 +11,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ossagent", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聊天流式接口
+   * Initiates a streaming chat session.
    * 
    * @param request - ChatRequest
    * @param headers - map
@@ -81,7 +81,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聊天流式接口
+   * Initiates a streaming chat session.
    * 
    * @param request - ChatRequest
    * @param headers - map
@@ -118,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聊天流式接口
+   * Initiates a streaming chat session.
    * 
    * @param request - ChatRequest
    * @returns ChatResponse
@@ -130,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工具确认接口
+   * Confirms a tool calling operation.
    * 
    * @param request - ConfirmRequest
    * @param headers - map
@@ -193,7 +193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工具确认接口
+   * Confirms a tool calling operation.
    * 
    * @param request - ConfirmRequest
    * @param headers - map
@@ -242,7 +242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工具确认接口
+   * Confirms a tool calling operation.
    * 
    * @param request - ConfirmRequest
    * @returns ConfirmResponse
@@ -254,7 +254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聊天中断接口
+   * Interrupts a chat session.
    * 
    * @param request - InterruptRequest
    * @param headers - map
@@ -281,7 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 聊天中断接口
+   * Interrupts a chat session.
    * 
    * @param request - InterruptRequest
    * @returns InterruptResponse
