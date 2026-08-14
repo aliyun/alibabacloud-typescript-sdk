@@ -7,9 +7,9 @@ export class DeleteFailoverTestJobRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class DeleteFailoverTestJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the failover test job.
+   * The ID of the failover test job. This ID is returned by the CreateFailoverTestJob operation and can also be obtained by calling DescribeFailoverTestJobs. You cannot construct this value manually.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DeleteFailoverTestJobRequest extends $dara.Model {
    * @remarks
    * The region ID of the failover test job. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
    * 
    * @example
    * ch-hangzhou

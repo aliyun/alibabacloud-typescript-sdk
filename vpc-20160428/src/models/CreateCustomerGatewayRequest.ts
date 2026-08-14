@@ -53,9 +53,9 @@ export class CreateCustomerGatewayRequestTags extends $dara.Model {
 export class CreateCustomerGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The Autonomous System Number (ASN) of the gateway device in the on-premises data center. This parameter is required if you plan to enable Border Gateway Protocol (BGP) dynamic routing for the IPsec-VPN connection. Valid values: 1 to 4294967295. The value 45104 is not supported.
+   * The autonomous system number (ASN) of the gateway device in the on-premises data center. This parameter is required if you plan to enable the BGP dynamic routing protocol for the IPsec-VPN connection. Valid values: 1 to 4294967295. The value 45104 is not supported.
    * 
-   * **Asn** is a 4-byte number that can be entered in the two-segment format: the first 16 bits.the last 16 bits. Each segment is entered in decimal notation.
+   * **Asn** is a 4-byte number. You can enter the value in two-segment format: the first 16 bits.the last 16 bits. Each segment is entered in decimal format.
    * 
    * For example, if you enter 123.456, the ASN is 123 × 65536 + 456 = 8061384.
    * 
@@ -149,7 +149,7 @@ export class CreateCustomerGatewayRequest extends $dara.Model {
    * The ID of the resource group to which the customer gateway belongs.
    * 
    * - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group ID.
-   * - If you do not specify a resource group, the customer gateway is added to the default resource group after it is created.
+   * - If you do not specify a resource group, the customer gateway belongs to the default resource group after it is created.
    * 
    * @example
    * rg-aek2qo2h4jy****
@@ -159,7 +159,7 @@ export class CreateCustomerGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tags to add to the customer gateway.
+   * The tags to add to the customer gateway.
    * 
    * You can add up to 20 tags to a customer gateway at a time.
    */

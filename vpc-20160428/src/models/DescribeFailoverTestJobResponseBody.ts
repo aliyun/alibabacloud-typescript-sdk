@@ -23,7 +23,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   jobDuration?: string;
   /**
    * @remarks
-   * The ID of the failover test job.
+   * The failover test job ID.
    * 
    * @example
    * ftj-bp1yh6mvi13aq3g8w****
@@ -33,9 +33,9 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
    * @remarks
    * The failover test type. Valid values:
    * 
-   * - **StartNow**: starts immediately. The failover test starts immediately after the job is created.
+   * - **StartNow**: start immediately. The test starts immediately after the job is created.
    * 
-   * - **StartLater**: starts later. Only the job is created without starting the test.
+   * - **StartLater**: start later. Only the test job is created without starting the test.
    * 
    * @example
    * StartNow
@@ -58,7 +58,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type for the failover test. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
+   * The failover test resource type. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
    * 
    * @example
    * PHYSICALCONNECTION
@@ -66,7 +66,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   resourceType?: string;
   /**
    * @remarks
-   * The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+   * The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format as defined by ISO 8601.
    * 
    * @example
    * 2023-11-21T14:00:00Z
@@ -92,7 +92,7 @@ export class DescribeFailoverTestJobResponseBodyFailoverTestJobModel extends $da
   status?: string;
   /**
    * @remarks
-   * The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+   * The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format as defined by ISO 8601.
    * 
    * @example
    * 2023-11-21T15:00:00Z

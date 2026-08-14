@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic item.
+   * The diagnosis item.
    * 
    * - **RouteEntryConflict**: route conflict.
    * - **VpnRouteQuota**: VPN gateway destination route quota.
@@ -15,7 +15,7 @@ export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara
    * - **VcoUserInternetIpConnectivity**: public network connectivity of the customer gateway.
    * - **VcoPrivateConnectivity**: private network connectivity.
    * 
-   * For more information about each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
+   * For more information about each diagnosis item, see [Background information about one-click diagnosis](https://help.aliyun.com/document_detail/190330.html).
    * 
    * @example
    * RouteEntryConflict
@@ -23,9 +23,9 @@ export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara
   diagnoseName?: string;
   /**
    * @remarks
-   * The diagnostic result of the diagnostic item.
+   * The diagnosis result of the diagnosis item.
    * 
-   * The operation returns different information for each diagnostic item:
+   * The operation returns different information for each diagnosis item:
    * 
    * - **RouteEntryConflict**: The system returns information about the route conflict.
    * - **VpnRouteQuota**:
@@ -61,13 +61,13 @@ export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara
   diagnoseResultDescription?: string;
   /**
    * @remarks
-   * The diagnostic result level of the diagnostic item.
+   * The diagnosis result level of the diagnosis item.
    * 
    * - **normal**: Normal.
    * - **warning**: Warning.
    * - **error**: Error.
    * 
-   * For more information about the diagnostic result levels of each diagnostic item, see [One-click diagnostics background information](https://help.aliyun.com/document_detail/190330.html).
+   * For more information about the diagnosis result levels of each diagnosis item, see [Background information about one-click diagnosis](https://help.aliyun.com/document_detail/190330.html).
    * 
    * @example
    * normal
@@ -101,7 +101,7 @@ export class GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult extends $dara
 export class GetVpnGatewayDiagnoseResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the diagnostic started.
+   * The time when the diagnosis started.
    * 
    * The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
@@ -111,7 +111,7 @@ export class GetVpnGatewayDiagnoseResultResponseBody extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The diagnostic ID.
+   * The diagnosis ID.
    * 
    * @example
    * vpndgn-uf6sgneym02lxyuv4****
@@ -119,12 +119,12 @@ export class GetVpnGatewayDiagnoseResultResponseBody extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The list of diagnostic items.
+   * The list of diagnosis items.
    */
   diagnoseResult?: GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult[];
   /**
    * @remarks
-   * The time when the diagnostic ended.
+   * The time when the diagnosis ended.
    * 
    * The time is displayed in UTC in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
@@ -134,7 +134,7 @@ export class GetVpnGatewayDiagnoseResultResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The number of diagnostic items that have been completed.
+   * The number of diagnosis items that have been completed.
    * 
    * @example
    * 7
@@ -168,7 +168,7 @@ export class GetVpnGatewayDiagnoseResultResponseBody extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The total number of diagnostic items.
+   * The total number of diagnosis items.
    * 
    * @example
    * 7

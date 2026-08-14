@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnConnectionsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. If you specify this parameter, the value cannot be an empty string.
+   * The tag key. This value cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * You can specify up to 20 tag keys at a time.
    * 
@@ -19,7 +19,7 @@ export class DescribeVpnConnectionsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
    * 
@@ -63,7 +63,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -79,9 +79,9 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the IPsec-VPN connection. 
+   * The region ID of the IPsec-VPN connection.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPsec-VPN connection belongs.
    * 
-   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -104,8 +104,6 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   /**
    * @remarks
    * The list of tags bound to the IPsec-VPN connection.
-   * 
-   * You can specify up to 20 tags at a time.
    */
   tag?: DescribeVpnConnectionsRequestTag[];
   /**

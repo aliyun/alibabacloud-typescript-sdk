@@ -15,8 +15,8 @@ export class CreateVpnGatewayResponseBody extends $dara.Model {
    * @remarks
    * The order ID.
    * 
-   * <props="china">If you did not enable automatic payment for the VPN gateway bill, go to [Expenses and Costs](https://usercenter2.aliyun.com/home) to complete the payment.
-   * <props="intl">If you did not enable automatic payment for the VPN gateway bill, go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/billing/#/account/overview) to complete the payment.
+   * <props="china">If you did not enable automatic payment for the VPN gateway, go to [Expenses and Costs](https://usercenter2.aliyun.com/home) to complete the payment.
+   * <props="intl">If you did not enable automatic payment for the VPN gateway, go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/billing/#/account/overview) to complete the payment.
    * 
    * @example
    * 208240895400460

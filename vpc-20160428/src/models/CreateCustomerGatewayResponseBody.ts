@@ -7,7 +7,7 @@ export class CreateCustomerGatewayResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the customer gateway was created. Unit: milliseconds.
    * 
-   * The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1493363486000
@@ -15,7 +15,7 @@ export class CreateCustomerGatewayResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The instance ID of the customer gateway instance.
+   * The instance ID of the customer gateway.
    * 
    * @example
    * cgw-bp1jrawp82av6bws9****

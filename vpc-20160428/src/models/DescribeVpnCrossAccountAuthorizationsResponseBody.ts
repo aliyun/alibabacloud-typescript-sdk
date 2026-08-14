@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthorizations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the IPsec-VPN connection belongs.
+   * The ID of the Alibaba Cloud account that owns the IPsec-VPN connection.
    * 
    * @example
    * 1250123456123456
@@ -13,7 +13,7 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
   aliUid?: number;
   /**
    * @remarks
-   * The instance ID of the CEN instance to which the IPsec-VPN connection grants authorization.
+   * The instance ID of the CEN instance to which the IPsec-VPN connection authorization is granted.
    * 
    * @example
    * cen-vv8h0t3klfpaae****
@@ -23,7 +23,7 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
    * @remarks
    * The type of resource to which the IPsec-VPN connection is authorized.
    * 
-   * The value is **CEN** only, which indicates that the IPsec-VPN connection is authorized to a cross-account Cloud Enterprise Network (CEN) instance. The IPsec-VPN connection can be attached to a transit router instance under the cross-account CEN instance.
+   * The value is **CEN** only, which indicates that the IPsec-VPN connection is authorized to a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account. The IPsec-VPN connection can be attached to a transit router instance under the cross-account CEN instance.
    * 
    * @example
    * CEN
@@ -39,9 +39,9 @@ export class DescribeVpnCrossAccountAuthorizationsResponseBodyCrossAccountAuthor
   bindUid?: number;
   /**
    * @remarks
-   * The timestamp when the cross-account authorization of the IPsec-VPN connection was created.
+   * The timestamp when the cross-account authorization was created for the IPsec-VPN connection.
    * 
-   * The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the cross-account authorization was created.
+   * The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the cross-account authorization was created.
    * 
    * @example
    * 1658201810000

@@ -7,9 +7,9 @@ export class DeleteVbrHaRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
+   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
    * @example
    * CBCE910E-D396-4944-8****
@@ -17,7 +17,7 @@ export class DeleteVbrHaRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The instance ID of the VBR failover group.
+   * The instance ID of the VBR failover group, which is returned by the CreateVbrHa operation. When you create a failover group, the two VBRs must be in the same region, added to the same Express Connect Router (ECR) or the same Cloud Enterprise Network (CEN) instance, and both must have BFD enabled.
    * 
    * This parameter is required.
    * 

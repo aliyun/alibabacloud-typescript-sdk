@@ -75,7 +75,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The business status of the router interface. Valid values:
    * 
-   * - **Normal**: Normal.
+   * - **Normal**: normal.
    * 
    * - **FinancialLocked**: locked due to overdue payment.
    * 
@@ -106,7 +106,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the connection was established.
+   * The time when the connection was established. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-04-14T08:58:04Z
@@ -114,7 +114,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   connectedTime?: string;
   /**
    * @remarks
-   * The time when the router interface was created.
+   * The time when the router interface was created. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-04-14T08:57:24Z
@@ -122,11 +122,11 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the connection is a cross-border connection. Valid values:
+   * Indicates whether this is a cross-border connection. Valid values:
    * 
-   * - **false**: The connection is not a cross-border connection.
+   * - **false**: No.
    * 
-   * - **true**: The connection is a cross-border connection.
+   * - **true**: Yes.
    * 
    * @example
    * false
@@ -137,12 +137,12 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * The description of the router interface.
    * 
    * @example
-   * 对端接口
+   * Peer interface
    */
   description?: string;
   /**
    * @remarks
-   * The end time of the data retrieval.
+   * The end time of the data retrieval. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2999-09-08T16:00:00Z
@@ -150,10 +150,10 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on the VBR and VPC to be automatically connected after they are created. Valid values:
+   * Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on both the VBR and VPC sides to automatically connect after creation. Valid values:
    * 
-   * - **true**: The router interface was created in fast link mode.
-   * - **false** (default): The router interface was not created in fast link mode.
+   * - **true**: Yes.
+   * - **false** (default): No.
    * 
    * 
    * > -  This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
@@ -175,9 +175,9 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether renewal data exists. Valid values:
    * 
-   * - **false**: No renewal data exists.
+   * - **false**: No.
    * 
-   * - **true**: Renewal data exists.
+   * - **true**: Yes.
    * 
    * @example
    * false
@@ -201,7 +201,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   hcThreshold?: number;
   /**
    * @remarks
-   * The source IP address of the health check.
+   * The health check source IP address.
    * 
    * @example
    * 1.1.XX.XX
@@ -212,7 +212,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * The health check status. Valid values:
    * 
    * - **Abnormal**: abnormal.
-   * - **Normal**: Normal.
+   * - **Normal**: normal.
    * - **NoRedundantRoute**: no redundant route configured.
    * - **NoHealthCheckConfig**: no health check configured.
    * 
@@ -222,7 +222,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   healthCheckStatus?: string;
   /**
    * @remarks
-   * The target IP address of the health check.
+   * The health check target IP address.
    * 
    * @example
    * 2.2.XX.XX
@@ -230,7 +230,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   healthCheckTargetIp?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * successful
@@ -241,7 +241,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
    * The name of the router interface.
    * 
    * @example
-   * 路由器接口1
+   * RouterInterface1
    */
   name?: string;
   /**
@@ -263,7 +263,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The business status of the peer router interface. Valid values:
-   * - **Normal**: Normal.
+   * - **Normal**: normal.
    * - **FinancialLocked**: locked due to overdue payment.
    * - **SecurityLocked**: locked due to security risk control.
    * 
@@ -373,7 +373,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The renewal active time.
+   * The renewal active time. The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-06-11T16:00:00Z
@@ -397,7 +397,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   reservationInternetChargeType?: string;
   /**
    * @remarks
-   * The type of the renewal order. Valid values: **RENEW**, which indicates a renewal order.
+   * The renewal order type. Valid values: **RENEW**, which indicates a renewal order.
    * 
    * @example
    * RENEW
@@ -499,7 +499,7 @@ export class DescribeRouterInterfaceAttributeResponseBody extends $dara.Model {
   tags?: DescribeRouterInterfaceAttributeResponseBodyTags;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the routing interface belongs.
+   * The ID of the virtual private cloud (VPC) to which the router interface belongs.
    * 
    * @example
    * vpc-bp1b49rqrybk45nio****

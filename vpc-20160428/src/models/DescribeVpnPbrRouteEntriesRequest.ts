@@ -37,7 +37,7 @@ export class DescribeVpnPbrRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The VPN gateway instance ID.
+   * The instance ID of the VPN gateway.
    * 
    * This parameter is required.
    * 

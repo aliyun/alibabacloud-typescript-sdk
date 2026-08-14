@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address IPv4 CIDR block that the QoS rule matches for traffic.
+   * The destination IP address IPv4 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
@@ -15,7 +15,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   dstCidr?: string;
   /**
    * @remarks
-   * The destination IP address IPv6 CIDR block that the QoS rule matches for traffic.
+   * The destination IP address IPv6 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcCidr** or **DstCidr**.
    * 
@@ -25,7 +25,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   dstIPv6Cidr?: string;
   /**
    * @remarks
-   * The destination port range that the QoS rule matches. Valid values: **0** to **65535**. A value of -1 indicates that no match is applied. Only a single port number can be specified. The start and end port numbers must be the same. The destination port range is fixed for different protocol types. Valid values:
+   * The destination port range for traffic matching in the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that no matching is performed. Only a single port number can be specified. The start and end port numbers must be the same. The destination port range is fixed for different protocol types. Valid values:
    * 
    * - **ALL**: -1/-1, not editable.
    * 
@@ -65,7 +65,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   dstPortRange?: string;
   /**
    * @remarks
-   * The DSCP value that the QoS rule matches. Valid values: **0** to **63**. A value of -1 indicates that no match is applied.
+   * The DSCP value for traffic matching in the QoS rule. Valid values: **0** to **63**. A value of -1 indicates that no matching is performed.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   matchDscp?: number;
   /**
    * @remarks
-   * The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. QoS rule priorities must be unique within the same QoS policy.
+   * The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. The priority of each QoS rule must be unique within the same QoS policy.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   queueId?: string;
   /**
    * @remarks
-   * The remarked DSCP value in the traffic. Valid values: **0** to **63**. A value of -1 indicates that the DSCP value is not modified.
+   * The DSCP value to remark in the traffic. Valid values: **0** to **63**. A value of -1 indicates that no remarking is performed.
    * 
    * @example
    * 1
@@ -173,7 +173,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   ruleName?: string;
   /**
    * @remarks
-   * The source IPv4 CIDR block that the QoS rule matches.
+   * The source IPv4 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
    * 
@@ -183,7 +183,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   srcCidr?: string;
   /**
    * @remarks
-   * The source IPv6 CIDR block that the QoS rule matches.
+   * The source IPv6 CIDR block for traffic matching in the QoS rule.
    * 
    * > You cannot specify this parameter together with **SrcCidr** or **DstCidr**.
    * 
@@ -193,7 +193,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
   srcIPv6Cidr?: string;
   /**
    * @remarks
-   * The source port range that the QoS rule matches. Valid values: **0** to **65535**. A value of -1 indicates that no match is applied. Only a single port number can be specified. The start and end port numbers must be the same.
+   * The source port range for traffic matching in the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that no matching is performed. Only a single port number can be specified. The start and end port numbers must be the same.
    * 
    * @example
    * -1/-1
@@ -203,7 +203,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
    * @remarks
    * The status of the QoS rule. Valid values:
    * 
-   * - **Normal**: active.
+   * - **Normal**: available.
    * 
    * - **Configuring**: being configured.
    * 
@@ -315,7 +315,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueList extends 
   queueName?: string;
   /**
    * @remarks
-   * The type of the QoS queue. Valid values:
+   * The QoS queue type. Valid values:
    * 
    * - **High**: high-priority queue.
    * 
@@ -338,7 +338,7 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueList extends 
    * @remarks
    * The status of the QoS queue. Valid values:
    * 
-   * - **Normal**: active.
+   * - **Normal**: available.
    * 
    * - **Configuring**: being configured.
    * 

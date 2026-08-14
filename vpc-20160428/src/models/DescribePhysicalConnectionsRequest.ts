@@ -90,6 +90,8 @@ export class DescribePhysicalConnectionsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
+   * Generate a unique value from your client to ensure that different requests have unique values. ClientToken supports only ASCII characters.
+   * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001
    */
@@ -128,6 +130,8 @@ export class DescribePhysicalConnectionsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Express Connect circuit.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

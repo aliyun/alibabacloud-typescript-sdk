@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseVpnGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic ID.
+   * The diagnosis ID.
    * 
-   * After this operation returns the diagnostic ID, you can call the [GetVpnGatewayDiagnoseResult](https://help.aliyun.com/document_detail/2521963.html) operation to query the diagnostic report.
+   * After this operation returns the diagnosis ID, you can call the [GetVpnGatewayDiagnoseResult](https://help.aliyun.com/document_detail/2521963.html) operation to query the diagnostic report.
    * 
    * @example
    * vpndgn-uf6kuxbe3iv028k3s****

@@ -69,7 +69,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigBgpConfig
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The IKE phase authentication algorithm.
+   * The authentication algorithm of the IKE phase.
    * 
    * @example
    * sha1
@@ -77,7 +77,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The IKE phase encryption algorithm.
+   * The encryption algorithm of the IKE phase.
    * 
    * @example
    * aes
@@ -85,7 +85,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The IKE phase lifetime. Unit: seconds.
+   * The lifetime of the IKE phase. Unit: seconds.
    * 
    * @example
    * 86400
@@ -93,10 +93,10 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode. Valid values:
+   * The IKE negotiation mode.
    * 
-   * - **main**: Main mode. This mode provides high security during negotiation.
-   * - **aggressive**: Aggressive mode. This mode supports fast negotiation and a higher success rate.
+   * - **main**: Main mode. This mode offers high negotiation security.
+   * - **aggressive**: Aggressive mode. This mode supports fast negotiation and a high negotiation success rate.
    * 
    * @example
    * main
@@ -104,7 +104,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
   ikeMode?: string;
   /**
    * @remarks
-   * The DH group in the IKE phase.
+   * The DH group of the IKE phase.
    * 
    * @example
    * group2
@@ -182,7 +182,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig
 export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The IPsec phase authentication algorithm.
+   * The authentication algorithm of the IPsec phase.
    * 
    * @example
    * sha1
@@ -190,7 +190,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The IPsec phase encryption algorithm.
+   * The encryption algorithm of the IPsec phase.
    * 
    * @example
    * aes
@@ -198,7 +198,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The IPsec phase lifetime. Unit: seconds.
+   * The lifetime of the IPsec phase. Unit: seconds.
    * 
    * @example
    * 86400
@@ -206,7 +206,7 @@ export class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConf
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH group in the IPsec phase.
+   * The DH group of the IPsec phase.
    * 
    * @example
    * group2

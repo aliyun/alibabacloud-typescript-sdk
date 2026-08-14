@@ -29,7 +29,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode. Valid values:
+   * The IKE version negotiation mode. Valid values:
    * 
    * **main**: main mode. Negotiations are highly secure.
    * 
@@ -55,7 +55,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier of the IPsec server. FQDN and IP address formats are supported. The default value is the public IP address of the selected VPN gateway.
+   * The identifier of the IPsec server. The value can be in the FQDN or IP address format. The default value is the public IP address of the selected VPN gateway.
    * 
    * @example
    * 116.64.XX.XX
@@ -63,7 +63,7 @@ export class ListIpsecServersResponseBodyIpsecServersIkeConfig extends $dara.Mod
   localId?: string;
   /**
    * @remarks
-   * The identifier of the peer. FQDN and IP address formats are supported. The default value is empty.
+   * The identifier of the peer. The value can be in the FQDN or IP address format. The default value is empty.
    * 
    * @example
    * 139.67.XX.XX
@@ -177,7 +177,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
    * @remarks
    * The time when the IPsec server was created.
    * 
-   * T is the delimiter. Z indicates UTC.
+   * T is the delimiter and Z indicates UTC (Coordinated Universal Time).
    * 
    * @example
    * 2018-12-03T10:11:55Z
@@ -248,7 +248,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   /**
    * @remarks
    * The maximum number of SSL-VPN connections supported by the VPN gateway.
-   * > SSL-VPN and the IPsec server share SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
+   * > SSL-VPN and the IPsec server share the SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
    * 
    * @example
    * 5
@@ -300,7 +300,7 @@ export class ListIpsecServersResponseBodyIpsecServers extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the IPsec server belongs.
+   * The resource group ID of the IPsec server.
    * 
    * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
@@ -395,7 +395,7 @@ export class ListIpsecServersResponseBody extends $dara.Model {
    * @remarks
    * The pagination token. Valid values:
    * 
-   * - If **NextToken** is empty, no subsequent query is to be sent.
+   * - If **NextToken** is empty, no subsequent query exists.
    * 
    * - If **NextToken** is returned, the value indicates the token for the next query.
    * 

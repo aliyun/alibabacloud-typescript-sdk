@@ -27,7 +27,7 @@ export class DescribeVpnConnectionLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeVpnConnectionLogsRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

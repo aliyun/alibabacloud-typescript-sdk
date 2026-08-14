@@ -58,7 +58,7 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the SSL client certificate was created. Unit: milliseconds.
    * 
-   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the Unix format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the SSL client certificate was created.
    * 
    * @example
    * 1552550980000
@@ -68,7 +68,7 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the SSL client certificate expires. Unit: milliseconds.
    * 
-   * The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the Unix format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the SSL client certificate expires.
    * 
    * @example
    * 1647158980000
@@ -118,7 +118,7 @@ export class DescribeSslVpnClientCertResponseBody extends $dara.Model {
   sslVpnClientCertId?: string;
   /**
    * @remarks
-   * The ID of the SSL server.
+   * The SSL server ID.
    * 
    * @example
    * vss-bp155e9yclsg1xgq4****

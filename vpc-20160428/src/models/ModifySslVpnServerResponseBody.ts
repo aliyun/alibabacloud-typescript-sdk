@@ -45,7 +45,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether two-factor identity authentication is enabled.
+   * Indicates whether two-factor authentication is enabled.
    * 
    * - **true**: enabled.
    * 

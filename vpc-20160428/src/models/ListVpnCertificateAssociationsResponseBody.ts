@@ -89,9 +89,9 @@ export class ListVpnCertificateAssociationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The pagination token. Valid values:
    * 
-   * - If **NextToken** is empty, no next query exists.
+   * - If **NextToken** is empty, no subsequent query exists.
    * 
    * - If **NextToken** is returned, the value indicates the token for the next query.
    * 

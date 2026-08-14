@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of resource to which the IPsec-VPN connection is associated. Default value: **CEN**.
+   * The type of resource to which the IPsec-VPN connection is attached. Default value: **CEN**.
    * 
-   * The value can only be **CEN**, which indicates that the system queries IPsec-VPN connections associated with transit router instances.
+   * The value can only be **CEN**, which indicates that the system queries IPsec-VPN connections that are associated with transit router instances.
    * 
    * @example
    * CEN
@@ -25,7 +25,7 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries per page when using paging. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -49,7 +49,7 @@ export class DescribeVpnAttachmentsRequest extends $dara.Model {
    * @remarks
    * The ID of the IPsec-VPN connection.
    * 
-   * > If you do not specify an IPsec-VPN connection ID, the system queries all IPsec-VPN connections that are associated with transit router instances in the current region.
+   * > If you do not specify the IPsec-VPN connection ID, the system queries all IPsec-VPN connections that are associated with transit router instances in the current region.
    * 
    * @example
    * vco-p0w2jpkhi2eeop6q6****

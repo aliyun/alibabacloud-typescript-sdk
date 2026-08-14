@@ -23,7 +23,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The timestamp when the destination route was created.
    * 
-   * The timestamp is in the Unix format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1658217008000
@@ -55,10 +55,10 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   routeDest?: string;
   /**
    * @remarks
-   * The type of the route. Valid values:
+   * The type of the route.
    * 
-   * - **custom**: destination route.
-   * - **bgp**: BGP route.
+   * - **custom**: The route is a destination route.
+   * - **bgp**: The route is a BGP route.
    * 
    * @example
    * custom
@@ -66,7 +66,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   routeEntryType?: string;
   /**
    * @remarks
-   * The source of the BGP route. Valid values:
+   * The source of the BGP route.
    * 
    * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
    * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
@@ -77,9 +77,9 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   source?: string;
   /**
    * @remarks
-   * The status of the route. Valid values:
+   * The status of the route.
    * 
-   * - **published**: The destination route is published to the transit router instance.
+   * - **published**: The destination route has been published to the transit router instance.
    * - **Active**: The BGP route is available.
    * 
    * @example
@@ -159,7 +159,7 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
   routeCount?: number;
   /**
    * @remarks
-   * The type of the route. Valid values:
+   * The type of the route.
    * 
    * - **custom**: destination route.
    * - **bgp**: BGP route.
@@ -170,7 +170,7 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
   routeEntryType?: string;
   /**
    * @remarks
-   * The source of the BGP route. Valid values:
+   * The source of the BGP route.
    * 
    * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
    * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
@@ -244,7 +244,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   vcoRouteEntries?: DescribeVcoRouteEntriesResponseBodyVcoRouteEntries[];
   /**
    * @remarks
-   * The route statistics of the IPsec-VPN connection in dual-tunnel mode.
+   * The route statistics for the IPsec-VPN connection in dual-tunnel mode.
    * 
    * > This information is returned only for IPsec-VPN connections in dual-tunnel mode.
    */

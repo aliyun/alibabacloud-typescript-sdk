@@ -271,7 +271,7 @@ export class DescribeVpnGatewaysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries.
+   * The number of entries per page in a paged query. This is used for paging.
    * 
    * @example
    * 10

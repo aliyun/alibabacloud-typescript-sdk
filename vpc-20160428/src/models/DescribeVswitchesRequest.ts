@@ -50,8 +50,8 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -100,7 +100,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when using paging. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -108,7 +108,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * > Specify at least one of the **RegionId** and **VpcId** parameters.
    * 
@@ -141,7 +141,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   tag?: DescribeVSwitchesRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch to query.
+   * The ID of the vSwitch that you want to query.
    * 
    * @example
    * vsw-23dscddcffvf3****
@@ -167,7 +167,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vSwitchOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VPC to which the vSwitch belongs. 
+   * The ID of the VPC to which the vSwitches that you want to query belong. 
    * 
    * > Specify at least one of the **RegionId** and **VpcId** parameters.
    * 
@@ -177,7 +177,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
+   * The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the zone ID.
    * 
    * @example
    * cn-hangzhou-d

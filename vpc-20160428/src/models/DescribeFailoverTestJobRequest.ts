@@ -17,7 +17,7 @@ export class DescribeFailoverTestJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the failover test job.
+   * The failover test job ID. Before calling this operation, use CreateFailoverTestJob to create a job and obtain this ID. If the test resource is an Express Connect circuit, the circuit must be in the **Enabled** state and its business status must be **Normal**.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeFailoverTestJobRequest extends $dara.Model {
    * @remarks
    * The region ID of the failover test job. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * @example
    * cn-hangzhou

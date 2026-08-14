@@ -39,7 +39,7 @@ export class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends $da
   enableIpv6?: string;
   /**
    * @remarks
-   * The Alibaba Cloud-side IP address of the VBR instance.
+   * The Alibaba Cloud-side IP address of the VBR instance. You must specify **LocalGatewayIp**, **PeerGatewayIp**, and **PeeringSubnetMask** together when you call this operation. The request fails if any of these parameters is missing.
    * 
    * @example
    * 192.168.XX.XX
@@ -59,9 +59,7 @@ export class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends $da
    * @remarks
    * The client-side IP address of the VBR instance.
    * 
-   * - Only the VBR owner can specify or modify this property.
-   * 
-   * - This parameter is required when you create a VBR instance for the Express Connect circuit owner.
+   * Only the VBR owner can specify or modify this property. You must specify **LocalGatewayIp**, **PeerGatewayIp**, and **PeeringSubnetMask** together when you call this operation. The request fails if any of these parameters is missing.
    * 
    * @example
    * 192.168.XX.XX
@@ -93,7 +91,7 @@ export class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends $da
    * @remarks
    * The subnet mask for the Alibaba Cloud-side and client-side IP addresses of the VBR instance.
    * 
-   * The two IP addresses must be in the same subnet.
+   * The two IP addresses must be in the same subnet. You must specify **LocalGatewayIp**, **PeerGatewayIp**, and **PeeringSubnetMask** together when you call this operation. The request fails if any of these parameters is missing.
    * 
    * @example
    * 255.255.255.0
@@ -113,7 +111,7 @@ export class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends $da
    * @remarks
    * The region ID of the Express Connect circuit.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -137,7 +135,7 @@ export class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends $da
    * @remarks
    * The VLAN ID of the VBR. Valid values: **0 to 2999**. 
    * 
-   * > Only the owner of the Express Connect circuit can specify this parameter. The VLAN IDs of two VBRs on the same Express Connect circuit must be different.
+   * > Only the owner of the Express Connect circuit can specify this parameter. Two VBRs on the same Express Connect circuit cannot have the same VLAN ID.
    * 
    * This parameter is required.
    * 

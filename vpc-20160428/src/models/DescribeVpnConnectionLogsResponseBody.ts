@@ -51,7 +51,7 @@ export class DescribeVpnConnectionLogsResponseBody extends $dara.Model {
   isCompleted?: boolean;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1

@@ -7,27 +7,13 @@ export class DescribeVirtualBorderRoutersRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition. You can specify up to 5 filter conditions. The following filter conditions are supported:
    * 
-   * * **PhysicalConnectionId**: the Express Connect circuit ID.
-   * 
-   * * **VbrId**: the VBR ID.
-   * 
-   * * **Status**: the VBR status.
-   * 
-   * * **Name**: the VBR name.
-   * 
-   * * **AccessPointId**: the access point ID.
-   * 
-   * * **eccId**: the Express Cloud Connect instance ID.
-   * 
-   * * **type**: the Express Connect circuit type.
-   * 
    * @example
    * Status
    */
   key?: string;
   /**
    * @remarks
-   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The filter values are evaluated by using a logical OR. A match is found if any of the specified filter values is met.
+   * The filter value based on the specified Key. You can specify multiple filter values for a Key. The relationship between multiple filter values is OR, which means that a match with any one of the filter values is considered a match with the filter condition.
    * 
    * @example
    * Active
@@ -64,8 +50,6 @@ export class DescribeVirtualBorderRoutersRequestTags extends $dara.Model {
    * @remarks
    * The tag key of the resource. You must specify at least 1 tag key and can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-   * 
    * @example
    * FinanceDept
    */
@@ -73,8 +57,6 @@ export class DescribeVirtualBorderRoutersRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -111,11 +93,11 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   filter?: DescribeVirtualBorderRoutersRequestFilter[];
   /**
    * @remarks
-   * Specifies whether to include cross-account VBRs.
+   * Specifies whether to include cross-account Virtual Border Routers.
    * 
-   * - **true**: includes cross-account VBRs.
+   * - **true**: Included.
    * 
-   * - **false** (default): does not include cross-account VBRs.
+   * - **false** (default): Not included.
    * 
    * @example
    * false
@@ -124,7 +106,7 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -132,7 +114,7 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -151,8 +133,6 @@ export class DescribeVirtualBorderRoutersRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID.
-   * 
-   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****

@@ -9,7 +9,7 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
    * 
    * @example
    * d7d24a21-f4ba-4454-9173-b3828dae492b
@@ -83,7 +83,7 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The original weight of the destination route before modification. Valid values:
+   * The original weight of the destination route. Valid values:
    * 
    * - **0**: low priority.
    * 

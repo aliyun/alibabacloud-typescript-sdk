@@ -386,7 +386,7 @@ export class DescribeVpcsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries.
+   * The number of entries per page for paging queries.
    * 
    * @example
    * 10

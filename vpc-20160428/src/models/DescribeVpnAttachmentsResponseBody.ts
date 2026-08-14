@@ -45,7 +45,7 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags extends $dara.
 export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Model {
   /**
    * @remarks
-   * The type of resource to which the IPsec-VPN connection is associated. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
+   * The type of resource to which the IPsec-VPN connection is attached. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
    * 
    * @example
    * CEN
@@ -55,8 +55,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * @remarks
    * Indicates whether the IPsec-VPN connection is associated with a transit router instance that belongs to a different Alibaba Cloud account.
    * 
-   * - **true**: Yes.
-   * - **false**: No.
+   * - **true**: The IPsec-VPN connection is associated with a cross-account transit router instance.
+   * - **false**: The IPsec-VPN connection is not associated with a cross-account transit router instance.
    * 
    * @example
    * false
@@ -90,14 +90,14 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
    * @remarks
    * The system tags of the IPsec-VPN connection.
    * 
-   * You can use system tags to check whether the IPsec-VPN connection supports BGP. You can ignore other properties.
+   * You can use the system tags to check whether the IPsec-VPN connection supports BGP. You can ignore the other properties.
    * 
    * **BGPSupport**: indicates whether the IPsec-VPN connection supports BGP.
    *    - **true**: Supported.
    *    - **false**: Not supported.
    * 
    * @example
-   * {\\"description\\":\\"转发1.7.22\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"BGPSupport\\":\\"true\\",\\"IDaaSNewVersion\\":\\"true\\"}
+   * {\\"description\\":\\"forwarding1.7.22\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"BGPSupport\\":\\"true\\",\\"IDaaSNewVersion\\":\\"true\\"}
    */
   tag?: string;
   /**
@@ -124,8 +124,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $dara.Mode
   /**
    * @remarks
    * The bandwidth specification of a single VPN tunnel. Valid values:
-   * Standard (default): standard. The default bandwidth is 1 Gbps.
-   * Large: large. The default bandwidth is 3 Gbps.
+   * Standard (default): Standard. The default bandwidth is 1 Gbit/s.
+   * Large: Large. The default bandwidth is 3 Gbit/s.
    * 
    * @example
    * Standard
@@ -184,7 +184,7 @@ export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries.
+   * The number of entries per page when using paging.
    * 
    * @example
    * 10
@@ -208,7 +208,7 @@ export class DescribeVpnAttachmentsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of IPsec-VPN connections associated with transit router instances.
+   * The list of IPsec-VPN connections that are associated with transit router instances.
    */
   vpnAttachments?: DescribeVpnAttachmentsResponseBodyVpnAttachments[];
   static names(): { [key: string]: string } {

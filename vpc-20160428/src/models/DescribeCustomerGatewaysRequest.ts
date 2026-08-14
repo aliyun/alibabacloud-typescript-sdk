@@ -55,7 +55,7 @@ export class DescribeCustomerGatewaysRequest extends $dara.Model {
    * @remarks
    * The instance ID of the customer gateway. 
    * 
-   * > If you do not specify the instance ID of a customer gateway, the system queries information about all customer gateways in the current region by default.
+   * > If you do not specify the instance ID of the customer gateway, the system queries information about all customer gateways in the current region by default.
    * 
    * @example
    * cgw-bp1pvpl9r9adju6l5****

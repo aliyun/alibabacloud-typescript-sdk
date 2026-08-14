@@ -30,7 +30,7 @@ export class ModifyVcoRouteEntryWeightRequest extends $dara.Model {
   newWeight?: number;
   /**
    * @remarks
-   * The next hop of the destination route entry to modify.
+   * The next hop of the destination route entry to be modified.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class ModifyVcoRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ModifyVcoRouteEntryWeightRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The destination CIDR block of the destination route entry to modify.
+   * The destination CIDR block of the destination route entry to be modified.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class ModifyVcoRouteEntryWeightRequest extends $dara.Model {
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The current weight of the destination route entry to modify. Valid values:
+   * The current weight of the destination route entry to be modified. Valid values:
    * 
    * - **0**: low priority.
    * - **100**: high priority.

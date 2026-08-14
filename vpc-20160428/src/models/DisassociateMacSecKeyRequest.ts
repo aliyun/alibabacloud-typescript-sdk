@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateMacSecKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The key name. Only hexadecimal characters are supported. Lowercase characters are automatically converted to uppercase. When the encryption algorithm is GCM-AES-128 or GCM-AES-XPN-128, the length must be 32 hexadecimal characters. When the encryption algorithm is GCM-AES-256 or GCM-AES-XPN-256, the length must be 64 hexadecimal characters.
+   * The key name. Only hexadecimal characters are supported. Lowercase characters are automatically converted to uppercase. When the encryption algorithm is GCM-AES-128 or GCM-AES-XPN-128, the length must be 32 hexadecimal characters. When the encryption algorithm is GCM-AES-256 or GCM-AES-XPN-256, the length must be 64 hexadecimal characters. This value must be a key name that has been associated with the target Express Connect circuit by calling AssociateMacSecKey.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisassociateMacSecKeyRequest extends $dara.Model {
   ckn?: string;
   /**
    * @remarks
-   * The ID of the Express Connect circuit.
+   * The ID of the Express Connect circuit. The Express Connect circuit must be in the **Enabled** state and its **BusinessStatus** must be **Normal**. You can call DescribePhysicalConnections to query the circuit.
    * 
    * This parameter is required.
    * 

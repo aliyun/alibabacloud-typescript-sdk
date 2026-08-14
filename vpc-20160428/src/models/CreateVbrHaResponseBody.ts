@@ -13,7 +13,7 @@ export class CreateVbrHaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The VBR failover group instance ID.
+   * The instance ID of the VBR failover group.
    * 
    * @example
    * vbrha-sa1sxheuxtd98****

@@ -189,7 +189,7 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $dara.Model {
 export class DescribeVSwitchesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1

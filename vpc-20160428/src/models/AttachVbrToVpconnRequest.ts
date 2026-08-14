@@ -18,7 +18,7 @@ export class AttachVbrToVpconnRequest extends $dara.Model {
    * @remarks
    * The region ID of the shared Express Connect circuits.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class AttachVbrToVpconnRequest extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * The instance ID of the VBR.
+   * The VBR instance ID.
    * 
    * This parameter is required.
    * 
@@ -48,7 +48,7 @@ export class AttachVbrToVpconnRequest extends $dara.Model {
   vbrId?: string;
   /**
    * @remarks
-   * The instance ID of the shared Express Connect circuits.
+   * The instance ID of the shared Express Connect circuits (VirtualPhysicalConnection), returned by the CreateVirtualPhysicalConnection operation.
    * 
    * This parameter is required.
    * 

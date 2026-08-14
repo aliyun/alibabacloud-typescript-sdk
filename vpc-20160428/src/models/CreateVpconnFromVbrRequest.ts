@@ -7,8 +7,8 @@ export class CreateVpconnFromVbrRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: sends a check request without transforming the shared Express Connect circuits mode. The system checks the required parameters, request format, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, the request ID is returned.
-   * - **false** (default): sends a Normal request and transforms the shared Express Connect circuits mode after the check succeeds.
+   * - **true**: performs a dry run without transforming the shared Express Connect circuits mode. The system checks the required parameters, request format, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, the corresponding request ID is returned.
+   * - **false** (default): sends a Normal request. After the request passes the check, the shared Express Connect circuits mode is transformed.
    * 
    * @example
    * false
