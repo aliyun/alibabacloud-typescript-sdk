@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterBatchCreateMemberApiKeysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The expiration time in RFC 3339 format. This parameter is optional. If not specified, the key is permanently valid.
+   * 
    * @example
    * 2027-01-01T00:00:00Z
    */
   expireAt?: string;
   /**
+   * @remarks
+   * The key name. This parameter is optional.
+   * 
    * @example
    * TestKey
    */
   name?: string;
   /**
+   * @remarks
+   * The list of member user IDs.
+   * 
    * @example
    * []
    */

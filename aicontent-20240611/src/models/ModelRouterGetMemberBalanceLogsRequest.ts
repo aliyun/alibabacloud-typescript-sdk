@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterGetMemberBalanceLogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The change type filter.
+   * 
    * @example
    * recharge
    */
   changeType?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   size?: number;
   /**
+   * @remarks
+   * Specifies whether to skip the total count calculation.
+   * 
    * @example
    * false
    */

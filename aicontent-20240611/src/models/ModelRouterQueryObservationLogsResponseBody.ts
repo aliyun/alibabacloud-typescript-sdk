@@ -75,7 +75,7 @@ export class ModelRouterQueryObservationLogsResponseBody extends $dara.Model {
   data?: ModelRouterQueryObservationLogsResponseBodyData;
   /**
    * @remarks
-   * The fault information code.
+   * The fault code.
    * 
    * @example
    * UNKNOWN_ERROR

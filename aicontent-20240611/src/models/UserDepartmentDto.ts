@@ -10,7 +10,7 @@ export class UserDepartmentDTO extends $dara.Model {
   clientId?: number;
   /**
    * @example
-   * 研发部
+   * R&D Department
    */
   clientName?: string;
   /**
@@ -20,7 +20,7 @@ export class UserDepartmentDTO extends $dara.Model {
   roleCode?: string;
   /**
    * @example
-   * 成员
+   * Member
    */
   roleName?: string;
   static names(): { [key: string]: string } {

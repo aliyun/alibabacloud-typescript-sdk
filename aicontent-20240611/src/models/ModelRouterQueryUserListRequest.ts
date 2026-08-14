@@ -27,11 +27,20 @@ export class ModelRouterQueryUserListRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Specifies the phone number for exact matching (not fuzzy). When specified together with keyword, the two conditions are combined with AND, meaning both must be satisfied. If not specified, no filtering by phone number is applied.
+   * 
+   * @example
+   * 13800000000
+   */
+  phone?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'keyword',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
+      phone: 'phone',
     };
   }
 
@@ -40,6 +49,7 @@ export class ModelRouterQueryUserListRequest extends $dara.Model {
       keyword: 'string',
       pageIndex: 'number',
       pageSize: 'number',
+      phone: 'string',
     };
   }
 

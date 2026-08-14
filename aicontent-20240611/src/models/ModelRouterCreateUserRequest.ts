@@ -29,7 +29,7 @@ export class ModelRouterCreateUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * John Smith
+   * John
    */
   name?: string;
   /**

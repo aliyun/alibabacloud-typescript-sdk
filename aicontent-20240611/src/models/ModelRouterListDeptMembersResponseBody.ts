@@ -5,21 +5,33 @@ import { DeptMemberDTO } from "./DeptMemberDto";
 
 export class ModelRouterListDeptMembersResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The list of returned data.
+   * 
    * @example
    * []
    */
   list?: DeptMemberDTO[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 0
    */
@@ -56,31 +68,49 @@ export class ModelRouterListDeptMembersResponseBodyData extends $dara.Model {
 
 export class ModelRouterListDeptMembersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data object.
+   * 
    * @example
    * {}
    */
   data?: ModelRouterListDeptMembersResponseBodyData;
   /**
+   * @remarks
+   * The fault code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

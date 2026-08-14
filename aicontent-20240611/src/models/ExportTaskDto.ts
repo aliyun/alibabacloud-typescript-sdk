@@ -11,7 +11,7 @@ export class ExportTaskDTO extends $dara.Model {
   error?: string;
   /**
    * @example
-   * 成员余额变更记录_20260730.csv
+   * MemberBalanceChangeRecords_20260730.csv
    */
   filename?: string;
   /**

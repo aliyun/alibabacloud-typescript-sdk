@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterSearchClientTreeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The collection of matched department IDs.
+   * 
    * @example
    * []
    */
@@ -34,31 +37,49 @@ export class ModelRouterSearchClientTreeResponseBodyData extends $dara.Model {
 
 export class ModelRouterSearchClientTreeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data object.
+   * 
    * @example
    * {}
    */
   data?: ModelRouterSearchClientTreeResponseBodyData;
   /**
+   * @remarks
+   * The fault message code.
+   * 
    * @example
    * UNKNOWN_ERROR
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 未知错误
+   * Unknown error
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

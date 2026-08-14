@@ -13,10 +13,10 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      public: "aicontent.aliyuncs.com",
-      'cn-shanghai': "aicontent.aliyuncs.com",
-      'cn-hangzhou': "aicontent.cn-hangzhou.aliyuncs.com",
       'cn-beijing': "aicontent.cn-beijing.aliyuncs.com",
+      'cn-hangzhou': "aicontent.cn-hangzhou.aliyuncs.com",
+      'cn-shanghai': "aicontent.aliyuncs.com",
+      public: "aicontent.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aicontent", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -2505,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch creates API keys for members under a department in organization management.
+   * Creates API keys in batches for members under a department in organization management.
    * 
    * @param request - ModelRouterBatchCreateMemberApiKeysRequest
    * @param headers - map
@@ -2546,7 +2546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch creates API keys for members under a department in organization management.
+   * Creates API keys in batches for members under a department in organization management.
    * 
    * @param request - ModelRouterBatchCreateMemberApiKeysRequest
    * @returns ModelRouterBatchCreateMemberApiKeysResponse
@@ -2705,7 +2705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets authorization for multiple members under a department in batch.
+   * Batch sets member authorization under a department.
    * 
    * @param request - ModelRouterBatchSetMemberAuthorizationRequest
    * @param headers - map
@@ -2742,7 +2742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets authorization for multiple members under a department in batch.
+   * Batch sets member authorization under a department.
    * 
    * @param request - ModelRouterBatchSetMemberAuthorizationRequest
    * @returns ModelRouterBatchSetMemberAuthorizationResponse
@@ -2938,7 +2938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/配置成员子钱包余额
+   * Configures the sub-wallet balance of a member in an organization.
    * 
    * @param request - ModelRouterConfigureMemberBalanceRequest
    * @param headers - map
@@ -2979,7 +2979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/配置成员子钱包余额
+   * Configures the sub-wallet balance of a member in an organization.
    * 
    * @param request - ModelRouterConfigureMemberBalanceRequest
    * @returns ModelRouterConfigureMemberBalanceResponse
@@ -4127,7 +4127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取部门余额概览
+   * Retrieves the balance overview of a department.
    * 
    * @param request - ModelRouterGetDeptBalanceSummaryRequest
    * @param headers - map
@@ -4154,7 +4154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取部门余额概览
+   * Retrieves the balance overview of a department.
    * 
    * @param request - ModelRouterGetDeptBalanceSummaryRequest
    * @returns ModelRouterGetDeptBalanceSummaryResponse
@@ -4219,7 +4219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员子钱包余额
+   * Retrieves the sub-wallet balance of a member in an organization.
    * 
    * @param request - ModelRouterGetMemberBalanceRequest
    * @param headers - map
@@ -4246,7 +4246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员子钱包余额
+   * Retrieves the sub-wallet balance of a member in an organization.
    * 
    * @param request - ModelRouterGetMemberBalanceRequest
    * @returns ModelRouterGetMemberBalanceResponse
@@ -4258,7 +4258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员余额变更日志
+   * Retrieves the balance change logs of a member in an organization.
    * 
    * @param request - ModelRouterGetMemberBalanceLogsRequest
    * @param headers - map
@@ -4303,7 +4303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员余额变更日志
+   * Retrieves the balance change logs of a member in an organization.
    * 
    * @param request - ModelRouterGetMemberBalanceLogsRequest
    * @returns ModelRouterGetMemberBalanceLogsResponse
@@ -4435,7 +4435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取部门成员列表
+   * Retrieves the list of members in a specified department.
    * 
    * @param request - ModelRouterListDeptMembersRequest
    * @param headers - map
@@ -4492,7 +4492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取部门成员列表
+   * Retrieves the list of members in a specified department.
    * 
    * @param request - ModelRouterListDeptMembersRequest
    * @returns ModelRouterListDeptMembersResponse
@@ -4504,7 +4504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员余额变更记录
+   * Retrieves the balance change records of a member in the organization.
    * 
    * @param request - ModelRouterListMemberBalanceOrdersRequest
    * @param headers - map
@@ -4553,7 +4553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员余额变更记录
+   * Retrieves the balance change records of a member in the organization.
    * 
    * @param request - ModelRouterListMemberBalanceOrdersRequest
    * @returns ModelRouterListMemberBalanceOrdersResponse
@@ -4565,7 +4565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员订阅列表
+   * Retrieves the subscription list of a member in the organization.
    * 
    * @param request - ModelRouterListMemberSubscriptionsRequest
    * @param headers - map
@@ -4592,7 +4592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/获取成员订阅列表
+   * Retrieves the subscription list of a member in the organization.
    * 
    * @param request - ModelRouterListMemberSubscriptionsRequest
    * @returns ModelRouterListMemberSubscriptionsResponse
@@ -6581,6 +6581,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.phone)) {
+      query["phone"] = request.phone;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6711,7 +6715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/部门树搜索定位
+   * Searches and locates nodes in the department tree for organization management.
    * 
    * @param request - ModelRouterSearchClientTreeRequest
    * @param headers - map
@@ -6744,7 +6748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/部门树搜索定位
+   * Searches and locates nodes in the department tree for organization management.
    * 
    * @param request - ModelRouterSearchClientTreeRequest
    * @returns ModelRouterSearchClientTreeResponse
@@ -6946,7 +6950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/部门向成员转账
+   * Transfers funds from a department to a member within an organization.
    * 
    * @param request - ModelRouterTransferToMemberRequest
    * @param headers - map
@@ -6995,7 +6999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 组织管理/部门向成员转账
+   * Transfers funds from a department to a member within an organization.
    * 
    * @param request - ModelRouterTransferToMemberRequest
    * @returns ModelRouterTransferToMemberResponse

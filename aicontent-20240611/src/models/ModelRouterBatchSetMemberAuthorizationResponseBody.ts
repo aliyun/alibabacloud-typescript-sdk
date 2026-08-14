@@ -13,7 +13,7 @@ export class ModelRouterBatchSetMemberAuthorizationResponseBody extends $dara.Mo
   data?: boolean;
   /**
    * @remarks
-   * The fault code.
+   * The fault information code.
    * 
    * @example
    * UNKNOWN_ERROR

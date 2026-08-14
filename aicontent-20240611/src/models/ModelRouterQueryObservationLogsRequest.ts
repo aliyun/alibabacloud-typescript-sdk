@@ -44,6 +44,9 @@ export class ModelRouterQueryObservationLogsRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Optional. Filters results by member IDs. Separate multiple member IDs with commas. If this parameter is not specified, results for the department and all its members are returned. If an empty value is specified, results for only the department are returned, excluding members.
+   * 
    * @example
    * 30001,30002
    */

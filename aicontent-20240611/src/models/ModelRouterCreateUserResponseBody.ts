@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterCreateUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The user ID. This ID is used as the userId addressing key for subsequent member API operations.
+   * The user ID. This ID is used as the userId addressing key for subsequent member-related operations.
    * 
    * @example
    * 30001

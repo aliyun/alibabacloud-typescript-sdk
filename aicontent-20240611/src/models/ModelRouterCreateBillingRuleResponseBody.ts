@@ -80,7 +80,7 @@ export class ModelRouterCreateBillingRuleResponseBodyData extends $dara.Model {
    * The model name.
    * 
    * @example
-   * 通义千问Plus
+   * Qwen-Plus
    */
   modelName?: string;
   /**
