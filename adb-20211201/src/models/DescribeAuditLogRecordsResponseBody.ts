@@ -13,7 +13,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   connId?: string;
   /**
    * @remarks
-   * The name of the database on which the SQL statement was executed.
+   * The name of the database on which the SQL statement is executed.
    * 
    * @example
    * adb_demo
@@ -21,7 +21,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The execution start time of the SQL statement in local time. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The execution start time of the SQL statement in local time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2022-08-12 10:10:00
@@ -29,7 +29,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   executeTime?: string;
   /**
    * @remarks
-   * The execution start time of the SQL statement, in millisecond-precision UNIX timestamp.
+   * The execution start time of the SQL statement. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1774600396584
@@ -48,7 +48,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   hasDiagnosticInfo?: boolean;
   /**
    * @remarks
-   * The IP address and port number of the client that executed the SQL statement.
+   * The IP address and port number of the client that executes the SQL statement.
    * 
    * @example
    * 100.104.XX.XX:43908
@@ -80,9 +80,9 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   SQLType?: string;
   /**
    * @remarks
-   * Indicates whether the SQL statement was executed successfully. Valid values:
-   * - **true**: The SQL statement was executed successfully.
-   * - **false**: The SQL statement failed to be executed.
+   * Indicates whether the SQL statement is executed successfully. Valid values:
+   * - **true**: Executed successfully.
+   * - **false**: Execution failed.
    * 
    * @example
    * true
@@ -98,7 +98,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
   totalTime?: string;
   /**
    * @remarks
-   * The username that executed the SQL statement.
+   * The username that executes the SQL statement.
    * 
    * @example
    * test
@@ -151,7 +151,7 @@ export class DescribeAuditLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The ID of the Data Lakehouse Edition cluster.
+   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
    * 
    * @example
    * amv-t4nj8619bz2w3****
