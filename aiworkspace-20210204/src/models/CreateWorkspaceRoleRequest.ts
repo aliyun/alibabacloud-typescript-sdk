@@ -200,11 +200,13 @@ export class CreateWorkspaceRoleRequest extends $dara.Model {
    * custom
    */
   roleType?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       modulePermissions: 'ModulePermissions',
       roleName: 'RoleName',
       roleType: 'RoleType',
+      userId: 'UserId',
     };
   }
 
@@ -213,6 +215,7 @@ export class CreateWorkspaceRoleRequest extends $dara.Model {
       modulePermissions: { 'type': 'array', 'itemType': CreateWorkspaceRoleRequestModulePermissions },
       roleName: 'string',
       roleType: 'string',
+      userId: 'string',
     };
   }
 

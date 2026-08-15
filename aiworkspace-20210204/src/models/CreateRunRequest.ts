@@ -7,7 +7,7 @@ import { RunParam } from "./RunParam";
 export class CreateRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the experiment associated with the run.
+   * The experiment ID associated with the run.
    * 
    * This parameter is required.
    * 
@@ -22,15 +22,12 @@ export class CreateRunRequest extends $dara.Model {
   labels?: Label[];
   /**
    * @remarks
-   * The name of the run. The naming convention is as follows:
+   * The name of the run. Naming rules:
+   * - Must start with a lowercase or uppercase letter.
+   * - Can contain uppercase and lowercase letters, digits, underscores (_), or hyphens (-).
+   * - Must be 1 to 63 characters in length.
    * 
-   * - Starts with a lowercase or uppercase letter.
-   * 
-   * - Can contain lowercase letters, uppercase letters, digits, underscores (_), and hyphens (-).
-   * 
-   * - The length must be 1 to 63 characters.
-   * 
-   * If this parameter is left empty, the server-generated random ID (RunID) is used as the name.
+   * If the name is left empty during creation, the server-generated random ID (RunID) is used as the name.
    * 
    * @example
    * myName
@@ -43,7 +40,7 @@ export class CreateRunRequest extends $dara.Model {
   params?: RunParam[];
   /**
    * @remarks
-   * The ID of the PAI workload associated with the run.
+   * The PAI workload ID associated with the run.
    * 
    * @example
    * job-jdnhf***fnrimv
@@ -51,7 +48,7 @@ export class CreateRunRequest extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The source type of the PAI workload associated with the run. Options include TrainingService, DLC, or empty. This parameter is optional. The default value is empty.
+   * The type of PAI workload source associated with the run. Valid values: TrainingService, DLC, or empty. This parameter is optional and defaults to empty.
    * 
    * @example
    * DLC

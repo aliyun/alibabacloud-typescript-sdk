@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DatasetFileMetasStat extends $dara.Model {
   /**
+   * @remarks
+   * The count after aggregation.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The metadata property content.
+   * 
    * @example
    * cat
    */

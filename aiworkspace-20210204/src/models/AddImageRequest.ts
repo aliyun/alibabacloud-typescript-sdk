@@ -161,6 +161,7 @@ export class AddImageRequest extends $dara.Model {
    * Build
    */
   sourceType?: string;
+  userId?: string;
   /**
    * @remarks
    * The ID of the workspace to which the image belongs. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
@@ -180,6 +181,7 @@ export class AddImageRequest extends $dara.Model {
       size: 'Size',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
+      userId: 'UserId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -195,6 +197,7 @@ export class AddImageRequest extends $dara.Model {
       size: 'number',
       sourceId: 'string',
       sourceType: 'string',
+      userId: 'string',
       workspaceId: 'string',
     };
   }

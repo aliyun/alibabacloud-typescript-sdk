@@ -44,7 +44,7 @@ export class DatasetFileMetaConentUpdate extends $dara.Model {
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
-   * 2025-01-12T14:36:01.001Z
+   * 2025-01-12T14:36:01Z
    */
   fileCreateTime?: string;
   /**
@@ -78,7 +78,7 @@ export class DatasetFileMetaConentUpdate extends $dara.Model {
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
-   * 2025-01-12T14:36:01.001Z
+   * 2025-01-12T14:36:01Z
    */
   fileUpdateTime?: string;
   /**
@@ -146,16 +146,7 @@ export class DatasetFileMetaConentUpdate extends $dara.Model {
    * ```
    * 
    * @example
-   * {
-   *     "user":{
-   *         "add":["Lane line","Sunny day"],
-   *         "remove":["Water horse"]
-   *     },
-   *     "user-delete-ai-tags":{
-   *         "add": ["Ground shadow"],
-   *         "remove": []
-   *     }
-   * }
+   * {"ai":["cat"], "user":["black"]}
    */
   tags?: string;
   static names(): { [key: string]: string } {

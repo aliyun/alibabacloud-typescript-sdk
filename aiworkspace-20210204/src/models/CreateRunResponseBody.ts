@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the run.
+   * The run ID.
    * 
    * @example
    * run-1meoz7VJd2C6f****

@@ -85,8 +85,12 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
    * 
    * @example
    * {
-   *     "ImageHeight": 1080,
-   *     "ImageWidth": 1920
+   *     "Image":
+   *     {
+   *         "Width": 1920,
+   *         "Height": 1080,
+   *         "Channel": 3
+   *     }
    * }
    */
   metaAttributes?: string;
@@ -106,11 +110,7 @@ export class DatasetFileMetaContentCreate extends $dara.Model {
    * ```
    * 
    * @example
-   * {
-   *     "user":{
-   *         "add":["Lane line","Sunny day"]
-   *     }
-   * }
+   * {"user":["cat", "White"]}
    */
   tags?: string;
   /**
