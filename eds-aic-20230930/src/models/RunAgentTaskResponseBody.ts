@@ -7,29 +7,18 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
    * @remarks
    * The current status of the task. Valid values:
    * 
-   * PENDING: The task is being created.
-   * 
-   * RUNNING: The task is running.
-   * 
-   * COMPLETED: The task is completed.
-   * 
-   * FAILED: The task failed.
-   * 
-   * TIMEOUT: The task timed out.
-   * 
-   * CALL_FOR_USER: The task is waiting for user action.
-   * 
-   * PAUSING: The task is being paused.
-   * 
-   * PAUSED: The task is paused.
-   * 
-   * CANCELLING: The task is being canceled.
-   * 
-   * CANCELED: The task is canceled.
-   * 
-   * STOPPED: The task is stopped.
-   * 
-   * TIMEOUT: The task timed out.
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
+   * - COMPLETED: The task is completed.
+   * - FAILED: The task failed.
+   * - TIMEOUT: The task timed out.
+   * - CALL_FOR_USER: Waiting for user operation.
+   * - PAUSING: The task is being paused.
+   * - PAUSED: The task is paused.
+   * - CANCELLING: The task is being canceled.
+   * - CANCELED: The task is canceled.
+   * - STOPPED: The task is stopped.
+   * - TIMEOUT: The task timed out.
    * 
    * @example
    * COMPLETED
@@ -72,7 +61,7 @@ export class RunAgentTaskResponseBodyTasks extends $dara.Model {
    * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
-   * 去应用宝下载钉钉
+   * Go to App Store and download DingTalk
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {
@@ -112,7 +101,7 @@ export class RunAgentTaskResponseBody extends $dara.Model {
    * The status code of the operation.
    * 
    * @example
-   * 例如 "200" 表示成功。
+   * For example, "200" indicates success
    */
   code?: string;
   /**

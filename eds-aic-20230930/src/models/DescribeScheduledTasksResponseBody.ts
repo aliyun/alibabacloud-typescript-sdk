@@ -20,13 +20,16 @@ export class DescribeScheduledTasksResponseBodyTasksRunConfig extends $dara.Mode
    */
   maxSteps?: number;
   /**
+   * @remarks
+   * The list of skill IDs.
+   * 
    * @example
    * ["sk-abc"]
    */
   skills?: string[];
   /**
    * @remarks
-   * The timeout period, in seconds.
+   * The timeout period in seconds.
    * 
    * @example
    * 3600
@@ -89,7 +92,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The list of associated instance IDs.
+   * The list of bound instance IDs.
    */
   instanceIds?: string[];
   /**
@@ -166,7 +169,7 @@ export class DescribeScheduledTasksResponseBodyTasks extends $dara.Model {
    * The user prompt or task description.
    * 
    * @example
-   * Execute daily data synchronization task
+   * Execute daily data sync task
    */
   userPrompt?: string;
   /**

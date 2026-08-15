@@ -211,6 +211,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * The array of tag information.
    */
   bizTags?: DescribeCloudPhoneNodesResponseBodyNodeModelBizTags[];
+  channel?: string;
   /**
    * @remarks
    * The billing type.
@@ -304,6 +305,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  packageId?: string;
   /**
    * @remarks
    * The number of instances provisioned under the cloud phone matrix.
@@ -381,6 +383,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       bandwidthPackageStatus: 'BandwidthPackageStatus',
       bandwidthPackageType: 'BandwidthPackageType',
       bizTags: 'BizTags',
+      channel: 'Channel',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       gmtCreate: 'GmtCreate',
@@ -393,6 +396,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       networkType: 'NetworkType',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
+      packageId: 'PackageId',
       phoneCount: 'PhoneCount',
       phoneDataInfo: 'PhoneDataInfo',
       regionId: 'RegionId',
@@ -413,6 +417,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       bandwidthPackageStatus: 'string',
       bandwidthPackageType: 'string',
       bizTags: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModelBizTags },
+      channel: 'string',
       chargeType: 'string',
       cpu: 'string',
       gmtCreate: 'string',
@@ -425,6 +430,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       networkType: 'string',
       nodeId: 'string',
       nodeName: 'string',
+      packageId: 'string',
       phoneCount: 'number',
       phoneDataInfo: DescribeCloudPhoneNodesResponseBodyNodeModelPhoneDataInfo,
       regionId: 'string',
@@ -471,9 +477,9 @@ export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates whether a next pagination token exists. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a value, the value is the token for the next query.
+   * The pagination token for the next query. Valid values:
+   * - If **NextToken** is empty, no more results exist.
+   * - If **NextToken** has a value, the value indicates the token from which the next query starts.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

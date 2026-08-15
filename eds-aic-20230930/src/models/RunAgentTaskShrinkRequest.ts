@@ -65,13 +65,16 @@ export class RunAgentTaskShrinkRequest extends $dara.Model {
    */
   maxSteps?: number;
   /**
+   * @remarks
+   * The runtime configuration that carries the runtime parameters (skills) for this task.
+   * 
    * @example
    * {"Skills":["sk-abc","sk-def"]}
    */
   runConfigShrink?: string;
   /**
    * @remarks
-   * The scheduling plan ID. When specified, execution records are associated with the corresponding scheduled node, which facilitates aggregation query by scheduling dimension.
+   * The scheduling plan ID. When specified, the execution record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling dimension through aggregation.
    * 
    * @example
    * sch-260625-pbj2****
@@ -79,12 +82,12 @@ export class RunAgentTaskShrinkRequest extends $dara.Model {
   scheduleId?: string;
   /**
    * @remarks
-   * The array of target objects. Each element contains an InstanceId and a SessionId.
+   * The Targets array. Each element is an object that contains InstanceId and SessionId.
    */
   targets?: RunAgentTaskShrinkRequestTargets[];
   /**
    * @remarks
-   * The task configuration ID used to trigger a task with the specified configuration.
+   * The task configuration ID. This parameter is used to trigger a task with the specified configuration.
    * 
    * @example
    * tsk-260625-49be****
@@ -92,7 +95,7 @@ export class RunAgentTaskShrinkRequest extends $dara.Model {
   taskConfigId?: string;
   /**
    * @remarks
-   * The timeout period of the task, in seconds. Valid values: 300 to 3600. Default value: 3600.
+   * The task timeout period, in seconds. Valid values: 300 to 3600. Default value: 3600.
    * 
    * @example
    * 3600
@@ -103,7 +106,7 @@ export class RunAgentTaskShrinkRequest extends $dara.Model {
    * The user instruction in natural language. The Agent performs operations based on this instruction.
    * 
    * @example
-   * 去应用宝下载钉钉
+   * Go to App Store and download DingTalk
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

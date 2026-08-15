@@ -13,7 +13,7 @@ export class DeleteScheduledTaskResponseBodyTasks extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * Indicates whether the scheduled task is deleted successfully.
+   * Indicates whether the deletion is successful.
    * 
    * @example
    * true

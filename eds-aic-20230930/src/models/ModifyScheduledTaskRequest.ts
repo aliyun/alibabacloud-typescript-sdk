@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The extended parameters as a JSON string.
+   * The extended parameter JSON string.
    * 
    * @example
    * {"batchSize":"1000"}
@@ -20,6 +20,9 @@ export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
    */
   maxSteps?: number;
   /**
+   * @remarks
+   * The list of skill IDs. A maximum of 1 skill ID is supported. The value overwrites aim_task_config.run_config after modification.
+   * 
    * @example
    * ["sk-abc"]
    * 
@@ -29,7 +32,7 @@ export class ModifyScheduledTaskRequestRunConfig extends $dara.Model {
   skills?: string[];
   /**
    * @remarks
-   * The timeout in seconds.
+   * The timeout period, in seconds.
    * 
    * @example
    * 3600
@@ -102,7 +105,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The status switch: ACTIVE/DISABLED.
+   * Switches the status. Valid values: ACTIVE and DISABLED.
    * 
    * @example
    * ACTIVE
@@ -113,7 +116,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * NewTaskName.
+   * NewTaskName
    */
   taskName?: string;
   /**
@@ -131,7 +134,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * The user prompt.
    * 
    * @example
-   * Execute daily data synchronization task.
+   * Execute daily data synchronization task
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

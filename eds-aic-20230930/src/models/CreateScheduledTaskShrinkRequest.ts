@@ -46,7 +46,7 @@ export class CreateScheduledTaskShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Auto-reply to DingTalk messages.
+   * Auto-reply to DingTalk messages
    */
   taskName?: string;
   /**
@@ -56,7 +56,7 @@ export class CreateScheduledTaskShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Open DingTalk and reply to the first 5 unread messages.
+   * Open DingTalk and reply to the first 5 unread messages
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

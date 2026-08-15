@@ -39,7 +39,7 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The status switch: ACTIVE/DISABLED.
+   * Switches the status. Valid values: ACTIVE and DISABLED.
    * 
    * @example
    * ACTIVE
@@ -50,7 +50,7 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * NewTaskName.
+   * NewTaskName
    */
   taskName?: string;
   /**
@@ -68,7 +68,7 @@ export class ModifyScheduledTaskShrinkRequest extends $dara.Model {
    * The user prompt.
    * 
    * @example
-   * Execute daily data synchronization task.
+   * Execute daily data synchronization task
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

@@ -13,8 +13,8 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-shanghai': "eds-aic.cn-shanghai.aliyuncs.com",
       'ap-southeast-1': "eds-aic.ap-southeast-1.aliyuncs.com",
+      'cn-shanghai': "eds-aic.cn-shanghai.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eds-aic", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -2250,7 +2250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an agent scheduled task.
+   * Deletes a scheduled task of an agent.
    * 
    * @param request - DeleteScheduledTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2281,7 +2281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an agent scheduled task.
+   * Deletes a scheduled task of an agent.
    * 
    * @param request - DeleteScheduledTaskRequest
    * @returns DeleteScheduledTaskResponse
@@ -3766,7 +3766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scheduled tasks for an agent.
+   * Queries the list of agent scheduled tasks.
    * 
    * @param request - DescribeScheduledTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3825,7 +3825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of scheduled tasks for an agent.
+   * Queries the list of agent scheduled tasks.
    * 
    * @param request - DescribeScheduledTasksRequest
    * @returns DescribeScheduledTasksResponse
@@ -6420,7 +6420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a mobile agent package.
+   * Renews a resource plan.
    * 
    * @param request - RenewMobileAgentPackageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6435,6 +6435,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.mobileAgentPackageIds)) {
@@ -6475,7 +6479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a mobile agent package.
+   * Renews a resource plan.
    * 
    * @param request - RenewMobileAgentPackageRequest
    * @returns RenewMobileAgentPackageResponse
@@ -6600,7 +6604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent to execute an AI automation task on Mobile nodes.
+   * Triggers an Agent on Mobile nodes to execute an AI automation task.
    * 
    * @param tmpReq - RunAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6669,7 +6673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Triggers an Agent to execute an AI automation task on Mobile nodes.
+   * Triggers an Agent on Mobile nodes to execute an AI automation task.
    * 
    * @param request - RunAgentTaskRequest
    * @returns RunAgentTaskResponse

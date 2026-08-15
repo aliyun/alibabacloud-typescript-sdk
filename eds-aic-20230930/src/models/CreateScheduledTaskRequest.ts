@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledTaskRequestRunConfig extends $dara.Model {
   /**
    * @remarks
-   * The extended parameter JSON string.
+   * The extended parameters as a JSON string.
    * 
    * @example
    * {"batchSize":"1000"}
@@ -20,13 +20,16 @@ export class CreateScheduledTaskRequestRunConfig extends $dara.Model {
    */
   maxSteps?: number;
   /**
+   * @remarks
+   * The list of skill IDs, up to 1. Written to aim_task_config.run_config when the scheduled task is created and read when the callback is delivered.
+   * 
    * @example
    * ["sk-abc"]
    */
   skills?: string[];
   /**
    * @remarks
-   * The timeout period, in seconds.
+   * The timeout in seconds.
    * 
    * @example
    * 3600
@@ -106,7 +109,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Auto-reply to DingTalk messages.
+   * Auto-reply to DingTalk messages
    */
   taskName?: string;
   /**
@@ -116,7 +119,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Open DingTalk and reply to the first 5 unread messages.
+   * Open DingTalk and reply to the first 5 unread messages
    */
   userPrompt?: string;
   static names(): { [key: string]: string } {

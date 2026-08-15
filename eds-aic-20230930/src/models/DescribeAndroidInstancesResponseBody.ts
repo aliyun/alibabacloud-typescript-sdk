@@ -13,10 +13,10 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy ex
   appManagePolicyId?: string;
   /**
    * @remarks
-   * The name of the application management policy.
+   * The name of the application management rule.
    * 
    * @example
-   * Application group 1
+   * AppGroup1
    */
   appManagePolicyName?: string;
   static names(): { [key: string]: string } {
@@ -331,7 +331,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   appInstanceId?: string;
   /**
    * @remarks
-   * The application management policy information. This corresponds to the blacklists and whitelists management of application management policies in the console.
+   * The application management rule information. This corresponds to the blacklists and whitelists management of application management rules in the console.
    */
   appManagePolicy?: DescribeAndroidInstancesResponseBodyInstanceModelAppManagePolicy;
   /**
@@ -344,7 +344,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   authorizedUserId?: string;
   /**
    * @remarks
-   * The bandwidth package ID.
+   * The ID of the bandwidth package.
    * 
    * @example
    * np-0q6ixs7vpxcizp***
@@ -366,12 +366,26 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * test
    */
   bindUserId?: string;
+  /**
+   * @remarks
+   * The image type.
+   * 
+   * @example
+   * System
+   */
   bizImageType?: string;
   /**
    * @remarks
    * The tag array.
    */
   bizTags?: DescribeAndroidInstancesResponseBodyInstanceModelBizTags[];
+  /**
+   * @remarks
+   * The order source.
+   * 
+   * @example
+   * CLOUDPHONE
+   */
   channel?: string;
   /**
    * @remarks
@@ -409,7 +423,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   downBandwidthLimit?: number;
   /**
    * @remarks
-   * The error reason for instance data backup failure or recovery failure.
+   * The error reason for instance data backup failure or restoration failure.
    * 
    * @example
    * FilePathNotFound
@@ -463,6 +477,21 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * acp.basic.small
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * The network status.
+   * 
+   * - INIT: Being created.
+   * 
+   * - UPDATING: Being updated.
+   * 
+   * - AVAILABLE: Available.
+   * 
+   * - UNAVAILABLE: Unavailable.
+   * 
+   * @example
+   * AVAILABLE
+   */
   internetStatus?: string;
   /**
    * @remarks
@@ -512,6 +541,13 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * cn-shenzhen+dir-211620****
    */
   officeSiteId?: string;
+  /**
+   * @remarks
+   * The ID of the plan associated with the AI cloud phone.
+   * 
+   * @example
+   * cmag-bp1bpyt7sfeleukh****
+   */
   packageId?: string;
   /**
    * @remarks
@@ -523,8 +559,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   persistentAppInstanceId?: string;
   /**
    * @remarks
-   * <props="china">The independent device storage information of the cloud phone matrix edition instance.
-   * <props="intl">This parameter is not publicly available..
+   * <props="china">The independent device storage information of the cloud phone matrix instance.
    */
   phoneDataInfo?: DescribeAndroidInstancesResponseBodyInstanceModelPhoneDataInfo;
   /**
@@ -553,7 +588,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   publicIpv6Address?: string;
   /**
    * @remarks
-   * The public network rate limiting rule ID (applies only to premium bandwidth).
+   * The ID of the public network rate limiting rule. This applies only to premium bandwidth.
    * 
    * @example
    * qos-5605u0gelk200****
@@ -561,7 +596,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   qosRuleId?: string;
   /**
    * @remarks
-   * The progress of instance data backup or recovery.
+   * The progress of instance data backup or restoration.
    * 
    * @example
    * 100
@@ -586,7 +621,6 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   /**
    * @remarks
    * <props="china">The matrix status.
-   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * RUNNING
@@ -595,7 +629,6 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   /**
    * @remarks
    * <props="china">The cloud phone matrix specification.
-   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * cpm.gx7.10xlarge
@@ -611,8 +644,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   sessionStatus?: string;
   /**
    * @remarks
-   * <props="china">The streaming mode of instances in the cloud phone matrix.
-   * <props="intl">This parameter is not publicly available..
+   * <props="china">The streaming mode of the instance in the cloud phone matrix.
    * 
    * @example
    * 1
@@ -628,7 +660,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   systemVersion?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tags?: DescribeAndroidInstancesResponseBodyInstanceModelTags[];
   /**
@@ -649,7 +681,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID to which the instance belongs.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-h
@@ -806,7 +838,7 @@ export class DescribeAndroidInstancesResponseBody extends $dara.Model {
   instanceModel?: DescribeAndroidInstancesResponseBodyInstanceModel[];
   /**
    * @remarks
-   * The pagination token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
+   * The position from which the current call starts reading. An empty value indicates that all data has been read.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kmma/xxE9WtwL/ADvZ****

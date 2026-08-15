@@ -20,7 +20,7 @@ export class DescribeCreditDetailRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of plan packages or credit top-up packages.
+   * The list of plan packages or credit booster packages.
    */
   packageIds?: string[];
   /**

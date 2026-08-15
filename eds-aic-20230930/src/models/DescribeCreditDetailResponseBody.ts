@@ -26,7 +26,7 @@ export class DescribeCreditDetailResponseBodyDataDetails extends $dara.Model {
    * The task description.
    * 
    * @example
-   * Open Xiaohongshu.
+   * Open Xiaohongshu
    */
   description?: string;
   durationMs?: number;

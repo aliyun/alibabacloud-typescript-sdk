@@ -74,9 +74,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   authorizedUserId?: string;
   /**
    * @remarks
-   * <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition/Matrix Edition).
-   * 
-   * <props="intl">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones..
+   * <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition or Matrix Edition).
    * 
    * @example
    * cn-shanghai
@@ -111,6 +109,13 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * test
    */
   instanceGroupName?: string;
+  /**
+   * @remarks
+   * The instance version. Default value: basic, which queries Wuying cloud phone instances.
+   * 
+   * @example
+   * EnterpriseAi
+   */
   instanceVersion?: string;
   /**
    * @remarks
@@ -130,7 +135,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
+   * The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
@@ -139,7 +144,6 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * <props="china">The matrix ID.
-   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * node_id
@@ -148,7 +152,6 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * <props="china">The name of the matrix.
-   * <props="intl">This parameter is not publicly available..
    * 
    * @example
    * node_name
@@ -156,7 +159,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   nodeName?: string;
   /**
    * @remarks
-   * The cloud phone network ID.
+   * The cloud phone network IDs.
    */
   officeSiteIds?: string[];
   /**
@@ -169,7 +172,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   privateIpAddress?: string;
   /**
    * @remarks
-   * The public network rate limiting rule group ID. The rate limiting rule for instances in the basic shared network.
+   * The IDs of the public network rate limiting rule groups. These are rate limiting rules for instances in the basic shared network.
    */
   qosRuleIds?: string[];
   /**
@@ -180,7 +183,21 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * Instance
    */
   saleMode?: string;
+  /**
+   * @remarks
+   * The sort key used when querying resources.
+   * 
+   * @example
+   * CreationTime
+   */
   sortKey?: string;
+  /**
+   * @remarks
+   * The sort order. Default value: descending order. Valid values:
+   * 
+   * @example
+   * ASC
+   */
   sortType?: string;
   /**
    * @remarks
